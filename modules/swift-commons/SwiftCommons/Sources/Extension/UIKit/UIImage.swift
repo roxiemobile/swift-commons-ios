@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  UIImage+Common.swift
+//  UIImage.swift
 //
 //  @author     Vasily Ivanov <IvanovVF@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -16,7 +16,7 @@ extension UIImage
 {
 // MARK: - Functions
     
-    public static func resizeImage(originalImage: UIImage, size: CGSize) -> UIImage
+    public static func resizeImage(originalImage: UIImage, size: CGSize) -> UIImage?
     {
         // create drawing context
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
@@ -31,18 +31,19 @@ extension UIImage
         return image
     }
     
-    public func resizedImageWithSize(size: CGSize) -> UIImage
-    {
+    public func resizedImageWithSize(size: CGSize) -> UIImage? {
         return UIImage.resizeImage(self, size: size)
     }
     
-    public static func resizeImage(image: UIImage, scale: Float) -> UIImage {
+    public static func resizeImage(image: UIImage, scale: Float) -> UIImage? {
         return image.resizedImageWithSize(Inner.scaledSize(image.size, scale: scale))
     }
     
-    public func resizedImageWithScale(scale: Float) -> UIImage {
+    public func resizedImageWithScale(scale: Float) -> UIImage? {
         return UIImage.resizeImage(self, scale: scale)
     }
+
+// MARK: - Constants
     
     private struct Inner
     {
@@ -51,6 +52,7 @@ extension UIImage
                 height: size.height * CGFloat(scale))
         }
     }
+
 }
 
 // ----------------------------------------------------------------------------
