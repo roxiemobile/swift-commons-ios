@@ -18,16 +18,16 @@ extension UIImage
     
     public static func resizeImage(originalImage: UIImage, size: CGSize) -> UIImage?
     {
-        // create drawing context
+        // Create drawing context
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         
         originalImage.drawInRect(CGRectMake(0.0, 0.0, size.width, size.height))
         
-        // capture resultant image
+        // Capture resultant image
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        // return image
+
+        // Done
         return image
     }
     
@@ -48,8 +48,7 @@ extension UIImage
     private struct Inner
     {
         private static func scaledSize(size: CGSize, scale: Float) -> CGSize {
-            return CGSize(width: size.width * CGFloat(scale),
-                height: size.height * CGFloat(scale))
+            return CGSize(width: size.width * CGFloat(scale), height: size.height * CGFloat(scale))
         }
     }
 
