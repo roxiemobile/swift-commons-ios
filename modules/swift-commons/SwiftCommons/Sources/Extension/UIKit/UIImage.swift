@@ -28,7 +28,7 @@ extension UIImage
         UIGraphicsEndImageContext()
         
         // return image
-        return image
+        return image!
     }
     
     public func resizedImageWithSize(size: CGSize) -> UIImage
