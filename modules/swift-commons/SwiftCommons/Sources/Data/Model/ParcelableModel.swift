@@ -30,7 +30,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         }
 
         // Validate instance
-        if !result { return nil }
+        if !result || !validate() { return nil }
     }
 
     public required init?(_ map: Map) {
@@ -82,6 +82,8 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
                 Mapper().map(json, toObject: self)
             }
         }
+
+        result &&= validate()
 
         // Done
         return result
