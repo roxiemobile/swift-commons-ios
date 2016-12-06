@@ -36,13 +36,16 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
     public required init?(_ map: Map) {
         super.init()
 
+        if frozen() { return nil}
+
         // Deserialize object
-        let result = tryMapping() {
-            self.mapping(map)
-        }
+        mapping(map)
+
+        // Prevent further modifications
+        self.freeze = true
 
         // Validate instance
-        if !result { return nil }
+        if !frozen() { return nil }
     }
 
 // MARK: - Properties
