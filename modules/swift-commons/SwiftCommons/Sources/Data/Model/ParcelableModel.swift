@@ -21,16 +21,24 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         super.init(coder: decoder)
     }
 
-    public required init?(params: [String : AnyObject]) {
+    public required init(params: [String : AnyObject]) throws {
         super.init()
 
-        // Deserialize object
-        let result = tryMapping() {
-            Mapper().map(params, toObject: self)
+        var cause: NSException?
+        Try {
+
+            // Deserialize object
+            let result = self.tryMapping() {
+                Mapper().map(params, toObject: self)
+            }
+
+        }.Catch { e in
+            cause = e
         }
 
-        // Validate instance
-        if !result { return nil }
+        if let exception = cause {
+            throw JsonSyntaxException(cause: exception)
+        }
     }
 
     public required init?(_ map: Map) {
@@ -75,12 +83,17 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         }
 
         var result = false
+        Try {
 
-        // Decode internal object's state
-        if let json = decoder.decodeObject() as? [String: AnyObject] {
-            result = tryMapping() {
-                Mapper().map(json, toObject: self)
+            // Decode internal object's state
+            if let json = decoder.decodeObject() as? [String: AnyObject] {
+                result = self.tryMapping() {
+                    Mapper().map(json, toObject: self)
+                }
             }
+
+        }.Catch { e in
+            // Do nothing
         }
 
         // Done
@@ -133,6 +146,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
     {
         if frozen() { return false }
 
+        var cause: NSException?
         Try {
 
             // Deserialize object
@@ -142,7 +156,15 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
             self.freeze = true
 
         }.Catch { e in
-            // Do nothing ..
+            cause = e
+        }
+
+        if let exception = cause {
+            exception.raise()
+        }
+
+        if !validate() {
+            mdc_fatalError("Couldn't validate converted object")
         }
 
         // Done
@@ -174,7 +196,7 @@ extension ParcelableModel: NSCopying
     }
 
     public func copy() -> Self {
-        return self.dynamicType.init(params: Mapper().toJSON(self))!
+        return try! self.dynamicType.init(params: Mapper().toJSON(self))
     }
 
 }

@@ -22,7 +22,7 @@ public protocol ValidatableThrowable
 
 public protocol Validatable
 {
-    // MARK: - Functions
+// MARK: - Functions
     
     func validate() -> Bool
     
@@ -100,6 +100,7 @@ public func vld_isNilOrValid(array: [Validatable?]? ...) -> Bool
 // MARK: -
 // ----------------------------------------------------------------------------
 
+// FIXME: Delete!
 private func p_vld_isValidArray(array: [Validatable?], nilDefault: Bool) -> Bool
 {
     return array.all { obj in
@@ -111,6 +112,7 @@ private func p_vld_isValidArray(array: [Validatable?], nilDefault: Bool) -> Bool
     }
 }
 
+// FIXME: Delete!
 private func p_vld_isValidArray(array: [Validatable]) -> Bool
 {
     return array.all { obj in obj.validate() }

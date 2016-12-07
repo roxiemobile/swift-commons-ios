@@ -356,6 +356,9 @@ public func <~ <T: Mappable>(inout left: Array<T>, right: Map) {
 public func <~ <T: Mappable>(inout left: Array<T>?, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         FromJSON.optionalObjectArray(&left, object: right.currentValue)
+        if right.currentValue != nil {
+            mdc_checkTransform(right, value: left)
+        }
     } else {
         ToJSON.optionalObjectArray(left, key: right.currentKey!, dictionary: &right.JSONDictionary)
     }
