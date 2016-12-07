@@ -34,7 +34,7 @@ public class ParkingModelWithOptionalVehicles: ParcelableModel
         var result = super.validate()
 
         //Validate instance
-        result &&= plm_isValid(self.vehicles)
+        result &&= plm_isNilOrValid(self.vehicles)
 
         //Done
         return result

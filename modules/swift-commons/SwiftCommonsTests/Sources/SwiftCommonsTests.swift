@@ -90,6 +90,54 @@ class SwiftCommonsTests: XCTestCase
         }
     }
 
+    func testModelWithEmptyStringInsteadOfOptionalArray()
+    {
+        if let json = getJSON("ParkingModelWithFakeArray")
+        {
+            let parking = ParkingModelWithOptionalVehicles(params:json)
+            XCTAssertNil(parking, "model should be nil")
+        }
+        else {
+            fatalError("no such file")
+        }
+    }
+
+    func testModelWithEmptyModelInsteadOfOptionalArray()
+    {
+        if let json = getJSON("ParkingModelWithFakeArray2")
+        {
+            let parking = ParkingModelWithOptionalVehicles(params:json)
+            XCTAssertNil(parking, "model should be nil")
+        }
+        else {
+            fatalError("no such file")
+        }
+    }
+
+    func testModelWithEmptyStringInsteadOfRequiredArray()
+    {
+        if let json = getJSON("ParkingModelWithFakeArray")
+        {
+            let parking = ParkingModelTest(params:json)
+            XCTAssertNil(parking, "model should be nil")
+        }
+        else {
+            fatalError("no such file")
+        }
+    }
+
+    func testModelWithEmptyModelInsteadOfRequiredArray()
+    {
+        if let json = getJSON("ParkingModelWithFakeArray2")
+        {
+            let parking = ParkingModelTest(params:json)
+            XCTAssertNil(parking, "model should be nil")
+        }
+        else {
+            fatalError("no such file")
+        }
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
