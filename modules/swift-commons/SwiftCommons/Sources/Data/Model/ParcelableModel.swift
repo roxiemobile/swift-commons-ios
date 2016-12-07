@@ -30,19 +30,22 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         }
 
         // Validate instance
-        if !result { return nil }
+        if !result || !validate() { return nil }
     }
 
     public required init?(_ map: Map) {
         super.init()
 
+        if frozen() { return nil}
+
         // Deserialize object
-        let result = tryMapping() {
-            self.mapping(map)
-        }
+        mapping(map)
+
+        // Prevent further modifications
+        self.freeze = true
 
         // Validate instance
-        if !result { return nil }
+        if !frozen() { return nil }
     }
 
 // MARK: - Properties
@@ -82,6 +85,8 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
                 Mapper().map(json, toObject: self)
             }
         }
+
+        result &&= validate()
 
         // Done
         return result

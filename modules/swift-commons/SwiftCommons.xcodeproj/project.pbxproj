@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */; };
 		2359C8FAF846A045E6AD155D /* Pods_SwiftCommonsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */; };
+		263DBCFA1DF82D1500048AB4 /* ParkingModelWithFakeArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 263DBCF61DF82D1500048AB4 /* ParkingModelWithFakeArray.json */; };
+		263DBCFB1DF82D1500048AB4 /* ParkingModelWithFakeArray2.json in Resources */ = {isa = PBXBuildFile; fileRef = 263DBCF71DF82D1500048AB4 /* ParkingModelWithFakeArray2.json */; };
+		263DBCFC1DF82D1500048AB4 /* ParkingModelWithOneNonValidVehicleInArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 263DBCF81DF82D1500048AB4 /* ParkingModelWithOneNonValidVehicleInArray.json */; };
+		263DBCFD1DF82D1500048AB4 /* ParkingModelWithValidVehiclesInArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 263DBCF91DF82D1500048AB4 /* ParkingModelWithValidVehiclesInArray.json */; };
+		26FF6D7C1DF715B800176FCE /* VehicleModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF6D7B1DF715B800176FCE /* VehicleModelTest.swift */; };
+		26FF6D7E1DF7162C00176FCE /* JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF6D7D1DF7162C00176FCE /* JsonKeys.swift */; };
+		26FF6D821DF71D4C00176FCE /* ParkingModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF6D811DF71D4C00176FCE /* ParkingModelTest.swift */; };
+		26FF6D881DF72BCF00176FCE /* ParkingModelWithOptionalVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF6D871DF72BCF00176FCE /* ParkingModelWithOptionalVehicles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +24,14 @@
 		191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommonsTests.swift; sourceTree = "<group>"; };
 		19F8BB501A7CF20700CC0168 /* SwiftCommonsTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommonsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19F8BB521A7CF20700CC0168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		263DBCF61DF82D1500048AB4 /* ParkingModelWithFakeArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ParkingModelWithFakeArray.json; sourceTree = "<group>"; };
+		263DBCF71DF82D1500048AB4 /* ParkingModelWithFakeArray2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ParkingModelWithFakeArray2.json; sourceTree = "<group>"; };
+		263DBCF81DF82D1500048AB4 /* ParkingModelWithOneNonValidVehicleInArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ParkingModelWithOneNonValidVehicleInArray.json; sourceTree = "<group>"; };
+		263DBCF91DF82D1500048AB4 /* ParkingModelWithValidVehiclesInArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ParkingModelWithValidVehiclesInArray.json; sourceTree = "<group>"; };
+		26FF6D7B1DF715B800176FCE /* VehicleModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleModelTest.swift; sourceTree = "<group>"; };
+		26FF6D7D1DF7162C00176FCE /* JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonKeys.swift; sourceTree = "<group>"; };
+		26FF6D811DF71D4C00176FCE /* ParkingModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingModelTest.swift; sourceTree = "<group>"; };
+		26FF6D871DF72BCF00176FCE /* ParkingModelWithOptionalVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingModelWithOptionalVehicles.swift; sourceTree = "<group>"; };
 		42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommonsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6C66FAC30098698322301C /* Pods-SwiftCommonsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommonsTests.debug.xcconfig"; path = "../cocoa-pods/Pods/Target Support Files/Pods-SwiftCommonsTests/Pods-SwiftCommonsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5338A390556D38DC915BEA8 /* Pods-SwiftCommonsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommonsTests.release.xcconfig"; path = "../cocoa-pods/Pods/Target Support Files/Pods-SwiftCommonsTests/Pods-SwiftCommonsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				19F8BB521A7CF20700CC0168 /* Info.plist */,
+				263DBCF61DF82D1500048AB4 /* ParkingModelWithFakeArray.json */,
+				263DBCF71DF82D1500048AB4 /* ParkingModelWithFakeArray2.json */,
+				263DBCF81DF82D1500048AB4 /* ParkingModelWithOneNonValidVehicleInArray.json */,
+				263DBCF91DF82D1500048AB4 /* ParkingModelWithValidVehiclesInArray.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -88,9 +108,29 @@
 		19F8BB531A7CF20700CC0168 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				26FF6D791DF712D400176FCE /* Data */,
 				191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */,
+				26FF6D7D1DF7162C00176FCE /* JsonKeys.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		26FF6D791DF712D400176FCE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				26FF6D7A1DF712D400176FCE /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		26FF6D7A1DF712D400176FCE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26FF6D7B1DF715B800176FCE /* VehicleModelTest.swift */,
+				26FF6D811DF71D4C00176FCE /* ParkingModelTest.swift */,
+				26FF6D871DF72BCF00176FCE /* ParkingModelWithOptionalVehicles.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BCC950255D5EFC1B36C14D7E /* Pods */ = {
@@ -165,6 +205,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				263DBCFA1DF82D1500048AB4 /* ParkingModelWithFakeArray.json in Resources */,
+				263DBCFB1DF82D1500048AB4 /* ParkingModelWithFakeArray2.json in Resources */,
+				263DBCFD1DF82D1500048AB4 /* ParkingModelWithValidVehiclesInArray.json in Resources */,
+				263DBCFC1DF82D1500048AB4 /* ParkingModelWithOneNonValidVehicleInArray.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +242,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8A4E3FB3B25AF6D4BC28AE41 /* Embed Pods Frameworks */ = {
@@ -238,7 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26FF6D7C1DF715B800176FCE /* VehicleModelTest.swift in Sources */,
+				26FF6D881DF72BCF00176FCE /* ParkingModelWithOptionalVehicles.swift in Sources */,
 				191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */,
+				26FF6D821DF71D4C00176FCE /* ParkingModelTest.swift in Sources */,
+				26FF6D7E1DF7162C00176FCE /* JsonKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
