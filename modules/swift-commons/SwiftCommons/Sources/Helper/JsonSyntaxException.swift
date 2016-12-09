@@ -40,9 +40,9 @@ public class JsonSyntaxException: ErrorType
 
 // MARK: - Properties
 
-    let message: String?
+    public let message: String?
 
-    let cause: NSException?
+    public let cause: NSException?
 
 }
 
