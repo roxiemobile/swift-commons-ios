@@ -28,7 +28,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         Try {
 
             // Deserialize object
-            let _ = self.tryMapping() {
+            self.unsafeMapping() {
                 Mapper().map(params, toObject: self)
             }
 
@@ -45,7 +45,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         super.init()
 
         // Deserialize object
-        let result = tryMapping() {
+        let result = unsafeMapping() {
             self.mapping(map)
         }
 
@@ -87,7 +87,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
 
             // Decode internal object's state
             if let json = decoder.decodeObject() as? [String: AnyObject] {
-                result = self.tryMapping() {
+                result = self.unsafeMapping() {
                     Mapper().map(json, toObject: self)
                 }
             }
@@ -142,7 +142,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
 
 // MARK: - Private Functions
 
-    private func tryMapping(block: dispatch_block_t) -> Bool
+    private func unsafeMapping(block: dispatch_block_t) -> Bool
     {
         if frozen() { return false }
 
