@@ -28,7 +28,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         Try {
 
             // Deserialize object
-            let result = self.tryMapping() {
+            let _ = self.tryMapping() {
                 Mapper().map(params, toObject: self)
             }
 
