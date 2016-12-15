@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  JsonSyntaxException.swift
+//  JsonSyntaxError.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -13,7 +13,7 @@ import Foundation
 // ----------------------------------------------------------------------------
 
 // FIXME: Refactoring is required
-public class JsonSyntaxException: ErrorType
+public class JsonSyntaxError: ErrorType
 {
 // MARK: - Construction
 
