@@ -405,7 +405,7 @@ class SwiftCommonsAssertTests: XCTestCase
         }
     }
 
-    // MARK: func isNotEmpty(array: [String]? ...)
+    // func isNotEmpty(array: [String]? ...)
     func testIsNotEmptyArrayOfOptionalArraysOfString()
     {
         let string1 = "string1"
@@ -419,7 +419,7 @@ class SwiftCommonsAssertTests: XCTestCase
         }
     }
 
-    // MARK: func isNotEmpty(array: [String]? ...)
+    // func isNotEmpty(array: [String]? ...)
     func testIsNotEmptyArrayOfOptionalArraysOfStringWithNilArray()
     {
         let string = "string1"
@@ -432,7 +432,7 @@ class SwiftCommonsAssertTests: XCTestCase
         }
     }
 
-    // MARK: func isNotEmpty(array: [String]? ...)
+    // func isNotEmpty(array: [String]? ...)
     func testIsNotEmptyArrayOfOptionalArraysOfStringWithEmptyStringInArray()
     {
         let emptyString = ""
@@ -446,7 +446,7 @@ class SwiftCommonsAssertTests: XCTestCase
         }
     }
 
-    //MARK: func isNotEmpty(array: [String?]? ...)
+    //func isNotEmpty(array: [String?]? ...)
     func testIsNotEmptyArrayOfOptionalArraysOfStringWithNilStringInArray()
     {
         let emptyString: String? = nil
@@ -455,33 +455,6 @@ class SwiftCommonsAssertTests: XCTestCase
         do {
             try Assert.isNotEmpty([emptyString], [filledString])
             XCTFail("isNotEmptyArrayOfOptionalArraysOfStringWithNilStringInArray function fails")
-        }
-        catch {
-        }
-    }
-
-    func testIsNotEmptyAtLeastOne()
-    {
-        let nilString: String? = nil
-        let emptyString = ""
-        let string = "string"
-
-        do {
-            try Assert.isNotEmptyAtLeastOne([nilString, emptyString, string])
-        }
-        catch {
-            XCTFail("isNotEmptyAtLeastOne function fails")
-        }
-    }
-
-    func testIsNotEmptyAtLeastOneAllNonValid()
-    {
-        let nilString: String? = nil
-        let emptyString = ""
-
-        do {
-            try Assert.isNotEmptyAtLeastOne([nilString, emptyString])
-            XCTFail("isNotEmptyAtLeastOne function fails")
         }
         catch {
         }
