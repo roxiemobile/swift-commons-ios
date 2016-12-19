@@ -15,7 +15,7 @@ public struct JsonKeys
     public static let Model = "model"
     public static let Color = "color"
 
-// MARK: - Vehicle
+// MARK: - Parking
 
     public static let Watcher = "watcher"
     public static let Vehicles = "vehicles"

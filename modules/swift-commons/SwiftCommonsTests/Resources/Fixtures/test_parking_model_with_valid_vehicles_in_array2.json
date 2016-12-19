@@ -1,13 +1,13 @@
 {
-	"watcher": "Sergey",
-	"vehicles": [
-		{
-            "model": "Volvo",
-			"color": "White"
-		}, 
-		{
-			"model": "BMW",
-			"color": "Silver"
-		}
-	]
+  "watcher": "Sergey",
+  "vehicles": [
+    {
+      "model": "Volvo",
+      "color": "White"
+    },
+    {
+      "model": "BMW",
+      "color": "Silver"
+    }
+  ]
 }

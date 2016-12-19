@@ -26,8 +26,8 @@ public class ParkingModelWithOptionalVehicles: ParcelableModel
         super.mapping(map)
 
         // (De)serialize to/from json
-        self.watcher  <~  map[JsonKeys.Watcher]
-        self.vehicles <~  map[JsonKeys.Vehicles]
+        self.watcher  <~ map[JsonKeys.Watcher]
+        self.vehicles <~ map[JsonKeys.Vehicles]
     }
 
     public override func validate() throws {

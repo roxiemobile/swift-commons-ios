@@ -43,7 +43,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
             try validate()
         }
         catch let error as AssertionError {
-            throw JsonValidationError(params: params, cause: error)
+            throw ValidationError(params: params, cause: error)
         }
     }
 

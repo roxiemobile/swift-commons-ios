@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  AssertionError.swift
+//  ValidationError.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -12,25 +12,21 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class AssertionError: ErrorType
+public class ValidationError: ErrorType
 {
 // MARK: - Construction
 
-    public init(message: String?, line: UInt? = #line, file: String? = #file)
-    {
-        self.message = message
-        self.line = line
-        self.file = file
+    public init(params: [String : AnyObject]?, cause: AssertionError?)  {
+        self.params = params
+        self.cause = cause
     }
 
 // MARK: - Properties
 
-    public let message: String?
+    public let params: [String : AnyObject]?
 
-    public let line: UInt?
+    public let cause: AssertionError?
 
-    public let file: String?
-    
 }
 
 // ----------------------------------------------------------------------------

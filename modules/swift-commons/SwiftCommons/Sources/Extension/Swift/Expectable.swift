@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  JsonValidationError.swift
+//  Expectable.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -12,45 +12,19 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-class JsonValidationError: ErrorType
+public protocol Expectable {
+
+    // Do nothing
+    
+}
+
+// ----------------------------------------------------------------------------
+
+extension Expectable
 {
-// MARK: - Construction
-
-    init(params: [String : AnyObject]?, cause: AssertionError?)  {
-        self.params = params
-        self.cause = cause
-    }
-
-// MARK: - Properties
-
-    // ...
-
 // MARK: - Functions
 
-    // ...
-
-// MARK: - Actions
-
-    // ...
-
-// MARK: - Private Functions
-
-    // ...
-
-// MARK: - Inner Types
-
-    // ...
-
-// MARK: - Constants
-
-    // ...
-
-// MARK: - Variables
-
-    public let params: [String : AnyObject]?
-
-    public let cause: AssertionError?
-
+    // TODO:
 }
 
 // ----------------------------------------------------------------------------
