@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  ValidationError.swift
+//  ExpectionError.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -12,22 +12,26 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class ValidationError: ErrorType
+// @new
+// FIXME: Remname “Expection” to “Expectation”
+public class ExpectionError: ErrorType
 {
 // MARK: - Construction
 
-    public init(params: [String : AnyObject]?, cause: ErrorType?)
+    public init(message: String?, file: StaticString = #file, line: UInt = #line)
     {
-        // Init instance variables
-        self.params = params
-        self.cause = cause
+        self.message = message
+        self.file = file
+        self.line = line
     }
 
 // MARK: - Properties
 
-    public let params: [String : AnyObject]?
+    public let message: String?
 
-    public let cause: ErrorType?
+    public let file: StaticString
+
+    public let line: UInt
 
 }
 

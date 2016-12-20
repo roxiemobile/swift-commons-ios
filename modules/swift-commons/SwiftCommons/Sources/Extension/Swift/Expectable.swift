@@ -12,29 +12,48 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
+// @new
 public protocol Expectable {
-
     // Do nothing
-    
 }
 
 // ----------------------------------------------------------------------------
 
+// @new
 extension Expectable
 {
-// MARK: - Functions
+// MARK: - Methods
 
-    public static func throwIfTrue(condition: Bool, message: String, file: StaticString = #file, line: UInt = #line) throws
+    public static func throwIfTrue(condition: Bool, message: String?, file: StaticString = #file, line: UInt = #line) throws
+    {
+//        var cause: NSException?
+//        Try {
+//            Expect.isFalse(condition, message: message, file: file, line: line)
+//        }.Catch { e in
+//            cause = e
+//        }
+//
+//        if cause != nil {
+//            throw ExpectionError(message: message, file: file, line: line)
+//        }
+
+        try func2(message, file: file, line: line) {
+            Expect.isFalse(condition, message: message, file: file, line: line)
+        }
+    }
+
+    private static func func2(message: String?, file: StaticString, line: UInt, block: () -> ()) throws
     {
         var cause: NSException?
         Try {
-            Except.isFalse(message, file: file, line: line)
+//            Expect.isFalse(condition, message: message, file: file, line: line)
+            block()
         }.Catch { e in
             cause = e
         }
 
-        if let exception = cause {
-            throw ExceptionError(message: message, file: file, line: line)
+        if cause != nil {
+            throw ExpectionError(message: message, file: file, line: line)
         }
     }
 
@@ -42,13 +61,13 @@ extension Expectable
     {
         var cause: NSException?
         Try {
-            Except.isFalse(nil, file: file, line: line)
+            Expect.isFalse(condition, message: nil, file: file, line: line)
         }.Catch { e in
             cause = e
         }
 
-        if let exception = cause {
-            throw ExceptionError(message: message, file: file, line: line)
+        if cause != nil {
+            throw ExpectionError(message: nil, file: file, line: line)
         }
     }
 
@@ -56,13 +75,13 @@ extension Expectable
     {
         var cause: NSException?
         Try {
-            Except.isTrue(condition, message: message, file: file, line: line)
+            Expect.isTrue(condition, message: message, file: file, line: line)
         }.Catch { e in
                 cause = e
         }
 
-        if let exception = cause {
-            throw ExceptionError(message: message, file: file, line: line)
+        if cause != nil {
+            throw ExpectionError(message: message, file: file, line: line)
         }
     }
 
@@ -70,22 +89,22 @@ extension Expectable
     {
         var cause: NSException?
         Try {
-            Except.isTrue(condition, file: file, line: line)
+            Expect.isTrue(condition, file: file, line: line)
         }.Catch { e in
             cause = e
         }
 
-        if let exception = cause {
-            throw ExceptionError(message: nil, file: file, line: line)
+        if cause != nil {
+            throw ExpectionError(message: nil, file: file, line: line)
         }
     }
 
 //    public static func fail(message: String?, file: StaticString = #file, line: UInt = #line) throws
 //    {
 //        if let message = message {
-//            throw ExceptionError(message: message, file: file, line: line)
+//            throw ExpectionError(message: message, file: file, line: line)
 //        }
-//        throw ExceptionError(message: nil, file: file, line: line)
+//        throw ExpectionError(message: nil, file: file, line: line)
 //    }
 //
 //    public static func fail(file: StaticString = #file, line: UInt = #line) throws {
@@ -96,13 +115,13 @@ extension Expectable
     {
         var cause: NSException?
         Try {
-            Except.isNotEquals(expected, actual: actual, message: message, file: file, line: line)
+            Expect.isNotEquals(expected, actual: actual, message: message, file: file, line: line)
         }.Catch { e in
             cause = e
         }
 
-        if let exception = cause {
-            throw ExceptionError(message: nil, file: file, line: line)
+        if cause != nil {
+            throw ExpectionError(message: nil, file: file, line: line)
         }
     }
 
@@ -110,13 +129,13 @@ extension Expectable
     {
         var cause: NSException?
         Try {
-            Except.isEquals(unexpected, actual: actual, message: message, file: file, line: line)
+            Expect.isEquals(unexpected, actual: actual, message: message, file: file, line: line)
         }.Catch { e in
             cause = e
         }
 
-        if let exception = cause {
-            throw ExceptionError(message: nil, file: file, line: line)
+        if cause != nil {
+            throw ExpectionError(message: nil, file: file, line: line)
         }
     }
 
@@ -124,13 +143,13 @@ extension Expectable
     {
         var cause: NSException?
         Try {
-            Except.isNil(object, message: message, file: file, line: line)
+            Expect.isNil(object, message: message, file: file, line: line)
         }.Catch { e in
             cause = e
         }
 
-        if let exception = cause {
-            throw ExceptionError(message: nil, file: file, line: line)
+        if cause != nil {
+            throw ExpectionError(message: nil, file: file, line: line)
         }
     }
 
@@ -138,13 +157,13 @@ extension Expectable
     {
         var cause: NSException?
         Try {
-            Except.isNotNil(object, message: message, file: file, line: line)
+            Expect.isNotNil(object, message: message, file: file, line: line)
         }.Catch { e in
             cause = e
         }
 
-        if let exception = cause {
-            throw ExceptionError(message: nil, file: file, line: line)
+        if cause != nil {
+            throw ExpectionError(message: nil, file: file, line: line)
         }
     }
 
@@ -152,7 +171,7 @@ extension Expectable
     {
         for (index, obj) in array.enumerate()
         {
-            guard let obj = obj else { throw ExceptionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
+            guard let obj = obj else { throw ExpectionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
             try obj.validate()
         }
     }
@@ -161,7 +180,7 @@ extension Expectable
     {
         for (index, arr) in array.enumerate()
         {
-            guard let arr = arr else { throw ExceptionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
+            guard let arr = arr else { throw ExpectionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
             for obj in arr {
                 try obj.validate()
             }
@@ -172,10 +191,10 @@ extension Expectable
     {
         for (index, arr) in array.enumerate()
         {
-            guard let arr = arr else { throw ExceptionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
+            guard let arr = arr else { throw ExpectionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
             for (index2, obj) in arr.enumerate()
             {
-                guard let obj = obj else { throw ExceptionError(message: "Object[\(index), \(index2)] cannot be nil", file: file, line: line) }
+                guard let obj = obj else { throw ExpectionError(message: "Object[\(index), \(index2)] cannot be nil", file: file, line: line) }
                 try obj.validate()
             }
         }
@@ -208,7 +227,7 @@ extension Expectable
             guard let arr = arr else { return }
             for (index2, obj) in arr.enumerate()
             {
-                guard let obj = obj else { throw ExceptionError(message: "Object[\(index), \(index2)] cannot be nil", file: file, line: line) }
+                guard let obj = obj else { throw ExpectionError(message: "Object[\(index), \(index2)] cannot be nil", file: file, line: line) }
                 try obj.validate()
             }
         }
@@ -218,7 +237,7 @@ extension Expectable
     {
         for (index, obj) in array.enumerate()
         {
-            guard let obj = obj where !(obj.isEmpty) else { throw ExceptionError(message: "String[\(index)] cannot be empty", file: file, line: line) }
+            guard let obj = obj where !(obj.isEmpty) else { throw ExpectionError(message: "String[\(index)] cannot be empty", file: file, line: line) }
         }
     }
 
@@ -226,11 +245,11 @@ extension Expectable
     {
         for (index, arr) in array.enumerate()
         {
-            guard let arr = arr else { throw ExceptionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
+            guard let arr = arr else { throw ExpectionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
             for (index2, obj) in arr.enumerate()
             {
                 if obj.isEmpty {
-                    throw ExceptionError(message: "String[\(index), \(index2)] cannot be empty", file: file, line: line)
+                    throw ExpectionError(message: "String[\(index), \(index2)] cannot be empty", file: file, line: line)
                 }
             }
         }
@@ -240,12 +259,12 @@ extension Expectable
     {
         for (index, arr) in array.enumerate()
         {
-            guard let arr = arr else { throw ExceptionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
+            guard let arr = arr else { throw ExpectionError(message: "Object[\(index)] cannot be nil", file: file, line: line) }
             for (index2, obj) in arr.enumerate()
             {
-                guard let obj = obj else { throw ExceptionError(message: "Object[\(index), \(index2)] cannot be nil", file: file, line: line) }
+                guard let obj = obj else { throw ExpectionError(message: "Object[\(index), \(index2)] cannot be nil", file: file, line: line) }
                 if obj.isEmpty {
-                    throw ExceptionError(message: "Object[\(index), \(index2)] cannot be empty", file: file, line: line)
+                    throw ExpectionError(message: "Object[\(index), \(index2)] cannot be empty", file: file, line: line)
                 }
             }
         }
@@ -255,7 +274,7 @@ extension Expectable
     {
         for (index, obj) in array.enumerate()
         {
-            guard let obj = obj where (obj.isEmpty) else { throw ExceptionError(message: "String[\(index)] cannot be empty", file: file, line: line) }
+            guard let obj = obj where (obj.isEmpty) else { throw ExpectionError(message: "String[\(index)] cannot be empty", file: file, line: line) }
         }
     }
 }

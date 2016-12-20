@@ -12,6 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
+// @new
 public final class Expect: NonCreatable
 {
 // MARK: - Functions
@@ -149,6 +150,8 @@ public final class Expect: NonCreatable
     
     public static func isNilOrValid(array: [ParcelableModel?]? ..., file: StaticString = #file, line: UInt = #line)
     {
+
+        
         for (index, arr) in array.enumerate()
         {
             guard let arr = arr else { return }

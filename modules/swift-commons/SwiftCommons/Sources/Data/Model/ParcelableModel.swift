@@ -35,14 +35,21 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
             cause = e
         }
 
+// @deprecated
+//        if let exception = cause {
+//            throw JsonSyntaxException(cause: exception)
+//        }
+
+        // @new
         if let exception = cause {
             throw JsonSyntaxError(cause: exception)
         }
 
+        // @new
         do {
             try validate()
         }
-        catch let error as ExceptionError {
+        catch let error as ExpectionError {
             throw ValidationError(params: params, cause: error)
         }
     }
@@ -97,6 +104,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
                     Mapper().map(json, toObject: self)
                 }
 
+                // @new
                 result &&= self.isValid()
             }
 
@@ -129,10 +137,29 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
         return self.hash
     }
 
+// @deprecated
+//    public func validateThrowable() throws -> Bool
+//    {
+//        let result = validate()
+//
+//        // Log validation error
+//        if !result
+//        {
+//            MDLog.w(String(format: "‘%@’ is invalid.", className(self.dynamicType)))
+//            throw NSError.modelIsInvalid
+//        }
+//
+//        return result
+//    }
 
-    public func validate() throws
-    {
-        // ...
+// @deprecated
+//    public func validate() -> Bool
+//    {
+//        return true
+//    }
+
+    public func validate() throws {
+        // Do nothing
     }
 
     public func isValid() -> Bool
@@ -143,6 +170,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
         catch {
             return false
         }
+
         return true
     }
 
@@ -168,6 +196,11 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
         if let exception = cause {
             exception.raise()
         }
+
+// @deprecated
+//        if !validate() {
+//            mdc_fatalError("Couldn't validate converted object")
+//        }
 
         // Done
         return frozen()
@@ -219,5 +252,62 @@ public func == (lhs: ParcelableModel, rhs: ParcelableModel) -> Bool
         return (lhs.hashValue == rhs.hashValue)
     }
 }
+
+// ----------------------------------------------------------------------------
+// MARK: - Global Functions
+// ----------------------------------------------------------------------------
+
+// @deprecated
+//    public func plm_isValid(array: ParcelableModel? ...) -> Bool
+//    {
+//        // Validate objects
+//        return array.all { obj in (obj != nil) && obj!.validate() }
+//    }
+
+// @deprecated
+//    public func plm_isValid(array: [ParcelableModel]? ...) -> Bool
+//    {
+//        // Validate objects
+//        return array.all { arr in (arr != nil) && arr!.all { obj in obj.validate() } }
+//    }
+
+// @deprecated
+//    public func plm_isValid(array: [ParcelableModel?]? ...) -> Bool
+//    {
+//        // Validate objects
+//        return array.all { arr in (arr != nil) && arr!.all { obj in (obj != nil) && obj!.validate() } }
+//    }
+
+// ----------------------------------------------------------------------------
+// MARK: -
+// ----------------------------------------------------------------------------
+
+// @deprecated
+//    public func plm_isNilOrValid(array: ParcelableModel? ...) -> Bool
+//    {
+//        // Validate objects
+//        return array.all { obj in (obj == nil) || obj!.validate() }
+//    }
+
+// @deprecated
+//    public func plm_isNilOrValid(array: [ParcelableModel]? ...) -> Bool
+//    {
+//        // Validate objects
+//        return array.all { arr in (arr == nil) || arr!.all { obj in obj.validate() } }
+//    }
+
+// @deprecated
+//    public func plm_isNilOrValid(array: [ParcelableModel?]? ...) -> Bool
+//    {
+//        // Validate objects
+//        return array.all { arr in
+//            (arr == nil) || arr!.all { obj in
+//                guard let obj = obj else {
+//                    return false
+//                }
+//                return obj.validate()
+//            }
+//        }
+//    }
 
 // ----------------------------------------------------------------------------
