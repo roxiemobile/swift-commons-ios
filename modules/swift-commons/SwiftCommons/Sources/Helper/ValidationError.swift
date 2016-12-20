@@ -16,7 +16,7 @@ public class ValidationError: ErrorType
 {
 // MARK: - Construction
 
-    public init(params: [String : AnyObject]?, cause: AssertionError?)  {
+    public init(params: [String : AnyObject]?, cause: ExceptionError?)  {
         self.params = params
         self.cause = cause
     }
@@ -25,7 +25,7 @@ public class ValidationError: ErrorType
 
     public let params: [String : AnyObject]?
 
-    public let cause: AssertionError?
+    public let cause: ExceptionError?
 
 }
 

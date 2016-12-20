@@ -42,7 +42,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
         do {
             try validate()
         }
-        catch let error as AssertionError {
+        catch let error as ExceptionError {
             throw ValidationError(params: params, cause: error)
         }
     }
