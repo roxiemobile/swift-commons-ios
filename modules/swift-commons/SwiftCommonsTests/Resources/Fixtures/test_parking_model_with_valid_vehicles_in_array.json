@@ -1,0 +1,13 @@
+{
+  "watcher": "Ivan",
+  "vehicles": [
+    {
+      "model": "KAMAZ",
+      "color": "Black"
+    },
+    {
+      "model": "Renault",
+      "color": "Silver"
+    }
+  ]
+}
