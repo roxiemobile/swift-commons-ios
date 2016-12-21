@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  ExpectionError.swift
+//  ExpectationError.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -12,9 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-// @new
-// FIXME: Remname “Expection” to “Expectation”
-public class ExpectionError: ErrorType
+public class ExpectationError: ErrorType
 {
 // MARK: - Construction
 

@@ -34,7 +34,7 @@ public class ParkingModel: ParcelableModel
         try super.validate()
 
         //Validate instance
-        try Assert.isValid(self.vehicles)
+        try throwIfNilOrNotValid(self.vehicles)
     }
 
 }
