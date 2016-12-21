@@ -130,22 +130,34 @@ public extension String
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-public func str_isNotEmpty(array: String? ...) -> Bool
-{
-    // Validate strings
-    return array.all { obj in (obj != nil) && !(obj!.isEmpty) }
+//public func str_isNotEmpty(array: [String?]) -> Bool
+//{
+//    // Validate strings
+//    return array.all { obj in (obj != nil) && !(obj!.isEmpty) }
+//}
+
+public func str_isNotEmpty(array: String? ...) -> Bool {
+    return str_isNotEmpty(array)
 }
 
-public func str_isNotEmpty(array: [String]? ...) -> Bool
+public func str_isNotEmpty(array: [[String]?]) -> Bool
 {
     // Validate strings
     return array.all { arr in (arr != nil) && arr!.all { obj in !obj.isEmpty } }
 }
 
-public func str_isNotEmpty(array: [String?]? ...) -> Bool
+public func str_isNotEmpty(array: [String]? ...) -> Bool {
+    return str_isNotEmpty(array)
+}
+
+public func str_isNotEmpty(array: [[String?]?]) -> Bool
 {
     // Validate strings
     return array.all { arr in (arr != nil) && arr!.all { obj in (obj != nil) && !(obj!.isEmpty) } }
+}
+
+public func str_isNotEmpty(array: [String?]? ...) -> Bool {
+    return str_isNotEmpty(array)
 }
 
 // ----------------------------------------------------------------------------

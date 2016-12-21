@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  ExpectionError.swift
+//  ExceptionError.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -12,27 +12,25 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-// @new
-// FIXME: Remname “Expection” to “Expectation”
-public class ExpectionError: ErrorType
+public class ExceptionError: ErrorType
 {
 // MARK: - Construction
 
     public init(message: String?, file: StaticString = #file, line: UInt = #line)
     {
         self.message = message
-        self.file = file
         self.line = line
+        self.file = file
     }
 
 // MARK: - Properties
 
     public let message: String?
 
-    public let file: StaticString
-
     public let line: UInt
 
+    public let file: StaticString
+    
 }
 
 // ----------------------------------------------------------------------------

@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
+public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable, Expectable
 {
 // MARK: - Construction
 
@@ -35,12 +35,6 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
             cause = e
         }
 
-// @deprecated
-//        if let exception = cause {
-//            throw JsonSyntaxException(cause: exception)
-//        }
-
-        // @new
         if let exception = cause {
             throw JsonSyntaxError(cause: exception)
         }
@@ -49,7 +43,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
         do {
             try validate()
         }
-        catch let error as ExpectionError {
+        catch let error as ExpectationError {
             throw ValidationError(params: params, cause: error)
         }
     }
@@ -99,7 +93,8 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
         Try {
 
             // Decode internal object's state
-            if let json = decoder.decodeObject() as? [String: AnyObject] {
+            if let json = decoder.decodeObject() as? [String: AnyObject]
+            {
                 result = self.unsafeMapping() {
                     Mapper().map(json, toObject: self)
                 }
@@ -117,7 +112,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
     }
 
     public func mapping(map: Map) {
-        // Do nothing ..
+        // Do nothing
     }
 
     public final func frozen() -> Bool {
@@ -137,41 +132,20 @@ public class ParcelableModel: Parcelable, Mappable, Hashable, Validatable
         return self.hash
     }
 
-// @deprecated
-//    public func validateThrowable() throws -> Bool
-//    {
-//        let result = validate()
-//
-//        // Log validation error
-//        if !result
-//        {
-//            MDLog.w(String(format: "‘%@’ is invalid.", className(self.dynamicType)))
-//            throw NSError.modelIsInvalid
-//        }
-//
-//        return result
-//    }
-
-// @deprecated
-//    public func validate() -> Bool
-//    {
-//        return true
-//    }
-
-    public func validate() throws {
-        // Do nothing
-    }
-
-    public func isValid() -> Bool
-    {
+    public func isValid() -> Bool {
+        var result = false
         do {
             try validate()
+            result = true
         }
         catch {
-            return false
+            // Do nothing ..
         }
+        return result
+    }
 
-        return true
+    public func validate() throws {
+        // Do nothing ..
     }
 
 // MARK: - Private Functions
@@ -257,57 +231,79 @@ public func == (lhs: ParcelableModel, rhs: ParcelableModel) -> Bool
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-// @deprecated
-//    public func plm_isValid(array: ParcelableModel? ...) -> Bool
-//    {
-//        // Validate objects
-//        return array.all { obj in (obj != nil) && obj!.validate() }
-//    }
+//public func plm_isValid(array: [ParcelableModel?]) -> Bool
+//{
+//    // Validate objects
+//    return array.all { obj in (obj != nil) && obj!.isValid() }
+//}
 
-// @deprecated
-//    public func plm_isValid(array: [ParcelableModel]? ...) -> Bool
-//    {
-//        // Validate objects
-//        return array.all { arr in (arr != nil) && arr!.all { obj in obj.validate() } }
-//    }
+public func plm_isValid(array: ParcelableModel? ...) -> Bool {
+    return  plm_isValid(array)
+}
 
-// @deprecated
-//    public func plm_isValid(array: [ParcelableModel?]? ...) -> Bool
-//    {
-//        // Validate objects
-//        return array.all { arr in (arr != nil) && arr!.all { obj in (obj != nil) && obj!.validate() } }
-//    }
+
+public func plm_isValid(array: [[ParcelableModel]?]) -> Bool
+{
+    // Validate objects
+    return array.all { arr in (arr != nil) && arr!.all { obj in obj.isValid() } }
+}
+
+public func plm_isValid(array: [ParcelableModel]? ...) -> Bool {
+    return  plm_isValid(array)
+}
+
+
+public func plm_isValid(array: [[ParcelableModel?]?]) -> Bool
+{
+    // Validate objects
+    return array.all { arr in (arr != nil) && arr!.all { obj in (obj != nil) && obj!.isValid() } }
+}
+
+public func plm_isValid(array: [ParcelableModel?]? ...) -> Bool {
+    return  plm_isValid(array)
+}
 
 // ----------------------------------------------------------------------------
 // MARK: -
 // ----------------------------------------------------------------------------
 
-// @deprecated
-//    public func plm_isNilOrValid(array: ParcelableModel? ...) -> Bool
-//    {
-//        // Validate objects
-//        return array.all { obj in (obj == nil) || obj!.validate() }
-//    }
+//public func plm_isNilOrValid(array: [ParcelableModel?]) -> Bool
+//{
+//    // Validate objects
+//    return array.all { obj in (obj == nil) || obj!.isValid() }
+//}
 
-// @deprecated
-//    public func plm_isNilOrValid(array: [ParcelableModel]? ...) -> Bool
-//    {
-//        // Validate objects
-//        return array.all { arr in (arr == nil) || arr!.all { obj in obj.validate() } }
-//    }
+public func plm_isNilOrValid(array: ParcelableModel? ...) -> Bool {
+    return  plm_isNilOrValid(array)
+}
 
-// @deprecated
-//    public func plm_isNilOrValid(array: [ParcelableModel?]? ...) -> Bool
-//    {
-//        // Validate objects
-//        return array.all { arr in
-//            (arr == nil) || arr!.all { obj in
-//                guard let obj = obj else {
-//                    return false
-//                }
-//                return obj.validate()
-//            }
-//        }
-//    }
+
+public func plm_isNilOrValid(array: [[ParcelableModel]?]) -> Bool
+{
+    // Validate objects
+    return array.all { arr in (arr == nil) || arr!.all { obj in obj.isValid() } }
+}
+
+public func plm_isNilOrValid(array: [ParcelableModel]? ...) -> Bool {
+    return  plm_isNilOrValid(array)
+}
+
+
+public func plm_isNilOrValid(array: [[ParcelableModel?]?]) -> Bool
+{
+    // Validate objects
+    return array.all { arr in
+        (arr == nil) || arr!.all { obj in
+            guard let obj = obj else {
+                return false
+            }
+            return obj.isValid()
+        }
+    }
+}
+
+public func plm_isNilOrValid(array: [ParcelableModel?]? ...) -> Bool {
+    return  plm_isNilOrValid(array)
+}
 
 // ----------------------------------------------------------------------------

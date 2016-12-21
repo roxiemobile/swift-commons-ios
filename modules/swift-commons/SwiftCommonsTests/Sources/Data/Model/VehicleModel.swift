@@ -34,7 +34,7 @@ public class VehicleModel: ParcelableModel
         try super.validate()
 
         //Validate instance
-        try Assert.isNotEmpty(self.model,self.color)
+        try throwIfNilOrEmpty(self.model, self.color)
     }
 
 }

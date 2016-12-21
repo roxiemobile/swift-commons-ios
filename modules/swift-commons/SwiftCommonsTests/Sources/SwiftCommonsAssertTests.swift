@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  SwiftCommonsExpectTests.swift
+//  SwiftCommonsAssertTests.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -13,7 +13,7 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class SwiftCommonsExpectTests: XCTestCase
+class SwiftCommonsAssertTests: XCTestCase
 {    
     override func setUp() {
         super.setUp()
@@ -28,7 +28,7 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsTrue()
     {
         do {
-            try Expect.isTrue( 2 > 1 )
+            try Assert.isTrue( 2 > 1 )
         }
         catch {
             XCTFail("isTrue function fails")
@@ -38,7 +38,7 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsTrueWithMessage()
     {
         do {
-            try Expect.isTrue( 2 > 1, message: "Should pass")
+            try Assert.isTrue( 2 > 1, message: "Should pass")
         }
         catch {
             XCTFail("isTrue with message function fails")
@@ -48,7 +48,7 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsFalse()
     {
         do {
-            try Expect.isFalse( 2 < 1)
+            try Assert.isFalse( 2 < 1)
         }
         catch {
             XCTFail("isFalse function fails")
@@ -58,7 +58,7 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsFalseWithMessage()
     {
         do {
-            try Expect.isFalse( 2 < 1, message: "Should pass")
+            try Assert.isFalse( 2 < 1, message: "Should pass")
         }
         catch {
             XCTFail("isFalse with message function fails")
@@ -71,7 +71,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let nilModel2: String? = nil
 
         do {
-            try Expect.isEquals(nilModel, actual: nilModel2, message: nil)
+            try Assert.isEquals(nilModel, actual: nilModel2, message: nil)
         }
         catch {
             XCTFail("isEqualsBothNil function fails")
@@ -85,7 +85,7 @@ class SwiftCommonsExpectTests: XCTestCase
             let parking = try? ParkingModel(params: json)
 
             do {
-                try Expect.isEquals(parking, actual: parking, message: nil)
+                try Assert.isEquals(parking, actual: parking, message: nil)
             }
             catch {
                 XCTFail("isEqualsBothNonNil function fails")
@@ -102,7 +102,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let nilModel2: String? = nil
 
         do {
-            try Expect.isNotEquals(nilModel, actual: nilModel2, message: nil)
+            try Assert.isNotEquals(nilModel, actual: nilModel2, message: nil)
             XCTFail("isNotEqualsBothNil function fails")
         }
         catch {
@@ -112,20 +112,20 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsNotEqualsBothNonNil()
     {
         if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-            let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+            let json2 = getJSON("test_parking_model_with_valid_vehicles_in_array2")
         {
             let parking = try! ParkingModel(params: json)
             let parking2 = try! ParkingModel(params: json2)
 
             do {
-                try Expect.isNotEquals(parking, actual: parking2, message: nil)
+                try Assert.isNotEquals(parking, actual: parking2, message: nil)
             }
             catch {
                 XCTFail("isNotEqualsBothNonNil function fails")
             }
         }
         else {
-            fatalError("no such file")Assert
+            fatalError("no such file")
         }
     }
 
@@ -134,7 +134,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let nilModel: String? = nil
 
         do {
-            try assert.isNil(nilModel, message: nil)
+            try Assert.isNil(nilModel, message: nil)
         }
         catch {
             XCTFail("isNil function fails")
@@ -148,7 +148,7 @@ class SwiftCommonsExpectTests: XCTestCase
             let parking = try? ParkingModel(params: json)
 
             do {
-                try Expect.isNotNil(parking, message: nil)
+                try Assert.isNotNil(parking, message: nil)
             }
             catch {
                 XCTFail("isNotNil function fails")
@@ -164,13 +164,13 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsValidArrayOfOptionals()
     {
         if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-            let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+            let json2 = getJSON("test_parking_model_with_valid_vehicles_in_array2")
         {
             let parking = try! ParkingModel(params: json)
             let parking2 = try! ParkingModel(params: json2)
 
             do {
-                try Expect.isValid(parking, parking2)
+                try Assert.isValid(parking, parking2)
             }
             catch {
                 XCTFail("isValidArrayOfOptionals function fails")
@@ -188,7 +188,7 @@ class SwiftCommonsExpectTests: XCTestCase
             let parking = try! ParkingModel(params: json)
 
             do {
-                try Expect.isValid(parking, nil)
+                try Assert.isValid(parking, nil)
                 XCTFail("isValidArrayOfOptionalsWithNilObject function fails")
             }
             catch {
@@ -203,13 +203,13 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsValidArrayOfOptionalsArrays()
     {
         if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-            let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+            let json2 = getJSON("test_parking_model_with_valid_vehicles_in_array2")
         {
             let parking = try! ParkingModel(params: json)
             let parking2 = try! ParkingModel(params: json2)
 
             do {
-                try Expect.isValid([parking], [parking2])
+                try Assert.isValid([parking], [parking2])
             }
             catch {
                 XCTFail("isValidArrayOfOptionals function fails")
@@ -227,7 +227,7 @@ class SwiftCommonsExpectTests: XCTestCase
             let parking = try! ParkingModel(params: json)
 
             do {
-                try Expect.isValid([parking], nil)
+                try Assert.isValid([parking], nil)
                 XCTFail("isValidArrayOfOptionalsWithNilObject function fails")
             }
             catch {
@@ -248,7 +248,7 @@ class SwiftCommonsExpectTests: XCTestCase
             let parking = try! ParkingModel(params: json)
 
             do {
-                try Expect.isValid([parking, nil], [parking])
+                try Assert.isValid([parking, nil], [parking])
                 XCTFail("isValidArrayOfOptionalsArraysOfOptionalsWithNilObject function fails")
             }
             catch {
@@ -265,13 +265,13 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsNilOrValidArrayOfOptionals()
     {
         if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-            let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+            let json2 = getJSON("test_parking_model_with_valid_vehicles_in_array2")
         {
             let parking = try? ParkingModel(params: json)
             let parking2 = try? ParkingModel(params: json2)
 
             do {
-                try Expect.isNilOrValid(parking, parking2)
+                try Assert.isNilOrValid(parking, parking2)
             }
             catch {
                 XCTFail("isNilOrValidArrayOfOptionals function fails")
@@ -289,7 +289,7 @@ class SwiftCommonsExpectTests: XCTestCase
             let parking = try? ParkingModel(params: json)
 
             do {
-                try Expect.isNilOrValid(parking, nil)
+                try Assert.isNilOrValid(parking, nil)
             }
             catch {
                 XCTFail("isNilOrValidArrayOfOptionalsWithNilObject function fails")
@@ -303,13 +303,13 @@ class SwiftCommonsExpectTests: XCTestCase
     func testIsNilOrValidArrayOfOptionalsArrays()
     {
         if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-            let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+            let json2 = getJSON("test_parking_model_with_valid_vehicles_in_array2")
         {
             let parking = try! ParkingModel(params: json)
             let parking2 = try! ParkingModel(params: json2)
 
             do {
-                try Expect.isNilOrValid([parking], [parking2])
+                try Assert.isNilOrValid([parking], [parking2])
             }
             catch {
                 XCTFail("isNilOrValidArrayOfOptionals function fails")
@@ -327,7 +327,7 @@ class SwiftCommonsExpectTests: XCTestCase
             let parking = try! ParkingModel(params: json)
 
             do {
-                try Expect.isNilOrValid([parking], nil)
+                try Assert.isNilOrValid([parking], nil)
             }
             catch {
                 XCTFail("isNilOrValidArrayOfOptionalsWithNilObject function fails")
@@ -347,7 +347,7 @@ class SwiftCommonsExpectTests: XCTestCase
             let parking = try? ParkingModel(params: json)
 
             do {
-                try Expect.isNilOrValid([parking, nil], [parking])
+                try Assert.isNilOrValid([parking, nil], [parking])
                 XCTFail("isNilOrValidArrayOfOptionalsWithNilObject function fails")
             }
             catch {
@@ -366,7 +366,7 @@ class SwiftCommonsExpectTests: XCTestCase
         {
             let parking = try? ParkingModel(params: json)
             do {
-                try Expect.isNilOrValid([parking, parking], nil)
+                try Assert.isNilOrValid([parking, parking], nil)
             }
             catch {
                 XCTFail("isNilOrValidArrayOfOptionalsArraysOfOptionalsWithNilArray function fails")
@@ -385,7 +385,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let string2 = "string2"
 
         do {
-            try Expect.isNotEmpty(string1, string2)
+            try Assert.isNotEmpty(string1, string2)
         }
         catch {
             XCTFail("isNotEmpty function fails")
@@ -398,7 +398,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let string2 = ""
 
         do {
-            try Expect.isNotEmpty(string1, string2)
+            try Assert.isNotEmpty(string1, string2)
             XCTFail("isNotEmptyWithEmptyString function fails")
         }
         catch {
@@ -412,7 +412,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let string2 = "string2"
 
         do {
-            try Expect.isNotEmpty([string1], [string2])
+            try Assert.isNotEmpty([string1], [string2])
         }
         catch {
             XCTFail("isNotEmptyArrayOfOptionalArraysOfString function fails")
@@ -425,7 +425,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let string = "string1"
 
         do {
-            try Expect.isNotEmpty([string], nil)
+            try Assert.isNotEmpty([string], nil)
             XCTFail("isNotEmptyArrayOfOptionalArraysOfStringWithNilArray function fails")
         }
         catch {
@@ -439,7 +439,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let filledString = "filledString"
 
         do {
-            try Expect.isNotEmpty([emptyString], [filledString])
+            try Assert.isNotEmpty([emptyString], [filledString])
             XCTFail("isNotEmptyArrayOfOptionalArraysOfStringWithNilArray function fails")
         }
         catch {
@@ -453,7 +453,7 @@ class SwiftCommonsExpectTests: XCTestCase
         let filledString = "filledString"
 
         do {
-            try Expect.isNotEmpty([emptyString], [filledString])
+            try Assert.isNotEmpty([emptyString], [filledString])
             XCTFail("isNotEmptyArrayOfOptionalArraysOfStringWithNilStringInArray function fails")
         }
         catch {

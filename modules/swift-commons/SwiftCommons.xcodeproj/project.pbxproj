@@ -18,7 +18,7 @@
 		261E7FA71E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA41E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift */; };
 		261E7FA81E03F45A00A402B4 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA51E03F45A00A402B4 /* VehicleModel.swift */; };
 		261E7FAA1E03F58A00A402B4 /* JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA91E03F58A00A402B4 /* JsonKeys.swift */; };
-		261E7FAE1E0421F600A402B4 /* SwiftCommonsExpectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FAD1E0421F600A402B4 /* SwiftCommonsExpectTests.swift */; };
+		261E7FBD1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FBC1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		261E7FA41E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingModelWithOptionalVehicles.swift; sourceTree = "<group>"; };
 		261E7FA51E03F45A00A402B4 /* VehicleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
 		261E7FA91E03F58A00A402B4 /* JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonKeys.swift; sourceTree = "<group>"; };
-		261E7FAD1E0421F600A402B4 /* SwiftCommonsExpectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCommonsExpectTests.swift; sourceTree = "<group>"; };
+		261E7FBC1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCommonsExpectableTests.swift; sourceTree = "<group>"; };
 		42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommonsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6C66FAC30098698322301C /* Pods-SwiftCommonsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommonsTests.debug.xcconfig"; path = "../cocoa-pods/Pods/Target Support Files/Pods-SwiftCommonsTests/Pods-SwiftCommonsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5338A390556D38DC915BEA8 /* Pods-SwiftCommonsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommonsTests.release.xcconfig"; path = "../cocoa-pods/Pods/Target Support Files/Pods-SwiftCommonsTests/Pods-SwiftCommonsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			children = (
 				261E7FA11E03F45A00A402B4 /* Data */,
 				191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */,
-				261E7FAD1E0421F600A402B4 /* SwiftCommonsExpectTests.swift */,
+				261E7FBC1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -299,10 +299,10 @@
 			files = (
 				191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */,
 				261E7FA81E03F45A00A402B4 /* VehicleModel.swift in Sources */,
+				261E7FBD1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift in Sources */,
 				261E7FA61E03F45A00A402B4 /* ParkingModel.swift in Sources */,
 				261E7FA71E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift in Sources */,
 				261E7FAA1E03F58A00A402B4 /* JsonKeys.swift in Sources */,
-				261E7FAE1E0421F600A402B4 /* SwiftCommonsExpectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +405,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C6C66FAC30098698322301C /* Pods-SwiftCommonsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SwiftCommonsTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ekassir.mobilebank.$(PRODUCT_NAME:rfc1034identifier)";
@@ -419,7 +418,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5338A390556D38DC915BEA8 /* Pods-SwiftCommonsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SwiftCommonsTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ekassir.mobilebank.$(PRODUCT_NAME:rfc1034identifier)";
