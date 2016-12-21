@@ -8,14 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */; };
+		191DF5E11E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 191DF5E01E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json */; };
 		2359C8FAF846A045E6AD155D /* Pods_SwiftCommonsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */; };
+		261E7F9D1E03F45000A402B4 /* test_model_fake_array_model.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F991E03F45000A402B4 /* test_model_fake_array_model.json */; };
+		261E7F9E1E03F45000A402B4 /* test_model_fake_array_string.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F9A1E03F45000A402B4 /* test_model_fake_array_string.json */; };
+		261E7F9F1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F9B1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */; };
+		261E7FA01E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F9C1E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json */; };
+		261E7FA61E03F45A00A402B4 /* ParkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA31E03F45A00A402B4 /* ParkingModel.swift */; };
+		261E7FA71E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA41E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift */; };
+		261E7FA81E03F45A00A402B4 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA51E03F45A00A402B4 /* VehicleModel.swift */; };
+		261E7FAA1E03F58A00A402B4 /* JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA91E03F58A00A402B4 /* JsonKeys.swift */; };
+		261E7FBD1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FBC1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		191D27181A7CEEBE000B928B /* SwiftCommonsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommonsTests.swift; sourceTree = "<group>"; };
+		191DF5E01E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_other_model_with_valid_vehicles_in_array.json; sourceTree = "<group>"; };
 		19F8BB501A7CF20700CC0168 /* SwiftCommonsTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommonsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19F8BB521A7CF20700CC0168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		261E7F991E03F45000A402B4 /* test_model_fake_array_model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_model_fake_array_model.json; sourceTree = "<group>"; };
+		261E7F9A1E03F45000A402B4 /* test_model_fake_array_string.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_model_fake_array_string.json; sourceTree = "<group>"; };
+		261E7F9B1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_model_with_one_non_valid_vehicle_in_array.json; sourceTree = "<group>"; };
+		261E7F9C1E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_model_with_valid_vehicles_in_array.json; sourceTree = "<group>"; };
+		261E7FA31E03F45A00A402B4 /* ParkingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingModel.swift; sourceTree = "<group>"; };
+		261E7FA41E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingModelWithOptionalVehicles.swift; sourceTree = "<group>"; };
+		261E7FA51E03F45A00A402B4 /* VehicleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
+		261E7FA91E03F58A00A402B4 /* JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonKeys.swift; sourceTree = "<group>"; };
+		261E7FBC1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCommonsExpectableTests.swift; sourceTree = "<group>"; };
 		42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommonsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6C66FAC30098698322301C /* Pods-SwiftCommonsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommonsTests.debug.xcconfig"; path = "../cocoa-pods/Pods/Target Support Files/Pods-SwiftCommonsTests/Pods-SwiftCommonsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5338A390556D38DC915BEA8 /* Pods-SwiftCommonsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommonsTests.release.xcconfig"; path = "../cocoa-pods/Pods/Target Support Files/Pods-SwiftCommonsTests/Pods-SwiftCommonsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +100,7 @@
 		19F8BB511A7CF20700CC0168 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				261E7F981E03F45000A402B4 /* Fixtures */,
 				19F8BB521A7CF20700CC0168 /* Info.plist */,
 			);
 			path = Resources;
@@ -88,9 +109,42 @@
 		19F8BB531A7CF20700CC0168 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				261E7FA11E03F45A00A402B4 /* Data */,
 				191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */,
+				261E7FBC1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		261E7F981E03F45000A402B4 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				261E7F991E03F45000A402B4 /* test_model_fake_array_model.json */,
+				261E7F9A1E03F45000A402B4 /* test_model_fake_array_string.json */,
+				261E7F9B1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */,
+				261E7F9C1E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json */,
+				191DF5E01E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		261E7FA11E03F45A00A402B4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				261E7FA91E03F58A00A402B4 /* JsonKeys.swift */,
+				261E7FA21E03F45A00A402B4 /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		261E7FA21E03F45A00A402B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				261E7FA31E03F45A00A402B4 /* ParkingModel.swift */,
+				261E7FA41E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift */,
+				261E7FA51E03F45A00A402B4 /* VehicleModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BCC950255D5EFC1B36C14D7E /* Pods */ = {
@@ -165,6 +219,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261E7F9F1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */,
+				261E7F9D1E03F45000A402B4 /* test_model_fake_array_model.json in Resources */,
+				191DF5E11E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json in Resources */,
+				261E7F9E1E03F45000A402B4 /* test_model_fake_array_string.json in Resources */,
+				261E7FA01E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */,
+				261E7FA81E03F45A00A402B4 /* VehicleModel.swift in Sources */,
+				261E7FBD1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift in Sources */,
+				261E7FA61E03F45A00A402B4 /* ParkingModel.swift in Sources */,
+				261E7FA71E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift in Sources */,
+				261E7FAA1E03F58A00A402B4 /* JsonKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +405,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C6C66FAC30098698322301C /* Pods-SwiftCommonsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SwiftCommonsTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ekassir.mobilebank.$(PRODUCT_NAME:rfc1034identifier)";
@@ -355,7 +418,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5338A390556D38DC915BEA8 /* Pods-SwiftCommonsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SwiftCommonsTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ekassir.mobilebank.$(PRODUCT_NAME:rfc1034identifier)";

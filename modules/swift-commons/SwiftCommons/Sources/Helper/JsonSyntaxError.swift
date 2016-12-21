@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  JsonSyntaxException.swift
+//  JsonSyntaxError.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -12,8 +12,9 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
+// @new
 // FIXME: Refactoring is required
-public class JsonSyntaxException: ErrorType
+public class JsonSyntaxError: ErrorType
 {
 // MARK: - Construction
 
@@ -33,7 +34,9 @@ public class JsonSyntaxException: ErrorType
         self.init(message: nil, cause: nil)
     }
 
-    private init(message: String?, cause: NSException?)  {
+    private init(message: String?, cause: NSException?)
+    {
+        // Init instance variables
         self.message = message
         self.cause = cause
     }
