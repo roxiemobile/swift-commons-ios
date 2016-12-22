@@ -69,7 +69,7 @@ public extension NSFileManager
         return Singleton.directory
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     /// Excludes files and directories from iCloud backups.
     public static func excludedPathFromBackup(url: NSURL?) -> Bool
@@ -101,7 +101,9 @@ public extension NSFileManager
 
 }
 
+// ----------------------------------------------------------------------------
 // MARK: - Global Functions
+// ----------------------------------------------------------------------------
 
 public func mdc_removeItemAtURL(url: NSURL?)
 {

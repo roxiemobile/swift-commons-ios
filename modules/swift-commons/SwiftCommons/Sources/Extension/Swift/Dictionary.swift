@@ -10,7 +10,7 @@
 
 extension Dictionary
 {
-// MARK: - Functions
+// MARK: - Methods
 
     /**
      * Loops trough each [key: value] pair in self.

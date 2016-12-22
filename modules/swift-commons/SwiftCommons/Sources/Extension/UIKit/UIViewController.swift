@@ -20,7 +20,7 @@ extension UIViewController
         self.init(nibName: nibNameOrNil, bundle: nil)
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     public class func mdc_controller() -> Self
     {
@@ -281,7 +281,7 @@ extension UIViewController
 //        }
 //    }
 
-// MARK: - Private Functions
+// MARK: - Private Methods
 
     private class func defaultResourceName(object: AnyObject) -> String {
         return NSStringFromClass(object_getClass(object)).componentsSeparatedByString(".").last!

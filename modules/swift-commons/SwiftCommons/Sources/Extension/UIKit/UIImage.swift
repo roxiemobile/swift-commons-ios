@@ -12,9 +12,10 @@ import UIKit
 
 // ----------------------------------------------------------------------------
 
+// @deprecated
 extension UIImage
 {
-// MARK: - Functions
+// MARK: - Methods
     
     public static func resizeImage(originalImage: UIImage, size: CGSize) -> UIImage?
     {

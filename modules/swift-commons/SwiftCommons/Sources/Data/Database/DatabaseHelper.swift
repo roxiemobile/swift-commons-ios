@@ -24,7 +24,7 @@ public class DatabaseHelper
     }
 
     private init() {
-        // Do nothing ..
+        // Do nothing
     }
 
     deinit {
@@ -51,14 +51,14 @@ public class DatabaseHelper
         }
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     /// Checks if database file exists and integrity check of the entire database was successful.
     public static func isValidDatabase(databaseName: String?, delegate: DatabaseOpenDelegate? = nil) -> Bool {
         return DatabaseHelper.sharedInstance.validateDatabase(databaseName, delegate: delegate)
     }
 
-// MARK: - Internal Functions
+// MARK: - Internal Methods
     
     func unpackDatabaseTemplate(databaseName: String, assetPath: NSURL) -> NSURL?
     {
@@ -110,7 +110,7 @@ public class DatabaseHelper
         return path
     }
 
-// MARK: - Private Functions
+// MARK: - Private Methods
 
     private func validateDatabase(databaseName: String?, delegate: DatabaseOpenDelegate? = nil) -> Bool
     {
@@ -345,35 +345,35 @@ public class DatabaseHelper
         do {
             try database.execute(query)
         } catch {
-            mdc_assertFailure("Database query \(query) failed with error \(error)")
+            mdc_assertionFailure("Database query \(query) failed with error \(error)")
         }
     }
     
     private func createDatabaseObject(uriPath: String?, readonly: Bool) -> Database?
     {
         guard let uriPath = uriPath else {
-            mdc_assertFailure("Can't create database object with nil uri path")
+            mdc_assertionFailure("Can't create database object with nil uri path")
             return nil
         }
         
         do {
             return try Database(uriPath, readonly: false)
         } catch {
-            mdc_assertFailure("Can't open db at \(uriPath) with readonly \(readonly): \(error)")
+            mdc_assertionFailure("Can't open db at \(uriPath) with readonly \(readonly): \(error)")
             return nil
         }
     }
     
     private func runTransaction(database: Database?, mode: Database.TransactionMode, block: () throws -> Void) {
         guard let database = database else {
-            mdc_assertFailure("Can't run transaction on nil database")
+            mdc_assertionFailure("Can't run transaction on nil database")
             return
         }
         
         do {
             try database.transaction(mode, block: block)
         } catch {
-            mdc_assertFailure("Transaction failed with error \(error)")
+            mdc_assertionFailure("Transaction failed with error \(error)")
         }
     }
 
@@ -410,7 +410,7 @@ public class DatabaseHelper
 
 private extension NSURL
 {
-// MARK: - Functions
+// MARK: - Methods
 
     var mdc_isFileExists: Bool {
         return self.fileURL && self.checkResourceIsReachableAndReturnError(nil)

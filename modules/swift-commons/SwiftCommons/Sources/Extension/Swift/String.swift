@@ -24,7 +24,7 @@ public extension String
      */
     var length: Int { return self.characters.count }
 
-// MARK: - Functions
+// MARK: - Methods
 
     func escapeString(encoding: UInt = NSUTF8StringEncoding) -> String {
         return CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, self, CharacterSet.ToLeaveUnescaped, CharacterSet.ToBeEscaped, CFStringConvertNSStringEncodingToEncoding(encoding)) as String
@@ -130,33 +130,39 @@ public extension String
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-//public func str_isNotEmpty(array: [String?]) -> Bool
-//{
-//    // Validate strings
-//    return array.all { obj in (obj != nil) && !(obj!.isEmpty) }
-//}
+// @deprecated
+internal func str_isNotEmpty(array: [String?]) -> Bool
+{
+    // Validate strings
+    return array.all { obj in (obj != nil) && !(obj!.isEmpty) }
+}
 
-public func str_isNotEmpty(array: String? ...) -> Bool {
+// @deprecated
+internal func str_isNotEmpty(array: String? ...) -> Bool {
     return str_isNotEmpty(array)
 }
 
-public func str_isNotEmpty(array: [[String]?]) -> Bool
+// @deprecated
+internal func str_isNotEmpty(array: [[String]?]) -> Bool
 {
     // Validate strings
     return array.all { arr in (arr != nil) && arr!.all { obj in !obj.isEmpty } }
 }
 
-public func str_isNotEmpty(array: [String]? ...) -> Bool {
+// @deprecated
+internal func str_isNotEmpty(array: [String]? ...) -> Bool {
     return str_isNotEmpty(array)
 }
 
-public func str_isNotEmpty(array: [[String?]?]) -> Bool
+// @deprecated
+internal func str_isNotEmpty(array: [[String?]?]) -> Bool
 {
     // Validate strings
     return array.all { arr in (arr != nil) && arr!.all { obj in (obj != nil) && !(obj!.isEmpty) } }
 }
 
-public func str_isNotEmpty(array: [String?]? ...) -> Bool {
+// @deprecated
+internal func str_isNotEmpty(array: [String?]? ...) -> Bool {
     return str_isNotEmpty(array)
 }
 

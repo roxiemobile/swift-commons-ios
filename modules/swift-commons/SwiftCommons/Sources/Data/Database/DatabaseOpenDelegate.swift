@@ -10,7 +10,7 @@
 
 public protocol DatabaseOpenDelegate
 {
-// MARK: - Functions
+// MARK: - Methods
 
     /**
      * Called when the database will create for the first time.

@@ -10,7 +10,7 @@
 
 public protocol StaticValidator
 {
-// MARK: - Functions
+// MARK: - Methods
 
     static func isValid(value: AnyObject?) -> Bool
 

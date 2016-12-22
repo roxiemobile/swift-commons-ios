@@ -18,6 +18,7 @@ public class ExpectationError: ErrorType
 
     public init(message: String?, file: StaticString = #file, line: UInt = #line)
     {
+        // Init instance variables
         self.message = message
         self.file = file
         self.line = line

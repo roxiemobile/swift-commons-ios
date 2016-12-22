@@ -26,7 +26,7 @@ public extension Int
         return String(format:"%02x", self)
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     /**
      * Array of bytes with optional padding (little-endian).

@@ -10,7 +10,7 @@
 
 public protocol Validator
 {
-// MARK: - Functions
+// MARK: - Methods
 
     func isValid(value: AnyObject?) -> Bool
 

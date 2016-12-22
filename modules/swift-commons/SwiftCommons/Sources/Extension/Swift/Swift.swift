@@ -24,7 +24,6 @@ public protocol MDCoding: AnyObject
 
     /// Decodes the receiver using a given unarchiver.
     func decode(coder decoder: NSCoder) -> Bool
-
 }
 
 // ----------------------------------------------------------------------------
@@ -33,11 +32,8 @@ public protocol MDCoding: AnyObject
 /// of an object.
 public protocol MDCopying: NSCopying
 {
-// MARK: - Functions
-
     /// Returns a new instance that’s a copy of the receiver.
     func copy() -> Self
-
 }
 
 // ----------------------------------------------------------------------------

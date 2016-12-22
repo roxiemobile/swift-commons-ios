@@ -10,7 +10,7 @@
 
 public extension Int
 {
-// MARK: - Functions
+// MARK: - Methods
 
     /**
      * Absolute value.

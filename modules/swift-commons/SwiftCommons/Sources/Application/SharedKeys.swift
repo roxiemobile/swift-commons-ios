@@ -13,7 +13,7 @@ public final class SharedKeys: NonCreatable
 // MARK: - Constants
 
     private struct Inner {
-        static let URN = "urn:mediarium:shared"
+        static let URN = "urn:roxiemobile:shared"
     }
 
     public struct Prefix {

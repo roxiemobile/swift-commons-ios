@@ -28,7 +28,7 @@ public class RegexValidator: Validator
         }
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     public func isValid(value: AnyObject?) -> Bool
     {

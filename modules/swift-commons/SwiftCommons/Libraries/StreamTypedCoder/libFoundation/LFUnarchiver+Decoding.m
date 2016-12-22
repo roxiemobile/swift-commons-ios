@@ -27,7 +27,7 @@
 @end
 
 // ----------------------------------------------------------------------------
-#pragma mark - Static Functions
+#pragma mark - Static Methods
 // ----------------------------------------------------------------------------
 
 // FIXME: duplicate code
@@ -61,7 +61,7 @@ void _checkType2(LFTagType type, LFTagType reqType1, LFTagType reqType2)
 // ...
 
 // ----------------------------------------------------------------------------
-#pragma mark - Protected Functions
+#pragma mark - Protected Methods
 // ----------------------------------------------------------------------------
 
 // FIXME: delete!
@@ -73,7 +73,7 @@ void _checkType2(LFTagType type, LFTagType reqType1, LFTagType reqType2)
 //    }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 - (void)readBytes:(void *)bytes length:(NSUInteger)length

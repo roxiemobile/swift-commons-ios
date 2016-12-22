@@ -12,7 +12,7 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-public class ParkingModel: ParcelableModel
+public class ParkingModel: SerializableObject, Expectable
 {
 // MARK: - Properties
 
@@ -20,7 +20,7 @@ public class ParkingModel: ParcelableModel
 
     public private(set) var vehicles: [VehicleModel]!
 
-// MARK: - Functions
+// MARK: - Methods
 
     public override func mapping(map: Map) {
         super.mapping(map)

@@ -26,7 +26,7 @@
 @end
 
 // ----------------------------------------------------------------------------
-#pragma mark - Static Functions
+#pragma mark - Static Methods
 // ----------------------------------------------------------------------------
 
 // FIXME: duplicate code
@@ -54,7 +54,7 @@
 @implementation LFArchiver (LFEncoding)
 
 // ----------------------------------------------------------------------------
-#pragma mark - Protected Functions
+#pragma mark - Protected Methods
 // ----------------------------------------------------------------------------
 
 - (void)_serializeDataAt:(const void *)addr ofObjCType:(const char *)type
@@ -228,7 +228,7 @@
 //}
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 - (void)writeBytes:(const void *)bytes length:(NSUInteger)length
@@ -547,7 +547,7 @@
 //                }
 //
 //                default: {
-//                    // Do nothing ..
+//                    // Do nothing
 //                }
 //            }
 //        }

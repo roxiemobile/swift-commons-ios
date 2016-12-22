@@ -15,12 +15,12 @@
 
 @interface LFArchiver : NSCoder
 
-// -- properties
+// - Properties
 
 // Getting the archived data
 @property(readonly, strong) NSMutableData *archiverData;
 
-// -- functions
+// - Methods
 
 // Initializing an Encoder
 - (instancetype)initForWritingWithMutableData:(NSMutableData *)data;

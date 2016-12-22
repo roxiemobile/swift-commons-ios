@@ -320,7 +320,7 @@ public final class Mapper<N: Mappable> {
 			do {
 				parsedJSON = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
 			} catch {
-                mdc_assertFailure("Failed to convert data \(data) to JSON")
+                mdc_assertionFailure("Failed to convert data \(data) to JSON")
 				parsedJSON = nil
 			}
 			return parsedJSON

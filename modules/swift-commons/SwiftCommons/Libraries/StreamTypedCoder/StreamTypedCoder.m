@@ -59,7 +59,7 @@
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 - (instancetype)initForWritingWithMutableData:(NSMutableData *)data
@@ -219,7 +219,7 @@
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 - (instancetype)initForReadingWithData:(NSData *)data

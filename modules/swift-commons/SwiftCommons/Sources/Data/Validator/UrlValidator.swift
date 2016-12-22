@@ -18,7 +18,7 @@
 
 public final class UrlValidator: NonCreatable, StaticValidator
 {
-// MARK: - Functions
+// MARK: - Methods
 
     public class func isValid(value: AnyObject?) -> Bool
     {

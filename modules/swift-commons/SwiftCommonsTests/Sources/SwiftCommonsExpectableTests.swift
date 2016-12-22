@@ -106,7 +106,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                 XCTFail("testThrowIfEqualsBothNil function fails")
             }
             catch {
-                // Do nothing ..
+                // Do nothing
             }
         }
     
@@ -193,7 +193,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                     XCTFail("testThrowIfNilOrNotValidArrayOfOptionalsWithNilObject function fails")
                 }
                 catch {
-                    // Do nothing ..
+                    // Do nothing
                 }
             }
             else {
@@ -294,7 +294,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                     XCTFail("testThrowIfNotValidArrayOfOptionalsWithNilObject function fails")
                 }
                 catch {
-                    // Do nothing ..
+                    // Do nothing
                 }
             }
             else {
@@ -448,7 +448,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                 XCTFail("testThrowIfNilOrEmptyArrayOfOptionalArraysOfStringWithEmptyStringInArray function fails")
             }
             catch {
-                // Do nothing ..
+                // Do nothing
             }
         }
     
@@ -463,7 +463,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                 XCTFail("testThrowIfNilOrEmptyArrayOfOptionalArraysOfStringWithNilStringInArray function fails")
             }
             catch {
-                // Do nothing ..
+                // Do nothing
             }
         }
 

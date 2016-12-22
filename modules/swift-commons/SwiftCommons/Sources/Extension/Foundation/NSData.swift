@@ -20,7 +20,7 @@ public extension NSData
         return (self.length < 1)
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     class func isNilOrEmpty(objects: NSData?...) -> Bool
     {

@@ -24,8 +24,8 @@ public extension NSError
         self.init(domain: FileError.Domain, code: code.rawValue, userInfo: (description != nil) ? [NSLocalizedDescriptionKey: description!] : nil)
     }
 
-    public convenience init(code: NSError.ParcelableError.Code, description: String? = nil) {
-        self.init(domain: ParcelableError.Domain, code: code.rawValue, userInfo: (description != nil) ? [NSLocalizedDescriptionKey: description!] : nil)
+    public convenience init(code: NSError.SerializationError.Code, description: String? = nil) {
+        self.init(domain: SerializationError.Domain, code: code.rawValue, userInfo: (description != nil) ? [NSLocalizedDescriptionKey: description!] : nil)
     }
 
 // MARK: - Properties
@@ -83,10 +83,10 @@ public extension NSError
         }
     }
 
-    public struct ParcelableError
+    public struct SerializationError
     {
         // Error domain
-        static let Domain = "ParcelableErrorDomain"
+        static let Domain = "SerializationErrorDomain"
 
         // Error code
         public enum Code: Int {

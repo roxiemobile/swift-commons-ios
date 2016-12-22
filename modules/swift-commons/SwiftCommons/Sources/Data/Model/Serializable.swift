@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Parcelable.swift
+//  Serializable.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
 //  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class Parcelable: MDCoding
+public class Serializable: MDCoding
 {
 // MARK: - Construction
 
@@ -23,10 +23,10 @@ public class Parcelable: MDCoding
     }
 
     init() {
-        // Do nothing ..
+        // Do nothing
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     public func encode(coder encoder: NSCoder) -> Bool {
         return true
@@ -42,9 +42,9 @@ public class Parcelable: MDCoding
 // MARK: - @interface NSObject
 // ----------------------------------------------------------------------------
 
-extension Parcelable
+extension Serializable
 {
-// MARK: - Functions: Archiving
+// MARK: - Methods: Archiving
 
     @objc public var classForCoder: AnyClass {
         return self.dynamicType
@@ -96,9 +96,9 @@ extension Parcelable
 // MARK: - @protocol NSCoding
 // ----------------------------------------------------------------------------
 
-extension Parcelable
+extension Serializable
 {
-// MARK: - Functions
+// MARK: - Methods
 
     @objc public func encodeWithCoder(aCoder: NSCoder) {
         encode(coder: aCoder)

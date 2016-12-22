@@ -10,7 +10,7 @@
 
 public extension Array
 {
-// MARK: - Functions
+// MARK: - Methods
 
     /**
      * Checks if test returns true for all the elements in self

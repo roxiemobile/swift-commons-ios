@@ -42,7 +42,7 @@ import Foundation
 
 public extension NSData
 {
-// MARK: - Functions
+// MARK: - Methods
 
     /// Return gzip-compressed data object or Nil.
     public func gzippedData(level compressionLevel: Float) -> NSData?
@@ -123,7 +123,7 @@ public extension NSData
         return nil
     }
 
-// MARK: - Private Functions
+// MARK: - Private Methods
 
     private func createZStream() -> z_stream
     {

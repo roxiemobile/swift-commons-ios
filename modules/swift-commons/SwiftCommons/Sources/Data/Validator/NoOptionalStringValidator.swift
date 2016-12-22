@@ -12,37 +12,37 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
+// @deprecated
 public final class NoOptionalStringValidator: NonCreatable, StaticValidator
 {
-    // MARK: - Functions
-    
+// MARK: - Methods
+
     public class func isValid(value: AnyObject?) -> Bool
     {
         guard let validator = Inner.Validator else {
             MDLog.e("Inner.Validator isn't initialized correctly in \(#function)")
             return false
         }
-        
+
         guard let string = value as? String else {
             MDLog.e("Input type is not a string: \(value), \(value.dynamicType)")
             return false
         }
-        
+
         return !validator.isValid(string)
     }
-    
-    // MARK: - Constants
-    
+
+// MARK: - Constants
+
     private struct Inner
     {
-        struct Pattern
-        {
+        struct Pattern {
             static let OptionalString = ".*Optional\\(.+\\).*"
         }
-        
+
         static let Validator = RegexValidator(Pattern.OptionalString, options: NSRegularExpressionOptions())
     }
-    
+
 }
 
 // ----------------------------------------------------------------------------

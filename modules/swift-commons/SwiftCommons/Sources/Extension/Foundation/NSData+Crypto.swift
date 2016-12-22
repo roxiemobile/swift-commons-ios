@@ -93,7 +93,7 @@ public extension NSData
         return Hash(self).sha1()
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     static func withBytes(bytes: [UInt8]) -> NSData {
         return NSData(bytes: bytes, length: bytes.count)
@@ -113,7 +113,7 @@ public extension NSData
 
 private extension NSMutableData
 {
-// MARK: - Functions
+// MARK: - Methods
 
     func appendBytes(arrayOfBytes: [UInt8]) {
         self.appendBytes(arrayOfBytes, length: arrayOfBytes.count)
@@ -133,7 +133,7 @@ private class Hash
         self.message = message
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     func md5() -> NSData
     {
@@ -309,7 +309,7 @@ private class Hash
         return buf.copy() as! NSData;
     }    
 
-// MARK: - Private Functions
+// MARK: - Private Methods
 
     /**
      * Common part for hash calculation. Prepare header data.

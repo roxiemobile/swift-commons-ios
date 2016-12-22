@@ -24,7 +24,7 @@ public class AssetUtils: NonCreatable
         return Schema.File
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     public class func isLocalAsset(path: String?) -> Bool {
         return (path != nil) && (path!.hasPrefix(Schema.Asset) || path!.hasPrefix(Schema.File) || path!.hasPrefix("/"))

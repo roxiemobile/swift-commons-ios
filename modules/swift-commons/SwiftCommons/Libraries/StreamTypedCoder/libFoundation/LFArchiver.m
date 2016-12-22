@@ -57,7 +57,7 @@ UInt16 LFCoderVersion = 1505; // 2015-05
 @end
 
 // ----------------------------------------------------------------------------
-#pragma mark - Static Functions
+#pragma mark - Static Methods
 // ----------------------------------------------------------------------------
 
 // In objective-c, how can I tell the difference between a Class and an instance of a class?
@@ -149,7 +149,7 @@ size_t mdc_strlen(const char *str) {
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Protected Functions
+#pragma mark - Protected Methods
 // ----------------------------------------------------------------------------
 
 - (void)_beginEncoding
@@ -557,7 +557,7 @@ size_t mdc_strlen(const char *str) {
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 - (instancetype)initForWritingWithMutableData:(NSMutableData *)data

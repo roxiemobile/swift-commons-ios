@@ -20,7 +20,7 @@ public class DatabaseHelperZip: DatabaseHelper
         super.init(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     override func unpackDatabaseTemplate(databaseName: String, assetPath: NSURL) -> NSURL?
     {

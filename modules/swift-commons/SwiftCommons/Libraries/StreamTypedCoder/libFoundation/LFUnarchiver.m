@@ -54,7 +54,7 @@ NSString * const LFInconsistentArchiveException =
 @end
 
 // ----------------------------------------------------------------------------
-#pragma mark - Static Functions
+#pragma mark - Static Methods
 // ----------------------------------------------------------------------------
 
 // FIXME: duplicate code
@@ -131,7 +131,7 @@ static NSMapTable *_classToAliasMappings = NULL; // Archive name => decoded name
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Protected Functions
+#pragma mark - Protected Methods
 // ----------------------------------------------------------------------------
 
 - (void)_beginDecoding
@@ -308,7 +308,7 @@ static NSMapTable *_classToAliasMappings = NULL; // Archive name => decoded name
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 + (void)initialize

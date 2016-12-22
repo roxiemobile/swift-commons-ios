@@ -16,7 +16,7 @@
 @implementation LFUnknownTypeException
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 + (void)raiseForType:(const char *)type {

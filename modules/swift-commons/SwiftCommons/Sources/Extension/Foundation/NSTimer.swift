@@ -38,7 +38,7 @@ public extension NSTimer
         return timer
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     static func mdc_executeCompletionHandler(timer: NSTimer)
     {

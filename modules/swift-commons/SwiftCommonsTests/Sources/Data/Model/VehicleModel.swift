@@ -12,7 +12,7 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-public class VehicleModel: ParcelableModel
+public class VehicleModel: SerializableObject, Expectable
 {
 // MARK: - Properties
 
@@ -20,21 +20,21 @@ public class VehicleModel: ParcelableModel
 
     public private(set) var color: String!
 
-// MARK: - Functions
+// MARK: - Methods
 
     public override func mapping(map: Map) {
         super.mapping(map)
 
         // (De)serialize to/from json
-        self.model  <~ map[JsonKeys.Model]
-        self.color  <~ map[JsonKeys.Color]
+        self.model <~ map[JsonKeys.Model]
+        self.color <~ map[JsonKeys.Color]
     }
 
     public override func validate() throws {
         try super.validate()
 
-        //Validate instance
-        try throwIfNilOrEmpty(self.model, self.color)
+        // Validate instance
+        try throwIfNilOrWhiteSpace(self.model, self.color)
     }
 
 }

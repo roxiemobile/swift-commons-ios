@@ -13,7 +13,7 @@ public class NonCreatable
 // MARK: - Construction
 
     private init() {
-        // Do nothing ..
+        // Do nothing
     }
 
 }

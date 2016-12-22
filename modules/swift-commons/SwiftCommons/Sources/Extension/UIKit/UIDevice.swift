@@ -14,7 +14,7 @@ import UIKit
 
 extension UIDevice
 {
-// MARK: - Functions
+// MARK: - Methods
 
     public static func systemVersionEqualTo(version: String) -> Bool {
         return UIDevice.currentDevice().systemVersion.compare(version, options: .NumericSearch) == .OrderedSame
@@ -36,7 +36,7 @@ extension UIDevice
         return UIDevice.currentDevice().systemVersion.compare(version, options: .NumericSearch) != .OrderedDescending
     }
 
-// MARK: - Private Functions
+// MARK: - Private Methods
 
     private func mdc_orientation() -> UIDeviceOrientation
     {
