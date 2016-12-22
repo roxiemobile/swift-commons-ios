@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */; };
 		191DF5E11E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 191DF5E01E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json */; };
+		1921D0C31E0D486900BBCB9B /* ExpectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1921D0C21E0D486900BBCB9B /* ExpectTests.swift */; };
+		1921D0C51E0D49B800BBCB9B /* ExpectableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1921D0C41E0D49B800BBCB9B /* ExpectableTests.swift */; };
 		2359C8FAF846A045E6AD155D /* Pods_SwiftCommonsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */; };
 		261E7F9D1E03F45000A402B4 /* test_model_fake_array_model.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F991E03F45000A402B4 /* test_model_fake_array_model.json */; };
 		261E7F9E1E03F45000A402B4 /* test_model_fake_array_string.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F9A1E03F45000A402B4 /* test_model_fake_array_string.json */; };
@@ -25,6 +27,8 @@
 		191D27181A7CEEBE000B928B /* SwiftCommonsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommonsTests.swift; sourceTree = "<group>"; };
 		191DF5E01E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_other_model_with_valid_vehicles_in_array.json; sourceTree = "<group>"; };
+		1921D0C21E0D486900BBCB9B /* ExpectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectTests.swift; path = Helper/ExpectTests.swift; sourceTree = "<group>"; };
+		1921D0C41E0D49B800BBCB9B /* ExpectableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectableTests.swift; path = Helper/ExpectableTests.swift; sourceTree = "<group>"; };
 		19F8BB501A7CF20700CC0168 /* SwiftCommonsTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommonsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19F8BB521A7CF20700CC0168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		261E7F991E03F45000A402B4 /* test_model_fake_array_model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_model_fake_array_model.json; sourceTree = "<group>"; };
@@ -81,6 +85,15 @@
 			path = SwiftCommonsTests;
 			sourceTree = "<group>";
 		};
+		1921D0C11E0D485600BBCB9B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1921D0C21E0D486900BBCB9B /* ExpectTests.swift */,
+				1921D0C41E0D49B800BBCB9B /* ExpectableTests.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		197442AD1AA9943F001B1A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				261E7FA11E03F45A00A402B4 /* Data */,
+				1921D0C11E0D485600BBCB9B /* Helper */,
 				191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */,
 				261E7FBC1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift */,
 			);
@@ -131,8 +145,8 @@
 		261E7FA11E03F45A00A402B4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				261E7FA91E03F58A00A402B4 /* JsonKeys.swift */,
 				261E7FA21E03F45A00A402B4 /* Model */,
+				261E7FA91E03F58A00A402B4 /* JsonKeys.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -297,12 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1921D0C51E0D49B800BBCB9B /* ExpectableTests.swift in Sources */,
 				191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */,
 				261E7FA81E03F45A00A402B4 /* VehicleModel.swift in Sources */,
 				261E7FBD1E0AAA8600A402B4 /* SwiftCommonsExpectableTests.swift in Sources */,
 				261E7FA61E03F45A00A402B4 /* ParkingModel.swift in Sources */,
 				261E7FA71E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift in Sources */,
 				261E7FAA1E03F58A00A402B4 /* JsonKeys.swift in Sources */,
+				1921D0C31E0D486900BBCB9B /* ExpectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

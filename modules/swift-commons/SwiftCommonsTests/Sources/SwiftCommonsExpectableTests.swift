@@ -71,7 +71,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
             let otherNilModel: String? = nil
     
             do {
-                try throwIfNotEquals(nilModel, actual: otherNilModel, message: nil)
+                try throwIfNotEquals(nilModel, otherNilModel, message: nil)
             }
             catch {
                 XCTFail("testThrowIfNotEquals function fails")
@@ -85,7 +85,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                 let parking = try? ParkingModel(params: json)
     
                 do {
-                    try throwIfNotEquals(parking, actual: parking, message: nil)
+                    try throwIfNotEquals(parking, parking, message: nil)
                 }
                 catch {
                     XCTFail("testThrowIfNotEqualsBothNonNil function fails")
@@ -102,7 +102,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
             let otherNilModel: String? = nil
     
             do {
-                try throwIfEquals(nilModel, actual: otherNilModel, message: nil)
+                try throwIfEquals(nilModel, otherNilModel, message: nil)
                 XCTFail("testThrowIfEqualsBothNil function fails")
             }
             catch {
@@ -119,7 +119,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                 let otherParking = try! ParkingModel(params: otherJson)
     
                 do {
-                    try throwIfEquals(parking, actual: otherParking, message: nil)
+                    try throwIfEquals(parking, otherParking, message: nil)
                 }
                 catch {
                     XCTFail("testThrowIfEqualsBothNonNil function fails")

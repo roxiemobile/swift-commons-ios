@@ -16,7 +16,7 @@ public class ExpectationError: ErrorType
 {
 // MARK: - Construction
 
-    public init(message: String?, file: StaticString = #file, line: UInt = #line)
+    public init(_ message: String, file: StaticString = #file, line: UInt = #line)
     {
         // Init instance variables
         self.message = message
@@ -26,7 +26,7 @@ public class ExpectationError: ErrorType
 
 // MARK: - Properties
 
-    public let message: String?
+    public let message: String
 
     public let file: StaticString
 
