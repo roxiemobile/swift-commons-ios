@@ -68,10 +68,10 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         func testThrowIfNotEquals()
         {
             let nilModel: String? = nil
-            let nilModel2: String? = nil
+            let otherNilModel: String? = nil
     
             do {
-                try throwIfNotEquals(nilModel, actual: nilModel2, message: nil)
+                try throwIfNotEquals(nilModel, actual: otherNilModel, message: nil)
             }
             catch {
                 XCTFail("testThrowIfNotEquals function fails")
@@ -99,10 +99,10 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         func testThrowIfEqualsBothNil()
         {
             let nilModel: String? = nil
-            let nilModel2: String? = nil
+            let otherNilModel: String? = nil
     
             do {
-                try throwIfEquals(nilModel, actual: nilModel2, message: nil)
+                try throwIfEquals(nilModel, actual: otherNilModel, message: nil)
                 XCTFail("testThrowIfEqualsBothNil function fails")
             }
             catch {
@@ -113,13 +113,13 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         func testThrowIfEqualsBothNonNil()
         {
             if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-                let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+               let otherJson = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
             {
                 let parking = try! ParkingModel(params: json)
-                let parking2 = try! ParkingModel(params: json2)
+                let otherParking = try! ParkingModel(params: otherJson)
     
                 do {
-                    try throwIfEquals(parking, actual: parking2, message: nil)
+                    try throwIfEquals(parking, actual: otherParking, message: nil)
                 }
                 catch {
                     XCTFail("testThrowIfEqualsBothNonNil function fails")
@@ -165,13 +165,13 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         func testThrowIfNilOrNotValidArrayOfOptionals()
         {
             if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-                let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+                let otherJson = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
             {
                 let parking = try! ParkingModel(params: json)
-                let parking2 = try! ParkingModel(params: json2)
+                let otherParking = try! ParkingModel(params: otherJson)
     
                 do {
-                    try throwIfNilOrNotValid(parking, parking2)
+                    try throwIfNilOrNotValid(parking, otherParking)
                 }
                 catch {
                     XCTFail("testThrowIfNilOrNotValidArrayOfOptionals function fails")
@@ -204,13 +204,13 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         func testThrowIfNilOrNotValidArrayOfOptionalsArrays()
         {
             if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-                let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+                let otherJson = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
             {
                 let parking = try! ParkingModel(params: json)
-                let parking2 = try! ParkingModel(params: json2)
+                let otherParking = try! ParkingModel(params: otherJson)
     
                 do {
-                    try throwIfNilOrNotValid([parking], [parking2])
+                    try throwIfNilOrNotValid([parking], [otherParking])
                 }
                 catch {
                     XCTFail("testThrowIfNilOrNotValidArrayOfOptionalsArrays function fails")
@@ -266,13 +266,13 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         func testThrowIfNotValidArrayOfOptionals()
         {
             if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-                let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+                let otherJson = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
             {
                 let parking = try? ParkingModel(params: json)
-                let parking2 = try? ParkingModel(params: json2)
+                let otherParking = try? ParkingModel(params: otherJson)
     
                 do {
-                    try throwIfNotValid(parking, parking2)
+                    try throwIfNotValid(parking, otherParking)
                 }
                 catch {
                     XCTFail("testThrowIfNotValidArrayOfOptionals function fails")
@@ -282,7 +282,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                 fatalError("no such file")
             }
         }
-    
+
         func testThrowIfNotValidArrayOfOptionalsWithNilObject()
         {
             if let json = getJSON("test_parking_model_with_valid_vehicles_in_array")
@@ -291,10 +291,9 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
     
                 do {
                     try throwIfNotValid(parking, nil)
-                    XCTFail("testThrowIfNotValidArrayOfOptionalsWithNilObject function fails")
                 }
                 catch {
-                    // Do nothing
+                    XCTFail("testThrowIfNotValidArrayOfOptionalsWithNilObject function fails")
                 }
             }
             else {
@@ -305,13 +304,13 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         func testThrowIfNotValidArrayOfOptionalsArrays()
         {
             if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
-                let json2 = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
+                let otherJson = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
             {
                 let parking = try! ParkingModel(params: json)
-                let parking2 = try! ParkingModel(params: json2)
+                let otherParking = try! ParkingModel(params: otherJson)
     
                 do {
-                    try throwIfNotValid([parking], [parking2])
+                    try throwIfNotValid([parking], [otherParking])
                 }
                 catch {
                     XCTFail("testThrowIfNotValidArrayOfOptionalsArrays function fails")
@@ -384,11 +383,11 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
 
         func testThrowIfNilOrEmpty()
         {
-            let string1 = "string1"
-            let string2 = "string2"
+            let string = "string"
+            let otherString = "otherString"
     
             do {
-                try throwIfNilOrEmpty(string1, string2)
+                try throwIfNilOrEmpty(string, otherString)
             }
             catch {
                 XCTFail("testThrowIfNilOrEmpty function fails")
@@ -397,11 +396,11 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
 
         func testThrowIfNilOrEmptyWithEmptyString()
         {
-            let string1 = "string1"
-            let string2 = ""
+            let string = "string"
+            let emptyString = ""
     
             do {
-                try throwIfNilOrEmpty(string1, string2)
+                try throwIfNilOrEmpty(string, emptyString)
                 XCTFail("testThrowIfNilOrEmptyWithEmptyString function fails")
             }
             catch {
@@ -412,11 +411,11 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         // func throwIfNilOrEmpty(array: [String]? ...)
         func testThrowIfNilOrEmptyArrayOfOptionalArraysOfString()
         {
-            let string1 = "string1"
-            let string2 = "string2"
+            let string = "string"
+            let otherString = "otherString"
     
             do {
-                try throwIfNilOrEmpty([string1], [string2])
+                try throwIfNilOrEmpty([string], [otherString])
             }
             catch {
                 XCTFail("testThrowIfNilOrEmptyArrayOfOptionalArraysOfString function fails")
@@ -426,7 +425,7 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
         // func throwIfNilOrEmpty(array: [String]? ...)
         func testThrowIfNilOrEmptyArrayOfOptionalArraysOfStringWithNilArray()
         {
-            let string = "string1"
+            let string = "string"
     
             do {
                 try throwIfNilOrEmpty([string], nil)
@@ -469,11 +468,11 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
 
     func testThrowIfNilOrWhiteSpace()
     {
-        let string1 = "string1"
-        let string2 = "string2"
+        let string = "string"
+        let otherString = "otherString"
 
         do {
-            try throwIfNilOrWhiteSpace(string1, string2)
+            try throwIfNilOrWhiteSpace(string, otherString)
         }
         catch {
             XCTFail("testThrowIfNilOrEmpty function fails")
@@ -482,11 +481,11 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
 
     func testThrowIfNilOrWhiteSpaceWithWhiteSpaceString()
     {
-        let string1 = "string1"
-        let string2 = "   "
+        let string = "string"
+        let whiteSpaceString = "   "
 
         do {
-            try throwIfNilOrWhiteSpace(string1, string2)
+            try throwIfNilOrWhiteSpace(string, whiteSpaceString)
             XCTFail("testThrowIfNilOrWhiteSpaceWithWhiteSpaceString function fails")
         }
         catch {

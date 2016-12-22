@@ -34,7 +34,9 @@ public class ParkingModel: SerializableObject, Expectable
         try super.validate()
 
         //Validate instance
-        try throwIfNilOrNotValid(self.vehicles)
+        if self.watcher != nil {
+            try throwIfNilOrWhiteSpace(self.watcher)
+        }
     }
 
 }
