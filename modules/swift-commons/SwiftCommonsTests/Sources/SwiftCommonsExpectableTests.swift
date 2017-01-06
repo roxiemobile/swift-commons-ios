@@ -65,30 +65,30 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
             }
         }
     
-        func testThrowIfNotEquals()
+        func testThrowIfNotEqual()
         {
             let nilModel: String? = nil
             let otherNilModel: String? = nil
     
             do {
-                try throwIfNotEquals(nilModel, otherNilModel, message: nil)
+                try throwIfNotEqual(nilModel, otherNilModel, message: nil)
             }
             catch {
-                XCTFail("testThrowIfNotEquals function fails")
+                XCTFail("testThrowIfNotEqual function fails")
             }
         }
     
-        func testThrowIfNotEqualsBothNonNil()
+        func testThrowIfNotEqualBothNonNil()
         {
             if let json = getJSON("test_parking_model_with_valid_vehicles_in_array")
             {
                 let parking = try? ParkingModel(params: json)
     
                 do {
-                    try throwIfNotEquals(parking, parking, message: nil)
+                    try throwIfNotEqual(parking, parking, message: nil)
                 }
                 catch {
-                    XCTFail("testThrowIfNotEqualsBothNonNil function fails")
+                    XCTFail("testThrowIfNotEqualBothNonNil function fails")
                 }
             }
             else {
@@ -96,21 +96,21 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
             }
         }
     
-        func testThrowIfEqualsBothNil()
+        func testThrowIfEqualBothNil()
         {
             let nilModel: String? = nil
             let otherNilModel: String? = nil
     
             do {
-                try throwIfEquals(nilModel, otherNilModel, message: nil)
-                XCTFail("testThrowIfEqualsBothNil function fails")
+                try throwIfEqual(nilModel, otherNilModel, message: nil)
+                XCTFail("testThrowIfEqualBothNil function fails")
             }
             catch {
                 // Do nothing
             }
         }
     
-        func testThrowIfEqualsBothNonNil()
+        func testThrowIfEqualBothNonNil()
         {
             if let json = getJSON("test_parking_model_with_valid_vehicles_in_array"),
                let otherJson = getJSON("test_parking_other_model_with_valid_vehicles_in_array")
@@ -119,10 +119,10 @@ class SwiftCommonsExpectableTests: XCTestCase, Expectable
                 let otherParking = try! ParkingModel(params: otherJson)
     
                 do {
-                    try throwIfEquals(parking, otherParking, message: nil)
+                    try throwIfEqual(parking, otherParking, message: nil)
                 }
                 catch {
-                    XCTFail("testThrowIfEqualsBothNonNil function fails")
+                    XCTFail("testThrowIfEqualBothNonNil function fails")
                 }
             }
             else {

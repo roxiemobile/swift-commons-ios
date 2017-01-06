@@ -14,17 +14,24 @@ import Foundation
 
 public final class Expect: NonCreatable
 {
-// MARK: - Methods
-
-    public static func fail(message: String? = nil, file: StaticString = #file, line: UInt = #line) {
-        mdc_fatalError(message ?? "", file: file, line: line)
-    }
-
 // MARK: - Private Methods
 
-    private static func safeIsEquals<T:Equatable>(expected: T?, actual: T?) -> Bool {
+    private static func safeExpectEqual<T:Equatable>(expected: T?, actual: T?) -> Bool {
         return (expected == nil && actual == nil) || (expected != nil && actual != nil && expected == actual)
     }
+
+    private static func recursiveForEach<T>(array: [[T]?], _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line,
+                                            block:  (T) -> ())
+    {
+        array.forEach {
+            expectNotNil($0, message: message, file: file, line: line)
+            $0!.forEach() { block($0) }
+        }
+    }
+
+    private static func throwException(message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+        mdc_fatalError(message ?? "", file: file, line: line)
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -33,15 +40,15 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isTrue(condition: Bool, message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectTrue(condition: Bool, message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
         if !condition {
-            fail(message, file: file, line: line)
+            throwException(message, file, line)
         }
     }
 
-    public static func isFalse(condition: Bool, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
-        isTrue(!condition, message: message, file: file, line: line)
+    public static func expectFalse(condition: Bool, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
+        expectTrue(!condition, message: message, file: file, line: line)
     }
 }
 
@@ -51,18 +58,12 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isEquals<T:Equatable>(expected: T?, _ actual: T?, message: String? = nil, file: StaticString = #file, line: UInt = #line)
-    {
-        if !safeIsEquals(expected, actual: actual) {
-            fail(message, file: file, line: line)
-        }
+    public static func expectEqual<T:Equatable>(expected: T?, _ actual: T?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
+        expectTrue(safeExpectEqual(expected, actual: actual), message: message, file: file, line: line)
     }
 
-    public static func isNotEquals<T:Equatable>(unexpected: T?, _ actual: T?, message: String? = nil, file: StaticString = #file, line: UInt = #line)
-    {
-        if safeIsEquals(unexpected, actual: actual) {
-            fail(message, file: file, line: line)
-        }
+    public static func expectNotEqual<T:Equatable>(unexpected: T?, _ actual: T?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
+        expectFalse(safeExpectEqual(unexpected, actual: actual), message: message, file: file, line: line)
     }
 }
 
@@ -72,58 +73,22 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isNil(object: AnyObject?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
-        isTrue(object == nil, message: message, file: file, line: line)
+    public static func expectNil(object: AnyObject?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
+        expectTrue(object == nil, message: message, file: file, line: line)
     }
 
-    public static func isNotNil(object: AnyObject?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
-        isTrue(object != nil, message: message, file: file, line: line)
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-extension Expect
-{
-// MARK: - Methods
-
-    public static func isNilOrEmpty(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
-    {
-        for (_, value) in array.enumerate() {
-            if str_isNotEmpty(value) {
-                fail(message, file: file, line: line)
-            }
-        }
+    public static func expectNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
+        expectTrue(object == nil, message: message, file: file, line: line)
     }
 
-    public static func isNilOrWhiteSpace(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
-    {
-        for (_, value) in array.enumerate() {
-            if str_isNotEmpty(value?.trimmed()) {
-                fail(message, file: file, line: line)
-            }
-        }
+// --
+
+    public static func expectNotNil(object: AnyObject?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
+        expectTrue(object != nil, message: message, file: file, line: line)
     }
 
-    public static func isNotEmpty(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
-    {
-        if !str_isNotEmpty(array) {
-            fail(message, file: file, line: line)
-        }
-    }
-
-    public static func isNotEmpty(array: [String]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
-    {
-        if !str_isNotEmpty(array) {
-            fail(message, file: file, line: line)
-        }
-    }
-
-    public static func isNotEmpty(array: [String?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
-    {
-        if !str_isNotEmpty(array) {
-            fail(message, file: file, line: line)
-        }
+    public static func expectNotNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
+        expectTrue(object != nil, message: message, file: file, line: line)
     }
 }
 
@@ -133,45 +98,47 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNilOrEmpty(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        if !vld_isValid(array) {
-            fail(message, file: file, line: line)
+        array.forEach() {
+            expectTrue($0 == nil || $0!.isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNilOrEmpty(array: [String]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        if !vld_isValid(array) {
-            fail(message, file: file, line: line)
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0.isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNilOrEmpty(array: [String?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        if !vld_isValid(array) {
-            fail(message, file: file, line: line)
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0 == nil || $0!.isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isNotValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+// --
+
+    public static func expectNotEmpty(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        if vld_isValid(array) {
-            fail(message, file: file, line: line)
+        array.forEach() {
+            expectTrue($0 != nil && !$0!.isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isNotValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNotEmpty(array: [String]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        if vld_isValid(array) {
-            fail(message, file: file, line: line)
+        recursiveForEach(array, message, file, line) {
+            expectTrue(!$0.isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isNotValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNotEmpty(array: [String?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        if vld_isValid(array) {
-            fail(message, file: file, line: line)
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0 != nil && !$0!.isEmpty, message: message, file: file, line: line)
         }
     }
 }
@@ -182,57 +149,149 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isNilOrValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNilOrWhiteSpace(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        array.forEach {
-            if let value = $0 {
-                Expect.isValid(value, message: message, file: file, line: line)
-            }
+        array.forEach() {
+            expectTrue($0 == nil || $0!.trimmed().isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isNilOrValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNilOrWhiteSpace(array: [String]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        array.forEach {
-            if let value = $0 {
-                Expect.isValid(value, message: message, file: file, line: line)
-            }
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0.trimmed().isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isNilOrValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNilOrWhiteSpace(array: [String?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        array.forEach {
-            if let value = $0 {
-                Expect.isValid(value, message: message, file: file, line: line)
-            }
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0 == nil || $0!.trimmed().isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isNilOrNotValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+// --
+
+    public static func expectNotWhiteSpace(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        array.forEach {
-            if let value = $0 {
-                Expect.isNotValid(value, message: message, file: file, line: line)
-            }
+        array.forEach() {
+            expectTrue($0 != nil && !$0!.trimmed().isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isNilOrNotValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNotWhiteSpace(array: [String]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        array.forEach {
-            if let value = $0 {
-                Expect.isNotValid(value, message: message, file: file, line: line)
-            }
+        recursiveForEach(array, message, file, line) {
+            expectTrue(!$0.trimmed().isEmpty, message: message, file: file, line: line)
         }
     }
 
-    public static func isNilOrNotValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    public static func expectNotWhiteSpace(array: [String?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        array.forEach {
-            if let value = $0 {
-                Expect.isNotValid(value, message: message, file: file, line: line)
-            }
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0 != nil && !$0!.trimmed().isEmpty, message: message, file: file, line: line)
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+extension Expect
+{
+// MARK: - Methods
+
+    public static func expectValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        array.forEach() {
+            expectTrue($0 != nil && $0!.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+    public static func expectValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+    public static func expectValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0 != nil && $0!.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+// --
+
+    public static func expectNotValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        array.forEach() {
+            expectTrue($0 != nil && !$0!.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+    public static func expectNotValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        recursiveForEach(array, message, file, line) {
+            expectTrue(!$0.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+    public static func expectNotValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0 != nil && !$0!.isValid(), message: message, file: file, line: line)
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+extension Expect
+{
+// MARK: - Methods
+
+    public static func expectNilOrValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        array.forEach() {
+            expectTrue($0 == nil || $0!.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+    public static func expectNilOrValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+    public static func expectNilOrValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0 == nil || $0!.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+// --
+
+    public static func expectNilOrNotValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        array.forEach() {
+            expectTrue($0 == nil || !$0!.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+    public static func expectNilOrNotValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        recursiveForEach(array, message, file, line) {
+            expectTrue(!$0.isValid(), message: message, file: file, line: line)
+        }
+    }
+
+    public static func expectNilOrNotValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line)
+    {
+        recursiveForEach(array, message, file, line) {
+            expectTrue($0 == nil || !$0!.isValid(), message: message, file: file, line: line)
         }
     }
 }
