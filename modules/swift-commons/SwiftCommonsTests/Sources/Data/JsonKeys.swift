@@ -8,17 +8,18 @@
 //
 // ----------------------------------------------------------------------------
 
-public struct JsonKeys
+// @deprecated
+internal struct JsonKeys
 {
 // MARK: - Vehicle
 
-    public static let Model = "model"
-    public static let Color = "color"
+    internal static let Model = "model"
+    internal static let Color = "color"
 
 // MARK: - Parking
 
-    public static let Watcher = "watcher"
-    public static let Vehicles = "vehicles"
+    internal static let Watcher = "watcher"
+    internal static let Vehicles = "vehicles"
     
 }
 
