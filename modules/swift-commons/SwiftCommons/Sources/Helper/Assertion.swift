@@ -14,7 +14,7 @@ import Foundation
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-// @deprecared
+// @deprecated
 internal func mdc_assertion(@autoclosure condition: () -> Bool, message: String = String(), file: StaticString = #file, line: UInt = #line)
 {
     if !condition() {
@@ -22,7 +22,7 @@ internal func mdc_assertion(@autoclosure condition: () -> Bool, message: String 
     }
 }
 
-// @deprecared
+// @deprecated
 internal func mdc_assertionFailure(message: String, file: StaticString = #file, line: UInt = #line)
 {
     let errorMessage = "Assertion violated: \(message)\nFile: \(file)\nLine: \(line)"

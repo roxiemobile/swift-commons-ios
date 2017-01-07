@@ -16,7 +16,7 @@ public extension NSFileManager
 {
 // MARK: - Properties
 
-    /// Rerurns documents directory.
+    /// Returns documents directory.
     public class var documentsDirectory: NSURL?
     {
         struct Singleton {
@@ -25,7 +25,7 @@ public extension NSFileManager
         return Singleton.directory
     }
 
-    /// Rerurns caches directory.
+    /// Returns caches directory.
     public class var cachesDirectory: NSURL?
     {
         struct Singleton {
@@ -34,7 +34,7 @@ public extension NSFileManager
         return Singleton.directory
     }
 
-    /// Rerurns temporary directory.
+    /// Returns temporary directory.
     public class var temporaryDirectory: NSURL?
     {
         struct Singleton {
@@ -43,7 +43,7 @@ public extension NSFileManager
         return Singleton.directory
     }
 
-    /// Rerurns databases directory.
+    /// Returns databases directory.
     public class var databasesDirectory: NSURL?
     {
         struct Singleton {

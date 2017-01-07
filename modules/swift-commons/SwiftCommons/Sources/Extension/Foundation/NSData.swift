@@ -22,23 +22,8 @@ public extension NSData
 
 // MARK: - Methods
 
-    class func isNilOrEmpty(objects: NSData?...) -> Bool
-    {
-        if objects.isEmpty {
-            return true
-        }
-
-        var result = false
-        for obj in objects
-        {
-            if (obj == nil) || obj!.isEmpty
-            {
-                result = true
-                break
-            }
-        }
-
-        return result
+    static func isNilOrEmpty(obj: NSData?) -> Bool {
+        return (obj == nil) || obj!.isEmpty
     }
 
 }

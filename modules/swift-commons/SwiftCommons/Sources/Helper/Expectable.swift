@@ -103,26 +103,10 @@ extension Expectable
 {
 // MARK: - Methods
 
-    public func throwIfNil(object: AnyObject?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
-    {
-        try rethrowOnFailure(message, file: file, line: line) {
-            Expect.expectNil(object)
-        }
-    }
-
     public func throwIfNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
         try rethrowOnFailure(message, file: file, line: line) {
             Expect.expectNil(object)
-        }
-    }
-
-// --
-
-    public func throwIfNotNil(object: AnyObject?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
-    {
-        try rethrowOnFailure(message, file: file, line: line) {
-            Expect.expectNotNil(object)
         }
     }
 

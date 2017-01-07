@@ -73,18 +73,8 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func expectNil(object: AnyObject?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
-        expectTrue(object == nil, message: message, file: file, line: line)
-    }
-
     public static func expectNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
         expectTrue(object == nil, message: message, file: file, line: line)
-    }
-
-// --
-
-    public static func expectNotNil(object: AnyObject?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {
-        expectTrue(object != nil, message: message, file: file, line: line)
     }
 
     public static func expectNotNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) {

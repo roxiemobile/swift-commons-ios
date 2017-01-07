@@ -43,7 +43,7 @@ public extension String
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
     var mdc_sha1String: String {
-        return self.mdc_sha1Digect.mdc_hexString
+        return self.mdc_sha1Digest.mdc_hexString
     }
 
     /**
@@ -52,7 +52,7 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_sha1Digect: NSData {
+    var mdc_sha1Digest: NSData {
         return dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.mdc_sha1Digest
     }
 

@@ -156,7 +156,7 @@ public class DatabaseHelper
         }
 
         // Open on-disk OR in-memory database
-        if str_isNotEmpty(name) {
+        if String.isNotWhiteSpace(name) {
             database = createDatabaseObject(name, readonly: readonly)
 
             // Send events to the delegate
@@ -332,9 +332,9 @@ public class DatabaseHelper
     }
 
     private func sanitizeName(name: String?) -> String {
-        return str_isNotEmpty(name?.trimmed()) ? name! : Inner.InMemoryDatabase
+        return String.isNotWhiteSpace(name) ? name! : Inner.InMemoryDatabase
     }
-    
+
     private func execute(database: Database?, query: String?)
     {
         guard let database = database,
