@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
 //  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ public class DatabaseHelper
             do {
                 try database?.run("PRAGMA user_version = \(transcode(Int64(newValue)))")
             } catch {
-                MDLog.e("Can't set db userVersion: \(error)")
+                Logger.e("Can't set db userVersion: \(error)")
             }
         }
     }

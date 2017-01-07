@@ -2,9 +2,9 @@
 //
 //  Assertion.swift
 //
-//  @author     Vasily Ivanov <ivanovvf@ekassir.com>
+//  @author     Vasily Ivanov <IvanovVF@ekassir.com>
 //  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @link       http://www.ekassir.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ internal func mdc_assertion(@autoclosure condition: () -> Bool, message: String 
 internal func mdc_assertionFailure(message: String, file: StaticString = #file, line: UInt = #line)
 {
     let errorMessage = "Assertion violated: \(message)\nFile: \(file)\nLine: \(line)"
-    MDLog.e(errorMessage)
+    Logger.e(errorMessage)
     assertionFailure(errorMessage)
 }
 

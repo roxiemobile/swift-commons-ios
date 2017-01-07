@@ -20,20 +20,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-public func synchronized<T>(object: AnyObject, closure: () -> T) -> T
+public func synchronized<T>(object: AnyObject, block: () -> T) -> T
 {
     var result: Any?
 
     objc_sync_enter(object)
-    result = closure()
+    result = block()
     objc_sync_exit (object)
 
     return (result as! T)
 }
 
-public func synchronized(object: AnyObject, closure: () -> Void)
+public func synchronized(object: AnyObject, block: () -> Void)
 {
     objc_sync_enter(object)
-    closure()
+    block()
     objc_sync_exit (object)
 }

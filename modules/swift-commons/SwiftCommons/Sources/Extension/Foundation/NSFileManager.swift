@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
 //  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -116,7 +116,7 @@ public func mdc_removeItemAtURL(url: NSURL?)
         do {
             try fileManager.removeItemAtURL(url)
         } catch {
-            MDLog.e("Can't remove item with URL \(url), error: \(error)")
+            Logger.e("Can't remove item with URL \(url), error: \(error)")
         }
     }
 }
@@ -131,7 +131,7 @@ public func mdc_copyItemAtURL(srcURL: NSURL?, toURL dstURL: NSURL?) -> Bool
     let fileManager = NSFileManager.defaultManager()
     
     guard let srcPath = srcURL.path where fileManager.fileExistsAtPath(srcPath) else {
-        MDLog.e("Can't copy item from non-existing URL \(srcURL)")
+        Logger.e("Can't copy item from non-existing URL \(srcURL)")
         return false
     }
     
@@ -139,7 +139,7 @@ public func mdc_copyItemAtURL(srcURL: NSURL?, toURL dstURL: NSURL?) -> Bool
         try fileManager.copyItemAtURL(srcURL, toURL: dstURL)
         return true
     } catch {
-        MDLog.e("Can't copy item from URL \(srcURL) to URL \(dstURL), error: \(error)")
+        Logger.e("Can't copy item from URL \(srcURL) to URL \(dstURL), error: \(error)")
         return false
     }
 }
