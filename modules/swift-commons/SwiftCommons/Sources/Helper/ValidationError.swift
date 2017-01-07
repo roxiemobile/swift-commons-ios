@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  ExpectationError.swift
+//  ValidationError.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class ExpectationError: ErrorType
+public class ValidationError: ErrorType
 {
 // MARK: - Construction
 

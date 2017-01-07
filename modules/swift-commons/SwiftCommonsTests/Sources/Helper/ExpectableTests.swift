@@ -14,7 +14,7 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class ExpectableTests: XCTestCase, Expectable
+class ExpectableTests: XCTestCase, Inspectable
 {
 // MARK: - Tests
 
@@ -431,7 +431,7 @@ class ExpectableTests: XCTestCase, Expectable
 
             XCTFail("Line: \(line) - \(method): Method not thrown an error")
         }
-        catch _ as ExpectationError {
+        catch _ as ValidationError {
             // Do nothing
         }
         catch {
@@ -444,7 +444,7 @@ class ExpectableTests: XCTestCase, Expectable
         do {
             try block()
         }
-        catch _ as ExpectationError {
+        catch _ as ValidationError {
             XCTFail("Line: \(line) - \(method): Method thrown an error")
         }
         catch {

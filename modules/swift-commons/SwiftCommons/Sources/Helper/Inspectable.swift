@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Expectable.swift
+//  Inspectable.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -12,13 +12,13 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public protocol Expectable {
+public protocol Inspectable {
     // Do nothing
 }
 
 // ----------------------------------------------------------------------------
 
-extension Expectable
+extension Inspectable
 {
 // MARK: - Private Methods
 
@@ -51,13 +51,13 @@ extension Expectable
     }
 
     private func throwError(message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
-        throw ExpectationError(message ?? "", file: file, line: line)
+        throw ValidationError(message ?? "", file: file, line: line)
     }
 }
 
 // ----------------------------------------------------------------------------
 
-extension Expectable
+extension Inspectable
 {
 // MARK: - Methods
 
@@ -78,7 +78,7 @@ extension Expectable
 
 // ----------------------------------------------------------------------------
 
-extension Expectable
+extension Inspectable
 {
 // MARK: - Methods
 
@@ -99,7 +99,7 @@ extension Expectable
 
 // ----------------------------------------------------------------------------
 
-extension Expectable
+extension Inspectable
 {
 // MARK: - Methods
 
@@ -120,7 +120,7 @@ extension Expectable
 
 // ----------------------------------------------------------------------------
 
-extension Expectable
+extension Inspectable
 {
 // MARK: - Methods
 
@@ -154,7 +154,7 @@ extension Expectable
 
 // ----------------------------------------------------------------------------
 
-extension Expectable
+extension Inspectable
 {
 // MARK: - Methods
 
@@ -188,7 +188,7 @@ extension Expectable
 
 // ----------------------------------------------------------------------------
 
-extension Expectable
+extension Inspectable
 {
 // MARK: - Methods
 
@@ -222,7 +222,7 @@ extension Expectable
 
 // ----------------------------------------------------------------------------
 
-extension Expectable
+extension Inspectable
 {
 // MARK: - Methods
 

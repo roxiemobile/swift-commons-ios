@@ -13,7 +13,7 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class SwiftCommonsExpectableTests: XCTestCase, Expectable
+class SwiftCommonsExpectableTests: XCTestCase, Inspectable
 {
     override func setUp() {
         super.setUp()

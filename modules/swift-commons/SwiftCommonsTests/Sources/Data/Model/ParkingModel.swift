@@ -13,7 +13,7 @@ import SwiftCommons
 // ----------------------------------------------------------------------------
 
 // @deprecated
-internal class ParkingModel: SerializableObject, Expectable
+internal class ParkingModel: SerializableObject, Inspectable
 {
 // MARK: - Properties
 
