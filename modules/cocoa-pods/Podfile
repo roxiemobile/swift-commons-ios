@@ -8,4 +8,7 @@ workspace '../swift-commons/SwiftCommons.xcworkspace'
 
 target 'SwiftCommonsTests' do
   pod 'SwiftCommons', path: '../../'
+
+  # External dependencies
+  pod 'SwiftyJSON', '~> 2.4'
 end
