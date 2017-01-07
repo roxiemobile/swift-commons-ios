@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public protocol Inspectable {
+public protocol Inspectable: Expectable {
     // Do nothing
 }
 
@@ -64,14 +64,14 @@ extension Inspectable
     public func throwIfTrue(condition: Bool, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
         try rethrowOnFailure(message, file: file, line: line) {
-            Expect.expectTrue(condition)
+            self.expectTrue(condition)
         }
     }
 
     public func throwIfFalse(condition: Bool, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
         try rethrowOnFailure(message, file: file, line: line) {
-            Expect.expectFalse(condition)
+            self.expectFalse(condition)
         }
     }
 }
@@ -85,14 +85,14 @@ extension Inspectable
     public func throwIfEqual<T:Equatable>(expected: T?, _ actual: T?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
         try rethrowOnFailure(message, file: file, line: line) {
-            Expect.expectEqual(expected, actual)
+            self.expectEqual(expected, actual)
         }
     }
 
     public func throwIfNotEqual<T:Equatable>(unexpected: T?, _ actual: T?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
         try rethrowOnFailure(message, file: file, line: line) {
-            Expect.expectNotEqual(unexpected, actual)
+            self.expectNotEqual(unexpected, actual)
         }
     }
 }
@@ -106,14 +106,14 @@ extension Inspectable
     public func throwIfNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
         try rethrowOnFailure(message, file: file, line: line) {
-            Expect.expectNil(object)
+            self.expectNil(object)
         }
     }
 
     public func throwIfNotNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
         try rethrowOnFailure(message, file: file, line: line) {
-            Expect.expectNotNil(object)
+            self.expectNotNil(object)
         }
     }
 }
@@ -128,7 +128,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNotEmpty($0)
+                self.expectNotEmpty($0)
             }
         }
     }
@@ -137,7 +137,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNotEmpty($0)
+                self.expectNotEmpty($0)
             }
         }
     }
@@ -146,7 +146,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNotEmpty($0)
+                self.expectNotEmpty($0)
             }
         }
     }
@@ -162,7 +162,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNotWhiteSpace($0)
+                self.expectNotWhiteSpace($0)
             }
         }
     }
@@ -171,7 +171,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNotWhiteSpace($0)
+                self.expectNotWhiteSpace($0)
             }
         }
     }
@@ -180,7 +180,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNotWhiteSpace($0)
+                self.expectNotWhiteSpace($0)
             }
         }
     }
@@ -196,7 +196,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNilOrValid($0)
+                self.expectNilOrValid($0)
             }
         }
     }
@@ -205,7 +205,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNilOrValid($0)
+                self.expectNilOrValid($0)
             }
         }
     }
@@ -214,7 +214,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectNilOrValid($0)
+                self.expectNilOrValid($0)
             }
         }
     }
@@ -230,7 +230,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectValid($0)
+                self.expectValid($0)
             }
         }
     }
@@ -239,7 +239,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectValid($0)
+                self.expectValid($0)
             }
         }
     }
@@ -248,7 +248,7 @@ extension Inspectable
     {
         try rethrowOnSuccess(message, file: file, line: line) {
             array.forEach {
-                Expect.expectValid($0)
+                self.expectValid($0)
             }
         }
     }

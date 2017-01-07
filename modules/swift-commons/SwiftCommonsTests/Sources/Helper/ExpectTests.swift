@@ -14,29 +14,29 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class ExpectTests: XCTestCase
+class ExpectTests: XCTestCase, Expectable
 {
 // MARK: - Tests
 
     func testExpectTrue()
     {
         expectThrowsException("expectTrue") {
-            Expect.expectTrue(1 > 2)
+            self.expectTrue(1 > 2)
         }
 
         expectNotThrowsException("expectTrue") {
-            Expect.expectTrue(2 > 1)
+            self.expectTrue(2 > 1)
         }
     }
 
     func testExpectFalse()
     {
         expectThrowsException("expectFalse") {
-            Expect.expectFalse(2 > 1)
+            self.expectFalse(2 > 1)
         }
 
         expectNotThrowsException("expectFalse") {
-            Expect.expectFalse(1 > 2)
+            self.expectFalse(1 > 2)
         }
     }
 
@@ -49,17 +49,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectEqual") {
-            Expect.expectEqual(1, 2)
+            self.expectEqual(1, 2)
         }
         expectThrowsException("expectEqual") {
-            Expect.expectEqual(string, nilString)
+            self.expectEqual(string, nilString)
         }
 
         expectNotThrowsException("expectEqual") {
-            Expect.expectEqual(2, 2)
+            self.expectEqual(2, 2)
         }
         expectNotThrowsException("expectEqual") {
-            Expect.expectEqual(string, string)
+            self.expectEqual(string, string)
         }
     }
 
@@ -70,17 +70,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotEqual") {
-            Expect.expectNotEqual(2, 2)
+            self.expectNotEqual(2, 2)
         }
         expectThrowsException("expectNotEqual") {
-            Expect.expectNotEqual(string, string)
+            self.expectNotEqual(string, string)
         }
 
         expectNotThrowsException("expectNotEqual") {
-            Expect.expectNotEqual(1, 2)
+            self.expectNotEqual(1, 2)
         }
         expectNotThrowsException("expectNotEqual") {
-            Expect.expectNotEqual(string, nilString)
+            self.expectNotEqual(string, nilString)
         }
     }
 
@@ -89,22 +89,22 @@ class ExpectTests: XCTestCase
     func testExpectNil()
     {
         expectThrowsException("expectNil") {
-            Expect.expectNil(2)
+            self.expectNil(2)
         }
 
         expectNotThrowsException("expectNil") {
-            Expect.expectNil(nil)
+            self.expectNil(nil)
         }
     }
 
     func testExpectNotNil()
     {
         expectThrowsException("expectNotNil") {
-            Expect.expectNotNil(nil)
+            self.expectNotNil(nil)
         }
 
         expectNotThrowsException("expectNotNil") {
-            Expect.expectNotNil(2)
+            self.expectNotNil(2)
         }
     }
 
@@ -118,17 +118,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrEmpty") {
-            Expect.expectNilOrEmpty(string)
+            self.expectNilOrEmpty(string)
         }
         expectThrowsException("expectNilOrEmpty") {
-            Expect.expectNilOrEmpty(nilString, string)
+            self.expectNilOrEmpty(nilString, string)
         }
         expectThrowsException("expectNilOrEmpty") {
-            Expect.expectNilOrEmpty(emptyString, string)
+            self.expectNilOrEmpty(emptyString, string)
         }
 
         expectNotThrowsException("expectNilOrEmpty") {
-            Expect.expectNilOrEmpty(nilString, emptyString)
+            self.expectNilOrEmpty(nilString, emptyString)
         }
     }
 
@@ -141,20 +141,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrEmpty_Array") {
-            Expect.expectNilOrEmpty([string])
+            self.expectNilOrEmpty([string])
         }
         expectThrowsException("expectNilOrEmpty_Array") {
-            Expect.expectNilOrEmpty([emptyString, string])
+            self.expectNilOrEmpty([emptyString, string])
         }
         expectThrowsException("expectNilOrEmpty_Array") {
-            Expect.expectNilOrEmpty(nil, array)
+            self.expectNilOrEmpty(nil, array)
         }
         expectThrowsException("expectNilOrEmpty_Array") {
-            Expect.expectNilOrEmpty(array, [string])
+            self.expectNilOrEmpty(array, [string])
         }
 
         expectNotThrowsException("expectNilOrEmpty_Array") {
-            Expect.expectNilOrEmpty(array, [emptyString])
+            self.expectNilOrEmpty(array, [emptyString])
         }
     }
 
@@ -169,20 +169,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.expectNilOrEmpty([optionalString])
+            self.expectNilOrEmpty([optionalString])
         }
         expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.expectNilOrEmpty([nilString, string])
+            self.expectNilOrEmpty([nilString, string])
         }
         expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.expectNilOrEmpty([emptyString, string])
+            self.expectNilOrEmpty([emptyString, string])
         }
         expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.expectNilOrEmpty(nil, arrayOfOptionals)
+            self.expectNilOrEmpty(nil, arrayOfOptionals)
         }
 
         expectNotThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.expectNilOrEmpty(arrayOfOptionals, [emptyString])
+            self.expectNilOrEmpty(arrayOfOptionals, [emptyString])
         }
     }
 
@@ -194,17 +194,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotEmpty") {
-            Expect.expectNotEmpty(nilString)
+            self.expectNotEmpty(nilString)
         }
         expectThrowsException("expectNotEmpty") {
-            Expect.expectNotEmpty(emptyString)
+            self.expectNotEmpty(emptyString)
         }
         expectThrowsException("expectNotEmpty") {
-            Expect.expectNotEmpty(string, emptyString)
+            self.expectNotEmpty(string, emptyString)
         }
 
         expectNotThrowsException("expectNotEmpty") {
-            Expect.expectNotEmpty(string)
+            self.expectNotEmpty(string)
         }
     }
 
@@ -217,17 +217,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotEmpty_Array") {
-            Expect.expectNotEmpty([emptyString])
+            self.expectNotEmpty([emptyString])
         }
         expectThrowsException("expectNotEmpty_Array") {
-            Expect.expectNotEmpty([string, emptyString])
+            self.expectNotEmpty([string, emptyString])
         }
         expectThrowsException("expectNotEmpty_Array") {
-            Expect.expectNotEmpty(array, nil, [string])
+            self.expectNotEmpty(array, nil, [string])
         }
 
         expectNotThrowsException("expectNotEmpty_Array") {
-            Expect.expectNotEmpty(array, [string])
+            self.expectNotEmpty(array, [string])
         }
     }
 
@@ -242,17 +242,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
-            Expect.expectNotEmpty([nilString])
+            self.expectNotEmpty([nilString])
         }
         expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
-            Expect.expectNotEmpty([string, emptyString])
+            self.expectNotEmpty([string, emptyString])
         }
         expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
-            Expect.expectNotEmpty(arrayOfOptionals, nil, [string])
+            self.expectNotEmpty(arrayOfOptionals, nil, [string])
         }
 
         expectNotThrowsException("expectNotEmpty_ArrayOfOptionals") {
-            Expect.expectNotEmpty(arrayOfOptionals, [string])
+            self.expectNotEmpty(arrayOfOptionals, [string])
         }
     }
 
@@ -267,20 +267,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrWhiteSpace") {
-            Expect.expectNilOrWhiteSpace(string)
+            self.expectNilOrWhiteSpace(string)
         }
         expectThrowsException("expectNilOrWhiteSpace") {
-            Expect.expectNilOrWhiteSpace(nilString, string)
+            self.expectNilOrWhiteSpace(nilString, string)
         }
         expectThrowsException("expectNilOrWhiteSpace") {
-            Expect.expectNilOrWhiteSpace(emptyString, string)
+            self.expectNilOrWhiteSpace(emptyString, string)
         }
         expectThrowsException("expectNilOrWhiteSpace") {
-            Expect.expectNilOrWhiteSpace(whitespaceString, string)
+            self.expectNilOrWhiteSpace(whitespaceString, string)
         }
 
         expectNotThrowsException("expectNilOrWhiteSpace") {
-            Expect.expectNilOrWhiteSpace(nilString, emptyString, whitespaceString)
+            self.expectNilOrWhiteSpace(nilString, emptyString, whitespaceString)
         }
     }
 
@@ -294,23 +294,23 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.expectNilOrWhiteSpace([string])
+            self.expectNilOrWhiteSpace([string])
         }
         expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.expectNilOrWhiteSpace([emptyString, string])
+            self.expectNilOrWhiteSpace([emptyString, string])
         }
         expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.expectNilOrWhiteSpace([whitespaceString, string])
+            self.expectNilOrWhiteSpace([whitespaceString, string])
         }
         expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.expectNilOrWhiteSpace(nil, array)
+            self.expectNilOrWhiteSpace(nil, array)
         }
         expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.expectNilOrWhiteSpace(array, [string])
+            self.expectNilOrWhiteSpace(array, [string])
         }
 
         expectNotThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.expectNilOrWhiteSpace(array, [whitespaceString])
+            self.expectNilOrWhiteSpace(array, [whitespaceString])
         }
     }
 
@@ -326,23 +326,23 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNilOrWhiteSpace([optionalString])
+            self.expectNilOrWhiteSpace([optionalString])
         }
         expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNilOrWhiteSpace([nilString, string])
+            self.expectNilOrWhiteSpace([nilString, string])
         }
         expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNilOrWhiteSpace([emptyString, string])
+            self.expectNilOrWhiteSpace([emptyString, string])
         }
         expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNilOrWhiteSpace([whitespaceString, string])
+            self.expectNilOrWhiteSpace([whitespaceString, string])
         }
         expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNilOrWhiteSpace(nil, arrayOfOptionals)
+            self.expectNilOrWhiteSpace(nil, arrayOfOptionals)
         }
 
         expectNotThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNilOrWhiteSpace(arrayOfOptionals, [whitespaceString])
+            self.expectNilOrWhiteSpace(arrayOfOptionals, [whitespaceString])
         }
     }
 
@@ -355,20 +355,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotWhiteSpace") {
-            Expect.expectNotWhiteSpace(nilString)
+            self.expectNotWhiteSpace(nilString)
         }
         expectThrowsException("expectNotWhiteSpace") {
-            Expect.expectNotWhiteSpace(emptyString)
+            self.expectNotWhiteSpace(emptyString)
         }
         expectThrowsException("expectNotWhiteSpace") {
-            Expect.expectNotWhiteSpace(whitespaceString)
+            self.expectNotWhiteSpace(whitespaceString)
         }
         expectThrowsException("expectNotWhiteSpace") {
-            Expect.expectNotWhiteSpace(string, whitespaceString)
+            self.expectNotWhiteSpace(string, whitespaceString)
         }
 
         expectNotThrowsException("expectNotWhiteSpace") {
-            Expect.expectNotWhiteSpace(string)
+            self.expectNotWhiteSpace(string)
         }
     }
 
@@ -382,20 +382,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotWhiteSpace_Array") {
-            Expect.expectNotWhiteSpace([emptyString])
+            self.expectNotWhiteSpace([emptyString])
         }
         expectThrowsException("expectNotWhiteSpace_Array") {
-            Expect.expectNotWhiteSpace([whitespaceString])
+            self.expectNotWhiteSpace([whitespaceString])
         }
         expectThrowsException("expectNotWhiteSpace_Array") {
-            Expect.expectNotWhiteSpace([string, whitespaceString])
+            self.expectNotWhiteSpace([string, whitespaceString])
         }
         expectThrowsException("expectNotWhiteSpace_Array") {
-            Expect.expectNotWhiteSpace(nil, array)
+            self.expectNotWhiteSpace(nil, array)
         }
 
         expectNotThrowsException("expectNotWhiteSpace_Array") {
-            Expect.expectNotWhiteSpace(array, [string])
+            self.expectNotWhiteSpace(array, [string])
         }
     }
 
@@ -411,23 +411,23 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNotWhiteSpace([nilString])
+            self.expectNotWhiteSpace([nilString])
         }
         expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNotWhiteSpace([emptyString])
+            self.expectNotWhiteSpace([emptyString])
         }
         expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNotWhiteSpace([whitespaceString])
+            self.expectNotWhiteSpace([whitespaceString])
         }
         expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNotWhiteSpace([string, whitespaceString])
+            self.expectNotWhiteSpace([string, whitespaceString])
         }
         expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNotWhiteSpace(nil, arrayOfOptionals)
+            self.expectNotWhiteSpace(nil, arrayOfOptionals)
         }
 
         expectNotThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.expectNotWhiteSpace(arrayOfOptionals, [string])
+            self.expectNotWhiteSpace(arrayOfOptionals, [string])
         }
     }
 
@@ -440,14 +440,14 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectValid") {
-            Expect.expectValid(notValidObject)
+            self.expectValid(notValidObject)
         }
         expectThrowsException("expectValid") {
-            Expect.expectValid(validObject, notValidObject)
+            self.expectValid(validObject, notValidObject)
         }
 
         expectNotThrowsException("expectValid") {
-            Expect.expectValid(validObject)
+            self.expectValid(validObject)
         }
     }
 
@@ -460,17 +460,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectValid_Array") {
-            Expect.expectValid([notValidObject])
+            self.expectValid([notValidObject])
         }
         expectThrowsException("expectValid_Array") {
-            Expect.expectValid([validObject, notValidObject])
+            self.expectValid([validObject, notValidObject])
         }
         expectThrowsException("expectValid_Array") {
-            Expect.expectValid(nil, array)
+            self.expectValid(nil, array)
         }
 
         expectNotThrowsException("expectValid_Array") {
-            Expect.expectValid(array, [validObject])
+            self.expectValid(array, [validObject])
         }
     }
 
@@ -485,20 +485,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.expectValid([optionalNotValidObject])
+            self.expectValid([optionalNotValidObject])
         }
         expectThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.expectValid([validObject, nilObject])
+            self.expectValid([validObject, nilObject])
         }
         expectThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.expectValid([validObject, optionalNotValidObject])
+            self.expectValid([validObject, optionalNotValidObject])
         }
         expectThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.expectValid(nil, arrayOfOptionals)
+            self.expectValid(nil, arrayOfOptionals)
         }
 
         expectNotThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.expectValid(arrayOfOptionals, [validObject])
+            self.expectValid(arrayOfOptionals, [validObject])
         }
     }
 
@@ -511,11 +511,11 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotValid") {
-            Expect.expectNotValid(validObject)
+            self.expectNotValid(validObject)
         }
 
         expectNotThrowsException("expectNotValid") {
-            Expect.expectNotValid(notValidObject)
+            self.expectNotValid(notValidObject)
         }
     }
 
@@ -528,23 +528,23 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotValid_Array") {
-            Expect.expectNotValid([validObject])
+            self.expectNotValid([validObject])
         }
         expectThrowsException("expectNotValid_Array") {
-            Expect.expectNotValid([notValidObject, validObject])
+            self.expectNotValid([notValidObject, validObject])
         }
         expectThrowsException("expectNotValid_Array") {
-            Expect.expectNotValid(nil, array)
+            self.expectNotValid(nil, array)
         }
         expectThrowsException("expectNotValid_Array") {
-            Expect.expectNotValid(array, [validObject])
+            self.expectNotValid(array, [validObject])
         }
 
         expectNotThrowsException("expectNotValid_Array") {
-            Expect.expectNotValid([notValidObject])
+            self.expectNotValid([notValidObject])
         }
         expectNotThrowsException("expectNotValid_Array") {
-            Expect.expectNotValid(array, [notValidObject])
+            self.expectNotValid(array, [notValidObject])
         }
     }
 
@@ -560,20 +560,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.expectNotValid([optionalValidObject])
+            self.expectNotValid([optionalValidObject])
         }
         expectThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.expectNotValid([nilObject])
+            self.expectNotValid([nilObject])
         }
         expectThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.expectNotValid(nil, arrayOfOptionals)
+            self.expectNotValid(nil, arrayOfOptionals)
         }
         expectThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.expectNotValid(arrayOfOptionals, [validObject])
+            self.expectNotValid(arrayOfOptionals, [validObject])
         }
 
         expectNotThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.expectNotValid([notValidObject, optionalNotValidObject])
+            self.expectNotValid([notValidObject, optionalNotValidObject])
         }
     }
 
@@ -587,17 +587,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrValid") {
-            Expect.expectNilOrValid(notValidObject)
+            self.expectNilOrValid(notValidObject)
         }
         expectThrowsException("expectNilOrValid") {
-            Expect.expectNilOrValid(validObject, notValidObject)
+            self.expectNilOrValid(validObject, notValidObject)
         }
         expectThrowsException("expectNilOrValid") {
-            Expect.expectNilOrValid(nilObject, notValidObject)
+            self.expectNilOrValid(nilObject, notValidObject)
         }
 
         expectNotThrowsException("expectNilOrValid") {
-            Expect.expectNilOrValid(validObject, nilObject)
+            self.expectNilOrValid(validObject, nilObject)
         }
     }
 
@@ -610,20 +610,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrValid_Array") {
-            Expect.expectNilOrValid([notValidObject])
+            self.expectNilOrValid([notValidObject])
         }
         expectThrowsException("expectNilOrValid_Array") {
-            Expect.expectNilOrValid([validObject, notValidObject])
+            self.expectNilOrValid([validObject, notValidObject])
         }
         expectThrowsException("expectNilOrValid_Array") {
-            Expect.expectNilOrValid(nil, array)
+            self.expectNilOrValid(nil, array)
         }
         expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.expectNilOrValid(array, [notValidObject])
+            self.expectNilOrValid(array, [notValidObject])
         }
 
         expectNotThrowsException("expectNilOrValid_Array") {
-            Expect.expectNilOrValid(array, [validObject])
+            self.expectNilOrValid(array, [validObject])
         }
     }
 
@@ -638,20 +638,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.expectNilOrValid([optionalNotValidObject])
+            self.expectNilOrValid([optionalNotValidObject])
         }
         expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.expectNilOrValid([validObject, optionalNotValidObject])
+            self.expectNilOrValid([validObject, optionalNotValidObject])
         }
         expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.expectNilOrValid(nil, arrayOfOptionals)
+            self.expectNilOrValid(nil, arrayOfOptionals)
         }
 
         expectNotThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.expectNilOrValid([validObject, nilObject])
+            self.expectNilOrValid([validObject, nilObject])
         }
         expectNotThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.expectNilOrValid(arrayOfOptionals, [validObject])
+            self.expectNilOrValid(arrayOfOptionals, [validObject])
         }
     }
 
@@ -665,11 +665,11 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrNotValid") {
-            Expect.expectNilOrNotValid(validObject)
+            self.expectNilOrNotValid(validObject)
         }
 
         expectNotThrowsException("expectNilOrNotValid") {
-            Expect.expectNilOrNotValid(nilObject, notValidObject)
+            self.expectNilOrNotValid(nilObject, notValidObject)
         }
     }
 
@@ -682,20 +682,20 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.expectNilOrNotValid([validObject])
+            self.expectNilOrNotValid([validObject])
         }
         expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.expectNilOrNotValid([notValidObject, validObject])
+            self.expectNilOrNotValid([notValidObject, validObject])
         }
         expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.expectNilOrNotValid(nil, array)
+            self.expectNilOrNotValid(nil, array)
         }
         expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.expectNilOrNotValid(array, [validObject])
+            self.expectNilOrNotValid(array, [validObject])
         }
 
         expectNotThrowsException("expectNilOrNotValid_Array") {
-            Expect.expectNilOrNotValid(array, [notValidObject])
+            self.expectNilOrNotValid(array, [notValidObject])
         }
     }
 
@@ -710,17 +710,17 @@ class ExpectTests: XCTestCase
 
 
         expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
-            Expect.expectNilOrNotValid([optionalValidObject])
+            self.expectNilOrNotValid([optionalValidObject])
         }
         expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
-            Expect.expectNilOrNotValid(nil, arrayOfOptionals)
+            self.expectNilOrNotValid(nil, arrayOfOptionals)
         }
         expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
-            Expect.expectNilOrNotValid(arrayOfOptionals, [validObject])
+            self.expectNilOrNotValid(arrayOfOptionals, [validObject])
         }
 
         expectNotThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
-            Expect.expectNilOrNotValid(arrayOfOptionals)
+            self.expectNilOrNotValid(arrayOfOptionals)
         }
     }
 
