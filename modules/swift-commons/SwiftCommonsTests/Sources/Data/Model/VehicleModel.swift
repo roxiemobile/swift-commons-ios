@@ -12,17 +12,18 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-public class VehicleModel: SerializableObject, Expectable
+// @deprecated
+internal class VehicleModel: SerializableObject, Inspectable
 {
 // MARK: - Properties
 
-    public private(set) var model: String!
+    internal private(set) var model: String!
 
-    public private(set) var color: String!
+    internal private(set) var color: String!
 
 // MARK: - Methods
 
-    public override func mapping(map: Map) {
+    internal override func mapping(map: Map) {
         super.mapping(map)
 
         // (De)serialize to/from json
@@ -30,7 +31,7 @@ public class VehicleModel: SerializableObject, Expectable
         self.color <~ map[JsonKeys.Color]
     }
 
-    public override func validate() throws {
+    internal override func validate() throws {
         try super.validate()
 
         // Validate instance

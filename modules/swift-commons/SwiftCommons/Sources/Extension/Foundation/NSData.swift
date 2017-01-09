@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
 //  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -22,23 +22,8 @@ public extension NSData
 
 // MARK: - Methods
 
-    class func isNilOrEmpty(objects: NSData?...) -> Bool
-    {
-        if objects.isEmpty {
-            return true
-        }
-
-        var result = false
-        for obj in objects
-        {
-            if (obj == nil) || obj!.isEmpty
-            {
-                result = true
-                break
-            }
-        }
-
-        return result
+    static func isNilOrEmpty(obj: NSData?) -> Bool {
+        return (obj == nil) || obj!.isEmpty
     }
 
 }
