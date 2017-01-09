@@ -422,34 +422,82 @@ class InspectableTests: XCTestCase, Inspectable
         }
     }
 
+
+// MARK: - Tests
+
+    func testNotThrowIfValidModel()
+    {
+        if let validModelJson = getJSON("test_parking_model_with_valid_vehicles_in_array")
+        {
+            expectNotThrowsError("throwIfNonValidModel") {
+                let _ = try ParkingModel(params: validModelJson)
+            }
+        }
+    }
+
+    func testThrowIfNonValidModel()
+    {
+        if let nonValidModelJson = getJSON("test_parking_model_with_one_non_valid_vehicle_in_array")
+        {
+            expectThrowsError("throwIfNonValidModel", errorType: JsonSyntaxError.self) {
+                let _ = try ParkingModel(params: nonValidModelJson)
+            }
+        }
+    }
+
 // MARK: - Private Methods
 
-    private func expectThrowsError(method: String, line: UInt = #line, block: () throws -> ())
+    private func expectThrowsError(method: String, errorType: ErrorType.Type = ValidationError.self, line: UInt = #line, block: () throws -> ())
     {
         do {
             try block()
 
             XCTFail("Line: \(line) - \(method): Method not thrown an error")
         }
-        catch _ as ValidationError {
-            // Do nothing
-        }
-        catch {
-            XCTFail("Line: \(line) - \(method): Unknown error is thrown")
+        catch let error
+        {
+            if error.dynamicType != errorType {
+                XCTFail("Line: \(line) - \(method): Unknown error is thrown")
+            }
         }
     }
 
-    private func expectNotThrowsError(method: String, line: UInt = #line, block: () throws -> ())
+    private func expectNotThrowsError(method: String, errorType: ErrorType.Type = ValidationError.self, line: UInt = #line, block: () throws -> ())
     {
         do {
             try block()
         }
-        catch _ as ValidationError {
-            XCTFail("Line: \(line) - \(method): Method thrown an error")
+        catch let error
+        {
+            if error.dynamicType != errorType {
+                XCTFail("Line: \(line) - \(method): Unknown error is thrown")
+            }
+            else {
+                XCTFail("Line: \(line) - \(method): Method thrown an error")
+            }
         }
-        catch {
-            XCTFail("Line: \(line) - \(method): Unknown error is thrown")
+    }
+
+    private func getJSON(string: String) -> [String : AnyObject]?
+    {
+        if let filePath = NSBundle(forClass: self.dynamicType).pathForResource(string, ofType: "json") {
+            do {
+                let data = NSData(contentsOfFile: filePath)
+                if let data = data {
+                    let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+                    return json as? [String : AnyObject]
+                }
+                else {
+                    return nil
+                }
+            }
+            catch let error as NSError {
+                print("error loading contentsOf url \(filePath)")
+                print(error.localizedDescription)
+            }
         }
+
+        return nil
     }
 }
 
