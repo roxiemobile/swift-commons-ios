@@ -8,15 +8,16 @@
 //
 // ----------------------------------------------------------------------------
 
+// DEPRECATED: Code refactoring is needed
+public typealias Database = Connection
+
 // A helper class to manage database creation and version management.
 // @link https://github.com/android/platform_frameworks_base/blob/master/core/java/android/database/sqlite/SQLiteOpenHelper.java
-
-// MARK: - Types
-public typealias Database = Connection
 
 public class DatabaseHelper
 {
 // MARK: - Construction
+
     public init(databaseName: String?, version: Int, readonly: Bool = false, delegate: DatabaseOpenDelegate? = nil)
     {
         // Init instance variables
@@ -335,45 +336,46 @@ public class DatabaseHelper
         return String.isNotWhiteSpace(name) ? name! : Inner.InMemoryDatabase
     }
 
+    // DEPRECATED: Code refactoring is needed
     private func execute(database: Database?, query: String?)
     {
-        guard let database = database,
-              let query = query else {
-                return
-        }
-        
+        guard let database = database, let query = query else { return }
+
         do {
             try database.execute(query)
-        } catch {
-            mdc_assertionFailure("Database query \(query) failed with error \(error)")
+        }
+        catch {
+            mdc_fatalError("Database query \(query) failed with error \(error)")
         }
     }
-    
+
+    // DEPRECATED: Code refactoring is needed
     private func createDatabaseObject(uriPath: String?, readonly: Bool) -> Database?
     {
-        guard let uriPath = uriPath else {
-            mdc_assertionFailure("Can't create database object with nil uri path")
-            return nil
+        if uriPath == nil {
+            mdc_fatalError("Can't create database object with nil uri path")
         }
-        
+
         do {
-            return try Database(uriPath, readonly: false)
-        } catch {
-            mdc_assertionFailure("Can't open db at \(uriPath) with readonly \(readonly): \(error)")
-            return nil
+            return try Database(uriPath!, readonly: false)
+        }
+        catch {
+            mdc_fatalError("Can't open db at \(uriPath) with readonly \(readonly): \(error)")
         }
     }
-    
-    private func runTransaction(database: Database?, mode: Database.TransactionMode, block: () throws -> Void) {
-        guard let database = database else {
-            mdc_assertionFailure("Can't run transaction on nil database")
-            return
+
+    // DEPRECATED: Code refactoring is needed
+    private func runTransaction(database: Database?, mode: Database.TransactionMode, block: () throws -> Void)
+    {
+        if database == nil {
+            mdc_fatalError("Can't run transaction on nil database")
         }
-        
+
         do {
-            try database.transaction(mode, block: block)
-        } catch {
-            mdc_assertionFailure("Transaction failed with error \(error)")
+            try database!.transaction(mode, block: block)
+        }
+        catch {
+            mdc_fatalError("Transaction failed with error \(error)")
         }
     }
 
