@@ -14,149 +14,224 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class ExpectableTests: XCTestCase, Inspectable
+class ExpectableTests: XCTestCase, Expectable
 {
 // MARK: - Tests
 
-    func testThrowIfTrue()
+    func testExpectTrue()
     {
-        expectThrowsError("throwIfTrue") {
-            try self.throwIfTrue(2 > 1)
+        expectThrowsException("expectTrue") {
+            self.expectTrue(1 > 2)
         }
 
-        expectNotThrowsError("throwIfTrue") {
-            try self.throwIfTrue(1 > 2)
+        expectNotThrowsException("expectTrue") {
+            self.expectTrue(2 > 1)
         }
     }
 
-    func testThrowIfFalse()
+    func testExpectFalse()
     {
-        expectThrowsError("throwIfFalse") {
-            try self.throwIfFalse(1 > 2)
+        expectThrowsException("expectFalse") {
+            self.expectFalse(2 > 1)
         }
 
-        expectNotThrowsError("throwIfFalse") {
-            try self.throwIfFalse(2 > 1)
+        expectNotThrowsException("expectFalse") {
+            self.expectFalse(1 > 2)
         }
     }
 
 // MARK: - Tests
 
-    func testThrowIfEqual()
+    func testExpectEqual()
     {
         let string = "value"
         let nilString: String? = nil
 
-        expectThrowsError("throwIfEqual") {
-            try self.throwIfEqual(2, 2)
+
+        expectThrowsException("expectEqual") {
+            self.expectEqual(1, 2)
         }
-        expectThrowsError("throwIfEqual") {
-            try self.throwIfEqual(string, string)
+        expectThrowsException("expectEqual") {
+            self.expectEqual(string, nilString)
         }
 
-        expectNotThrowsError("throwIfEqual") {
-            try self.throwIfEqual(1, 2)
+        expectNotThrowsException("expectEqual") {
+            self.expectEqual(2, 2)
         }
-        expectNotThrowsError("throwIfEqual") {
-            try self.throwIfEqual(string, nilString)
+        expectNotThrowsException("expectEqual") {
+            self.expectEqual(string, string)
         }
     }
 
-    func testThrowIfNotEqual()
+    func testExpectNotEqual()
     {
         let string = "value"
         let nilString: String? = nil
 
-        expectThrowsError("throwIfNotEqual") {
-            try self.throwIfNotEqual(1, 2)
+
+        expectThrowsException("expectNotEqual") {
+            self.expectNotEqual(2, 2)
         }
-        expectThrowsError("throwIfNotEqual") {
-            try self.throwIfNotEqual(string, nilString)
+        expectThrowsException("expectNotEqual") {
+            self.expectNotEqual(string, string)
         }
 
-        expectNotThrowsError("throwIfNotEqual") {
-            try self.throwIfNotEqual(2, 2)
+        expectNotThrowsException("expectNotEqual") {
+            self.expectNotEqual(1, 2)
         }
-        expectNotThrowsError("throwIfNotEqual") {
-            try self.throwIfNotEqual(string, string)
-        }
-    }
-
-// MARK: - Tests
-
-    func testThrowIfNil()
-    {
-        expectThrowsError("throwIfNil") {
-            try self.throwIfNil(nil)
-        }
-
-        expectNotThrowsError("throwIfNil") {
-            try self.throwIfNil(2)
-        }
-    }
-
-    func testThrowIfNotNil()
-    {
-        expectThrowsError("throwIfNotNil") {
-            try self.throwIfNotNil(2)
-        }
-
-        expectNotThrowsError("throwIfNotNil") {
-            try self.throwIfNotNil(nil)
+        expectNotThrowsException("expectNotEqual") {
+            self.expectNotEqual(string, nilString)
         }
     }
 
 // MARK: - Tests
 
-    func testThrowIfNilOrEmpty()
+    func testExpectNil()
+    {
+        expectThrowsException("expectNil") {
+            self.expectNil(2)
+        }
+
+        expectNotThrowsException("expectNil") {
+            self.expectNil(nil)
+        }
+    }
+
+    func testExpectNotNil()
+    {
+        expectThrowsException("expectNotNil") {
+            self.expectNotNil(nil)
+        }
+
+        expectNotThrowsException("expectNotNil") {
+            self.expectNotNil(2)
+        }
+    }
+
+// MARK: - Tests
+
+    func testExpectNilOrEmpty()
     {
         let string = "value"
         let nilString: String? = nil
         let emptyString = ""
 
 
-        expectThrowsError("throwIfNilOrEmpty") {
-            try self.throwIfNilOrEmpty(emptyString)
+        expectThrowsException("expectNilOrEmpty") {
+            self.expectNilOrEmpty(string)
         }
-        expectThrowsError("throwIfNilOrEmpty") {
-            try self.throwIfNilOrEmpty(string, nilString)
+        expectThrowsException("expectNilOrEmpty") {
+            self.expectNilOrEmpty(nilString, string)
         }
-        expectThrowsError("throwIfNilOrEmpty") {
-            try self.throwIfNilOrEmpty(string, emptyString)
+        expectThrowsException("expectNilOrEmpty") {
+            self.expectNilOrEmpty(emptyString, string)
         }
 
-        expectNotThrowsError("throwIfNilOrEmpty") {
-            try self.throwIfNilOrEmpty(string, string)
+        expectNotThrowsException("expectNilOrEmpty") {
+            self.expectNilOrEmpty(nilString, emptyString)
         }
     }
 
-    func testThrowIfNilOrEmpty_Array()
+    func testExpectNilOrEmpty_Array()
     {
         let string = "value"
         let emptyString = ""
 
-        let array: [String]? = [string]
+        let array: [String]? = [emptyString]
 
 
-        expectThrowsError("throwIfNilOrEmpty_Array") {
-            try self.throwIfNilOrEmpty([emptyString])
+        expectThrowsException("expectNilOrEmpty_Array") {
+            self.expectNilOrEmpty([string])
         }
-        expectThrowsError("throwIfNilOrEmpty_Array") {
-            try self.throwIfNilOrEmpty([string, emptyString])
+        expectThrowsException("expectNilOrEmpty_Array") {
+            self.expectNilOrEmpty([emptyString, string])
         }
-        expectThrowsError("throwIfNilOrEmpty_Array") {
-            try self.throwIfNilOrEmpty(nil, array)
+        expectThrowsException("expectNilOrEmpty_Array") {
+            self.expectNilOrEmpty(nil, array)
         }
-        expectThrowsError("throwIfNilOrEmpty_Array") {
-            try self.throwIfNilOrEmpty(array, [emptyString])
+        expectThrowsException("expectNilOrEmpty_Array") {
+            self.expectNilOrEmpty(array, [string])
         }
 
-        expectNotThrowsError("throwIfNilOrEmpty_Array") {
-            try self.throwIfNilOrEmpty(array, [string])
+        expectNotThrowsException("expectNilOrEmpty_Array") {
+            self.expectNilOrEmpty(array, [emptyString])
         }
     }
 
-    func testThrowIfNilOrEmpty_ArrayOfOptionals()
+    func testExpectNilOrEmpty_ArrayOfOptionals()
+    {
+        let string = "value"
+        let nilString: String? = nil
+        let emptyString: String? = ""
+
+        let optionalString: String? = "value"
+        let arrayOfOptionals: [String?]? = [nilString, emptyString]
+
+
+        expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
+            self.expectNilOrEmpty([optionalString])
+        }
+        expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
+            self.expectNilOrEmpty([nilString, string])
+        }
+        expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
+            self.expectNilOrEmpty([emptyString, string])
+        }
+        expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
+            self.expectNilOrEmpty(nil, arrayOfOptionals)
+        }
+
+        expectNotThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
+            self.expectNilOrEmpty(arrayOfOptionals, [emptyString])
+        }
+    }
+
+    func testExpectNotEmpty()
+    {
+        let string = "value"
+        let nilString: String? = nil
+        let emptyString = ""
+
+
+        expectThrowsException("expectNotEmpty") {
+            self.expectNotEmpty(nilString)
+        }
+        expectThrowsException("expectNotEmpty") {
+            self.expectNotEmpty(emptyString)
+        }
+        expectThrowsException("expectNotEmpty") {
+            self.expectNotEmpty(string, emptyString)
+        }
+
+        expectNotThrowsException("expectNotEmpty") {
+            self.expectNotEmpty(string)
+        }
+    }
+
+    func testExpectNotEmpty_Array()
+    {
+        let string = "value"
+        let emptyString = ""
+
+        let array: [String]? = [string, string]
+
+
+        expectThrowsException("expectNotEmpty_Array") {
+            self.expectNotEmpty([emptyString])
+        }
+        expectThrowsException("expectNotEmpty_Array") {
+            self.expectNotEmpty([string, emptyString])
+        }
+        expectThrowsException("expectNotEmpty_Array") {
+            self.expectNotEmpty(array, nil, [string])
+        }
+
+        expectNotThrowsException("expectNotEmpty_Array") {
+            self.expectNotEmpty(array, [string])
+        }
+    }
+
+    func testExpectNotEmpty_ArrayOfOptionals()
     {
         let string = "value"
         let nilString: String? = nil
@@ -166,27 +241,24 @@ class ExpectableTests: XCTestCase, Inspectable
         let arrayOfOptionals: [String?]? = [string, optionalString]
 
 
-        expectThrowsError("throwIfNilOrEmpty_ArrayOfOptionals") {
-            try self.throwIfNilOrEmpty([emptyString])
+        expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
+            self.expectNotEmpty([nilString])
         }
-        expectThrowsError("throwIfNilOrEmpty_ArrayOfOptionals") {
-            try self.throwIfNilOrEmpty([string, nilString])
+        expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
+            self.expectNotEmpty([string, emptyString])
         }
-        expectThrowsError("throwIfNilOrEmpty_ArrayOfOptionals") {
-            try self.throwIfNilOrEmpty([string, emptyString])
-        }
-        expectThrowsError("throwIfNilOrEmpty_ArrayOfOptionals") {
-            try self.throwIfNilOrEmpty(nil, arrayOfOptionals)
+        expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
+            self.expectNotEmpty(arrayOfOptionals, nil, [string])
         }
 
-        expectNotThrowsError("throwIfNilOrEmpty_ArrayOfOptionals") {
-            try self.throwIfNilOrEmpty(arrayOfOptionals, [string])
+        expectNotThrowsException("expectNotEmpty_ArrayOfOptionals") {
+            self.expectNotEmpty(arrayOfOptionals, [string])
         }
     }
 
 // MARK: - Tests
 
-    func testThrowIfNilOrWhiteSpace()
+    func testExpectNilOrWhiteSpace()
     {
         let string = "value"
         let nilString: String? = nil
@@ -194,55 +266,140 @@ class ExpectableTests: XCTestCase, Inspectable
         let whitespaceString = " \t\r\n"
 
 
-        expectThrowsError("throwIfNilOrWhiteSpace") {
-            try self.throwIfNilOrWhiteSpace(whitespaceString)
+        expectThrowsException("expectNilOrWhiteSpace") {
+            self.expectNilOrWhiteSpace(string)
         }
-        expectThrowsError("throwIfNilOrWhiteSpace") {
-            try self.throwIfNilOrWhiteSpace(string, nilString)
+        expectThrowsException("expectNilOrWhiteSpace") {
+            self.expectNilOrWhiteSpace(nilString, string)
         }
-        expectThrowsError("throwIfNilOrWhiteSpace") {
-            try self.throwIfNilOrWhiteSpace(string, emptyString)
+        expectThrowsException("expectNilOrWhiteSpace") {
+            self.expectNilOrWhiteSpace(emptyString, string)
         }
-        expectThrowsError("throwIfNilOrWhiteSpace") {
-            try self.throwIfNilOrWhiteSpace(string, whitespaceString)
+        expectThrowsException("expectNilOrWhiteSpace") {
+            self.expectNilOrWhiteSpace(whitespaceString, string)
         }
 
-        expectNotThrowsError("throwIfNilOrWhiteSpace") {
-            try self.throwIfNilOrWhiteSpace(string, string)
+        expectNotThrowsException("expectNilOrWhiteSpace") {
+            self.expectNilOrWhiteSpace(nilString, emptyString, whitespaceString)
         }
     }
 
-    func testThrowIfNilOrWhiteSpace_Array()
+    func testExpectNilOrWhiteSpace_Array()
     {
         let string = "value"
         let emptyString = ""
         let whitespaceString = " \t\r\n"
 
-        let array: [String]? = [string]
+        let array: [String]? = [emptyString, whitespaceString]
 
 
-        expectThrowsError("throwIfNilOrWhiteSpace_Array") {
-            try self.throwIfNilOrWhiteSpace([whitespaceString])
+        expectThrowsException("expectNilOrWhiteSpace_Array") {
+            self.expectNilOrWhiteSpace([string])
         }
-        expectThrowsError("throwIfNilOrWhiteSpace_Array") {
-            try self.throwIfNilOrWhiteSpace([string, emptyString])
+        expectThrowsException("expectNilOrWhiteSpace_Array") {
+            self.expectNilOrWhiteSpace([emptyString, string])
         }
-        expectThrowsError("throwIfNilOrWhiteSpace_Array") {
-            try self.throwIfNilOrWhiteSpace([string, whitespaceString])
+        expectThrowsException("expectNilOrWhiteSpace_Array") {
+            self.expectNilOrWhiteSpace([whitespaceString, string])
         }
-        expectThrowsError("throwIfNilOrWhiteSpace_Array") {
-            try self.throwIfNilOrWhiteSpace(nil, array)
+        expectThrowsException("expectNilOrWhiteSpace_Array") {
+            self.expectNilOrWhiteSpace(nil, array)
         }
-        expectThrowsError("throwIfNilOrWhiteSpace_Array") {
-            try self.throwIfNilOrWhiteSpace(array, [whitespaceString])
+        expectThrowsException("expectNilOrWhiteSpace_Array") {
+            self.expectNilOrWhiteSpace(array, [string])
         }
 
-        expectNotThrowsError("throwIfNilOrWhiteSpace_Array") {
-            try self.throwIfNilOrWhiteSpace(array, [string])
+        expectNotThrowsException("expectNilOrWhiteSpace_Array") {
+            self.expectNilOrWhiteSpace(array, [whitespaceString])
         }
     }
 
-    func testThrowIfNilOrWhiteSpace_ArrayOfOptionals()
+    func testExpectNilOrWhiteSpace_ArrayOfOptionals()
+    {
+        let string = "value"
+        let nilString: String? = nil
+        let emptyString: String? = ""
+        let whitespaceString: String? = " \t\r\n"
+
+        let optionalString: String? = "value"
+        let arrayOfOptionals: [String?]? = [nilString, emptyString, whitespaceString]
+
+
+        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
+            self.expectNilOrWhiteSpace([optionalString])
+        }
+        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
+            self.expectNilOrWhiteSpace([nilString, string])
+        }
+        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
+            self.expectNilOrWhiteSpace([emptyString, string])
+        }
+        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
+            self.expectNilOrWhiteSpace([whitespaceString, string])
+        }
+        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
+            self.expectNilOrWhiteSpace(nil, arrayOfOptionals)
+        }
+
+        expectNotThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
+            self.expectNilOrWhiteSpace(arrayOfOptionals, [whitespaceString])
+        }
+    }
+
+    func testExpectNotWhiteSpace()
+    {
+        let string = "value"
+        let nilString: String? = nil
+        let emptyString = ""
+        let whitespaceString = " \t\r\n"
+
+
+        expectThrowsException("expectNotWhiteSpace") {
+            self.expectNotWhiteSpace(nilString)
+        }
+        expectThrowsException("expectNotWhiteSpace") {
+            self.expectNotWhiteSpace(emptyString)
+        }
+        expectThrowsException("expectNotWhiteSpace") {
+            self.expectNotWhiteSpace(whitespaceString)
+        }
+        expectThrowsException("expectNotWhiteSpace") {
+            self.expectNotWhiteSpace(string, whitespaceString)
+        }
+
+        expectNotThrowsException("expectNotWhiteSpace") {
+            self.expectNotWhiteSpace(string)
+        }
+    }
+
+    func testExpectNotWhiteSpace_Array()
+    {
+        let string = "value"
+        let emptyString = ""
+        let whitespaceString = " \t\r\n"
+
+        let array: [String]? = [string, string]
+
+
+        expectThrowsException("expectNotWhiteSpace_Array") {
+            self.expectNotWhiteSpace([emptyString])
+        }
+        expectThrowsException("expectNotWhiteSpace_Array") {
+            self.expectNotWhiteSpace([whitespaceString])
+        }
+        expectThrowsException("expectNotWhiteSpace_Array") {
+            self.expectNotWhiteSpace([string, whitespaceString])
+        }
+        expectThrowsException("expectNotWhiteSpace_Array") {
+            self.expectNotWhiteSpace(nil, array)
+        }
+
+        expectNotThrowsException("expectNotWhiteSpace_Array") {
+            self.expectNotWhiteSpace(array, [string])
+        }
+    }
+
+    func testExpectNotWhiteSpace_ArrayOfOptionals()
     {
         let string = "value"
         let nilString: String? = nil
@@ -253,52 +410,48 @@ class ExpectableTests: XCTestCase, Inspectable
         let arrayOfOptionals: [String?]? = [string, optionalString]
 
 
-        expectThrowsError("throwIfNilOrWhiteSpace_ArrayOfOptionals") {
-            try self.throwIfNilOrWhiteSpace([whitespaceString])
+        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
+            self.expectNotWhiteSpace([nilString])
         }
-        expectThrowsError("throwIfNilOrWhiteSpace_ArrayOfOptionals") {
-            try self.throwIfNilOrWhiteSpace([string, nilString])
+        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
+            self.expectNotWhiteSpace([emptyString])
         }
-        expectThrowsError("throwIfNilOrWhiteSpace_ArrayOfOptionals") {
-            try self.throwIfNilOrWhiteSpace([string, emptyString])
+        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
+            self.expectNotWhiteSpace([whitespaceString])
         }
-        expectThrowsError("throwIfNilOrWhiteSpace_ArrayOfOptionals") {
-            try self.throwIfNilOrWhiteSpace([string, whitespaceString])
+        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
+            self.expectNotWhiteSpace([string, whitespaceString])
         }
-        expectThrowsError("throwIfNilOrWhiteSpace_ArrayOfOptionals") {
-            try self.throwIfNilOrWhiteSpace(nil, arrayOfOptionals)
+        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
+            self.expectNotWhiteSpace(nil, arrayOfOptionals)
         }
 
-        expectNotThrowsError("throwIfNilOrWhiteSpace_ArrayOfOptionals") {
-            try self.throwIfNilOrWhiteSpace(arrayOfOptionals, [string])
+        expectNotThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
+            self.expectNotWhiteSpace(arrayOfOptionals, [string])
         }
     }
 
 // MARK: - Tests
 
-    func testThrowIfNotValid()
+    func testExpectValid()
     {
         let validObject = ValidModel()
-        let nilObject: Validatable? = nil
         let notValidObject = NotValidModel()
 
 
-        expectThrowsError("throwIfNotValid") {
-            try self.throwIfNotValid(notValidObject)
+        expectThrowsException("expectValid") {
+            self.expectValid(notValidObject)
         }
-        expectThrowsError("throwIfNotValid") {
-            try self.throwIfNotValid(validObject, notValidObject)
-        }
-        expectThrowsError("throwIfNotValid") {
-            try self.throwIfNotValid(nilObject, notValidObject)
+        expectThrowsException("expectValid") {
+            self.expectValid(validObject, notValidObject)
         }
 
-        expectNotThrowsError("throwIfNotValid") {
-            try self.throwIfNotValid(validObject, nilObject)
+        expectNotThrowsException("expectValid") {
+            self.expectValid(validObject)
         }
     }
 
-    func testThrowIfNotValid_Array()
+    func testExpectValid_Array()
     {
         let validObject = ValidModel()
         let notValidObject = NotValidModel()
@@ -306,70 +459,149 @@ class ExpectableTests: XCTestCase, Inspectable
         let array: [Validatable]? = [validObject, validObject]
 
 
-        expectThrowsError("throwIfNotValid_Array") {
-            try self.throwIfNotValid([notValidObject])
+        expectThrowsException("expectValid_Array") {
+            self.expectValid([notValidObject])
         }
-        expectThrowsError("throwIfNotValid_Array") {
-            try self.throwIfNotValid([validObject, notValidObject])
+        expectThrowsException("expectValid_Array") {
+            self.expectValid([validObject, notValidObject])
         }
-        expectThrowsError("throwIfNotValid_Array") {
-            try self.throwIfNotValid(nil, array)
+        expectThrowsException("expectValid_Array") {
+            self.expectValid(nil, array)
         }
 
-        expectNotThrowsError("throwIfNotValid_Array") {
-            try self.throwIfNotValid(array, [validObject])
+        expectNotThrowsException("expectValid_Array") {
+            self.expectValid(array, [validObject])
         }
     }
 
-    func testThrowIfNotValid_ArrayOfOptionals()
+    func testExpectValid_ArrayOfOptionals()
     {
         let validObject = ValidModel()
+        let optionalValidObject: Validatable? = ValidModel()
         let nilObject: Validatable? = nil
-        let notValidObject: Validatable? = NotValidModel()
+        let optionalNotValidObject: Validatable? = NotValidModel()
 
-        let arrayOfOptionals: [Validatable?]? = [validObject, nilObject]
+        let arrayOfOptionals: [Validatable?]? = [validObject, optionalValidObject]
 
 
-        expectThrowsError("throwIfNotValid_ArrayOfOptionals") {
-            try self.throwIfNotValid([notValidObject])
+        expectThrowsException("expectValid_ArrayOfOptionals") {
+            self.expectValid([optionalNotValidObject])
         }
-        expectThrowsError("throwIfNotValid_ArrayOfOptionals") {
-            try self.throwIfNotValid([validObject, notValidObject])
+        expectThrowsException("expectValid_ArrayOfOptionals") {
+            self.expectValid([validObject, nilObject])
         }
-        expectThrowsError("throwIfNotValid_ArrayOfOptionals") {
-            try self.throwIfNotValid(nil, arrayOfOptionals)
+        expectThrowsException("expectValid_ArrayOfOptionals") {
+            self.expectValid([validObject, optionalNotValidObject])
+        }
+        expectThrowsException("expectValid_ArrayOfOptionals") {
+            self.expectValid(nil, arrayOfOptionals)
         }
 
-        expectNotThrowsError("throwIfNotValid_ArrayOfOptionals") {
-            try self.throwIfNotValid(arrayOfOptionals, [validObject])
+        expectNotThrowsException("expectValid_ArrayOfOptionals") {
+            self.expectValid(arrayOfOptionals, [validObject])
         }
     }
 
 // MARK: - Tests
 
-    func testThrowIfNilOrNotValid()
+    func testExpectNotValid()
+    {
+        let validObject = ValidModel()
+        let notValidObject = NotValidModel()
+
+
+        expectThrowsException("expectNotValid") {
+            self.expectNotValid(validObject)
+        }
+
+        expectNotThrowsException("expectNotValid") {
+            self.expectNotValid(notValidObject)
+        }
+    }
+
+    func testExpectNotValid_Array()
+    {
+        let validObject = ValidModel()
+        let notValidObject = NotValidModel()
+
+        let array: [Validatable]? = [notValidObject, notValidObject]
+
+
+        expectThrowsException("expectNotValid_Array") {
+            self.expectNotValid([validObject])
+        }
+        expectThrowsException("expectNotValid_Array") {
+            self.expectNotValid([notValidObject, validObject])
+        }
+        expectThrowsException("expectNotValid_Array") {
+            self.expectNotValid(nil, array)
+        }
+        expectThrowsException("expectNotValid_Array") {
+            self.expectNotValid(array, [validObject])
+        }
+
+        expectNotThrowsException("expectNotValid_Array") {
+            self.expectNotValid([notValidObject])
+        }
+        expectNotThrowsException("expectNotValid_Array") {
+            self.expectNotValid(array, [notValidObject])
+        }
+    }
+
+    func testExpectNotValid_ArrayOfOptionals()
+    {
+        let validObject = ValidModel()
+        let optionalValidObject: Validatable? = ValidModel()
+        let nilObject: Validatable? = nil
+        let notValidObject: Validatable? = NotValidModel()
+        let optionalNotValidObject: Validatable? = NotValidModel()
+
+        let arrayOfOptionals: [Validatable?]? = [notValidObject, optionalNotValidObject]
+
+
+        expectThrowsException("expectNotValid_ArrayOfOptionals") {
+            self.expectNotValid([optionalValidObject])
+        }
+        expectThrowsException("expectNotValid_ArrayOfOptionals") {
+            self.expectNotValid([nilObject])
+        }
+        expectThrowsException("expectNotValid_ArrayOfOptionals") {
+            self.expectNotValid(nil, arrayOfOptionals)
+        }
+        expectThrowsException("expectNotValid_ArrayOfOptionals") {
+            self.expectNotValid(arrayOfOptionals, [validObject])
+        }
+
+        expectNotThrowsException("expectNotValid_ArrayOfOptionals") {
+            self.expectNotValid([notValidObject, optionalNotValidObject])
+        }
+    }
+
+// MARK: - Tests
+
+    func testExpectNilOrValid()
     {
         let validObject = ValidModel()
         let nilObject: Validatable? = nil
         let notValidObject = NotValidModel()
 
 
-        expectThrowsError("throwIfNilOrNotValid") {
-            try self.throwIfNilOrNotValid(notValidObject)
+        expectThrowsException("expectNilOrValid") {
+            self.expectNilOrValid(notValidObject)
         }
-        expectThrowsError("throwIfNilOrNotValid") {
-            try self.throwIfNilOrNotValid(validObject, nilObject)
+        expectThrowsException("expectNilOrValid") {
+            self.expectNilOrValid(validObject, notValidObject)
         }
-        expectThrowsError("throwIfNilOrNotValid") {
-            try self.throwIfNilOrNotValid(validObject, notValidObject)
+        expectThrowsException("expectNilOrValid") {
+            self.expectNilOrValid(nilObject, notValidObject)
         }
 
-        expectNotThrowsError("throwIfNilOrNotValid") {
-            try self.throwIfNilOrNotValid(validObject)
+        expectNotThrowsException("expectNilOrValid") {
+            self.expectNilOrValid(validObject, nilObject)
         }
     }
 
-    func testThrowIfNilOrNotValid_Array()
+    func testExpectNilOrValid_Array()
     {
         let validObject = ValidModel()
         let notValidObject = NotValidModel()
@@ -377,80 +609,169 @@ class ExpectableTests: XCTestCase, Inspectable
         let array: [Validatable]? = [validObject]
 
 
-        expectThrowsError("throwIfNilOrNotValid_Array") {
-            try self.throwIfNilOrNotValid([notValidObject])
+        expectThrowsException("expectNilOrValid_Array") {
+            self.expectNilOrValid([notValidObject])
         }
-        expectThrowsError("throwIfNilOrNotValid_Array") {
-            try self.throwIfNilOrNotValid([validObject, notValidObject])
+        expectThrowsException("expectNilOrValid_Array") {
+            self.expectNilOrValid([validObject, notValidObject])
         }
-        expectThrowsError("throwIfNilOrNotValid_Array") {
-            try self.throwIfNilOrNotValid(nil, array)
+        expectThrowsException("expectNilOrValid_Array") {
+            self.expectNilOrValid(nil, array)
         }
-        expectThrowsError("throwIfNilOrNotValid_Array") {
-            try self.throwIfNilOrNotValid(array, [notValidObject])
+        expectThrowsException("expectNilOrNotValid_Array") {
+            self.expectNilOrValid(array, [notValidObject])
         }
 
-        expectNotThrowsError("throwIfNilOrNotValid_Array") {
-            try self.throwIfNilOrNotValid(array, [validObject])
+        expectNotThrowsException("expectNilOrValid_Array") {
+            self.expectNilOrValid(array, [validObject])
         }
     }
 
-    func testThrowIfNilOrNotValid_ArrayOfOptionals()
+    func testExpectNilOrValid_ArrayOfOptionals()
+    {
+        let validObject = ValidModel()
+        let optionalValidObject: Validatable? = ValidModel()
+        let nilObject: Validatable? = nil
+        let optionalNotValidObject: Validatable? = NotValidModel()
+
+        let arrayOfOptionals: [Validatable?]? = [validObject, optionalValidObject, nilObject]
+
+
+        expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
+            self.expectNilOrValid([optionalNotValidObject])
+        }
+        expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
+            self.expectNilOrValid([validObject, optionalNotValidObject])
+        }
+        expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
+            self.expectNilOrValid(nil, arrayOfOptionals)
+        }
+
+        expectNotThrowsException("expectNilOrValid_ArrayOfOptionals") {
+            self.expectNilOrValid([validObject, nilObject])
+        }
+        expectNotThrowsException("expectNilOrValid_ArrayOfOptionals") {
+            self.expectNilOrValid(arrayOfOptionals, [validObject])
+        }
+    }
+
+// MARK: - Tests
+
+    func testExpectNilOrNotValid()
     {
         let validObject = ValidModel()
         let nilObject: Validatable? = nil
-        let notValidObject: Validatable? = NotValidModel()
-
-        let arrayOfOptionals: [Validatable?]? = [validObject]
+        let notValidObject = NotValidModel()
 
 
-        expectThrowsError("throwIfNilOrNotValid_ArrayOfOptionals") {
-            try self.throwIfNilOrNotValid([notValidObject])
-        }
-        expectThrowsError("throwIfNilOrNotValid_ArrayOfOptionals") {
-            try self.throwIfNilOrNotValid([validObject, nilObject])
-        }
-        expectThrowsError("throwIfNilOrNotValid_ArrayOfOptionals") {
-            try self.throwIfNilOrNotValid([validObject, notValidObject])
-        }
-        expectThrowsError("throwIfNilOrNotValid_ArrayOfOptionals") {
-            try self.throwIfNilOrNotValid(nil, arrayOfOptionals)
+        expectThrowsException("expectNilOrNotValid") {
+            self.expectNilOrNotValid(validObject)
         }
 
-        expectNotThrowsError("throwIfNilOrNotValid_ArrayOfOptionals") {
-            try self.throwIfNilOrNotValid(arrayOfOptionals, [validObject])
+        expectNotThrowsException("expectNilOrNotValid") {
+            self.expectNilOrNotValid(nilObject, notValidObject)
+        }
+    }
+
+    func testExpectNilOrNotValid_Array()
+    {
+        let validObject = ValidModel()
+        let notValidObject = NotValidModel()
+
+        let array: [Validatable]? = [notValidObject]
+
+
+        expectThrowsException("expectNilOrNotValid_Array") {
+            self.expectNilOrNotValid([validObject])
+        }
+        expectThrowsException("expectNilOrNotValid_Array") {
+            self.expectNilOrNotValid([notValidObject, validObject])
+        }
+        expectThrowsException("expectNilOrNotValid_Array") {
+            self.expectNilOrNotValid(nil, array)
+        }
+        expectThrowsException("expectNilOrNotValid_Array") {
+            self.expectNilOrNotValid(array, [validObject])
+        }
+
+        expectNotThrowsException("expectNilOrNotValid_Array") {
+            self.expectNilOrNotValid(array, [notValidObject])
+        }
+    }
+
+    func testExpectNilOrNotValid_ArrayOfOptionals()
+    {
+        let validObject = ValidModel()
+        let optionalValidObject: Validatable? = ValidModel()
+        let nilObject: Validatable? = nil
+        let optionalNotValidObject: Validatable? = NotValidModel()
+
+        let arrayOfOptionals: [Validatable?]? = [nilObject, optionalNotValidObject]
+
+
+        expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
+            self.expectNilOrNotValid([optionalValidObject])
+        }
+        expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
+            self.expectNilOrNotValid(nil, arrayOfOptionals)
+        }
+        expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
+            self.expectNilOrNotValid(arrayOfOptionals, [validObject])
+        }
+
+        expectNotThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
+            self.expectNilOrNotValid(arrayOfOptionals)
         }
     }
 
 // MARK: - Private Methods
 
-    private func expectThrowsError(method: String, line: UInt = #line, block: () throws -> ())
+    private func expectThrowsException(method: String, line: UInt = #line, block: () -> ())
     {
-        do {
-            try block()
-
-            XCTFail("Line: \(line) - \(method): Method not thrown an error")
+        var cause: NSException? = nil
+        Try {
+            block()
+        }.Catch { ex in
+            cause = ex
         }
-        catch _ as ValidationError {
+
+        if let ex = cause
+        {
+            if ex is FatalErrorException {
+                // Do nothing
+            }
+            else {
+                XCTFail("Line: \(line) - \(method): Unknown exception is thrown")
+            }
+        }
+        else {
+            XCTFail("Line: \(line) - \(method): Method not thrown an exception")
+        }
+    }
+
+    private func expectNotThrowsException(method: String, line: UInt = #line, block: () -> ())
+    {
+        var cause: NSException? = nil
+        Try {
+            block()
+        }.Catch { ex in
+            cause = ex
+        }
+
+        if let ex = cause
+        {
+            if ex is FatalErrorException {
+                XCTFail("Line: \(line) - \(method): Method thrown an exception")
+            }
+            else {
+                XCTFail("Line: \(line) - \(method): Unknown exception is thrown")
+            }
+        }
+        else {
             // Do nothing
         }
-        catch {
-            XCTFail("Line: \(line) - \(method): Unknown error is thrown")
-        }
     }
 
-    private func expectNotThrowsError(method: String, line: UInt = #line, block: () throws -> ())
-    {
-        do {
-            try block()
-        }
-        catch _ as ValidationError {
-            XCTFail("Line: \(line) - \(method): Method thrown an error")
-        }
-        catch {
-            XCTFail("Line: \(line) - \(method): Unknown error is thrown")
-        }
-    }
 }
 
 // ----------------------------------------------------------------------------
