@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 //
-//  ParcelableModel.swift
+//  SerializableObject.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class ParcelableModel: Parcelable, Mappable, Hashable,
-                              Validatable, ValidatableThrowable
+public class SerializableObject: Serializable, Mappable, Hashable, Validatable
 {
 // MARK: - Construction
 
@@ -33,20 +32,31 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
             }
 
         }.Catch { e in
-            cause = e
+
+            // Update exception
+            cause = self.injectNestedParams(e, params: params)
         }
 
-        if let exception = cause {
-            throw JsonSyntaxException(cause: exception)
+        if let e = cause {
+            throw JsonSyntaxError(message: e.reason, params: e.userInfo?[Inner.NestedParams] as? [String: AnyObject], cause: e)
         }
     }
 
     public required init?(_ map: Map) {
         super.init()
 
-        // Deserialize object
-        let result = unsafeMapping() {
-            self.mapping(map)
+        var result = false
+        Try {
+
+            // Deserialize object
+            result = self.unsafeMapping() {
+                self.mapping(map)
+            }
+
+        }.Catch { e in
+
+            // Rethrow exception
+            self.injectNestedParams(e, params: map.JSONDictionary).raise()
         }
 
         // Validate instance
@@ -59,7 +69,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         return self.hash ?? rehash()
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     public override func encode(coder encoder: NSCoder) -> Bool
     {
@@ -86,7 +96,8 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         Try {
 
             // Decode internal object's state
-            if let json = decoder.decodeObject() as? [String: AnyObject] {
+            if let json = decoder.decodeObject() as? [String: AnyObject]
+            {
                 result = self.unsafeMapping() {
                     Mapper().map(json, toObject: self)
                 }
@@ -101,7 +112,7 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
     }
 
     public func mapping(map: Map) {
-        // Do nothing ..
+        // Do nothing
     }
 
     public final func frozen() -> Bool {
@@ -117,31 +128,30 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
         // Writing a good Hashable implementation in Swift
         // @link http://stackoverflow.com/a/24240011
 
-        self.hash = (31 &* NSStringFromClass(self.dynamicType).hashValue) &+ data.mdc_md5String.hashValue
+        self.hash = (31 &* NSStringFromClass(self.dynamicType).hashValue) &+ data.rxm_md5String.hashValue
         return self.hash
     }
 
-    public func validateThrowable() throws -> Bool
+    public func isValid() -> Bool
     {
-        let result = validate()
-
-        // Log validation error
-        if !result
-        {
-            MDLog.w(String(format: "‘%@’ is invalid.", className(self.dynamicType)))
-            throw NSError.modelIsInvalid
+        do {
+            try validate()
         }
-
-        return result
-    }
-
-    public func validate() -> Bool
-    {
+        catch {
+            return false
+        }
         return true
     }
 
-// MARK: - Private Functions
+    public func validate() throws {
+        // Do nothing
+    }
 
+// MARK: - Private Methods
+
+    /**
+     * NOTE: Throws NSException from Objective-C
+     */
     private func unsafeMapping(block: dispatch_block_t) -> Bool
     {
         if frozen() { return false }
@@ -151,6 +161,18 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
 
             // Deserialize object
             block()
+
+            // Validate converted object
+            let defaultMessage = "Couldn't validate converted object"
+            do {
+                try self.validate()
+            }
+            catch let error as ValidationError {
+                rxm_fatalError(error.message ?? defaultMessage, file: error.file, line: error.line)
+            }
+            catch {
+                rxm_fatalError(defaultMessage)
+            }
 
             // Prevent further modifications
             self.freeze = true
@@ -163,16 +185,31 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
             exception.raise()
         }
 
-        if !validate() {
-            mdc_fatalError("Couldn't validate converted object")
-        }
-
         // Done
         return frozen()
     }
 
-    private func key(value: String) -> String {
-        return className(self.dynamicType).mdc_md5String.substringToIndex(6) + "." + value
+    private func injectNestedParams(e: NSException, params: [String: AnyObject]) -> NSException
+    {
+        var cause = e
+        if e.userInfo?[Inner.NestedParams] == nil {
+
+            // Add params to an exception
+            var dict = e.userInfo ?? [:]
+            dict[Inner.NestedParams] = params
+
+            // Create new exception with nested params
+            cause = NSException(name: e.name, reason: e.reason, userInfo: dict)
+        }
+
+        // Done
+        return cause
+    }
+
+// MARK: - Constants
+
+    private struct Inner {
+        static let NestedParams = SharedKeys.Prefix.Extra + "nested_params"
     }
 
 // MARK: - Variables
@@ -187,9 +224,9 @@ public class ParcelableModel: Parcelable, Mappable, Hashable,
 // MARK: - @protocol NSCopying
 // ----------------------------------------------------------------------------
 
-extension ParcelableModel: NSCopying
+extension SerializableObject: NSCopying
 {
-// MARK: - Functions
+// MARK: - Methods
 
     @objc public func copyWithZone(zone: NSZone) -> AnyObject {
         return self.copy()
@@ -205,7 +242,7 @@ extension ParcelableModel: NSCopying
 // MARK: - @protocol Equatable
 // ----------------------------------------------------------------------------
 
-public func == (lhs: ParcelableModel, rhs: ParcelableModel) -> Bool
+public func == (lhs: SerializableObject, rhs: SerializableObject) -> Bool
 {
     if (lhs === rhs) {
         return true
@@ -215,57 +252,6 @@ public func == (lhs: ParcelableModel, rhs: ParcelableModel) -> Bool
     }
     else {
         return (lhs.hashValue == rhs.hashValue)
-    }
-}
-
-// ----------------------------------------------------------------------------
-// MARK: - Global Functions
-// ----------------------------------------------------------------------------
-
-public func plm_isValid(array: ParcelableModel? ...) -> Bool
-{
-    // Validate objects
-    return array.all { obj in (obj != nil) && obj!.validate() }
-}
-
-public func plm_isValid(array: [ParcelableModel]? ...) -> Bool
-{
-    // Validate objects
-    return array.all { arr in (arr != nil) && arr!.all { obj in obj.validate() } }
-}
-
-public func plm_isValid(array: [ParcelableModel?]? ...) -> Bool
-{
-    // Validate objects
-    return array.all { arr in (arr != nil) && arr!.all { obj in (obj != nil) && obj!.validate() } }
-}
-
-// ----------------------------------------------------------------------------
-// MARK: -
-// ----------------------------------------------------------------------------
-
-public func plm_isNilOrValid(array: ParcelableModel? ...) -> Bool
-{
-    // Validate objects
-    return array.all { obj in (obj == nil) || obj!.validate() }
-}
-
-public func plm_isNilOrValid(array: [ParcelableModel]? ...) -> Bool
-{
-    // Validate objects
-    return array.all { arr in (arr == nil) || arr!.all { obj in obj.validate() } }
-}
-
-public func plm_isNilOrValid(array: [ParcelableModel?]? ...) -> Bool
-{
-    // Validate objects
-    return array.all { arr in
-        (arr == nil) || arr!.all { obj in
-            guard let obj = obj else {
-                return false
-            }
-            return obj.validate()
-        }
     }
 }
 

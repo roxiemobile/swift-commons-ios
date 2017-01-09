@@ -4,8 +4,8 @@
 //  Based on part of libFoundation.
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -15,12 +15,12 @@
 
 @interface LFArchiver : NSCoder
 
-// -- properties
+// - Properties
 
 // Getting the archived data
 @property(readonly, strong) NSMutableData *archiverData;
 
-// -- functions
+// - Methods
 
 // Initializing an Encoder
 - (instancetype)initForWritingWithMutableData:(NSMutableData *)data;

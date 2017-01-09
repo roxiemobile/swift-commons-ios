@@ -3,8 +3,8 @@
 //  EmailValidator.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@
 
 public final class EmailValidator: NonCreatable, StaticValidator
 {
-// MARK: - Functions
+// MARK: - Methods
 
     public class func isValid(value: AnyObject?) -> Bool
     {

@@ -3,8 +3,8 @@
 //  ObjectMapperException.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ public class ObjectMapperException: NSException
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-@noreturn public func mdc_objectMapperError(message: String, file: StaticString = #file, line: UInt = #line)
+@noreturn public func rxm_objectMapperError(message: String, file: StaticString = #file, line: UInt = #line)
 {
 #if DEBUG
     preconditionFailure(message)
@@ -46,6 +46,15 @@ public class ObjectMapperException: NSException
     // NOTE: Suppress error "Return from a 'noreturn' function"
     fatalError(message)
 #endif
+}
+
+// ----------------------------------------------------------------------------
+
+public func rxm_objectMapperAssertion(message: String, file: StaticString = #file, line: UInt = #line)
+{
+    let errorMessage = "Assertion violated: \(message)\nFile: \(file)\nLine: \(line)"
+    Logger.e(errorMessage)
+    assertionFailure(errorMessage)
 }
 
 // ----------------------------------------------------------------------------

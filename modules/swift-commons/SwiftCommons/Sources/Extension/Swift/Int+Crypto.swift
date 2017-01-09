@@ -3,8 +3,8 @@
 //  Int+Crypto.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -22,11 +22,11 @@ public extension Int
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return String(format:"%02x", self)
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     /**
      * Array of bytes with optional padding (little-endian).
@@ -60,7 +60,7 @@ public extension Int8
 {
 // MARK: - Properties
 
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return hexString(self as Int8)
     }
 
@@ -70,7 +70,7 @@ public extension UInt8
 {
 // MARK: - Properties
 
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return hexString(self as UInt8)
     }
 
@@ -82,7 +82,7 @@ public extension Int16
 {
 // MARK: - Properties
 
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return hexString(self as Int16)
     }
 
@@ -92,7 +92,7 @@ public extension UInt16
 {
 // MARK: - Properties
 
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return hexString(self as UInt16)
     }
 
@@ -104,7 +104,7 @@ public extension Int32
 {
 // MARK: - Properties
 
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return hexString(self as Int32)
     }
 
@@ -114,7 +114,7 @@ public extension UInt32
 {
 // MARK: - Properties
 
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return hexString(self as UInt32)
     }
 
@@ -126,7 +126,7 @@ public extension Int64
 {
 // MARK: - Properties
 
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return hexString(self as Int64)
     }
 
@@ -136,7 +136,7 @@ public extension UInt64
 {
 // MARK: - Properties
 
-    var mdc_hexString: String {
+    var rxm_hexString: String {
         return hexString(self as UInt64)
     }
 

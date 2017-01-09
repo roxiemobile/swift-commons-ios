@@ -3,20 +3,21 @@
 //  DatabaseHelper.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
+
+// DEPRECATED: Code refactoring is needed
+public typealias Database = Connection
 
 // A helper class to manage database creation and version management.
 // @link https://github.com/android/platform_frameworks_base/blob/master/core/java/android/database/sqlite/SQLiteOpenHelper.java
 
-// MARK: - Types
-public typealias Database = Connection
-
 public class DatabaseHelper
 {
 // MARK: - Construction
+
     public init(databaseName: String?, version: Int, readonly: Bool = false, delegate: DatabaseOpenDelegate? = nil)
     {
         // Init instance variables
@@ -24,7 +25,7 @@ public class DatabaseHelper
     }
 
     private init() {
-        // Do nothing ..
+        // Do nothing
     }
 
     deinit {
@@ -46,19 +47,19 @@ public class DatabaseHelper
             do {
                 try database?.run("PRAGMA user_version = \(transcode(Int64(newValue)))")
             } catch {
-                MDLog.e("Can't set db userVersion: \(error)")
+                Logger.e("Can't set db userVersion: \(error)")
             }
         }
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     /// Checks if database file exists and integrity check of the entire database was successful.
     public static func isValidDatabase(databaseName: String?, delegate: DatabaseOpenDelegate? = nil) -> Bool {
         return DatabaseHelper.sharedInstance.validateDatabase(databaseName, delegate: delegate)
     }
 
-// MARK: - Internal Functions
+// MARK: - Internal Methods
     
     func unpackDatabaseTemplate(databaseName: String, assetPath: NSURL) -> NSURL?
     {
@@ -68,15 +69,15 @@ public class DatabaseHelper
         if let tmpPathUrl = makeTemplatePath(databaseName)
         {
             // Remove previous template file
-            mdc_removeItemAtURL(tmpPathUrl)
+            rxm_removeItemAtURL(tmpPathUrl)
 
             // Copy new template file
-            if mdc_copyItemAtURL(assetPath, toURL: tmpPathUrl) {
+            if rxm_copyItemAtURL(assetPath, toURL: tmpPathUrl) {
                 pathUrl = tmpPathUrl
             }
         }
         else {
-            mdc_fatalError("Could not make temporary path for database ‘\(databaseName)’.")
+            rxm_fatalError("Could not make temporary path for database ‘\(databaseName)’.")
         }
 
         return pathUrl
@@ -89,7 +90,7 @@ public class DatabaseHelper
 
         // Build path to the database file
         if !name.isEmpty && (name != Inner.InMemoryDatabase) {
-            path = NSFileManager.databasesDirectory?.URLByAppendingPathComponent((name.mdc_md5String as NSString).stringByAppendingPathExtension(FileExtension.SQLite)!)
+            path = NSFileManager.databasesDirectory?.URLByAppendingPathComponent((name.rxm_md5String as NSString).stringByAppendingPathExtension(FileExtension.SQLite)!)
         }
 
         // Done
@@ -103,21 +104,21 @@ public class DatabaseHelper
 
         // Build path to the template file
         if !name.isEmpty && (name != Inner.InMemoryDatabase) {
-            path = NSFileManager.temporaryDirectory?.URLByAppendingPathComponent((name.mdc_md5String as NSString).stringByAppendingPathExtension(FileExtension.SQLite)!)
+            path = NSFileManager.temporaryDirectory?.URLByAppendingPathComponent((name.rxm_md5String as NSString).stringByAppendingPathExtension(FileExtension.SQLite)!)
         }
 
         // Done
         return path
     }
 
-// MARK: - Private Functions
+// MARK: - Private Methods
 
     private func validateDatabase(databaseName: String?, delegate: DatabaseOpenDelegate? = nil) -> Bool
     {
         var result = false
 
         // Check if database file exists
-        if let path = makeDatabasePath(databaseName) where path.mdc_isFileExists
+        if let path = makeDatabasePath(databaseName) where path.rxm_isFileExists
         {
             // Check integrity of database
             let database = openDatabase(databaseName, version: nil, readonly: true, delegate: delegate)
@@ -148,7 +149,7 @@ public class DatabaseHelper
         var database: Database!
 
         // Validate database name
-        if let path = makeDatabasePath(databaseName) where path.mdc_isFileExists {
+        if let path = makeDatabasePath(databaseName) where path.rxm_isFileExists {
             name = path.path
         }
         else if (name != Inner.InMemoryDatabase) {
@@ -156,7 +157,7 @@ public class DatabaseHelper
         }
 
         // Open on-disk OR in-memory database
-        if str_isNotEmpty(name) {
+        if String.isNotWhiteSpace(name) {
             database = createDatabaseObject(name, readonly: readonly)
 
             // Send events to the delegate
@@ -260,13 +261,13 @@ public class DatabaseHelper
         if let dstPath = makeDatabasePath(databaseName)
         {
             // Remove previous database file
-            mdc_removeItemAtURL(dstPath)
+            rxm_removeItemAtURL(dstPath)
 
             // Get path of the database template file from delegate
-            if let (path, encryptionKey) = delegate?.databaseWillCreate(databaseName) where (path != nil) && path!.mdc_isFileExists
+            if let (path, encryptionKey) = delegate?.databaseWillCreate(databaseName) where (path != nil) && path!.rxm_isFileExists
             {
                 // Unpack database template from the assets
-                if let tmpPath = unpackDatabaseTemplate(databaseName!, assetPath: path!) where tmpPath.mdc_isFileExists,
+                if let tmpPath = unpackDatabaseTemplate(databaseName!, assetPath: path!) where tmpPath.rxm_isFileExists,
                    let uriPath = tmpPath.path
                 {
                     var db: Database? = createDatabaseObject(uriPath, readonly: false)
@@ -279,12 +280,12 @@ public class DatabaseHelper
                             // FMDB with SQLCipher Tutorial
                             // @link http://www.guilmo.com/fmdb-with-sqlcipher-tutorial/
 
-                            execute(db, query: "ATTACH DATABASE '\(dstPath.path!)' AS `encrypted` KEY '\(key.mdc_hexString)';")
+                            execute(db, query: "ATTACH DATABASE '\(dstPath.path!)' AS `encrypted` KEY '\(key.rxm_hexString)';")
                             execute(db, query: "SELECT sqlcipher_export('encrypted');")
                             execute(db, query: "DETACH DATABASE `encrypted`;")
                         }
                         else {
-                            mdc_copyItemAtURL(tmpPath, toURL: dstPath)
+                            rxm_copyItemAtURL(tmpPath, toURL: dstPath)
                         }
 
                         // Exclude file from back-up to iCloud
@@ -295,7 +296,7 @@ public class DatabaseHelper
                     db = nil
 
                     // Remove database template file
-                    mdc_removeItemAtURL(tmpPath)
+                    rxm_removeItemAtURL(tmpPath)
                 }
             }
 
@@ -304,7 +305,7 @@ public class DatabaseHelper
 
             // Remove corrupted database file
             if (database == nil) {
-                mdc_removeItemAtURL(dstPath)
+                rxm_removeItemAtURL(dstPath)
             }
         }
         // Create in-memory database
@@ -332,48 +333,49 @@ public class DatabaseHelper
     }
 
     private func sanitizeName(name: String?) -> String {
-        return str_isNotEmpty(name?.trimmed()) ? name! : Inner.InMemoryDatabase
+        return String.isNotWhiteSpace(name) ? name! : Inner.InMemoryDatabase
     }
-    
+
+    // DEPRECATED: Code refactoring is needed
     private func execute(database: Database?, query: String?)
     {
-        guard let database = database,
-              let query = query else {
-                return
-        }
-        
+        guard let database = database, let query = query else { return }
+
         do {
             try database.execute(query)
-        } catch {
-            mdc_assertFailure("Database query \(query) failed with error \(error)")
+        }
+        catch {
+            rxm_fatalError("Database query \(query) failed with error \(error)")
         }
     }
-    
+
+    // DEPRECATED: Code refactoring is needed
     private func createDatabaseObject(uriPath: String?, readonly: Bool) -> Database?
     {
-        guard let uriPath = uriPath else {
-            mdc_assertFailure("Can't create database object with nil uri path")
-            return nil
+        if uriPath == nil {
+            rxm_fatalError("Can't create database object with nil uri path")
         }
-        
+
         do {
-            return try Database(uriPath, readonly: false)
-        } catch {
-            mdc_assertFailure("Can't open db at \(uriPath) with readonly \(readonly): \(error)")
-            return nil
+            return try Database(uriPath!, readonly: false)
+        }
+        catch {
+            rxm_fatalError("Can't open db at \(uriPath) with readonly \(readonly): \(error)")
         }
     }
-    
-    private func runTransaction(database: Database?, mode: Database.TransactionMode, block: () throws -> Void) {
-        guard let database = database else {
-            mdc_assertFailure("Can't run transaction on nil database")
-            return
+
+    // DEPRECATED: Code refactoring is needed
+    private func runTransaction(database: Database?, mode: Database.TransactionMode, block: () throws -> Void)
+    {
+        if database == nil {
+            rxm_fatalError("Can't run transaction on nil database")
         }
-        
+
         do {
-            try database.transaction(mode, block: block)
-        } catch {
-            mdc_assertFailure("Transaction failed with error \(error)")
+            try database!.transaction(mode, block: block)
+        }
+        catch {
+            rxm_fatalError("Transaction failed with error \(error)")
         }
     }
 
@@ -410,9 +412,9 @@ public class DatabaseHelper
 
 private extension NSURL
 {
-// MARK: - Functions
+// MARK: - Methods
 
-    var mdc_isFileExists: Bool {
+    var rxm_isFileExists: Bool {
         return self.fileURL && self.checkResourceIsReachableAndReturnError(nil)
     }
 

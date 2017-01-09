@@ -3,8 +3,8 @@
 //  String.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -24,7 +24,25 @@ public extension String
      */
     var length: Int { return self.characters.count }
 
-// MARK: - Functions
+// MARK: - Methods
+
+    static func isNilOrEmpty(str: String?) -> Bool {
+        return (str == nil) || str!.isEmpty
+    }
+
+    static func isNotEmpty(str: String?) -> Bool {
+        return !isNilOrEmpty(str)
+    }
+
+    static func isNilOrWhiteSpace(str: String?) -> Bool {
+        return (str == nil) || str!.trimmed().isEmpty
+    }
+
+    static func isNotWhiteSpace(str: String?) -> Bool {
+        return !isNilOrWhiteSpace(str)
+    }
+
+// --
 
     func escapeString(encoding: UInt = NSUTF8StringEncoding) -> String {
         return CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, self, CharacterSet.ToLeaveUnescaped, CharacterSet.ToBeEscaped, CFStringConvertNSStringEncodingToEncoding(encoding)) as String
@@ -124,28 +142,6 @@ public extension String
         private static let ToLeaveUnescaped = "[]."
     }
 
-}
-
-// ----------------------------------------------------------------------------
-// MARK: - Global Functions
-// ----------------------------------------------------------------------------
-
-public func str_isNotEmpty(array: String? ...) -> Bool
-{
-    // Validate strings
-    return array.all { obj in (obj != nil) && !(obj!.isEmpty) }
-}
-
-public func str_isNotEmpty(array: [String]? ...) -> Bool
-{
-    // Validate strings
-    return array.all { arr in (arr != nil) && arr!.all { obj in !obj.isEmpty } }
-}
-
-public func str_isNotEmpty(array: [String?]? ...) -> Bool
-{
-    // Validate strings
-    return array.all { arr in (arr != nil) && arr!.all { obj in (obj != nil) && !(obj!.isEmpty) } }
 }
 
 // ----------------------------------------------------------------------------

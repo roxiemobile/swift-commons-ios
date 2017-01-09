@@ -22,4 +22,7 @@ Pod::Spec.new do |s|
   s.xcconfig              = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_HAS_CODEC=1' }
   s.pod_target_xcconfig   = { 'ENABLE_BITCODE' => 'NO' }
 
+  # External dependencies
+  s.dependency 'SwiftyJSON', '~> 2.4'
+
 end

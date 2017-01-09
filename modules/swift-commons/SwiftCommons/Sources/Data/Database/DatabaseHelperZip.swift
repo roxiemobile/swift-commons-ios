@@ -3,8 +3,8 @@
 //  DatabaseHelperZip.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ public class DatabaseHelperZip: DatabaseHelper
         super.init(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     override func unpackDatabaseTemplate(databaseName: String, assetPath: NSURL) -> NSURL?
     {
@@ -30,7 +30,7 @@ public class DatabaseHelperZip: DatabaseHelper
         if let tmpPath = makeTemplatePath(databaseName)
         {
             // Remove previous template file
-            mdc_removeItemAtURL(tmpPath)
+            rxm_removeItemAtURL(tmpPath)
 
             // Unzip database template file from the assets
             if SSZipArchive.unzipEntityName(databaseName, fromFilePath: assetPath.path!, toDestination: tmpPath.path!) {
@@ -38,7 +38,7 @@ public class DatabaseHelperZip: DatabaseHelper
             }
         }
         else {
-            mdc_fatalError("Could not make temporary path for database ‘\(databaseName)’.")
+            rxm_fatalError("Could not make temporary path for database ‘\(databaseName)’.")
         }
 
         return path

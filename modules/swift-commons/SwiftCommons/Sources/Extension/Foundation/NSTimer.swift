@@ -3,8 +3,8 @@
 //  NSTimer.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -24,23 +24,23 @@ public extension NSTimer
 {
 // MARK: - Construction
 
-    public class func mdc_scheduledTimerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> NSTimer
+    public class func rxm_scheduledTimerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> NSTimer
     {
-        let timer = scheduledTimerWithTimeInterval(ti, target: self, selector: #selector(NSTimer.mdc_executeCompletionHandler(_:)),
+        let timer = scheduledTimerWithTimeInterval(ti, target: self, selector: #selector(NSTimer.rxm_executeCompletionHandler(_:)),
                     userInfo: unsafeBitCast(completion, AnyObject.self), repeats: yesOrNo)
         return timer
     }
 
-    public class func mdc_timerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> NSTimer
+    public class func rxm_timerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> NSTimer
     {
-        let timer = NSTimer(timeInterval: ti, target: self, selector: #selector(NSTimer.mdc_executeCompletionHandler(_:)),
+        let timer = NSTimer(timeInterval: ti, target: self, selector: #selector(NSTimer.rxm_executeCompletionHandler(_:)),
                     userInfo: unsafeBitCast(completion, AnyObject.self), repeats: yesOrNo)
         return timer
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
-    static func mdc_executeCompletionHandler(timer: NSTimer)
+    static func rxm_executeCompletionHandler(timer: NSTimer)
     {
         if let userInfo: AnyObject? = timer.userInfo {
             let completionHandler = unsafeBitCast(userInfo, TimerCompletionHandler.self)

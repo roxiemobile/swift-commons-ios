@@ -3,8 +3,8 @@
 //  String+Crypto.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -22,8 +22,8 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_md5String: String {
-        return self.mdc_md5Digest.mdc_hexString
+    var rxm_md5String: String {
+        return self.rxm_md5Digest.rxm_hexString
     }
 
     /**
@@ -32,8 +32,8 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_md5Digest: NSData {
-        return dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.mdc_md5Digest
+    var rxm_md5Digest: NSData {
+        return dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.rxm_md5Digest
     }
 
     /**
@@ -42,8 +42,8 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_sha1String: String {
-        return self.mdc_sha1Digect.mdc_hexString
+    var rxm_sha1String: String {
+        return self.rxm_sha1Digest.rxm_hexString
     }
 
     /**
@@ -52,8 +52,8 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_sha1Digect: NSData {
-        return dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.mdc_sha1Digest
+    var rxm_sha1Digest: NSData {
+        return dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.rxm_sha1Digest
     }
 
 }

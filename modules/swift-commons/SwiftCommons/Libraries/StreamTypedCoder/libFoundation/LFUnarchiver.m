@@ -4,8 +4,8 @@
 //  Based on part of libFoundation.
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ NSString * const LFInconsistentArchiveException =
 @end
 
 // ----------------------------------------------------------------------------
-#pragma mark - Static Functions
+#pragma mark - Static Methods
 // ----------------------------------------------------------------------------
 
 // FIXME: duplicate code
@@ -131,7 +131,7 @@ static NSMapTable *_classToAliasMappings = NULL; // Archive name => decoded name
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Protected Functions
+#pragma mark - Protected Methods
 // ----------------------------------------------------------------------------
 
 - (void)_beginDecoding
@@ -308,7 +308,7 @@ static NSMapTable *_classToAliasMappings = NULL; // Archive name => decoded name
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 + (void)initialize

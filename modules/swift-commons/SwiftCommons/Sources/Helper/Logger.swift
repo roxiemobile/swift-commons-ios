@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 //
-//  AssetUtils.swift
+//  Logger.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public final class MDLog: NonCreatable
+public final class Logger: NonCreatable
 {
 // MARK: - Properties
 
@@ -33,7 +33,7 @@ public final class MDLog: NonCreatable
         }
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     /// Checks to see whether or not a log is loggable at the specified level.
     public static func isLoggable(level: Level) -> Bool {
@@ -48,7 +48,7 @@ public final class MDLog: NonCreatable
         }
     }
 
-// MARK: - Functions: VERBOSE
+// MARK: - Methods: VERBOSE
 
     /// Send a VERBOSE log message.
     public class func v(@autoclosure msg: (Void -> String?)) {
@@ -75,7 +75,7 @@ public final class MDLog: NonCreatable
         log(.VERBOSE, msg: nil, exc: exc)
     }
 
-// MARK: - Functions: DEBUG
+// MARK: - Methods: DEBUG
 
     /// Send a DEBUG log message.
     public class func d(@autoclosure msg: (Void -> String?)) {
@@ -102,7 +102,7 @@ public final class MDLog: NonCreatable
         log(.DEBUG, msg: nil, exc: exc)
     }
 
-// MARK: - Functions: INFO
+// MARK: - Methods: INFO
 
     /// Send an INFO log message.
     public class func i(@autoclosure msg: (Void -> String?)) {
@@ -129,7 +129,7 @@ public final class MDLog: NonCreatable
         log(.INFO, msg: nil, exc: exc)
     }
 
-// MARK: - Functions: WARNING
+// MARK: - Methods: WARNING
 
     /// Send a WARNINIG log message.
     public class func w(@autoclosure msg: (Void -> String?)) {
@@ -156,7 +156,7 @@ public final class MDLog: NonCreatable
         log(.WARNING, msg: nil, exc: exc)
     }
 
-// MARK: - Functions: ERROR
+// MARK: - Methods: ERROR
 
     /// Send an ERROR log message.
     public class func e(@autoclosure msg: (Void -> String?)) {
@@ -183,7 +183,7 @@ public final class MDLog: NonCreatable
         log(.ERROR, msg: nil, exc: exc)
     }
 
-// MARK: - Functions: ASSERT
+// MARK: - Methods: ASSERT
 
     /// What a Terrible Failure: Report a condition that should never happen.
     public class func wtf(@autoclosure msg: (Void -> String?)) {
@@ -210,7 +210,7 @@ public final class MDLog: NonCreatable
         log(.ASSERT, msg: nil, exc: exc)
     }
 
-// MARK: - Private Functions
+// MARK: - Private Methods
 
     private class func log(level: Level, @autoclosure msg: (Void -> String?), @autoclosure err: (Void -> NSError?)) {
         if isLoggable(level) {
@@ -308,7 +308,7 @@ public final class MDLog: NonCreatable
 
 // MARK: - Variables
 
-    private static var level: Level = .DEBUG
+    private static var level = Level.DEBUG
 
 }
 

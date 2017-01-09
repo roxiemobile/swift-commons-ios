@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "191D270C1A7CEEBE000B928B"
-               BuildableName = "SwiftCommons.framework"
-               BlueprintName = "SwiftCommons"
-               ReferencedContainer = "container:SwiftCommons.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
@@ -53,15 +39,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "191D270C1A7CEEBE000B928B"
-            BuildableName = "SwiftCommons.framework"
-            BlueprintName = "SwiftCommons"
-            ReferencedContainer = "container:SwiftCommons.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -78,9 +55,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "191D270C1A7CEEBE000B928B"
-            BuildableName = "SwiftCommons.framework"
-            BlueprintName = "SwiftCommons"
+            BlueprintIdentifier = "191D27171A7CEEBE000B928B"
+            BuildableName = "SwiftCommonsTests.xctest"
+            BlueprintName = "SwiftCommonsTests"
             ReferencedContainer = "container:SwiftCommons.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -96,9 +73,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "191D270C1A7CEEBE000B928B"
-            BuildableName = "SwiftCommons.framework"
-            BlueprintName = "SwiftCommons"
+            BlueprintIdentifier = "191D27171A7CEEBE000B928B"
+            BuildableName = "SwiftCommonsTests.xctest"
+            BlueprintName = "SwiftCommonsTests"
             ReferencedContainer = "container:SwiftCommons.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

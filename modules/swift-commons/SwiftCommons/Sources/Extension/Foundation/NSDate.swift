@@ -3,8 +3,8 @@
 //  NSDate.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -96,7 +96,7 @@ public extension NSDate
         return getComponent(.Second)
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     public func stringValue(format: String) -> String
     {
@@ -256,7 +256,7 @@ public extension NSDate
         return components.valueForComponent(component)
     }
 
-// MARK: - Functions: Comparison
+// MARK: - Methods: Comparison
 
     /**
      * Checks if self is after input NSDate
@@ -284,7 +284,7 @@ public extension NSDate
         return (self.compare(date) == NSComparisonResult.OrderedAscending)
     }
 
-// MARK: - Functions: Intervals
+// MARK: - Methods: Intervals
 
     public func minutesAfterDate(date: NSDate) -> Int {
         return Int(self.timeIntervalSinceDate(date) / Intervals.InSeconds.Minute)
@@ -350,7 +350,7 @@ public extension NSDate
 
 extension NSDate: Strideable
 {
-// MARK: - Functions
+// MARK: - Methods
 
     public func distanceTo(other: NSDate) -> NSTimeInterval {
         return (other - self)
@@ -374,7 +374,7 @@ public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
 // ----------------------------------------------------------------------------
 
 extension NSDate: Comparable {
-    // Do nothing ..
+    // Do nothing
 }
 
 public func <(lhs: NSDate, rhs: NSDate) -> Bool {

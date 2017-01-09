@@ -3,8 +3,8 @@
 //  Swift.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -24,7 +24,6 @@ public protocol MDCoding: AnyObject
 
     /// Decodes the receiver using a given unarchiver.
     func decode(coder decoder: NSCoder) -> Bool
-
 }
 
 // ----------------------------------------------------------------------------
@@ -33,11 +32,8 @@ public protocol MDCoding: AnyObject
 /// of an object.
 public protocol MDCopying: NSCopying
 {
-// MARK: - Functions
-
     /// Returns a new instance that’s a copy of the receiver.
     func copy() -> Self
-
 }
 
 // ----------------------------------------------------------------------------
@@ -112,10 +108,10 @@ public func optionalTypeCast<T>(object: AnyObject?, type: T.Type) -> T? {
 // ----------------------------------------------------------------------------
 
 /// Creates a custom tag for any class.
-public func mdc_customTag(clazz: AnyClass) -> String
+public func rxm_customTag(clazz: AnyClass) -> String
 {
-    let nameTag = NSStringFromClass(clazz).mdc_md5String.substringToIndex(8)
-    let timeTag = mach_absolute_time().mdc_hexString.substringFromIndex(8)
+    let nameTag = NSStringFromClass(clazz).rxm_md5String.substringToIndex(8)
+    let timeTag = mach_absolute_time().rxm_hexString.substringFromIndex(8)
 
     // Done
     return "urn:tag:\(nameTag):\(timeTag)"

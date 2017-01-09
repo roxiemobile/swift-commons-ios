@@ -3,8 +3,8 @@
 //  NSData.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -20,25 +20,10 @@ public extension NSData
         return (self.length < 1)
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
-    class func isNilOrEmpty(objects: NSData?...) -> Bool
-    {
-        if objects.isEmpty {
-            return true
-        }
-
-        var result = false
-        for obj in objects
-        {
-            if (obj == nil) || obj!.isEmpty
-            {
-                result = true
-                break
-            }
-        }
-
-        return result
+    static func isNilOrEmpty(obj: NSData?) -> Bool {
+        return (obj == nil) || obj!.isEmpty
     }
 
 }

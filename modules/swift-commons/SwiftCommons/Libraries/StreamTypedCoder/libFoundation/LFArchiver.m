@@ -4,8 +4,8 @@
 //  Based on part of libFoundation.
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ UInt16 LFCoderVersion = 1505; // 2015-05
 @end
 
 // ----------------------------------------------------------------------------
-#pragma mark - Static Functions
+#pragma mark - Static Methods
 // ----------------------------------------------------------------------------
 
 // In objective-c, how can I tell the difference between a Class and an instance of a class?
@@ -121,12 +121,12 @@ BOOL _tag_isBaseType(const char *type)
 // ----------------------------------------------------------------------------
 
 static inline
-size_t mdc_strlen(const char *str) {
+size_t rxm_strlen(const char *str) {
     return (str ? strlen(str) : 0);
 }
 
 //static inline
-//int mdc_atoi(const char* str) {
+//int rxm_atoi(const char* str) {
 //    return (str ? atoi(str) : 0);
 //}
 
@@ -149,7 +149,7 @@ size_t mdc_strlen(const char *str) {
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Protected Functions
+#pragma mark - Protected Methods
 // ----------------------------------------------------------------------------
 
 - (void)_beginEncoding
@@ -332,7 +332,7 @@ size_t mdc_strlen(const char *str) {
 
         case _C_ATOM:
         case _C_CHARPTR: {
-            [self encodeBytes:(*(void **) addr) length:mdc_strlen(*(void **) addr)];
+            [self encodeBytes:(*(void **) addr) length:rxm_strlen(*(void **) addr)];
             break;
         }
 
@@ -557,7 +557,7 @@ size_t mdc_strlen(const char *str) {
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 - (instancetype)initForWritingWithMutableData:(NSMutableData *)data

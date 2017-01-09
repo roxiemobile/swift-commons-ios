@@ -134,7 +134,7 @@ public final class Mapper<N: Mappable> {
 	/// Usefull for those pesky objects that have crappy designated initializers like NSManagedObject
 	public func map(JSONDictionary: [String : AnyObject], toObject object: N) -> N {
         var object = object
-        mdc_checkState(object)
+        rxm_checkState(object)
 		let map = Map(mappingType: .FromJSON, JSONDictionary: JSONDictionary)
 		object.mapping(map)
 		return object
@@ -320,7 +320,7 @@ public final class Mapper<N: Mappable> {
 			do {
 				parsedJSON = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
 			} catch {
-                mdc_assertFailure("Failed to convert data \(data) to JSON")
+				rxm_objectMapperAssertion("Failed to convert data \(data) to JSON")
 				parsedJSON = nil
 			}
 			return parsedJSON
@@ -330,9 +330,9 @@ public final class Mapper<N: Mappable> {
 	}
 
     /// Checks if an object is frozen.
-    private func mdc_checkState(object: Mappable) {
+    private func rxm_checkState(object: Mappable) {
         if object.frozen() {
-            mdc_objectMapperError("Can't modify frozen object.")
+            rxm_objectMapperError("Can't modify frozen object.")
         }
     }
 }

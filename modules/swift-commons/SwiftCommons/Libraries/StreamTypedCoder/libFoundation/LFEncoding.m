@@ -4,8 +4,8 @@
 //  Based on part of GNU CC.
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -47,7 +47,7 @@
 #define SIZEOF_NETWORK_DOUBLE  8
 
 // ----------------------------------------------------------------------------
-#pragma mark - Private Functions
+#pragma mark - Private Methods
 // ----------------------------------------------------------------------------
 
 static void
@@ -209,7 +209,7 @@ __ntohd(register unsigned char *out, register const unsigned char *in, size_t co
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 /**
@@ -557,7 +557,7 @@ const char *objc_skip_typespec(const char *type)
 }
 
 // ----------------------------------------------------------------------------
-#pragma mark - Functions
+#pragma mark - Methods
 // ----------------------------------------------------------------------------
 
 float objc_ntohf(float value)

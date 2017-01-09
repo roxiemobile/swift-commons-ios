@@ -3,8 +3,8 @@
 //  NSData+Crypto.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
-//  @link       http://www.mediarium.com/
+//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ public extension NSData
      * How to convert an NSData into an NSString Hex string?
      * @link http://stackoverflow.com/a/7520655
      */
-    var mdc_hexString: String
+    var rxm_hexString: String
     {
         let charA = UInt8(UnicodeScalar("a").value)
         let char0 = UInt8(UnicodeScalar("0").value)
@@ -59,8 +59,8 @@ public extension NSData
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_md5String: String {
-        return self.mdc_md5Digest.mdc_hexString
+    var rxm_md5String: String {
+        return self.rxm_md5Digest.rxm_hexString
     }
 
     /**
@@ -69,7 +69,7 @@ public extension NSData
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_md5Digest: NSData {
+    var rxm_md5Digest: NSData {
         return Hash(self).md5()
     }
 
@@ -79,8 +79,8 @@ public extension NSData
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_sha1String: String {
-        return self.mdc_sha1Digest.mdc_hexString
+    var rxm_sha1String: String {
+        return self.rxm_sha1Digest.rxm_hexString
     }
 
     /**
@@ -89,11 +89,11 @@ public extension NSData
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var mdc_sha1Digest: NSData {
+    var rxm_sha1Digest: NSData {
         return Hash(self).sha1()
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     static func withBytes(bytes: [UInt8]) -> NSData {
         return NSData(bytes: bytes, length: bytes.count)
@@ -113,7 +113,7 @@ public extension NSData
 
 private extension NSMutableData
 {
-// MARK: - Functions
+// MARK: - Methods
 
     func appendBytes(arrayOfBytes: [UInt8]) {
         self.appendBytes(arrayOfBytes, length: arrayOfBytes.count)
@@ -133,7 +133,7 @@ private class Hash
         self.message = message
     }
 
-// MARK: - Functions
+// MARK: - Methods
 
     func md5() -> NSData
     {
@@ -309,7 +309,7 @@ private class Hash
         return buf.copy() as! NSData;
     }    
 
-// MARK: - Private Functions
+// MARK: - Private Methods
 
     /**
      * Common part for hash calculation. Prepare header data.

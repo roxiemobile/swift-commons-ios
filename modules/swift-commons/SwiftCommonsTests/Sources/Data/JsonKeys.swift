@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  AbstractFunction.swift
+//  JsonKeys.swift
 //
 //  @author     Denis Kolyasev <KolyasevDA@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -8,14 +8,19 @@
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
+// @deprecated
+internal struct JsonKeys
+{
+// MARK: - Vehicle
 
-// ----------------------------------------------------------------------------
-// MARK: - Global Functions
-// ----------------------------------------------------------------------------
+    internal static let Model = "model"
+    internal static let Color = "color"
 
-@noreturn public func mdc_abstractFunction(file: StaticString = #file, line: UInt = #line) {
-    mdc_fatalError("This function must be overridden")
+// MARK: - Parking
+
+    internal static let Watcher = "watcher"
+    internal static let Vehicles = "vehicles"
+    
 }
 
 // ----------------------------------------------------------------------------
