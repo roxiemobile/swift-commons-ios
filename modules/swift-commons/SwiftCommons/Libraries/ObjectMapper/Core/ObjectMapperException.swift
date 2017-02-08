@@ -53,7 +53,7 @@ public class ObjectMapperException: NSException
 public func rxm_objectMapperAssertion(message: String, file: StaticString = #file, line: UInt = #line)
 {
     let errorMessage = "Assertion violated: \(message)\nFile: \(file)\nLine: \(line)"
-    Logger.e(errorMessage)
+    Logger.e(#function, msg: errorMessage, exc: nil)
     assertionFailure(errorMessage)
 }
 

@@ -13,7 +13,7 @@ import SwiftCommons
 // ----------------------------------------------------------------------------
 
 // @deprecated
-internal class VehicleModel: SerializableObject, Inspectable
+internal class VehicleModel: SerializableObject
 {
 // MARK: - Properties
 
@@ -35,7 +35,7 @@ internal class VehicleModel: SerializableObject, Inspectable
         try super.validate()
 
         // Validate instance
-        try throwIfNilOrWhiteSpace(self.model, self.color)
+        try Expect.isNilOrWhiteSpace(self.model, self.color)
     }
 
 }

@@ -16,21 +16,36 @@ public class Expect: NonCreatable
 {
 // MARK: - Private Methods
 
-    private static func safeEqual<T:Equatable>(expected: T?, _ actual: T?) -> Bool {
-        return (expected == nil && actual == nil) || (expected != nil && actual != nil && expected == actual)
-    }
-
-    private static func recursiveForEach<T>(array: [[T]?], _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line,
-                                            block:  (T) -> ())
+    private static func rethrowOnSuccess(message: String?, file: StaticString, line: UInt, block: () -> ()) throws
     {
-        array.forEach {
-            isNotNil($0, message, file, line)
-            $0!.forEach() { block($0) }
+        var cause: NSException?
+        Try {
+            block()
+        }.Catch { e in
+            cause = e
+        }
+
+        if cause != nil {
+            try throwError(message, file, line)
         }
     }
 
-    private static func throwException(message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
-        rxm_fatalError(message ?? "", file: file, line: line)
+    private static func rethrowOnFailure(message: String?, file: StaticString, line: UInt, block: () -> ()) throws
+    {
+        var cause: NSException?
+        Try {
+            block()
+        }.Catch { e in
+            cause = e
+        }
+
+        if cause == nil {
+            try throwError(message, file, line)
+        }
+    }
+
+    private static func throwError(message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+        throw ValidationError(message ?? "", file: file, line: line)
     }
 }
 
@@ -40,95 +55,17 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isTrue(condition: Bool, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isTrue(condition: Bool, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        if !condition {
-            throwException(message, file, line)
+        try rethrowOnFailure(message, file: file, line: line) {
+            Require.isTrue(condition)
         }
     }
 
-    public static func isFalse(condition: Bool, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
-        isTrue(!condition, message, file, line)
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-extension Expect
-{
-// MARK: - Methods
-
-    public static func isEqual<T:Equatable>(expected: T?, _ actual: T?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
-        isTrue(safeEqual(expected, actual), message, file, line)
-    }
-
-    public static func isNotEqual<T:Equatable>(unexpected: T?, _ actual: T?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
-        isFalse(safeEqual(unexpected, actual), message, file, line)
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-extension Expect
-{
-// MARK: - Methods
-
-    public static func isNil(object: Any?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
-        isTrue(object == nil, message, file, line)
-    }
-
-    public static func isNotNil(object: Any?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
-        isTrue(object != nil, message, file, line)
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-extension Expect
-{
-// MARK: - Methods
-
-    public static func isNilOrEmpty(array: String?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isFalse(condition: Bool, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        array.forEach() {
-            isTrue($0 == nil || $0!.isEmpty, message, file, line)
-        }
-    }
-
-    public static func isNilOrEmpty(array: [String]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0.isEmpty, message, file, line)
-        }
-    }
-
-    public static func isNilOrEmpty(array: [String?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0 == nil || $0!.isEmpty, message, file, line)
-        }
-    }
-
-// --
-
-    public static func isNotEmpty(array: String?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        array.forEach() {
-            isTrue($0 != nil && !$0!.isEmpty, message, file, line)
-        }
-    }
-
-    public static func isNotEmpty(array: [String]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue(!$0.isEmpty, message, file, line)
-        }
-    }
-
-    public static func isNotEmpty(array: [String?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0 != nil && !$0!.isEmpty, message, file, line)
+        try rethrowOnFailure(message, file: file, line: line) {
+            Require.isFalse(condition)
         }
     }
 }
@@ -139,47 +76,17 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isNilOrWhiteSpace(array: String?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isEqual<T:Equatable>(expected: T?, _ actual: T?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        array.forEach() {
-            isTrue($0 == nil || $0!.trimmed().isEmpty, message, file, line)
+        try rethrowOnFailure(message, file: file, line: line) {
+            Require.isEqual(expected, actual)
         }
     }
 
-    public static func isNilOrWhiteSpace(array: [String]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNotEqual<T:Equatable>(unexpected: T?, _ actual: T?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0.trimmed().isEmpty, message, file, line)
-        }
-    }
-
-    public static func isNilOrWhiteSpace(array: [String?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0 == nil || $0!.trimmed().isEmpty, message, file, line)
-        }
-    }
-
-// --
-
-    public static func isNotWhiteSpace(array: String?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        array.forEach() {
-            isTrue($0 != nil && !$0!.trimmed().isEmpty, message, file, line)
-        }
-    }
-
-    public static func isNotWhiteSpace(array: [String]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue(!$0.trimmed().isEmpty, message, file, line)
-        }
-    }
-
-    public static func isNotWhiteSpace(array: [String?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0 != nil && !$0!.trimmed().isEmpty, message, file, line)
+        try rethrowOnFailure(message, file: file, line: line) {
+            Require.isNotEqual(unexpected, actual)
         }
     }
 }
@@ -190,47 +97,17 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isValid(array: Validatable?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        array.forEach() {
-            isTrue($0 != nil && $0!.isValid(), message, file, line)
+        try rethrowOnFailure(message, file: file, line: line) {
+            Require.isNil(object)
         }
     }
 
-    public static func isValid(array: [Validatable]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNotNil(object: Any?, message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0.isValid(), message, file, line)
-        }
-    }
-
-    public static func isValid(array: [Validatable?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0 != nil && $0!.isValid(), message, file, line)
-        }
-    }
-
-// --
-
-    public static func isNotValid(array: Validatable?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        array.forEach() {
-            isTrue($0 != nil && !$0!.isValid(), message, file, line)
-        }
-    }
-
-    public static func isNotValid(array: [Validatable]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue(!$0.isValid(), message, file, line)
-        }
-    }
-
-    public static func isNotValid(array: [Validatable?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
-    {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0 != nil && !$0!.isValid(), message, file, line)
+        try rethrowOnFailure(message, file: file, line: line) {
+            Require.isNotNil(object)
         }
     }
 }
@@ -241,47 +118,132 @@ extension Expect
 {
 // MARK: - Methods
 
-    public static func isNilOrValid(array: Validatable?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNilOrEmpty(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        array.forEach() {
-            isTrue($0 == nil || $0!.isValid(), message, file, line)
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNotEmpty($0)
+            }
         }
     }
 
-    public static func isNilOrValid(array: [Validatable]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNilOrEmpty(array: [String]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0.isValid(), message, file, line)
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNotEmpty($0)
+            }
         }
     }
 
-    public static func isNilOrValid(array: [Validatable?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNilOrEmpty(array: [String?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0 == nil || $0!.isValid(), message, file, line)
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNotEmpty($0)
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+extension Expect
+{
+// MARK: - Methods
+
+    public static func isNilOrWhiteSpace(array: String?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
+    {
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNotWhiteSpace($0)
+            }
         }
     }
 
-// --
-
-    public static func isNilOrNotValid(array: Validatable?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNilOrWhiteSpace(array: [String]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        array.forEach() {
-            isTrue($0 == nil || !$0!.isValid(), message, file, line)
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNotWhiteSpace($0)
+            }
         }
     }
 
-    public static func isNilOrNotValid(array: [Validatable]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNilOrWhiteSpace(array: [String?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        recursiveForEach(array, message, file, line) {
-            isTrue(!$0.isValid(), message, file, line)
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNotWhiteSpace($0)
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+extension Expect
+{
+// MARK: - Methods
+
+    public static func isNotValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
+    {
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNilOrValid($0)
+            }
         }
     }
 
-    public static func isNilOrNotValid(array: [Validatable?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line)
+    public static func isNotValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
     {
-        recursiveForEach(array, message, file, line) {
-            isTrue($0 == nil || !$0!.isValid(), message, file, line)
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNilOrValid($0)
+            }
+        }
+    }
+
+    public static func isNotValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
+    {
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isNilOrValid($0)
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+extension Expect
+{
+// MARK: - Methods
+
+    public static func isNilOrNotValid(array: Validatable?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
+    {
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isValid($0)
+            }
+        }
+    }
+
+    public static func isNilOrNotValid(array: [Validatable]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
+    {
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isValid($0)
+            }
+        }
+    }
+
+    public static func isNilOrNotValid(array: [Validatable?]?..., message: String? = nil, file: StaticString = #file, line: UInt = #line) throws
+    {
+        try rethrowOnSuccess(message, file: file, line: line) {
+            array.forEach {
+                Require.isValid($0)
+            }
         }
     }
 }

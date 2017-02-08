@@ -47,7 +47,7 @@ public class DatabaseHelper
             do {
                 try database?.run("PRAGMA user_version = \(transcode(Int64(newValue)))")
             } catch {
-                Logger.e("Can't set db userVersion: \(error)")
+                Logger.e(rxm_customTag(self.dynamicType), msg: "Can't set db userVersion: \(error)", exc: nil)
             }
         }
     }
@@ -157,7 +157,7 @@ public class DatabaseHelper
         }
 
         // Open on-disk OR in-memory database
-        if String.isNotWhiteSpace(name) {
+        if String.isNotBlank(name) {
             database = createDatabaseObject(name, readonly: readonly)
 
             // Send events to the delegate
@@ -333,7 +333,7 @@ public class DatabaseHelper
     }
 
     private func sanitizeName(name: String?) -> String {
-        return String.isNotWhiteSpace(name) ? name! : Inner.InMemoryDatabase
+        return String.isNotBlank(name) ? name! : Inner.InMemoryDatabase
     }
 
     // DEPRECATED: Code refactoring is needed
