@@ -13,7 +13,7 @@ import SwiftCommons
 // ----------------------------------------------------------------------------
 
 // @deprecated
-internal class ParkingModelWithOptionalVehicles: SerializableObject, Inspectable
+internal class ParkingModelWithOptionalVehicles: SerializableObject
 {
 // MARK: - Properties
 
@@ -36,7 +36,7 @@ internal class ParkingModelWithOptionalVehicles: SerializableObject, Inspectable
 
         // Validate instance
         if self.watcher != nil {
-            try throwIfNilOrWhiteSpace(self.watcher)
+            try Expect.isNilOrWhiteSpace(self.watcher)
         }
     }
 

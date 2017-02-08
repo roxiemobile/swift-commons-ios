@@ -116,7 +116,7 @@ public func rxm_removeItemAtURL(url: NSURL?)
         do {
             try fileManager.removeItemAtURL(url)
         } catch {
-            Logger.e("Can't remove item with URL \(url), error: \(error)")
+            Logger.e(#function, msg: "Can't remove item with URL \(url), error: \(error)", exc: nil)
         }
     }
 }
@@ -131,7 +131,7 @@ public func rxm_copyItemAtURL(srcURL: NSURL?, toURL dstURL: NSURL?) -> Bool
     let fileManager = NSFileManager.defaultManager()
     
     guard let srcPath = srcURL.path where fileManager.fileExistsAtPath(srcPath) else {
-        Logger.e("Can't copy item from non-existing URL \(srcURL)")
+        Logger.e(#function, msg: "Can't copy item from non-existing URL \(srcURL)", exc: nil)
         return false
     }
     
@@ -139,7 +139,7 @@ public func rxm_copyItemAtURL(srcURL: NSURL?, toURL dstURL: NSURL?) -> Bool
         try fileManager.copyItemAtURL(srcURL, toURL: dstURL)
         return true
     } catch {
-        Logger.e("Can't copy item from URL \(srcURL) to URL \(dstURL), error: \(error)")
+        Logger.e(#function, msg: "Can't copy item from URL \(srcURL) to URL \(dstURL), error: \(error)", exc: nil)
         return false
     }
 }

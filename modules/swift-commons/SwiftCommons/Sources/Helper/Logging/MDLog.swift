@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 //
-//  Logger.swift
+//  AssetUtils.swift
 //
 //  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @copyright  Copyright (c) 2015, MediariuM Ltd. All rights reserved.
+//  @link       http://www.mediarium.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public final class Logger: NonCreatable
+public final class MDLog: NonCreatable
 {
 // MARK: - Properties
 
@@ -308,7 +308,7 @@ public final class Logger: NonCreatable
 
 // MARK: - Variables
 
-    private static var level = Level.DEBUG
+    private static var level: Level = .DEBUG
 
 }
 
