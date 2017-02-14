@@ -14,151 +14,186 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class ExpectableTests: XCTestCase
+class ExpectTests: XCTestCase
 {
 // MARK: - Tests
 
-    func testExpectTrue()
+    func testIsTrue()
     {
-        expectThrowsException("expectTrue") {
-            Expect.isTrue(1 > 2)
+        expectThrowsException("isTrue") {
+            try Expect.isTrue(1 > 2)
         }
 
-        expectNotThrowsException("expectTrue") {
-            Expect.isTrue(2 > 1)
+        expectNotThrowsException("isTrue") {
+            try Expect.isTrue(2 > 1)
         }
     }
 
-    func testExpectFalse()
+    func testIsFalse()
     {
-        expectThrowsException("expectFalse") {
-            Expect.isFalse(2 > 1)
+        expectThrowsException("isFalse") {
+            try Expect.isFalse(2 > 1)
         }
 
-        expectNotThrowsException("expectFalse") {
-            Expect.isFalse(1 > 2)
+        expectNotThrowsException("isFalse") {
+            try Expect.isFalse(1 > 2)
         }
     }
 
 // MARK: - Tests
 
-    func testExpectEqual()
+    func testIsEqual()
     {
         let string = "value"
         let nilString: String? = nil
 
 
-        expectThrowsException("expectEqual") {
-            Expect.isEqual(1, 2)
+        expectThrowsException("isEqual") {
+            try Expect.isEqual(1, 2)
         }
-        expectThrowsException("expectEqual") {
-            Expect.isEqual(string, nilString)
+        expectThrowsException("isEqual") {
+            try Expect.isEqual(string, nilString)
         }
 
-        expectNotThrowsException("expectEqual") {
-            Expect.isEqual(2, 2)
+        expectNotThrowsException("isEqual") {
+            try Expect.isEqual(2, 2)
         }
-        expectNotThrowsException("expectEqual") {
-            Expect.isEqual(string, string)
+        expectNotThrowsException("isEqual") {
+            try Expect.isEqual(string, string)
         }
     }
 
-    func testExpectNotEqual()
+    func testIsNotEqual()
     {
         let string = "value"
         let nilString: String? = nil
 
 
-        expectThrowsException("expectNotEqual") {
-            Expect.isNotEqual(2, 2)
+        expectThrowsException("isNotEqual") {
+            try Expect.isNotEqual(2, 2)
         }
-        expectThrowsException("expectNotEqual") {
-            Expect.isNotEqual(string, string)
-        }
-
-        expectNotThrowsException("expectNotEqual") {
-            Expect.isNotEqual(1, 2)
-        }
-        expectNotThrowsException("expectNotEqual") {
-            Expect.isNotEqual(string, nilString)
-        }
-    }
-
-// MARK: - Tests
-
-    func testExpectNil()
-    {
-        expectThrowsException("expectNil") {
-            Expect.isNil(2)
+        expectThrowsException("isNotEqual") {
+            try Expect.isNotEqual(string, string)
         }
 
-        expectNotThrowsException("expectNil") {
-            Expect.isNil(nil)
+        expectNotThrowsException("isNotEqual") {
+            try Expect.isNotEqual(1, 2)
         }
-    }
-
-    func testExpectNotNil()
-    {
-        expectThrowsException("expectNotNil") {
-            Expect.isNotNil(nil)
-        }
-
-        expectNotThrowsException("expectNotNil") {
-            Expect.isNotNil(2)
+        expectNotThrowsException("isNotEqual") {
+            try Expect.isNotEqual(string, nilString)
         }
     }
 
 // MARK: - Tests
 
-    func testExpectNilOrEmpty()
+    func testIsSame()
+    {
+        let view = UIView()
+        let otherView = UIView()
+
+
+        expectThrowsException("isSame") {
+            try Expect.isSame(view, otherView)
+        }
+
+        expectNotThrowsException("isSame") {
+            try Expect.isSame(view, view)
+        }
+    }
+
+    func testIsNotSame()
+    {
+        let view = UIView()
+        let otherView = UIView()
+
+
+        expectThrowsException("isNotSame") {
+            try Expect.isNotSame(view, view)
+        }
+
+        expectNotThrowsException("isNotSame") {
+            try Expect.isNotSame(view, otherView)
+        }
+    }
+
+// MARK: - Tests
+
+    func testIsNil()
+    {
+        expectThrowsException("isNil") {
+            try Expect.isNil(2)
+        }
+
+        expectNotThrowsException("isNil") {
+            try Expect.isNil(nil)
+        }
+    }
+
+    func testIsNotNil()
+    {
+        expectThrowsException("isNotNil") {
+            try Expect.isNotNil(nil)
+        }
+
+        expectNotThrowsException("isNotNil") {
+            try Expect.isNotNil(2)
+        }
+    }
+
+// MARK: - Tests
+
+    func testIsNilOrEmpty()
     {
         let string = "value"
         let nilString: String? = nil
         let emptyString = ""
 
 
-        expectThrowsException("expectNilOrEmpty") {
-            Expect.isNilOrEmpty(string)
-        }
-        expectThrowsException("expectNilOrEmpty") {
-            Expect.isNilOrEmpty(nilString, string)
-        }
-        expectThrowsException("expectNilOrEmpty") {
-            Expect.isNilOrEmpty(emptyString, string)
+        expectThrowsException("isNilOrEmpty") {
+            try Expect.isNilOrEmpty(string)
         }
 
-        expectNotThrowsException("expectNilOrEmpty") {
-            Expect.isNilOrEmpty(nilString, emptyString)
+        expectNotThrowsException("isNilOrEmpty") {
+            try Expect.isNilOrEmpty(nilString)
+        }
+        expectNotThrowsException("isNilOrEmpty") {
+            try Expect.isNilOrEmpty(emptyString)
         }
     }
 
-    func testExpectNilOrEmpty_Array()
+    func testIsNilOrEmpty_Array()
     {
         let string = "value"
+        let nilString: String? = nil
         let emptyString = ""
 
         let array: [String]? = [emptyString]
+        let nilArray: [String]? = nil
+        let emptyArray = [String]()
 
 
-        expectThrowsException("expectNilOrEmpty_Array") {
-            Expect.isNilOrEmpty([string])
+        expectThrowsException("isNilOrEmpty_Array") {
+            try Expect.isNilOrEmpty([string])
         }
-        expectThrowsException("expectNilOrEmpty_Array") {
-            Expect.isNilOrEmpty([emptyString, string])
+        expectThrowsException("isNilOrEmpty_Array") {
+            try Expect.isNilOrEmpty([nilString, string])
         }
-        expectThrowsException("expectNilOrEmpty_Array") {
-            Expect.isNilOrEmpty(nil, array)
+        expectThrowsException("isNilOrEmpty_Array") {
+            try Expect.isNilOrEmpty([emptyString, string])
         }
-        expectThrowsException("expectNilOrEmpty_Array") {
-            Expect.isNilOrEmpty(array, [string])
+        expectThrowsException("isNilOrEmpty_Array") {
+            try Expect.isNilOrEmpty(nilArray)
         }
 
-        expectNotThrowsException("expectNilOrEmpty_Array") {
-            Expect.isNilOrEmpty(array, [emptyString])
+        expectNotThrowsException("isNilOrEmpty_Array") {
+            try Expect.isNilOrEmpty(array)
+        }
+        expectNotThrowsException("isNilOrEmpty_Array") {
+            try Expect.isNilOrEmpty(emptyArray)
         }
     }
 
-    func testExpectNilOrEmpty_ArrayOfOptionals()
+    func testIsNilOrEmpty_ArrayOfOptionals()
     {
         let string = "value"
         let nilString: String? = nil
@@ -166,99 +201,110 @@ class ExpectableTests: XCTestCase
 
         let optionalString: String? = "value"
         let arrayOfOptionals: [String?]? = [nilString, emptyString]
+        let emptyArray = [String?]()
 
 
-        expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.isNilOrEmpty([optionalString])
+        expectThrowsException("isNilOrEmpty_ArrayOfOptionals") {
+            try Expect.isNilOrEmpty([optionalString])
         }
-        expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.isNilOrEmpty([nilString, string])
+        expectThrowsException("isNilOrEmpty_ArrayOfOptionals") {
+            try Expect.isNilOrEmpty([nilString, string])
         }
-        expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.isNilOrEmpty([emptyString, string])
-        }
-        expectThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.isNilOrEmpty(nil, arrayOfOptionals)
+        expectThrowsException("isNilOrEmpty_ArrayOfOptionals") {
+            try Expect.isNilOrEmpty([emptyString, string])
         }
 
-        expectNotThrowsException("expectNilOrEmpty_ArrayOfOptionals") {
-            Expect.isNilOrEmpty(arrayOfOptionals, [emptyString])
+        expectNotThrowsException("isNilOrEmpty_ArrayOfOptionals") {
+            try Expect.isNilOrEmpty(arrayOfOptionals, [emptyString])
         }
-    }
-
-    func testExpectNotEmpty()
-    {
-        let string = "value"
-        let nilString: String? = nil
-        let emptyString = ""
-
-
-        expectThrowsException("expectNotEmpty") {
-            Expect.isNotEmpty(nilString)
-        }
-        expectThrowsException("expectNotEmpty") {
-            Expect.isNotEmpty(emptyString)
-        }
-        expectThrowsException("expectNotEmpty") {
-            Expect.isNotEmpty(string, emptyString)
-        }
-
-        expectNotThrowsException("expectNotEmpty") {
-            Expect.isNotEmpty(string)
-        }
-    }
-
-    func testExpectNotEmpty_Array()
-    {
-        let string = "value"
-        let emptyString = ""
-
-        let array: [String]? = [string, string]
-
-
-        expectThrowsException("expectNotEmpty_Array") {
-            Expect.isNotEmpty([emptyString])
-        }
-        expectThrowsException("expectNotEmpty_Array") {
-            Expect.isNotEmpty([string, emptyString])
-        }
-        expectThrowsException("expectNotEmpty_Array") {
-            Expect.isNotEmpty(array, nil, [string])
-        }
-
-        expectNotThrowsException("expectNotEmpty_Array") {
-            Expect.isNotEmpty(array, [string])
-        }
-    }
-
-    func testExpectNotEmpty_ArrayOfOptionals()
-    {
-        let string = "value"
-        let nilString: String? = nil
-        let emptyString: String? = ""
-
-        let optionalString: String? = "value"
-        let arrayOfOptionals: [String?]? = [string, optionalString]
-
-
-        expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
-            Expect.isNotEmpty([nilString])
-        }
-        expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
-            Expect.isNotEmpty([string, emptyString])
-        }
-        expectThrowsException("expectNotEmpty_ArrayOfOptionals") {
-            Expect.isNotEmpty(arrayOfOptionals, nil, [string])
-        }
-
-        expectNotThrowsException("expectNotEmpty_ArrayOfOptionals") {
-            Expect.isNotEmpty(arrayOfOptionals, [string])
+        expectNotThrowsException("isNilOrEmpty_ArrayOfOptionals") {
+            try Expect.isNilOrEmpty(emptyArray)
         }
     }
 
 // MARK: - Tests
 
-    func testExpectNilOrWhiteSpace()
+    func testIsNotEmpty()
+    {
+        let string = "value"
+        let nilString: String? = nil
+        let emptyString = ""
+
+
+        expectThrowsException("isEmpty") {
+            try Expect.isNotEmpty(nilString)
+        }
+        expectThrowsException("isEmpty") {
+            try Expect.isNotEmpty(emptyString)
+        }
+
+        expectNotThrowsException("isEmpty") {
+            try Expect.isNotEmpty(string)
+        }
+    }
+
+    func testIsNotEmpty_Array()
+    {
+        let string = "value"
+        let nilString: String? = nil
+        let emptyString = ""
+
+        let array: [String?] = [string]
+        let nilArray: [String]? = nil
+        let emptyArray = [String]()
+
+
+        expectThrowsException("isEmpty_Array") {
+            try Expect.isNotEmpty([nilString])
+        }
+        expectThrowsException("isEmpty_Array") {
+            try Expect.isNotEmpty([string, emptyString])
+        }
+        expectThrowsException("isEmpty_Array") {
+            try Expect.isNotEmpty(nilArray)
+        }
+        expectThrowsException("isEmpty_Array") {
+            try Expect.isNotEmpty(emptyArray)
+        }
+
+        expectNotThrowsException("isEmpty_Array") {
+            try Expect.isNotEmpty(array)
+        }
+    }
+
+    func testIsNotEmpty_ArrayOfOptionals()
+    {
+        let string: String? = "value"
+        let nilString: String? = nil
+        let emptyString: String? = ""
+
+        let otherString: String? = "otherValue"
+        let nilArray: [String?]? = nil
+        let arrayOfOptionals: [String?]? = [string, otherString]
+        let emptyArray = [String?]()
+
+
+        expectThrowsException("isNotEmpty_ArrayOfOptionals") {
+            try Expect.isNotEmpty([nilString])
+        }
+        expectThrowsException("isNotEmpty_ArrayOfOptionals") {
+            try Expect.isNotEmpty([string, emptyString])
+        }
+        expectThrowsException("isNotEmpty_ArrayOfOptionals") {
+            try Expect.isNotEmpty(arrayOfOptionals, nilArray, [string])
+        }
+        expectThrowsException("isNotEmpty_ArrayOfOptionals") {
+            try Expect.isNotEmpty(emptyArray)
+        }
+
+        expectNotThrowsException("isNotEmpty_ArrayOfOptionals") {
+            try Expect.isNotEmpty(arrayOfOptionals, [string])
+        }
+    }
+
+// MARK: - Tests
+
+    func testIsNilOrWhiteSpace()
     {
         let string = "value"
         let nilString: String? = nil
@@ -266,87 +312,94 @@ class ExpectableTests: XCTestCase
         let whitespaceString = " \t\r\n"
 
 
-        expectThrowsException("expectNilOrWhiteSpace") {
-            Expect.isNilOrWhiteSpace(string)
-        }
-        expectThrowsException("expectNilOrWhiteSpace") {
-            Expect.isNilOrWhiteSpace(nilString, string)
-        }
-        expectThrowsException("expectNilOrWhiteSpace") {
-            Expect.isNilOrWhiteSpace(emptyString, string)
-        }
-        expectThrowsException("expectNilOrWhiteSpace") {
-            Expect.isNilOrWhiteSpace(whitespaceString, string)
+        expectThrowsException("isNilOrWhiteSpace") {
+            try Expect.isNilOrWhiteSpace(string)
         }
 
-        expectNotThrowsException("expectNilOrWhiteSpace") {
-            Expect.isNilOrWhiteSpace(nilString, emptyString, whitespaceString)
+        expectNotThrowsException("isNilOrWhiteSpace") {
+            try Expect.isNilOrWhiteSpace(nilString)
+        }
+        expectNotThrowsException("isNilOrWhiteSpace") {
+            try Expect.isNilOrWhiteSpace(emptyString)
+        }
+        expectNotThrowsException("isNilOrWhiteSpace") {
+            try Expect.isNilOrWhiteSpace(whitespaceString)
         }
     }
 
-    func testExpectNilOrWhiteSpace_Array()
+    func testIsNilOrWhiteSpace_Array()
     {
         let string = "value"
+        let nilString: String? = nil
         let emptyString = ""
         let whitespaceString = " \t\r\n"
 
-        let array: [String]? = [emptyString, whitespaceString]
+        let array: [String] = [emptyString, whitespaceString]
+        let nilArray: [String]? = nil
+        let emptyArray = [String]()
 
 
-        expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.isNilOrWhiteSpace([string])
+        expectThrowsException("isNilOrWhiteSpace_Array") {
+            try Expect.isNilOrWhiteSpace([string])
         }
-        expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.isNilOrWhiteSpace([emptyString, string])
+        expectThrowsException("isNilOrWhiteSpace_Array") {
+            try Expect.isNilOrWhiteSpace([nilString, string])
         }
-        expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.isNilOrWhiteSpace([whitespaceString, string])
+        expectThrowsException("isNilOrWhiteSpace_Array") {
+            try Expect.isNilOrWhiteSpace([emptyString, string])
         }
-        expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.isNilOrWhiteSpace(nil, array)
+        expectThrowsException("isNilOrWhiteSpace_Array") {
+            try Expect.isNilOrWhiteSpace([whitespaceString, string])
         }
-        expectThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.isNilOrWhiteSpace(array, [string])
+        expectThrowsException("isNilOrWhiteSpace_Array") {
+            try Expect.isNilOrWhiteSpace(nilArray)
         }
 
-        expectNotThrowsException("expectNilOrWhiteSpace_Array") {
-            Expect.isNilOrWhiteSpace(array, [whitespaceString])
+        expectNotThrowsException("isNilOrWhiteSpace_Array") {
+            try Expect.isNilOrWhiteSpace(array)
+        }
+        expectNotThrowsException("isNilOrWhiteSpace_Array") {
+            try Expect.isNilOrWhiteSpace(emptyArray)
         }
     }
 
-    func testExpectNilOrWhiteSpace_ArrayOfOptionals()
+    func testIsNilOrWhiteSpace_ArrayOfOptionals()
     {
-        let string = "value"
+        let string: String? = "value"
         let nilString: String? = nil
         let emptyString: String? = ""
         let whitespaceString: String? = " \t\r\n"
 
-        let optionalString: String? = "value"
+        let otherString: String? = "otherValue"
         let arrayOfOptionals: [String?]? = [nilString, emptyString, whitespaceString]
+        let emptyArray = [String?]()
 
 
-        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.isNilOrWhiteSpace([optionalString])
+        expectThrowsException("isNilOrWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNilOrWhiteSpace([otherString])
         }
-        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.isNilOrWhiteSpace([nilString, string])
+        expectThrowsException("isNilOrWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNilOrWhiteSpace([nilString, string])
         }
-        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.isNilOrWhiteSpace([emptyString, string])
+        expectThrowsException("isNilOrWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNilOrWhiteSpace([emptyString, string])
         }
-        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.isNilOrWhiteSpace([whitespaceString, string])
-        }
-        expectThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.isNilOrWhiteSpace(nil, arrayOfOptionals)
+        expectThrowsException("isNilOrWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNilOrWhiteSpace([whitespaceString, string])
         }
 
-        expectNotThrowsException("expectNilOrWhiteSpace_ArrayOfOptionals") {
-            Expect.isNilOrWhiteSpace(arrayOfOptionals, [whitespaceString])
+        expectNotThrowsException("isNilOrWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNilOrWhiteSpace(arrayOfOptionals)
         }
+        expectNotThrowsException("isNilOrWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNilOrWhiteSpace(emptyArray)
+        }
+
     }
 
-    func testExpectNotWhiteSpace()
+// MARK: - Tests
+
+    func testIsNotWhiteSpace()
     {
         let string = "value"
         let nilString: String? = nil
@@ -354,127 +407,140 @@ class ExpectableTests: XCTestCase
         let whitespaceString = " \t\r\n"
 
 
-        expectThrowsException("expectNotWhiteSpace") {
-            Expect.isNotWhiteSpace(nilString)
+        expectThrowsException("isNotWhiteSpace") {
+            try Expect.isNotBlank(nilString)
         }
-        expectThrowsException("expectNotWhiteSpace") {
-            Expect.isNotWhiteSpace(emptyString)
+        expectThrowsException("isNotWhiteSpace") {
+            try Expect.isNotBlank(emptyString)
         }
-        expectThrowsException("expectNotWhiteSpace") {
-            Expect.isNotWhiteSpace(whitespaceString)
-        }
-        expectThrowsException("expectNotWhiteSpace") {
-            Expect.isNotWhiteSpace(string, whitespaceString)
+        expectThrowsException("isNotWhiteSpace") {
+            try Expect.isNotBlank(whitespaceString)
         }
 
-        expectNotThrowsException("expectNotWhiteSpace") {
-            Expect.isNotWhiteSpace(string)
+        expectNotThrowsException("isNotWhiteSpace") {
+            try Expect.isNotBlank(string)
         }
     }
 
-    func testExpectNotWhiteSpace_Array()
+    func testIsNotWhiteSpace_Array()
     {
         let string = "value"
+        let nilString: String? = nil
         let emptyString = ""
         let whitespaceString = " \t\r\n"
 
-        let array: [String]? = [string, string]
+        let otherString = "otherValue"
+        let array: [String]? = [string, otherString]
+        let nilArray: [String]? = nil
+        let emptyArray = [String]()
 
 
-        expectThrowsException("expectNotWhiteSpace_Array") {
-            Expect.isNotWhiteSpace([emptyString])
+        expectThrowsException("isNotWhiteSpace_Array") {
+            try Expect.isNotBlank([nilString])
         }
-        expectThrowsException("expectNotWhiteSpace_Array") {
-            Expect.isNotWhiteSpace([whitespaceString])
+        expectThrowsException("isNotWhiteSpace_Array") {
+            try Expect.isNotBlank([emptyString])
         }
-        expectThrowsException("expectNotWhiteSpace_Array") {
-            Expect.isNotWhiteSpace([string, whitespaceString])
+        expectThrowsException("isNotWhiteSpace_Array") {
+            try Expect.isNotBlank([whitespaceString])
         }
-        expectThrowsException("expectNotWhiteSpace_Array") {
-            Expect.isNotWhiteSpace(nil, array)
+        expectThrowsException("isNotWhiteSpace_Array") {
+            try Expect.isNotBlank([string, whitespaceString])
+        }
+        expectThrowsException("isNotWhiteSpace_Array") {
+            try Expect.isNotBlank(nilArray)
+        }
+        expectThrowsException("isNotWhiteSpace_Array") {
+            try Expect.isNotBlank(emptyArray)
         }
 
-        expectNotThrowsException("expectNotWhiteSpace_Array") {
-            Expect.isNotWhiteSpace(array, [string])
+        expectNotThrowsException("isNotWhiteSpace_Array") {
+            try Expect.isNotBlank(array)
         }
     }
 
-    func testExpectNotWhiteSpace_ArrayOfOptionals()
+    func testIsNotWhiteSpace_ArrayOfOptionals()
     {
-        let string = "value"
+        let string: String? = "value"
         let nilString: String? = nil
         let emptyString: String? = ""
         let whitespaceString: String? = " \t\r\n"
 
-        let optionalString: String? = "value"
-        let arrayOfOptionals: [String?]? = [string, optionalString]
+        let otherString: String? = "otherValue"
+        let arrayOfOptionals: [String?]? = [string, otherString]
+        let nilArray: [String?]? = nil
 
 
-        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.isNotWhiteSpace([nilString])
+        expectThrowsException("isNotWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNotBlank([nilString])
         }
-        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.isNotWhiteSpace([emptyString])
+        expectThrowsException("isNotWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNotBlank([emptyString])
         }
-        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.isNotWhiteSpace([whitespaceString])
+        expectThrowsException("isNotWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNotBlank([whitespaceString])
         }
-        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.isNotWhiteSpace([string, whitespaceString])
+        expectThrowsException("isNotWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNotBlank([string, whitespaceString])
         }
-        expectThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.isNotWhiteSpace(nil, arrayOfOptionals)
+        expectThrowsException("isNotWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNotBlank(nilArray, arrayOfOptionals)
         }
 
-        expectNotThrowsException("expectNotWhiteSpace_ArrayOfOptionals") {
-            Expect.isNotWhiteSpace(arrayOfOptionals, [string])
+        expectNotThrowsException("isNotWhiteSpace_ArrayOfOptionals") {
+            try Expect.isNotBlank(arrayOfOptionals)
         }
     }
 
 // MARK: - Tests
 
-    func testExpectValid()
+    func testIsValid()
     {
         let validObject = ValidModel()
         let notValidObject = NotValidModel()
 
-
-        expectThrowsException("expectValid") {
-            Expect.isValid(notValidObject)
-        }
-        expectThrowsException("expectValid") {
-            Expect.isValid(validObject, notValidObject)
+        expectThrowsException("isValid") {
+            try Expect.isValid(notValidObject)
         }
 
-        expectNotThrowsException("expectValid") {
-            Expect.isValid(validObject)
+        expectNotThrowsException("isValid") {
+            try Expect.isValid(validObject)
         }
     }
 
-    func testExpectValid_Array()
+    func testIsValid_Array()
     {
         let validObject = ValidModel()
+        let nilObject: Validatable? = nil
         let notValidObject = NotValidModel()
 
-        let array: [Validatable]? = [validObject, validObject]
+        let array: [Validatable]? = [validObject]
+        let nilArray: [Validatable]? = nil
+        let emptyArray = [Validatable]()
 
 
-        expectThrowsException("expectValid_Array") {
-            Expect.isValid([notValidObject])
+        expectThrowsException("isValid_Array") {
+            try Expect.isValid([notValidObject])
         }
-        expectThrowsException("expectValid_Array") {
-            Expect.isValid([validObject, notValidObject])
+        expectThrowsException("isValid_Array") {
+            try Expect.isValid([validObject, nilObject])
         }
-        expectThrowsException("expectValid_Array") {
-            Expect.isValid(nil, array)
+        expectThrowsException("isValid_Array") {
+            try Expect.isValid([validObject, notValidObject])
+        }
+        expectThrowsException("isValid_Array") {
+            try Expect.isValid(nilArray)
         }
 
-        expectNotThrowsException("expectValid_Array") {
-            Expect.isValid(array, [validObject])
+        expectNotThrowsException("isValid_Array") {
+            try Expect.isValid(array)
+        }
+        expectNotThrowsException("isValid_Array") {
+            try Expect.isValid(emptyArray)
         }
     }
 
-    func testExpectValid_ArrayOfOptionals()
+    func testIsValid_ArrayOfOptionals()
     {
         let validObject = ValidModel()
         let optionalValidObject: Validatable? = ValidModel()
@@ -482,73 +548,76 @@ class ExpectableTests: XCTestCase
         let optionalNotValidObject: Validatable? = NotValidModel()
 
         let arrayOfOptionals: [Validatable?]? = [validObject, optionalValidObject]
+        let emptyArray = [Validatable?]()
 
+        expectThrowsException("isValid_ArrayOfOptionals") {
+            try Expect.isValid([optionalNotValidObject])
+        }
+        expectThrowsException("isValid_ArrayOfOptionals") {
+            try Expect.isValid([validObject, nilObject])
+        }
+        expectThrowsException("isValid_ArrayOfOptionals") {
+            try Expect.isValid([validObject, optionalNotValidObject])
+        }
+        expectThrowsException("isValid_ArrayOfOptionals") {
+            try Expect.isValid([nilObject], arrayOfOptionals)
+        }
 
-        expectThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.isValid([optionalNotValidObject])
+        expectNotThrowsException("isValid_ArrayOfOptionals") {
+            try Expect.isValid(arrayOfOptionals, [validObject])
         }
-        expectThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.isValid([validObject, nilObject])
-        }
-        expectThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.isValid([validObject, optionalNotValidObject])
-        }
-        expectThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.isValid(nil, arrayOfOptionals)
-        }
-
-        expectNotThrowsException("expectValid_ArrayOfOptionals") {
-            Expect.isValid(arrayOfOptionals, [validObject])
+        expectNotThrowsException("isValid_ArrayOfOptionals") {
+            try Expect.isValid(emptyArray)
         }
     }
 
 // MARK: - Tests
 
-    func testExpectNotValid()
+    func testIsNotValid()
     {
         let validObject = ValidModel()
         let notValidObject = NotValidModel()
 
 
-        expectThrowsException("expectNotValid") {
-            Expect.isNotValid(validObject)
+        expectThrowsException("isNotValid") {
+            try Expect.isNotValid(validObject)
         }
 
-        expectNotThrowsException("expectNotValid") {
-            Expect.isNotValid(notValidObject)
+        expectNotThrowsException("isNotValid") {
+            try Expect.isNotValid(notValidObject)
         }
     }
 
-    func testExpectNotValid_Array()
+    func testIsNotValid_Array()
     {
         let validObject = ValidModel()
+        let nilObject: Validatable? = nil
         let notValidObject = NotValidModel()
 
-        let array: [Validatable]? = [notValidObject, notValidObject]
+        let array: [Validatable] = [notValidObject]
+        let nilArray: [Validatable]? = nil
+        let emptyArray = [Validatable]()
 
 
-        expectThrowsException("expectNotValid_Array") {
-            Expect.isNotValid([validObject])
+        expectThrowsException("isNotValid_Array") {
+            try Expect.isNotValid([validObject])
         }
-        expectThrowsException("expectNotValid_Array") {
-            Expect.isNotValid([notValidObject, validObject])
+        expectThrowsException("isNotValid_Array") {
+            try Expect.isNotValid([nilObject])
         }
-        expectThrowsException("expectNotValid_Array") {
-            Expect.isNotValid(nil, array)
+        expectThrowsException("isNotValid_Array") {
+            try Expect.isNotValid(nilArray)
         }
-        expectThrowsException("expectNotValid_Array") {
-            Expect.isNotValid(array, [validObject])
+        expectThrowsException("isNotValid_Array") {
+            try Expect.isNotValid(emptyArray)
         }
 
-        expectNotThrowsException("expectNotValid_Array") {
-            Expect.isNotValid([notValidObject])
-        }
-        expectNotThrowsException("expectNotValid_Array") {
-            Expect.isNotValid(array, [notValidObject])
+        expectNotThrowsException("isNotValid_Array") {
+            try Expect.isNotValid(array)
         }
     }
 
-    func testExpectNotValid_ArrayOfOptionals()
+    func testIsNotValid_ArrayOfOptionals()
     {
         let validObject = ValidModel()
         let optionalValidObject: Validatable? = ValidModel()
@@ -557,77 +626,80 @@ class ExpectableTests: XCTestCase
         let optionalNotValidObject: Validatable? = NotValidModel()
 
         let arrayOfOptionals: [Validatable?]? = [notValidObject, optionalNotValidObject]
+        let emptyArray = [Validatable?]()
 
+        expectThrowsException("isNotValid_ArrayOfOptionals") {
+            try Expect.isNotValid([optionalValidObject])
+        }
+        expectThrowsException("isNotValid_ArrayOfOptionals") {
+            try Expect.isNotValid([nilObject], arrayOfOptionals)
+        }
+        expectThrowsException("isNotValid_ArrayOfOptionals") {
+            try Expect.isNotValid(arrayOfOptionals, [validObject])
+        }
+        expectThrowsException("isNotValid_ArrayOfOptionals") {
+            try Expect.isNotValid(emptyArray)
+        }
 
-        expectThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.isNotValid([optionalValidObject])
-        }
-        expectThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.isNotValid([nilObject])
-        }
-        expectThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.isNotValid(nil, arrayOfOptionals)
-        }
-        expectThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.isNotValid(arrayOfOptionals, [validObject])
-        }
-
-        expectNotThrowsException("expectNotValid_ArrayOfOptionals") {
-            Expect.isNotValid([notValidObject, optionalNotValidObject])
+        expectNotThrowsException("isNotValid_ArrayOfOptionals") {
+            try Expect.isNotValid([notValidObject, optionalNotValidObject])
         }
     }
 
 // MARK: - Tests
 
-    func testExpectNilOrValid()
+    func testIsNilOrValid()
     {
         let validObject = ValidModel()
         let nilObject: Validatable? = nil
         let notValidObject = NotValidModel()
 
 
-        expectThrowsException("expectNilOrValid") {
-            Expect.isNilOrValid(notValidObject)
-        }
-        expectThrowsException("expectNilOrValid") {
-            Expect.isNilOrValid(validObject, notValidObject)
-        }
-        expectThrowsException("expectNilOrValid") {
-            Expect.isNilOrValid(nilObject, notValidObject)
+        expectThrowsException("isNilOrValid") {
+            try Expect.isNilOrValid(notValidObject)
         }
 
-        expectNotThrowsException("expectNilOrValid") {
-            Expect.isNilOrValid(validObject, nilObject)
+        expectNotThrowsException("isNilOrValid") {
+            try Expect.isNilOrValid(validObject)
+        }
+        expectNotThrowsException("isNilOrValid") {
+            try Expect.isNilOrValid(nilObject)
         }
     }
 
-    func testExpectNilOrValid_Array()
+    func testIsNilOrValid_Array()
     {
         let validObject = ValidModel()
+        let nilObject: Validatable? = nil
         let notValidObject = NotValidModel()
 
-        let array: [Validatable]? = [validObject]
+        let array: [Validatable] = [validObject]
+        let nilArray: [Validatable]? = nil
+        let emptyArray = [Validatable]()
 
 
-        expectThrowsException("expectNilOrValid_Array") {
-            Expect.isNilOrValid([notValidObject])
+        expectThrowsException("isNilOrValid_Array") {
+            try Expect.isNilOrValid([notValidObject])
         }
-        expectThrowsException("expectNilOrValid_Array") {
-            Expect.isNilOrValid([validObject, notValidObject])
+        expectThrowsException("isNilOrValid_Array") {
+            try Expect.isNilOrValid([validObject, notValidObject])
         }
-        expectThrowsException("expectNilOrValid_Array") {
-            Expect.isNilOrValid(nil, array)
-        }
-        expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.isNilOrValid(array, [notValidObject])
+        expectThrowsException("isNilOrValid_Array") {
+            try Expect.isNilOrValid(nilArray)
         }
 
-        expectNotThrowsException("expectNilOrValid_Array") {
-            Expect.isNilOrValid(array, [validObject])
+        expectNotThrowsException("isNilOrValid_Array") {
+            try Expect.isNilOrValid(array)
+        }
+        expectNotThrowsException("isNilOrValid_Array") {
+            try Expect.isNilOrValid(emptyArray)
+        }
+        expectNotThrowsException("isNilOrValid_Array") {
+            try Expect.isNilOrValid([nilObject])
         }
     }
 
-    func testExpectNilOrValid_ArrayOfOptionals()
+    func testIsNilOrValid_ArrayOfOptionals()
     {
         let validObject = ValidModel()
         let optionalValidObject: Validatable? = ValidModel()
@@ -635,71 +707,74 @@ class ExpectableTests: XCTestCase
         let optionalNotValidObject: Validatable? = NotValidModel()
 
         let arrayOfOptionals: [Validatable?]? = [validObject, optionalValidObject, nilObject]
+        let emptyArray = [Validatable?]()
+        
 
-
-        expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.isNilOrValid([optionalNotValidObject])
+        expectThrowsException("isNilOrValid_ArrayOfOptionals") {
+            try Expect.isNilOrValid([optionalNotValidObject])
         }
-        expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.isNilOrValid([validObject, optionalNotValidObject])
-        }
-        expectThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.isNilOrValid(nil, arrayOfOptionals)
+        expectThrowsException("isNilOrValid_ArrayOfOptionals") {
+            try Expect.isNilOrValid([validObject, optionalNotValidObject])
         }
 
-        expectNotThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.isNilOrValid([validObject, nilObject])
+        expectNotThrowsException("isNilOrValid_ArrayOfOptionals") {
+            try Expect.isNilOrValid([validObject, nilObject])
         }
-        expectNotThrowsException("expectNilOrValid_ArrayOfOptionals") {
-            Expect.isNilOrValid(arrayOfOptionals, [validObject])
+        expectNotThrowsException("isNilOrValid_ArrayOfOptionals") {
+            try Expect.isNilOrValid(arrayOfOptionals, [validObject])
+        }
+        expectNotThrowsException("isNilOrValid_ArrayOfOptionals") {
+            try Expect.isNilOrValid(emptyArray)
         }
     }
 
 // MARK: - Tests
 
-    func testExpectNilOrNotValid()
+    func testIsNilOrNotValid()
     {
         let validObject = ValidModel()
         let nilObject: Validatable? = nil
         let notValidObject = NotValidModel()
 
 
-        expectThrowsException("expectNilOrNotValid") {
-            Expect.isNilOrNotValid(validObject)
+        expectThrowsException("isNilOrNotValid") {
+            try Expect.isNilOrNotValid(validObject)
         }
 
-        expectNotThrowsException("expectNilOrNotValid") {
-            Expect.isNilOrNotValid(nilObject, notValidObject)
+        expectNotThrowsException("isNilOrNotValid") {
+            try Expect.isNilOrNotValid(nilObject)
+        }
+        expectNotThrowsException("isNilOrNotValid") {
+            try Expect.isNilOrNotValid(notValidObject)
         }
     }
 
-    func testExpectNilOrNotValid_Array()
+    func testIsNilOrNotValid_Array()
     {
         let validObject = ValidModel()
         let notValidObject = NotValidModel()
 
-        let array: [Validatable]? = [notValidObject]
+        let array: [Validatable] = [notValidObject]
+        let nilArray: [Validatable]? = nil
+        let emptyArray = [Validatable]()
 
 
-        expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.isNilOrNotValid([validObject])
+        expectThrowsException("isNilOrNotValid_Array") {
+            try Expect.isNilOrNotValid([validObject])
         }
-        expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.isNilOrNotValid([notValidObject, validObject])
+        expectThrowsException("isNilOrNotValid_Array") {
+            try Expect.isNilOrNotValid(nilArray)
         }
-        expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.isNilOrNotValid(nil, array)
-        }
-        expectThrowsException("expectNilOrNotValid_Array") {
-            Expect.isNilOrNotValid(array, [validObject])
+        expectThrowsException("isNilOrNotValid_Array") {
+            try Expect.isNilOrNotValid(emptyArray)
         }
 
-        expectNotThrowsException("expectNilOrNotValid_Array") {
-            Expect.isNilOrNotValid(array, [notValidObject])
+        expectNotThrowsException("isNilOrNotValid_Array") {
+            try Expect.isNilOrNotValid(array)
         }
     }
 
-    func testExpectNilOrNotValid_ArrayOfOptionals()
+    func testIsNilOrNotValid_ArrayOfOptionals()
     {
         let validObject = ValidModel()
         let optionalValidObject: Validatable? = ValidModel()
@@ -707,71 +782,99 @@ class ExpectableTests: XCTestCase
         let optionalNotValidObject: Validatable? = NotValidModel()
 
         let arrayOfOptionals: [Validatable?]? = [nilObject, optionalNotValidObject]
+        let emptyArray = [Validatable?]()
 
 
-        expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
-            Expect.isNilOrNotValid([optionalValidObject])
+        expectThrowsException("isNilOrNotValid_ArrayOfOptionals") {
+            try Expect.isNilOrNotValid([optionalValidObject])
         }
-        expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
-            Expect.isNilOrNotValid(nil, arrayOfOptionals)
+        expectThrowsException("isNilOrNotValid_ArrayOfOptionals") {
+            try Expect.isNilOrNotValid([nilObject], [validObject])
         }
-        expectThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
-            Expect.isNilOrNotValid(arrayOfOptionals, [validObject])
+        expectThrowsException("isNilOrNotValid_ArrayOfOptionals") {
+            try Expect.isNilOrNotValid(emptyArray)
         }
 
-        expectNotThrowsException("expectNilOrNotValid_ArrayOfOptionals") {
-            Expect.isNilOrNotValid(arrayOfOptionals)
+        expectNotThrowsException("isNilOrNotValid_ArrayOfOptionals") {
+            try Expect.isNilOrNotValid(arrayOfOptionals)
+        }
+    }
+
+// MARK: - Tests
+
+    func testNotThrowIfValidModel()
+    {
+        if let validModelJson = loadJson("test_parking_model_with_valid_vehicles_in_array")
+        {
+            expectNotThrowsException("isNonValidModel") {
+                let _ = try ParkingModel(params: validModelJson)
+            }
+        }
+    }
+
+    func testThrowIfNotValidModel()
+    {
+        if let nonValidModelJson = loadJson("test_parking_model_with_one_non_valid_vehicle_in_array")
+        {
+            expectThrowsException("isNonValidModel", errorType: JsonSyntaxError.self) {
+                let _ = try ParkingModel(params: nonValidModelJson)
+            }
         }
     }
 
 // MARK: - Private Methods
 
-    private func expectThrowsException(method: String, line: UInt = #line, block: () -> ())
+    private func expectThrowsException(method: String, errorType: ErrorType.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ())
     {
-        var cause: NSException? = nil
-        Try {
-            block()
-        }.Catch { ex in
-            cause = ex
-        }
+        do {
+            try block()
 
-        if let ex = cause
-        {
-            if ex is FatalErrorException {
-                // Do nothing
-            }
-            else {
-                XCTFail("Line: \(line) - \(method): Unknown exception is thrown")
-            }
+            XCTFail("Line: \(line) - \(method): Method not thrown an error")
         }
-        else {
-            XCTFail("Line: \(line) - \(method): Method not thrown an exception")
+        catch let error
+        {
+            if error.dynamicType != errorType {
+                XCTFail("Line: \(line) - \(method): Unknown error is thrown")
+            }
         }
     }
 
-    private func expectNotThrowsException(method: String, line: UInt = #line, block: () -> ())
+    private func expectNotThrowsException(method: String, errorType: ErrorType.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ())
     {
-        var cause: NSException? = nil
-        Try {
-            block()
-        }.Catch { ex in
-            cause = ex
+        do {
+            try block()
         }
-
-        if let ex = cause
+        catch let error
         {
-            if ex is FatalErrorException {
-                XCTFail("Line: \(line) - \(method): Method thrown an exception")
+            if error.dynamicType == errorType {
+                XCTFail("Line: \(line) - \(method): Method thrown an error")
             }
             else {
-                XCTFail("Line: \(line) - \(method): Unknown exception is thrown")
+                XCTFail("Line: \(line) - \(method): Unknown error is thrown")
             }
-        }
-        else {
-            // Do nothing
         }
     }
 
+    private func loadJson(string: String) -> [String : AnyObject]?
+    {
+        if let filePath = NSBundle(forClass: self.dynamicType).pathForResource(string, ofType: "json") {
+            do {
+                if let data = NSData(contentsOfFile: filePath) {
+                    let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+                    return json as? [String: AnyObject]
+                }
+                else {
+                    return nil
+                }
+            }
+            catch let error as NSError {
+                print("error loading contentsOf url \(filePath)")
+                print(error.localizedDescription)
+            }
+        }
+
+        return nil
+    }
 }
 
 // ----------------------------------------------------------------------------
