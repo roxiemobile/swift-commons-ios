@@ -38,7 +38,7 @@ public extension String
         return (str == nil) || str!.trimmed().isEmpty
     }
 
-    static func isNotWhiteSpace(str: String?) -> Bool {
+    static func isNotBlank(str: String?) -> Bool {
         return !isNilOrWhiteSpace(str)
     }
 

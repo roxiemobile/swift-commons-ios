@@ -167,7 +167,7 @@ public class SerializableObject: Serializable, Mappable, Hashable, Validatable
             do {
                 try self.validate()
             }
-            catch let error as ValidationError {
+            catch let error as ExpectationError {
                 rxm_fatalError(error.message ?? defaultMessage, file: error.file, line: error.line)
             }
             catch {
