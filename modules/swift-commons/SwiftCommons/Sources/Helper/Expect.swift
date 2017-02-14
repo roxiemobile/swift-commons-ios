@@ -20,17 +20,20 @@ public class Expect: NonCreatable
         return (expected == nil && actual == nil) || (expected != nil && actual != nil && expected == actual)
     }
 
-    private static func recursiveForEach<T>(array: [[T]?], _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line,
-                                            block:  (T) throws -> ()) rethrows
+    private static func recursiveForEach<T>(array: [[T]?], _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line, _ checkForEmpty: Bool = false,
+                                            block:  (T) throws -> ()) throws
     {
         try array.forEach {
             try isNotNil($0, message, file, line)
+            if checkForEmpty {
+                try isFalse($0!.isEmpty, message, file, line)
+            }
             try $0!.forEach() { try block($0) }
         }
     }
 
     private static func throwException(message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
-        throw ValidationError(message ?? "", file: file, line: line)
+        throw ExpectationError(message ?? "", file: file, line: line)
     }
 }
 
@@ -135,14 +138,14 @@ extension Expect
 
     public static func isNotEmpty(array: [String]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-        try recursiveForEach(array, message, file, line) {
+        try recursiveForEach(array, message, file, line, true) {
             try isTrue(!$0.isEmpty, message, file, line)
         }
     }
 
     public static func isNotEmpty(array: [String?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-        try recursiveForEach(array, message, file, line) {
+        try recursiveForEach(array, message, file, line, true) {
             try isTrue($0 != nil && !$0!.isEmpty, message, file, line)
         }
     }
@@ -179,7 +182,6 @@ extension Expect
 
     public static func isNotBlank(array: String?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-        try isNotEmpty(array)
         try array.forEach() {
             try isTrue(String.isNotBlank($0), message, file, line)
         }
@@ -187,18 +189,14 @@ extension Expect
 
     public static func isNotBlank(array: [String]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-//        try isNotEmpty(array)
-        try recursiveForEach(array, message, file, line) {
-            try isNotEmpty($0)
+        try recursiveForEach(array, message, file, line, true) {
             try isTrue(String.isNotBlank($0), message, file, line)
         }
     }
 
     public static func isNotBlank(array: [String?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-//        try isNotEmpty(array)
-        try recursiveForEach(array, message, file, line) {
-            try isNotEmpty($0)
+        try recursiveForEach(array, message, file, line, true) {
             try isTrue(String.isNotBlank($0), message, file, line)
         }
     }
@@ -242,14 +240,14 @@ extension Expect
 
     public static func isNotValid(array: [Validatable]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-        try recursiveForEach(array, message, file, line) {
+        try recursiveForEach(array, message, file, line, true) {
             try isTrue(!$0.isValid(), message, file, line)
         }
     }
 
     public static func isNotValid(array: [Validatable?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-        try recursiveForEach(array, message, file, line) {
+        try recursiveForEach(array, message, file, line, true) {
             try isTrue($0 != nil && !$0!.isValid(), message, file, line)
         }
     }
@@ -293,17 +291,17 @@ extension Expect
 
     public static func isNilOrNotValid(array: [Validatable]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-        try recursiveForEach(array, message, file, line) {
+        try recursiveForEach(array, message, file, line, true) {
             try isTrue(!$0.isValid(), message, file, line)
         }
     }
 
     public static func isNilOrNotValid(array: [Validatable?]?..., _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws
     {
-        try recursiveForEach(array, message, file, line) {
+        try recursiveForEach(array, message, file, line, true) {
             try isTrue($0 == nil || !$0!.isValid(), message, file, line)
         }
     }
-}
 
+}
 // ----------------------------------------------------------------------------
