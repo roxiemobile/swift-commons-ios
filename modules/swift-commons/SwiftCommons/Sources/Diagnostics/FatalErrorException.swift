@@ -2,7 +2,7 @@
 //
 //  FatalErrorException.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -16,7 +16,7 @@ public class FatalErrorException: NSException
 {
 // MARK: - Constants
 
-    public init(reason aReason: String?, userInfo aUserInfo: [NSObject : AnyObject]?) {
+    public init(reason aReason: String?, userInfo aUserInfo: [NSObject: AnyObject]?) {
         super.init(name: FatalError.Domain, reason: aReason, userInfo: aUserInfo)
     }
 
@@ -29,7 +29,6 @@ public class FatalErrorException: NSException
     private struct FatalError {
         static let Domain = "FatalErrorDomain"
     }
-
 }
 
 // ----------------------------------------------------------------------------
@@ -63,7 +62,7 @@ public class FatalErrorException: NSException
 
         logMessage += "\(err.domain)(code: \(err.code))"
 
-        if let message = error?.localizedDescription.trimmed() where !message.isEmpty {
+        if let message = error?.localizedDescription.trim() where !message.isEmpty {
             logMessage += " with reason: \(message)"
         }
     }
@@ -87,7 +86,7 @@ public class FatalErrorException: NSException
 
         logMessage += "\(exc.name)"
 
-        if let message = exc.reason?.trimmed() where !message.isEmpty {
+        if let message = exc.reason?.trim() where !message.isEmpty {
             logMessage += " with reason: \(message)"
         }
 

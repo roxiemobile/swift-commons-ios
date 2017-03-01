@@ -2,14 +2,24 @@
 //
 //  Dictionary.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
+// A set of Swift extensions for standard types and classes.
+// @link https://github.com/pNre/ExSwift
+
+// ----------------------------------------------------------------------------
+
 extension Dictionary
 {
+// MARK: - Properties
+
+    /// Checks if dictionary has elements.
+    var isNotEmpty: Bool { return !self.isEmpty }
+    
 // MARK: - Methods
 
     /**

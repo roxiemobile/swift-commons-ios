@@ -2,7 +2,7 @@
 //
 //  Swift.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -45,8 +45,24 @@ public protocol MDCopying: NSCopying
     var description: String { get }
 }
 
+/// A type with a customized textual representation.
+public protocol Printable
+{
+    /// A textual representation of `self`.
+    var description: String { get }
+}
+
+// ----------------------------------------------------------------------------
+
 /// A type with a customized textual representation for debugging purposes.
 @objc public protocol MDDebugPrintable
+{
+    /// A textual representation of `self`, suitable for debugging.
+    var debugDescription: String { get }
+}
+
+/// A type with a customized textual representation for debugging purposes.
+public protocol DebugPrintable
 {
     /// A textual representation of `self`, suitable for debugging.
     var debugDescription: String { get }
@@ -77,12 +93,12 @@ public func briefTypeName<T : Any>(obj: T) -> String {
     
     let typeSuffix = ".Type"
     if typeString.hasSuffix(typeSuffix) {
-        typeString = typeString.substringToIndex(typeString.characters.count - typeSuffix.characters.count)
+        typeString = typeString.substringUpto(index: typeString.characters.count - typeSuffix.characters.count)
     }
-    
+
     let typePrefix = "Swift."
     if typeString.hasPrefix(typePrefix) {
-        typeString = typeString.substringFromIndex(typePrefix.characters.count)
+        typeString = typeString.substringFrom(index: typePrefix.characters.count)
     }
     
     return typeString
@@ -110,8 +126,8 @@ public func optionalTypeCast<T>(object: AnyObject?, type: T.Type) -> T? {
 /// Creates a custom tag for any class.
 public func rxm_customTag(clazz: AnyClass) -> String
 {
-    let nameTag = NSStringFromClass(clazz).rxm_md5String.substringToIndex(8)
-    let timeTag = mach_absolute_time().rxm_hexString.substringFromIndex(8)
+    let nameTag = NSStringFromClass(clazz).rxm_md5String.substringUpto(index: 8)
+    let timeTag = mach_absolute_time().rxm_hexString.substringFrom(index: 8)
 
     // Done
     return "urn:tag:\(nameTag):\(timeTag)"

@@ -1,18 +1,14 @@
 // ----------------------------------------------------------------------------
 //
-//  AssetUtils.swift
+//  Assets.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
-
-// ----------------------------------------------------------------------------
-
-public class AssetUtils: NonCreatable
+public class Assets: NonCreatable
 {
 // MARK: - Properties
 
@@ -41,7 +37,7 @@ public class AssetUtils: NonCreatable
         {
             if let resourcePath = assetBundle.resourcePath
             {
-                string = (resourcePath as NSString).stringByAppendingPathComponent(string.substringFromIndex(Schema.Asset.length))
+                string = (resourcePath as NSString).stringByAppendingPathComponent(string.substringFrom(index: Schema.Asset.length))
                 result = NSFileManager.defaultManager().fileExistsAtPath(string)
             }
         }
@@ -49,7 +45,7 @@ public class AssetUtils: NonCreatable
         else
         {
             if string.hasPrefix(Schema.File) {
-                string = string.substringFromIndex(Schema.File.length)
+                string = string.substringFrom(index: Schema.File.length)
             }
 
             if let resourcePath = assetBundle.resourcePath where string.hasPrefix(resourcePath) {
@@ -80,7 +76,7 @@ public class AssetUtils: NonCreatable
         {
             if let resourcePath = assetBundle.resourcePath
             {
-                string = (resourcePath as NSString).stringByAppendingPathComponent(string.substringFromIndex(Schema.Asset.length))
+                string = (resourcePath as NSString).stringByAppendingPathComponent(string.substringFrom(index: Schema.Asset.length))
                 result = NSURL.fileURLWithPath(string)
             }
         }
@@ -115,7 +111,6 @@ public class AssetUtils: NonCreatable
         static let HTTPs = "https://"
         static let FTP   = "ftp://"
     }
-
 }
 
 // ----------------------------------------------------------------------------

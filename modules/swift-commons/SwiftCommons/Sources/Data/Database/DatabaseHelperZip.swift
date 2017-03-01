@@ -2,7 +2,7 @@
 //
 //  DatabaseHelperZip.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -22,8 +22,7 @@ public class DatabaseHelperZip: DatabaseHelper
 
 // MARK: - Methods
 
-    override func unpackDatabaseTemplate(databaseName: String, assetPath: NSURL) -> NSURL?
-    {
+    override func unpackDatabaseTemplate(databaseName: String, assetPath: NSURL) -> NSURL? {
         var path: NSURL?
 
         // Copy template file from application assets to the temporary directory
@@ -43,7 +42,6 @@ public class DatabaseHelperZip: DatabaseHelper
 
         return path
     }
-
 }
 
 // ----------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 //
 //  DatabaseHelper.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -42,12 +42,12 @@ public class DatabaseHelper
             let version = database?.scalar("PRAGMA user_version") ?? Int64(0)
             return Int(version as! Int64)
         }
-        set
-        {
+        set {
             do {
                 try database?.run("PRAGMA user_version = \(transcode(Int64(newValue)))")
-            } catch {
-                Logger.e("Can't set db userVersion: \(error)")
+            }
+            catch {
+                Logger.e(typeName(self), "Can't set db userVersion", error)
             }
         }
     }
@@ -157,7 +157,7 @@ public class DatabaseHelper
         }
 
         // Open on-disk OR in-memory database
-        if String.isNotWhiteSpace(name) {
+        if StringUtils.isNotBlank(name) {
             database = createDatabaseObject(name, readonly: readonly)
 
             // Send events to the delegate
@@ -333,7 +333,7 @@ public class DatabaseHelper
     }
 
     private func sanitizeName(name: String?) -> String {
-        return String.isNotWhiteSpace(name) ? name! : Inner.InMemoryDatabase
+        return StringUtils.isNotBlank(name) ? name! : Inner.InMemoryDatabase
     }
 
     // DEPRECATED: Code refactoring is needed
@@ -403,7 +403,6 @@ public class DatabaseHelper
 // MARK: - Variables
 
     private static let sharedInstance: DatabaseHelper = DatabaseHelper()
-
 }
 
 // ----------------------------------------------------------------------------
@@ -417,7 +416,6 @@ private extension NSURL
     var rxm_isFileExists: Bool {
         return self.fileURL && self.checkResourceIsReachableAndReturnError(nil)
     }
-
 }
 
 // ----------------------------------------------------------------------------

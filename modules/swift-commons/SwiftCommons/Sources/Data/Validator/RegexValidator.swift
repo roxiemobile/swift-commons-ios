@@ -2,7 +2,7 @@
 //
 //  RegexValidator.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -30,13 +30,11 @@ public class RegexValidator: Validator
 
 // MARK: - Methods
 
-    public func isValid(value: AnyObject?) -> Bool
-    {
+    public func isValid(value: AnyObject?) -> Bool {
         var result = false
 
         // Validate incoming value
-        if let str = (value as? String)
-        {
+        if let str = (value as? String) {
             let matches = self.regex.matchesInString(str, options: [], range: NSMakeRange(0, str.length))
             result = (matches.count > 0)
         }
@@ -48,7 +46,6 @@ public class RegexValidator: Validator
 // MARK: - Variables
 
     private let regex: NSRegularExpression!
-
 }
 
 // ----------------------------------------------------------------------------

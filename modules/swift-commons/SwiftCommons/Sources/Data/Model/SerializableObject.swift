@@ -2,14 +2,10 @@
 //
 //  SerializableObject.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
-// ----------------------------------------------------------------------------
-
-import Foundation
-
 // ----------------------------------------------------------------------------
 
 public class SerializableObject: Serializable, Mappable, Hashable, Validatable
@@ -132,17 +128,31 @@ public class SerializableObject: Serializable, Mappable, Hashable, Validatable
         return self.hash
     }
 
-    public func isValid() -> Bool
-    {
+    /**
+     * TODO
+     */
+    public func isValid() -> Bool {
+        var result = true
+
         do {
+            // Check object's state
             try validate()
         }
         catch {
-            return false
+            let className = typeName(self)
+            result = false
+
+            // Log validation error
+            Logger.w(className, "\(className) is invalid", error)
         }
-        return true
+
+        // Done
+        return result
     }
 
+    /**
+     * Checks attribute values or a combination of attribute values for correctness (cross validation).
+     */
     public func validate() throws {
         // Do nothing
     }
@@ -167,7 +177,7 @@ public class SerializableObject: Serializable, Mappable, Hashable, Validatable
             do {
                 try self.validate()
             }
-            catch let error as ValidationError {
+            catch let error as ExpectationError {
                 rxm_fatalError(error.message ?? defaultMessage, file: error.file, line: error.line)
             }
             catch {
@@ -209,7 +219,7 @@ public class SerializableObject: Serializable, Mappable, Hashable, Validatable
 // MARK: - Constants
 
     private struct Inner {
-        static let NestedParams = SharedKeys.Prefix.Extra + "nested_params"
+        static let NestedParams = CommonKeys.Prefix.Extra + "nested_params"
     }
 
 // MARK: - Variables

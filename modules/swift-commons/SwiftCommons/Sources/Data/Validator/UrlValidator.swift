@@ -2,7 +2,7 @@
 //
 //  UrlValidator.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -20,8 +20,7 @@ public final class UrlValidator: NonCreatable, StaticValidator
 {
 // MARK: - Methods
 
-    public class func isValid(value: AnyObject?) -> Bool
-    {
+    public class func isValid(value: AnyObject?) -> Bool {
         var result = false
 
         // Validate incoming value
@@ -30,8 +29,7 @@ public final class UrlValidator: NonCreatable, StaticValidator
             if let value = value as? String {
                 result = validator.isValid(value)
             }
-            else
-            if let value = value as? NSURL {
+            else if let value = value as? NSURL {
                 result = validator.isValid(value.absoluteString)
             }
         }
@@ -46,7 +44,8 @@ public final class UrlValidator: NonCreatable, StaticValidator
     {
         struct Pattern
         {
-            // @diegoperini's version
+            /// Regular expression strings for URLs.
+            // @formatter:off
             static let WebUrl = ""
                 + "^"
                     // Protocol identifier
@@ -79,11 +78,12 @@ public final class UrlValidator: NonCreatable, StaticValidator
                     // Resource path
                     + "(?:/\\S*)?"
                 + "$"
-          }
+            // @formatter:on
+        }
 
+        /// RegexValidator for matching URLs.
         static let Validator = RegexValidator(Pattern.WebUrl)
     }
-
 }
 
 // ----------------------------------------------------------------------------

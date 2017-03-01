@@ -2,7 +2,7 @@
 //
 //  ObjectMapperException.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -53,7 +53,7 @@ public class ObjectMapperException: NSException
 public func rxm_objectMapperAssertion(message: String, file: StaticString = #file, line: UInt = #line)
 {
     let errorMessage = "Assertion violated: \(message)\nFile: \(file)\nLine: \(line)"
-    Logger.e(errorMessage)
+    Logger.e(#function, errorMessage)
     assertionFailure(errorMessage)
 }
 

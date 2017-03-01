@@ -2,7 +2,7 @@
 //
 //  Serializable.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -35,7 +35,6 @@ public class Serializable: MDCoding
     public func decode(coder decoder: NSCoder) -> Bool {
         return true
     }
-
 }
 
 // ----------------------------------------------------------------------------
@@ -89,7 +88,6 @@ extension Serializable
 // MARK: - Variables
 
     private static var classVersion: Int = 1
-
 }
 
 // ----------------------------------------------------------------------------
@@ -103,7 +101,6 @@ extension Serializable
     @objc public func encodeWithCoder(aCoder: NSCoder) {
         encode(coder: aCoder)
     }
-
 }
 
 // ----------------------------------------------------------------------------

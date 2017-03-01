@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  ValidationError.swift
+//  JsonSyntaxError.swift
 //
 //  @author     Nikita Semakov <SemakovNV@ekassir.com>
 //  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
@@ -8,30 +8,25 @@
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
-
-// ----------------------------------------------------------------------------
-
-public class ValidationError: ErrorType
+public class JsonSyntaxError: ErrorType
 {
 // MARK: - Construction
 
-    public init(_ message: String, file: StaticString = #file, line: UInt = #line)
+    public init(message: String? = nil, params: [String: AnyObject]? = nil, cause: NSException? = nil)
     {
         // Init instance variables
         self.message = message
-        self.file = file
-        self.line = line
+        self.params = params
+        self.cause = cause
     }
 
 // MARK: - Properties
 
-    public let message: String
+    public let message: String?
 
-    public let file: StaticString
+    public let params: [String: AnyObject]?
 
-    public let line: UInt
-
+    public let cause: NSException?
 }
 
 // ----------------------------------------------------------------------------

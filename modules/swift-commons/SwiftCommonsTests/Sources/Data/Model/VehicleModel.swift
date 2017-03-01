@@ -12,32 +12,30 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-// @deprecated
-internal class VehicleModel: SerializableObject, Inspectable
+public class VehicleModel: SerializableObject
 {
 // MARK: - Properties
 
-    internal private(set) var model: String!
+    public private(set) var model: String!
 
-    internal private(set) var color: String!
+    public private(set) var color: String!
 
 // MARK: - Methods
 
-    internal override func mapping(map: Map) {
+    public override func mapping(map: Map) {
         super.mapping(map)
 
         // (De)serialize to/from json
-        self.model <~ map[JsonKeys.Model]
-        self.color <~ map[JsonKeys.Color]
+        self.model <~ map["model"]
+        self.color <~ map["color"]
     }
 
-    internal override func validate() throws {
+    public override func validate() throws {
         try super.validate()
 
         // Validate instance
-        try throwIfNilOrWhiteSpace(self.model, self.color)
+        try Expect.isAllNotBlank([self.model, self.color])
     }
-
 }
 
 // ----------------------------------------------------------------------------

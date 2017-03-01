@@ -2,7 +2,7 @@
 //
 //  NSFileManager.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -110,36 +110,37 @@ public func rxm_removeItemAtURL(url: NSURL?)
     guard let url = url else {
         return
     }
-    
+
     let fileManager = NSFileManager.defaultManager()
     if let path = url.path where fileManager.fileExistsAtPath(path) {
         do {
             try fileManager.removeItemAtURL(url)
-        } catch {
-            Logger.e("Can't remove item with URL \(url), error: \(error)")
+        }
+        catch {
+            Logger.e(#function, "Can't remove item with URL \(url)", error)
         }
     }
 }
 
 public func rxm_copyItemAtURL(srcURL: NSURL?, toURL dstURL: NSURL?) -> Bool
 {
-    guard let srcURL = srcURL,
-          let dstURL = dstURL else {
+    guard let srcURL = srcURL, let dstURL = dstURL else {
         return false
     }
-    
+
     let fileManager = NSFileManager.defaultManager()
     
     guard let srcPath = srcURL.path where fileManager.fileExistsAtPath(srcPath) else {
-        Logger.e("Can't copy item from non-existing URL \(srcURL)")
+        Logger.e(#function, "Can't copy item from non-existing URL \(srcURL)")
         return false
     }
-    
+
     do {
         try fileManager.copyItemAtURL(srcURL, toURL: dstURL)
         return true
-    } catch {
-        Logger.e("Can't copy item from URL \(srcURL) to URL \(dstURL), error: \(error)")
+    }
+    catch {
+        Logger.e(#function, "Can't copy item from URL \(srcURL) to URL \(dstURL)", error)
         return false
     }
 }

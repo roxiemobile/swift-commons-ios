@@ -8,36 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */; };
-		191DF5E11E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 191DF5E01E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json */; };
-		1921D0C51E0D49B800BBCB9B /* ExpectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1921D0C41E0D49B800BBCB9B /* ExpectTests.swift */; };
-		196136B91E23AAC9003436AB /* InspectableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196136B81E23AAC9003436AB /* InspectableTests.swift */; };
+		192E0B521E66F38200260087 /* StringUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E0B511E66F38200260087 /* StringUtilsTests.swift */; };
+		19B0A0301E5B43C100BB0337 /* ExpectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A02E1E5B43C100BB0337 /* ExpectTests.swift */; };
+		19B0A0311E5B43C100BB0337 /* RequireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A02F1E5B43C100BB0337 /* RequireTests.swift */; };
+		19B7D4EE1E639150007F174D /* ValidModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B7D4ED1E639150007F174D /* ValidModel.swift */; };
+		19B7D4F01E6391B2007F174D /* NotValidModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B7D4EF1E6391B2007F174D /* NotValidModel.swift */; };
 		2359C8FAF846A045E6AD155D /* Pods_SwiftCommonsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */; };
-		261E7F9D1E03F45000A402B4 /* test_model_fake_array_model.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F991E03F45000A402B4 /* test_model_fake_array_model.json */; };
-		261E7F9E1E03F45000A402B4 /* test_model_fake_array_string.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F9A1E03F45000A402B4 /* test_model_fake_array_string.json */; };
 		261E7F9F1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F9B1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */; };
 		261E7FA01E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 261E7F9C1E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json */; };
 		261E7FA61E03F45A00A402B4 /* ParkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA31E03F45A00A402B4 /* ParkingModel.swift */; };
-		261E7FA71E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA41E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift */; };
 		261E7FA81E03F45A00A402B4 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA51E03F45A00A402B4 /* VehicleModel.swift */; };
-		261E7FAA1E03F58A00A402B4 /* JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7FA91E03F58A00A402B4 /* JsonKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		191D27181A7CEEBE000B928B /* SwiftCommonsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommonsTests.swift; sourceTree = "<group>"; };
-		191DF5E01E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_other_model_with_valid_vehicles_in_array.json; sourceTree = "<group>"; };
-		1921D0C41E0D49B800BBCB9B /* ExpectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpectTests.swift; path = Helper/ExpectTests.swift; sourceTree = "<group>"; };
-		196136B81E23AAC9003436AB /* InspectableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InspectableTests.swift; path = Helper/InspectableTests.swift; sourceTree = "<group>"; };
+		192E0B511E66F38200260087 /* StringUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtilsTests.swift; sourceTree = "<group>"; };
+		19B0A02E1E5B43C100BB0337 /* ExpectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectTests.swift; sourceTree = "<group>"; };
+		19B0A02F1E5B43C100BB0337 /* RequireTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequireTests.swift; sourceTree = "<group>"; };
+		19B7D4ED1E639150007F174D /* ValidModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidModel.swift; sourceTree = "<group>"; };
+		19B7D4EF1E6391B2007F174D /* NotValidModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotValidModel.swift; sourceTree = "<group>"; };
 		19F8BB501A7CF20700CC0168 /* SwiftCommonsTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommonsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19F8BB521A7CF20700CC0168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		261E7F991E03F45000A402B4 /* test_model_fake_array_model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_model_fake_array_model.json; sourceTree = "<group>"; };
-		261E7F9A1E03F45000A402B4 /* test_model_fake_array_string.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_model_fake_array_string.json; sourceTree = "<group>"; };
 		261E7F9B1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_model_with_one_non_valid_vehicle_in_array.json; sourceTree = "<group>"; };
 		261E7F9C1E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_model_with_valid_vehicles_in_array.json; sourceTree = "<group>"; };
 		261E7FA31E03F45A00A402B4 /* ParkingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingModel.swift; sourceTree = "<group>"; };
-		261E7FA41E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingModelWithOptionalVehicles.swift; sourceTree = "<group>"; };
 		261E7FA51E03F45A00A402B4 /* VehicleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
-		261E7FA91E03F58A00A402B4 /* JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonKeys.swift; sourceTree = "<group>"; };
 		42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommonsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6C66FAC30098698322301C /* Pods-SwiftCommonsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommonsTests.debug.xcconfig"; path = "../cocoa-pods/Pods/Target Support Files/Pods-SwiftCommonsTests/Pods-SwiftCommonsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5338A390556D38DC915BEA8 /* Pods-SwiftCommonsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommonsTests.release.xcconfig"; path = "../cocoa-pods/Pods/Target Support Files/Pods-SwiftCommonsTests/Pods-SwiftCommonsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,13 +79,12 @@
 			path = SwiftCommonsTests;
 			sourceTree = "<group>";
 		};
-		1921D0C11E0D485600BBCB9B /* Helper */ = {
+		192E0B501E66F38200260087 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				1921D0C41E0D49B800BBCB9B /* ExpectTests.swift */,
-				196136B81E23AAC9003436AB /* InspectableTests.swift */,
+				192E0B511E66F38200260087 /* StringUtilsTests.swift */,
 			);
-			name = Helper;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		197442AD1AA9943F001B1A55 /* Frameworks */ = {
@@ -98,6 +93,15 @@
 				42D6725B4491754822FC50FA /* Pods_SwiftCommonsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		19B0A02D1E5B43C100BB0337 /* Diagnostics */ = {
+			isa = PBXGroup;
+			children = (
+				19B0A02E1E5B43C100BB0337 /* ExpectTests.swift */,
+				19B0A02F1E5B43C100BB0337 /* RequireTests.swift */,
+			);
+			path = Diagnostics;
 			sourceTree = "<group>";
 		};
 		19F8BB4F1A7CF20700CC0168 /* Libraries */ = {
@@ -121,7 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				261E7FA11E03F45A00A402B4 /* Data */,
-				1921D0C11E0D485600BBCB9B /* Helper */,
+				19B0A02D1E5B43C100BB0337 /* Diagnostics */,
+				192E0B501E66F38200260087 /* Util */,
 				191D271F1A7CEEBE000B928B /* SwiftCommonsTests.swift */,
 			);
 			path = Sources;
@@ -130,11 +135,8 @@
 		261E7F981E03F45000A402B4 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				261E7F991E03F45000A402B4 /* test_model_fake_array_model.json */,
-				261E7F9A1E03F45000A402B4 /* test_model_fake_array_string.json */,
 				261E7F9B1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */,
 				261E7F9C1E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json */,
-				191DF5E01E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -143,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				261E7FA21E03F45A00A402B4 /* Model */,
-				261E7FA91E03F58A00A402B4 /* JsonKeys.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -152,8 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				261E7FA31E03F45A00A402B4 /* ParkingModel.swift */,
-				261E7FA41E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift */,
 				261E7FA51E03F45A00A402B4 /* VehicleModel.swift */,
+				19B7D4ED1E639150007F174D /* ValidModel.swift */,
+				19B7D4EF1E6391B2007F174D /* NotValidModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,9 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				261E7F9F1E03F45000A402B4 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */,
-				261E7F9D1E03F45000A402B4 /* test_model_fake_array_model.json in Resources */,
-				191DF5E11E099054000B39D5 /* test_parking_other_model_with_valid_vehicles_in_array.json in Resources */,
-				261E7F9E1E03F45000A402B4 /* test_model_fake_array_string.json in Resources */,
 				261E7FA01E03F45000A402B4 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,13 +307,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1921D0C51E0D49B800BBCB9B /* ExpectTests.swift in Sources */,
+				19B7D4EE1E639150007F174D /* ValidModel.swift in Sources */,
+				19B0A0301E5B43C100BB0337 /* ExpectTests.swift in Sources */,
 				191D27201A7CEEBE000B928B /* SwiftCommonsTests.swift in Sources */,
 				261E7FA81E03F45A00A402B4 /* VehicleModel.swift in Sources */,
+				192E0B521E66F38200260087 /* StringUtilsTests.swift in Sources */,
+				19B7D4F01E6391B2007F174D /* NotValidModel.swift in Sources */,
 				261E7FA61E03F45A00A402B4 /* ParkingModel.swift in Sources */,
-				261E7FA71E03F45A00A402B4 /* ParkingModelWithOptionalVehicles.swift in Sources */,
-				196136B91E23AAC9003436AB /* InspectableTests.swift in Sources */,
-				261E7FAA1E03F58A00A402B4 /* JsonKeys.swift in Sources */,
+				19B0A0311E5B43C100BB0337 /* RequireTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +365,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -408,6 +409,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

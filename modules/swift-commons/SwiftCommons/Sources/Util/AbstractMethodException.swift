@@ -1,21 +1,15 @@
 // ----------------------------------------------------------------------------
 //
-//  NonCreatable.swift
+//  AbstractMethodException.swift
 //
-//  @author     Alexander Bragin <alexander.bragin@gmail.com>
-//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public class NonCreatable
-{
-// MARK: - Construction
-
-    private init() {
-        // Do nothing
-    }
-
+public class AbstractMethodException: FatalErrorException {
+    // Do nothing
 }
 
 // ----------------------------------------------------------------------------
