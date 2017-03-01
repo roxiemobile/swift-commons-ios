@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommons'
   s.summary               = 'A collection of useful utility classes common to different iOS projects.'
-  s.version               = '0.4.0'
+  s.version               = '0.6.0'
 
   s.platform              = :ios
   s.ios.deployment_target = '8.0'
