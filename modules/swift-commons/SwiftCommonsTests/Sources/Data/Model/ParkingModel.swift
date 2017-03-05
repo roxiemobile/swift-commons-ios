@@ -12,7 +12,7 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-public class ParkingModel: SerializableObject
+public class ParkingModel: ValidatableModel
 {
 // MARK: - Properties
 

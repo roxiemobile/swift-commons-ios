@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  SerializableObject.swift
+//  ValidatableModel.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public class SerializableObject: Serializable, Mappable, Hashable, Validatable
+public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 {
 // MARK: - Construction
 
@@ -234,7 +234,7 @@ public class SerializableObject: Serializable, Mappable, Hashable, Validatable
 // MARK: - @protocol NSCopying
 // ----------------------------------------------------------------------------
 
-extension SerializableObject: NSCopying
+extension ValidatableModel: NSCopying
 {
 // MARK: - Methods
 
@@ -252,7 +252,7 @@ extension SerializableObject: NSCopying
 // MARK: - @protocol Equatable
 // ----------------------------------------------------------------------------
 
-public func == (lhs: SerializableObject, rhs: SerializableObject) -> Bool
+public func == (lhs: ValidatableModel, rhs: ValidatableModel) -> Bool
 {
     if (lhs === rhs) {
         return true

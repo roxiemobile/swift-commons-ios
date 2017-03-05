@@ -1023,7 +1023,7 @@ extension ExpectTests
         var parking: ParkingModel? = nil
 
         if let jsonObject = loadJson("test_parking_model_with_one_non_valid_vehicle_in_array") {
-            expectThrowsError("isValidModel", errorType: JsonSyntaxError.self) {
+            expectThrowsError("isNotValidModel", errorType: JsonSyntaxError.self) {
                 parking = try ParkingModel(params: jsonObject)
             }
         }
