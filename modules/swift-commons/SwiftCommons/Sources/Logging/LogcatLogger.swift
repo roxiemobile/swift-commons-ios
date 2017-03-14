@@ -10,6 +10,12 @@
 
 public final class LogcatLogger: LoggerContract
 {
+// MARK: - Construction
+
+    public init() {
+        // Do nothing
+    }
+
 // MARK: - Methods
 
     public func v(tag: String, _ message: String) {
