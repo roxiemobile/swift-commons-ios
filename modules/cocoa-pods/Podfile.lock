@@ -1,5 +1,5 @@
 PODS:
-  - SwiftCommons (0.7.0):
+  - SwiftCommons (0.7.1):
     - SwiftyJSON (~> 2.4)
   - SwiftyJSON (2.4.0)
 
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  SwiftCommons: 46ddb712fe5f77185a7fd633c97348a0a282fc6b
+  SwiftCommons: 1bf97f307aec0adb60fb97845e67c7e45ac58111
   SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
 
 PODFILE CHECKSUM: 2e884544e8573fe5fd7b6c3a00af001b93d31d07
