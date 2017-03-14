@@ -271,10 +271,10 @@ extension Logger
         if let err = error {
             logMessage += "\nCaused by error: "
 
-            if let msg = (err as? Printable)?.description.trim() where msg.isNotEmpty {
+            if let msg = (err as? CustomStringConvertible)?.description.trim() where msg.isNotEmpty {
                 logMessage += msg
             }
-            else if let msg = (err as? DebugPrintable)?.debugDescription.trim() where msg.isNotEmpty {
+            else if let msg = (err as? CustomDebugStringConvertible)?.debugDescription.trim() where msg.isNotEmpty {
                 logMessage += msg
             }
             else {

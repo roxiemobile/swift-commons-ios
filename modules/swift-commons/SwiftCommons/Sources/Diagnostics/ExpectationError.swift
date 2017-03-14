@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 
 /// Thrown to indicate that an expectation has failed.
-public class ExpectationError: ErrorType, Printable
+public class ExpectationError: ErrorType, CustomStringConvertible
 {
 // MARK: - Construction
 

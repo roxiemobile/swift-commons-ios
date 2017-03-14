@@ -39,14 +39,7 @@ public protocol MDCopying: NSCopying
 // ----------------------------------------------------------------------------
 
 /// A type with a customized textual representation.
-@objc public protocol MDPrintable
-{
-    /// A textual representation of `self`.
-    var description: String { get }
-}
-
-/// A type with a customized textual representation.
-public protocol Printable
+@objc public protocol RXMCustomStringConvertible
 {
     /// A textual representation of `self`.
     var description: String { get }
@@ -54,15 +47,8 @@ public protocol Printable
 
 // ----------------------------------------------------------------------------
 
-/// A type with a customized textual representation for debugging purposes.
-@objc public protocol MDDebugPrintable
-{
-    /// A textual representation of `self`, suitable for debugging.
-    var debugDescription: String { get }
-}
-
-/// A type with a customized textual representation for debugging purposes.
-public protocol DebugPrintable
+/// A type with a customized textual representation suitable for debugging purposes.
+@objc public protocol RXMCustomDebugStringConvertible
 {
     /// A textual representation of `self`, suitable for debugging.
     var debugDescription: String { get }
