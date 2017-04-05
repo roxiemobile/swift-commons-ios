@@ -178,11 +178,6 @@ public extension Data
 
 // MARK: - Inner Types
 
-    /**
-     Compression level with constants based on the zlib's constants.
-     */
-    public typealias CompressionLevel = Int32
-
     private struct DataSize
     {
         static let chunk = 2 ^ 14
@@ -308,6 +303,11 @@ public enum GzipError: Error {
 }
 
 // ----------------------------------------------------------------------------
+
+/**
+ Compression level with constants based on the zlib's constants.
+ */
+public typealias CompressionLevel = Int32
 
 public extension CompressionLevel {
 

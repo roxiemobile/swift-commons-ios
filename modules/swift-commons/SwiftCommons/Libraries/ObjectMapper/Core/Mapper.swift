@@ -54,7 +54,7 @@ public final class Map {
 		return currentValue as? T
 	}
 
-	public func valueOr<T>(@autoclosure defaultValue: () -> T) -> T {
+	public func valueOr<T>(defaultValue: @autoclosure () -> T) -> T {
 		return value() ?? defaultValue()
 	}
 
