@@ -46,7 +46,7 @@ extension Serializable
 // MARK: - Methods: Archiving
 
     @objc public var classForCoder: AnyClass {
-        return self.dynamicType
+        return type(of: self)
     }
 
     @objc public func replacementObjectForCoder(aCoder: NSCoder) -> AnyObject? {
@@ -68,7 +68,7 @@ extension Serializable
 // --
 
     @objc public var classForKeyedArchiver: AnyClass {
-        return self.dynamicType
+        return type(of: self)
     }
 
     @objc public func replacementObjectForKeyedArchiver(archiver: NSKeyedArchiver) -> AnyObject? {

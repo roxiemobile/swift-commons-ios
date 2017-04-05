@@ -124,7 +124,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         // Writing a good Hashable implementation in Swift
         // @link http://stackoverflow.com/a/24240011
 
-        self.hash = (31 &* NSStringFromClass(self.dynamicType).hashValue) &+ data.rxm_md5String.hashValue
+        self.hash = (31 &* NSStringFromClass(type(of: self)).hashValue) &+ data.rxm_md5String.hashValue
         return self.hash
     }
 
@@ -243,7 +243,7 @@ extension ValidatableModel: NSCopying
     }
 
     public func copy() -> Self {
-        return try! self.dynamicType.init(params: Mapper().toJSON(self))
+        return try! type(of: self).init(params: Mapper().toJSON(self))
     }
 
 }
@@ -257,7 +257,7 @@ public func == (lhs: ValidatableModel, rhs: ValidatableModel) -> Bool
     if (lhs === rhs) {
         return true
     }
-    else if (lhs.dynamicType !== rhs.dynamicType) {
+    else if (type(of: lhs) !== type(of: rhs)) {
         return false
     }
     else {

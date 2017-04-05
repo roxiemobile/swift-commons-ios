@@ -357,7 +357,7 @@ extension NSDate: Strideable
     }
 
     public func advancedBy(n: NSTimeInterval) -> Self {
-        return self.dynamicType.init(timeIntervalSinceReferenceDate: self.timeIntervalSinceReferenceDate + n)
+        return type(of: self).init(timeIntervalSinceReferenceDate: self.timeIntervalSinceReferenceDate + n)
     }
 }
 
@@ -393,11 +393,11 @@ public func -(date: NSDate, timeInterval: Int) -> NSDate {
     return date - NSTimeInterval(timeInterval)
 }
 
-public func +=(inout date: NSDate, timeInterval: Int) {
+public func +=(date: inout NSDate, timeInterval: Int) {
     date = date + timeInterval
 }
 
-public func -=(inout date: NSDate, timeInterval: Int) {
+public func -=(date: inout NSDate, timeInterval: Int) {
     date = date - timeInterval
 }
 
@@ -409,11 +409,11 @@ public func -(date: NSDate, timeInterval: Double) -> NSDate {
     return date.dateByAddingTimeInterval(NSTimeInterval(-timeInterval))
 }
 
-public func +=(inout date: NSDate, timeInterval: Double) {
+public func +=(date: inout NSDate, timeInterval: Double) {
     date = date + timeInterval
 }
 
-public func -=(inout date: NSDate, timeInterval: Double) {
+public func -=(date: inout NSDate, timeInterval: Double) {
     date = date - timeInterval
 }
 

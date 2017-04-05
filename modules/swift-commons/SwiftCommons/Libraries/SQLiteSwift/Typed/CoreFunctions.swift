@@ -32,7 +32,7 @@ extension ExpressionType where UnderlyingType : Number {
     ///
     /// - Returns: A copy of the expression wrapped with the `abs` function.
     public var absoluteValue : Expression<UnderlyingType> {
-        return "abs".wrap(self)
+        return "abs".wrap(expression: self)
     }
 
 }
@@ -47,7 +47,7 @@ extension ExpressionType where UnderlyingType : _OptionalType, UnderlyingType.Wr
     ///
     /// - Returns: A copy of the expression wrapped with the `abs` function.
     public var absoluteValue : Expression<UnderlyingType> {
-        return "abs".wrap(self)
+        return "abs".wrap(expression: self)
     }
 
 }
@@ -65,9 +65,9 @@ extension ExpressionType where UnderlyingType == Double {
     /// - Returns: A copy of the expression wrapped with the `round` function.
     @warn_unused_result public func round(precision: Int? = nil) -> Expression<UnderlyingType> {
         guard let precision = precision else {
-            return wrap([self])
+            return wrap(expressions: [self])
         }
-        return wrap([self, Int(precision)])
+        return wrap(expressions: [self, Int(precision)])
     }
 
 }
@@ -85,9 +85,9 @@ extension ExpressionType where UnderlyingType == Double? {
     /// - Returns: A copy of the expression wrapped with the `round` function.
     @warn_unused_result public func round(precision: Int? = nil) -> Expression<UnderlyingType> {
         guard let precision = precision else {
-            return wrap(self)
+            return wrap(expression: self)
         }
-        return wrap([self, Int(precision)])
+        return wrap(expressions: [self, Int(precision)])
     }
 
 }
@@ -101,7 +101,7 @@ extension ExpressionType where UnderlyingType : Value, UnderlyingType.Datatype =
     ///
     /// - Returns: An expression calling the `random` function.
     @warn_unused_result public static func random() -> Expression<UnderlyingType> {
-        return "random".wrap([])
+        return "random".wrap(expressions: [])
     }
 
 }
@@ -117,7 +117,7 @@ extension ExpressionType where UnderlyingType == NSData {
     ///
     /// - Returns: An expression calling the `randomblob` function.
     @warn_unused_result public static func random(length: Int) -> Expression<UnderlyingType> {
-        return "randomblob".wrap([])
+        return "randomblob".wrap(expressions: [])
     }
 
     /// Builds an expression representing the `zeroblob` function.
@@ -129,7 +129,7 @@ extension ExpressionType where UnderlyingType == NSData {
     ///
     /// - Returns: An expression calling the `zeroblob` function.
     @warn_unused_result public static func allZeros(length: Int) -> Expression<UnderlyingType> {
-        return "zeroblob".wrap([])
+        return "zeroblob".wrap(expressions: [])
     }
 
     /// Builds a copy of the expression wrapped with the `length` function.
@@ -140,7 +140,7 @@ extension ExpressionType where UnderlyingType == NSData {
     ///
     /// - Returns: A copy of the expression wrapped with the `length` function.
     public var length: Expression<Int> {
-        return wrap(self)
+        return wrap(expression: self)
     }
 
 }
@@ -155,7 +155,7 @@ extension ExpressionType where UnderlyingType == NSData? {
     ///
     /// - Returns: A copy of the expression wrapped with the `length` function.
     public var length: Expression<Int?> {
-        return wrap(self)
+        return wrap(expression: self)
     }
 
 }
@@ -170,7 +170,7 @@ extension ExpressionType where UnderlyingType == String {
     ///
     /// - Returns: A copy of the expression wrapped with the `length` function.
     public var length: Expression<Int> {
-        return wrap(self)
+        return wrap(expression: self)
     }
 
     /// Builds a copy of the expression wrapped with the `lower` function.
@@ -181,7 +181,7 @@ extension ExpressionType where UnderlyingType == String {
     ///
     /// - Returns: A copy of the expression wrapped with the `lower` function.
     public var lowercaseString: Expression<UnderlyingType> {
-        return "lower".wrap(self)
+        return "lower".wrap(expression: self)
     }
 
     /// Builds a copy of the expression wrapped with the `upper` function.
@@ -192,7 +192,7 @@ extension ExpressionType where UnderlyingType == String {
     ///
     /// - Returns: A copy of the expression wrapped with the `upper` function.
     public var uppercaseString: Expression<UnderlyingType> {
-        return "upper".wrap(self)
+        return "upper".wrap(expression: self)
     }
 
     /// Builds a copy of the expression appended with a `LIKE` query against the
@@ -289,9 +289,9 @@ extension ExpressionType where UnderlyingType == String {
     /// - Returns: A copy of the expression wrapped with the `ltrim` function.
     @warn_unused_result public func ltrim(characters: Set<Character>? = nil) -> Expression<UnderlyingType> {
         guard let characters = characters else {
-            return wrap(self)
+            return wrap(expression: self)
         }
-        return wrap([self, String(characters)])
+        return wrap(expressions: [self, String(characters)])
     }
 
     /// Builds a copy of the expression wrapped with the `rtrim` function.
@@ -307,9 +307,9 @@ extension ExpressionType where UnderlyingType == String {
     /// - Returns: A copy of the expression wrapped with the `rtrim` function.
     @warn_unused_result public func rtrim(characters: Set<Character>? = nil) -> Expression<UnderlyingType> {
         guard let characters = characters else {
-            return wrap(self)
+            return wrap(expression: self)
         }
-        return wrap([self, String(characters)])
+        return wrap(expressions: [self, String(characters)])
     }
 
     /// Builds a copy of the expression wrapped with the `trim` function.
@@ -325,9 +325,9 @@ extension ExpressionType where UnderlyingType == String {
     /// - Returns: A copy of the expression wrapped with the `trim` function.
     @warn_unused_result public func trim(characters: Set<Character>? = nil) -> Expression<UnderlyingType> {
         guard let characters = characters else {
-            return wrap([self])
+            return wrap(expressions: [self])
         }
-        return wrap([self, String(characters)])
+        return wrap(expressions: [self, String(characters)])
     }
 
     /// Builds a copy of the expression wrapped with the `replace` function.
@@ -344,18 +344,18 @@ extension ExpressionType where UnderlyingType == String {
     ///
     /// - Returns: A copy of the expression wrapped with the `replace` function.
     @warn_unused_result public func replace(pattern: String, with replacement: String) -> Expression<UnderlyingType> {
-        return "replace".wrap([self, pattern, replacement])
+        return "replace".wrap(expressions: [self, pattern, replacement])
     }
 
     @warn_unused_result public func substring(location: Int, length: Int? = nil) -> Expression<UnderlyingType> {
         guard let length = length else {
-            return "substr".wrap([self, location])
+            return "substr".wrap(expressions: [self, location])
         }
-        return "substr".wrap([self, location, length])
+        return "substr".wrap(expressions: [self, location, length])
     }
 
     public subscript(range: Range<Int>) -> Expression<UnderlyingType> {
-        return substring(range.startIndex, length: range.endIndex - range.startIndex)
+        return substring(location: range.lowerBound, length: range.upperBound - range.lowerBound)
     }
 
 }
@@ -370,7 +370,7 @@ extension ExpressionType where UnderlyingType == String? {
     ///
     /// - Returns: A copy of the expression wrapped with the `length` function.
     public var length: Expression<Int?> {
-        return wrap(self)
+        return wrap(expression: self)
     }
 
     /// Builds a copy of the expression wrapped with the `lower` function.
@@ -381,7 +381,7 @@ extension ExpressionType where UnderlyingType == String? {
     ///
     /// - Returns: A copy of the expression wrapped with the `lower` function.
     public var lowercaseString: Expression<UnderlyingType> {
-        return "lower".wrap(self)
+        return "lower".wrap(expression: self)
     }
 
     /// Builds a copy of the expression wrapped with the `upper` function.
@@ -392,7 +392,7 @@ extension ExpressionType where UnderlyingType == String? {
     ///
     /// - Returns: A copy of the expression wrapped with the `upper` function.
     public var uppercaseString: Expression<UnderlyingType> {
-        return "upper".wrap(self)
+        return "upper".wrap(expression: self)
     }
 
     /// Builds a copy of the expression appended with a `LIKE` query against the
@@ -489,9 +489,9 @@ extension ExpressionType where UnderlyingType == String? {
     /// - Returns: A copy of the expression wrapped with the `ltrim` function.
     @warn_unused_result public func ltrim(characters: Set<Character>? = nil) -> Expression<UnderlyingType> {
         guard let characters = characters else {
-            return wrap(self)
+            return wrap(expression: self)
         }
-        return wrap([self, String(characters)])
+        return wrap(expressions: [self, String(characters)])
     }
 
     /// Builds a copy of the expression wrapped with the `rtrim` function.
@@ -507,9 +507,9 @@ extension ExpressionType where UnderlyingType == String? {
     /// - Returns: A copy of the expression wrapped with the `rtrim` function.
     @warn_unused_result public func rtrim(characters: Set<Character>? = nil) -> Expression<UnderlyingType> {
         guard let characters = characters else {
-            return wrap(self)
+            return wrap(expression: self)
         }
-        return wrap([self, String(characters)])
+        return wrap(expressions: [self, String(characters)])
     }
 
     /// Builds a copy of the expression wrapped with the `trim` function.
@@ -525,9 +525,9 @@ extension ExpressionType where UnderlyingType == String? {
     /// - Returns: A copy of the expression wrapped with the `trim` function.
     @warn_unused_result public func trim(characters: Set<Character>? = nil) -> Expression<UnderlyingType> {
         guard let characters = characters else {
-            return wrap(self)
+            return wrap(expression: self)
         }
-        return wrap([self, String(characters)])
+        return wrap(expressions: [self, String(characters)])
     }
 
     /// Builds a copy of the expression wrapped with the `replace` function.
@@ -544,7 +544,7 @@ extension ExpressionType where UnderlyingType == String? {
     ///
     /// - Returns: A copy of the expression wrapped with the `replace` function.
     @warn_unused_result public func replace(pattern: String, with replacement: String) -> Expression<UnderlyingType> {
-        return "replace".wrap([self, pattern, replacement])
+        return "replace".wrap(expressions: [self, pattern, replacement])
     }
 
     /// Builds a copy of the expression wrapped with the `substr` function.
@@ -564,9 +564,9 @@ extension ExpressionType where UnderlyingType == String? {
     /// - Returns: A copy of the expression wrapped with the `substr` function.
     @warn_unused_result public func substring(location: Int, length: Int? = nil) -> Expression<UnderlyingType> {
         guard let length = length else {
-            return "substr".wrap([self, location])
+            return "substr".wrap(expressions: [self, location])
         }
-        return "substr".wrap([self, location, length])
+        return "substr".wrap(expressions: [self, location, length])
     }
 
     /// Builds a copy of the expression wrapped with the `substr` function.
@@ -579,12 +579,12 @@ extension ExpressionType where UnderlyingType == String? {
     ///
     /// - Returns: A copy of the expression wrapped with the `substr` function.
     public subscript(range: Range<Int>) -> Expression<UnderlyingType> {
-        return substring(range.startIndex, length: range.endIndex - range.startIndex)
+        return substring(location: range.lowerBound, length: range.upperBound - range.lowerBound)
     }
 
 }
 
-extension CollectionType where Generator.Element : Value, Index.Distance == Int {
+extension Collection where Iterator.Element : Value, IndexDistance == Int {
 
     /// Builds a copy of the expression prepended with an `IN` check against the
     /// collection.
@@ -597,8 +597,8 @@ extension CollectionType where Generator.Element : Value, Index.Distance == Int 
     ///
     /// - Returns: A copy of the expression prepended with an `IN` check against
     ///   the collection.
-    @warn_unused_result public func contains(expression: Expression<Generator.Element>) -> Expression<Bool> {
-        let templates = [String](count: count, repeatedValue: "?").joinWithSeparator(", ")
+    @warn_unused_result public func contains(expression: Expression<Iterator.Element>) -> Expression<Bool> {
+        let templates = [String](repeating: "?", count: count).joined(separator: ", ")
         return "IN".infix(expression, Expression<Void>("(\(templates))", map { $0.datatypeValue }))
     }
 
@@ -613,8 +613,8 @@ extension CollectionType where Generator.Element : Value, Index.Distance == Int 
     ///
     /// - Returns: A copy of the expression prepended with an `IN` check against
     ///   the collection.
-    @warn_unused_result public func contains(expression: Expression<Generator.Element?>) -> Expression<Bool?> {
-        let templates = [String](count: count, repeatedValue: "?").joinWithSeparator(", ")
+    @warn_unused_result public func contains(expression: Expression<Iterator.Element?>) -> Expression<Bool?> {
+        let templates = [String](repeating: "?", count: count).joined(separator: ", ")
         return "IN".infix(expression, Expression<Void>("(\(templates))", map { $0.datatypeValue }))
     }
 
@@ -636,7 +636,7 @@ extension CollectionType where Generator.Element : Value, Index.Distance == Int 
 /// - Returns: A copy of the given expressions wrapped with the `ifnull`
 ///   function.
 public func ??<V : Value>(optional: Expression<V?>, defaultValue: V) -> Expression<V> {
-    return "ifnull".wrap([optional, defaultValue])
+    return "ifnull".wrap(expressions: [optional, defaultValue])
 }
 
 /// Builds a copy of the given expressions wrapped with the `ifnull` function.
@@ -656,7 +656,7 @@ public func ??<V : Value>(optional: Expression<V?>, defaultValue: V) -> Expressi
 /// - Returns: A copy of the given expressions wrapped with the `ifnull`
 ///   function.
 public func ??<V : Value>(optional: Expression<V?>, defaultValue: Expression<V>) -> Expression<V> {
-    return "ifnull".wrap([optional, defaultValue])
+    return "ifnull".wrap(expressions: [optional, defaultValue])
 }
 
 /// Builds a copy of the given expressions wrapped with the `ifnull` function.
@@ -676,5 +676,5 @@ public func ??<V : Value>(optional: Expression<V?>, defaultValue: Expression<V>)
 /// - Returns: A copy of the given expressions wrapped with the `ifnull`
 ///   function.
 public func ??<V : Value>(optional: Expression<V?>, defaultValue: Expression<V?>) -> Expression<V> {
-    return "ifnull".wrap([optional, defaultValue])
+    return "ifnull".wrap(expressions: [optional, defaultValue])
 }

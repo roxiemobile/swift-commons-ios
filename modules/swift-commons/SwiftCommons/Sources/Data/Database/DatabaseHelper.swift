@@ -21,7 +21,7 @@ public class DatabaseHelper
     public init(databaseName: String?, version: Int, readonly: Bool = false, delegate: DatabaseOpenDelegate? = nil)
     {
         // Init instance variables
-        self.database = openOrCreateDatabase(databaseName, version: version, readonly: readonly, delegate: delegate)
+        self.database = openOrCreateDatabase(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
     }
 
     private init() {
@@ -56,7 +56,7 @@ public class DatabaseHelper
 
     /// Checks if database file exists and integrity check of the entire database was successful.
     public static func isValidDatabase(databaseName: String?, delegate: DatabaseOpenDelegate? = nil) -> Bool {
-        return DatabaseHelper.sharedInstance.validateDatabase(databaseName, delegate: delegate)
+        return DatabaseHelper.sharedInstance.validateDatabase(databaseName: databaseName, delegate: delegate)
     }
 
 // MARK: - Internal Methods
@@ -99,7 +99,7 @@ public class DatabaseHelper
 
     func makeTemplatePath(databaseName: String?) -> NSURL?
     {
-        let name = sanitizeName(databaseName)
+        let name = sanitizeName(databaseName: databaseName)
         var path: NSURL?
 
         // Build path to the template file
@@ -118,10 +118,10 @@ public class DatabaseHelper
         var result = false
 
         // Check if database file exists
-        if let path = makeDatabasePath(databaseName) where path.rxm_isFileExists
+        if let path = makeDatabasePath(databaseName: databaseName), path.rxm_isFileExists
         {
             // Check integrity of database
-            let database = openDatabase(databaseName, version: nil, readonly: true, delegate: delegate)
+            let database = openDatabase(databaseName: databaseName, version: nil, readonly: true, delegate: delegate)
             result = checkDatabaseIntegrity(database)
         }
 
@@ -132,11 +132,11 @@ public class DatabaseHelper
     private func openOrCreateDatabase(databaseName: String?, version: Int, readonly: Bool, delegate: DatabaseOpenDelegate?) -> Database?
     {
         // Try to open existing database
-        var database = openDatabase(databaseName, version: version, readonly: readonly, delegate: delegate)
+        var database = openDatabase(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
 
         // Create and open new database
         if (database == nil) {
-            database = createDatabase(databaseName, version: version, readonly: readonly, delegate: delegate)
+            database = createDatabase(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
         }
 
         // Done
@@ -145,11 +145,11 @@ public class DatabaseHelper
 
     private func openDatabase(databaseName: String?, version: Int?, readonly: Bool, delegate: DatabaseOpenDelegate?) -> Database?
     {
-        var name: String! = sanitizeName(databaseName)
+        var name: String! = sanitizeName(databaseName: databaseName)
         var database: Database!
 
         // Validate database name
-        if let path = makeDatabasePath(databaseName) where path.rxm_isFileExists {
+        if let path = makeDatabasePath(databaseName: databaseName), path.rxm_isFileExists {
             name = path.path
         }
         else if (name != Inner.InMemoryDatabase) {
@@ -161,11 +161,11 @@ public class DatabaseHelper
             database = createDatabaseObject(name, readonly: readonly)
 
             // Send events to the delegate
-            if let delegate = delegate where (database.handle != nil)
+            if let delegate = delegate, (database.handle != nil)
             {
                 Try {
                     // Configure the open database
-                    delegate.configureDatabase(databaseName, database: database)
+                    delegate.configureDatabase(databaseName: databaseName, database: database)
 
                     // Check database connection
                     if !database.goodConnection {
@@ -191,15 +191,15 @@ public class DatabaseHelper
                                 Try {
                                     
                                     if (oldVersion == 0) {
-                                        delegate.databaseDidCreate(databaseName, database: database)
+                                        delegate.databaseDidCreate(databaseName: databaseName, database: database)
                                     }
                                     else
                                     {
                                         if (oldVersion > newVersion) {
-                                            delegate.downgradeDatabase(databaseName, database: database, oldVersion: oldVersion, newVersion: newVersion)
+                                            delegate.downgradeDatabase(databaseName: databaseName, database: database, oldVersion: oldVersion, newVersion: newVersion)
                                         }
                                         else {
-                                            delegate.upgradeDatabase(databaseName, database: database, oldVersion: oldVersion, newVersion: newVersion)
+                                            delegate.upgradeDatabase(databaseName: databaseName, database: database, oldVersion: oldVersion, newVersion: newVersion)
                                         }
                                     }
                                     
@@ -229,7 +229,7 @@ public class DatabaseHelper
                     }
 
                     // Database did open sucessfully
-                    delegate.databaseDidOpen(databaseName, database: database)
+                    delegate.databaseDidOpen(databaseName: databaseName, database: database)
 
                 }.Catch { e in
 
@@ -237,7 +237,7 @@ public class DatabaseHelper
                     let error = NSError(code: NSError.DatabaseError.Code.DatabaseIsInvalid, description: e.reason)
 
                     // Could not open OR migrate database
-                    delegate.databaseDidOpenWithError(databaseName, error: error)
+                    delegate.databaseDidOpenWithError(databaseName: databaseName, error: error)
                     database = nil
                 }
             }
@@ -254,20 +254,20 @@ public class DatabaseHelper
     
     private func createDatabase(databaseName: String?, version: Int, readonly: Bool, delegate: DatabaseOpenDelegate?) -> Database?
     {
-        let name = sanitizeName(databaseName)
+        let name = sanitizeName(databaseName: databaseName)
         var database: Database?
 
         // Create on-disk database
-        if let dstPath = makeDatabasePath(databaseName)
+        if let dstPath = makeDatabasePath(databaseName: databaseName)
         {
             // Remove previous database file
             rxm_removeItemAtURL(dstPath)
 
             // Get path of the database template file from delegate
-            if let (path, encryptionKey) = delegate?.databaseWillCreate(databaseName) where (path != nil) && path!.rxm_isFileExists
+            if let (path, encryptionKey) = delegate?.databaseWillCreate(databaseName: databaseName), (path != nil) && path!.rxm_isFileExists
             {
                 // Unpack database template from the assets
-                if let tmpPath = unpackDatabaseTemplate(databaseName!, assetPath: path!) where tmpPath.rxm_isFileExists,
+                if let tmpPath = unpackDatabaseTemplate(databaseName: databaseName!, assetPath: path!), tmpPath.rxm_isFileExists,
                    let uriPath = tmpPath.path
                 {
                     var db: Database? = createDatabaseObject(uriPath, readonly: false)
@@ -275,7 +275,7 @@ public class DatabaseHelper
                     if checkDatabaseIntegrity(db)
                     {
                         // Export/copy database template to the "Databases" folder
-                        if let key = encryptionKey where !key.isEmpty
+                        if let key = encryptionKey, !key.isEmpty
                         {
                             // FMDB with SQLCipher Tutorial
                             // @link http://www.guilmo.com/fmdb-with-sqlcipher-tutorial/
@@ -301,7 +301,7 @@ public class DatabaseHelper
             }
 
             // Try to open created database
-            database = openDatabase(databaseName, version: version, readonly: readonly, delegate: delegate)
+            database = openDatabase(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
 
             // Remove corrupted database file
             if (database == nil) {
@@ -310,7 +310,7 @@ public class DatabaseHelper
         }
         // Create in-memory database
         else if (name == Inner.InMemoryDatabase) {
-            database = openDatabase(databaseName, version: version, readonly: readonly, delegate: delegate)
+            database = openDatabase(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
         }
 
         // Done
@@ -396,7 +396,7 @@ public class DatabaseHelper
         case Commit
     }
     
-    enum DatabaseError : ErrorType {
+    enum DatabaseError : Error {
         case FailedTransaction
     }
 

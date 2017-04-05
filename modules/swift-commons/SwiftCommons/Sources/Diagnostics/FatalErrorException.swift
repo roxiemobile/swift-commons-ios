@@ -62,7 +62,7 @@ public class FatalErrorException: NSException
 
         logMessage += "\(err.domain)(code: \(err.code))"
 
-        if let message = error?.localizedDescription.trim() where !message.isEmpty {
+        if let message = error?.localizedDescription.trim(), !message.isEmpty {
             logMessage += " with reason: \(message)"
         }
     }
@@ -86,11 +86,11 @@ public class FatalErrorException: NSException
 
         logMessage += "\(exc.name)"
 
-        if let message = exc.reason?.trim() where !message.isEmpty {
+        if let message = exc.reason?.trim(), !message.isEmpty {
             logMessage += " with reason: \(message)"
         }
 
-        if let stackTrace = exception?.callStackSymbols where !stackTrace.isEmpty {
+        if let stackTrace = exception?.callStackSymbols, !stackTrace.isEmpty {
             logMessage += "\nStack trace:"
 
             for line in stackTrace {

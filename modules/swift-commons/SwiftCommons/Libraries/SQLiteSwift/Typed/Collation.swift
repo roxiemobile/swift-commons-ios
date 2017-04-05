@@ -55,13 +55,13 @@ extension Collation : CustomStringConvertible {
 
     public var description : String {
         switch self {
-        case Binary:
+        case .Binary:
             return "BINARY"
-        case Nocase:
+        case .Nocase:
             return "NOCASE"
-        case Rtrim:
+        case .Rtrim:
             return "RTRIM"
-        case Custom(let collation):
+        case .Custom(let collation):
             return collation.quote()
         }
     }

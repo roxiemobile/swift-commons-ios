@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  NSTimer.swift
+//  Timer.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
@@ -20,27 +20,27 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension NSTimer
+public extension Timer
 {
 // MARK: - Construction
 
-    public class func rxm_scheduledTimerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> NSTimer
+    public class func rxm_scheduledTimerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> Timer
     {
-        let timer = scheduledTimerWithTimeInterval(ti, target: self, selector: #selector(NSTimer.rxm_executeCompletionHandler(_:)),
-                    userInfo: unsafeBitCast(completion, AnyObject.self), repeats: yesOrNo)
+        let timer = scheduledTimer(timeInterval: ti, target: self, selector: #selector(Timer.rxm_executeCompletionHandler(_:)), userInfo: unsafeBitCast(completion, AnyObject.self), repeats: yesOrNo)
+
         return timer
     }
 
-    public class func rxm_timerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> NSTimer
+    public class func rxm_timerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> Timer
     {
-        let timer = NSTimer(timeInterval: ti, target: self, selector: #selector(NSTimer.rxm_executeCompletionHandler(_:)),
+        let timer = Timer(timeInterval: ti, target: self, selector: #selector(Timer.rxm_executeCompletionHandler(_:)),
                     userInfo: unsafeBitCast(completion, AnyObject.self), repeats: yesOrNo)
         return timer
     }
 
 // MARK: - Methods
 
-    static func rxm_executeCompletionHandler(timer: NSTimer)
+    static func rxm_executeCompletionHandler(timer: Timer)
     {
         if let userInfo: AnyObject? = timer.userInfo {
             let completionHandler = unsafeBitCast(userInfo, TimerCompletionHandler.self)
@@ -50,7 +50,7 @@ public extension NSTimer
 
 // MARK: - Inner Types
 
-    public typealias TimerCompletionHandler = (@convention(block) (timer: NSTimer) -> Void)
+    public typealias TimerCompletionHandler = (@convention(block) (_ timer: Timer) -> Void)
 
 }
 

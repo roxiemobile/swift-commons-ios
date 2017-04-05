@@ -39,20 +39,20 @@ public extension Connection {
     ///     The assigned types must be explicit.
     ///
     /// - Returns: A closure returning an SQL expression to call the function.
-    public func createFunction<Z : Value>(function: String, deterministic: Bool = false, _ block: () -> Z) throws -> (() -> Expression<Z>) {
+    public func createFunction<Z : Value>(_ function: String, deterministic: Bool = false, _ block: @escaping () -> Z) throws -> (() -> Expression<Z>) {
         let fn = try createFunction(function, 0, deterministic) { _ in block() }
         return { fn([]) }
     }
 
-    public func createFunction<Z : Value>(function: String, deterministic: Bool = false, _ block: () -> Z?) throws -> (() -> Expression<Z?>) {
-        let fn = try createFunction(function, 0, deterministic) { _ in block() }
+    public func createFunction<Z : Value>(function: String, deterministic: Bool = false, _ block: @escaping () -> Z?) throws -> (() -> Expression<Z?>) {
+        let fn = try createFunction(function, argumentCount: 0, deterministic: deterministic) { _ in block() }
         return { fn([]) }
     }
 
     // MARK: -
 
-    public func createFunction<Z : Value, A : Value>(function: String, deterministic: Bool = false, _ block: A -> Z) throws -> (Expression<A> -> Expression<Z>) {
-        let fn = try createFunction(function, 1, deterministic) { args in block(value(args[0])) }
+    public func createFunction<Z : Value, A : Value>(function: String, deterministic: Bool = false, _ block: @escaping (A) -> Z) throws -> ((Expression<A>) -> Expression<Z>) {
+        let fn = try createFunction(function, argumentCount: 1, deterministic: deterministic) { args in block(value(args[0])) }
         return { arg in fn([arg]) }
     }
 

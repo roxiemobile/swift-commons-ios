@@ -183,7 +183,7 @@ public final class Statement {
 
 }
 
-extension Statement : SequenceType {
+extension Statement : Sequence {
 
     public func generate() -> Statement {
         reset(clearBindings: false)
@@ -192,7 +192,7 @@ extension Statement : SequenceType {
 
 }
 
-extension Statement : GeneratorType {
+extension Statement : IteratorProtocol {
 
     public func next() -> [Binding?]? {
         return try! step() ? Array(row) : nil

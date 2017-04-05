@@ -29,7 +29,7 @@ final class RequireTests: XCTestCase
 
         if let exc = cause
         {
-            if exc.dynamicType == errorType {
+            if type(of: exc) == errorType {
                 // Do nothing
             }
             else {
@@ -52,7 +52,7 @@ final class RequireTests: XCTestCase
 
         if let exc = cause
         {
-            if exc.dynamicType == errorType {
+            if type(of: exc) == errorType {
                 XCTFail("Line: \(line) - \(method): Method thrown an exception")
             }
             else {

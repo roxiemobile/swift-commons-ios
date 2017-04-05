@@ -616,7 +616,7 @@ extension QueryType {
     /// - Parameter query: A query to `SELECT` results from.
     ///
     /// - Returns: The number of updated rows and statement.
-    public func insert(query: QueryType) -> Update {
+    public func insert(_ query: QueryType) -> Update {
         return Update(" ".join([
             Expression<Void>(literal: "INSERT INTO"),
             tableName(),
@@ -733,7 +733,7 @@ extension QueryType {
 
     // TODO: alias support
     func tableName(alias aliased: Bool = false) -> Expressible {
-        guard let alias = clauses.from.alias where aliased else {
+        guard let alias = clauses.from.alias, aliased else {
             return database(namespace: clauses.from.alias ?? clauses.from.name)
         }
 
@@ -873,7 +873,7 @@ public struct Delete : ExpressionType {
 
 extension Connection {
 
-    public func prepare(query: QueryType) throws -> AnySequence<Row> {
+    public func prepare(_ query: QueryType) throws -> AnySequence<Row> {
         let expression = query.expression
         let statement = try prepare(expression.template, expression.bindings)
 
@@ -882,11 +882,11 @@ extension Connection {
             column: for each in query.clauses.select.columns ?? [Expression<Void>(literal: "*")] {
                 var names = each.expression.template.characters.split { $0 == "." }.map(String.init)
                 let column = names.removeLast()
-                let namespace = names.joinWithSeparator(".")
+                let namespace = names.joined(separator: ".")
 
-                func expandGlob(namespace: Bool) -> (QueryType throws -> Void) {
+                func expandGlob(namespace: Bool) -> ((QueryType) throws -> Void) {
                     return { (query: QueryType) throws -> (Void) in
-                        var q = query.dynamicType.init(query.clauses.from.name, database: query.clauses.from.database)
+                        var q = type(of: query).init(query.clauses.from.name, database: query.clauses.from.database)
                         q.clauses.select = query.clauses.select
                         let e = q.expression
                         var names = try self.prepare(e.template, e.bindings).columnNames.map { $0.quote() }
@@ -925,29 +925,29 @@ extension Connection {
         }
     }
 
-    public func scalar<V : Value>(query: ScalarQuery<V>) -> V {
+    public func scalar<V : Value>(_ query: ScalarQuery<V>) -> V {
         let expression = query.expression
         return value(scalar(expression.template, expression.bindings))
     }
 
-    public func scalar<V : Value>(query: ScalarQuery<V?>) -> V.ValueType? {
+    public func scalar<V : Value>(_ query: ScalarQuery<V?>) -> V.ValueType? {
         let expression = query.expression
         guard let value = scalar(expression.template, expression.bindings) as? V.Datatype else { return nil }
         return V.fromDatatypeValue(value)
     }
 
-    public func scalar<V : Value>(query: Select<V>) -> V {
+    public func scalar<V : Value>(_ query: Select<V>) -> V {
         let expression = query.expression
         return value(scalar(expression.template, expression.bindings))
     }
 
-    public func scalar<V : Value>(query: Select<V?>) ->  V.ValueType? {
+    public func scalar<V : Value>(_ query: Select<V?>) ->  V.ValueType? {
         let expression = query.expression
         guard let value = scalar(expression.template, expression.bindings) as? V.Datatype else { return nil }
         return V.fromDatatypeValue(value)
     }
 
-    public func pluck(query: QueryType) -> Row? {
+    public func pluck(_ query: QueryType) -> Row? {
         return try! prepare(query.limit(1, query.clauses.limit?.offset)).generate().next()
     }
 
@@ -961,7 +961,7 @@ extension Connection {
     /// - Parameter query: An insert query.
     ///
     /// - Returns: The insert’s rowid.
-    public func run(query: Insert) throws -> Int64 {
+    public func run(_ query: Insert) throws -> Int64 {
         let expression = query.expression
         return try sync {
             try self.run(expression.template, expression.bindings)
@@ -977,7 +977,7 @@ extension Connection {
     /// - Parameter query: An update query.
     ///
     /// - Returns: The number of updated rows.
-    public func run(query: Update) throws -> Int {
+    public func run(_ query: Update) throws -> Int {
         let expression = query.expression
         return try sync {
             try self.run(expression.template, expression.bindings)
@@ -992,7 +992,7 @@ extension Connection {
     /// - Parameter query: A delete query.
     ///
     /// - Returns: The number of deleted rows.
-    public func run(query: Delete) throws -> Int {
+    public func run(_ query: Delete) throws -> Int {
         let expression = query.expression
         return try sync {
             try self.run(expression.template, expression.bindings)
@@ -1018,11 +1018,11 @@ public struct Row {
     /// - Parameter column: An expression representing a column selected in a Query.
     ///
     /// - Returns: The value for the given column.
-    public func get<V: Value>(column: Expression<V>) -> V {
+    public func get<V: Value>(_ column: Expression<V>) -> V {
         return get(Expression<V?>(column))!
     }
-    public func get<V: Value>(column: Expression<V?>) -> V? {
-        func valueAtIndex(idx: Int) -> V? {
+    public func get<V: Value>(_ column: Expression<V?>) -> V? {
+        func valueAtIndex(_ idx: Int) -> V? {
             guard let value = values[idx] as? V.Datatype else { return nil }
             return (V.fromDatatypeValue(value) as? V)!
         }
@@ -1032,7 +1032,7 @@ public struct Row {
 
             switch similar.count {
             case 0:
-                fatalError("no such column '\(column.template)' in columns: \(columnNames.keys.sort())")
+                fatalError("no such column '\(column.template)' in columns: \(columnNames.keys.sorted())")
             case 1:
                 return valueAtIndex(columnNames[similar[0]]!)
             default:

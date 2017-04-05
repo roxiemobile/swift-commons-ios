@@ -20,27 +20,27 @@ public protocol LoggerContract
 {
 // MARK: - Methods
 
-    func v(tag: String, _ message: String)
-    func d(tag: String, _ message: String)
-    func i(tag: String, _ message: String)
+    func v(_ tag: String, _ message: String)
+    func d(_ tag: String, _ message: String)
+    func i(_ tag: String, _ message: String)
 
-    func w(tag: String, _ message: String)
-    func w(tag: String, _ message: String, _ error: ErrorType?)
-    func w(tag: String, _ message: String, _ error: NSError?)
-    func w(tag: String, _ message: String, _ exception: NSException?)
+    func w(_ tag: String, _ message: String)
+    func w(_ tag: String, _ message: String, _ error: Error?)
+    func w(_ tag: String, _ message: String, _ error: NSError?)
+    func w(_ tag: String, _ message: String, _ exception: NSException?)
 
-    func w(tag: String, _ error: ErrorType)
-    func w(tag: String, _ error: NSError)
-    func w(tag: String, _ exception: NSException)
+    func w(_ tag: String, _ error: Error)
+    func w(_ tag: String, _ error: NSError)
+    func w(_ tag: String, _ exception: NSException)
 
-    func e(tag: String, _ message: String)
-    func e(tag: String, _ message: String, _ error: ErrorType?)
-    func e(tag: String, _ message: String, _ error: NSError?)
-    func e(tag: String, _ message: String, _ exception: NSException?)
+    func e(_ tag: String, _ message: String)
+    func e(_ tag: String, _ message: String, _ error: Error?)
+    func e(_ tag: String, _ message: String, _ error: NSError?)
+    func e(_ tag: String, _ message: String, _ exception: NSException?)
 
-    func e(tag: String, _ error: ErrorType)
-    func e(tag: String, _ error: NSError)
-    func e(tag: String, _ exception: NSException)
+    func e(_ tag: String, _ error: Error)
+    func e(_ tag: String, _ error: NSError)
+    func e(_ tag: String, _ exception: NSException)
 }
 
 // ----------------------------------------------------------------------------
@@ -58,7 +58,8 @@ public final class Logger
 // MARK: - Properties
 
     public func logger(logger: LoggerContract?) -> Logger {
-        synchronized(self.innerLock) {
+
+        synchronized(object: self.innerLock) {
             self.innerLogger = logger
         }
         return self;
@@ -67,14 +68,14 @@ public final class Logger
     private func logger() -> LoggerContract? {
         var logger: LoggerContract? = nil
 
-        synchronized(self.innerLock) {
+        synchronized(object: self.innerLock) {
             logger = self.innerLogger
         }
         return logger
     }
 
     public func logLevel(level: LogLevel) -> Logger {
-        synchronized(self.innerLock) {
+        synchronized(object: self.innerLock) {
             self.innerLogLevel = level
         }
         return self;
@@ -83,7 +84,7 @@ public final class Logger
     public func logLevel() -> LogLevel {
         var level: LogLevel = .Verbose
 
-        synchronized(self.innerLock) {
+        synchronized(object: self.innerLock) {
             level = self.innerLogLevel
         }
         return level
@@ -91,108 +92,108 @@ public final class Logger
 
 // MARK: - Methods
 
-    public static func v(tag: String, @autoclosure _ message: () -> String) {
-        if let logger = Logger.shared.logger() where isLoggable(.Verbose) {
+    public static func v(tag: String, _ message: @autoclosure () -> String) {
+        if let logger = Logger.shared.logger(), isLoggable(.Verbose) {
             logger.v(tag, message())
         }
     }
 
-    public static func d(tag: String, @autoclosure _ message: () -> String) {
-        if let logger = Logger.shared.logger() where isLoggable(.Debug) {
+    public static func d(tag: String, _ message: @autoclosure () -> String) {
+        if let logger = Logger.shared.logger(), isLoggable(.Debug) {
             logger.d(tag, message())
         }
     }
 
-    public static func i(tag: String, @autoclosure _ message: () -> String) {
-        if let logger = Logger.shared.logger() where isLoggable(.Info) {
+    public static func i(tag: String, _ message: @autoclosure () -> String) {
+        if let logger = Logger.shared.logger(), isLoggable(.Info) {
             logger.i(tag, message())
         }
     }
 
 // --
 
-    public static func w(tag: String, @autoclosure _ message: () -> String) {
-        if let logger = Logger.shared.logger() where isLoggable(.Warning) {
+    public static func w(tag: String, _ message: @autoclosure () -> String) {
+        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, message())
         }
     }
 
-    public static func w(tag: String, @autoclosure _ message: () -> String, _ error: ErrorType?) {
-        if let logger = Logger.shared.logger() where isLoggable(.Warning) {
+    public static func w(tag: String, _ message: @autoclosure () -> String, _ error: Error?) {
+        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, message(), error)
         }
     }
 
-    public static func w(tag: String, @autoclosure _ message: () -> String, _ error: NSError?) {
-        if let logger = Logger.shared.logger() where isLoggable(.Warning) {
+    public static func w(tag: String, _ message: @autoclosure () -> String, _ error: NSError?) {
+        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, message(), error)
         }
     }
 
-    public static func w(tag: String, @autoclosure _ message: () -> String, _ exception: NSException?) {
-        if let logger = Logger.shared.logger() where isLoggable(.Warning) {
+    public static func w(tag: String, _ message: @autoclosure () -> String, _ exception: NSException?) {
+        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, message(), exception)
         }
     }
 
-    public static func w(tag: String, _ error: ErrorType) {
-        if let logger = Logger.shared.logger() where isLoggable(.Warning) {
+    public static func w(tag: String, _ error: Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, error)
         }
     }
 
     public static func w(tag: String, _ error: NSError) {
-        if let logger = Logger.shared.logger() where isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, error)
         }
     }
 
     public static func w(tag: String, _ exception: NSException) {
-        if let logger = Logger.shared.logger() where isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, exception)
         }
     }
 
 // --
 
-    public static func e(tag: String, @autoclosure _ message: () -> String) {
-        if let logger = Logger.shared.logger() where isLoggable(.Error) {
+    public static func e(tag: String, _ message: @autoclosure () -> String) {
+        if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, message())
         }
     }
 
-    public static func e(tag: String, @autoclosure _ message: () -> String, _ error: ErrorType?) {
-        if let logger = Logger.shared.logger() where isLoggable(.Error) {
+    public static func e(tag: String, _ message: @autoclosure () -> String, _ error: Error?) {
+        if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, message(), error)
         }
     }
 
-    public static func e(tag: String, @autoclosure _ message: () -> String, _ error: NSError?) {
-        if let logger = Logger.shared.logger() where isLoggable(.Error) {
+    public static func e(tag: String, _ message: @autoclosure () -> String, _ error: NSError?) {
+        if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, message(), error)
         }
     }
 
-    public static func e(tag: String, @autoclosure _ message: () -> String, _ exception: NSException?) {
-        if let logger = Logger.shared.logger() where isLoggable(.Error) {
+    public static func e(tag: String, _ message: @autoclosure () -> String, _ exception: NSException?) {
+        if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, message(), exception)
         }
     }
 
-    public static func e(tag: String, _ error: ErrorType) {
-        if let logger = Logger.shared.logger() where isLoggable(.Error) {
+    public static func e(tag: String, _ error: Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, error)
         }
     }
 
     public static func e(tag: String, _ error: NSError) {
-        if let logger = Logger.shared.logger() where isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, error)
         }
     }
 
     public static func e(tag: String, _ exception: NSException) {
-        if let logger = Logger.shared.logger() where isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, exception)
         }
     }
@@ -200,7 +201,7 @@ public final class Logger
 // MARK: - Methods
 
     /// Checks to see whether or not a log is loggable at the specified level.
-    public static func isLoggable(level: LogLevel) -> Bool {
+    public static func isLoggable(_ level: LogLevel) -> Bool {
         return level.rawValue >= Logger.shared.logLevel().rawValue
     }
 
@@ -237,7 +238,7 @@ extension Logger
 {
 // MARK: - Methods
 
-    public static func description(level: LogLevel, _ tag: String, @autoclosure _ message: () -> String?) -> String {
+    public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?) -> String {
         var logMessage = ""
 
         // Add log level
@@ -256,7 +257,7 @@ extension Logger
         }
 
         // Add message
-        if let msg = message()?.trim() where msg.isNotEmpty {
+        if let msg = message()?.trim(), msg.isNotEmpty {
             logMessage += " \(msg)"
         }
 
@@ -264,17 +265,17 @@ extension Logger
         return logMessage
     }
 
-    public static func description(level: LogLevel, _ tag: String, @autoclosure _ message: () -> String?, _ error: ErrorType?) -> String {
+    public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ error: Error?) -> String {
         var logMessage = description(level, tag, message)
 
         // Add error description
         if let err = error {
             logMessage += "\nCaused by error: "
 
-            if let msg = (err as? CustomStringConvertible)?.description.trim() where msg.isNotEmpty {
+            if let msg = (err as? CustomStringConvertible)?.description.trim(), msg.isNotEmpty {
                 logMessage += msg
             }
-            else if let msg = (err as? CustomDebugStringConvertible)?.debugDescription.trim() where msg.isNotEmpty {
+            else if let msg = (err as? CustomDebugStringConvertible)?.debugDescription.trim(), msg.isNotEmpty {
                 logMessage += msg
             }
             else {
@@ -286,14 +287,14 @@ extension Logger
         return logMessage
     }
 
-    public static func description(level: LogLevel, _ tag: String, @autoclosure _ message: () -> String?, _ error: NSError?) -> String {
+    public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ error: NSError?) -> String {
         var logMessage = description(level, tag, message)
 
         // Add error description
         if let err = error {
             logMessage += "\nCaused by error: \(err.domain)(code: \(err.code))"
 
-            if let msg = error?.localizedDescription.trim() where msg.isNotEmpty {
+            if let msg = error?.localizedDescription.trim(), msg.isNotEmpty {
                 logMessage += " with reason: \(msg)"
             }
         }
@@ -302,18 +303,18 @@ extension Logger
         return logMessage
     }
 
-    public static func description(level: LogLevel, _ tag: String, @autoclosure _ message: () -> String?, _ exception: NSException?) -> String {
+    public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ exception: NSException?) -> String {
         var logMessage = description(level, tag, message)
 
         // Add exception description
         if let exc = exception {
             logMessage += "\nCaused by exception: \(exc.name)"
 
-            if let msg = exc.reason?.trim() where msg.isNotEmpty {
+            if let msg = exc.reason?.trim(), msg.isNotEmpty {
                 logMessage += " with reason: \(msg)"
             }
 
-            if let stackTrace = exception?.callStackSymbols where stackTrace.isNotEmpty {
+            if let stackTrace = exception?.callStackSymbols, stackTrace.isNotEmpty {
                 logMessage += "\nStack trace:"
 
                 for line in stackTrace {
