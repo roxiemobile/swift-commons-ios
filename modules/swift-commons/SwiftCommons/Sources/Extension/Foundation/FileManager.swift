@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  NSFileManager.swift
+//  FileManager.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
@@ -12,54 +12,54 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension NSFileManager
+public extension FileManager
 {
 // MARK: - Properties
 
     /// Returns documents directory.
-    public class var documentsDirectory: NSURL?
+    public class var documentsDirectory: URL?
     {
         struct Singleton {
-            static let directory: NSURL? = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first
+            static let directory: URL? = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         }
         return Singleton.directory
     }
 
     /// Returns caches directory.
-    public class var cachesDirectory: NSURL?
+    public class var cachesDirectory: URL?
     {
         struct Singleton {
-            static let directory: NSURL? = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask).first
+            static let directory: URL? = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
         }
         return Singleton.directory
     }
 
     /// Returns temporary directory.
-    public class var temporaryDirectory: NSURL?
+    public class var temporaryDirectory: URL?
     {
         struct Singleton {
-            static let directory: NSURL? = NSURL.fileURLWithPath(NSTemporaryDirectory())
+            static let directory: URL? = URL.init(fileURLWithPath: NSTemporaryDirectory())
         }
         return Singleton.directory
     }
 
     /// Returns databases directory.
-    public class var databasesDirectory: NSURL?
+    public class var databasesDirectory: URL?
     {
         struct Singleton {
-            static let directory: NSURL? = {
+            static let directory: URL? = {
 
-                var directory: NSURL? = NSFileManager.documentsDirectory?.URLByAppendingPathComponent(Inner.DatabasesDirectory)
-                let fm = NSFileManager.defaultManager()
+                var directory: URL? = FileManager.documentsDirectory?.appendingPathComponent(Inner.DatabasesDirectory)
+                let fm = FileManager.default
 
                 // Create directory if not exists
-                if let path = directory?.path where !fm.fileExistsAtPath(path)
+                if let path = directory?.path, !fm.fileExists(atPath: path)
                 {
                     do {
-                        try fm.createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: nil)
+                        try fm.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
                     } catch _ {
                     }
-                    NSFileManager.excludedPathFromBackup(directory)
+                    FileManager.excludedPathFromBackup(url: directory)
                 }
 
                 // Done
@@ -72,9 +72,9 @@ public extension NSFileManager
 // MARK: - Methods
 
     /// Excludes files and directories from iCloud backups.
-    public static func excludedPathFromBackup(url: NSURL?) -> Bool
+    public static func excludedPathFromBackup(url: URL?) -> Bool
     {
-        guard let path = url?.path where NSFileManager.defaultManager().fileExistsAtPath(path) else {
+        guard let path = url?.path, FileManager.default.fileExists(atPath: path) else {
             return false
         }
 
@@ -87,8 +87,8 @@ public extension NSFileManager
         // Prevent app from backing up documents folder?
         // @link http://stackoverflow.com/a/24778883
 
-        let expandedPath = (path as NSString).stringByExpandingTildeInPath
-        let url = NSURL.fileURLWithPath(expandedPath)
+        let expandedPath = (path as NSString).expandingTildeInPath
+        let url = URL.init(fileURLWithPath: expandedPath)
         return (try? url.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)) == nil
               ? false : true
     }
@@ -105,16 +105,16 @@ public extension NSFileManager
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-public func rxm_removeItemAtURL(url: NSURL?)
+public func rxm_removeItemAtURL(url: URL?)
 {
     guard let url = url else {
         return
     }
 
-    let fileManager = NSFileManager.defaultManager()
-    if let path = url.path where fileManager.fileExistsAtPath(path) {
+    let fileManager = FileManager.default
+    if let path = url.path, fileManager.fileExists(atPath: path) {
         do {
-            try fileManager.removeItemAtURL(url)
+            try fileManager.removeItem(at: url)
         }
         catch {
             Logger.e(#function, "Can't remove item with URL \(url)", error)
@@ -122,21 +122,21 @@ public func rxm_removeItemAtURL(url: NSURL?)
     }
 }
 
-public func rxm_copyItemAtURL(srcURL: NSURL?, toURL dstURL: NSURL?) -> Bool
+public func rxm_copyItemAtURL(srcURL: URL?, toURL dstURL: URL?) -> Bool
 {
     guard let srcURL = srcURL, let dstURL = dstURL else {
         return false
     }
 
-    let fileManager = NSFileManager.defaultManager()
+    let fileManager = FileManager.default
     
-    guard let srcPath = srcURL.path where fileManager.fileExistsAtPath(srcPath) else {
+    guard let srcPath = srcURL.path, fileManager.fileExists(atPath: srcPath) else {
         Logger.e(#function, "Can't copy item from non-existing URL \(srcURL)")
         return false
     }
 
     do {
-        try fileManager.copyItemAtURL(srcURL, toURL: dstURL)
+        try fileManager.copyItem(at: srcURL, to: dstURL)
         return true
     }
     catch {

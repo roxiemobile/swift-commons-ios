@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension NSBundle
+public extension Bundle
 {
 // MARK: - Properties
 
