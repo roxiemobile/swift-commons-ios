@@ -16,7 +16,7 @@ public extension Data
 {
 // MARK: - Properties
 
-    /// Checks if a NSData is empty.
+    /// Checks if a Data is empty.
     var isEmpty: Bool { return (self.count < 1) }
 
 // MARK: - Methods

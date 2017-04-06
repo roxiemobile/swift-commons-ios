@@ -18,7 +18,7 @@ final class ExpectTests: XCTestCase
 {
 // MARK: - Private Methods
 
-    private func expectThrowsError(method: String, errorType: Error.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ()) {
+    fileprivate func expectThrowsError(_ method: String, errorType: Error.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ()) {
         var cause: Error? = nil
 
         do {
@@ -42,7 +42,7 @@ final class ExpectTests: XCTestCase
         }
     }
 
-    private func expectNotThrowsError(method: String, errorType: Error.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ()) {
+    fileprivate func expectNotThrowsError(_ method: String, errorType: Error.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ()) {
         var cause: Error? = nil
 
         do {
@@ -66,18 +66,19 @@ final class ExpectTests: XCTestCase
         }
     }
 
-    private func loadJson(filename: String) -> [String: AnyObject]? {
-        var jsonObject: [String: AnyObject]? = nil
+    fileprivate func loadJson(_ filename: String) -> [String: Any]? {
+        var jsonObject: [String: Any]? = nil
 
-        if let filepath = NSBundle(forClass: type(of: self)).pathForResource(filename, ofType: "json") {
+        if let filepath = Bundle(for: type(of: self)).path(forResource: filename, ofType: "json") {
             do {
-                if  let data = NSData(contentsOfFile: filepath) {
-                    let object = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+                let data = try Data(contentsOf: URL(fileURLWithPath: filepath), options: .alwaysMapped)
 
-                    jsonObject = object as? [String: AnyObject]
-                    if jsonObject == nil {
-                        XCTFail("Could not parse JSON from file: \(filename).json")
-                    }
+                let object = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+
+                jsonObject = object as? [String: Any]
+
+                if jsonObject == nil {
+                    XCTFail("Could not parse JSON from file: \(filename).json")
                 }
             }
             catch {

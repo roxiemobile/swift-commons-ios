@@ -24,27 +24,27 @@ public extension Timer
 {
 // MARK: - Construction
 
-    public class func rxm_scheduledTimerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> Timer
+    public class func rxm_scheduledTimerWithTimeInterval(ti: TimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> Timer
     {
-        let timer = scheduledTimer(timeInterval: ti, target: self, selector: #selector(Timer.rxm_executeCompletionHandler(_:)), userInfo: unsafeBitCast(completion, AnyObject.self), repeats: yesOrNo)
+        let timer = scheduledTimer(timeInterval: ti, target: self, selector: #selector(Timer.rxm_executeCompletionHandler(_:)), userInfo: unsafeBitCast(completion, to: AnyObject.self), repeats: yesOrNo)
 
         return timer
     }
 
-    public class func rxm_timerWithTimeInterval(ti: NSTimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> Timer
+    public class func rxm_timerWithTimeInterval(ti: TimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> Timer
     {
         let timer = Timer(timeInterval: ti, target: self, selector: #selector(Timer.rxm_executeCompletionHandler(_:)),
-                    userInfo: unsafeBitCast(completion, AnyObject.self), repeats: yesOrNo)
+                    userInfo: unsafeBitCast(completion, to: AnyObject.self), repeats: yesOrNo)
         return timer
     }
 
 // MARK: - Methods
 
-    static func rxm_executeCompletionHandler(timer: Timer)
+    static func rxm_executeCompletionHandler(_ timer: Timer)
     {
-        if let userInfo: AnyObject? = timer.userInfo {
-            let completionHandler = unsafeBitCast(userInfo, TimerCompletionHandler.self)
-            completionHandler(timer: timer)
+        if let userInfo: Any? = timer.userInfo {
+            let completionHandler = unsafeBitCast(userInfo, to: TimerCompletionHandler.self)
+            completionHandler(timer)
         }
     }
 

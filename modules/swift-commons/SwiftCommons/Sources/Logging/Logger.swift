@@ -92,19 +92,19 @@ public final class Logger
 
 // MARK: - Methods
 
-    public static func v(tag: String, _ message: @autoclosure () -> String) {
+    public static func v(_ tag: String, _ message: @autoclosure () -> String) {
         if let logger = Logger.shared.logger(), isLoggable(.Verbose) {
             logger.v(tag, message())
         }
     }
 
-    public static func d(tag: String, _ message: @autoclosure () -> String) {
+    public static func d(_ tag: String, _ message: @autoclosure () -> String) {
         if let logger = Logger.shared.logger(), isLoggable(.Debug) {
             logger.d(tag, message())
         }
     }
 
-    public static func i(tag: String, _ message: @autoclosure () -> String) {
+    public static func i(_ tag: String, _ message: @autoclosure () -> String) {
         if let logger = Logger.shared.logger(), isLoggable(.Info) {
             logger.i(tag, message())
         }
@@ -112,43 +112,43 @@ public final class Logger
 
 // --
 
-    public static func w(tag: String, _ message: @autoclosure () -> String) {
+    public static func w(_ tag: String, _ message: @autoclosure () -> String) {
         if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, message())
         }
     }
 
-    public static func w(tag: String, _ message: @autoclosure () -> String, _ error: Error?) {
+    public static func w(_ tag: String, _ message: @autoclosure () -> String, _ error: Error?) {
         if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, message(), error)
         }
     }
 
-    public static func w(tag: String, _ message: @autoclosure () -> String, _ error: NSError?) {
+    public static func w(_ tag: String, _ message: @autoclosure () -> String, _ error: NSError?) {
         if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, message(), error)
         }
     }
 
-    public static func w(tag: String, _ message: @autoclosure () -> String, _ exception: NSException?) {
+    public static func w(_ tag: String, _ message: @autoclosure () -> String, _ exception: NSException?) {
         if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, message(), exception)
         }
     }
 
-    public static func w(tag: String, _ error: Error) {
+    public static func w(_ tag: String, _ error: Error) {
         if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, error)
         }
     }
 
-    public static func w(tag: String, _ error: NSError) {
+    public static func w(_ tag: String, _ error: NSError) {
         if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, error)
         }
     }
 
-    public static func w(tag: String, _ exception: NSException) {
+    public static func w(_ tag: String, _ exception: NSException) {
         if let logger = Logger.shared.logger(), isLoggable(.Warning) {
             logger.w(tag, exception)
         }
@@ -156,43 +156,43 @@ public final class Logger
 
 // --
 
-    public static func e(tag: String, _ message: @autoclosure () -> String) {
+    public static func e(_ tag: String, _ message: @autoclosure () -> String) {
         if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, message())
         }
     }
 
-    public static func e(tag: String, _ message: @autoclosure () -> String, _ error: Error?) {
+    public static func e(_ tag: String, _ message: @autoclosure () -> String, _ error: Error?) {
         if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, message(), error)
         }
     }
 
-    public static func e(tag: String, _ message: @autoclosure () -> String, _ error: NSError?) {
+    public static func e(_ tag: String, _ message: @autoclosure () -> String, _ error: NSError?) {
         if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, message(), error)
         }
     }
 
-    public static func e(tag: String, _ message: @autoclosure () -> String, _ exception: NSException?) {
+    public static func e(_ tag: String, _ message: @autoclosure () -> String, _ exception: NSException?) {
         if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, message(), exception)
         }
     }
 
-    public static func e(tag: String, _ error: Error) {
+    public static func e(_ tag: String, _ error: Error) {
         if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, error)
         }
     }
 
-    public static func e(tag: String, _ error: NSError) {
+    public static func e(_ tag: String, _ error: NSError) {
         if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, error)
         }
     }
 
-    public static func e(tag: String, _ exception: NSException) {
+    public static func e(_ tag: String, _ exception: NSException) {
         if let logger = Logger.shared.logger(), isLoggable(.Error) {
             logger.e(tag, exception)
         }

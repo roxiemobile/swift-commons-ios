@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  String+Crypto.swift
+//  NSData+Crypto.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
@@ -12,9 +12,19 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension String
+public extension NSData
 {
 // MARK: - Properties
+
+    /**
+     * Converts data to hex string.
+     *
+     * Copy from CryptoSwift
+     * @link https://github.com/krzyzanowskim/CryptoSwift
+     */
+    var rxm_hexString: String {
+        return self.arrayOfBytes().toHexString()
+    }
 
     /**
      * Calculates MD5 hash string.
@@ -32,8 +42,9 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var rxm_md5Digest: Data {
-        return data(using: String.Encoding.utf8, allowLossyConversion: true)!.rxm_md5Digest
+    var rxm_md5Digest: NSData {
+        let bytes = Digest.md5(self.arrayOfBytes())
+        return NSData(bytes: bytes, length: bytes.count)
     }
 
     /**
@@ -52,8 +63,19 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var rxm_sha1Digest: Data {
-        return data(using: String.Encoding.utf8, allowLossyConversion: true)!.rxm_sha1Digest
+    var rxm_sha1Digest: NSData {
+        let bytes = Digest.sha1(self.arrayOfBytes())
+        return NSData(bytes: bytes, length: bytes.count)
+    }
+
+
+// MARK: - Methods
+
+    func arrayOfBytes() -> [UInt8] {
+        let count = self.length / MemoryLayout<UInt8>.size
+        var bytesArray = [UInt8](repeating: 0, count: count)
+        self.getBytes(&bytesArray, length: count * MemoryLayout<UInt8>.size)
+        return bytesArray
     }
 
 }

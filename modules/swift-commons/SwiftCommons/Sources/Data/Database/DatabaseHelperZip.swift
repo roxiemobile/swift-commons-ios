@@ -22,22 +22,22 @@ public class DatabaseHelperZip: DatabaseHelper
 
 // MARK: - Methods
 
-    override func unpackDatabaseTemplate(databaseName: String, assetPath: NSURL) -> NSURL? {
-        var path: NSURL?
+    override func unpackDatabaseTemplate(databaseName: String, assetPath: URL) -> URL? {
+        var path: URL?
 
         // Copy template file from application assets to the temporary directory
-        if let tmpPath = makeTemplatePath(databaseName)
+        if let tmpPath = makeTemplatePath(databaseName: databaseName)
         {
             // Remove previous template file
-            rxm_removeItemAtURL(tmpPath)
+            rxm_removeItemAtURL(url: tmpPath)
 
             // Unzip database template file from the assets
-            if SSZipArchive.unzipEntityName(databaseName, fromFilePath: assetPath.path!, toDestination: tmpPath.path!) {
+            if SSZipArchive.unzipEntityName(databaseName, fromFilePath: assetPath.path, toDestination: tmpPath.path) {
                 path = tmpPath
             }
         }
         else {
-            rxm_fatalError("Could not make temporary path for database ‘\(databaseName)’.")
+            rxm_fatalError(message: "Could not make temporary path for database ‘\(databaseName)’.")
         }
 
         return path

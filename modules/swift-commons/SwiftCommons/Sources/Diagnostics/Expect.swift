@@ -14,11 +14,11 @@ public final class Expect: NonCreatable
 {
 // MARK: - Private Methods
 
-    private static func safeEqual<T:Equatable>(_ expected: T?, _ actual: T?) -> Bool {
+    fileprivate static func safeEqual<T:Equatable>(_ expected: T?, _ actual: T?) -> Bool {
         return (expected == nil && actual == nil) || (expected != nil && actual != nil && expected == actual)
     }
 
-    private static func throwError(_ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+    fileprivate static func throwError(_ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
         throw ExpectationError(message, file: file, line: line)
     }
 }

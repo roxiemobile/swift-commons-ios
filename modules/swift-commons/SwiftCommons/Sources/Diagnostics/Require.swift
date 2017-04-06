@@ -14,7 +14,7 @@ public final class Require: NonCreatable
 {
 // MARK: - Private Methods
 
-    private static func rethrowOnFailure(_ message: String?, _ file: StaticString, _ line: UInt, _ block: () throws -> ()) {
+    fileprivate static func rethrowOnFailure(_ message: String?, _ file: StaticString, _ line: UInt, _ block: () throws -> ()) {
         do {
             try block()
         }
@@ -22,11 +22,11 @@ public final class Require: NonCreatable
             raiseException(message, file, line)
         }
         catch {
-            rxm_fatalError(message ?? "", file: file, line: line)
+            rxm_fatalError(message: message ?? "", file: file, line: line)
         }
     }
 
-    private static func raiseException(_ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+    fileprivate static func raiseException(_ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
         RequirementException("Fatal error: \(message)\nFile: \(file)\nLine: \(line)", userInfo: nil).raise()
     }
 }

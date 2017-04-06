@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class Serializable: MDCoding
+open class Serializable: MDCoding
 {
 // MARK: - Construction
 

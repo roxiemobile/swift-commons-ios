@@ -217,8 +217,8 @@ public func <~ <T: TransformType>(left: inout [String: T.Object]!, right: (Map, 
 	}
 }
 
-private func fromJSONArrayWithTransform<T: TransformType>(input: AnyObject?, transform: T) -> [T.Object]? {
-	if let values = input as? [AnyObject] {
+private func fromJSONArrayWithTransform<T: TransformType>(_ input: Any?, transform: T) -> [T.Object]? {
+	if let values = input as? [Any] {
 		return values.filterMap { value in
 			return transform.transformFromJSON(value)
 		}
@@ -227,8 +227,8 @@ private func fromJSONArrayWithTransform<T: TransformType>(input: AnyObject?, tra
 	}
 }
 
-private func fromJSONDictionaryWithTransform<T: TransformType>(input: AnyObject?, transform: T) -> [String: T.Object]? {
-	if let values = input as? [String: AnyObject] {
+private func fromJSONDictionaryWithTransform<T: TransformType>(_ input: Any?, transform: T) -> [String: T.Object]? {
+	if let values = input as? [String: Any] {
 		return values.filterMap { value in
 			return transform.transformFromJSON(value)
 		}
@@ -237,13 +237,13 @@ private func fromJSONDictionaryWithTransform<T: TransformType>(input: AnyObject?
 	}
 }
 
-private func toJSONArrayWithTransform<T: TransformType>(input: [T.Object]?, transform: T) -> [T.JSON]? {
+private func toJSONArrayWithTransform<T: TransformType>(_ input: [T.Object]?, transform: T) -> [T.JSON]? {
 	return input?.filterMap { value in
 		return transform.transformToJSON(value)
 	}
 }
 
-private func toJSONDictionaryWithTransform<T: TransformType>(input: [String: T.Object]?, transform: T) -> [String: T.JSON]? {
+private func toJSONDictionaryWithTransform<T: TransformType>(_ input: [String: T.Object]?, transform: T) -> [String: T.JSON]? {
 	return input?.filterMap { value in
 		return transform.transformToJSON(value)
 	}
@@ -375,25 +375,25 @@ public func <~ <T: Mappable>(left: inout Array<T>!, right: Map) {
 }
 
 /// Checks if a value is found.
-private func rxm_checkKey(map: Map) {
+private func rxm_checkKey(_ map: Map) {
     if (map.currentValue == nil) {
         if let key = map.currentKey {
-            rxm_objectMapperError("Key not found ‘\(key)’.")
+            rxm_objectMapperError(message: "Key not found ‘\(key)’.")
         }
         else {
-            rxm_objectMapperError("Key not found.")
+            rxm_objectMapperError(message: "Key not found.")
         }
     }
 }
 
 /// Checks if a value is transformed.
-private func rxm_checkTransform<T>(map: Map, value: T?) {
+private func rxm_checkTransform<T>(_ map: Map, value: T?) {
     if (value == nil) {
         if let key = map.currentKey {
-            rxm_objectMapperError("Could not transform value for key ‘\(key)’.")
+            rxm_objectMapperError(message: "Could not transform value for key ‘\(key)’.")
         }
         else {
-            rxm_objectMapperError("Could not transform value.")
+            rxm_objectMapperError(message: "Could not transform value.")
         }
     }
 }

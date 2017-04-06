@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
+open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 {
 // MARK: - Construction
 
@@ -16,7 +16,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         super.init(coder: decoder)
     }
 
-    public required init(params: [String : AnyObject]) throws {
+    public required init(params: [String : Any]) throws {
         super.init()
 
         var cause: NSException?
@@ -61,7 +61,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 
 // MARK: - Properties
 
-    public var hashValue: Int {
+    open var hashValue: Int {
         return self.hash ?? rehash()
     }
 
@@ -74,7 +74,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 
         // Encode internal object's state
         if result {
-            encoder.encodeObject(Mapper().toJSON(self))
+            encoder.encode(Mapper().toJSON(self))
         }
 
         // Done
@@ -107,7 +107,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         return result
     }
 
-    public func mapping(map: Map) {
+    open func mapping(_ map: Map) {
         // Do nothing
     }
 
@@ -119,7 +119,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
     {
         // Encode serializable object
         let data = NSMutableData()
-        StreamTypedEncoder(forWritingWithMutableData: data).encodeRootObject(self)
+        StreamTypedEncoder(forWritingWith: data).encodeRootObject(self)
 
         // Writing a good Hashable implementation in Swift
         // @link http://stackoverflow.com/a/24240011
@@ -131,7 +131,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
     /**
      * TODO
      */
-    public func isValid() -> Bool {
+    open func isValid() -> Bool {
         var result = true
 
         do {
@@ -153,7 +153,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
     /**
      * Checks attribute values or a combination of attribute values for correctness (cross validation).
      */
-    public func validate() throws {
+    open func validate() throws {
         // Do nothing
     }
 
@@ -162,7 +162,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
     /**
      * NOTE: Throws NSException from Objective-C
      */
-    private func unsafeMapping(block: dispatch_block_t) -> Bool
+    private func unsafeMapping(block: @escaping () -> Void) -> Bool
     {
         if frozen() { return false }
 
@@ -178,10 +178,10 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
                 try self.validate()
             }
             catch let error as ExpectationError {
-                rxm_fatalError(error.message ?? defaultMessage, file: error.file, line: error.line)
+                rxm_fatalError(message: error.message ?? defaultMessage, file: error.file, line: error.line)
             }
             catch {
-                rxm_fatalError(defaultMessage)
+                rxm_fatalError(message: defaultMessage)
             }
 
             // Prevent further modifications
@@ -199,7 +199,7 @@ public class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         return frozen()
     }
 
-    private func injectNestedParams(e: NSException, params: [String: AnyObject]) -> NSException
+    private func injectNestedParams(_ e: NSException, params: [String: Any]) -> NSException
     {
         var cause = e
         if e.userInfo?[Inner.NestedParams] == nil {
@@ -238,7 +238,7 @@ extension ValidatableModel: NSCopying
 {
 // MARK: - Methods
 
-    @objc public func copyWithZone(zone: NSZone) -> AnyObject {
+    @objc public func copy(with zone: NSZone? = nil) -> Any {
         return self.copy()
     }
 

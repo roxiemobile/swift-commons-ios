@@ -22,7 +22,7 @@ public class ParkingModel: ValidatableModel
 
 // MARK: - Methods
 
-    public override func mapping(map: Map) {
+    open override func mapping(_ map: Map) {
         super.mapping(map)
 
         // (De)serialize to/from json
@@ -30,7 +30,7 @@ public class ParkingModel: ValidatableModel
         self.vehicles <~ map["vehicles"]
     }
 
-    public override func validate() throws {
+    open override func validate() throws {
         try super.validate()
 
         // Validate instance

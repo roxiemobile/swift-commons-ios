@@ -88,9 +88,12 @@ public extension FileManager
         // @link http://stackoverflow.com/a/24778883
 
         let expandedPath = (path as NSString).expandingTildeInPath
-        let url = URL.init(fileURLWithPath: expandedPath)
-        return (try? url.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)) == nil
-              ? false : true
+        var url = URL.init(fileURLWithPath: expandedPath)
+
+        var resourceValues = URLResourceValues()
+        resourceValues.isExcludedFromBackup = true
+
+        return (try? url.setResourceValues(resourceValues)) == nil ? false : true
     }
 
 // MARK: - Constants
@@ -112,7 +115,9 @@ public func rxm_removeItemAtURL(url: URL?)
     }
 
     let fileManager = FileManager.default
-    if let path = url.path, fileManager.fileExists(atPath: path) {
+
+    let path = url.path
+    if fileManager.fileExists(atPath: path) {
         do {
             try fileManager.removeItem(at: url)
         }
@@ -129,8 +134,9 @@ public func rxm_copyItemAtURL(srcURL: URL?, toURL dstURL: URL?) -> Bool
     }
 
     let fileManager = FileManager.default
-    
-    guard let srcPath = srcURL.path, fileManager.fileExists(atPath: srcPath) else {
+
+    let srcPath = srcURL.path
+    guard fileManager.fileExists(atPath: srcPath) else {
         Logger.e(#function, "Can't copy item from non-existing URL \(srcURL)")
         return false
     }

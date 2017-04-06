@@ -46,7 +46,7 @@ extension Dictionary
      * @note Copy from ExSwift
      * @link https://github.com/pNre/ExSwift
      */
-    public func union(dictionaries: Dictionary...) -> Dictionary
+    public func union(_ dictionaries: Dictionary...) -> Dictionary
     {
         var result = self // copy
 
@@ -68,13 +68,13 @@ extension Dictionary
      * - returns: A filtered dictionary
      *
      */
-    public func filterToDictionary(@noescape includeElement: (Element) throws -> Bool)  -> Dictionary
+    public func filterToDictionary(_ includeElement: (Element) throws -> Bool)  -> Dictionary
     {
         var result = [Key : Value]()
         
-        forEach { (key, value) in
-            if (try? includeElement(key, value)) ?? false {
-                result[key] = value
+        forEach { element in
+            if (try? includeElement(element)) ?? false {
+                result[element.key] = element.value
             }
         }
         

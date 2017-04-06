@@ -17,7 +17,7 @@ public class FatalErrorException: NSException
 // MARK: - Constants
 
     public init(reason aReason: String?, userInfo aUserInfo: [NSObject: AnyObject]?) {
-        super.init(name: FatalError.Domain, reason: aReason, userInfo: aUserInfo)
+        super.init(name: NSExceptionName(rawValue: FatalError.Domain), reason: aReason, userInfo: aUserInfo)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -35,7 +35,7 @@ public class FatalErrorException: NSException
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-@noreturn public func rxm_fatalError(message: String, file: StaticString = #file, line: UInt = #line)
+public func rxm_fatalError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
 {
 #if DEBUG
     preconditionFailure(message)
@@ -49,7 +49,7 @@ public class FatalErrorException: NSException
 
 // ----------------------------------------------------------------------------
 
-@noreturn public func rxm_fatalError(message: String, error: NSError?, file: StaticString = #file, line: UInt = #line)
+public func rxm_fatalError(message: String, error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never
 {
     var logMessage = message
 
@@ -68,12 +68,12 @@ public class FatalErrorException: NSException
     }
 
     // Terminate application with runtime exception
-    rxm_fatalError(logMessage, file: file, line: line)
+    rxm_fatalError(message: logMessage, file: file, line: line)
 }
 
 // ----------------------------------------------------------------------------
 
-@noreturn public func rxm_fatalError(message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line)
+public func rxm_fatalError(message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never
 {
     var logMessage = message
 
@@ -100,7 +100,7 @@ public class FatalErrorException: NSException
     }
 
     // Terminate application with runtime exception
-    rxm_fatalError(logMessage, file: file, line: line)
+    rxm_fatalError(message: logMessage, file: file, line: line)
 }
 
 // ----------------------------------------------------------------------------

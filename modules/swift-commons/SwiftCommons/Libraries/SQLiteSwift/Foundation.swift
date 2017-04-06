@@ -30,8 +30,8 @@ extension Data : Value {
         return Blob.declaredDatatype
     }
 
-    public static func fromDatatypeValue(_ dataValue: Blob) -> NSData {
-        return NSData(bytes: dataValue.bytes, length: dataValue.bytes.count)
+    public static func fromDatatypeValue(_ dataValue: Blob) -> Data {
+        return Data(bytes: dataValue.bytes)
     }
 
     public var datatypeValue: Blob {
@@ -80,10 +80,10 @@ extension QueryType {
         return namespace(column)
     }
 
-    public subscript(column: Expression<Data>) -> Expression<Data> {
+    public subscript(column: Expression<Date>) -> Expression<Date> {
         return namespace(column)
     }
-    public subscript(column: Expression<Data?>) -> Expression<Data?> {
+    public subscript(column: Expression<Date?>) -> Expression<Date?> {
         return namespace(column)
     }
 
@@ -98,10 +98,10 @@ extension Row {
         return get(column)
     }
 
-    public subscript(column: Expression<Data>) -> Data {
+    public subscript(column: Expression<Date>) -> Date {
         return get(column)
     }
-    public subscript(column: Expression<Data?>) -> Data? {
+    public subscript(column: Expression<Date?>) -> Date? {
         return get(column)
     }
 

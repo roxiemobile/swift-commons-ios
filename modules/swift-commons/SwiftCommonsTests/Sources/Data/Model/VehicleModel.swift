@@ -22,7 +22,7 @@ public class VehicleModel: ValidatableModel
 
 // MARK: - Methods
 
-    public override func mapping(map: Map) {
+    open override func mapping(_ map: Map) {
         super.mapping(map)
 
         // (De)serialize to/from json

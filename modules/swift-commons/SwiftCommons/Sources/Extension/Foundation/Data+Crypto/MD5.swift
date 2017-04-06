@@ -113,7 +113,7 @@ extension MD5: Updatable {
 
         if isLast {
             let lengthInBits = (self.processedBytesTotalCount + self.accumulated.count) * 8
-            let lengthBytes = lengthInBits.bytes(totalBytes: 64 / 8) // A 64-bit representation of b
+            let lengthBytes = lengthInBits.bytes(64 / 8) // A 64-bit representation of b
 
             // Step 1. Append padding
             bitPadding(to: &self.accumulated, blockSize: MD5.blockSize, allowance: 64 / 8)

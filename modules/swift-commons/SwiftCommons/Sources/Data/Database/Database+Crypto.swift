@@ -30,7 +30,7 @@ public extension Connection
             return false
         }
 
-        var stmt: COpaquePointer = nil
+        var stmt: OpaquePointer? = nil
         var result: Int32?
 
         // Using SQLite in C programs
