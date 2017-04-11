@@ -17,7 +17,7 @@ infix operator <~ {}
 // MARK:- Objects with Basic types
 
 /// Object of Basic type
-public func <~ <T>(inout left: T, right: Map) {
+public func <~ <T>(left: inout T, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
         FromJSON.basicType(&left, object: right.value())
@@ -27,7 +27,7 @@ public func <~ <T>(inout left: T, right: Map) {
 }
 
 /// Optional object of basic type
-public func <~ <T>(inout left: T?, right: Map) {
+public func <~ <T>(left: inout T?, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         FromJSON.optionalBasicType(&left, object: right.value())
     } else {
@@ -36,7 +36,7 @@ public func <~ <T>(inout left: T?, right: Map) {
 }
 
 /// Implicitly unwrapped optional object of basic type
-public func <~ <T>(inout left: T!, right: Map) {
+public func <~ <T>(left: inout T!, right: Map) {
 	if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
 		FromJSON.optionalBasicType(&left, object: right.value())
@@ -48,58 +48,58 @@ public func <~ <T>(inout left: T!, right: Map) {
 // MARK:- Raw Representable types
 
 /// Object of Raw Representable type
-public func <~ <T: RawRepresentable>(inout left: T, right: Map) {
+public func <~ <T: RawRepresentable>(left: inout T, right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 /// Optional Object of Raw Representable type
-public func <~ <T: RawRepresentable>(inout left: T?, right: Map) {
+public func <~ <T: RawRepresentable>(left: inout T?, right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 /// Implicitly Unwrapped Optional Object of Raw Representable type
-public func <~ <T: RawRepresentable>(inout left: T!, right: Map) {
+public func <~ <T: RawRepresentable>(left: inout T!, right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 // MARK:- Arrays of Raw Representable type
 
 /// Array of Raw Representable object
-public func <~ <T: RawRepresentable>(inout left: [T], right: Map) {
+public func <~ <T: RawRepresentable>(left: inout [T], right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 /// Array of Raw Representable object
-public func <~ <T: RawRepresentable>(inout left: [T]?, right: Map) {
+public func <~ <T: RawRepresentable>(left: inout [T]?, right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 /// Array of Raw Representable object
-public func <~ <T: RawRepresentable>(inout left: [T]!, right: Map) {
+public func <~ <T: RawRepresentable>(left: inout [T]!, right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 // MARK:- Dictionaries of Raw Representable type
 
 /// Dictionary of Raw Representable object
-public func <~ <T: RawRepresentable>(inout left: [String: T], right: Map) {
+public func <~ <T: RawRepresentable>(left: inout [String: T], right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 /// Dictionary of Raw Representable object
-public func <~ <T: RawRepresentable>(inout left: [String: T]?, right: Map) {
+public func <~ <T: RawRepresentable>(left: inout [String: T]?, right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 /// Dictionary of Raw Representable object
-public func <~ <T: RawRepresentable>(inout left: [String: T]!, right: Map) {
+public func <~ <T: RawRepresentable>(left: inout [String: T]!, right: Map) {
 	left <~ (right, EnumTransform())
 }
 
 // MARK:- Transforms
 
 /// Object of Basic type with Transform
-public func <~ <T, Transform: TransformType where Transform.Object == T>(inout left: T, right: (Map, Transform)) {
+public func <~ <T, Transform: TransformType where Transform.Object == T>(left: inout T, right: (Map, Transform)) {
     if right.0.mappingType == MappingType.FromJSON {
         let value: T? = right.1.transformFromJSON(right.0.currentValue)
         rxm_checkTransform(right.0, value: value)
@@ -112,7 +112,7 @@ public func <~ <T, Transform: TransformType where Transform.Object == T>(inout l
 }
 
 /// Optional object of basic type with Transform
-public func <~ <T, Transform: TransformType where Transform.Object == T>(inout left: T?, right: (Map, Transform)) {
+public func <~ <T, Transform: TransformType where Transform.Object == T>(left: inout T?, right: (Map, Transform)) {
     if right.0.mappingType == MappingType.FromJSON {
         let value: T? = right.1.transformFromJSON(right.0.currentValue)
         FromJSON.optionalBasicType(&left, object: value)
@@ -123,7 +123,7 @@ public func <~ <T, Transform: TransformType where Transform.Object == T>(inout l
 }
 
 /// Implicitly unwrapped optional object of basic type with Transform
-public func <~ <T, Transform: TransformType where Transform.Object == T>(inout left: T!, right: (Map, Transform)) {
+public func <~ <T, Transform: TransformType where Transform.Object == T>(left: inout T!, right: (Map, Transform)) {
 	if right.0.mappingType == MappingType.FromJSON {
 		let value: T? = right.1.transformFromJSON(right.0.currentValue)
         rxm_checkTransform(right.0, value: value)
@@ -136,7 +136,7 @@ public func <~ <T, Transform: TransformType where Transform.Object == T>(inout l
 }
 
 /// Array of Basic type with Transform
-public func <~ <T: TransformType>(inout left: [T.Object], right: (Map, T)) {
+public func <~ <T: TransformType>(left: inout [T.Object], right: (Map, T)) {
 	let (map, transform) = right
 	if map.mappingType == MappingType.FromJSON {
         rxm_checkKey(right.0)
@@ -151,7 +151,7 @@ public func <~ <T: TransformType>(inout left: [T.Object], right: (Map, T)) {
 }
 
 /// Optional array of Basic type with Transform
-public func <~ <T: TransformType>(inout left: [T.Object]?, right: (Map, T)) {
+public func <~ <T: TransformType>(left: inout [T.Object]?, right: (Map, T)) {
 	let (map, transform) = right
 	if map.mappingType == MappingType.FromJSON {
 		let values = fromJSONArrayWithTransform(map.currentValue, transform: transform)
@@ -163,7 +163,7 @@ public func <~ <T: TransformType>(inout left: [T.Object]?, right: (Map, T)) {
 }
 
 /// Implicitly unwrapped optional array of Basic type with Transform
-public func <~ <T: TransformType>(inout left: [T.Object]!, right: (Map, T)) {
+public func <~ <T: TransformType>(left: inout [T.Object]!, right: (Map, T)) {
 	let (map, transform) = right
 	if map.mappingType == MappingType.FromJSON {
 		let values = fromJSONArrayWithTransform(map.currentValue, transform: transform)
@@ -177,7 +177,7 @@ public func <~ <T: TransformType>(inout left: [T.Object]!, right: (Map, T)) {
 }
 
 /// Dictionary of Basic type with Transform
-public func <~ <T: TransformType>(inout left: [String: T.Object], right: (Map, T)) {
+public func <~ <T: TransformType>(left: inout [String: T.Object], right: (Map, T)) {
 	let (map, transform) = right
 	if map.mappingType == MappingType.FromJSON {
         rxm_checkKey(right.0)
@@ -192,7 +192,7 @@ public func <~ <T: TransformType>(inout left: [String: T.Object], right: (Map, T
 }
 
 /// Optional dictionary of Basic type with Transform
-public func <~ <T: TransformType>(inout left: [String: T.Object]?, right: (Map, T)) {
+public func <~ <T: TransformType>(left: inout [String: T.Object]?, right: (Map, T)) {
 	let (map, transform) = right
 	if map.mappingType == MappingType.FromJSON {
 		let values = fromJSONDictionaryWithTransform(map.currentValue, transform: transform)
@@ -204,7 +204,7 @@ public func <~ <T: TransformType>(inout left: [String: T.Object]?, right: (Map, 
 }
 
 /// Implicitly unwrapped optional dictionary of Basic type with Transform
-public func <~ <T: TransformType>(inout left: [String: T.Object]!, right: (Map, T)) {
+public func <~ <T: TransformType>(left: inout [String: T.Object]!, right: (Map, T)) {
 	let (map, transform) = right
 	if map.mappingType == MappingType.FromJSON {
 		let values = fromJSONDictionaryWithTransform(map.currentValue, transform: transform)
@@ -217,8 +217,8 @@ public func <~ <T: TransformType>(inout left: [String: T.Object]!, right: (Map, 
 	}
 }
 
-private func fromJSONArrayWithTransform<T: TransformType>(input: AnyObject?, transform: T) -> [T.Object]? {
-	if let values = input as? [AnyObject] {
+private func fromJSONArrayWithTransform<T: TransformType>(_ input: Any?, transform: T) -> [T.Object]? {
+	if let values = input as? [Any] {
 		return values.filterMap { value in
 			return transform.transformFromJSON(value)
 		}
@@ -227,8 +227,8 @@ private func fromJSONArrayWithTransform<T: TransformType>(input: AnyObject?, tra
 	}
 }
 
-private func fromJSONDictionaryWithTransform<T: TransformType>(input: AnyObject?, transform: T) -> [String: T.Object]? {
-	if let values = input as? [String: AnyObject] {
+private func fromJSONDictionaryWithTransform<T: TransformType>(_ input: Any?, transform: T) -> [String: T.Object]? {
+	if let values = input as? [String: Any] {
 		return values.filterMap { value in
 			return transform.transformFromJSON(value)
 		}
@@ -237,13 +237,13 @@ private func fromJSONDictionaryWithTransform<T: TransformType>(input: AnyObject?
 	}
 }
 
-private func toJSONArrayWithTransform<T: TransformType>(input: [T.Object]?, transform: T) -> [T.JSON]? {
+private func toJSONArrayWithTransform<T: TransformType>(_ input: [T.Object]?, transform: T) -> [T.JSON]? {
 	return input?.filterMap { value in
 		return transform.transformToJSON(value)
 	}
 }
 
-private func toJSONDictionaryWithTransform<T: TransformType>(input: [String: T.Object]?, transform: T) -> [String: T.JSON]? {
+private func toJSONDictionaryWithTransform<T: TransformType>(_ input: [String: T.Object]?, transform: T) -> [String: T.JSON]? {
 	return input?.filterMap { value in
 		return transform.transformToJSON(value)
 	}
@@ -252,7 +252,7 @@ private func toJSONDictionaryWithTransform<T: TransformType>(input: [String: T.O
 // MARK:- Mappable Objects - <T: Mappable>
 
 /// Object conforming to Mappable
-public func <~ <T: Mappable>(inout left: T, right: Map) {
+public func <~ <T: Mappable>(left: inout T, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
         FromJSON.object(&left, object: right.currentValue)
@@ -262,7 +262,7 @@ public func <~ <T: Mappable>(inout left: T, right: Map) {
 }
 
 /// Optional Mappable objects
-public func <~ <T: Mappable>(inout left: T?, right: Map) {
+public func <~ <T: Mappable>(left: inout T?, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         FromJSON.optionalObject(&left, object: right.currentValue)
     } else {
@@ -271,7 +271,7 @@ public func <~ <T: Mappable>(inout left: T?, right: Map) {
 }
 
 /// Implicitly unwrapped optional Mappable objects
-public func <~ <T: Mappable>(inout left: T!, right: Map) {
+public func <~ <T: Mappable>(left: inout T!, right: Map) {
 	if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
 		FromJSON.optionalObject(&left, object: right.currentValue)
@@ -283,7 +283,7 @@ public func <~ <T: Mappable>(inout left: T!, right: Map) {
 // MARK:- Dictionary of Mappable objects - Dictionary<String, T: Mappable>
 
 /// Dictionary of Mappable objects <String, T: Mappable>
-public func <~ <T: Mappable>(inout left: Dictionary<String, T>, right: Map) {
+public func <~ <T: Mappable>(left: inout Dictionary<String, T>, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
         FromJSON.objectDictionary(&left, object: right.currentValue)
@@ -293,7 +293,7 @@ public func <~ <T: Mappable>(inout left: Dictionary<String, T>, right: Map) {
 }
 
 /// Optional Dictionary of Mappable object <String, T: Mappable>
-public func <~ <T: Mappable>(inout left: Dictionary<String, T>?, right: Map) {
+public func <~ <T: Mappable>(left: inout Dictionary<String, T>?, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         FromJSON.optionalObjectDictionary(&left, object: right.currentValue)
     } else {
@@ -302,7 +302,7 @@ public func <~ <T: Mappable>(inout left: Dictionary<String, T>?, right: Map) {
 }
 
 /// Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable>
-public func <~ <T: Mappable>(inout left: Dictionary<String, T>!, right: Map) {
+public func <~ <T: Mappable>(left: inout Dictionary<String, T>!, right: Map) {
 	if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
 		FromJSON.optionalObjectDictionary(&left, object: right.currentValue)
@@ -312,7 +312,7 @@ public func <~ <T: Mappable>(inout left: Dictionary<String, T>!, right: Map) {
 }
 
 /// Dictionary of Mappable objects <String, T: Mappable>
-public func <~ <T: Mappable>(inout left: Dictionary<String, [T]>, right: Map) {
+public func <~ <T: Mappable>(left: inout Dictionary<String, [T]>, right: Map) {
 	if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
 		FromJSON.objectDictionaryOfArrays(&left, object: right.currentValue)
@@ -322,7 +322,7 @@ public func <~ <T: Mappable>(inout left: Dictionary<String, [T]>, right: Map) {
 }
 
 /// Optional Dictionary of Mappable object <String, T: Mappable>
-public func <~ <T: Mappable>(inout left: Dictionary<String, [T]>?, right: Map) {
+public func <~ <T: Mappable>(left: inout Dictionary<String, [T]>?, right: Map) {
 	if right.mappingType == MappingType.FromJSON {
 		FromJSON.optionalObjectDictionaryOfArrays(&left, object: right.currentValue)
 	} else {
@@ -331,7 +331,7 @@ public func <~ <T: Mappable>(inout left: Dictionary<String, [T]>?, right: Map) {
 }
 
 /// Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable>
-public func <~ <T: Mappable>(inout left: Dictionary<String, [T]>!, right: Map) {
+public func <~ <T: Mappable>(left: inout Dictionary<String, [T]>!, right: Map) {
 	if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
 		FromJSON.optionalObjectDictionaryOfArrays(&left, object: right.currentValue)
@@ -343,7 +343,7 @@ public func <~ <T: Mappable>(inout left: Dictionary<String, [T]>!, right: Map) {
 // MARK:- Array of Mappable objects - Array<T: Mappable>
 
 /// Array of Mappable objects
-public func <~ <T: Mappable>(inout left: Array<T>, right: Map) {
+public func <~ <T: Mappable>(left: inout Array<T>, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
         FromJSON.objectArray(&left, object: right.currentValue)
@@ -353,7 +353,7 @@ public func <~ <T: Mappable>(inout left: Array<T>, right: Map) {
 }
 
 /// Optional array of Mappable objects
-public func <~ <T: Mappable>(inout left: Array<T>?, right: Map) {
+public func <~ <T: Mappable>(left: inout Array<T>?, right: Map) {
     if right.mappingType == MappingType.FromJSON {
         FromJSON.optionalObjectArray(&left, object: right.currentValue)
         if right.currentValue != nil {
@@ -365,7 +365,7 @@ public func <~ <T: Mappable>(inout left: Array<T>?, right: Map) {
 }
 
 /// Implicitly unwrapped Optional array of Mappable objects
-public func <~ <T: Mappable>(inout left: Array<T>!, right: Map) {
+public func <~ <T: Mappable>(left: inout Array<T>!, right: Map) {
 	if right.mappingType == MappingType.FromJSON {
         rxm_checkKey(right)
 		FromJSON.optionalObjectArray(&left, object: right.currentValue)
@@ -375,25 +375,25 @@ public func <~ <T: Mappable>(inout left: Array<T>!, right: Map) {
 }
 
 /// Checks if a value is found.
-private func rxm_checkKey(map: Map) {
+private func rxm_checkKey(_ map: Map) {
     if (map.currentValue == nil) {
         if let key = map.currentKey {
-            rxm_objectMapperError("Key not found ‘\(key)’.")
+            rxm_objectMapperError(message: "Key not found ‘\(key)’.")
         }
         else {
-            rxm_objectMapperError("Key not found.")
+            rxm_objectMapperError(message: "Key not found.")
         }
     }
 }
 
 /// Checks if a value is transformed.
-private func rxm_checkTransform<T>(map: Map, value: T?) {
+private func rxm_checkTransform<T>(_ map: Map, value: T?) {
     if (value == nil) {
         if let key = map.currentKey {
-            rxm_objectMapperError("Could not transform value for key ‘\(key)’.")
+            rxm_objectMapperError(message: "Could not transform value for key ‘\(key)’.")
         }
         else {
-            rxm_objectMapperError("Could not transform value.")
+            rxm_objectMapperError(message: "Could not transform value.")
         }
     }
 }

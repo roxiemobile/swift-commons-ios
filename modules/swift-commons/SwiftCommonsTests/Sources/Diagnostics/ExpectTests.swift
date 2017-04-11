@@ -18,8 +18,8 @@ final class ExpectTests: XCTestCase
 {
 // MARK: - Private Methods
 
-    private func expectThrowsError(method: String, errorType: ErrorType.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ()) {
-        var cause: ErrorType? = nil
+    fileprivate func expectThrowsError(_ method: String, errorType: Error.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ()) {
+        var cause: Error? = nil
 
         do {
             try block()
@@ -30,7 +30,7 @@ final class ExpectTests: XCTestCase
 
         if let err = cause
         {
-            if err.dynamicType == errorType {
+            if type(of: err) == errorType {
                 // Do nothing
             }
             else {
@@ -42,8 +42,8 @@ final class ExpectTests: XCTestCase
         }
     }
 
-    private func expectNotThrowsError(method: String, errorType: ErrorType.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ()) {
-        var cause: ErrorType? = nil
+    fileprivate func expectNotThrowsError(_ method: String, errorType: Error.Type = ExpectationError.self, line: UInt = #line, block: () throws -> ()) {
+        var cause: Error? = nil
 
         do {
             try block()
@@ -54,7 +54,7 @@ final class ExpectTests: XCTestCase
 
         if let err = cause
         {
-            if err.dynamicType == errorType {
+            if type(of: err) == errorType {
                 XCTFail("Line: \(line) - \(method): Method thrown an error")
             }
             else {
@@ -66,18 +66,19 @@ final class ExpectTests: XCTestCase
         }
     }
 
-    private func loadJson(filename: String) -> [String: AnyObject]? {
-        var jsonObject: [String: AnyObject]? = nil
+    fileprivate func loadJson(_ filename: String) -> [String: Any]? {
+        var jsonObject: [String: Any]? = nil
 
-        if let filepath = NSBundle(forClass: self.dynamicType).pathForResource(filename, ofType: "json") {
+        if let filepath = Bundle(for: type(of: self)).path(forResource: filename, ofType: "json") {
             do {
-                if  let data = NSData(contentsOfFile: filepath) {
-                    let object = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+                let data = try Data(contentsOf: URL(fileURLWithPath: filepath), options: .alwaysMapped)
 
-                    jsonObject = object as? [String: AnyObject]
-                    if jsonObject == nil {
-                        XCTFail("Could not parse JSON from file: \(filename).json")
-                    }
+                let object = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+
+                jsonObject = object as? [String: Any]
+
+                if jsonObject == nil {
+                    XCTFail("Could not parse JSON from file: \(filename).json")
                 }
             }
             catch {

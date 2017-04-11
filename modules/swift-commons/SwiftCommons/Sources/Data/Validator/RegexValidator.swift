@@ -17,7 +17,7 @@ public class RegexValidator: Validator
 {
 // MARK: - Construction
 
-    public init?(_ pattern: String, options: NSRegularExpressionOptions = .CaseInsensitive)
+    public init?(_ pattern: String, options: NSRegularExpression.Options = .caseInsensitive)
     {
         // Init instance variables
         self.regex = try? NSRegularExpression(pattern: pattern, options: options)
@@ -30,12 +30,12 @@ public class RegexValidator: Validator
 
 // MARK: - Methods
 
-    public func isValid(value: AnyObject?) -> Bool {
+    public func isValid(_ value: Any?) -> Bool {
         var result = false
 
         // Validate incoming value
         if let str = (value as? String) {
-            let matches = self.regex.matchesInString(str, options: [], range: NSMakeRange(0, str.length))
+            let matches = self.regex.matches(in: str, options: [], range: NSMakeRange(0, str.length))
             result = (matches.count > 0)
         }
 

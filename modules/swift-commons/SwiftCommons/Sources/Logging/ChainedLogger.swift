@@ -19,75 +19,75 @@ public final class ChainedLogger: LoggerContract
 
 // MARK: - Methods
 
-    public func v(tag: String, _ message: String) {
+    public func v(_ tag: String, _ message: String) {
         self.loggers.each { $0.v(tag, message) }
     }
 
-    public func d(tag: String, _ message: String) {
+    public func d(_ tag: String, _ message: String) {
         self.loggers.each { $0.d(tag, message) }
     }
 
-    public func i(tag: String, _ message: String) {
+    public func i(_ tag: String, _ message: String) {
         self.loggers.each { $0.i(tag, message) }
     }
 
 // --
 
-    public func w(tag: String, _ message: String) {
+    public func w(_ tag: String, _ message: String) {
         self.loggers.each { $0.w(tag, message) }
     }
 
-    public func w(tag: String, _ message: String, _ error: ErrorType?) {
+    public func w(_ tag: String, _ message: String, _ error: Error?) {
         self.loggers.each { $0.w(tag, message, error) }
     }
 
-    public func w(tag: String, _ message: String, _ error: NSError?) {
+    public func w(_ tag: String, _ message: String, _ error: NSError?) {
         self.loggers.each { $0.w(tag, message, error) }
     }
 
-    public func w(tag: String, _ message: String, _ exception: NSException?) {
+    public func w(_ tag: String, _ message: String, _ exception: NSException?) {
         self.loggers.each { $0.w(tag, message, exception) }
     }
 
-    public func w(tag: String, _ error: ErrorType) {
+    public func w(_ tag: String, _ error: Error) {
         self.loggers.each { $0.w(tag, error) }
     }
 
-    public func w(tag: String, _ error: NSError) {
+    public func w(_ tag: String, _ error: NSError) {
         self.loggers.each { $0.w(tag, error) }
     }
 
-    public func w(tag: String, _ exception: NSException) {
+    public func w(_ tag: String, _ exception: NSException) {
         self.loggers.each { $0.w(tag, exception) }
     }
 
 // --
 
-    public func e(tag: String, _ message: String) {
+    public func e(_ tag: String, _ message: String) {
         self.loggers.each { $0.e(tag, message) }
     }
 
-    public func e(tag: String, _ message: String, _ error: ErrorType?) {
+    public func e(_ tag: String, _ message: String, _ error: Error?) {
         self.loggers.each { $0.e(tag, message, error) }
     }
 
-    public func e(tag: String, _ message: String, _ error: NSError?) {
+    public func e(_ tag: String, _ message: String, _ error: NSError?) {
         self.loggers.each { $0.e(tag, message, error) }
     }
 
-    public func e(tag: String, _ message: String, _ exception: NSException?) {
+    public func e(_ tag: String, _ message: String, _ exception: NSException?) {
         self.loggers.each { $0.e(tag, message, exception) }
     }
 
-    public func e(tag: String, _ error: ErrorType) {
+    public func e(_ tag: String, _ error: Error) {
         self.loggers.each { $0.e(tag, error) }
     }
 
-    public func e(tag: String, _ error: NSError) {
+    public func e(_ tag: String, _ error: NSError) {
         self.loggers.each { $0.e(tag, error) }
     }
 
-    public func e(tag: String, _ exception: NSException) {
+    public func e(_ tag: String, _ exception: NSException) {
         self.loggers.each { $0.e(tag, exception) }
     }
 

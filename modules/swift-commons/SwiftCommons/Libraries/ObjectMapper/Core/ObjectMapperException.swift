@@ -17,7 +17,7 @@ public class ObjectMapperException: NSException
 // MARK: - Constants
 
     public init(reason aReason: String?, userInfo aUserInfo: [NSObject : AnyObject]?) {
-        super.init(name: ObjectMapper.Domain, reason: aReason, userInfo: aUserInfo)
+        super.init(name: NSExceptionName(rawValue: ObjectMapper.Domain), reason: aReason, userInfo: aUserInfo)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -36,7 +36,7 @@ public class ObjectMapperException: NSException
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-@noreturn public func rxm_objectMapperError(message: String, file: StaticString = #file, line: UInt = #line)
+public func rxm_objectMapperError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
 {
 #if DEBUG
     preconditionFailure(message)

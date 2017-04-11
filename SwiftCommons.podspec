@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig   = { 'ENABLE_BITCODE' => 'NO' }
 
   # External dependencies
-  s.dependency 'SwiftyJSON', '~> 2.4'
+  s.dependency 'SwiftyJSON', '~> 3.1'
 
 end

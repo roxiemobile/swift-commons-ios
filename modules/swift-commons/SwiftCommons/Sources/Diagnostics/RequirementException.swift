@@ -18,7 +18,7 @@ public class RequirementException: NSException
 // MARK: - Constants
 
     public init(_ message: String?, userInfo aUserInfo: [NSObject: AnyObject]?) {
-        super.init(name: Inner.Domain, reason: message, userInfo: aUserInfo)
+        super.init(name: NSExceptionName(rawValue: Inner.Domain), reason: message, userInfo: aUserInfo)
     }
 
     public required init?(coder aDecoder: NSCoder) {
