@@ -14,7 +14,7 @@ public final class ChainedLogger: LoggerContract
 
     public init(loggers: LoggerContract...) {
         // Init instance variables
-        self.loggers = loggers ?? []
+        self.loggers = loggers 
     }
 
 // MARK: - Methods

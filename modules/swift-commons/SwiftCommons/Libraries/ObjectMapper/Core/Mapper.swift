@@ -232,7 +232,7 @@ public final class Mapper<N: Mappable> {
 	///Maps a JSON dictionary of arrays to a dictionary of arrays of Mappable objects
 	public func mapDictionaryOfArrays(_ JSONDictionary: [String : [[String : Any]]]) -> [String : [N]] {
 		// map every value in dictionary to type N
-		return JSONDictionary.filterMap({ mapArray($0) as? [N] })
+		return JSONDictionary.filterMap({ mapArray($0) as [N] })
 
 //        filterMap({ mapArray($0) })
 	}

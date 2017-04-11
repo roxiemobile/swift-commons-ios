@@ -172,7 +172,7 @@ public final class Statement {
         return bind(bindings).scalar()
     }
 
-    public func step() throws -> Bool {
+    @discardableResult public func step() throws -> Bool {
         return try connection.sync { try self.connection.check(sqlite3_step(self.handle)) == SQLITE_ROW }
     }
 

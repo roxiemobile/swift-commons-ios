@@ -184,7 +184,7 @@ public final class Connection {
     /// - Throws: `Result.Error` if query execution fails.
     ///
     /// - Returns: The statement.
-    public func run(_ statement: String, _ bindings: Binding?...) throws -> Statement {
+    @discardableResult public func run(_ statement: String, _ bindings: Binding?...) throws -> Statement {
         return try run(statement, bindings)
     }
 
@@ -199,7 +199,7 @@ public final class Connection {
     /// - Throws: `Result.Error` if query execution fails.
     ///
     /// - Returns: The statement.
-    public func run(_ statement: String, _ bindings: [Binding?]) throws -> Statement {
+    @discardableResult public func run(_ statement: String, _ bindings: [Binding?]) throws -> Statement {
         return try prepare(statement).run(bindings)
     }
 
@@ -214,7 +214,7 @@ public final class Connection {
     /// - Throws: `Result.Error` if query execution fails.
     ///
     /// - Returns: The statement.
-    public func run(_ statement: String, _ bindings: [String: Binding?]) throws -> Statement {
+    @discardableResult public func run(_ statement: String, _ bindings: [String: Binding?]) throws -> Statement {
         return try prepare(statement).run(bindings)
     }
 
@@ -230,7 +230,7 @@ public final class Connection {
     ///   - bindings: A list of parameters to bind to the statement.
     ///
     /// - Returns: The first value of the first row returned.
-    public func scalar(_ statement: String, _ bindings: Binding?...) -> Binding? {
+    @discardableResult public func scalar(_ statement: String, _ bindings: Binding?...) -> Binding? {
         return scalar(statement, bindings)
     }
 
@@ -244,7 +244,7 @@ public final class Connection {
     ///   - bindings: A list of parameters to bind to the statement.
     ///
     /// - Returns: The first value of the first row returned.
-    public func scalar(_ statement: String, _ bindings: [Binding?]) -> Binding? {
+    @discardableResult public func scalar(_ statement: String, _ bindings: [Binding?]) -> Binding? {
         return try! prepare(statement).scalar(bindings)
     }
 
@@ -366,7 +366,7 @@ public final class Connection {
         let box: BusyHandler = { callback(Int($0)) ? 1 : 0 }
         sqlite3_busy_handler(handle, { callback, tries in
             unsafeBitCast(callback, to: BusyHandler.self)(tries)
-        }, unsafeBitCast(box, to: UnsafeMutablePointer<Void>.self))
+        }, unsafeBitCast(box, to: UnsafeMutableRawPointer.self))
         busyHandler = box
     }
     fileprivate typealias BusyHandler = @convention(block) (Int32) -> Int32
@@ -579,7 +579,7 @@ public final class Connection {
 
     // MARK: - Error Handling
 
-    func sync<T>(_ block: @escaping () throws -> T) rethrows -> T {
+    @discardableResult func sync<T>(_ block: @escaping () throws -> T) rethrows -> T {
         var success: T?
         var failure: Error?
 

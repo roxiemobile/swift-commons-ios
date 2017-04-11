@@ -28,11 +28,11 @@ open class Serializable: MDCoding
 
 // MARK: - Methods
 
-    public func encode(coder encoder: NSCoder) -> Bool {
+    @discardableResult public func encode(coder encoder: NSCoder) -> Bool {
         return true
     }
 
-    public func decode(coder decoder: NSCoder) -> Bool {
+    @discardableResult public func decode(coder decoder: NSCoder) -> Bool {
         return true
     }
 }

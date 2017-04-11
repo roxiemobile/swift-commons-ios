@@ -123,7 +123,7 @@ public func rxm_customTag(clazz: AnyClass) -> String
 // MARK: - Operators
 // ----------------------------------------------------------------------------
 
-infix operator &&= {}
+infix operator &&=
 
 
 public func &&= (_ lhs: inout Bool, rhs: Bool ) {

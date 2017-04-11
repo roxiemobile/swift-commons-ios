@@ -72,7 +72,7 @@ public extension FileManager
 // MARK: - Methods
 
     /// Excludes files and directories from iCloud backups.
-    public static func excludedPathFromBackup(url: URL?) -> Bool
+    @discardableResult public static func excludedPathFromBackup(url: URL?) -> Bool
     {
         guard let path = url?.path, FileManager.default.fileExists(atPath: path) else {
             return false
@@ -127,7 +127,7 @@ public func rxm_removeItemAtURL(url: URL?)
     }
 }
 
-public func rxm_copyItemAtURL(srcURL: URL?, toURL dstURL: URL?) -> Bool
+@discardableResult public func rxm_copyItemAtURL(srcURL: URL?, toURL dstURL: URL?) -> Bool
 {
     guard let srcURL = srcURL, let dstURL = dstURL else {
         return false

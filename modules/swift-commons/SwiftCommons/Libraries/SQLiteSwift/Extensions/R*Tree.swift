@@ -24,7 +24,7 @@
 
 extension Module {
 
-    public static func RTree<T : Value, U : Value where T.Datatype == Int64, U.Datatype == Double>(primaryKey: Expression<T>, _ pairs: (Expression<U>, Expression<U>)...) -> Module {
+    public static func RTree<T : Value, U : Value>(primaryKey: Expression<T>, _ pairs: (Expression<U>, Expression<U>)...) -> Module where T.Datatype == Int64, U.Datatype == Double {
         var arguments: [Expressible] = [primaryKey]
 
         for pair in pairs {

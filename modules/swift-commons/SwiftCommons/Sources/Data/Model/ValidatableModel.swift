@@ -24,7 +24,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 
             // Deserialize object
             self.unsafeMapping() {
-                Mapper().map(params, toObject: self)
+                _ = Mapper().map(params, toObject: self)
             }
 
         }.Catch { e in
@@ -95,7 +95,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
             if let json = decoder.decodeObject() as? [String: AnyObject]
             {
                 result = self.unsafeMapping() {
-                    Mapper().map(json, toObject: self)
+                    _ = Mapper().map(json, toObject: self)
                 }
             }
 
@@ -162,7 +162,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
     /**
      * NOTE: Throws NSException from Objective-C
      */
-    private func unsafeMapping(block: @escaping () -> Void) -> Bool
+    @discardableResult private func unsafeMapping(block: @escaping () -> Void) -> Bool
     {
         if frozen() { return false }
 

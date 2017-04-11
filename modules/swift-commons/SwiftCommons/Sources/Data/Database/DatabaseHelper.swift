@@ -161,7 +161,7 @@ public class DatabaseHelper
             database = createDatabaseObject(uriPath: name, readonly: readonly)
 
             // Send events to the delegate
-            if let delegate = delegate, (database.handle != nil)
+            if let delegate = delegate
             {
                 Try {
                     // Configure the open database
@@ -416,8 +416,8 @@ private extension URL
 
     var rxm_isFileExists: Bool
     {
-        let isReachable = try? self.checkResourceIsReachable() ?? false
-        return self.isFileURL && rxm_isFileExists
+        let isReachable = (try? self.checkResourceIsReachable()) ?? false
+        return self.isFileURL && isReachable
     }
 }
 

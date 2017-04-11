@@ -94,7 +94,7 @@ extension Expect
     }
 
     // TODO
-    public static func isAllNil<T>(_ objects: [T]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+    public static func isAllNil<T>(_ objects: [T?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
         if CollectionUtils.isNotEmpty(objects) {
             try isTrue(objects!.all { $0 == nil }, message, file, line)
         }
@@ -108,7 +108,7 @@ extension Expect
     }
 
     // TODO
-    public static func isAllNotNil<T>(_ objects: [T]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+    public static func isAllNotNil<T>(_ objects: [T?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
         if CollectionUtils.isNotEmpty(objects) {
             try isTrue(objects!.all { $0 != nil }, message, file, line)
         }

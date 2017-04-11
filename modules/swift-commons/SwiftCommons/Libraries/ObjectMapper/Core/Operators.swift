@@ -12,7 +12,7 @@
 * This provides a way to add custom logic to handle specific types of objects
 */
 
-infix operator <~ {}
+infix operator <~
 
 // MARK:- Objects with Basic types
 
@@ -99,7 +99,7 @@ public func <~ <T: RawRepresentable>(left: inout [String: T]!, right: Map) {
 // MARK:- Transforms
 
 /// Object of Basic type with Transform
-public func <~ <T, Transform: TransformType where Transform.Object == T>(left: inout T, right: (Map, Transform)) {
+public func <~ <T, Transform: TransformType>(left: inout T, right: (Map, Transform)) where Transform.Object == T {
     if right.0.mappingType == MappingType.FromJSON {
         let value: T? = right.1.transformFromJSON(right.0.currentValue)
         rxm_checkTransform(right.0, value: value)
@@ -112,7 +112,7 @@ public func <~ <T, Transform: TransformType where Transform.Object == T>(left: i
 }
 
 /// Optional object of basic type with Transform
-public func <~ <T, Transform: TransformType where Transform.Object == T>(left: inout T?, right: (Map, Transform)) {
+public func <~ <T, Transform: TransformType>(left: inout T?, right: (Map, Transform)) where Transform.Object == T {
     if right.0.mappingType == MappingType.FromJSON {
         let value: T? = right.1.transformFromJSON(right.0.currentValue)
         FromJSON.optionalBasicType(&left, object: value)
@@ -123,7 +123,7 @@ public func <~ <T, Transform: TransformType where Transform.Object == T>(left: i
 }
 
 /// Implicitly unwrapped optional object of basic type with Transform
-public func <~ <T, Transform: TransformType where Transform.Object == T>(left: inout T!, right: (Map, Transform)) {
+public func <~ <T, Transform: TransformType>(left: inout T!, right: (Map, Transform)) where Transform.Object == T {
 	if right.0.mappingType == MappingType.FromJSON {
 		let value: T? = right.1.transformFromJSON(right.0.currentValue)
         rxm_checkTransform(right.0, value: value)
