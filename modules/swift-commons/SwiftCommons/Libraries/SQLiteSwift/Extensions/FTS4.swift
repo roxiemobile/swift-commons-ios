@@ -95,7 +95,7 @@ public struct Tokenizer {
 
     public static let Porter = Tokenizer("porter")
 
-    public static func Unicode61(removeDiacritics removeDiacritics: Bool? = nil, tokenchars: Set<Character> = [], separators: Set<Character> = []) -> Tokenizer {
+    public static func Unicode61(removeDiacritics: Bool? = nil, tokenchars: Set<Character> = [], separators: Set<Character> = []) -> Tokenizer {
         var arguments = [String]()
 
         if let removeDiacritics = removeDiacritics {

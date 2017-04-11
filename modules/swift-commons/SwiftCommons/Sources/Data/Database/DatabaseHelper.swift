@@ -44,7 +44,7 @@ public class DatabaseHelper
         }
         set {
             do {
-                try database?.run("PRAGMA user_version = \(transcode(Int64(newValue)))")
+                try _ = database?.run("PRAGMA user_version = \(transcode(Int64(newValue)))")
             }
             catch {
                 Logger.e(typeName(self), "Can't set db userVersion", error)

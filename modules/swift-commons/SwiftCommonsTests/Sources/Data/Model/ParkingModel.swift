@@ -12,13 +12,13 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-public class ParkingModel: ValidatableModel
+open class ParkingModel: ValidatableModel
 {
 // MARK: - Properties
 
-    public private(set) var watcher: String?
+    open fileprivate(set) var watcher: String?
 
-    public private(set) var vehicles: [VehicleModel]!
+    open fileprivate(set) var vehicles: [VehicleModel]!
 
 // MARK: - Methods
 
