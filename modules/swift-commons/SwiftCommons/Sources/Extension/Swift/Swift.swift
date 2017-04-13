@@ -58,23 +58,23 @@ public protocol MDCopying: NSCopying
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-public func demangledTypeName(object: Any) -> String {
-    return String(object.dynamicType)
+public func demangledTypeName(_ object: Any) -> String {
+    return String(describing: type(of: object))
 }
 
-public func typeName(object: Any) -> String {
-    return demangledTypeName(object).componentsSeparatedByString(".").last!
+public func typeName(_ object: Any) -> String {
+    return demangledTypeName(object).components(separatedBy: ".").last!
 }
 
-public func className(clazz: AnyClass) -> String {
-    return NSStringFromClass(clazz).componentsSeparatedByString(".").last!
+public func className(_ clazz: AnyClass) -> String {
+    return NSStringFromClass(clazz).components(separatedBy: ".").last!
 }
 
-public func fullTypeName<T : Any>(obj: T) -> String {
+public func fullTypeName<T : Any>(_ obj: T) -> String {
     return String(reflecting: T.self)
 }
 
-public func briefTypeName<T : Any>(obj: T) -> String {
+public func briefTypeName<T : Any>(_ obj: T) -> String {
     var typeString = fullTypeName(obj)
     
     let typeSuffix = ".Type"
@@ -123,14 +123,14 @@ public func rxm_customTag(clazz: AnyClass) -> String
 // MARK: - Operators
 // ----------------------------------------------------------------------------
 
-infix operator &&= {}
+infix operator &&=
 
 
-public func &&= (inout lhs: Bool, rhs: Bool ) {
+public func &&= (_ lhs: inout Bool, rhs: Bool ) {
     lhs = lhs && rhs
 }
 
-public func &&= (inout lhs: Bool, rhs: Bool?) {
+public func &&= (_ lhs: inout Bool, rhs: Bool?) {
     lhs = lhs && (rhs ?? false)
 }
 

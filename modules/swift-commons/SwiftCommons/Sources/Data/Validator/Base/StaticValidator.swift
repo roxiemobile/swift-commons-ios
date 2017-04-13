@@ -12,7 +12,7 @@ public protocol StaticValidator
 {
 // MARK: - Methods
 
-    static func isValid(value: AnyObject?) -> Bool
+    static func isValid(_ value: Any?) -> Bool
 }
 
 // ----------------------------------------------------------------------------
