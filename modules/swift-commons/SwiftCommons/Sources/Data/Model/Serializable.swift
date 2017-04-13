@@ -49,11 +49,11 @@ extension Serializable
         return type(of: self)
     }
 
-    @objc public func replacementObjectForCoder(aCoder: NSCoder) -> AnyObject? {
+    @objc public func replacementObjectForCoder(_ aCoder: NSCoder) -> AnyObject? {
         return self
     }
 
-    @objc public func awakeAfterUsingCoder(aDecoder: NSCoder) -> AnyObject? {
+    @objc public func awakeAfterUsingCoder(_ aDecoder: NSCoder) -> AnyObject? {
         return self
     }
 
@@ -98,7 +98,7 @@ extension Serializable
 {
 // MARK: - Methods
 
-    @objc public func encodeWithCoder(aCoder: NSCoder) {
+    @objc public func encodeWithCoder(_ aCoder: NSCoder) {
         encode(coder: aCoder)
     }
 }

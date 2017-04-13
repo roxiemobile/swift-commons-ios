@@ -57,7 +57,7 @@ public final class Logger
 
 // MARK: - Properties
 
-    public func logger(logger: LoggerContract?) -> Logger {
+    @discardableResult public func logger(logger: LoggerContract?) -> Logger {
 
         synchronized(object: self.innerLock) {
             self.innerLogger = logger
@@ -74,7 +74,7 @@ public final class Logger
         return logger
     }
 
-    public func logLevel(level: LogLevel) -> Logger {
+    @discardableResult public func logLevel(level: LogLevel) -> Logger {
         synchronized(object: self.innerLock) {
             self.innerLogLevel = level
         }
@@ -82,7 +82,7 @@ public final class Logger
     }
 
     public func logLevel() -> LogLevel {
-        var level: LogLevel = .Verbose
+        var level: LogLevel = .verbose
 
         synchronized(object: self.innerLock) {
             level = self.innerLogLevel
@@ -93,19 +93,19 @@ public final class Logger
 // MARK: - Methods
 
     public static func v(_ tag: String, _ message: @autoclosure () -> String) {
-        if let logger = Logger.shared.logger(), isLoggable(.Verbose) {
+        if let logger = Logger.shared.logger(), isLoggable(.verbose) {
             logger.v(tag, message())
         }
     }
 
     public static func d(_ tag: String, _ message: @autoclosure () -> String) {
-        if let logger = Logger.shared.logger(), isLoggable(.Debug) {
+        if let logger = Logger.shared.logger(), isLoggable(.debug) {
             logger.d(tag, message())
         }
     }
 
     public static func i(_ tag: String, _ message: @autoclosure () -> String) {
-        if let logger = Logger.shared.logger(), isLoggable(.Info) {
+        if let logger = Logger.shared.logger(), isLoggable(.info) {
             logger.i(tag, message())
         }
     }
@@ -113,43 +113,43 @@ public final class Logger
 // --
 
     public static func w(_ tag: String, _ message: @autoclosure () -> String) {
-        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.warning) {
             logger.w(tag, message())
         }
     }
 
     public static func w(_ tag: String, _ message: @autoclosure () -> String, _ error: Error?) {
-        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.warning) {
             logger.w(tag, message(), error)
         }
     }
 
     public static func w(_ tag: String, _ message: @autoclosure () -> String, _ error: NSError?) {
-        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.warning) {
             logger.w(tag, message(), error)
         }
     }
 
     public static func w(_ tag: String, _ message: @autoclosure () -> String, _ exception: NSException?) {
-        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.warning) {
             logger.w(tag, message(), exception)
         }
     }
 
     public static func w(_ tag: String, _ error: Error) {
-        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.warning) {
             logger.w(tag, error)
         }
     }
 
     public static func w(_ tag: String, _ error: NSError) {
-        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.warning) {
             logger.w(tag, error)
         }
     }
 
     public static func w(_ tag: String, _ exception: NSException) {
-        if let logger = Logger.shared.logger(), isLoggable(.Warning) {
+        if let logger = Logger.shared.logger(), isLoggable(.warning) {
             logger.w(tag, exception)
         }
     }
@@ -157,43 +157,43 @@ public final class Logger
 // --
 
     public static func e(_ tag: String, _ message: @autoclosure () -> String) {
-        if let logger = Logger.shared.logger(), isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.error) {
             logger.e(tag, message())
         }
     }
 
     public static func e(_ tag: String, _ message: @autoclosure () -> String, _ error: Error?) {
-        if let logger = Logger.shared.logger(), isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.error) {
             logger.e(tag, message(), error)
         }
     }
 
     public static func e(_ tag: String, _ message: @autoclosure () -> String, _ error: NSError?) {
-        if let logger = Logger.shared.logger(), isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.error) {
             logger.e(tag, message(), error)
         }
     }
 
     public static func e(_ tag: String, _ message: @autoclosure () -> String, _ exception: NSException?) {
-        if let logger = Logger.shared.logger(), isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.error) {
             logger.e(tag, message(), exception)
         }
     }
 
     public static func e(_ tag: String, _ error: Error) {
-        if let logger = Logger.shared.logger(), isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.error) {
             logger.e(tag, error)
         }
     }
 
     public static func e(_ tag: String, _ error: NSError) {
-        if let logger = Logger.shared.logger(), isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.error) {
             logger.e(tag, error)
         }
     }
 
     public static func e(_ tag: String, _ exception: NSException) {
-        if let logger = Logger.shared.logger(), isLoggable(.Error) {
+        if let logger = Logger.shared.logger(), isLoggable(.error) {
             logger.e(tag, exception)
         }
     }
@@ -210,24 +210,24 @@ public final class Logger
     public enum LogLevel: Int
     {
         // Use Logger.v()
-        case Verbose = 0
+        case verbose = 0
         // Use Logger.d()
-        case Debug
+        case debug
         // Use Logger.i()
-        case Info
+        case info
         // Use Logger.w()
-        case Warning
+        case warning
         // Use Logger.e()
-        case Error
+        case error
         // Turn off all logging
-        case Suppress
+        case suppress
     }
 
 // MARK: - Variables
 
     private var innerLogger: LoggerContract?
 
-    private var innerLogLevel = LogLevel.Info
+    private var innerLogLevel = LogLevel.info
 
     private let innerLock = NSObject()
 }
@@ -243,12 +243,12 @@ extension Logger
 
         // Add log level
         switch level {
-            case .Verbose:  logMessage += "[VRB]"
-            case .Debug:    logMessage += "[DBG]"
-            case .Info:     logMessage += "[INF]"
-            case .Warning:  logMessage += "[WRN]"
-            case .Error:    logMessage += "[ERR]"
-            case .Suppress: logMessage += "[SPR]"
+            case .verbose:  logMessage += "[VRB]"
+            case .debug:    logMessage += "[DBG]"
+            case .info:     logMessage += "[INF]"
+            case .warning:  logMessage += "[WRN]"
+            case .error:    logMessage += "[ERR]"
+            case .suppress: logMessage += "[SPR]"
         }
 
         // Add tag

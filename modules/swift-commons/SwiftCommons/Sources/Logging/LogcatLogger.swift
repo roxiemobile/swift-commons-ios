@@ -19,21 +19,21 @@ public final class LogcatLogger: LoggerContract
 // MARK: - Methods
 
     public func v(_ tag: String, _ message: String) {
-        let level = Logger.LogLevel.Verbose
+        let level = Logger.LogLevel.verbose
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message))
         }
     }
 
     public func d(_ tag: String, _ message: String) {
-        let level = Logger.LogLevel.Debug
+        let level = Logger.LogLevel.debug
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message))
         }
     }
 
     public func i(_ tag: String, _ message: String) {
-        let level = Logger.LogLevel.Info
+        let level = Logger.LogLevel.info
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message))
         }
@@ -42,49 +42,49 @@ public final class LogcatLogger: LoggerContract
 // --
 
     public func w(_ tag: String, _ message: String) {
-        let level = Logger.LogLevel.Warning
+        let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message))
         }
     }
 
     public func w(_ tag: String, _ message: String, _ error: Error?) {
-        let level = Logger.LogLevel.Warning
+        let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message, error))
         }
     }
 
     public func w(_ tag: String, _ message: String, _ error: NSError?) {
-        let level = Logger.LogLevel.Warning
+        let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message, error))
         }
     }
 
     public func w(_ tag: String, _ message: String, _ exception: NSException?) {
-        let level = Logger.LogLevel.Warning
+        let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message, exception))
         }
     }
 
     public func w(_ tag: String, _ error: Error) {
-        let level = Logger.LogLevel.Warning
+        let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, nil, error))
         }
     }
 
     public func w(_ tag: String, _ error: NSError) {
-        let level = Logger.LogLevel.Warning
+        let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, nil, error))
         }
     }
 
     public func w(_ tag: String, _ exception: NSException) {
-        let level = Logger.LogLevel.Warning
+        let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, nil, exception))
         }
@@ -93,49 +93,49 @@ public final class LogcatLogger: LoggerContract
 // --
 
     public func e(_ tag: String, _ message: String) {
-        let level = Logger.LogLevel.Error
+        let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message))
         }
     }
 
     public func e(_ tag: String, _ message: String, _ error: Error?) {
-        let level = Logger.LogLevel.Error
+        let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message, error))
         }
     }
 
     public func e(_ tag: String, _ message: String, _ error: NSError?) {
-        let level = Logger.LogLevel.Error
+        let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message, error))
         }
     }
 
     public func e(_ tag: String, _ message: String, _ exception: NSException?) {
-        let level = Logger.LogLevel.Error
+        let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, message, exception))
         }
     }
 
     public func e(_ tag: String, _ error: Error) {
-        let level = Logger.LogLevel.Error
+        let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, nil, error))
         }
     }
 
     public func e(_ tag: String, _ error: NSError) {
-        let level = Logger.LogLevel.Error
+        let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, nil, error))
         }
     }
 
     public func e(_ tag: String, _ exception: NSException) {
-        let level = Logger.LogLevel.Error
+        let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
             NSLog("%@", Logger.description(level, tag, nil, exception))
         }

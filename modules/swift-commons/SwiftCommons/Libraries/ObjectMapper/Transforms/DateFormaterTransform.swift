@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class DateFormaterTransform: TransformType {
+open class DateFormaterTransform: TransformType {
 	public typealias Object = Date
 	public typealias JSON = String
 	
@@ -18,14 +18,14 @@ public class DateFormaterTransform: TransformType {
 		self.dateFormatter = dateFormatter
 	}
 	
-	public func transformFromJSON(_ value: Any?) -> Date? {
+	open func transformFromJSON(_ value: Any?) -> Date? {
 		if let dateString = value as? String {
 			return dateFormatter.date(from: dateString)
 		}
 		return nil
 	}
 	
-	public func transformToJSON(_ value: Date?) -> String? {
+	open func transformToJSON(_ value: Date?) -> String? {
 		if let date = value {
 			return dateFormatter.string(from: date)
 		}

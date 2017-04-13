@@ -373,19 +373,6 @@ public func ==(lhs: Date, rhs: Date) -> Bool {
 }
 
 // ----------------------------------------------------------------------------
-// MARK: - @protocol Comparable
-//// ----------------------------------------------------------------------------
-
-// Cause redundant conformance
-//extension Date: Comparable {
-//    // Do nothing
-//}
-
-public func <(lhs: Date, rhs: Date) -> Bool {
-    return lhs.compare(rhs) == ComparisonResult.orderedAscending
-}
-
-// ----------------------------------------------------------------------------
 // MARK: - Operators
 // ----------------------------------------------------------------------------
 
