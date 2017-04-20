@@ -42,8 +42,8 @@ public extension Timer
 
     static func rxm_executeCompletionHandler(_ timer: Timer)
     {
-        if let userInfo = timer.userInfo as? AnyObject {
-            let completionHandler = unsafeBitCast(userInfo, to: TimerCompletionHandler.self)
+        if let userInfo = timer.userInfo {
+            let completionHandler = unsafeBitCast(userInfo as AnyObject, to: TimerCompletionHandler.self)
             completionHandler(timer)
         }
     }

@@ -27,7 +27,7 @@ public final class Require: NonCreatable
     }
 
     fileprivate static func raiseException(_ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
-        RequirementException("Fatal error: \(message)\nFile: \(file)\nLine: \(line)", userInfo: nil).raise()
+        RequirementException("Fatal error: \(message ?? "")\nFile: \(file)\nLine: \(line)", userInfo: nil).raise()
     }
 }
 

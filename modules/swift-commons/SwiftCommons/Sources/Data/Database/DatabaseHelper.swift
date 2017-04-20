@@ -361,7 +361,7 @@ public class DatabaseHelper
             return try Database(uriPath!, readonly: false)
         }
         catch {
-            rxm_fatalError(message: "Can't open db at \(uriPath) with readonly \(readonly): \(error)")
+            rxm_fatalError(message: "Can't open db at \(uriPath!) with readonly \(readonly): \(error)")
         }
     }
 

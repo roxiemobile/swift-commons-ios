@@ -270,17 +270,7 @@ extension Logger
 
         // Add error description
         if let err = error {
-            logMessage += "\nCaused by error: "
-
-            if let msg = (err as? CustomStringConvertible)?.description.trim(), msg.isNotEmpty {
-                logMessage += msg
-            }
-            else if let msg = (err as? CustomDebugStringConvertible)?.debugDescription.trim(), msg.isNotEmpty {
-                logMessage += msg
-            }
-            else {
-                logMessage += typeName(err)
-            }
+            logMessage += "\nCaused by error: " + String(describing: err).trim()
         }
 
         // Done
