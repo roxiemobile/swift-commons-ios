@@ -1,19 +1,19 @@
 PODS:
   - SwiftCommons (0.7.2):
-    - SwiftyJSON (~> 2.4)
-  - SwiftyJSON (2.4.0)
+    - SwiftyJSON (~> 3.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - SwiftCommons (from `../../`)
 
 EXTERNAL SOURCES:
   SwiftCommons:
-    :path: "../../"
+    :path: ../../
 
 SPEC CHECKSUMS:
-  SwiftCommons: 667b717e565a317c6cb2f82398e70feb15681455
-  SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
+  SwiftCommons: 98c0fde9cfdc6b27d77ff12574abbc3180837346
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
 PODFILE CHECKSUM: 2e884544e8573fe5fd7b6c3a00af001b93d31d07
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

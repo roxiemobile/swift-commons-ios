@@ -33,33 +33,33 @@ extension StringUtilsTests
         XCTAssertTrue(StringUtils.strip("abc  ") == "abc")
         XCTAssertTrue(StringUtils.strip(" abc ") == "abc")
         XCTAssertTrue(StringUtils.strip(" ab c ") == "ab c")
-        XCTAssertTrue(StringUtils.strip("  abcyx", stripChars: NSCharacterSet(charactersInString: "xyz")) == "  abc")
+        XCTAssertTrue(StringUtils.strip("  abcyx", stripChars: CharacterSet(charactersIn: "xyz")) == "  abc")
     }
 
     func testStripStart() {
-        XCTAssertTrue(StringUtils.stripStart(nil, stripChars: NSCharacterSet()) == nil)
-        XCTAssertTrue(StringUtils.stripStart("", stripChars: NSCharacterSet()) == "")
+        XCTAssertTrue(StringUtils.stripStart(nil, stripChars: CharacterSet()) == nil)
+        XCTAssertTrue(StringUtils.stripStart("", stripChars: CharacterSet()) == "")
         XCTAssertTrue(StringUtils.stripStart("   ") == "")
-        XCTAssertTrue(StringUtils.stripStart("abc", stripChars: NSCharacterSet(charactersInString: "")) == "abc")
+        XCTAssertTrue(StringUtils.stripStart("abc", stripChars: CharacterSet(charactersIn: "")) == "abc")
         XCTAssertTrue(StringUtils.stripStart("abc") == "abc")
         XCTAssertTrue(StringUtils.stripStart("  abc") == "abc")
         XCTAssertTrue(StringUtils.stripStart("abc  ") == "abc  ")
         XCTAssertTrue(StringUtils.stripStart(" abc ") == "abc ")
-        XCTAssertTrue(StringUtils.stripStart("yxabc  ", stripChars: NSCharacterSet(charactersInString: "xyz")) == "abc  ")
-        XCTAssertTrue(StringUtils.stripStart("120.00", stripChars: NSCharacterSet(charactersInString: "12")) == "0.00")
+        XCTAssertTrue(StringUtils.stripStart("yxabc  ", stripChars: CharacterSet(charactersIn: "xyz")) == "abc  ")
+        XCTAssertTrue(StringUtils.stripStart("120.00", stripChars: CharacterSet(charactersIn: "12")) == "0.00")
     }
 
     func testStripEnd() {
-        XCTAssertTrue(StringUtils.stripEnd(nil, stripChars: NSCharacterSet()) == nil)
-        XCTAssertTrue(StringUtils.stripEnd("", stripChars: NSCharacterSet()) == "")
+        XCTAssertTrue(StringUtils.stripEnd(nil, stripChars: CharacterSet()) == nil)
+        XCTAssertTrue(StringUtils.stripEnd("", stripChars: CharacterSet()) == "")
         XCTAssertTrue(StringUtils.stripEnd("   ") == "")
-        XCTAssertTrue(StringUtils.stripEnd("abc", stripChars: NSCharacterSet(charactersInString: "")) == "abc")
+        XCTAssertTrue(StringUtils.stripEnd("abc", stripChars: CharacterSet(charactersIn: "")) == "abc")
         XCTAssertTrue(StringUtils.stripEnd("abc") == "abc")
         XCTAssertTrue(StringUtils.stripEnd("  abc") == "  abc")
         XCTAssertTrue(StringUtils.stripEnd("abc  ") == "abc")
         XCTAssertTrue(StringUtils.stripEnd(" abc ") == " abc")
-        XCTAssertTrue(StringUtils.stripEnd("  abcyx", stripChars: NSCharacterSet(charactersInString: "xyz")) == "  abc")
-        XCTAssertTrue(StringUtils.stripEnd("120.00", stripChars: NSCharacterSet(charactersInString: ".0")) == "12")
+        XCTAssertTrue(StringUtils.stripEnd("  abcyx", stripChars: CharacterSet(charactersIn: "xyz")) == "  abc")
+        XCTAssertTrue(StringUtils.stripEnd("120.00", stripChars: CharacterSet(charactersIn: ".0")) == "12")
     }
 }
 

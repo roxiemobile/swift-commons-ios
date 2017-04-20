@@ -8,7 +8,7 @@
 
 #import "TryCatchFinally.h"
 
-void tryCatchFinally(void(^tryBlock)(), void(^catchBlock)(NSException *e), void(^finallyBlock)())
+void tryCatchFinally(void(^tryBlock)(), void(^catchBlock)(NSException * _Nonnull e), void(^finallyBlock)())
 {
     @try {
         tryBlock();

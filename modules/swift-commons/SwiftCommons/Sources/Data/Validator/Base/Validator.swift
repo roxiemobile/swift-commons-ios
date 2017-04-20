@@ -12,7 +12,7 @@ public protocol Validator
 {
 // MARK: - Methods
 
-    func isValid(value: AnyObject?) -> Bool
+    func isValid(_ value: Any?) -> Bool
 }
 
 // ----------------------------------------------------------------------------
