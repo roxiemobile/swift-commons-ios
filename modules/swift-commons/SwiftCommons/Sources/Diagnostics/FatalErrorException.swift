@@ -104,3 +104,31 @@ public class FatalErrorException: NSException
 }
 
 // ----------------------------------------------------------------------------
+
+@noreturn public func rxm_fatalError(message: String, error: ErrorType?, file: StaticString = #file, line: UInt = #line)
+{
+    var logMessage = message
+
+    // Add error description
+    if let err = error
+    {
+        if !logMessage.isEmpty {
+            logMessage += "\nCaused by error: "
+        }
+
+        if let msg = (err as? CustomStringConvertible)?.description.trim() where msg.isNotEmpty {
+            logMessage += msg
+        }
+        else if let msg = (err as? CustomDebugStringConvertible)?.debugDescription.trim() where msg.isNotEmpty {
+            logMessage += msg
+        }
+        else {
+            logMessage += typeName(err)
+        }
+    }
+
+    // Terminate application with runtime exception
+    rxm_fatalError(logMessage, file: file, line: line)
+}
+
+// ----------------------------------------------------------------------------
