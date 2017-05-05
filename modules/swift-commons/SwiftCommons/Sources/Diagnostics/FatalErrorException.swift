@@ -104,3 +104,18 @@ public func rxm_fatalError(message: String, exception: NSException?, file: Stati
 }
 
 // ----------------------------------------------------------------------------
+
+public func rxm_fatalError(message: String, error: ErrorType?, file: StaticString = #file, line: UInt = #line)
+{
+    var logMessage = message
+
+    // Add error description
+    if let err = error {
+        logMessage += "\nCaused by error: " + String(describing: err).trim()
+    }
+
+    // Terminate application with runtime exception
+    rxm_fatalError(logMessage, file: file, line: line)
+}
+
+// ----------------------------------------------------------------------------
