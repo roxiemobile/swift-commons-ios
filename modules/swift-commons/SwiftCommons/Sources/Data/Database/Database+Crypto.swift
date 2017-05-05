@@ -26,11 +26,11 @@ public extension Connection
         // FMDb/FMDatabase.m
         // @link https://github.com/ccgus/fmdb/blob/master/src/fmdb/FMDatabase.m#L426
 
-        if (self.handle == nil) {
-            return false
-        }
+//        if (self.handle == nil) {
+//            return false
+//        }
 
-        var stmt: COpaquePointer = nil
+        var stmt: OpaquePointer? = nil
         var result: Int32?
 
         // Using SQLite in C programs

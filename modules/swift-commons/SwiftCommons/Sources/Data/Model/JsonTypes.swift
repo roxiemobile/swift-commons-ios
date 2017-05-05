@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 
 /// A type representing an element of Json.
-public typealias JsonElement = AnyObject
+public typealias JsonElement = Any
 
 /// A type representing an object type in Json.
 public typealias JsonObject = [JsonString: JsonElement]

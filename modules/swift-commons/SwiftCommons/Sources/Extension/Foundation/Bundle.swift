@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  NSBundle.swift
+//  Bundle.swift
 //
 //  @author     Denis Kolyasev <KolyasevDA@ekassir.com>
 //  @copyright  Copyright (c) 2015, eKassir Ltd. All rights reserved.
@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension NSBundle
+public extension Bundle
 {
 // MARK: - Properties
 

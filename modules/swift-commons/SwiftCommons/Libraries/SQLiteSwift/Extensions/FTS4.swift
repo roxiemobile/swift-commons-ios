@@ -24,11 +24,11 @@
 
 extension Module {
 
-    @warn_unused_result public static func FTS4(column: Expressible, _ more: Expressible...) -> Module {
+    public static func FTS4(_ column: Expressible, _ more: Expressible...) -> Module {
         return FTS4([column] + more)
     }
 
-    @warn_unused_result public static func FTS4(columns: [Expressible] = [], tokenize tokenizer: Tokenizer? = nil) -> Module {
+    public static func FTS4(_ columns: [Expressible] = [], tokenize tokenizer: Tokenizer? = nil) -> Module {
         var columns = columns
         
         if let tokenizer = tokenizer {
@@ -53,15 +53,15 @@ extension VirtualTable {
     ///
     /// - Returns: An expression appended with a `MATCH` query against the given
     ///   pattern.
-    @warn_unused_result public func match(pattern: String) -> Expression<Bool> {
+    public func match(_ pattern: String) -> Expression<Bool> {
         return "MATCH".infix(tableName(), pattern)
     }
 
-    @warn_unused_result public func match(pattern: Expression<String>) -> Expression<Bool> {
+    public func match(_ pattern: Expression<String>) -> Expression<Bool> {
         return "MATCH".infix(tableName(), pattern)
     }
 
-    @warn_unused_result public func match(pattern: Expression<String?>) -> Expression<Bool?> {
+    public func match(_ pattern: Expression<String?>) -> Expression<Bool?> {
         return "MATCH".infix(tableName(), pattern)
     }
 
@@ -75,15 +75,15 @@ extension VirtualTable {
     /// - Parameter pattern: A pattern to match.
     ///
     /// - Returns: A query with the given `WHERE … MATCH` clause applied.
-    @warn_unused_result public func match(pattern: String) -> QueryType {
+    public func match(_ pattern: String) -> QueryType {
         return filter(match(pattern))
     }
 
-    @warn_unused_result public func match(pattern: Expression<String>) -> QueryType {
+    public func match(_ pattern: Expression<String>) -> QueryType {
         return filter(match(pattern))
     }
 
-    @warn_unused_result public func match(pattern: Expression<String?>) -> QueryType {
+    public func match(_ pattern: Expression<String?>) -> QueryType {
         return filter(match(pattern))
     }
 
@@ -95,7 +95,7 @@ public struct Tokenizer {
 
     public static let Porter = Tokenizer("porter")
 
-    @warn_unused_result public static func Unicode61(removeDiacritics removeDiacritics: Bool? = nil, tokenchars: Set<Character> = [], separators: Set<Character> = []) -> Tokenizer {
+    public static func Unicode61(removeDiacritics: Bool? = nil, tokenchars: Set<Character> = [], separators: Set<Character> = []) -> Tokenizer {
         var arguments = [String]()
 
         if let removeDiacritics = removeDiacritics {
@@ -103,19 +103,19 @@ public struct Tokenizer {
         }
 
         if !tokenchars.isEmpty {
-            let joined = tokenchars.map { String($0) }.joinWithSeparator("")
+            let joined = tokenchars.map { String($0) }.joined(separator: "")
             arguments.append("tokenchars=\(joined)".quote())
         }
 
         if !separators.isEmpty {
-            let joined = separators.map { String($0) }.joinWithSeparator("")
+            let joined = separators.map { String($0) }.joined(separator: "")
             arguments.append("separators=\(joined)".quote())
         }
 
         return Tokenizer("unicode61", arguments)
     }
 
-    @warn_unused_result public static func Custom(name: String) -> Tokenizer {
+    public static func Custom(name: String) -> Tokenizer {
         return Tokenizer(Tokenizer.moduleName.quote(), [name.quote()])
     }
 
@@ -123,34 +123,34 @@ public struct Tokenizer {
 
     public let arguments: [String]
 
-    private init(_ name: String, _ arguments: [String] = []) {
+    fileprivate init(_ name: String, _ arguments: [String] = []) {
         self.name = name
         self.arguments = arguments
     }
 
-    private static let moduleName = "SQLite.swift"
+    fileprivate static let moduleName = "SQLite.swift"
 
 }
 
 extension Tokenizer : CustomStringConvertible {
 
     public var description: String {
-        return ([name] + arguments).joinWithSeparator(" ")
+        return ([name] + arguments).joined(separator: " ")
     }
 
 }
 
 extension Connection {
 
-    public func registerTokenizer(submoduleName: String, next: String -> (String, Range<String.Index>)?) throws {
+    public func registerTokenizer(_ submoduleName: String, next: @escaping (String) -> (String, Range<String.Index>)?) throws {
         try check(_SQLiteRegisterTokenizer(handle, Tokenizer.moduleName, submoduleName) { input, offset, length in
-            let string = String.fromCString(input)!
+            let string = String(cString: input)
 
             guard let (token, range) = next(string) else { return nil }
 
             let view = string.utf8
-            offset.memory += string.substringToIndex(range.startIndex).utf8.count
-            length.memory = Int32(range.startIndex.samePositionIn(view).distanceTo(range.endIndex.samePositionIn(view)))
+            offset.pointee += Int32(string.substring(to: range.lowerBound).utf8.count)
+            length.pointee = Int32(view.distance(from: range.lowerBound.samePosition(in: view), to: range.upperBound.samePosition(in: view)))
             return token
         })
     }
