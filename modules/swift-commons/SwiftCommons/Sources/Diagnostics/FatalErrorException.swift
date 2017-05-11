@@ -105,7 +105,7 @@ public func rxm_fatalError(message: String, exception: NSException?, file: Stati
 
 // ----------------------------------------------------------------------------
 
-public func rxm_fatalError(message: String, error: ErrorType?, file: StaticString = #file, line: UInt = #line)
+public func rxm_fatalError(message: String, error: Error?, file: StaticString = #file, line: UInt = #line)
 {
     var logMessage = message
 
@@ -115,7 +115,7 @@ public func rxm_fatalError(message: String, error: ErrorType?, file: StaticStrin
     }
 
     // Terminate application with runtime exception
-    rxm_fatalError(logMessage, file: file, line: line)
+    rxm_fatalError(message: logMessage, file: file, line: line)
 }
 
 // ----------------------------------------------------------------------------
