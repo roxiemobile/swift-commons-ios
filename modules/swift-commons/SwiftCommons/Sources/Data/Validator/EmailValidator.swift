@@ -17,7 +17,7 @@ public final class EmailValidator: NonCreatable, StaticValidator
 {
 // MARK: - Methods
 
-    public class func isValid(value: AnyObject?) -> Bool {
+    public class func isValid(_ value: Any?) -> Bool {
         var result = false
 
         // Validate incoming value
