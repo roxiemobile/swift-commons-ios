@@ -238,7 +238,7 @@ extension ValidatableModel: NSCopying
 {
 // MARK: - Methods
 
-    @objc public func copy(with zone: NSZone? = nil) -> Any {
+    public func copy(with zone: NSZone? = nil) -> Any {
         return self.copy()
     }
 
