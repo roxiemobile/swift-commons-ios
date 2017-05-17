@@ -384,7 +384,6 @@ public func -=(date: inout Date, timeInterval: Int) {
     date = date - timeInterval
 }
 
-
 public func +=(date: inout Date, timeInterval: Double) {
     date = date + timeInterval
 }
