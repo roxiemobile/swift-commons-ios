@@ -12,17 +12,17 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-public class VehicleModel: ValidatableModel
+open class VehicleModel: ValidatableModel
 {
 // MARK: - Properties
 
-    public private(set) var model: String!
+    open fileprivate(set) var model: String!
 
-    public private(set) var color: String!
+    open fileprivate(set) var color: String!
 
 // MARK: - Methods
 
-    public override func mapping(map: Map) {
+    open override func mapping(_ map: Map) {
         super.mapping(map)
 
         // (De)serialize to/from json
@@ -30,7 +30,7 @@ public class VehicleModel: ValidatableModel
         self.color <~ map["color"]
     }
 
-    public override func validate() throws {
+    open override func validate() throws {
         try super.validate()
 
         // Validate instance

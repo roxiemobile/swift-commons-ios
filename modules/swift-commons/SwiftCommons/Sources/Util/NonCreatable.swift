@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public class NonCreatable
+open class NonCreatable
 {
 // MARK: - Construction
 

@@ -26,9 +26,9 @@ public class Assets: NonCreatable
         return (path != nil) && (path!.hasPrefix(Schema.Asset) || path!.hasPrefix(Schema.File) || path!.hasPrefix("/"))
     }
 
-    public class func isLocalAssetExists(path assetPath: String, bundle assetBundleOrNil: NSBundle? = nil) -> Bool
+    public class func isLocalAssetExists(path assetPath: String, bundle assetBundleOrNil: Bundle? = nil) -> Bool
     {
-        let assetBundle = (assetBundleOrNil ?? NSBundle.mainBundle())
+        let assetBundle = (assetBundleOrNil ?? Bundle.main)
         var string = assetPath
         var result = false
 
@@ -37,8 +37,8 @@ public class Assets: NonCreatable
         {
             if let resourcePath = assetBundle.resourcePath
             {
-                string = (resourcePath as NSString).stringByAppendingPathComponent(string.substringFrom(index: Schema.Asset.length))
-                result = NSFileManager.defaultManager().fileExistsAtPath(string)
+                string = (resourcePath as NSString).appendingPathComponent(string.substringFrom(index: Schema.Asset.length))
+                result = FileManager.default.fileExists(atPath: string)
             }
         }
         // Check if string is PATH
@@ -48,8 +48,8 @@ public class Assets: NonCreatable
                 string = string.substringFrom(index: Schema.File.length)
             }
 
-            if let resourcePath = assetBundle.resourcePath where string.hasPrefix(resourcePath) {
-                result = NSFileManager.defaultManager().fileExistsAtPath(string)
+            if let resourcePath = assetBundle.resourcePath, string.hasPrefix(resourcePath) {
+                result = FileManager.default.fileExists(atPath: string)
             }
         }
 
@@ -65,19 +65,19 @@ public class Assets: NonCreatable
         return (path != nil) && (path!.hasPrefix(Schema.HTTP) || path!.hasPrefix(Schema.HTTPs))
     }
 
-    public class func URL(path assetPath: String, bundle assetBundleOrNil: NSBundle? = nil) -> NSURL?
+    public class func URLAddress(path assetPath: String, bundle assetBundleOrNil: Bundle? = nil) -> URL?
     {
-        let assetBundle = (assetBundleOrNil ?? NSBundle.mainBundle())
+        let assetBundle = (assetBundleOrNil ?? Bundle.main)
         var string = assetPath
-        var result: NSURL?
+        var result: URL?
 
         // Handle assets
         if  string.hasPrefix(Schema.Asset)
         {
             if let resourcePath = assetBundle.resourcePath
             {
-                string = (resourcePath as NSString).stringByAppendingPathComponent(string.substringFrom(index: Schema.Asset.length))
-                result = NSURL.fileURLWithPath(string)
+                string = (resourcePath as NSString).appendingPathComponent(string.substringFrom(index: Schema.Asset.length))
+                result = URL(fileURLWithPath: string)
             }
         }
         else
@@ -87,14 +87,14 @@ public class Assets: NonCreatable
             string.hasPrefix(Schema.HTTPs) ||
             string.hasPrefix(Schema.FTP  )
         {
-            result = NSURL(string: string)
+            result = URL(string: string)
         }
         else
         // Handle local files
         if  string.hasPrefix("/")
         {
             // NOTE: The method examines the file system to determine if path is a file or a directory
-            result = NSURL.fileURLWithPath(string)
+            result = URL(fileURLWithPath: string)
         }
 
         // Done

@@ -8,13 +8,13 @@
 
 import Foundation
 
-public func Try(Try: () -> ()) -> TryCatchFinally {
+public func Try(Try: @escaping () -> ()) -> TryCatchFinally {
     return TryCatchFinally(Try)
 }
 
 public final class TryCatchFinally
 {
-    init(_ Try: () -> ()) {
+    init(_ Try: @escaping () -> ()) {
         tryFunc = Try
     }
 
@@ -24,23 +24,17 @@ public final class TryCatchFinally
 
     let tryFunc: () -> ()
 
-    var catchFunc = {
-        (e: NSException!) -> () in return
-    }
+    var catchFunc: (NSException) -> Void = { _ in }
 
-    var finallyFunc: () -> () = {
-    }
+    var finallyFunc: () -> () = { }
 
-    public func Catch(Catch: (NSException) -> ()) -> TryCatchFinally
+    @discardableResult public func Catch(Catch: @escaping (NSException) -> ()) -> TryCatchFinally
     {
-        // objc bridging needs NSException!, not NSException as we'd like to expose to clients.
-        catchFunc = {
-            (e: NSException!) in Catch(e)
-        }
+        catchFunc = { e in Catch(e) }
         return self
     }
 
-    public func Finally(finally: () -> ()) {
+    public func Finally(finally: @escaping () -> ()) {
         finallyFunc = finally
     }
 
