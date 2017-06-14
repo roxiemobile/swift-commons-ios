@@ -32,8 +32,8 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var rxm_md5Digest: NSData {
-        return dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.rxm_md5Digest
+    var rxm_md5Digest: Data {
+        return data(using: String.Encoding.utf8, allowLossyConversion: true)!.rxm_md5Digest
     }
 
     /**
@@ -52,8 +52,8 @@ public extension String
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    var rxm_sha1Digest: NSData {
-        return dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.rxm_sha1Digest
+    var rxm_sha1Digest: Data {
+        return data(using: String.Encoding.utf8, allowLossyConversion: true)!.rxm_sha1Digest
     }
 
 }

@@ -22,8 +22,8 @@ extension AbstractClass
 {
 // MARK: - Methods
 
-    @noreturn public func raiseAbstractMethodException(funcName: String = #function, _ file: StaticString = #file, _ line: UInt = #line) {
-        rxm_abstractMethodError("Abstract method '\(funcName)' must be overridden in a subclass")
+    public func raiseAbstractMethodException(funcName: String = #function, _ file: StaticString = #file, _ line: UInt = #line) -> Never  {
+        rxm_abstractMethodError(message: "Abstract method '\(funcName)' must be overridden in a subclass")
     }
 }
 
@@ -31,7 +31,7 @@ extension AbstractClass
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-@noreturn private func rxm_abstractMethodError(message: String, file: StaticString = #file, line: UInt = #line)
+private func rxm_abstractMethodError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
 {
 #if DEBUG
     preconditionFailure(message)

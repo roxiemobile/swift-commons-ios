@@ -16,49 +16,45 @@ import Foundation
 // @link https://gist.github.com/Inferis/0813bf742742774d55fa
 // ----------------------------------------------------------------------------
 
-public func rxm_dispatch_main_async(block: dispatch_block_t) {
-    dispatch_async(dispatch_get_main_queue(), block)
+public func rxm_dispatch_main_async(block: @escaping () -> Void) {
+    DispatchQueue.main.async(execute: block)
 }
 
 // ----------------------------------------------------------------------------
 
-public func rxm_dispatch_main_sync(block: dispatch_block_t)
+public func rxm_dispatch_main_sync(block: () -> Void)
 {
-    if NSThread.isMainThread() {
+    if Thread.isMainThread {
         block()
     } else {
-        dispatch_sync(dispatch_get_main_queue(), block)
+        DispatchQueue.main.sync(execute: block)
     }
 }
 
 // ----------------------------------------------------------------------------
 
-public func rxm_dispatch_main_after(delay: Double, block: dispatch_block_t)
-{
-    let when = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-    dispatch_after(when, dispatch_get_main_queue(), block)
+public func rxm_dispatch_main_after(delay: Double, block: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: block)
 }
 
 // ----------------------------------------------------------------------------
 // MARK: -
 // ----------------------------------------------------------------------------
 
-public func rxm_dispatch_background_async(block: dispatch_block_t) {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block)
+public func rxm_dispatch_background_async(block: @escaping () -> Void) {
+    DispatchQueue.global(qos: .background).async(execute: block)
 }
 
 // ----------------------------------------------------------------------------
 
-public func rxm_dispatch_background_sync(block: dispatch_block_t) {
-    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block)
+public func rxm_dispatch_background_sync(block: () -> Void) {
+    DispatchQueue.global(qos: .background).sync(execute: block)
 }
 
 // ----------------------------------------------------------------------------
 
-public func rxm_dispatch_background_after(delay: Double, block: dispatch_block_t)
-{
-    let when = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-    dispatch_after(when, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block)
+public func rxm_dispatch_background_after(delay: Double, block: @escaping () -> Void) {
+    DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + delay, execute: block)
 }
 
 // ----------------------------------------------------------------------------
