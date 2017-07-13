@@ -24,17 +24,19 @@ public extension Timer
 {
 // MARK: - Construction
 
-    public class func rxm_scheduledTimerWithTimeInterval(ti: TimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> Timer
+    public class func rxm_scheduledTimerWithTimeInterval(ti: TimeInterval, repeats yesOrNo: Bool, completion: @escaping TimerCompletionHandler) -> Timer
     {
-        let timer = scheduledTimer(timeInterval: ti, target: self, selector: #selector(Timer.rxm_executeCompletionHandler(_:)), userInfo: unsafeBitCast(completion, to: AnyObject.self), repeats: yesOrNo)
+        let userInfo = UserInfo(completion: completion)
+        let timer = scheduledTimer(timeInterval: ti, target: self, selector: Inner.ExecuteCompletionHandler, userInfo: userInfo, repeats: yesOrNo)
 
         return timer
     }
 
-    public class func rxm_timerWithTimeInterval(ti: TimeInterval, repeats yesOrNo: Bool, completion: TimerCompletionHandler) -> Timer
+    public class func rxm_timerWithTimeInterval(ti: TimeInterval, repeats yesOrNo: Bool, completion: @escaping TimerCompletionHandler) -> Timer
     {
-        let timer = Timer(timeInterval: ti, target: self, selector: #selector(Timer.rxm_executeCompletionHandler(_:)),
-                    userInfo: unsafeBitCast(completion, to: AnyObject.self), repeats: yesOrNo)
+        let userInfo = UserInfo(completion: completion)
+        let timer = Timer(timeInterval: ti, target: self, selector: Inner.ExecuteCompletionHandler, userInfo: userInfo, repeats: yesOrNo)
+
         return timer
     }
 
@@ -42,15 +44,24 @@ public extension Timer
 
     static func rxm_executeCompletionHandler(_ timer: Timer)
     {
-        if let userInfo = timer.userInfo {
-            let completionHandler = unsafeBitCast(userInfo as AnyObject, to: TimerCompletionHandler.self)
-            completionHandler(timer)
+        if let userInfo = (timer.userInfo as? UserInfo) {
+            userInfo.completion(timer)
         }
     }
 
 // MARK: - Inner Types
 
     public typealias TimerCompletionHandler = (@convention(block) (_ timer: Timer) -> Void)
+
+    private struct UserInfo {
+        let completion: TimerCompletionHandler
+    }
+
+// MARK: - Constants
+
+    private struct Inner {
+        static let ExecuteCompletionHandler = #selector(Timer.rxm_executeCompletionHandler(_:))
+    }
 
 }
 
