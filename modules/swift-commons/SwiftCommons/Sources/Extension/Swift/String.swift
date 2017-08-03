@@ -42,16 +42,16 @@ public extension String
 // MARK: - Methods
 
     /// Returns a localized string.
-    func localized(tableName tn: String? = nil, bundle bn: NSBundle? = nil, value vl: String? = nil, comment cm: String? = nil) -> String {
-        return NSLocalizedString(self, tableName: tn, bundle: bn ?? NSBundle.mainBundle(), value: vl ?? "", comment: cm ?? "")
+    func localized(tableName tn: String? = nil, bundle bn: Bundle? = nil, value vl: String? = nil, comment cm: String? = nil) -> String {
+        return NSLocalizedString(self, tableName: tn, bundle: bn ?? Bundle.main, value: vl ?? "", comment: cm ?? "")
     }
 
 // MARK: -
 
-    func escapeString(encoding: UInt = NSUTF8StringEncoding) -> String {
+    func escapeString(encoding: UInt = String.Encoding.utf8.rawValue) -> String {
         return CFURLCreateStringByAddingPercentEscapes(
                 kCFAllocatorDefault,
-                self,
+                self as CFString!,
                 CharacterSet.ToLeaveUnescaped,
                 CharacterSet.ToBeEscaped,
                 CFStringConvertNSStringEncodingToEncoding(encoding)
@@ -59,15 +59,15 @@ public extension String
     }
 
     func substringFrom(index idx: Int) -> String {
-        return self.substringFromIndex(self.startIndex.advancedBy(idx))
+        return self.substring(from: self.index(self.startIndex, offsetBy: idx))
     }
 
     func substringUpto(index idx: Int) -> String {
-        return self.substringToIndex(self.startIndex.advancedBy(idx))
+        return self.substring(to: self.index(self.startIndex, offsetBy: idx))
     }
 
     func substring(range rng: Range<Int>) -> String {
-        return self.substringWithRange(self.startIndex.advancedBy(rng.startIndex) ..< self.startIndex.advancedBy(rng.endIndex))
+        return self.substring(with: self.index(self.startIndex, offsetBy: rng.lowerBound) ..< self.index(self.startIndex, offsetBy: rng.upperBound))
     }
 
 // MARK: -
@@ -91,8 +91,8 @@ public extension String
 
     private struct CharacterSet
     {
-        private static let ToBeEscaped = ":/?&=;+!@#$()',*"
-        private static let ToLeaveUnescaped = "[]."
+        fileprivate static let ToBeEscaped: NSString = ":/?&=;+!@#$()',*"
+        fileprivate static let ToLeaveUnescaped: NSString = "[]."
     }
 }
 

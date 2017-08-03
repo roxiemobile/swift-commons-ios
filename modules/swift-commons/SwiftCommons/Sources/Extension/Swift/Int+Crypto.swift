@@ -34,11 +34,11 @@ public extension Int
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    func bytes(totalBytes: Int = sizeof(Int)) -> [UInt8] {
+    func bytes(_ totalBytes: Int = MemoryLayout<Int>.size) -> [UInt8] {
         return arrayOfBytes(self, length: totalBytes)
     }
 
-    static func withBytes(bytes: ArraySlice<UInt8>) -> Int {
+    static func withBytes(_ bytes: ArraySlice<UInt8>) -> Int {
         return Int.withBytes(Array(bytes))
     }
 
@@ -48,7 +48,7 @@ public extension Int
      * @note Copy from CryptoSwift
      * @link https://github.com/krzyzanowskim/CryptoSwift
      */
-    static func withBytes(bytes: [UInt8]) -> Int {
+    static func withBytes(_ bytes: [UInt8]) -> Int {
         return integerWithBytes(bytes)
     }
 
@@ -150,23 +150,23 @@ public extension UInt64
  * @note Copy from CryptoSwift
  * @link https://github.com/krzyzanowskim/CryptoSwift
  */
-private func integerWithBytes<T: IntegerType>(bytes: [UInt8]) -> T
+func integerWithBytes<T: Integer>(_ bytes: [UInt8]) -> T
 {
-    let totalBytes = Swift.min(bytes.count, sizeof(T))
+    let totalBytes = Swift.min(bytes.count, MemoryLayout<T>.size)
 
     // Get slice of Int
-    let start = Swift.max(bytes.count - sizeof(T),0)
+    let start = Swift.max(bytes.count - MemoryLayout<T>.size,0)
     var intarr = [UInt8](bytes[start..<(start + totalBytes)])
     
     // Pad size if necessary
-    while (intarr.count < sizeof(T)) {
-        intarr.insert(0 as UInt8, atIndex: 0)
+    while (intarr.count < MemoryLayout<T>.size) {
+        intarr.insert(0 as UInt8, at: 0)
     }
-    intarr = Array(intarr.reverse())
+    intarr = Array(intarr.reversed())
     
     var i:T = 0
     let data = NSData(bytes: intarr, length: intarr.count)
-    data.getBytes(&i, length: sizeofValue(i));
+    data.getBytes(&i, length: MemoryLayout.size(ofValue: i));
     return i
 }
 
@@ -176,22 +176,20 @@ private func integerWithBytes<T: IntegerType>(bytes: [UInt8]) -> T
  * @note Copy from CryptoSwift
  * @link https://github.com/krzyzanowskim/CryptoSwift
  */
-private func arrayOfBytes<T>(value:T, length:Int? = nil) -> [UInt8]
+func arrayOfBytes<T>(_ value:T, length totalBytes:Int = MemoryLayout<T>.size) -> [UInt8]
 {
-    let totalBytes = length ?? sizeof(T)
-    
-    let valuePointer = UnsafeMutablePointer<T>.alloc(1)
-    valuePointer.memory = value
-    
-    let bytesPointer = UnsafeMutablePointer<UInt8>(valuePointer)
-    var bytes = [UInt8](count: totalBytes, repeatedValue: 0)
-    for j in 0..<min(sizeof(T),totalBytes) {
-        bytes[totalBytes - 1 - j] = (bytesPointer + j).memory
+    let valuePointer = UnsafeMutablePointer<T>.allocate(capacity: 1)
+    valuePointer.pointee = value
+
+    let bytesPointer = UnsafeMutablePointer<UInt8>(OpaquePointer(valuePointer))
+    var bytes = Array<UInt8>(repeating: 0, count: totalBytes)
+    for j in 0 ..< min(MemoryLayout<T>.size, totalBytes) {
+        bytes[totalBytes - 1 - j] = (bytesPointer + j).pointee
     }
-    
-    valuePointer.destroy()
-    valuePointer.dealloc(1)
-    
+
+    valuePointer.deinitialize()
+    valuePointer.deallocate(capacity: 1)
+
     return bytes
 }
 
@@ -200,12 +198,12 @@ private func arrayOfBytes<T>(value:T, length:Int? = nil) -> [UInt8]
 // How to create a generic integer-to-hex function for all Integer types?
 // @link http://stackoverflow.com/a/27646748
 
-private func hexString<T: SignedIntegerType>(v: T) -> String
+private func hexString<T: SignedInteger>(_ v: T) -> String
 {
     var s = ""
     var i = v.toIntMax()
 
-    for _ in 0 ..< (sizeof(T) * 2) {
+    for _ in 0 ..< (MemoryLayout<T>.size * 2) {
         s = String(format: "%x", i & 0xF) + s
         i = i >> 4
     }
@@ -213,12 +211,12 @@ private func hexString<T: SignedIntegerType>(v: T) -> String
     return s
 }
 
-private func hexString<T: UnsignedIntegerType>(v: T) -> String
+private func hexString<T: UnsignedInteger>(_ v: T) -> String
 {
     var s = ""
     var i = v.toUIntMax()
 
-    for _ in 0 ..< (sizeof(T) * 2) {
+    for _ in 0 ..< (MemoryLayout<T>.size * 2) {
         s = String(format: "%x", i & 0xF) + s
         i = i >> 4
     }

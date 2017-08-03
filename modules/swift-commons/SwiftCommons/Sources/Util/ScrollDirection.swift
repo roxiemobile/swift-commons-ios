@@ -20,7 +20,7 @@ public enum ScrollDirection
 {
 // MARK: - Construction
 
-    case None, Right, Left, Up, Down, Crazy
+    case none, right, left, up, down, crazy
 }
 
 // ----------------------------------------------------------------------------

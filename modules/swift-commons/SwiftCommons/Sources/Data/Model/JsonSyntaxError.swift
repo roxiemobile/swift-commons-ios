@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public class JsonSyntaxError: ErrorType
+public class JsonSyntaxError: Error
 {
 // MARK: - Construction
 

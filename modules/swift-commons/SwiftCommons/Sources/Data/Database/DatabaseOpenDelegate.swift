@@ -20,7 +20,7 @@ public protocol DatabaseOpenDelegate
      * @return  Path of the database template file to use to copy the database
      *          or NIL to create the empty database file.
      */
-    func databaseWillCreate(name: String?) -> (assetPath: NSURL?, encryptionKey: NSData?)
+    func databaseWillCreate(name: String?) -> (assetPath: URL?, encryptionKey: Data?)
 
     /**
      * Called when the database connection is being configured, to enable features

@@ -18,7 +18,7 @@ final class RequireTests: XCTestCase
 {
 // MARK: - Private Methods
 
-    private func requireThrowsException(method: String, errorType: NSException.Type = RequirementException.self, line: UInt = #line, block: () -> ()) {
+    fileprivate func requireThrowsException(_ method: String, errorType: NSException.Type = RequirementException.self, line: UInt = #line, block: @escaping () -> ()) {
         var cause: NSException? = nil
 
         Try {
@@ -29,7 +29,7 @@ final class RequireTests: XCTestCase
 
         if let exc = cause
         {
-            if exc.dynamicType == errorType {
+            if type(of: exc) == errorType {
                 // Do nothing
             }
             else {
@@ -41,7 +41,7 @@ final class RequireTests: XCTestCase
         }
     }
 
-    private func requireNotThrowsException(method: String, errorType: NSException.Type = RequirementException.self, line: UInt = #line, block: () -> ()) {
+    fileprivate func requireNotThrowsException(_ method: String, errorType: NSException.Type = RequirementException.self, line: UInt = #line, block: @escaping () -> ()) {
         var cause: NSException? = nil
 
         Try {
@@ -52,7 +52,7 @@ final class RequireTests: XCTestCase
 
         if let exc = cause
         {
-            if exc.dynamicType == errorType {
+            if type(of: exc) == errorType {
                 XCTFail("Line: \(line) - \(method): Method thrown an exception")
             }
             else {

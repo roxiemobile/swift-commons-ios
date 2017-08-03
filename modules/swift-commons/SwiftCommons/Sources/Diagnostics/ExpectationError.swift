@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 
 /// Thrown to indicate that an expectation has failed.
-public class ExpectationError: ErrorType, CustomStringConvertible
+public class ExpectationError: Error, CustomStringConvertible
 {
 // MARK: - Construction
 
@@ -34,7 +34,7 @@ public class ExpectationError: ErrorType, CustomStringConvertible
     public var description: String {
         var errorMessage = typeName(self)
 
-        if let reason = self.message?.trim() where reason.isNotEmpty {
+        if let reason = self.message?.trim(), reason.isNotEmpty {
             errorMessage += " with reason: \(reason)"
         }
         return errorMessage

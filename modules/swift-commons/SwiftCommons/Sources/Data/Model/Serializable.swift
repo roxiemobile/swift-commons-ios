@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class Serializable: MDCoding
+open class Serializable: MDCoding
 {
 // MARK: - Construction
 
@@ -28,11 +28,11 @@ public class Serializable: MDCoding
 
 // MARK: - Methods
 
-    public func encode(coder encoder: NSCoder) -> Bool {
+    @discardableResult public func encode(coder encoder: NSCoder) -> Bool {
         return true
     }
 
-    public func decode(coder decoder: NSCoder) -> Bool {
+    @discardableResult public func decode(coder decoder: NSCoder) -> Bool {
         return true
     }
 }
@@ -46,14 +46,14 @@ extension Serializable
 // MARK: - Methods: Archiving
 
     @objc public var classForCoder: AnyClass {
-        return self.dynamicType
+        return type(of: self)
     }
 
-    @objc public func replacementObjectForCoder(aCoder: NSCoder) -> AnyObject? {
+    @objc public func replacementObjectForCoder(_ aCoder: NSCoder) -> AnyObject? {
         return self
     }
 
-    @objc public func awakeAfterUsingCoder(aDecoder: NSCoder) -> AnyObject? {
+    @objc public func awakeAfterUsingCoder(_ aDecoder: NSCoder) -> AnyObject? {
         return self
     }
 
@@ -68,7 +68,7 @@ extension Serializable
 // --
 
     @objc public var classForKeyedArchiver: AnyClass {
-        return self.dynamicType
+        return type(of: self)
     }
 
     @objc public func replacementObjectForKeyedArchiver(archiver: NSKeyedArchiver) -> AnyObject? {
@@ -98,7 +98,7 @@ extension Serializable
 {
 // MARK: - Methods
 
-    @objc public func encodeWithCoder(aCoder: NSCoder) {
+    @objc public func encodeWithCoder(_ aCoder: NSCoder) {
         encode(coder: aCoder)
     }
 }

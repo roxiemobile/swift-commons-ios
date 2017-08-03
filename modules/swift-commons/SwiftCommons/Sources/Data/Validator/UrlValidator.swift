@@ -20,7 +20,7 @@ public final class UrlValidator: NonCreatable, StaticValidator
 {
 // MARK: - Methods
 
-    public class func isValid(value: AnyObject?) -> Bool {
+    public class func isValid(_ value: Any?) -> Bool {
         var result = false
 
         // Validate incoming value
@@ -29,7 +29,7 @@ public final class UrlValidator: NonCreatable, StaticValidator
             if let value = value as? String {
                 result = validator.isValid(value)
             }
-            else if let value = value as? NSURL {
+            else if let value = value as? URL {
                 result = validator.isValid(value.absoluteString)
             }
         }
