@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-void tryCatchFinally(void(^tryBlock)(), void(^catchBlock)(NSException *e), void(^finallyBlock)());
+void tryCatchFinally(void( ^ _Nonnull tryBlock)(), void(^ _Nonnull catchBlock)(NSException * _Nonnull e), void(^ _Nonnull finallyBlock)());

@@ -472,7 +472,8 @@ size_t rxm_strlen(const char *str) {
     NSUInteger objectIndex = [self _archiveIndexOfObject:object];
     if (object == nil)
     {
-        [self writeTag:_C_ID | REFERENCE];
+        LFTagType tag = _C_ID;
+        [self writeTag:tag | REFERENCE];
         [self writeUnsignedInteger:objectIndex];
         return;
     }

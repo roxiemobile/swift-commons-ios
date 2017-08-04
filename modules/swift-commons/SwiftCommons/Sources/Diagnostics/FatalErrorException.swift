@@ -17,7 +17,7 @@ public class FatalErrorException: NSException
 // MARK: - Constants
 
     public init(reason aReason: String?, userInfo aUserInfo: [NSObject: AnyObject]?) {
-        super.init(name: FatalError.Domain, reason: aReason, userInfo: aUserInfo)
+        super.init(name: NSExceptionName(rawValue: FatalError.Domain), reason: aReason, userInfo: aUserInfo)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -35,7 +35,7 @@ public class FatalErrorException: NSException
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-@noreturn public func rxm_fatalError(message: String, file: StaticString = #file, line: UInt = #line)
+public func rxm_fatalError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
 {
 #if DEBUG
     preconditionFailure(message)
@@ -49,7 +49,7 @@ public class FatalErrorException: NSException
 
 // ----------------------------------------------------------------------------
 
-@noreturn public func rxm_fatalError(message: String, error: NSError?, file: StaticString = #file, line: UInt = #line)
+public func rxm_fatalError(message: String, error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never
 {
     var logMessage = message
 
@@ -62,18 +62,18 @@ public class FatalErrorException: NSException
 
         logMessage += "\(err.domain)(code: \(err.code))"
 
-        if let message = error?.localizedDescription.trim() where !message.isEmpty {
+        if let message = error?.localizedDescription.trim(), !message.isEmpty {
             logMessage += " with reason: \(message)"
         }
     }
 
     // Terminate application with runtime exception
-    rxm_fatalError(logMessage, file: file, line: line)
+    rxm_fatalError(message: logMessage, file: file, line: line)
 }
 
 // ----------------------------------------------------------------------------
 
-@noreturn public func rxm_fatalError(message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line)
+public func rxm_fatalError(message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never
 {
     var logMessage = message
 
@@ -86,11 +86,11 @@ public class FatalErrorException: NSException
 
         logMessage += "\(exc.name)"
 
-        if let message = exc.reason?.trim() where !message.isEmpty {
+        if let message = exc.reason?.trim(), !message.isEmpty {
             logMessage += " with reason: \(message)"
         }
 
-        if let stackTrace = exception?.callStackSymbols where !stackTrace.isEmpty {
+        if let stackTrace = exception?.callStackSymbols, !stackTrace.isEmpty {
             logMessage += "\nStack trace:"
 
             for line in stackTrace {
@@ -100,7 +100,22 @@ public class FatalErrorException: NSException
     }
 
     // Terminate application with runtime exception
-    rxm_fatalError(logMessage, file: file, line: line)
+    rxm_fatalError(message: logMessage, file: file, line: line)
+}
+
+// ----------------------------------------------------------------------------
+
+public func rxm_fatalError(message: String, error: Error?, file: StaticString = #file, line: UInt = #line)
+{
+    var logMessage = message
+
+    // Add error description
+    if let err = error {
+        logMessage += "\nCaused by error: " + String(describing: err).trim()
+    }
+
+    // Terminate application with runtime exception
+    rxm_fatalError(message: logMessage, file: file, line: line)
 }
 
 // ----------------------------------------------------------------------------

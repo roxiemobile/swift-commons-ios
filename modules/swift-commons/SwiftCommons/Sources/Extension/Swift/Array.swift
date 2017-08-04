@@ -31,7 +31,7 @@ public extension Array
      * @note Copy from ExSwift
      * @link https://github.com/pNre/ExSwift
      */
-    func all(test: (Element) -> Bool) -> Bool
+    func all(_ test: (Element) -> Bool) -> Bool
     {
         for item in self {
             if !test(item) {
@@ -51,7 +51,7 @@ public extension Array
      * @note Copy from ExSwift
      * @link https://github.com/pNre/ExSwift
      */
-    func any(test: (Element) -> Bool) -> Bool
+    func any(_ test: (Element) -> Bool) -> Bool
     {
         for item in self {
             if test(item) {
@@ -71,8 +71,11 @@ public extension Array
      * @note Copy from ExSwift
      * @link https://github.com/pNre/ExSwift
      */
-    func contains <T: Equatable> (items: T...) -> Bool {
-        return items.all { self.indexOf($0) >= 0 }
+    func contains <T: Equatable> (_ items: T...) -> Bool
+    {
+        return items.all {
+            return (self.indexOf($0) != nil) && self.indexOf($0)! >= 0
+        }
     }
 
     /**
@@ -83,7 +86,7 @@ public extension Array
      * @note Copy from ExSwift
      * @link https://github.com/pNre/ExSwift
      */
-    func each(closure: (Element) -> ())
+    func each(_ closure: (Element) -> ())
     {
         for item in self {
             closure(item)
@@ -98,9 +101,9 @@ public extension Array
      * @note Copy from ExSwift
      * @link https://github.com/pNre/ExSwift
      */
-    func each(closure: (Int, Element) -> ())
+    func each(_ closure: (Int, Element) -> ())
     {
-        for (index, item) in self.enumerate() {
+        for (index, item) in self.enumerated() {
             closure(index, item)
         }
     }
@@ -114,10 +117,10 @@ public extension Array
      * @note Copy from ExSwift
      * @link https://github.com/pNre/ExSwift
      */
-    func indexOf <U: Equatable> (item: U) -> Int?
+    func indexOf <U: Equatable> (_ item: U) -> Int?
     {
         if item is Element {
-            return unsafeBitCast(self, [U].self).indexOf(item)
+            return unsafeBitCast(self, to: [U].self).indexOf(item)
         }
 
         return nil
@@ -151,7 +154,7 @@ public extension Array
      * - parameter condition: A function which returns a boolean if an element satisfies a given condition or not.
      * - returns: First matched item or nil
      */
-    func find(condition: (Element -> Bool)) -> Element? {
+    func find(_ condition: ((Element) -> Bool)) -> Element? {
         return takeFirst(condition)
     }
     
@@ -161,7 +164,7 @@ public extension Array
      * - parameter condition: A function which returns a boolean if an element satisfies a given condition or not.
      * - returns: The first element in the array to meet the condition
      */
-    func takeFirst(condition: (Element -> Bool)) -> Element?
+    func takeFirst(_ condition: ((Element) -> Bool)) -> Element?
     {
         for value in self {
             if condition(value) {
@@ -177,10 +180,10 @@ public extension Array
      *
      * - parameter condition: A function which returns a boolean if an element satisfies a given condition or not.
      */
-    mutating func remove(condition: (Element -> Bool)) {
+    mutating func remove(_ condition: ((Element) -> Bool)) {
         let anotherSelf = self
         
-        removeAll(keepCapacity: true)
+        removeAll(keepingCapacity: true)
         
         anotherSelf.each {
             (index: Int, current: Element) in

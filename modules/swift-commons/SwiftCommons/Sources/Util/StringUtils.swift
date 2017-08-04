@@ -25,7 +25,7 @@ public final class StringUtils: NonCreatable
     /// @param value The String to check, may be nil
     /// @return {@code true} if the String is empty or nil
     ///
-    public static func isEmpty(value: String?) -> Bool {
+    public static func isEmpty(_ value: String?) -> Bool {
         return (value == nil) || value!.isEmpty
     }
 
@@ -46,11 +46,11 @@ public final class StringUtils: NonCreatable
     /// @param values The Strings to check, may be nil or empty
     /// @return {@code true} if all of the Strings are empty or nil
     ///
-    public static func isAllEmpty(values: [String]?) -> Bool {
+    public static func isAllEmpty(_ values: [String]?) -> Bool {
         return CollectionUtils.isEmpty(values) || values!.all { isEmpty($0) }
     }
 
-    public static func isAllEmpty(values: [String?]?) -> Bool {
+    public static func isAllEmpty(_ values: [String?]?) -> Bool {
         return CollectionUtils.isEmpty(values) || values!.all { isEmpty($0) }
     }
 
@@ -67,7 +67,7 @@ public final class StringUtils: NonCreatable
     /// @param value The String to check, may be nil
     /// @return {@code true} if the String is not empty and not nil
     ///
-    public static func isNotEmpty(value: String?) -> Bool {
+    public static func isNotEmpty(_ value: String?) -> Bool {
         return !isEmpty(value)
     }
 
@@ -87,11 +87,11 @@ public final class StringUtils: NonCreatable
     /// @param values The Strings to check, may be nil or empty
     /// @return {@code true} if none of the Strings are empty or nil
     ///
-    public static func isAllNotEmpty(values: [String]?) -> Bool {
+    public static func isAllNotEmpty(_ values: [String]?) -> Bool {
         return CollectionUtils.isNotEmpty(values) && values!.all { isNotEmpty($0) }
     }
 
-    public static func isAllNotEmpty(values: [String?]?) -> Bool {
+    public static func isAllNotEmpty(_ values: [String?]?) -> Bool {
         return CollectionUtils.isNotEmpty(values) && values!.all { isNotEmpty($0) }
     }
 
@@ -110,7 +110,7 @@ public final class StringUtils: NonCreatable
     /// @param value The String to check, may be nil
     /// @return {@code true} if the String is nil, empty or whitespace only
     ///
-    public static func isBlank(value: String?) -> Bool {
+    public static func isBlank(_ value: String?) -> Bool {
         return (value == nil) || strip(value!).isEmpty
     }
 
@@ -131,11 +131,11 @@ public final class StringUtils: NonCreatable
     /// @param values The Strings to check, may be nil or empty
     /// @return {@code true} if all of the Strings are empty or nil or whitespace only
     ///
-    public static func isAllBlank(values: [String]?) -> Bool {
+    public static func isAllBlank(_ values: [String]?) -> Bool {
         return CollectionUtils.isEmpty(values) || values!.all { isBlank($0) }
     }
 
-    public static func isAllBlank(values: [String?]?) -> Bool {
+    public static func isAllBlank(_ values: [String?]?) -> Bool {
         return CollectionUtils.isEmpty(values) || values!.all { isBlank($0) }
     }
 
@@ -152,7 +152,7 @@ public final class StringUtils: NonCreatable
     /// @param value The String to check, may be nil
     /// @return {@code true} if the String is not empty and not nil and not whitespace only
     ///
-    public static func isNotBlank(value: String?) -> Bool {
+    public static func isNotBlank(_ value: String?) -> Bool {
         return !isBlank(value)
     }
 
@@ -173,11 +173,11 @@ public final class StringUtils: NonCreatable
     /// @param values The Strings to check, may be nil or empty
     /// @return {@code true} if none of the Strings are empty or nil or whitespace only
     ///
-    public static func isAllNotBlank(values: [String]?) -> Bool {
+    public static func isAllNotBlank(_ values: [String]?) -> Bool {
         return CollectionUtils.isNotEmpty(values) && values!.all { isNotBlank($0) }
     }
 
-    public static func isAllNotBlank(values: [String?]?) -> Bool {
+    public static func isAllNotBlank(_ values: [String?]?) -> Bool {
         return CollectionUtils.isNotEmpty(values) && values!.all { isNotBlank($0) }
     }
 
@@ -207,11 +207,11 @@ public final class StringUtils: NonCreatable
     /// @param stripChars The characters to remove, nil treated as whitespace
     /// @return the stripped String, {@code nil} if nil String input
     ///
-    public static func strip(value: String?, stripChars set: NSCharacterSet? = nil) -> String? {
+    public static func strip(_ value: String?, stripChars set: CharacterSet? = nil) -> String? {
         return stripEnd(stripStart(value, stripChars: set), stripChars: set)
     }
 
-    public static func strip(value: String, stripChars set: NSCharacterSet? = nil) -> String {
+    public static func strip(_ value: String, stripChars set: CharacterSet? = nil) -> String {
         return strip(Optional(value), stripChars: set)!
     }
 
@@ -237,19 +237,19 @@ public final class StringUtils: NonCreatable
     /// @param stripChars The characters to remove, nil treated as whitespace
     /// @return the stripped String, {@code nil} if nil String input
     ///
-    public static func stripStart(value: String?, stripChars: NSCharacterSet? = nil) -> String? {
+    public static func stripStart(_ value: String?, stripChars: CharacterSet? = nil) -> String? {
         if isEmpty(value) { return value }
 
-        let set = stripChars ?? NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        let set = stripChars ?? CharacterSet.whitespacesAndNewlines
         var result = ""
 
-        if let range = value?.rangeOfCharacterFromSet(set.invertedSet) {
-            result = value!.substringFromIndex(range.startIndex)
+        if let range = value?.rangeOfCharacter(from: set.inverted) {
+            result = value!.substring(from: range.lowerBound)
         }
         return result
     }
 
-    public static func stripStart(value: String, stripChars set: NSCharacterSet? = nil) -> String {
+    public static func stripStart(_ value: String, stripChars set: CharacterSet? = nil) -> String {
         return stripStart(Optional(value), stripChars: set)!
     }
 
@@ -276,31 +276,34 @@ public final class StringUtils: NonCreatable
     /// @param stripChars The set of characters to remove, nil treated as whitespace
     /// @return the stripped String, {@code nil} if nil String input
     ///
-    public static func stripEnd(value: String?, stripChars: NSCharacterSet? = nil) -> String? {
+    public static func stripEnd(_ value: String?, stripChars: CharacterSet? = nil) -> String? {
         if isEmpty(value) { return value }
 
-        let set = stripChars ?? NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        let set = stripChars ?? CharacterSet.whitespacesAndNewlines
+
         var result = ""
 
-        if let range = value?.rangeOfCharacterFromSet(set.invertedSet, options: NSStringCompareOptions.BackwardsSearch) {
-            result = value!.substringToIndex(range.endIndex)
+        if let range = value?.rangeOfCharacter(from: set.inverted, options: NSString.CompareOptions.backwards)
+        {
+            result = value!.substring(to: range.upperBound)
         }
+
         return result
     }
 
-    public static func stripEnd(value: String, stripChars set: NSCharacterSet? = nil) -> String {
+    public static func stripEnd(_ value: String, stripChars set: CharacterSet? = nil) -> String {
         return stripEnd(Optional(value), stripChars: set)!
     }
 
 // MARK: -
 
     /// Returns the given string if it is nonempty; {@code nil} otherwise.
-    public static func emptyToNil(value: String?) -> String? {
+    public static func emptyToNil(_ value: String?) -> String? {
         return isEmpty(value) ? nil : value
     }
 
     /// Returns the given string if it is non {@code nil}; the empty string otherwise.
-    public static func nilToEmpty(value: String?) -> String {
+    public static func nilToEmpty(_ value: String?) -> String {
         return (value == nil) ? "" : value!
     }
 }
