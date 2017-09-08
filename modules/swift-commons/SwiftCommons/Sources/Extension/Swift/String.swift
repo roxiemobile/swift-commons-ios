@@ -61,7 +61,7 @@ public extension String
     func substringFrom(index idx: Int) -> String
     {
         let start = self.index(self.startIndex, offsetBy: idx)
-        return String(self[start..<self.endIndex])
+        return String(self[start...])
     }
 
     func substringUpto(index idx: Int) -> String

@@ -246,7 +246,7 @@ public final class StringUtils: NonCreatable
         if let value = value,
            let range = value.rangeOfCharacter(from: set.inverted)
         {
-            result = String(value[range.lowerBound..<value.endIndex])
+            result = String(value[range.lowerBound...])
         }
 
         return result
