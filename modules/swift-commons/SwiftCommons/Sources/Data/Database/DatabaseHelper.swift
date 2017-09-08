@@ -184,7 +184,7 @@ public class DatabaseHelper
                             }
 
                             var blockException: NSException?
-                            self.runTransaction(database: database, mode: .exclusive, block: { statement in
+                            self.runTransaction(database: database, mode: .exclusive, block: {
                                 var result: TransactionResult!
                                 var exception: NSException?
                                 

@@ -77,7 +77,7 @@ extension Dictionary
                 result[element.key] = element.value
             }
         }
-        
+
         return result
     }
 

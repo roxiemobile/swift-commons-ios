@@ -243,9 +243,12 @@ public final class StringUtils: NonCreatable
         let set = stripChars ?? CharacterSet.whitespacesAndNewlines
         var result = ""
 
-        if let range = value?.rangeOfCharacter(from: set.inverted) {
-            result = value!.substring(from: range.lowerBound)
+        if let value = value,
+           let range = value.rangeOfCharacter(from: set.inverted)
+        {
+            result = String(value[range.lowerBound..<value.endIndex])
         }
+
         return result
     }
 
@@ -283,9 +286,10 @@ public final class StringUtils: NonCreatable
 
         var result = ""
 
-        if let range = value?.rangeOfCharacter(from: set.inverted, options: NSString.CompareOptions.backwards)
+        if let value = value,
+           let range = value.rangeOfCharacter(from: set.inverted, options: NSString.CompareOptions.backwards)
         {
-            result = value!.substring(to: range.upperBound)
+            result = String(value[..<range.upperBound])
         }
 
         return result

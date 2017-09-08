@@ -42,7 +42,7 @@ public extension Timer
 
 // MARK: - Methods
 
-    static func rxm_executeCompletionHandler(_ timer: Timer)
+    @objc static func rxm_executeCompletionHandler(_ timer: Timer)
     {
         if let userInfo = (timer.userInfo as? UserInfo) {
             userInfo.completion(timer)
