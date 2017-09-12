@@ -439,7 +439,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C6C66FAC30098698322301C /* Pods-SwiftCommonsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = SwiftCommonsTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ekassir.mobilebank.$(PRODUCT_NAME:rfc1034identifier)";
@@ -453,7 +453,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5338A390556D38DC915BEA8 /* Pods-SwiftCommonsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = SwiftCommonsTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ekassir.mobilebank.$(PRODUCT_NAME:rfc1034identifier)";

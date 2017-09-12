@@ -88,12 +88,12 @@ extension Dictionary
 // ----------------------------------------------------------------------------
 
 /// Union operator.
-public func + <K:Hashable, V> (first: [K:V], second: [K:V]) -> [K:V] {
+public func + <K, V> (first: [K:V], second: [K:V]) -> [K:V] {
     return [K: V]().union(first, second)
 }
 
 /// Union with assignment operator.
-@discardableResult public func += <K:Hashable, V> (left: inout [K:V], right: [K:V]) -> [K:V]
+@discardableResult public func += <K, V> (left: inout [K:V], right: [K:V]) -> [K:V]
 {
     for (key, value) in right {
         left.updateValue(value, forKey: key)
