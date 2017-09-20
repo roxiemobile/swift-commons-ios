@@ -150,7 +150,7 @@ public extension UInt64
  * @note Copy from CryptoSwift
  * @link https://github.com/krzyzanowskim/CryptoSwift
  */
-func integerWithBytes<T: Integer>(_ bytes: [UInt8]) -> T
+func integerWithBytes<T: BinaryInteger>(_ bytes: [UInt8]) -> T
 {
     let totalBytes = Swift.min(bytes.count, MemoryLayout<T>.size)
 
@@ -201,7 +201,7 @@ func arrayOfBytes<T>(_ value:T, length totalBytes:Int = MemoryLayout<T>.size) ->
 private func hexString<T: SignedInteger>(_ v: T) -> String
 {
     var s = ""
-    var i = v.toIntMax()
+    var i = Int64(v)
 
     for _ in 0 ..< (MemoryLayout<T>.size * 2) {
         s = String(format: "%x", i & 0xF) + s
@@ -214,7 +214,7 @@ private func hexString<T: SignedInteger>(_ v: T) -> String
 private func hexString<T: UnsignedInteger>(_ v: T) -> String
 {
     var s = ""
-    var i = v.toUIntMax()
+    var i = UInt64(v)
 
     for _ in 0 ..< (MemoryLayout<T>.size * 2) {
         s = String(format: "%x", i & 0xF) + s

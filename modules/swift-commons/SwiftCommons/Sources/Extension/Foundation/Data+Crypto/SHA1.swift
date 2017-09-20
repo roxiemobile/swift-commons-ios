@@ -37,7 +37,9 @@ public final class SHA1: DigestType {
                 M[x] = UInt32(bytes: chunk, fromIndex: start)
                 break
             default:
-                M[x] = rotateLeft(M[x - 3] ^ M[x - 8] ^ M[x - 14] ^ M[x - 16], by: 1)
+                M[x] = M[x - 3] ^ M[x - 8]
+                M[x] = M[x] ^ M[x - 14] ^ M[x - 16]
+                M[x] = rotateLeft(M[x], by: 1)
                 break
             }
         }

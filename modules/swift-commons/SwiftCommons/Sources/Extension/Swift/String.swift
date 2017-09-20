@@ -58,16 +58,23 @@ public extension String
         ) as String
     }
 
-    func substringFrom(index idx: Int) -> String {
-        return self.substring(from: self.index(self.startIndex, offsetBy: idx))
+    func substringFrom(index idx: Int) -> String
+    {
+        let start = self.index(self.startIndex, offsetBy: idx)
+        return String(self[start...])
     }
 
-    func substringUpto(index idx: Int) -> String {
-        return self.substring(to: self.index(self.startIndex, offsetBy: idx))
+    func substringUpto(index idx: Int) -> String
+    {
+        let end = self.index(self.startIndex, offsetBy: idx)
+        return String(self[self.startIndex..<end])
     }
 
     func substring(range rng: Range<Int>) -> String {
-        return self.substring(with: self.index(self.startIndex, offsetBy: rng.lowerBound) ..< self.index(self.startIndex, offsetBy: rng.upperBound))
+        let start = self.index(self.startIndex, offsetBy: rng.lowerBound)
+        let end = self.index(self.startIndex, offsetBy: rng.upperBound)
+
+        return String(self[start..<end])
     }
 
 // MARK: -
