@@ -12,7 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-struct Dummy {
+struct Dummy
+{
     static func sayHello() {
         print("Hello from Dummy!")
     }
