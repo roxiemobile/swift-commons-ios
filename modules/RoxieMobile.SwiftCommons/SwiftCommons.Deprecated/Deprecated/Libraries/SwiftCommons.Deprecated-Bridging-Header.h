@@ -18,19 +18,18 @@
 //
 // ----------------------------------------------------------------------------
 
+#import <SQLCipher/sqlite3.h>
+
 // FIXME: Uncomment!
 //#import <SwiftCommons/StreamTypedCoder.h>
 //#import <SwiftCommons/TryCatchFinally.h>
 //#import <SwiftCommons/zlib.h>
 //#import <SwiftCommons/SSZipArchive.h>
 //#import <SwiftCommons/SQLite-Bridging.h>
-//#import <SwiftCommons/sqlite3.h>
 
 #import "StreamTypedCoder.h"
 #import "TryCatchFinally.h"
-#import "zlib.h"
 #import "SSZipArchive.h"
 #import "SQLite-Bridging.h"
-#import "sqlite3.h"
 
 // ----------------------------------------------------------------------------

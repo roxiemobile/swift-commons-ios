@@ -19,4 +19,7 @@
    <FileRef
       location = "group:SwiftCommons.Logging/SwiftCommons.Logging.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../CocoaPods/Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>
