@@ -8,7 +8,13 @@
       location = "group:SwiftCommons.Data/SwiftCommons.Data.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:SwiftCommons.Deprecated/SwiftCommons.Deprecated.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SwiftCommons.Diagnostics/SwiftCommons.Diagnostics.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SwiftCommons.Lang/SwiftCommons.Lang.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:SwiftCommons.Logging/SwiftCommons.Logging.xcodeproj">
