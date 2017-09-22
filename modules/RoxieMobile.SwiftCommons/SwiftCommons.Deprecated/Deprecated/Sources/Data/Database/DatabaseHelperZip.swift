@@ -9,6 +9,7 @@
 // ----------------------------------------------------------------------------
 
 import Foundation
+import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
@@ -40,7 +41,7 @@ public class DatabaseHelperZip: DatabaseHelper
             }
         }
         else {
-            rxm_fatalError(message: "Could not make temporary path for database ‘\(databaseName)’.")
+            roxie_fatalError(message: "Could not make temporary path for database ‘\(databaseName)’.")
         }
 
         return path

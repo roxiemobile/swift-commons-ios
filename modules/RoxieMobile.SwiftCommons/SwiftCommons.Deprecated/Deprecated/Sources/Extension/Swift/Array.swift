@@ -15,12 +15,6 @@
 
 public extension Array
 {
-// MARK: - Properties
-
-    /// Checks if array has elements.
-    @available(*, deprecated)
-    var isNotEmpty: Bool { return !self.isEmpty }
-
 // MARK: - Methods
 
     /**

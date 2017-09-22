@@ -8,6 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
+import SwiftCommonsLang
+
+// ----------------------------------------------------------------------------
+
 /// A set of expectation methods useful for validating objects states. Only failed expectations are recorded.
 /// These methods can be used directly: <code>Expect.isTrue(...)</code>.
 @available(*, deprecated)
@@ -137,7 +141,7 @@ extension Expect
     // TODO
     @available(*, deprecated)
     public static func isEmpty(_ value: String?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
-        try isTrue(StringUtils.isEmpty(value), message, file, line)
+        try isTrue(value.isEmpty, message, file, line)
     }
 
     // TODO
@@ -160,7 +164,7 @@ extension Expect
     // TODO
     @available(*, deprecated)
     public static func isNotEmpty(_ value: String?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
-        try isTrue(StringUtils.isNotEmpty(value), message, file, line)
+        try isTrue(value.isNotEmpty, message, file, line)
     }
 
     // TODO

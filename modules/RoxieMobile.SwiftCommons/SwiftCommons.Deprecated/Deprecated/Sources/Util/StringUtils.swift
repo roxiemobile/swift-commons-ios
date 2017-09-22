@@ -8,28 +8,14 @@
 //
 // ----------------------------------------------------------------------------
 
+import SwiftCommonsLang
+
+// ----------------------------------------------------------------------------
+
 @available(*, deprecated)
 public final class StringUtils: NonCreatable
 {
 // MARK: - Methods
-
-    /// Checks if a String is empty ("") or {@code nil}.
-    ///
-    /// <pre>
-    /// StringUtils.isEmpty(nil)       = true
-    /// StringUtils.isEmpty("")        = true
-    /// StringUtils.isEmpty(" ")       = false
-    /// StringUtils.isEmpty("bob")     = false
-    /// StringUtils.isEmpty("  bob  ") = false
-    /// </pre>
-    ///
-    /// @param value The String to check, may be nil
-    /// @return {@code true} if the String is empty or nil
-    ///
-    @available(*, deprecated)
-    public static func isEmpty(_ value: String?) -> Bool {
-        return (value == nil) || value!.isEmpty
-    }
 
     /// Checks if all of the Strings are empty ("") or {@code nil}.
     ///
@@ -50,30 +36,12 @@ public final class StringUtils: NonCreatable
     ///
     @available(*, deprecated)
     public static func isAllEmpty(_ values: [String]?) -> Bool {
-        return CollectionUtils.isEmpty(values) || values!.all { isEmpty($0) }
+        return CollectionUtils.isEmpty(values) || values!.all { $0.isEmpty }
     }
 
     @available(*, deprecated)
     public static func isAllEmpty(_ values: [String?]?) -> Bool {
-        return CollectionUtils.isEmpty(values) || values!.all { isEmpty($0) }
-    }
-
-    /// Checks if a String is not empty ("") and not {@code nil}.
-    ///
-    /// <pre>
-    /// StringUtils.isNotEmpty(nil)       = false
-    /// StringUtils.isNotEmpty("")        = false
-    /// StringUtils.isNotEmpty(" ")       = true
-    /// StringUtils.isNotEmpty("bob")     = true
-    /// StringUtils.isNotEmpty("  bob  ") = true
-    /// </pre>
-    ///
-    /// @param value The String to check, may be nil
-    /// @return {@code true} if the String is not empty and not nil
-    ///
-    @available(*, deprecated)
-    public static func isNotEmpty(_ value: String?) -> Bool {
-        return !isEmpty(value)
+        return CollectionUtils.isEmpty(values) || values!.all { $0.isEmpty }
     }
 
     /// Checks if none of the Strings are not empty ("") and not {@code nil}.
@@ -94,12 +62,12 @@ public final class StringUtils: NonCreatable
     ///
     @available(*, deprecated)
     public static func isAllNotEmpty(_ values: [String]?) -> Bool {
-        return CollectionUtils.isNotEmpty(values) && values!.all { isNotEmpty($0) }
+        return CollectionUtils.isNotEmpty(values) && values!.all { $0.isNotEmpty }
     }
 
     @available(*, deprecated)
     public static func isAllNotEmpty(_ values: [String?]?) -> Bool {
-        return CollectionUtils.isNotEmpty(values) && values!.all { isNotEmpty($0) }
+        return CollectionUtils.isNotEmpty(values) && values!.all { $0.isNotEmpty }
     }
 
 // MARK: -
@@ -119,7 +87,7 @@ public final class StringUtils: NonCreatable
     ///
     @available(*, deprecated)
     public static func isBlank(_ value: String?) -> Bool {
-        return (value == nil) || strip(value!).isEmpty
+        return (value == nil) || value!.trim().isEmpty
     }
 
     /// Checks if all of the Strings are empty (""), {@code nil} or whitespace only.
@@ -196,133 +164,10 @@ public final class StringUtils: NonCreatable
 
 // MARK: -
 
-    /// Strips any of a set of characters from the start and end of a String.
-    /// This is similar to {@link String#trim()} but allows the characters
-    /// to be stripped to be controlled.
-    ///
-    /// A {@code nil} input String returns {@code nil}. An empty string ("") input
-    /// returns the empty string.
-    ///
-    /// If the stripChars String is {@code nil}, whitespace is stripped.
-    ///
-    /// <pre>
-    /// StringUtils.strip(nil, *)           = nil
-    /// StringUtils.strip("", *)            = ""
-    /// StringUtils.strip("   ", nil)       = ""
-    /// StringUtils.strip("abc", nil)       = "abc"
-    /// StringUtils.strip("  abc", nil)     = "abc"
-    /// StringUtils.strip("abc  ", nil)     = "abc"
-    /// StringUtils.strip(" abc ", nil)     = "abc"
-    /// StringUtils.strip("  abcyx", "xyz") = "  abc"
-    /// </pre>
-    ///
-    /// @param value      The String to remove characters from, may be nil
-    /// @param stripChars The characters to remove, nil treated as whitespace
-    /// @return the stripped String, {@code nil} if nil String input
-    ///
-    @available(*, deprecated)
-    public static func strip(_ value: String?, stripChars set: CharacterSet? = nil) -> String? {
-        return stripEnd(stripStart(value, stripChars: set), stripChars: set)
-    }
-
-    @available(*, deprecated)
-    public static func strip(_ value: String, stripChars set: CharacterSet? = nil) -> String {
-        return strip(Optional(value), stripChars: set)!
-    }
-
-    /// Strips any of a set of characters from the start of a String.
-    ///
-    /// A {@code nil} input String returns {@code nil}. An empty string ("") input
-    /// returns the empty string.
-    ///
-    /// If the stripChars String is {@code nil}, whitespace is stripped.
-    ///
-    /// <pre>
-    /// StringUtils.stripStart(nil, *)           = nil
-    /// StringUtils.stripStart("", *)            = ""
-    /// StringUtils.stripStart("abc", "")        = "abc"
-    /// StringUtils.stripStart("abc", nil)       = "abc"
-    /// StringUtils.stripStart("  abc", nil)     = "abc"
-    /// StringUtils.stripStart("abc  ", nil)     = "abc  "
-    /// StringUtils.stripStart(" abc ", nil)     = "abc "
-    /// StringUtils.stripStart("yxabc  ", "xyz") = "abc  "
-    /// </pre>
-    ///
-    /// @param value      The String to remove characters from, may be nil
-    /// @param stripChars The characters to remove, nil treated as whitespace
-    /// @return the stripped String, {@code nil} if nil String input
-    ///
-    @available(*, deprecated)
-    public static func stripStart(_ value: String?, stripChars: CharacterSet? = nil) -> String? {
-        if isEmpty(value) { return value }
-
-        let set = stripChars ?? CharacterSet.whitespacesAndNewlines
-        var result = ""
-
-        if let value = value,
-           let range = value.rangeOfCharacter(from: set.inverted)
-        {
-            result = String(value[range.lowerBound...])
-        }
-
-        return result
-    }
-
-    @available(*, deprecated)
-    public static func stripStart(_ value: String, stripChars set: CharacterSet? = nil) -> String {
-        return stripStart(Optional(value), stripChars: set)!
-    }
-
-    /// Strips any of a set of characters from the end of a String.
-    ///
-    /// A {@code nil} input String returns {@code nil}. An empty string ("") input
-    /// returns the empty string.
-    ///
-    /// If the stripChars String is {@code nil}, whitespace is stripped.
-    ///
-    /// <pre>
-    /// StringUtils.stripEnd(nil, *)           = nil
-    /// StringUtils.stripEnd("", *)            = ""
-    /// StringUtils.stripEnd("abc", "")        = "abc"
-    /// StringUtils.stripEnd("abc", nil)       = "abc"
-    /// StringUtils.stripEnd("  abc", nil)     = "  abc"
-    /// StringUtils.stripEnd("abc  ", nil)     = "abc"
-    /// StringUtils.stripEnd(" abc ", nil)     = " abc"
-    /// StringUtils.stripEnd("  abcyx", "xyz") = "  abc"
-    /// StringUtils.stripEnd("120.00", ".0")   = "12"
-    /// </pre>
-    ///
-    /// @param value      The String to remove characters from, may be nil
-    /// @param stripChars The set of characters to remove, nil treated as whitespace
-    /// @return the stripped String, {@code nil} if nil String input
-    ///
-    @available(*, deprecated)
-    public static func stripEnd(_ value: String?, stripChars: CharacterSet? = nil) -> String? {
-        if isEmpty(value) { return value }
-
-        let set = stripChars ?? CharacterSet.whitespacesAndNewlines
-        var result = ""
-
-        if let value = value,
-           let range = value.rangeOfCharacter(from: set.inverted, options: NSString.CompareOptions.backwards)
-        {
-            result = String(value[..<range.upperBound])
-        }
-
-        return result
-    }
-
-    @available(*, deprecated)
-    public static func stripEnd(_ value: String, stripChars set: CharacterSet? = nil) -> String {
-        return stripEnd(Optional(value), stripChars: set)!
-    }
-
-// MARK: -
-
     /// Returns the given string if it is nonempty; {@code nil} otherwise.
     @available(*, deprecated)
     public static func emptyToNil(_ value: String?) -> String? {
-        return isEmpty(value) ? nil : value
+        return value.isEmpty ? nil : value
     }
 
     /// Returns the given string if it is non {@code nil}; the empty string otherwise.

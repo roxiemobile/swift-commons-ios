@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  ObjectUtils.swift
+//  String.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -8,19 +8,12 @@
 //
 // ----------------------------------------------------------------------------
 
-import SwiftCommonsLang
-
-// ----------------------------------------------------------------------------
-
-public final class ObjectUtils: NonCreatable
+public extension String
 {
-// MARK: - Methods
+// MARK: - Properties
 
-    /// Returns a default value if the object passed is {@code nil}.
-    @available(*, deprecated)
-    public static func defaultIfNil<T>(object: T?, defaultValue: T?) -> T? {
-        return (object != nil) ? object : defaultValue
-    }
+    /// Checks if a String is not empty ("").
+    public var isNotEmpty: Bool { return !self.isEmpty }
 }
 
 // ----------------------------------------------------------------------------

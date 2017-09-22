@@ -15,12 +15,6 @@
 
 extension Dictionary
 {
-// MARK: - Properties
-
-    /// Checks if dictionary has elements.
-    @available(*, deprecated)
-    var isNotEmpty: Bool { return !self.isEmpty }
-    
 // MARK: - Methods
 
     /**

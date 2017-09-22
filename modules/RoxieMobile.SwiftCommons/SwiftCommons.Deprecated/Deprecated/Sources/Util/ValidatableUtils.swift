@@ -8,6 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
+import SwiftCommonsLang
+
+// ----------------------------------------------------------------------------
+
 @available(*, deprecated)
 public final class ValidatableUtils: NonCreatable
 {

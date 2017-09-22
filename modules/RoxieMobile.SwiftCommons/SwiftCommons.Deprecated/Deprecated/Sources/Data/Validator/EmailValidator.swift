@@ -8,6 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
+import SwiftCommonsLang
+
+// ----------------------------------------------------------------------------
+
 // Commonly used regular expression patterns
 // @link http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/5.1.1_r1/android/util/Patterns.java#Patterns.0EMAIL_ADDRESS
 

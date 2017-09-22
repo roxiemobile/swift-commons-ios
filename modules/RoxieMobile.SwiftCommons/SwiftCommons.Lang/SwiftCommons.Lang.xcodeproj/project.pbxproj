@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192B9C0E1F755A290087C62F /* AbstractClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C0C1F755A290087C62F /* AbstractClass.swift */; };
+		192B9C0F1F755A2A0087C62F /* NonCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C0D1F755A290087C62F /* NonCreatable.swift */; };
+		192B9C111F755ADE0087C62F /* AbstractMethodException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C101F755ADE0087C62F /* AbstractMethodException.swift */; };
+		192B9C131F755B800087C62F /* FatalErrorException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C121F755B800087C62F /* FatalErrorException.swift */; };
+		192B9C261F756D0B0087C62F /* String+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C201F756D0B0087C62F /* String+Optional.swift */; };
+		192B9C271F756D0B0087C62F /* String.Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C211F756D0B0087C62F /* String.Strip.swift */; };
+		192B9C281F756D0B0087C62F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C221F756D0B0087C62F /* String.swift */; };
+		192B9C291F756D0B0087C62F /* String.Trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C231F756D0B0087C62F /* String.Trim.swift */; };
+		192B9C341F757FF70087C62F /* Collection+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C321F757FF70087C62F /* Collection+Optional.swift */; };
+		192B9C351F757FF70087C62F /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C331F757FF70087C62F /* Collection.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsLang.a */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommonsLang.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommonsLang.UnitTests.swift */; };
-		19FAC7371F72E462006B4715 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FAC7361F72E462006B4715 /* Dummy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +44,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		192B9C0C1F755A290087C62F /* AbstractClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractClass.swift; sourceTree = "<group>"; };
+		192B9C0D1F755A290087C62F /* NonCreatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonCreatable.swift; sourceTree = "<group>"; };
+		192B9C101F755ADE0087C62F /* AbstractMethodException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMethodException.swift; sourceTree = "<group>"; };
+		192B9C121F755B800087C62F /* FatalErrorException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatalErrorException.swift; sourceTree = "<group>"; };
+		192B9C201F756D0B0087C62F /* String+Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Optional.swift"; sourceTree = "<group>"; };
+		192B9C211F756D0B0087C62F /* String.Strip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.Strip.swift; sourceTree = "<group>"; };
+		192B9C221F756D0B0087C62F /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		192B9C231F756D0B0087C62F /* String.Trim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.Trim.swift; sourceTree = "<group>"; };
+		192B9C321F757FF70087C62F /* Collection+Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Optional.swift"; sourceTree = "<group>"; };
+		192B9C331F757FF70087C62F /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsLang.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsLang.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19792A361F72E7200001768B /* SwiftCommons.Lang-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Lang-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Lang.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Lang.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsLang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsLang.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommonsLang.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommonsLang.UnitTests.swift; sourceTree = "<group>"; };
-		19FAC7361F72E462006B4715 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +81,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192B9C141F755DD70087C62F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				192B9C311F757FF70087C62F /* Collection */,
+				192B9C1F1F756D0B0087C62F /* String */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		192B9C1F1F756D0B0087C62F /* String */ = {
+			isa = PBXGroup;
+			children = (
+				192B9C201F756D0B0087C62F /* String+Optional.swift */,
+				192B9C221F756D0B0087C62F /* String.swift */,
+				192B9C211F756D0B0087C62F /* String.Strip.swift */,
+				192B9C231F756D0B0087C62F /* String.Trim.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		192B9C311F757FF70087C62F /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				192B9C321F757FF70087C62F /* Collection+Optional.swift */,
+				192B9C331F757FF70087C62F /* Collection.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
 		195D39501F72CE4900118D17 /* Lang.UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +158,11 @@
 		19EB0CA01F72DF0D0029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				19FAC7361F72E462006B4715 /* Dummy.swift */,
+				192B9C141F755DD70087C62F /* Extensions */,
+				192B9C0C1F755A290087C62F /* AbstractClass.swift */,
+				192B9C101F755ADE0087C62F /* AbstractMethodException.swift */,
+				192B9C121F755B800087C62F /* FatalErrorException.swift */,
+				192B9C0D1F755A290087C62F /* NonCreatable.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -249,7 +300,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19FAC7371F72E462006B4715 /* Dummy.swift in Sources */,
+				192B9C271F756D0B0087C62F /* String.Strip.swift in Sources */,
+				192B9C0E1F755A290087C62F /* AbstractClass.swift in Sources */,
+				192B9C131F755B800087C62F /* FatalErrorException.swift in Sources */,
+				192B9C111F755ADE0087C62F /* AbstractMethodException.swift in Sources */,
+				192B9C341F757FF70087C62F /* Collection+Optional.swift in Sources */,
+				192B9C281F756D0B0087C62F /* String.swift in Sources */,
+				192B9C351F757FF70087C62F /* Collection.swift in Sources */,
+				192B9C291F756D0B0087C62F /* String.Trim.swift in Sources */,
+				192B9C261F756D0B0087C62F /* String+Optional.swift in Sources */,
+				192B9C0F1F755A2A0087C62F /* NonCreatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +462,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};

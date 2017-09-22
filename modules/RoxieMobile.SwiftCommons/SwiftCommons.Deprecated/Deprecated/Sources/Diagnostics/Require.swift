@@ -8,6 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
+import SwiftCommonsLang
+
+// ----------------------------------------------------------------------------
+
 /// A set of requirement methods useful for validating objects states. Only failed requirements are recorded.
 /// These methods can be used directly: <code>Require.isTrue(...)</code>.
 @available(*, deprecated)
@@ -24,7 +28,7 @@ public final class Require: NonCreatable
             raiseException(message, file, line)
         }
         catch {
-            rxm_fatalError(message: message ?? "", file: file, line: line)
+            roxie_fatalError(message: message ?? "", file: file, line: line)
         }
     }
 

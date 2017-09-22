@@ -32,10 +32,6 @@ public extension String
     @available(*, deprecated)
     var length: Int { return self.characters.count }
 
-    /// Checks if a String is not empty ("").
-    @available(*, deprecated)
-    var isNotEmpty: Bool { return !self.isEmpty }
-
     /// Checks if a String is empty ("") or whitespace only.
     @available(*, deprecated)
     var isBlank: Bool { return StringUtils.isBlank(self) }
@@ -86,26 +82,6 @@ public extension String
         let from = self.index(self.startIndex, offsetBy: rng.lowerBound)
         let upto = self.index(self.startIndex, offsetBy: rng.upperBound)
         return String(self[from..<upto])
-    }
-
-// MARK: -
-
-    /// Trims whitespaces from the beginning of self.
-    @available(*, deprecated)
-    func trimStart() -> String {
-        return StringUtils.stripStart(self)
-    }
-
-    /// Trims whitespaces from the end of self.
-    @available(*, deprecated)
-    func trimEnd() -> String {
-        return StringUtils.stripEnd(self)
-    }
-
-    /// Trims whitespaces from both the beginning and the end of self.
-    @available(*, deprecated)
-    func trim() -> String {
-        return StringUtils.strip(self)
     }
 
 // MARK: - Constants

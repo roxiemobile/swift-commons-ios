@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CBB11DF5F4CA74FEEC4C5D8 /* libPods-SwiftCommons.Deprecated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7B9049C5AA71B82BE3BA0 /* libPods-SwiftCommons.Deprecated.a */; };
 		19185C731F740954005EA6BC /* SwiftCommons.Deprecated-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 19792A361F72E7200001768B /* SwiftCommons.Deprecated-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19185C841F7409C8005EA6BC /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19185C761F7409C8005EA6BC /* FromJSON.swift */; };
 		19185C851F7409C8005EA6BC /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19185C771F7409C8005EA6BC /* Mapper.swift */; };
@@ -50,11 +49,8 @@
 		193DF1E81F740142009FD64E /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1DF1F740142009FD64E /* CollectionUtils.swift */; };
 		193DF1E91F740142009FD64E /* ScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1E01F740142009FD64E /* ScrollDirection.swift */; };
 		193DF1EA1F740142009FD64E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1E11F740142009FD64E /* StringUtils.swift */; };
-		193DF1EB1F740142009FD64E /* AbstractMethodException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1E21F740142009FD64E /* AbstractMethodException.swift */; };
 		193DF1EC1F740142009FD64E /* ObjectUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1E31F740142009FD64E /* ObjectUtils.swift */; };
-		193DF1ED1F740142009FD64E /* AbstractClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1E41F740142009FD64E /* AbstractClass.swift */; };
 		193DF1EE1F740142009FD64E /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1E51F740142009FD64E /* Assets.swift */; };
-		193DF1EF1F740142009FD64E /* NonCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1E61F740142009FD64E /* NonCreatable.swift */; };
 		193DF1F01F740142009FD64E /* ValidatableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DF1E71F740142009FD64E /* ValidatableUtils.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsDeprecated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsDeprecated.a */; };
 		1976077F1F741E7E00E6F8CE /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 197607731F741E7E00E6F8CE /* crypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -114,7 +110,6 @@
 		19DED93F1F73F5FA0051717C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED93C1F73F5F90051717C /* Logger.swift */; };
 		19DED9461F73F9870051717C /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED9411F73F9870051717C /* Expect.swift */; };
 		19DED9471F73F9870051717C /* ExpectationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED9421F73F9870051717C /* ExpectationError.swift */; };
-		19DED9481F73F9870051717C /* FatalErrorException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED9431F73F9870051717C /* FatalErrorException.swift */; };
 		19DED9491F73F9870051717C /* Require.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED9441F73F9870051717C /* Require.swift */; };
 		19DED94A1F73F9870051717C /* RequirementException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED9451F73F9870051717C /* RequirementException.swift */; };
 		19DED95A1F73FC4B0051717C /* CommonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED94C1F73FC4B0051717C /* CommonKeys.swift */; };
@@ -133,6 +128,7 @@
 		19DED96C1F73FDA70051717C /* DatabaseHelperZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED9681F73FDA70051717C /* DatabaseHelperZip.swift */; };
 		19DED96D1F73FDA70051717C /* DatabaseOpenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DED9691F73FDA70051717C /* DatabaseOpenDelegate.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommonsDeprecated.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommonsDeprecated.UnitTests.swift */; };
+		C3D2F1BD3FC83407641A2F24 /* Pods_SwiftCommons_Deprecated.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6473CEE314998E93FB9A34A4 /* Pods_SwiftCommons_Deprecated.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,7 +156,6 @@
 /* Begin PBXFileReference section */
 		12B134ADFB4EABC4C0158FED /* Pods-SwiftCommons.Deprecated.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Deprecated.release.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Deprecated/Pods-SwiftCommons.Deprecated.release.xcconfig"; sourceTree = "<group>"; };
 		168D87FC5F8FD9B2BD48A55B /* Pods-SwiftCommons.Deprecated.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Deprecated.debug.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Deprecated/Pods-SwiftCommons.Deprecated.debug.xcconfig"; sourceTree = "<group>"; };
-		17B7B9049C5AA71B82BE3BA0 /* libPods-SwiftCommons.Deprecated.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftCommons.Deprecated.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19185C761F7409C8005EA6BC /* FromJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromJSON.swift; sourceTree = "<group>"; };
 		19185C771F7409C8005EA6BC /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		19185C781F7409C8005EA6BC /* ObjectMapperException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapperException.swift; sourceTree = "<group>"; };
@@ -202,11 +197,8 @@
 		193DF1DF1F740142009FD64E /* CollectionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		193DF1E01F740142009FD64E /* ScrollDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollDirection.swift; sourceTree = "<group>"; };
 		193DF1E11F740142009FD64E /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
-		193DF1E21F740142009FD64E /* AbstractMethodException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMethodException.swift; sourceTree = "<group>"; };
 		193DF1E31F740142009FD64E /* ObjectUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectUtils.swift; sourceTree = "<group>"; };
-		193DF1E41F740142009FD64E /* AbstractClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractClass.swift; sourceTree = "<group>"; };
 		193DF1E51F740142009FD64E /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
-		193DF1E61F740142009FD64E /* NonCreatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonCreatable.swift; sourceTree = "<group>"; };
 		193DF1E71F740142009FD64E /* ValidatableUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatableUtils.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsDeprecated.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsDeprecated.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		197607731F741E7E00E6F8CE /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
@@ -269,7 +261,6 @@
 		19DED93C1F73F5F90051717C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		19DED9411F73F9870051717C /* Expect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
 		19DED9421F73F9870051717C /* ExpectationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectationError.swift; sourceTree = "<group>"; };
-		19DED9431F73F9870051717C /* FatalErrorException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatalErrorException.swift; sourceTree = "<group>"; };
 		19DED9441F73F9870051717C /* Require.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Require.swift; sourceTree = "<group>"; };
 		19DED9451F73F9870051717C /* RequirementException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequirementException.swift; sourceTree = "<group>"; };
 		19DED94C1F73FC4B0051717C /* CommonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonKeys.swift; sourceTree = "<group>"; };
@@ -289,6 +280,7 @@
 		19DED9691F73FDA70051717C /* DatabaseOpenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseOpenDelegate.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommonsDeprecated.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommonsDeprecated.UnitTests.swift; sourceTree = "<group>"; };
+		6473CEE314998E93FB9A34A4 /* Pods_SwiftCommons_Deprecated.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Deprecated.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,7 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CBB11DF5F4CA74FEEC4C5D8 /* libPods-SwiftCommons.Deprecated.a in Frameworks */,
+				C3D2F1BD3FC83407641A2F24 /* Pods_SwiftCommons_Deprecated.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,11 +573,8 @@
 		19DED90B1F73E8E80051717C /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				193DF1E41F740142009FD64E /* AbstractClass.swift */,
-				193DF1E21F740142009FD64E /* AbstractMethodException.swift */,
 				193DF1E51F740142009FD64E /* Assets.swift */,
 				193DF1DF1F740142009FD64E /* CollectionUtils.swift */,
-				193DF1E61F740142009FD64E /* NonCreatable.swift */,
 				193DF1E31F740142009FD64E /* ObjectUtils.swift */,
 				193DF1E01F740142009FD64E /* ScrollDirection.swift */,
 				193DF1E11F740142009FD64E /* StringUtils.swift */,
@@ -624,7 +613,6 @@
 			children = (
 				19DED9411F73F9870051717C /* Expect.swift */,
 				19DED9421F73F9870051717C /* ExpectationError.swift */,
-				19DED9431F73F9870051717C /* FatalErrorException.swift */,
 				19DED9441F73F9870051717C /* Require.swift */,
 				19DED9451F73F9870051717C /* RequirementException.swift */,
 			);
@@ -755,7 +743,7 @@
 		704139CDF648D96F726B1429 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				17B7B9049C5AA71B82BE3BA0 /* libPods-SwiftCommons.Deprecated.a */,
+				6473CEE314998E93FB9A34A4 /* Pods_SwiftCommons_Deprecated.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -942,7 +930,6 @@
 				19DED96B1F73FDA70051717C /* DatabaseHelper.swift in Sources */,
 				19DED95A1F73FC4B0051717C /* CommonKeys.swift in Sources */,
 				193DF1EA1F740142009FD64E /* StringUtils.swift in Sources */,
-				193DF1ED1F740142009FD64E /* AbstractClass.swift in Sources */,
 				19185CB51F740D4C005EA6BC /* Foundation.swift in Sources */,
 				19DED95E1F73FC4B0051717C /* Validatable.swift in Sources */,
 				19185CB61F740D4C005EA6BC /* Helpers.swift in Sources */,
@@ -951,7 +938,6 @@
 				19185CCA1F740E92005EA6BC /* Synchronized.swift in Sources */,
 				19DED9351F73F4200051717C /* Updatable.swift in Sources */,
 				197607AE1F741E8500E6F8CE /* StreamTypedCoder.m in Sources */,
-				193DF1EF1F740142009FD64E /* NonCreatable.swift in Sources */,
 				19185CB71F740D4C005EA6BC /* AggregateFunctions.swift in Sources */,
 				19DED9381F73F5860051717C /* Data+Crypto.swift in Sources */,
 				19185C841F7409C8005EA6BC /* FromJSON.swift in Sources */,
@@ -963,7 +949,6 @@
 				19DED93E1F73F5FA0051717C /* LogcatLogger.swift in Sources */,
 				19DED91E1F73F1460051717C /* Date.swift in Sources */,
 				19185CB01F740D4C005EA6BC /* SQLite-Bridging.m in Sources */,
-				19DED9481F73F9870051717C /* FatalErrorException.swift in Sources */,
 				197607A81F741E8500E6F8CE /* LFUnarchiver+Decoding.m in Sources */,
 				197607801F741E7E00E6F8CE /* ioapi.c in Sources */,
 				19DED93D1F73F5FA0051717C /* ChainedLogger.swift in Sources */,
@@ -1029,7 +1014,6 @@
 				193DF1E91F740142009FD64E /* ScrollDirection.swift in Sources */,
 				19185C8F1F7409C8005EA6BC /* TransformType.swift in Sources */,
 				19DED91F1F73F1460051717C /* Timer.swift in Sources */,
-				193DF1EB1F740142009FD64E /* AbstractMethodException.swift in Sources */,
 				19185CBF1F740D4C005EA6BC /* Setter.swift in Sources */,
 				19DED9471F73F9870051717C /* ExpectationError.swift in Sources */,
 				197607821F741E7E00E6F8CE /* mztools.c in Sources */,

@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  ObjectUtils.swift
+//  String.Trim.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -8,18 +8,23 @@
 //
 // ----------------------------------------------------------------------------
 
-import SwiftCommonsLang
-
-// ----------------------------------------------------------------------------
-
-public final class ObjectUtils: NonCreatable
+public extension String
 {
 // MARK: - Methods
 
-    /// Returns a default value if the object passed is {@code nil}.
-    @available(*, deprecated)
-    public static func defaultIfNil<T>(object: T?, defaultValue: T?) -> T? {
-        return (object != nil) ? object : defaultValue
+    /// Trims whitespaces from the beginning of self.
+    public func trimStart() -> String {
+        return stripStart()
+    }
+
+    /// Trims whitespaces from the end of self.
+    public func trimEnd() -> String {
+        return stripEnd()
+    }
+
+    /// Trims whitespaces from both the beginning and the end of self.
+    public func trim() -> String {
+        return strip()
     }
 }
 

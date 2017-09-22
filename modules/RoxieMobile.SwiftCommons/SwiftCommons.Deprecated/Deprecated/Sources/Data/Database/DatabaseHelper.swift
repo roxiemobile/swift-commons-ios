@@ -9,6 +9,7 @@
 // ----------------------------------------------------------------------------
 
 import Foundation
+import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
@@ -88,7 +89,7 @@ public class DatabaseHelper
             }
         }
         else {
-            rxm_fatalError(message: "Could not make temporary path for database ‘\(databaseName)’.")
+            roxie_fatalError(message: "Could not make temporary path for database ‘\(databaseName)’.")
         }
 
         return pathUrl
@@ -366,7 +367,7 @@ public class DatabaseHelper
             try database.execute(query)
         }
         catch {
-            rxm_fatalError(message: "Database query \(query) failed with error \(error)")
+            roxie_fatalError(message: "Database query \(query) failed with error \(error)")
         }
     }
 
@@ -375,14 +376,14 @@ public class DatabaseHelper
     private func createDatabaseObject(uriPath: String?, readonly: Bool) -> Database?
     {
         if uriPath == nil {
-            rxm_fatalError(message: "Can't create database object with nil uri path")
+            roxie_fatalError(message: "Can't create database object with nil uri path")
         }
 
         do {
             return try Database(uriPath!, readonly: false)
         }
         catch {
-            rxm_fatalError(message: "Can't open db at \(uriPath!) with readonly \(readonly): \(error)")
+            roxie_fatalError(message: "Can't open db at \(uriPath!) with readonly \(readonly): \(error)")
         }
     }
 
@@ -391,14 +392,14 @@ public class DatabaseHelper
     private func runTransaction(database: Database?, mode: Database.TransactionMode, block: @escaping () throws -> Void)
     {
         if database == nil {
-            rxm_fatalError(message: "Can't run transaction on nil database")
+            roxie_fatalError(message: "Can't run transaction on nil database")
         }
 
         do {
             try database!.transaction(mode, block: block)
         }
         catch {
-            rxm_fatalError(message: "Transaction failed with error \(error)")
+            roxie_fatalError(message: "Transaction failed with error \(error)")
         }
     }
 

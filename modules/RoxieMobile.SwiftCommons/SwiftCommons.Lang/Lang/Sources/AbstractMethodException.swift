@@ -8,8 +8,8 @@
 //
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
-public class AbstractMethodException: FatalErrorException {
+public class AbstractMethodException: FatalErrorException
+{
     // Do nothing
 }
 

@@ -8,6 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
+import SwiftCommonsLang
+
+// ----------------------------------------------------------------------------
+
 // Regular Expression for URL validation
 // @link https://gist.github.com/dperini/729294
 

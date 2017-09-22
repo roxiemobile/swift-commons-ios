@@ -8,8 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
-// FIXME: Uncomment!
-//#import <Foundation/Foundation.h>
+// Use of unresolved identifier ‘sqlite3_key’
+// @link https://discuss.zetetic.net/t/use-of-unresolved-identifier-sqlite3-key/1305/10
+
+#define SQLITE_HAS_CODEC 1
 
 // ----------------------------------------------------------------------------
 //
@@ -19,13 +21,6 @@
 // ----------------------------------------------------------------------------
 
 #import <SQLCipher/sqlite3.h>
-
-// FIXME: Uncomment!
-//#import <SwiftCommons/StreamTypedCoder.h>
-//#import <SwiftCommons/TryCatchFinally.h>
-//#import <SwiftCommons/zlib.h>
-//#import <SwiftCommons/SSZipArchive.h>
-//#import <SwiftCommons/SQLite-Bridging.h>
 
 #import "StreamTypedCoder.h"
 #import "TryCatchFinally.h"

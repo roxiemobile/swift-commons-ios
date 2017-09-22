@@ -3,7 +3,7 @@
 //  FatalErrorException.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
-//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
@@ -12,25 +12,22 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
 public class FatalErrorException: NSException
 {
 // MARK: - Constants
 
-    @available(*, deprecated)
     public init(reason aReason: String?, userInfo aUserInfo: [NSObject: AnyObject]?) {
         super.init(name: NSExceptionName(rawValue: FatalError.Domain), reason: aReason, userInfo: aUserInfo)
     }
 
-    @available(*, deprecated)
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
 // MARK: - Constants
 
-    @available(*, deprecated)
-    private struct FatalError {
+    private struct FatalError
+    {
         static let Domain = "FatalErrorDomain"
     }
 }
@@ -39,65 +36,58 @@ public class FatalErrorException: NSException
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
-public func rxm_fatalError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
+public func roxie_fatalError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
 {
 #if DEBUG
     preconditionFailure(message)
 #else
     FatalErrorException(reason: "Fatal error: \(message)\nFile: \(file)\nLine: \(line)", userInfo: nil).raise()
 
-    // NOTE: Suppress error "Return from a 'noreturn' function"
+    // NOTE: Suppress error "Return from a ‘noreturn’ function"
     fatalError(message)
 #endif
 }
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
-public func rxm_fatalError(message: String, error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never
-{
+public func roxie_fatalError(message: String, error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
     var logMessage = message
 
     // Add error description
-    if let err = error
-    {
+    if let err = error {
         if !logMessage.isEmpty {
             logMessage += "\nCaused by error: "
         }
 
         logMessage += "\(err.domain)(code: \(err.code))"
 
-        if let message = error?.localizedDescription.trim(), !message.isEmpty {
+        if let message = error?.localizedDescription.trim(), message.isNotEmpty {
             logMessage += " with reason: \(message)"
         }
     }
 
     // Terminate application with runtime exception
-    rxm_fatalError(message: logMessage, file: file, line: line)
+    roxie_fatalError(message: logMessage, file: file, line: line)
 }
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
-public func rxm_fatalError(message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never
-{
+public func roxie_fatalError(message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
     var logMessage = message
 
     // Add exception description
-    if let exc = exception
-    {
+    if let exc = exception {
         if !logMessage.isEmpty {
             logMessage += "\nCaused by exception: "
         }
 
         logMessage += "\(exc.name)"
 
-        if let message = exc.reason?.trim(), !message.isEmpty {
+        if let message = exc.reason?.trim(), message.isNotEmpty {
             logMessage += " with reason: \(message)"
         }
 
-        if let stackTrace = exception?.callStackSymbols, !stackTrace.isEmpty {
+        if let stackTrace = exception?.callStackSymbols, stackTrace.isNotEmpty {
             logMessage += "\nStack trace:"
 
             for line in stackTrace {
@@ -107,14 +97,12 @@ public func rxm_fatalError(message: String, exception: NSException?, file: Stati
     }
 
     // Terminate application with runtime exception
-    rxm_fatalError(message: logMessage, file: file, line: line)
+    roxie_fatalError(message: logMessage, file: file, line: line)
 }
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
-public func rxm_fatalError(message: String, error: Error?, file: StaticString = #file, line: UInt = #line)
-{
+public func roxie_fatalError(message: String, error: Error?, file: StaticString = #file, line: UInt = #line) {
     var logMessage = message
 
     // Add error description
@@ -123,7 +111,7 @@ public func rxm_fatalError(message: String, error: Error?, file: StaticString = 
     }
 
     // Terminate application with runtime exception
-    rxm_fatalError(message: logMessage, file: file, line: line)
+    roxie_fatalError(message: logMessage, file: file, line: line)
 }
 
 // ----------------------------------------------------------------------------

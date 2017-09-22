@@ -8,6 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
+import SwiftCommonsLang
+
+// ----------------------------------------------------------------------------
+
 @available(*, deprecated)
 open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 {
@@ -191,10 +195,10 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
                 try self.validate()
             }
             catch let error as ExpectationError {
-                rxm_fatalError(message: error.message ?? defaultMessage, file: error.file, line: error.line)
+                roxie_fatalError(message: error.message ?? defaultMessage, file: error.file, line: error.line)
             }
             catch {
-                rxm_fatalError(message: defaultMessage)
+                roxie_fatalError(message: defaultMessage)
             }
 
             // Prevent further modifications
