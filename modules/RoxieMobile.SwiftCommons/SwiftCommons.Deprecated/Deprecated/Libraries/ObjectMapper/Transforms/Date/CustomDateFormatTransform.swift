@@ -1,8 +1,8 @@
 //
-//  EnumTransform.swift
+//  CustomDateFormatTransform.swift
 //  ObjectMapper
 //
-//  Created by Kaan Dedeoglu on 3/20/15.
+//  Created by Dan McCracken on 3/8/15.
 //
 //  The MIT License (MIT)
 //
@@ -28,23 +28,13 @@
 
 import Foundation
 
-open class EnumTransform<T: RawRepresentable>: TransformType {
-	public typealias Object = T
-	public typealias JSON = T.RawValue
+open class CustomDateFormatTransform: DateFormatterTransform {
 	
-	public init() {}
-	
-	open func transformFromJSON(_ value: Any?) -> T? {
-		if let raw = value as? T.RawValue {
-			return T(rawValue: raw)
-		}
-		return nil
-	}
-	
-	open func transformToJSON(_ value: T?) -> T.RawValue? {
-		if let obj = value {
-			return obj.rawValue
-		}
-		return nil
-	}
+    public init(formatString: String) {
+		let formatter = DateFormatter()
+		formatter.locale = Locale(identifier: "en_US_POSIX")
+		formatter.dateFormat = formatString
+		
+		super.init(dateFormatter: formatter)
+    }
 }

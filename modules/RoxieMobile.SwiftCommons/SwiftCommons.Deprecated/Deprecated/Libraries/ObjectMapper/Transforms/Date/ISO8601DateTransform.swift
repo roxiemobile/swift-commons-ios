@@ -1,8 +1,8 @@
 //
-//  EnumTransform.swift
+//  ISO8601DateTransform.swift
 //  ObjectMapper
 //
-//  Created by Kaan Dedeoglu on 3/20/15.
+//  Created by Jean-Pierre Mouilleseaux on 21 Nov 2014.
 //
 //  The MIT License (MIT)
 //
@@ -28,23 +28,20 @@
 
 import Foundation
 
-open class EnumTransform<T: RawRepresentable>: TransformType {
-	public typealias Object = T
-	public typealias JSON = T.RawValue
-	
-	public init() {}
-	
-	open func transformFromJSON(_ value: Any?) -> T? {
-		if let raw = value as? T.RawValue {
-			return T(rawValue: raw)
-		}
-		return nil
-	}
-	
-	open func transformToJSON(_ value: T?) -> T.RawValue? {
-		if let obj = value {
-			return obj.rawValue
-		}
-		return nil
+public extension DateFormatter {
+	public convenience init(withFormat format : String, locale : String) {
+		self.init()
+		self.locale = Locale(identifier: locale)
+		dateFormat = format
 	}
 }
+
+open class ISO8601DateTransform: DateFormatterTransform {
+	
+	static let reusableISODateFormatter = DateFormatter(withFormat: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", locale: "en_US_POSIX")
+
+	public init() {
+		super.init(dateFormatter: ISO8601DateTransform.reusableISODateFormatter)
+	}
+}
+

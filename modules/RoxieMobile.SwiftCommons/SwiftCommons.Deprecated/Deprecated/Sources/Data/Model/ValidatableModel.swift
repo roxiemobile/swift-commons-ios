@@ -31,7 +31,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 
             // Deserialize object
             self.unsafeMapping() {
-                Mapper().map(params, toObject: self)
+                let _ = Mapper<ValidatableModel>().map(JSON: params, toObject: self)
             }
 
         }.objcCatch { e in
@@ -46,7 +46,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
     }
 
     @available(*, deprecated)
-    public required init?(_ map: Map) {
+    public required init?(map: Map) {
         super.init()
 
         var result = false
@@ -54,13 +54,13 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 
             // Deserialize object
             result = self.unsafeMapping() {
-                self.mapping(map)
+                self.mapping(map: map)
             }
 
         }.objcCatch { e in
 
             // Rethrow exception
-            self.injectNestedParams(e, params: map.JSONDictionary).raise()
+            self.injectNestedParams(e, params: map.JSON).raise()
         }
 
         // Validate instance
@@ -106,7 +106,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
             if let json = decoder.decodeObject() as? [String: AnyObject]
             {
                 result = self.unsafeMapping() {
-                    Mapper().map(json, toObject: self)
+                    let _ = Mapper<ValidatableModel>().map(JSON: json, toObject: self)
                 }
             }
 
@@ -119,7 +119,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
     }
 
     @available(*, deprecated)
-    open func mapping(_ map: Map) {
+    open func mapping(map: Map) {
         // Do nothing
     }
 

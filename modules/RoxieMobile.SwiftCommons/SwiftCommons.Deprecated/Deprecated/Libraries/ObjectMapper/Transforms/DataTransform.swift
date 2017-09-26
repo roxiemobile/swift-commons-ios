@@ -1,8 +1,8 @@
 //
-//  EnumTransform.swift
+//  DataTransform.swift
 //  ObjectMapper
 //
-//  Created by Kaan Dedeoglu on 3/20/15.
+//  Created by Yagrushkin, Evgeny on 8/30/16.
 //
 //  The MIT License (MIT)
 //
@@ -28,23 +28,23 @@
 
 import Foundation
 
-open class EnumTransform<T: RawRepresentable>: TransformType {
-	public typealias Object = T
-	public typealias JSON = T.RawValue
+open class DataTransform: TransformType {
+	public typealias Object = Data
+	public typealias JSON = String
 	
 	public init() {}
 	
-	open func transformFromJSON(_ value: Any?) -> T? {
-		if let raw = value as? T.RawValue {
-			return T(rawValue: raw)
+	open func transformFromJSON(_ value: Any?) -> Data? {
+		guard let string = value as? String else{
+			return nil
 		}
-		return nil
+		return Data(base64Encoded: string)
 	}
 	
-	open func transformToJSON(_ value: T?) -> T.RawValue? {
-		if let obj = value {
-			return obj.rawValue
+	open func transformToJSON(_ value: Data?) -> String? {
+		guard let data = value else{
+			return nil
 		}
-		return nil
+		return data.base64EncodedString()
 	}
 }

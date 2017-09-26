@@ -1,8 +1,8 @@
 //
-//  EnumTransform.swift
+//  TransformOf.swift
 //  ObjectMapper
 //
-//  Created by Kaan Dedeoglu on 3/20/15.
+//  Created by Tristan Himmelman on 8/22/16.
 //
 //  The MIT License (MIT)
 //
@@ -28,23 +28,25 @@
 
 import Foundation
 
-open class EnumTransform<T: RawRepresentable>: TransformType {
-	public typealias Object = T
-	public typealias JSON = T.RawValue
-	
-	public init() {}
-	
-	open func transformFromJSON(_ value: Any?) -> T? {
-		if let raw = value as? T.RawValue {
-			return T(rawValue: raw)
-		}
-		return nil
-	}
-	
-	open func transformToJSON(_ value: T?) -> T.RawValue? {
-		if let obj = value {
-			return obj.rawValue
-		}
-		return nil
-	}
+open class NSDecimalNumberTransform: TransformType {
+    public typealias Object = NSDecimalNumber
+    public typealias JSON = String
+
+    public init() {}
+
+    open func transformFromJSON(_ value: Any?) -> NSDecimalNumber? {
+        if let string = value as? String {
+            return NSDecimalNumber(string: string)
+        } else if let number = value as? NSNumber {
+            return NSDecimalNumber(decimal: number.decimalValue)
+        } else if let double = value as? Double {
+            return NSDecimalNumber(floatLiteral: double)
+        }
+        return nil
+    }
+
+    open func transformToJSON(_ value: NSDecimalNumber?) -> String? {
+        guard let value = value else { return nil }
+        return value.description
+    }
 }
