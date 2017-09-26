@@ -8,10 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-// Use of unresolved identifier ‘sqlite3_key’
-// @link https://discuss.zetetic.net/t/use-of-unresolved-identifier-sqlite3-key/1305/10
-
-#define SQLITE_HAS_CODEC 1
+#import <SQLCipher/sqlite3.h>
 
 // ----------------------------------------------------------------------------
 //
@@ -19,8 +16,6 @@
 //  to expose to Swift.
 //
 // ----------------------------------------------------------------------------
-
-#import <SQLCipher/sqlite3.h>
 
 #import "StreamTypedCoder.h"
 #import "TryCatchFinally.h"
