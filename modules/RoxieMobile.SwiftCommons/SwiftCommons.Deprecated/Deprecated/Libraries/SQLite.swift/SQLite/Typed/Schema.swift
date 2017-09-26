@@ -36,14 +36,15 @@ extension Table {
 
     // MARK: - CREATE TABLE
 
-    public func create(temporary: Bool = false, ifNotExists: Bool = false, block: (TableBuilder) -> Void) -> String {
+    public func create(temporary: Bool = false, ifNotExists: Bool = false, withoutRowid: Bool = false, block: (TableBuilder) -> Void) -> String {
         let builder = TableBuilder()
 
         block(builder)
 
         let clauses: [Expressible?] = [
             create(Table.identifier, tableName(), temporary ? .Temporary : nil, ifNotExists),
-            "".wrap(builder.definitions) as Expression<Void>
+            "".wrap(builder.definitions) as Expression<Void>,
+            withoutRowid ? Expression<Void>(literal: "WITHOUT ROWID") : nil
         ]
 
         return " ".join(clauses.flatMap { $0 }).asSQL()
@@ -109,7 +110,7 @@ extension Table {
         return addColumn(definition(name, V.declaredDatatype, nil, true, false, check, defaultValue, nil, collate))
     }
 
-    private func addColumn(_ expression: Expressible) -> String {
+    fileprivate func addColumn(_ expression: Expressible) -> String {
         return " ".join([
             Expression<Void>(literal: "ALTER TABLE"),
             tableName(),
@@ -134,7 +135,7 @@ extension Table {
         let clauses: [Expressible?] = [
             create("INDEX", indexName(columns), unique ? .Unique : nil, ifNotExists),
             Expression<Void>(literal: "ON"),
-            tableName(),
+            tableName(qualified: false),
             "".wrap(columns) as Expression<Void>
         ]
 
@@ -378,7 +379,7 @@ public final class TableBuilder {
         case setDefault = "SET DEFAULT"
 
         case cascade = "CASCADE"
-        
+
     }
 
     public func foreignKey<T : Value>(_ column: Expression<T>, references table: QueryType, _ other: Expression<T>, update: Dependency? = nil, delete: Dependency? = nil) {
@@ -505,7 +506,7 @@ private func definition(_ column: Expressible, _ datatype: String, _ primaryKey:
 private func reference(_ primary: (QueryType, Expressible)) -> Expressible {
     return " ".join([
         Expression<Void>(literal: "REFERENCES"),
-        primary.0.tableName(),
+        primary.0.tableName(qualified: false),
         "".wrap(primary.1) as Expression<Void>
     ])
 }

@@ -306,6 +306,18 @@ extension QueryType {
         return query
     }
 
+    /// Adds a condition to the query’s `WHERE` clause.
+    /// This is an alias for `filter(predicate)`
+    public func `where`(_ predicate: Expression<Bool>) -> Self {
+        return `where`(Expression<Bool?>(predicate))
+    }
+
+    /// Adds a condition to the query’s `WHERE` clause.
+    /// This is an alias for `filter(predicate)`
+    public func `where`(_ predicate: Expression<Bool?>) -> Self {
+        return filter(predicate)
+    }
+
     // MARK: GROUP BY
 
     /// Sets a `GROUP BY` clause on the query.
@@ -401,7 +413,7 @@ extension QueryType {
     public func order(_ by: Expressible...) -> Self {
         return order(by)
     }
-    
+
     /// Sets an `ORDER BY` clause on the query.
     ///
     ///     let users = Table("users")
@@ -468,7 +480,7 @@ extension QueryType {
 
     // MARK: -
 
-    private var selectClause: Expressible {
+    fileprivate var selectClause: Expressible {
         return " ".join([
             Expression<Void>(literal: clauses.select.distinct ? "SELECT DISTINCT" : "SELECT"),
             ", ".join(clauses.select.columns),
@@ -477,7 +489,7 @@ extension QueryType {
         ])
     }
 
-    private var joinClause: Expressible? {
+    fileprivate var joinClause: Expressible? {
         guard !clauses.join.isEmpty else {
             return nil
         }
@@ -526,7 +538,7 @@ extension QueryType {
         ])
     }
 
-    private var orderClause: Expressible? {
+    fileprivate var orderClause: Expressible? {
         guard !clauses.order.isEmpty else {
             return nil
         }
@@ -537,7 +549,7 @@ extension QueryType {
         ])
     }
 
-    private var limitOffsetClause: Expressible? {
+    fileprivate var limitOffsetClause: Expressible? {
         guard let limit = clauses.limit else {
             return nil
         }
@@ -556,7 +568,7 @@ extension QueryType {
 
     // MARK: -
 
-    public func alias(aliasName: String) -> Self {
+    public func alias(_ aliasName: String) -> Self {
         var query = self
         query.clauses.from = (clauses.from.name, aliasName, clauses.from.database)
         return query
@@ -582,7 +594,7 @@ extension QueryType {
         return insert(onConflict, values)
     }
 
-    private func insert(_ or: OnConflict?, _ values: [Setter]) -> Insert {
+    fileprivate func insert(_ or: OnConflict?, _ values: [Setter]) -> Insert {
         let insert = values.reduce((columns: [Expressible](), values: [Expressible]())) { insert, setter in
             (insert.columns + [setter.column], insert.values + [setter.value])
         }
@@ -733,7 +745,7 @@ extension QueryType {
 
     // TODO: alias support
     func tableName(alias aliased: Bool = false) -> Expressible {
-        guard let alias = clauses.from.alias, aliased else {
+        guard let alias = clauses.from.alias , aliased else {
             return database(namespace: clauses.from.alias ?? clauses.from.name)
         }
 
@@ -742,6 +754,13 @@ extension QueryType {
             Expression<Void>(literal: "AS"),
             Expression<Void>(alias)
         ])
+    }
+
+    func tableName(qualified: Bool) -> Expressible {
+        if qualified {
+            return tableName()
+        }
+        return Expression<Void>(clauses.from.alias ?? clauses.from.name)
     }
 
     func database(namespace name: String) -> Expressible {
@@ -925,30 +944,30 @@ extension Connection {
         }
     }
 
-    public func scalar<V : Value>(_ query: ScalarQuery<V>) -> V {
+    public func scalar<V : Value>(_ query: ScalarQuery<V>) throws -> V {
         let expression = query.expression
-        return value(scalar(expression.template, expression.bindings))
+        return value(try scalar(expression.template, expression.bindings))
     }
 
-    public func scalar<V : Value>(_ query: ScalarQuery<V?>) -> V.ValueType? {
+    public func scalar<V : Value>(_ query: ScalarQuery<V?>) throws -> V.ValueType? {
         let expression = query.expression
-        guard let value = scalar(expression.template, expression.bindings) as? V.Datatype else { return nil }
+        guard let value = try scalar(expression.template, expression.bindings) as? V.Datatype else { return nil }
         return V.fromDatatypeValue(value)
     }
 
-    public func scalar<V : Value>(_ query: Select<V>) -> V {
+    public func scalar<V : Value>(_ query: Select<V>) throws -> V {
         let expression = query.expression
-        return value(scalar(expression.template, expression.bindings))
+        return value(try scalar(expression.template, expression.bindings))
     }
 
-    public func scalar<V : Value>(_ query: Select<V?>) ->  V.ValueType? {
+    public func scalar<V : Value>(_ query: Select<V?>) throws ->  V.ValueType? {
         let expression = query.expression
-        guard let value = scalar(expression.template, expression.bindings) as? V.Datatype else { return nil }
+        guard let value = try scalar(expression.template, expression.bindings) as? V.Datatype else { return nil }
         return V.fromDatatypeValue(value)
     }
 
-    public func pluck(_ query: QueryType) -> Row? {
-        return try! prepare(query.limit(1, query.clauses.limit?.offset)).makeIterator().next()
+    public func pluck(_ query: QueryType) throws -> Row? {
+        return try prepare(query.limit(1, query.clauses.limit?.offset)).makeIterator().next()
     }
 
     /// Runs an `Insert` query.
@@ -965,7 +984,7 @@ extension Connection {
         let expression = query.expression
         return try sync {
             try self.run(expression.template, expression.bindings)
-            return self.lastInsertRowid!
+            return self.lastInsertRowid
         }
     }
 

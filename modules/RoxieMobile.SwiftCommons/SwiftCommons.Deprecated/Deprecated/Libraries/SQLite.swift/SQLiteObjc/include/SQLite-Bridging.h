@@ -22,16 +22,16 @@
 // THE SOFTWARE.
 //
 
-extension Module {
+@import Foundation;
 
-    public static func RTree<T : Value, U : Value>(primaryKey: Expression<T>, _ pairs: (Expression<U>, Expression<U>)...) -> Module where T.Datatype == Int64, U.Datatype == Double {
-        var arguments: [Expressible] = [primaryKey]
+#ifndef COCOAPODS
+#import "sqlite3.h"
+#endif
 
-        for pair in pairs {
-            arguments.append(contentsOf: [pair.0, pair.1] as [Expressible])
-        }
+typedef struct SQLiteHandle SQLiteHandle; // CocoaPods workaround
 
-        return Module(name: "rtree", arguments: arguments)
-    }
+NS_ASSUME_NONNULL_BEGIN
+typedef NSString * _Nullable (^_SQLiteTokenizerNextCallback)(const char * input, int * inputOffset, int * inputLength);
+int _SQLiteRegisterTokenizer(SQLiteHandle * db, const char * module, const char * tokenizer, _Nullable _SQLiteTokenizerNextCallback callback);
+NS_ASSUME_NONNULL_END
 
-}

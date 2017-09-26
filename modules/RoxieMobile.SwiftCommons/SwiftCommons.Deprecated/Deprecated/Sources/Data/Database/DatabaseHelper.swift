@@ -49,7 +49,7 @@ public class DatabaseHelper
     @available(*, deprecated)
     public var userVersion: Int {
         get {
-            let version = database?.scalar("PRAGMA user_version") ?? Int64(0)
+            let version = (try? database?.scalar("PRAGMA user_version")) ?? Int64(0)
             return Int(version as! Int64)
         }
         set {
@@ -343,7 +343,7 @@ public class DatabaseHelper
 
         // Check integrity of database
         if (database?.handle != nil) {
-            if let value = database?.scalar("PRAGMA quick_check;") as? String {
+            if let value = (try? database?.scalar("PRAGMA quick_check;")) as? String {
                 result = value.caseInsensitiveCompare("ok") == .orderedSame
             }
         }

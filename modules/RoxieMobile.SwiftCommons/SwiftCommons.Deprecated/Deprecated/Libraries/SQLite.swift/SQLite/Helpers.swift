@@ -22,6 +22,14 @@
 // THE SOFTWARE.
 //
 
+#if SQLITE_SWIFT_STANDALONE
+import sqlite3
+#elseif SQLITE_SWIFT_SQLCIPHER
+import SQLCipher
+#elseif SWIFT_PACKAGE || COCOAPODS
+import CSQLite
+#endif
+
 public typealias Star = (Expression<Binding>?, Expression<Binding>?) -> Expression<Void>
 
 public func *(_: Expression<Binding>?, _: Expression<Binding>?) -> Expression<Void> {

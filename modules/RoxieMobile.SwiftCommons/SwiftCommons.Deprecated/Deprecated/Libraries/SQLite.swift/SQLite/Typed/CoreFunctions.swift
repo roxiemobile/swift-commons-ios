@@ -22,6 +22,9 @@
 // THE SOFTWARE.
 //
 
+import Foundation.NSData
+
+
 extension ExpressionType where UnderlyingType : Number {
 
     /// Builds a copy of the expression wrapped with the `abs` function.
@@ -106,7 +109,7 @@ extension ExpressionType where UnderlyingType : Value, UnderlyingType.Datatype =
 
 }
 
-extension ExpressionType where UnderlyingType == NSData {
+extension ExpressionType where UnderlyingType == Data {
 
     /// Builds an expression representing the `randomblob` function.
     ///
@@ -145,7 +148,7 @@ extension ExpressionType where UnderlyingType == NSData {
 
 }
 
-extension ExpressionType where UnderlyingType == NSData? {
+extension ExpressionType where UnderlyingType == Data? {
 
     /// Builds a copy of the expression wrapped with the `length` function.
     ///
@@ -354,7 +357,7 @@ extension ExpressionType where UnderlyingType == String {
         return "substr".wrap([self, location, length])
     }
 
-    public subscript(_ range: Range<Int>) -> Expression<UnderlyingType> {
+    public subscript(range: Range<Int>) -> Expression<UnderlyingType> {
         return substring(range.lowerBound, length: range.upperBound - range.lowerBound)
     }
 
@@ -578,7 +581,7 @@ extension ExpressionType where UnderlyingType == String? {
     /// - Parameter range: The character index range of the substring.
     ///
     /// - Returns: A copy of the expression wrapped with the `substr` function.
-    public subscript(_ range: Range<Int>) -> Expression<UnderlyingType> {
+    public subscript(range: Range<Int>) -> Expression<UnderlyingType> {
         return substring(range.lowerBound, length: range.upperBound - range.lowerBound)
     }
 

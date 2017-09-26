@@ -22,6 +22,14 @@
 // THE SOFTWARE.
 //
 
+#if SQLITE_SWIFT_STANDALONE
+import sqlite3
+#elseif SQLITE_SWIFT_SQLCIPHER
+import SQLCipher
+#elseif SWIFT_PACKAGE || COCOAPODS
+import CSQLite
+#endif
+
 /// A single SQL statement.
 public final class Statement {
 
@@ -114,7 +122,7 @@ public final class Statement {
     /// - Throws: `Result.Error` if query execution fails.
     ///
     /// - Returns: The statement object (useful for chaining).
-    public func run(_ bindings: Binding?...) throws -> Statement {
+    @discardableResult public func run(_ bindings: Binding?...) throws -> Statement {
         guard bindings.isEmpty else {
             return try run(bindings)
         }
@@ -129,7 +137,7 @@ public final class Statement {
     /// - Throws: `Result.Error` if query execution fails.
     ///
     /// - Returns: The statement object (useful for chaining).
-    public func run(_ bindings: [Binding?]) throws -> Statement {
+    @discardableResult public func run(_ bindings: [Binding?]) throws -> Statement {
         return try bind(bindings).run()
     }
 
@@ -139,28 +147,28 @@ public final class Statement {
     /// - Throws: `Result.Error` if query execution fails.
     ///
     /// - Returns: The statement object (useful for chaining).
-    public func run(_ bindings: [String: Binding?]) throws -> Statement {
+    @discardableResult public func run(_ bindings: [String: Binding?]) throws -> Statement {
         return try bind(bindings).run()
     }
 
     /// - Parameter bindings: A list of parameters to bind to the statement.
     ///
     /// - Returns: The first value of the first row returned.
-    public func scalar(_ bindings: Binding?...) -> Binding? {
+    public func scalar(_ bindings: Binding?...) throws -> Binding? {
         guard bindings.isEmpty else {
-            return scalar(bindings)
+            return try scalar(bindings)
         }
 
         reset(clearBindings: false)
-        try! step()
+        _ = try step()
         return row[0]
     }
 
     /// - Parameter bindings: A list of parameters to bind to the statement.
     ///
     /// - Returns: The first value of the first row returned.
-    public func scalar(_ bindings: [Binding?]) -> Binding? {
-        return bind(bindings).scalar()
+    public func scalar(_ bindings: [Binding?]) throws -> Binding? {
+        return try bind(bindings).scalar()
     }
 
 
@@ -168,11 +176,11 @@ public final class Statement {
     ///   statement.
     ///
     /// - Returns: The first value of the first row returned.
-    public func scalar(_ bindings: [String: Binding?]) -> Binding? {
-        return bind(bindings).scalar()
+    public func scalar(_ bindings: [String: Binding?]) throws -> Binding? {
+        return try bind(bindings).scalar()
     }
 
-    @discardableResult public func step() throws -> Bool {
+    public func step() throws -> Bool {
         return try connection.sync { try self.connection.check(sqlite3_step(self.handle)) == SQLITE_ROW }
     }
 

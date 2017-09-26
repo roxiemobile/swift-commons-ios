@@ -102,7 +102,6 @@ public func +=(column: Expression<String?>, value: String) -> Setter {
     return column <- column + value
 }
 
-
 public func +=<V : Value>(column: Expression<V>, value: Expression<V>) -> Setter where V.Datatype : Number {
     return column <- column + value
 }
