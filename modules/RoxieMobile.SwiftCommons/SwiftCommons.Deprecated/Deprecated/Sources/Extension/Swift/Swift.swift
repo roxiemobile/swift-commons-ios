@@ -68,68 +68,9 @@ public protocol MDCopying: NSCopying
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
-public func demangledTypeName(_ object: Any) -> String {
-    return String(describing: type(of: object))
-}
-
-@available(*, deprecated)
-public func typeName(_ object: Any) -> String {
-    return demangledTypeName(object).components(separatedBy: ".").last!
-}
-
-@available(*, deprecated)
-public func className(_ clazz: AnyClass) -> String {
-    return NSStringFromClass(clazz).components(separatedBy: ".").last!
-}
-
-@available(*, deprecated)
-public func fullTypeName<T : Any>(_ obj: T) -> String {
-    return String(reflecting: T.self)
-}
-
-@available(*, deprecated)
-public func briefTypeName<T : Any>(_ obj: T) -> String {
-    var typeString = fullTypeName(obj)
-    
-    let typeSuffix = ".Type"
-    if typeString.hasSuffix(typeSuffix) {
-        typeString = typeString.substringUpto(index: typeString.characters.count - typeSuffix.characters.count)
-    }
-
-    let typePrefix = "Swift."
-    if typeString.hasPrefix(typePrefix) {
-        typeString = typeString.substringFrom(index: typePrefix.characters.count)
-    }
-    
-    return typeString
-}
-
-// ----------------------------------------------------------------------------
-
-// How can I create instances of managed object subclasses in a NSManagedObject extension?
-// @link http://stackoverflow.com/q/27109268
-
-@available(*, deprecated)
-public func typeCheck<T>(object: AnyObject?, type: T.Type) -> Bool {
-    return (object is T)
-}
-
-@available(*, deprecated)
-public func typeCast<T>(object: AnyObject, type: T.Type) -> T {
-    return (object as! T)
-}
-
-@available(*, deprecated)
-public func optionalTypeCast<T>(object: AnyObject?, type: T.Type) -> T? {
-    return (object as? T)
-}
-
-// ----------------------------------------------------------------------------
-
 /// Creates a custom tag for any class.
 @available(*, deprecated)
-public func rxm_customTag(clazz: AnyClass) -> String
+public func roxie_customTag(clazz: AnyClass) -> String
 {
     let nameTag = NSStringFromClass(clazz).rxm_md5String.substringUpto(index: 8)
     let timeTag = mach_absolute_time().rxm_hexString.substringFrom(index: 8)

@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public class AbstractMethodException: FatalErrorException
-{
+public final class AbstractMethodException: FatalErrorException {
     // Do nothing
 }
 

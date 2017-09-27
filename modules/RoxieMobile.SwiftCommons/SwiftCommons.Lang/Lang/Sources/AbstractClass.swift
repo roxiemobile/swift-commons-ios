@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public protocol AbstractClass
-{
+public protocol AbstractClass {
     // Do nothing
 }
 
@@ -20,7 +19,7 @@ extension AbstractClass
 // MARK: - Methods
 
     public func raiseAbstractMethodException(funcName: String = #function, _ file: StaticString = #file, _ line: UInt = #line) -> Never {
-        roxie_abstractMethodError(message: "Abstract method '\(funcName)' must be overridden in a subclass")
+        roxie_abstractMethodError(message: "Abstract method ‘\(funcName)’ must be overridden in a subclass.")
     }
 }
 
@@ -28,15 +27,16 @@ extension AbstractClass
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-private func roxie_abstractMethodError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
-{
-#if DEBUG
-    preconditionFailure(message)
-#else
-    AbstractMethodException(reason: "Fatal error: \(message)\nFile: \(file)\nLine: \(line)", userInfo: nil).raise()
+fileprivate func roxie_abstractMethodError(message: String, file: StaticString = #file, line: UInt = #line) -> Never {
+    let logMessage = "Fatal error: \(message)\nFile: \(file)\nLine: \(line)"
 
-    // NOTE: Suppress error "Return from a ‘noreturn’ function"
-    fatalError(message)
+#if DEBUG
+    preconditionFailure(logMessage)
+#else
+    AbstractMethodException(reason: logMessage, userInfo: nil).raise()
+
+    // Suppress error "Return from a ‘noreturn’ function"
+    fatalError(logMessage)
 #endif
 }
 

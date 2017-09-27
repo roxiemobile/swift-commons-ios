@@ -66,6 +66,7 @@ public final class Mapper<N: BaseMappable> {
 	/// Maps a JSON dictionary to an existing object that conforms to Mappable.
 	/// Usefull for those pesky objects that have crappy designated initializers like NSManagedObject
 	public func map(JSON: [String: Any], toObject object: N) -> N {
+        roxie_checkState(object)
 		var mutableObject = object
 		let map = Map(mappingType: .fromJSON, JSON: JSON, toObject: true, context: context, shouldIncludeNilValues: shouldIncludeNilValues)
 		mutableObject.mapping(map: map)
@@ -270,6 +271,7 @@ public final class Mapper<N: BaseMappable> {
 			do {
 				parsedJSON = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
 			} catch let error {
+                roxie_objectMapperAssertion(message: "Failed to convert data \(data) to JSON")
 				print(error)
 				parsedJSON = nil
 			}
@@ -278,6 +280,13 @@ public final class Mapper<N: BaseMappable> {
 
 		return nil
 	}
+
+    /// Checks if an object is frozen.
+    private func roxie_checkState(_ object: BaseMappable) {
+        if object.frozen() {
+            roxie_objectMapperError(message: "Can't modify frozen object.")
+        }
+    }
 }
 
 extension Mapper {

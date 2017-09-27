@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
     # TODO: Write a description
     sp.source_files = 'modules/RoxieMobile.SwiftCommons/SwiftCommons.Deprecated/Deprecated/**/*.{swift,h,m,c}'
 
-    # External dependencies
+    # Dependencies
     sp.dependency 'SwiftCommons/Lang', s.version.to_s
     sp.dependency 'SQLCipher', '~> 3.4'
   end

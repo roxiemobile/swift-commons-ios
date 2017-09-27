@@ -14,10 +14,10 @@ import Foundation
 
 public class FatalErrorException: NSException
 {
-// MARK: - Constants
+// MARK: - Construction
 
     public init(reason aReason: String?, userInfo aUserInfo: [NSObject: AnyObject]?) {
-        super.init(name: NSExceptionName(rawValue: FatalError.Domain), reason: aReason, userInfo: aUserInfo)
+        super.init(name: Inner.ExceptionName, reason: aReason, userInfo: aUserInfo)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -26,9 +26,8 @@ public class FatalErrorException: NSException
 
 // MARK: - Constants
 
-    private struct FatalError
-    {
-        static let Domain = "FatalErrorDomain"
+    private struct Inner {
+        static let ExceptionName = NSExceptionName(rawValue: Roxie.className(FatalErrorException.self))
     }
 }
 
@@ -36,15 +35,16 @@ public class FatalErrorException: NSException
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-public func roxie_fatalError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
-{
-#if DEBUG
-    preconditionFailure(message)
-#else
-    FatalErrorException(reason: "Fatal error: \(message)\nFile: \(file)\nLine: \(line)", userInfo: nil).raise()
+public func roxie_fatalError(message: String, file: StaticString = #file, line: UInt = #line) -> Never {
+    let logMessage = "Fatal error: \(message)\nFile: \(file)\nLine: \(line)"
 
-    // NOTE: Suppress error "Return from a ‘noreturn’ function"
-    fatalError(message)
+#if DEBUG
+    preconditionFailure(logMessage)
+#else
+    FatalErrorException(reason: logMessage, userInfo: nil).raise()
+
+    // Suppress error "Return from a ‘noreturn’ function"
+    fatalError(logMessage)
 #endif
 }
 

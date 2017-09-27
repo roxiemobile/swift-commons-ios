@@ -62,28 +62,6 @@ public extension String
         ) as String
     }
 
-    @available(*, deprecated)
-    func substringFrom(index idx: Int) -> String
-    {
-        let from = self.index(self.startIndex, offsetBy: idx)
-        return String(self[from...])
-    }
-
-    @available(*, deprecated)
-    func substringUpto(index idx: Int) -> String
-    {
-        let upto = self.index(self.startIndex, offsetBy: idx)
-        return String(self[self.startIndex..<upto])
-    }
-
-    @available(*, deprecated)
-    func substring(range rng: Range<Int>) -> String
-    {
-        let from = self.index(self.startIndex, offsetBy: rng.lowerBound)
-        let upto = self.index(self.startIndex, offsetBy: rng.upperBound)
-        return String(self[from..<upto])
-    }
-
 // MARK: - Constants
 
     @available(*, deprecated)

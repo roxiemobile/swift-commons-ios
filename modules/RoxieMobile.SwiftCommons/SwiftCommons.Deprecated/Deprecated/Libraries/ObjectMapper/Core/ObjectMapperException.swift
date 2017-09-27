@@ -3,7 +3,7 @@
 //  ObjectMapperException.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
-//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
@@ -12,12 +12,12 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class ObjectMapperException: NSException
+public final class ObjectMapperException: NSException
 {
-// MARK: - Constants
+// MARK: - Construction
 
     public init(reason aReason: String?, userInfo aUserInfo: [NSObject : AnyObject]?) {
-        super.init(name: NSExceptionName(rawValue: ObjectMapper.Domain), reason: aReason, userInfo: aUserInfo)
+        super.init(name: Inner.ExceptionName, reason: aReason, userInfo: aUserInfo)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -26,8 +26,8 @@ public class ObjectMapperException: NSException
 
 // MARK: - Constants
 
-    private struct ObjectMapper {
-        static let Domain = "ObjectMapperDomain"
+    private struct Inner {
+        static let ExceptionName = NSExceptionName(rawValue: typeName(ObjectMapperException.self))
     }
 }
 
@@ -35,25 +35,25 @@ public class ObjectMapperException: NSException
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-public func rxm_objectMapperError(message: String, file: StaticString = #file, line: UInt = #line) -> Never
-{
-#if DEBUG
-    preconditionFailure(message)
-#else
-    ObjectMapperException(reason: "Fatal error: \(message)\nFile: \(file)\nLine: \(line)", userInfo: nil).raise()
+func roxie_objectMapperError(message: String, file: StaticString = #file, line: UInt = #line) -> Never {
+    let logMessage = "Fatal error: \(message)\nFile: \(file)\nLine: \(line)"
 
-    // NOTE: Suppress error "Return from a 'noreturn' function"
-    fatalError(message)
+#if DEBUG
+    preconditionFailure(logMessage)
+#else
+    ObjectMapperException(reason: logMessage, userInfo: nil).raise()
+
+    // Suppress error "Return from a ‘noreturn’ function"
+    fatalError(logMessage)
 #endif
 }
 
 // ----------------------------------------------------------------------------
 
-public func rxm_objectMapperAssertion(message: String, file: StaticString = #file, line: UInt = #line)
+func roxie_objectMapperAssertion(message: String, file: StaticString = #file, line: UInt = #line)
 {
-    let errorMessage = "Assertion violated: \(message)\nFile: \(file)\nLine: \(line)"
-    Logger.e(#function, errorMessage)
-    assertionFailure(errorMessage)
+    let logMessage = "Assertion violated: \(message)\nFile: \(file)\nLine: \(line)"
+    assertionFailure(logMessage)
 }
 
 // ----------------------------------------------------------------------------
