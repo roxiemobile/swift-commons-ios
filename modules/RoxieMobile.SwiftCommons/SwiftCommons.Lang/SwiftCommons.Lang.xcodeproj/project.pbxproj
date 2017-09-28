@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190DB0B61F7C480400ABBFA1 /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DB0B51F7C480400ABBFA1 /* Reflection.swift */; };
+		190DB0BC1F7C4E6100ABBFA1 /* OptionalWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DB0BB1F7C4E6100ABBFA1 /* OptionalWrapper.swift */; };
+		190DB0BF1F7C53EB00ABBFA1 /* ImplicitlyUnwrappedOptionalWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DB0BE1F7C53EB00ABBFA1 /* ImplicitlyUnwrappedOptionalWrapper.swift */; };
 		192B9C0E1F755A290087C62F /* AbstractClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C0C1F755A290087C62F /* AbstractClass.swift */; };
 		192B9C0F1F755A2A0087C62F /* NonCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C0D1F755A290087C62F /* NonCreatable.swift */; };
 		192B9C111F755ADE0087C62F /* AbstractMethodException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C101F755ADE0087C62F /* AbstractMethodException.swift */; };
@@ -46,6 +49,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		190DB0B51F7C480400ABBFA1 /* Reflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
+		190DB0BB1F7C4E6100ABBFA1 /* OptionalWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalWrapper.swift; sourceTree = "<group>"; };
+		190DB0BE1F7C53EB00ABBFA1 /* ImplicitlyUnwrappedOptionalWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImplicitlyUnwrappedOptionalWrapper.swift; sourceTree = "<group>"; };
 		192B9C0C1F755A290087C62F /* AbstractClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractClass.swift; sourceTree = "<group>"; };
 		192B9C0D1F755A290087C62F /* NonCreatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonCreatable.swift; sourceTree = "<group>"; };
 		192B9C101F755ADE0087C62F /* AbstractMethodException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMethodException.swift; sourceTree = "<group>"; };
@@ -85,11 +91,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190DB0BD1F7C4E6600ABBFA1 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				190DB0BE1F7C53EB00ABBFA1 /* ImplicitlyUnwrappedOptionalWrapper.swift */,
+				190DB0BB1F7C4E6100ABBFA1 /* OptionalWrapper.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 		192B9C141F755DD70087C62F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				192B9C311F757FF70087C62F /* Collection */,
 				192B9C1F1F756D0B0087C62F /* String */,
+				190DB0BD1F7C4E6600ABBFA1 /* Swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,6 +184,7 @@
 				192B9C101F755ADE0087C62F /* AbstractMethodException.swift */,
 				192B9C121F755B800087C62F /* FatalErrorException.swift */,
 				192B9C0D1F755A290087C62F /* NonCreatable.swift */,
+				190DB0B51F7C480400ABBFA1 /* Reflection.swift */,
 				19D275651F7B124800E9AB15 /* Roxie.swift */,
 			);
 			path = Sources;
@@ -306,8 +323,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190DB0B61F7C480400ABBFA1 /* Reflection.swift in Sources */,
 				192B9C271F756D0B0087C62F /* String.Strip.swift in Sources */,
 				192B9C0E1F755A290087C62F /* AbstractClass.swift in Sources */,
+				190DB0BC1F7C4E6100ABBFA1 /* OptionalWrapper.swift in Sources */,
 				192B9C131F755B800087C62F /* FatalErrorException.swift in Sources */,
 				192B9C111F755ADE0087C62F /* AbstractMethodException.swift in Sources */,
 				192B9C341F757FF70087C62F /* Collection+Optional.swift in Sources */,
@@ -315,6 +334,7 @@
 				192B9C281F756D0B0087C62F /* String.swift in Sources */,
 				192B9C351F757FF70087C62F /* Collection.swift in Sources */,
 				192B9C291F756D0B0087C62F /* String.Trim.swift in Sources */,
+				190DB0BF1F7C53EB00ABBFA1 /* ImplicitlyUnwrappedOptionalWrapper.swift in Sources */,
 				19D275641F7B122200E9AB15 /* String.Substring.swift in Sources */,
 				192B9C261F756D0B0087C62F /* String+Optional.swift in Sources */,
 				192B9C0F1F755A2A0087C62F /* NonCreatable.swift in Sources */,
