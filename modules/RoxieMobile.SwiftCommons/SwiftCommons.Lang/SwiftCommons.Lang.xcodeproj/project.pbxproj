@@ -21,9 +21,12 @@
 		192B9C341F757FF70087C62F /* Collection+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C321F757FF70087C62F /* Collection+Optional.swift */; };
 		192B9C351F757FF70087C62F /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C331F757FF70087C62F /* Collection.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsLang.a */; };
+		19A35BC71F7E75680058C761 /* MetatypeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A35BC61F7E75680058C761 /* MetatypeNode.swift */; };
 		19D275641F7B122200E9AB15 /* String.Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D275631F7B122200E9AB15 /* String.Substring.swift */; };
 		19D275661F7B124800E9AB15 /* Roxie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D275651F7B124800E9AB15 /* Roxie.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommonsLang.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommonsLang.UnitTests.swift */; };
+		19FD92C91F7E61F0003DC493 /* ReflectedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FD92C81F7E61F0003DC493 /* ReflectedType.swift */; };
+		19FD92CB1F7E6213003DC493 /* MetatypeNameParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FD92CA1F7E6213003DC493 /* MetatypeNameParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +68,14 @@
 		195D394F1F72CE4900118D17 /* SwiftCommonsLang.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsLang.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19792A361F72E7200001768B /* SwiftCommons.Lang-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Lang-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Lang.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Lang.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		19A35BC61F7E75680058C761 /* MetatypeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetatypeNode.swift; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsLang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsLang.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D275631F7B122200E9AB15 /* String.Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.Substring.swift; sourceTree = "<group>"; };
 		19D275651F7B124800E9AB15 /* Roxie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roxie.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommonsLang.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommonsLang.UnitTests.swift; sourceTree = "<group>"; };
+		19FD92C81F7E61F0003DC493 /* ReflectedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectedType.swift; sourceTree = "<group>"; };
+		19FD92CA1F7E6213003DC493 /* MetatypeNameParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetatypeNameParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,25 +97,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		190DB0BD1F7C4E6600ABBFA1 /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-				190DB0BE1F7C53EB00ABBFA1 /* ImplicitlyUnwrappedOptionalWrapper.swift */,
-				190DB0BB1F7C4E6100ABBFA1 /* OptionalWrapper.swift */,
-			);
-			path = Swift;
-			sourceTree = "<group>";
-		};
-		192B9C141F755DD70087C62F /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				192B9C311F757FF70087C62F /* Collection */,
-				192B9C1F1F756D0B0087C62F /* String */,
-				190DB0BD1F7C4E6600ABBFA1 /* Swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		192B9C1F1F756D0B0087C62F /* String */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +126,15 @@
 				19EB0CA41F72DF640029F302 /* Libraries */,
 			);
 			path = Lang.UnitTests;
+			sourceTree = "<group>";
+		};
+		19A35BC81F7E75750058C761 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				19FD92CA1F7E6213003DC493 /* MetatypeNameParser.swift */,
+				19A35BC61F7E75680058C761 /* MetatypeNode.swift */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 		19C0171B1F72CC3A00D29F73 = {
@@ -179,12 +175,12 @@
 		19EB0CA01F72DF0D0029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				192B9C141F755DD70087C62F /* Extensions */,
+				19FD92C71F7E61DC003DC493 /* Reflection */,
+				19FD92C51F7E6163003DC493 /* Swift */,
 				192B9C0C1F755A290087C62F /* AbstractClass.swift */,
 				192B9C101F755ADE0087C62F /* AbstractMethodException.swift */,
 				192B9C121F755B800087C62F /* FatalErrorException.swift */,
 				192B9C0D1F755A290087C62F /* NonCreatable.swift */,
-				190DB0B51F7C480400ABBFA1 /* Reflection.swift */,
 				19D275651F7B124800E9AB15 /* Roxie.swift */,
 			);
 			path = Sources;
@@ -220,6 +216,35 @@
 				19EB0CCF1F72E1770029F302 /* SwiftCommonsLang.UnitTests.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		19FD92C51F7E6163003DC493 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				192B9C311F757FF70087C62F /* Collection */,
+				19FD92C61F7E6181003DC493 /* Optional */,
+				192B9C1F1F756D0B0087C62F /* String */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		19FD92C61F7E6181003DC493 /* Optional */ = {
+			isa = PBXGroup;
+			children = (
+				190DB0BE1F7C53EB00ABBFA1 /* ImplicitlyUnwrappedOptionalWrapper.swift */,
+				190DB0BB1F7C4E6100ABBFA1 /* OptionalWrapper.swift */,
+			);
+			path = Optional;
+			sourceTree = "<group>";
+		};
+		19FD92C71F7E61DC003DC493 /* Reflection */ = {
+			isa = PBXGroup;
+			children = (
+				19A35BC81F7E75750058C761 /* Internal */,
+				190DB0B51F7C480400ABBFA1 /* Reflection.swift */,
+				19FD92C81F7E61F0003DC493 /* ReflectedType.swift */,
+			);
+			path = Reflection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +355,7 @@
 				192B9C131F755B800087C62F /* FatalErrorException.swift in Sources */,
 				192B9C111F755ADE0087C62F /* AbstractMethodException.swift in Sources */,
 				192B9C341F757FF70087C62F /* Collection+Optional.swift in Sources */,
+				19FD92CB1F7E6213003DC493 /* MetatypeNameParser.swift in Sources */,
 				19D275661F7B124800E9AB15 /* Roxie.swift in Sources */,
 				192B9C281F756D0B0087C62F /* String.swift in Sources */,
 				192B9C351F757FF70087C62F /* Collection.swift in Sources */,
@@ -337,6 +363,8 @@
 				190DB0BF1F7C53EB00ABBFA1 /* ImplicitlyUnwrappedOptionalWrapper.swift in Sources */,
 				19D275641F7B122200E9AB15 /* String.Substring.swift in Sources */,
 				192B9C261F756D0B0087C62F /* String+Optional.swift in Sources */,
+				19FD92C91F7E61F0003DC493 /* ReflectedType.swift in Sources */,
+				19A35BC71F7E75680058C761 /* MetatypeNode.swift in Sources */,
 				192B9C0F1F755A2A0087C62F /* NonCreatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
