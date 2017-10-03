@@ -21,6 +21,7 @@
 		192B9C341F757FF70087C62F /* Collection+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C321F757FF70087C62F /* Collection+Optional.swift */; };
 		192B9C351F757FF70087C62F /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B9C331F757FF70087C62F /* Collection.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsLang.a */; };
+		199540CE1F839219007F5B5F /* Roxie.FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199540CD1F839219007F5B5F /* Roxie.FatalError.swift */; };
 		19A35BC71F7E75680058C761 /* MetatypeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A35BC61F7E75680058C761 /* MetatypeNode.swift */; };
 		19D275641F7B122200E9AB15 /* String.Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D275631F7B122200E9AB15 /* String.Substring.swift */; };
 		19D275661F7B124800E9AB15 /* Roxie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D275651F7B124800E9AB15 /* Roxie.swift */; };
@@ -68,6 +69,7 @@
 		195D394F1F72CE4900118D17 /* SwiftCommonsLang.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsLang.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19792A361F72E7200001768B /* SwiftCommons.Lang-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Lang-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Lang.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Lang.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		199540CD1F839219007F5B5F /* Roxie.FatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roxie.FatalError.swift; sourceTree = "<group>"; };
 		19A35BC61F7E75680058C761 /* MetatypeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetatypeNode.swift; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsLang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsLang.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D275631F7B122200E9AB15 /* String.Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.Substring.swift; sourceTree = "<group>"; };
@@ -128,6 +130,15 @@
 			path = Lang.UnitTests;
 			sourceTree = "<group>";
 		};
+		199540CC1F8391F5007F5B5F /* Roxie */ = {
+			isa = PBXGroup;
+			children = (
+				19D275651F7B124800E9AB15 /* Roxie.swift */,
+				199540CD1F839219007F5B5F /* Roxie.FatalError.swift */,
+			);
+			path = Roxie;
+			sourceTree = "<group>";
+		};
 		19A35BC81F7E75750058C761 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,12 +187,12 @@
 			isa = PBXGroup;
 			children = (
 				19FD92C71F7E61DC003DC493 /* Reflection */,
+				199540CC1F8391F5007F5B5F /* Roxie */,
 				19FD92C51F7E6163003DC493 /* Swift */,
 				192B9C0C1F755A290087C62F /* AbstractClass.swift */,
 				192B9C101F755ADE0087C62F /* AbstractMethodException.swift */,
 				192B9C121F755B800087C62F /* FatalErrorException.swift */,
 				192B9C0D1F755A290087C62F /* NonCreatable.swift */,
-				19D275651F7B124800E9AB15 /* Roxie.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -350,6 +361,7 @@
 			files = (
 				190DB0B61F7C480400ABBFA1 /* Reflection.swift in Sources */,
 				192B9C271F756D0B0087C62F /* String.Strip.swift in Sources */,
+				199540CE1F839219007F5B5F /* Roxie.FatalError.swift in Sources */,
 				192B9C0E1F755A290087C62F /* AbstractClass.swift in Sources */,
 				190DB0BC1F7C4E6100ABBFA1 /* OptionalWrapper.swift in Sources */,
 				192B9C131F755B800087C62F /* FatalErrorException.swift in Sources */,

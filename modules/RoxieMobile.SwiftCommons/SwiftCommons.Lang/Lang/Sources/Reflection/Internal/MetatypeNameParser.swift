@@ -79,7 +79,7 @@ class MetatypeNameParser
                 joined = joined.replacingCharacters(in: range, with: "<\(simpleName($0))>")
             }
             else {
-                roxie_fatalError(message: "Invalid state. Value ‘\(joined)’ does not contains placeholder ‘<T>’.")
+                Roxie.fatalError(message: "Invalid state. Value ‘\(joined)’ does not contains placeholder ‘<T>’.")
             }
         }
         return joined
@@ -87,4 +87,3 @@ class MetatypeNameParser
 }
 
 // ----------------------------------------------------------------------------
-
