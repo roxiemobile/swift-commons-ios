@@ -14,7 +14,7 @@ class MetatypeNameParser
 
     func reflect(_ type: Any.Type) -> ReflectedType
     {
-        let root = split(name: String(reflecting: type))
+        let root = split(fullName: String(reflecting: type), maxDepth: 1)
         var node = root
 
         let isOptional = self.isOptional(root)
@@ -26,9 +26,10 @@ class MetatypeNameParser
             }
         }
 
+        let (simpleName, canonicalName) = normalizeName(node)
         return ReflectedType(
-            name: simpleName(node),
-            fullName: canonicalName(node),
+            name: simpleName,
+            fullName: canonicalName,
             isOptional: isOptional,
             isImplicitlyUnwrappedOptional: isImplicitlyUnwrappedOptional,
             isProtocol: isProtocol(node)
@@ -37,52 +38,109 @@ class MetatypeNameParser
 
 // MARK: - Private Methods
 
-    private func split(name: String, maxDepth: Int = Int.max) -> MetatypeNode
+    private func split(fullName: String, maxDepth: UInt = UInt.max) -> MetatypeNode
     {
-        // TODO
-        return MetatypeNode(value: name, child: nil)
-    }
+        var wrappedName = Substring(fullName)
+        var names = [String]()
 
-    private func isOptional(_ node: MetatypeNode) -> Bool
-    {
-        // TODO
-        return false
-    }
+        // Split names of Types
+        for _ in 0..<maxDepth {
+            if let from = wrappedName.index(of: "<"), let upto = wrappedName.index(of: ">") {
 
-    private func isImplicitlyUnwrappedOptional(_ node: MetatypeNode) -> Bool
-    {
-        // TODO
-        return false
-    }
-
-    private func isProtocol(_ node: MetatypeNode) -> Bool
-    {
-        // TODO
-        return false
-    }
-
-    private func simpleName(_ node: MetatypeNode) -> String
-    {
-        // TODO
-        return node.value
-    }
-
-    private func canonicalName(_ node: MetatypeNode) -> String
-    {
-        var joined = ""
-        Swift.sequence(first: node, next: { $0.child }).reversed().forEach {
-
-            if (joined.isEmpty) {
-                joined = $0.value
-            }
-            else if let range = joined.range(of: "<T>") {
-                joined = joined.replacingCharacters(in: range, with: "<\(simpleName($0))>")
+                // Extract name of wrapped type
+                names.append("\(wrappedName[...from])T\(wrappedName[upto...])")
+                wrappedName = wrappedName[wrappedName.index(after: from)..<upto]
             }
             else {
-                Roxie.fatalError(message: "Invalid state. Value ‘\(joined)’ does not contains placeholder ‘<T>’.")
+                break;
             }
         }
-        return joined
+
+        // Build linked list of MetatypeNodes
+        var node = MetatypeNode(value: String(wrappedName), child: nil)
+        for name in names.reversed() {
+            node = MetatypeNode(value: name, child: node)
+        }
+
+        // Done
+        return node
+    }
+
+    private func isOptional(_ node: MetatypeNode) -> Bool {
+        return Inner.Prefixes.Optionals.contains { node.value.hasPrefix($0) }
+    }
+
+    private func isImplicitlyUnwrappedOptional(_ node: MetatypeNode) -> Bool {
+        return Inner.Prefixes.ImplicitlyUnwrappedOptionals.contains { node.value.hasPrefix($0) }
+    }
+
+    private func isProtocol(_ node: MetatypeNode) -> Bool {
+        return Inner.Suffixes.Protocols.contains { node.value.hasSuffix($0) }
+    }
+
+    private func normalizeName(_ node: MetatypeNode) -> (simpleName: String, canonicalName: String)
+    {
+        // Build canonical name of Type
+        var canonicalName = ""
+        Swift.sequence(first: node, next: { $0.child }).reversed().forEach {
+            let value = normalize(name: $0.value)
+
+            if (canonicalName.isEmpty) {
+                canonicalName = value
+            }
+            else if let range = value.range(of: "<T>") {
+                canonicalName = value.replacingCharacters(in: range, with: "<\(canonicalName)>")
+            }
+            else {
+                Roxie.fatalError(message: "Invalid state. Value ‘\(value)’ does not contains placeholder ‘<T>’.")
+            }
+        }
+
+        // Extract simple name of Type
+        var startIndex = canonicalName.startIndex
+        var char: Character = "?" // dummy
+
+        for index in canonicalName.indices {
+            char = canonicalName[index]
+
+            if char == "." {
+                startIndex = canonicalName.index(after: index)
+            }
+            else if char == "<" {
+                break
+            }
+        }
+
+        // Done
+        return (String(canonicalName[startIndex...]), canonicalName)
+    }
+
+    private func normalize(name: String) -> String
+    {
+// FIXME: Delete!
+//        var components = "\(type)".split(separator: ".", omittingEmptySubsequences: false)
+//        if (components.first?.starts(with: "__lldb_expr_") ?? false) {
+//            components = Array(components[0...])
+//        }
+
+        // TODO
+        return name
+    }
+
+// MARK: - Constants
+
+    private struct Inner
+    {
+        struct Prefixes
+        {
+            static let ImplicitlyUnwrappedOptionals = ["Swift.ImplicitlyUnwrappedOptionals<", "ImplicitlyUnwrappedOptionals<"]
+            static let Optionals = ["Swift.Optional<", "Optional<"]
+        }
+
+        struct Suffixes
+        {
+            static let Protocols = [".Protocol"]
+        }
     }
 }
 

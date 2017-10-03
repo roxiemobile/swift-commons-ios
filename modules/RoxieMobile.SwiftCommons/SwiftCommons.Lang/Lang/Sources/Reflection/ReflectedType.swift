@@ -12,34 +12,15 @@ public struct ReflectedType
 {
 // MARK: - Construction
 
-// FIXME: Delete!
-//    internal init<T>(_ type: T.Type)
-//    {
-//        var isOptional = false
-//        var isImplicitlyUnwrappedOptional = false
-//        var isProtocol = false
-//
-//        if let optional = type as? OptionalWrapper {
-//            type = optional.wrappedType
-//            isOptional = true
-//        }
-//        else if let optional = type as? ImplicitlyUnwrappedOptionalWrapper {
-//            type = optional.wrappedType
-//            isImplicitlyUnwrappedOptional = true
-//        }
-//
-//        // Build full name
-//        var components = "\(type)".split(separator: ".", omittingEmptySubsequences: false)
-//        if (components.first?.starts(with: "__lldb_expr_") ?? false) {
-//            components = Array(components[0...])
-//        }
-//
-//        // Init instance variables
-//        self.name = String(components.last!)
-//        self.fullName = components.joined(separator: ".")
-//        self.isOptional = isOptional
-//        self.isImplicitlyUnwrappedOptional = isImplicitlyUnwrappedOptional
-//    }
+    internal init(name: String, fullName: String, isOptional: Bool, isImplicitlyUnwrappedOptional: Bool, isProtocol: Bool)
+    {
+        // Init instance variables
+        self.name = name
+        self.fullName = fullName
+        self.isOptional = isOptional
+        self.isImplicitlyUnwrappedOptional = isImplicitlyUnwrappedOptional
+        self.isProtocol = isProtocol
+    }
 
 // MARK: - Properties
 

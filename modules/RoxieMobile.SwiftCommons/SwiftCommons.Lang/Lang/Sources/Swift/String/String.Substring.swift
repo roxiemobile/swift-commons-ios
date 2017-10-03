@@ -8,34 +8,28 @@
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
-
-// ----------------------------------------------------------------------------
-
 public extension String
 {
 // MARK: - Methods
 
     @available(*, deprecated, message: "Write a description.")
-    func substringFrom(index: Int) -> String
-    {
-        let from = self.index(self.startIndex, offsetBy: index)
-        return String(self[from...])
+    public func index(from: Int) -> Index {
+        return self.index(self.startIndex, offsetBy: from)
     }
 
     @available(*, deprecated, message: "Write a description.")
-    func substringUpto(index: Int) -> String
-    {
-        let upto = self.index(self.startIndex, offsetBy: index)
-        return String(self[self.startIndex..<upto])
+    public func substring(from: Int) -> String {
+        return substring(from: index(from: from))
     }
 
     @available(*, deprecated, message: "Write a description.")
-    func substring(range: Range<Int>) -> String
-    {
-        let from = self.index(self.startIndex, offsetBy: range.lowerBound)
-        let upto = self.index(self.startIndex, offsetBy: range.upperBound)
-        return String(self[from..<upto])
+    public func substring(to: Int) -> String {
+        return substring(to: index(from: to))
+    }
+
+    @available(*, deprecated, message: "Write a description.")
+    public func substring(with range: Range<Int>) -> String {
+        return substring(with: index(from: range.lowerBound)..<index(from: range.upperBound))
     }
 }
 

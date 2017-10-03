@@ -28,18 +28,6 @@ public struct Reflection
 
     public let type: ReflectedType
 
-// MARK: - Private Methods
-
-    @available(*, deprecated, message: "\n• Must be renamed.")
-    func TtoT<T>(_ tp: T) -> T {
-        return tp
-    }
-
-    @available(*, deprecated, message: "\n• Must be renamed.")
-    func VtoT<V>(_ vl: V) -> V.Type {
-        return Swift.type(of: vl)
-    }
-
 // MARK: - Constants
 
     private static let metatypeNameParser: MetatypeNameParser = MetatypeNameParser()
