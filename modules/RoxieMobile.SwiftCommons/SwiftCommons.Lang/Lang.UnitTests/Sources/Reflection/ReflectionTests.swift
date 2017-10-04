@@ -15,18 +15,13 @@ import XCTest
 
 class ReflectionTests: XCTestCase
 {
-    func testReflectionTests() {
-        let reflection = Reflection(of: ReflectionTests.self)
+// MARK: - Tests
 
-        XCTAssertEqual(reflection.type.fullName, "SwiftCommonsLang_UnitTests.ReflectionTests")
-        XCTAssertEqual(reflection.type.name, "ReflectionTests")
-    }
+    func testFatalErrorException() {
+        let type = Reflection(of: FatalErrorException.self).type
 
-    func testOptionalReflectionTests() {
-        let reflection = Reflection(of: ReflectionTests?.self)
-
-        XCTAssertEqual(reflection.type.fullName, "SwiftCommonsLang_UnitTests.ReflectionTests")
-        XCTAssertEqual(reflection.type.name, "ReflectionTests")
+        XCTAssertEqual(type.fullName, "SwiftCommonsLang.FatalErrorException")
+        XCTAssertEqual(type.name, "FatalErrorException")
     }
 }
 

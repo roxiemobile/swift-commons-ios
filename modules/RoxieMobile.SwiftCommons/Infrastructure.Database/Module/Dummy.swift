@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Roxie.swift
+//  Dummy.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -8,13 +8,14 @@
 //
 // ----------------------------------------------------------------------------
 
-public final class Roxie: NonCreatable
-{
-// MARK: - Methods
+import Foundation
 
-    /// Returns the name of static type of the subject being reflected.
-    public static func typeName(of subject: Any) -> String {
-        return Reflection(of: subject).type.name
+// ----------------------------------------------------------------------------
+
+struct Dummy
+{
+    static func sayHello() {
+        print("Hello from Dummy!")
     }
 }
 

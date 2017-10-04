@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Roxie.swift
+//  RoxieTests.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -8,13 +8,19 @@
 //
 // ----------------------------------------------------------------------------
 
-public final class Roxie: NonCreatable
-{
-// MARK: - Methods
+@testable import SwiftCommonsLang
+import XCTest
 
-    /// Returns the name of static type of the subject being reflected.
-    public static func typeName(of subject: Any) -> String {
-        return Reflection(of: subject).type.name
+// ----------------------------------------------------------------------------
+
+class RoxieTests: XCTestCase
+{
+// MARK: - Tests
+
+    func testFatalErrorException() {
+        let name = Roxie.typeName(of: FatalErrorException.self)
+
+        XCTAssertEqual(name, "FatalErrorException")
     }
 }
 

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Infrastructure.Database/SwiftCommons.Infrastructure.Database.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SwiftCommons.Concurrent/SwiftCommons.Concurrent.xcodeproj">
    </FileRef>
    <FileRef
