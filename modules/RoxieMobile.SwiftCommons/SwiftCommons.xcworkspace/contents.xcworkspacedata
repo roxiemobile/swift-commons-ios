@@ -2,25 +2,25 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Core.Concurrent/SwiftCommons.Core.Concurrent.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Core.Data/SwiftCommons.Core.Data.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Core.Deprecated/SwiftCommons.Core.Deprecated.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Core.Diagnostics/SwiftCommons.Core.Diagnostics.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Core.Lang/SwiftCommons.Core.Lang.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Core.Logging/SwiftCommons.Core.Logging.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Infrastructure.Database/SwiftCommons.Infrastructure.Database.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SwiftCommons.Concurrent/SwiftCommons.Concurrent.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SwiftCommons.Data/SwiftCommons.Data.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SwiftCommons.Deprecated/SwiftCommons.Deprecated.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SwiftCommons.Diagnostics/SwiftCommons.Diagnostics.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SwiftCommons.Lang/SwiftCommons.Lang.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SwiftCommons.Logging/SwiftCommons.Logging.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../CocoaPods/Pods/Pods.xcodeproj">

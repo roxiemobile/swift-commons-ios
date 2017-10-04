@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		195D39541F72CE4900118D17 /* libSwiftCommonsInfrastructureDatabase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsInfrastructureDatabase.a */; };
-		19EB0CD01F72E1770029F302 /* SwiftCommons.Infrastructure.Database.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Infrastructure.Database.UnitTests.swift */; };
+		195D39541F72CE4900118D17 /* libSwiftCommonsCoreDiagnostics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreDiagnostics.a */; };
+		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Diagnostics.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Diagnostics.UnitTests.swift */; };
 		19FAC7371F72E462006B4715 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FAC7361F72E462006B4715 /* Dummy.swift */; };
 /* End PBXBuildFile section */
 
@@ -18,7 +18,7 @@
 			containerPortal = 19C0171C1F72CC3A00D29F73 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 19C017231F72CC3A00D29F73;
-			remoteInfo = SwiftCommons.Infrastructure.Database;
+			remoteInfo = SwiftCommons.Core.Diagnostics;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -35,12 +35,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		195D394F1F72CE4900118D17 /* SwiftCommonsInfrastructureDatabase.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsInfrastructureDatabase.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19792A361F72E7200001768B /* SwiftCommons.Infrastructure.Database-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Infrastructure.Database-Bridging-Header.h"; sourceTree = "<group>"; };
-		19792A371F72E72A0001768B /* SwiftCommons.Infrastructure.Database.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Infrastructure.Database.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		19C017241F72CC3A00D29F73 /* libSwiftCommonsInfrastructureDatabase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsInfrastructureDatabase.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		195D394F1F72CE4900118D17 /* SwiftCommonsCoreDiagnostics.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreDiagnostics.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19792A361F72E7200001768B /* SwiftCommons.Core.Diagnostics-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Diagnostics-Bridging-Header.h"; sourceTree = "<group>"; };
+		19792A371F72E72A0001768B /* SwiftCommons.Core.Diagnostics.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Diagnostics.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreDiagnostics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsCoreDiagnostics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19EB0CCF1F72E1770029F302 /* SwiftCommons.Infrastructure.Database.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Infrastructure.Database.UnitTests.swift; sourceTree = "<group>"; };
+		19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Diagnostics.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Core.Diagnostics.UnitTests.swift; sourceTree = "<group>"; };
 		19FAC7361F72E462006B4715 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				195D39541F72CE4900118D17 /* libSwiftCommonsInfrastructureDatabase.a in Frameworks */,
+				195D39541F72CE4900118D17 /* libSwiftCommonsCoreDiagnostics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,8 +85,8 @@
 		19C017251F72CC3A00D29F73 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				19C017241F72CC3A00D29F73 /* libSwiftCommonsInfrastructureDatabase.a */,
-				195D394F1F72CE4900118D17 /* SwiftCommonsInfrastructureDatabase.UnitTests.xctest */,
+				19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreDiagnostics.a */,
+				195D394F1F72CE4900118D17 /* SwiftCommonsCoreDiagnostics.UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,7 +119,7 @@
 		19EB0CA21F72DF0D0029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				19792A361F72E7200001768B /* SwiftCommons.Infrastructure.Database-Bridging-Header.h */,
+				19792A361F72E7200001768B /* SwiftCommons.Core.Diagnostics-Bridging-Header.h */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -127,7 +127,7 @@
 		19EB0CA41F72DF640029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				19792A371F72E72A0001768B /* SwiftCommons.Infrastructure.Database.UnitTests-Bridging-Header.h */,
+				19792A371F72E72A0001768B /* SwiftCommons.Core.Diagnostics.UnitTests-Bridging-Header.h */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 		19EB0CA81F72DF640029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				19EB0CCF1F72E1770029F302 /* SwiftCommons.Infrastructure.Database.UnitTests.swift */,
+				19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Diagnostics.UnitTests.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -151,9 +151,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		195D394E1F72CE4900118D17 /* SwiftCommons.Infrastructure.Database.UnitTests */ = {
+		195D394E1F72CE4900118D17 /* SwiftCommons.Core.Diagnostics.UnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 195D39571F72CE4900118D17 /* Build configuration list for PBXNativeTarget "SwiftCommons.Infrastructure.Database.UnitTests" */;
+			buildConfigurationList = 195D39571F72CE4900118D17 /* Build configuration list for PBXNativeTarget "SwiftCommons.Core.Diagnostics.UnitTests" */;
 			buildPhases = (
 				195D394B1F72CE4900118D17 /* Sources */,
 				195D394C1F72CE4900118D17 /* Frameworks */,
@@ -164,14 +164,14 @@
 			dependencies = (
 				195D39561F72CE4900118D17 /* PBXTargetDependency */,
 			);
-			name = SwiftCommons.Infrastructure.Database.UnitTests;
-			productName = SwiftCommons.Infrastructure.Database.UnitTests;
-			productReference = 195D394F1F72CE4900118D17 /* SwiftCommonsInfrastructureDatabase.UnitTests.xctest */;
+			name = SwiftCommons.Core.Diagnostics.UnitTests;
+			productName = SwiftCommons.Core.Diagnostics.UnitTests;
+			productReference = 195D394F1F72CE4900118D17 /* SwiftCommonsCoreDiagnostics.UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		19C017231F72CC3A00D29F73 /* SwiftCommons.Infrastructure.Database */ = {
+		19C017231F72CC3A00D29F73 /* SwiftCommons.Core.Diagnostics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 19C0172D1F72CC3A00D29F73 /* Build configuration list for PBXNativeTarget "SwiftCommons.Infrastructure.Database" */;
+			buildConfigurationList = 19C0172D1F72CC3A00D29F73 /* Build configuration list for PBXNativeTarget "SwiftCommons.Core.Diagnostics" */;
 			buildPhases = (
 				19C017201F72CC3A00D29F73 /* Sources */,
 				19C017211F72CC3A00D29F73 /* Frameworks */,
@@ -181,9 +181,9 @@
 			);
 			dependencies = (
 			);
-			name = SwiftCommons.Infrastructure.Database;
-			productName = SwiftCommons.Infrastructure.Database;
-			productReference = 19C017241F72CC3A00D29F73 /* libSwiftCommonsInfrastructureDatabase.a */;
+			name = SwiftCommons.Core.Diagnostics;
+			productName = SwiftCommons.Core.Diagnostics;
+			productReference = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreDiagnostics.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 19C0171F1F72CC3A00D29F73 /* Build configuration list for PBXProject "SwiftCommons.Infrastructure.Database" */;
+			buildConfigurationList = 19C0171F1F72CC3A00D29F73 /* Build configuration list for PBXProject "SwiftCommons.Core.Diagnostics" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -220,8 +220,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				19C017231F72CC3A00D29F73 /* SwiftCommons.Infrastructure.Database */,
-				195D394E1F72CE4900118D17 /* SwiftCommons.Infrastructure.Database.UnitTests */,
+				19C017231F72CC3A00D29F73 /* SwiftCommons.Core.Diagnostics */,
+				195D394E1F72CE4900118D17 /* SwiftCommons.Core.Diagnostics.UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -241,7 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19EB0CD01F72E1770029F302 /* SwiftCommons.Infrastructure.Database.UnitTests.swift in Sources */,
+				19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Diagnostics.UnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +258,7 @@
 /* Begin PBXTargetDependency section */
 		195D39561F72CE4900118D17 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 19C017231F72CC3A00D29F73 /* SwiftCommons.Infrastructure.Database */;
+			target = 19C017231F72CC3A00D29F73 /* SwiftCommons.Core.Diagnostics */;
 			targetProxy = 195D39551F72CE4900118D17 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -332,7 +332,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CUSTOM_PRODUCT_NAME = SwiftCommonsInfrastructureDatabase;
+				CUSTOM_PRODUCT_NAME = SwiftCommonsCoreDiagnostics;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -389,7 +389,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CUSTOM_PRODUCT_NAME = SwiftCommonsInfrastructureDatabase;
+				CUSTOM_PRODUCT_NAME = SwiftCommonsCoreDiagnostics;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -445,7 +445,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		195D39571F72CE4900118D17 /* Build configuration list for PBXNativeTarget "SwiftCommons.Infrastructure.Database.UnitTests" */ = {
+		195D39571F72CE4900118D17 /* Build configuration list for PBXNativeTarget "SwiftCommons.Core.Diagnostics.UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				195D39581F72CE4900118D17 /* Debug */,
@@ -454,7 +454,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		19C0171F1F72CC3A00D29F73 /* Build configuration list for PBXProject "SwiftCommons.Infrastructure.Database" */ = {
+		19C0171F1F72CC3A00D29F73 /* Build configuration list for PBXProject "SwiftCommons.Core.Diagnostics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19C0172B1F72CC3A00D29F73 /* Debug */,
@@ -463,7 +463,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		19C0172D1F72CC3A00D29F73 /* Build configuration list for PBXNativeTarget "SwiftCommons.Infrastructure.Database" */ = {
+		19C0172D1F72CC3A00D29F73 /* Build configuration list for PBXNativeTarget "SwiftCommons.Core.Diagnostics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19C0172E1F72CC3A00D29F73 /* Debug */,

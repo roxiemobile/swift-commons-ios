@@ -3,14 +3,14 @@ use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 
-# target 'SwiftCommons.Lang' do
-#   project '../RoxieMobile.SwiftCommons/SwiftCommons.Lang/SwiftCommons.Lang.xcodeproj'
+# target 'SwiftCommons.Core.Lang' do
+#   project '../RoxieMobile.SwiftCommons/Core.Lang/SwiftCommons.Core.Lang.xcodeproj'
 # end
 
-target 'SwiftCommons.Deprecated' do
-  project '../RoxieMobile.SwiftCommons/SwiftCommons.Deprecated/SwiftCommons.Deprecated.xcodeproj'
+target 'SwiftCommons.Core.Deprecated' do
+  project '../RoxieMobile.SwiftCommons/Core.Deprecated/SwiftCommons.Core.Deprecated.xcodeproj'
 
-  pod 'SwiftCommons/Lang', :path => '../../'
+  pod 'SwiftCommons/Core/Lang', :path => '../../'
   pod 'SQLCipher', '~> 3.4', :inhibit_warnings => true
 end
 

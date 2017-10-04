@@ -20,22 +20,35 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig   = { 'ENABLE_BITCODE' => 'NO', 'SWIFT_VERSION' => '4.0' }
 
-  s.default_subspecs      = 'Lang', 'Deprecated'
+  s.default_subspecs      = 'Core/Lang', 'Core/Deprecated', 'Infrastructure/Database'
 
 
 # MARK: - Modules
 
-  s.subspec 'Lang' do |sp|
+  # TODO: Write a description
+  s.subspec 'Core' do |sc|
+
     # A collection of useful classes and Swift language extensions
-    sp.source_files = 'modules/RoxieMobile.SwiftCommons/SwiftCommons.Lang/Lang/**/*.{swift,h,m,c}'
+    sc.subspec 'Lang' do |sp|
+      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Lang/Module/**/*.{swift,h,m,c}'
+    end
+
+    # TODO: Write a description
+    sc.subspec 'Deprecated' do |sp|
+      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Deprecated/Module/**/*.{swift,h,m,c}'
+
+      # Dependencies
+      sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
+      sp.dependency 'SQLCipher', '~> 3.4'
+    end
   end
 
-  s.subspec 'Deprecated' do |sp|
-    # TODO: Write a description
-    sp.source_files = 'modules/RoxieMobile.SwiftCommons/SwiftCommons.Deprecated/Deprecated/**/*.{swift,h,m,c}'
+  # TODO: Write a description
+  s.subspec 'Infrastructure' do |sc|
 
-    # Dependencies
-    sp.dependency 'SwiftCommons/Lang', s.version.to_s
-    sp.dependency 'SQLCipher', '~> 3.4'
+    # TODO: Write a description
+    sc.subspec 'Database' do |sp|
+      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Infrastructure.Database/Module/**/*.{swift,h,m,c}'
+    end
   end
 end
