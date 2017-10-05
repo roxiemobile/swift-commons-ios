@@ -3,6 +3,17 @@ use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 
+target 'SwiftCommons.Core.Extensions' do
+  project '../RoxieMobile.SwiftCommons/Core.Extensions/SwiftCommons.Core.Extensions.xcodeproj'
+
+  pod 'SwiftCommons/Core/Lang', :path => '../../'
+  pod 'SwiftCommons/Core/Logging', :path => '../../'
+
+  target 'SwiftCommons.Core.Extensions.UnitTests' do
+    inherit! :search_paths
+  end
+end
+
 target 'SwiftCommons.Core.Logging' do
   project '../RoxieMobile.SwiftCommons/Core.Logging/SwiftCommons.Core.Logging.xcodeproj'
 
@@ -14,6 +25,21 @@ target 'SwiftCommons.Core.Logging' do
   end
 end
 
+target 'SwiftCommons.Infrastructure.Database' do
+  project '../RoxieMobile.SwiftCommons/Infrastructure.Database/SwiftCommons.Infrastructure.Database.xcodeproj'
+
+  pod 'SwiftCommons/Core/Concurrent', :path => '../../'
+  pod 'SwiftCommons/Core/Extensions', :path => '../../'
+  pod 'SwiftCommons/Core/Lang', :path => '../../'
+  pod 'SwiftCommons/Core/Logging', :path => '../../'
+  pod 'CryptoSwift', '~> 0.7'
+  pod 'SQLCipher', '~> 3.4', :inhibit_warnings => true
+
+  target 'SwiftCommons.Infrastructure.Database.UnitTests' do
+    inherit! :search_paths
+  end
+end
+
 # FIXME: Must be deleted!
 target 'SwiftCommons.Core.Deprecated' do
   project '../RoxieMobile.SwiftCommons/Core.Deprecated/SwiftCommons.Core.Deprecated.xcodeproj'
@@ -21,7 +47,7 @@ target 'SwiftCommons.Core.Deprecated' do
   pod 'SwiftCommons/Core/Concurrent', :path => '../../'
   pod 'SwiftCommons/Core/Lang', :path => '../../'
   pod 'SwiftCommons/Core/Logging', :path => '../../'
-  pod 'SQLCipher', '~> 3.4', :inhibit_warnings => true
+  pod 'CryptoSwift', '~> 0.7'
 
   target 'SwiftCommons.Core.Deprecated.UnitTests' do
     inherit! :search_paths

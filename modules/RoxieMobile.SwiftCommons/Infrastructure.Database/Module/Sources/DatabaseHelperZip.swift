@@ -18,22 +18,22 @@ public class DatabaseHelperZip: DatabaseHelper
 {
 // MARK: - Construction
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public override init(databaseName: String?, version: Int, readonly: Bool = false, delegate: DatabaseOpenDelegate? = nil) {
         super.init(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
     }
 
 // MARK: - Methods
 
-    @available(*, deprecated)
-    override func unpackDatabaseTemplate(databaseName: String, assetPath: URL) -> URL? {
+    @available(*, deprecated, message: "\n• Write a description.")
+    internal override func unpackDatabaseTemplate(databaseName: String, assetPath: URL) -> URL? {
         var path: URL?
 
         // Copy template file from application assets to the temporary directory
         if let tmpPath = makeTemplatePath(databaseName: databaseName)
         {
             // Remove previous template file
-            rxm_removeItemAtURL(url: tmpPath)
+            FileManager.roxie_removeItem(at: tmpPath)
 
             // Unzip database template file from the assets
             if SSZipArchive.unzipEntityName(databaseName, fromFilePath: assetPath.path, toDestination: tmpPath.path) {

@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  SwiftCommons.Infrastructure.Database.UnitTests.swift
+//  SwiftCommons.Core.Extensions.UnitTests.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -8,12 +8,12 @@
 //
 // ----------------------------------------------------------------------------
 
-@testable import SwiftCommonsInfrastructureDatabase
+@testable import SwiftCommonsCoreExtensions
 import XCTest
 
 // ----------------------------------------------------------------------------
 
-class SwiftCommons_Infrastructure_Database_UnitTests: XCTestCase
+class SwiftCommons_Core_Extensions_UnitTests: XCTestCase
 {
     override func setUp() {
         super.setUp()

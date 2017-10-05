@@ -16,6 +16,7 @@ extension Roxie
 {
 // MARK: - Methods
 
+    @available(*, deprecated, message: "\n• Write a description.")
     public static func fatalError(message: String, file: StaticString = #file, line: UInt = #line) -> Never {
         let logMessage = "Fatal error: \(message)\nFile: \(file)\nLine: \(line)"
 
@@ -29,6 +30,7 @@ extension Roxie
     #endif
     }
 
+    @available(*, deprecated, message: "\n• Write a description.")
     public static func fatalError(message: String, error: Error?, file: StaticString = #file, line: UInt = #line) {
         var logMessage = message
 
@@ -41,6 +43,7 @@ extension Roxie
         fatalError(message: logMessage, file: file, line: line)
     }
 
+    @available(*, deprecated, message: "\n• Write a description.")
     public static func fatalError(message: String, error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message
 
@@ -61,6 +64,7 @@ extension Roxie
         fatalError(message: logMessage, file: file, line: line)
     }
 
+    @available(*, deprecated, message: "\n• Write a description.")
     public static func fatalError(message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message
 

@@ -45,7 +45,6 @@ public extension Connection
 
 // MARK: - Constants
 
-    @available(*, deprecated)
     private struct SQL {
         static let CheckConnection = "SELECT `name` FROM `sqlite_master` WHERE `type` = 'table';"
     }

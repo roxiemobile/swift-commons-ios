@@ -8,6 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
+import CryptoSwift
 import Foundation
 import SwiftCommons
 
@@ -19,24 +20,22 @@ public typealias Database = Connection
 // A helper class to manage database creation and version management.
 // @link https://github.com/android/platform_frameworks_base/blob/master/core/java/android/database/sqlite/SQLiteOpenHelper.java
 
-@available(*, deprecated)
+@available(*, deprecated, message: "\n• Write a description.")
 public class DatabaseHelper
 {
 // MARK: - Construction
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public init(databaseName: String?, version: Int, readonly: Bool = false, delegate: DatabaseOpenDelegate? = nil)
     {
         // Init instance variables
         self.database = openOrCreateDatabase(databaseName: databaseName, version: version, readonly: readonly, delegate: delegate)
     }
 
-    @available(*, deprecated)
     private init() {
         // Do nothing
     }
 
-    @available(*, deprecated)
     deinit {
         // Release resources
         self.database = nil
@@ -44,9 +43,10 @@ public class DatabaseHelper
 
 // MARK: - Properties
 
+    @available(*, deprecated, message: "\n• Write a description.")
     public final private(set) var database: Database?
-    
-    @available(*, deprecated)
+
+    @available(*, deprecated, message: "\n• Write a description.")
     public var userVersion: Int {
         get {
             let version = (try? database?.scalar("PRAGMA user_version")) ?? Int64(0)
@@ -65,60 +65,60 @@ public class DatabaseHelper
 // MARK: - Methods
 
     /// Checks if database file exists and integrity check of the entire database was successful.
-    @available(*, deprecated)
     public static func isValidDatabase(databaseName: String?, delegate: DatabaseOpenDelegate? = nil) -> Bool {
         return DatabaseHelper.sharedInstance.validateDatabase(databaseName: databaseName, delegate: delegate)
     }
 
 // MARK: - Internal Methods
-    
-    @available(*, deprecated)
-    func unpackDatabaseTemplate(databaseName: String, assetPath: URL) -> URL?
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    internal func unpackDatabaseTemplate(databaseName: String, assetPath: URL) -> URL?
     {
-        var pathUrl: URL?
+        var path: URL?
 
         // Copy template file from application assets to the temporary directory
-        if let tmpPathUrl = makeTemplatePath(databaseName: databaseName)
+        if let tmpPath = makeTemplatePath(databaseName: databaseName)
         {
             // Remove previous template file
-            rxm_removeItemAtURL(url: tmpPathUrl)
+            FileManager.roxie_removeItem(at: tmpPath)
 
             // Copy new template file
-            if rxm_copyItemAtURL(srcURL: assetPath, toURL: tmpPathUrl) {
-                pathUrl = tmpPathUrl
+            if FileManager.roxie_copyItem(at: assetPath, to: tmpPath) {
+                path = tmpPath
             }
         }
         else {
             Roxie.fatalError(message: "Could not make temporary path for database ‘\(databaseName)’.")
         }
 
-        return pathUrl
+        // Done
+        return path
     }
 
-    @available(*, deprecated)
-    func makeDatabasePath(databaseName: String?) -> URL?
+    @available(*, deprecated, message: "\n• Write a description.")
+    internal func makeDatabasePath(databaseName: String?) -> URL?
     {
         let name = sanitizeName(name: databaseName)
         var path: URL?
 
         // Build path to the database file
         if !name.isEmpty && (name != Inner.InMemoryDatabase) {
-            path = FileManager.databasesDirectory?.appendingPathComponent((name.rxm_md5String as NSString).appendingPathExtension(FileExtension.SQLite)!)
+            path = FileManager.roxie_databasesDirectory?.appendingPathComponent((name.md5() as NSString).appendingPathExtension(FileExtension.SQLite)!)
         }
 
         // Done
         return path
     }
 
-    @available(*, deprecated)
-    func makeTemplatePath(databaseName: String?) -> URL?
+    @available(*, deprecated, message: "\n• Write a description.")
+    internal func makeTemplatePath(databaseName: String?) -> URL?
     {
         let name = sanitizeName(name: databaseName)
         var path: URL?
 
         // Build path to the template file
         if !name.isEmpty && (name != Inner.InMemoryDatabase) {
-            path = FileManager.temporaryDirectory?.appendingPathComponent((name.rxm_md5String as NSString).appendingPathExtension(FileExtension.SQLite)!)
+            path = FileManager.roxie_temporaryDirectory?.appendingPathComponent((name.md5() as NSString).appendingPathExtension(FileExtension.SQLite)!)
         }
 
         // Done
@@ -127,14 +127,13 @@ public class DatabaseHelper
 
 // MARK: - Private Methods
 
-    @available(*, deprecated)
-    private func validateDatabase(databaseName: String?, delegate: DatabaseOpenDelegate? = nil) -> Bool
-    {
+    @available(*, deprecated, message: "\n• Write a description.")
+    private func validateDatabase(databaseName: String?, delegate: DatabaseOpenDelegate? = nil) -> Bool {
         var result = false
 
         // Check if database file exists
-        if let path = makeDatabasePath(databaseName: databaseName), path.rxm_isFileExists
-        {
+        if let path = makeDatabasePath(databaseName: databaseName), path.roxie_fileExists {
+
             // Check integrity of database
             let database = openDatabase(databaseName: databaseName, version: nil, readonly: true, delegate: delegate)
             result = checkDatabaseIntegrity(database: database)
@@ -144,7 +143,7 @@ public class DatabaseHelper
         return result
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     private func openOrCreateDatabase(databaseName: String?, version: Int, readonly: Bool, delegate: DatabaseOpenDelegate?) -> Database?
     {
         // Try to open existing database
@@ -159,14 +158,14 @@ public class DatabaseHelper
         return database
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     private func openDatabase(databaseName: String?, version: Int?, readonly: Bool, delegate: DatabaseOpenDelegate?) -> Database?
     {
         var name: String! = sanitizeName(name: databaseName)
         var database: Database!
 
         // Validate database name
-        if let path = makeDatabasePath(databaseName: databaseName), path.rxm_isFileExists {
+        if let path = makeDatabasePath(databaseName: databaseName), path.roxie_fileExists {
             name = path.path
         }
         else if (name != Inner.InMemoryDatabase) {
@@ -174,7 +173,7 @@ public class DatabaseHelper
         }
 
         // Open on-disk OR in-memory database
-        if StringUtils.isNotBlank(name) {
+        if name.isNotBlank {
             database = createDatabaseObject(uriPath: name, readonly: readonly)
 
             // Send events to the delegate
@@ -268,8 +267,8 @@ public class DatabaseHelper
         // Done
         return database
     }
-    
-    @available(*, deprecated)
+
+    @available(*, deprecated, message: "\n• Write a description.")
     private func createDatabase(databaseName: String?, version: Int, readonly: Bool, delegate: DatabaseOpenDelegate?) -> Database?
     {
         let name = sanitizeName(name: databaseName)
@@ -279,13 +278,13 @@ public class DatabaseHelper
         if let dstPath = makeDatabasePath(databaseName: databaseName)
         {
             // Remove previous database file
-            rxm_removeItemAtURL(url: dstPath)
+            FileManager.roxie_removeItem(at: dstPath)
 
             // Get path of the database template file from delegate
-            if let (path, encryptionKey) = delegate?.databaseWillCreate(name: databaseName), (path != nil) && path!.rxm_isFileExists
+            if let (path, encryptionKey) = delegate?.databaseWillCreate(name: databaseName), (path != nil) && path!.roxie_fileExists
             {
                 // Unpack database template from the assets
-                if let tmpPath = unpackDatabaseTemplate(databaseName: databaseName!, assetPath: path!), tmpPath.rxm_isFileExists
+                if let tmpPath = unpackDatabaseTemplate(databaseName: databaseName!, assetPath: path!), tmpPath.roxie_fileExists
                 {
                     let uriPath = tmpPath.path
                     
@@ -299,23 +298,23 @@ public class DatabaseHelper
                             // FMDB with SQLCipher Tutorial
                             // @link http://www.guilmo.com/fmdb-with-sqlcipher-tutorial/
 
-                            execute(database: db, query: "ATTACH DATABASE '\(dstPath.path)' AS `encrypted` KEY '\(key.rxm_hexString)';")
+                            execute(database: db, query: "ATTACH DATABASE '\(dstPath.path)' AS `encrypted` KEY '\(key.toHexString())';")
                             execute(database: db, query: "SELECT sqlcipher_export('encrypted');")
                             execute(database: db, query: "DETACH DATABASE `encrypted`;")
                         }
                         else {
-                            rxm_copyItemAtURL(srcURL: tmpPath, toURL: dstPath)
+                            FileManager.roxie_copyItem(at: tmpPath, to: dstPath)
                         }
 
                         // Exclude file from back-up to iCloud
-                        FileManager.excludedPathFromBackup(url: dstPath)
+                        FileManager.roxie_excludedFromBackup(at: dstPath)
                     }
 
                     // Release resources
                     db = nil
 
                     // Remove database template file
-                    rxm_removeItemAtURL(url: tmpPath)
+                    FileManager.roxie_removeItem(at: tmpPath)
                 }
             }
 
@@ -324,7 +323,7 @@ public class DatabaseHelper
 
             // Remove corrupted database file
             if (database == nil) {
-                rxm_removeItemAtURL(url: dstPath)
+                FileManager.roxie_removeItem(at: dstPath)
             }
         }
         // Create in-memory database
@@ -336,7 +335,7 @@ public class DatabaseHelper
         return database
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     private func checkDatabaseIntegrity(database: Database?) -> Bool
     {
         var result = false
@@ -352,13 +351,15 @@ public class DatabaseHelper
         return result
     }
 
-    @available(*, deprecated)
-    private func sanitizeName(name: String?) -> String {
-        return StringUtils.isNotBlank(name) ? name! : Inner.InMemoryDatabase
+    @available(*, deprecated, message: "\n• Write a description.")
+    private func sanitizeName(name: String?) -> String
+    {
+        guard let value = name, value.isNotBlank else { return Inner.InMemoryDatabase }
+        return value
     }
 
     // DEPRECATED: Code refactoring is needed
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Code refactoring is required.\n• Write a description.")
     private func execute(database: Database?, query: String?)
     {
         guard let database = database, let query = query else { return }
@@ -372,7 +373,7 @@ public class DatabaseHelper
     }
 
     // DEPRECATED: Code refactoring is needed
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Code refactoring is required.\n• Write a description.")
     private func createDatabaseObject(uriPath: String?, readonly: Bool) -> Database?
     {
         if uriPath == nil {
@@ -388,7 +389,7 @@ public class DatabaseHelper
     }
 
     // DEPRECATED: Code refactoring is needed
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Code refactoring is required.\n• Write a description.")
     private func runTransaction(database: Database?, mode: Database.TransactionMode, block: @escaping () throws -> Void)
     {
         if database == nil {
@@ -405,25 +406,21 @@ public class DatabaseHelper
 
 // MARK: - Constants
 
-    @available(*, deprecated)
     private struct Inner {
         static let InMemoryDatabase = Database.Location.inMemory.description
     }
 
-    @available(*, deprecated)
     private struct FileExtension {
         static let SQLite = "sqlite"
     }
-    
+
 // MARK: - Enums
-    
-    @available(*, deprecated)
+
     enum TransactionResult {
         case Rollback
         case Commit
     }
-    
-    @available(*, deprecated)
+
     enum DatabaseError : Error {
         case FailedTransaction
     }
@@ -431,20 +428,6 @@ public class DatabaseHelper
 // MARK: - Variables
 
     private static let sharedInstance: DatabaseHelper = DatabaseHelper()
-}
-
-// ----------------------------------------------------------------------------
-// MARK: - @interface URL
-// ----------------------------------------------------------------------------
-
-private extension URL
-{
-// MARK: - Methods
-
-    @available(*, deprecated)
-    var rxm_isFileExists: Bool {
-        return self.isFileURL && ((try? checkResourceIsReachable()) ?? false)
-    }
 }
 
 // ----------------------------------------------------------------------------

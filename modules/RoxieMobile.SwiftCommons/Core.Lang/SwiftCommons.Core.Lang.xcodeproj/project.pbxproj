@@ -106,8 +106,8 @@
 		19044DD41F85922A00090515 /* Roxie */ = {
 			isa = PBXGroup;
 			children = (
-				19044DD51F85922A00090515 /* Roxie.FatalError.swift */,
 				19044DD61F85922A00090515 /* Roxie.swift */,
+				19044DD51F85922A00090515 /* Roxie.FatalError.swift */,
 			);
 			path = Roxie;
 			sourceTree = "<group>";

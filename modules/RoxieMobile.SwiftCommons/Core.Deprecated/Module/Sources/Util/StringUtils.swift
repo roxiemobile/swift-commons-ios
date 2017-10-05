@@ -72,24 +72,6 @@ public final class StringUtils: NonCreatable
 
 // MARK: -
 
-    /// Checks if a String is empty (""), {@code nil} or whitespace only.
-    ///
-    /// <pre>
-    /// StringUtils.isBlank(nil)       = true
-    /// StringUtils.isBlank("")        = true
-    /// StringUtils.isBlank(" ")       = true
-    /// StringUtils.isBlank("bob")     = false
-    /// StringUtils.isBlank("  bob  ") = false
-    /// </pre>
-    ///
-    /// @param value The String to check, may be nil
-    /// @return {@code true} if the String is nil, empty or whitespace only
-    ///
-    @available(*, deprecated)
-    public static func isBlank(_ value: String?) -> Bool {
-        return (value == nil) || value!.trim().isEmpty
-    }
-
     /// Checks if all of the Strings are empty (""), {@code nil} or whitespace only.
     ///
     /// <pre>
@@ -109,30 +91,12 @@ public final class StringUtils: NonCreatable
     ///
     @available(*, deprecated)
     public static func isAllBlank(_ values: [String]?) -> Bool {
-        return CollectionUtils.isEmpty(values) || values!.all { isBlank($0) }
+        return CollectionUtils.isEmpty(values) || values!.all { $0.isBlank }
     }
 
     @available(*, deprecated)
     public static func isAllBlank(_ values: [String?]?) -> Bool {
-        return CollectionUtils.isEmpty(values) || values!.all { isBlank($0) }
-    }
-
-    /// Checks if a String is not empty (""), not {@code nil} and not whitespace only.
-    ///
-    /// <pre>
-    /// StringUtils.isNotBlank(nil)       = false
-    /// StringUtils.isNotBlank("")        = false
-    /// StringUtils.isNotBlank(" ")       = false
-    /// StringUtils.isNotBlank("bob")     = true
-    /// StringUtils.isNotBlank("  bob  ") = true
-    /// </pre>
-    ///
-    /// @param value The String to check, may be nil
-    /// @return {@code true} if the String is not empty and not nil and not whitespace only
-    ///
-    @available(*, deprecated)
-    public static func isNotBlank(_ value: String?) -> Bool {
-        return !isBlank(value)
+        return CollectionUtils.isEmpty(values) || values!.all { $0.isBlank }
     }
 
     /// Checks if none of the Strings are empty (""), {@code nil} or whitespace only.
@@ -154,12 +118,12 @@ public final class StringUtils: NonCreatable
     ///
     @available(*, deprecated)
     public static func isAllNotBlank(_ values: [String]?) -> Bool {
-        return CollectionUtils.isNotEmpty(values) && values!.all { isNotBlank($0) }
+        return CollectionUtils.isNotEmpty(values) && values!.all { $0.isNotBlank }
     }
 
     @available(*, deprecated)
     public static func isAllNotBlank(_ values: [String?]?) -> Bool {
-        return CollectionUtils.isNotEmpty(values) && values!.all { isNotBlank($0) }
+        return CollectionUtils.isNotEmpty(values) && values!.all { $0.isNotBlank }
     }
 
 // MARK: -

@@ -237,7 +237,7 @@ extension Expect
     // TODO
     @available(*, deprecated)
     public static func isBlank(_ value: String?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
-        try isTrue(StringUtils.isBlank(value), message, file, line)
+        try isTrue(value.isBlank, message, file, line)
     }
 
     // TODO
@@ -260,7 +260,7 @@ extension Expect
     // TODO
     @available(*, deprecated)
     public static func isNotBlank(_ value: String?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
-        try isTrue(StringUtils.isNotBlank(value), message, file, line)
+        try isTrue(value.isNotBlank, message, file, line)
     }
 
     // TODO

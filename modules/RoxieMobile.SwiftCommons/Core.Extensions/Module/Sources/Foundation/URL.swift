@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  SwiftCommons.Infrastructure.Database-Bridging-Header.h
+//  URL.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -8,16 +8,18 @@
 //
 // ----------------------------------------------------------------------------
 
-#import <SQLCipher/sqlite3.h>
+import Foundation
 
 // ----------------------------------------------------------------------------
-//
-//  Use this file to import your target's public headers that you would like
-//  to expose to Swift.
-//
-// ----------------------------------------------------------------------------
 
-#import "SQLite-Bridging.h"
-#import "SSZipArchive.h"
+public extension URL
+{
+// MARK: - Methods
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    public var roxie_fileExists: Bool {
+        return self.isFileURL && ((try? checkResourceIsReachable()) ?? false)
+    }
+}
 
 // ----------------------------------------------------------------------------

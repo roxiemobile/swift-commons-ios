@@ -32,14 +32,6 @@ public extension String
     @available(*, deprecated)
     var length: Int { return self.characters.count }
 
-    /// Checks if a String is empty ("") or whitespace only.
-    @available(*, deprecated)
-    var isBlank: Bool { return StringUtils.isBlank(self) }
-
-    /// Checks if a String is not empty ("") and not whitespace only.
-    @available(*, deprecated)
-    var isNotBlank: Bool { return !self.isBlank }
-
 // MARK: - Methods
 
     /// Returns a localized string.

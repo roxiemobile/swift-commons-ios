@@ -8,6 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
+import CryptoSwift
 import Foundation
 
 // ----------------------------------------------------------------------------
@@ -72,7 +73,7 @@ public protocol MDCopying: NSCopying
 @available(*, deprecated)
 public func roxie_customTag(clazz: AnyClass) -> String
 {
-    let nameTag = NSStringFromClass(clazz).rxm_md5String.substring(upto: 8)
+    let nameTag = NSStringFromClass(clazz).md5().substring(upto: 8)
     let timeTag = mach_absolute_time().rxm_hexString.substring(from: 8)
 
     // Done

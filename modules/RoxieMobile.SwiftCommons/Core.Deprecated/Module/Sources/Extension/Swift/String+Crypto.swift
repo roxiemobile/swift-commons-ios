@@ -17,17 +17,6 @@ public extension String
 // MARK: - Properties
 
     /**
-     * Calculates MD5 hash string.
-     *
-     * @note Copy from CryptoSwift
-     * @link https://github.com/krzyzanowskim/CryptoSwift
-     */
-    @available(*, deprecated)
-    var rxm_md5String: String {
-        return self.rxm_md5Digest.rxm_hexString
-    }
-
-    /**
      * Calculates MD5 digest.
      *
      * @note Copy from CryptoSwift
@@ -36,17 +25,6 @@ public extension String
     @available(*, deprecated)
     var rxm_md5Digest: Data {
         return data(using: String.Encoding.utf8, allowLossyConversion: true)!.rxm_md5Digest
-    }
-
-    /**
-     * Calculates SHA1 hash string.
-     *
-     * @note Copy from CryptoSwift
-     * @link https://github.com/krzyzanowskim/CryptoSwift
-     */
-    @available(*, deprecated)
-    var rxm_sha1String: String {
-        return self.rxm_sha1Digest.rxm_hexString
     }
 
     /**

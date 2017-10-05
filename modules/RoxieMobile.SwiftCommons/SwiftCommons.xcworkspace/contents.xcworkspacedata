@@ -14,6 +14,9 @@
       location = "group:Core.Diagnostics/SwiftCommons.Core.Diagnostics.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Core.Extensions/SwiftCommons.Core.Extensions.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Core.Lang/SwiftCommons.Core.Lang.xcodeproj">
    </FileRef>
    <FileRef
