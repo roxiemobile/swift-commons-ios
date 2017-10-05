@@ -8,7 +8,7 @@
 
 #import "TryCatchFinally.h"
 
-void rxm_tryCatchFinally(
+void roxie_tryCatchFinally(
     void(^ _Nonnull tryBlock)(void),
     void(^ _Nonnull catchBlock)(NSException * _Nonnull e),
     void(^ _Nonnull finallyBlock)(void))

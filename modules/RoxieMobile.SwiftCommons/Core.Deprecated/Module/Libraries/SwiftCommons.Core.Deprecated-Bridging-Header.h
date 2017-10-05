@@ -18,7 +18,6 @@
 // ----------------------------------------------------------------------------
 
 #import "StreamTypedCoder.h"
-#import "TryCatchFinally.h"
 #import "SSZipArchive.h"
 #import "SQLite-Bridging.h"
 

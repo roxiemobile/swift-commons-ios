@@ -4,10 +4,12 @@ PODS:
   - SQLCipher/common (3.4.1)
   - SQLCipher/standard (3.4.1):
     - SQLCipher/common
+  - SwiftCommons/Core/Concurrent (0.0.1)
   - SwiftCommons/Core/Lang (0.0.1)
 
 DEPENDENCIES:
   - SQLCipher (~> 3.4)
+  - SwiftCommons/Core/Concurrent (from `../../`)
   - SwiftCommons/Core/Lang (from `../../`)
 
 EXTERNAL SOURCES:
@@ -16,8 +18,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SQLCipher: 43d12c0eb9c57fb438749618fc3ce0065509a559
-  SwiftCommons: 7f910d134312aa519f35fe32ef9e99a95b904baa
+  SwiftCommons: fe03b2e15eae3fb4a9776cf5681f87d4953602e3
 
-PODFILE CHECKSUM: 330d6987254abc12deada2a61d866c3e1cc1bcc9
+PODFILE CHECKSUM: 4b8603b7d23a1e78942306faa4436e19ea2d334d
 
 COCOAPODS: 1.3.1

@@ -19,7 +19,7 @@ public final class TryCatchFinally
     }
 
     deinit {
-        rxm_tryCatchFinally(tryFunc, catchFunc, finallyFunc)
+        roxie_tryCatchFinally(tryFunc, catchFunc, finallyFunc)
     }
 
     let tryFunc: () -> Void

@@ -20,13 +20,20 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig   = { 'ENABLE_BITCODE' => 'NO', 'SWIFT_VERSION' => '4.0' }
 
-  s.default_subspecs      = 'Core/Lang', 'Core/Deprecated', 'Infrastructure/Database'
-
+  s.default_subspecs      = 'Core/Concurrent',
+                            'Core/Lang',
+                            'Core/Deprecated',
+                            'Infrastructure/Database'
 
 # MARK: - Modules
 
   # TODO: Write a description
   s.subspec 'Core' do |sc|
+
+    # TODO: Write a description
+    sc.subspec 'Concurrent' do |sp|
+      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Concurrent/Module/**/*.{swift,h,m,c}'
+    end
 
     # A collection of useful classes and Swift language extensions
     sc.subspec 'Lang' do |sp|
@@ -38,6 +45,7 @@ Pod::Spec.new do |s|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Deprecated/Module/**/*.{swift,h,m,c}'
 
       # Dependencies
+      sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
       sp.dependency 'SQLCipher', '~> 3.4'
     end

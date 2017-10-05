@@ -16,14 +16,14 @@ import Foundation
 // @link https://gist.github.com/Inferis/0813bf742742774d55fa
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
+@available(*, deprecated, message: "\n• Must be deleted.")
 public func rxm_dispatch_main_async(block: @escaping () -> Void) {
     DispatchQueue.main.async(execute: block)
 }
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
+@available(*, deprecated, message: "\n• Must be deleted.")
 public func rxm_dispatch_main_sync(block: () -> Void)
 {
     if Thread.isMainThread {
@@ -36,7 +36,7 @@ public func rxm_dispatch_main_sync(block: () -> Void)
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
+@available(*, deprecated, message: "\n• Must be deleted.")
 public func rxm_dispatch_main_after(delay: Double, block: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: block)
 }
@@ -45,21 +45,21 @@ public func rxm_dispatch_main_after(delay: Double, block: @escaping () -> Void) 
 // MARK: -
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
+@available(*, deprecated, message: "\n• Must be deleted.")
 public func rxm_dispatch_background_async(block: @escaping () -> Void) {
     DispatchQueue.global(qos: .background).async(execute: block)
 }
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
+@available(*, deprecated, message: "\n• Must be deleted.")
 public func rxm_dispatch_background_sync(block: () -> Void) {
     DispatchQueue.global(qos: .background).sync(execute: block)
 }
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
+@available(*, deprecated, message: "\n• Must be deleted.")
 public func rxm_dispatch_background_after(delay: Double, block: @escaping () -> Void) {
     DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + delay, execute: block)
 }

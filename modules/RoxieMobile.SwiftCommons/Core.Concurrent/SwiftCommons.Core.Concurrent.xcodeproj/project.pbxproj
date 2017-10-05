@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreConcurrent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreConcurrent.a */; };
+		19C7B74D1F8648D70030F1D8 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B74C1F8648D70030F1D8 /* Dispatch.swift */; };
+		19C7B7551F8648EF0030F1D8 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7541F8648EB0030F1D8 /* Synchronized.swift */; };
+		19C7B7561F8648F30030F1D8 /* TryCatchFinally.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */; };
+		19C7B7571F8648F40030F1D8 /* TryCatchFinally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7521F8648EB0030F1D8 /* TryCatchFinally.swift */; };
+		19C7B7581F8648F70030F1D8 /* TryCatchFinally.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Concurrent.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Concurrent.UnitTests.swift */; };
-		19FAC7371F72E462006B4715 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FAC7361F72E462006B4715 /* Dummy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +43,13 @@
 		19792A361F72E7200001768B /* SwiftCommons.Core.Concurrent-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Concurrent-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Concurrent.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Concurrent.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreConcurrent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsCoreConcurrent.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C7B74C1F8648D70030F1D8 /* Dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
+		19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TryCatchFinally.h; sourceTree = "<group>"; };
+		19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryCatchFinally.m; sourceTree = "<group>"; };
+		19C7B7521F8648EB0030F1D8 /* TryCatchFinally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryCatchFinally.swift; sourceTree = "<group>"; };
+		19C7B7541F8648EB0030F1D8 /* Synchronized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Concurrent.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Core.Concurrent.UnitTests.swift; sourceTree = "<group>"; };
-		19FAC7361F72E462006B4715 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,32 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		19C7B74E1F8648EB0030F1D8 /* TryCatchFinally */ = {
+			isa = PBXGroup;
+			children = (
+				19C7B74F1F8648EB0030F1D8 /* Bridging */,
+				19C7B7521F8648EB0030F1D8 /* TryCatchFinally.swift */,
+			);
+			path = TryCatchFinally;
+			sourceTree = "<group>";
+		};
+		19C7B74F1F8648EB0030F1D8 /* Bridging */ = {
+			isa = PBXGroup;
+			children = (
+				19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */,
+				19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */,
+			);
+			path = Bridging;
+			sourceTree = "<group>";
+		};
+		19C7B7531F8648EB0030F1D8 /* Synchronized */ = {
+			isa = PBXGroup;
+			children = (
+				19C7B7541F8648EB0030F1D8 /* Synchronized.swift */,
+			);
+			path = Synchronized;
+			sourceTree = "<group>";
+		};
 		19EB0C9E1F72DF0D0029F302 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +145,7 @@
 		19EB0CA01F72DF0D0029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				19FAC7361F72E462006B4715 /* Dummy.swift */,
+				19C7B74C1F8648D70030F1D8 /* Dispatch.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -119,6 +153,8 @@
 		19EB0CA21F72DF0D0029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				19C7B7531F8648EB0030F1D8 /* Synchronized */,
+				19C7B74E1F8648EB0030F1D8 /* TryCatchFinally */,
 				19792A361F72E7200001768B /* SwiftCommons.Core.Concurrent-Bridging-Header.h */,
 			);
 			path = Libraries;
@@ -150,6 +186,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		19C7B74B1F86489A0030F1D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C7B7581F8648F70030F1D8 /* TryCatchFinally.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		195D394E1F72CE4900118D17 /* SwiftCommons.Core.Concurrent.UnitTests */ = {
 			isa = PBXNativeTarget;
@@ -173,6 +220,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19C0172D1F72CC3A00D29F73 /* Build configuration list for PBXNativeTarget "SwiftCommons.Core.Concurrent" */;
 			buildPhases = (
+				19C7B74B1F86489A0030F1D8 /* Headers */,
 				19C017201F72CC3A00D29F73 /* Sources */,
 				19C017211F72CC3A00D29F73 /* Frameworks */,
 				19C017221F72CC3A00D29F73 /* CopyFiles */,
@@ -249,7 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19FAC7371F72E462006B4715 /* Dummy.swift in Sources */,
+				19C7B74D1F8648D70030F1D8 /* Dispatch.swift in Sources */,
+				19C7B7571F8648F40030F1D8 /* TryCatchFinally.swift in Sources */,
+				19C7B7551F8648EF0030F1D8 /* Synchronized.swift in Sources */,
+				19C7B7561F8648F30030F1D8 /* TryCatchFinally.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
