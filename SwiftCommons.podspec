@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig   = { 'ENABLE_BITCODE' => 'NO', 'SWIFT_VERSION' => '4.0' }
 
   s.default_subspecs      = 'Core/Concurrent',
+                            'Core/Diagnostics',
                             'Core/Extensions',
                             'Core/Lang',
                             'Core/Logging',
@@ -34,6 +35,14 @@ Pod::Spec.new do |s|
     # TODO: Write a description
     sc.subspec 'Concurrent' do |sp|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Concurrent/Module/**/*.{swift,h,m,c}'
+    end
+
+    # A collection of static classes for debugging and diagnostics of program contracts such as preconditions, postconditions, and invariants.
+    sc.subspec 'Diagnostics' do |sp|
+      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Diagnostics/Module/**/*.{swift,h,m,c}'
+
+      # Dependencies
+      sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
     end
 
     # A collection of useful type extensions used for iOS application development.

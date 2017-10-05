@@ -1,38 +1,37 @@
 // ----------------------------------------------------------------------------
 //
-//  RequirementException.swift
+//  GuardException.swift
 //
-//  @author     Nikita Semakov <SemakovNV@ekassir.com>
-//  @copyright  Copyright (c) 2017, eKassir Ltd. All rights reserved.
-//  @link       http://www.ekassir.com/
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
 import Foundation
+import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
 /// Thrown to indicate that an requirement has failed.
-@available(*, deprecated)
-public class RequirementException: NSException
+public class GuardException: NSException
 {
-// MARK: - Constants
+// MARK: - Construction
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public init(_ message: String?, userInfo aUserInfo: [NSObject: AnyObject]?) {
-        super.init(name: NSExceptionName(rawValue: Inner.Domain), reason: message, userInfo: aUserInfo)
+        super.init(name: Inner.ExceptionName, reason: message, userInfo: aUserInfo)
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
 // MARK: - Constants
 
-    @available(*, deprecated)
     private struct Inner {
-        static let Domain = "RequirementDomain"
+        static let ExceptionName = NSExceptionName(rawValue: Roxie.typeName(of: GuardException.self))
     }
 }
 

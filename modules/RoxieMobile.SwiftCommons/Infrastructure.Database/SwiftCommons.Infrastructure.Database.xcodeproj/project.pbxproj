@@ -498,6 +498,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Infrastructure.Database.UnitTests/Pods-SwiftCommons.Infrastructure.Database.UnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Lang/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang-Core_Logging/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCommons-e4e74e34/SwiftCommons.framework",
@@ -506,6 +507,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCommons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCommons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCommons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCommons.framework",
