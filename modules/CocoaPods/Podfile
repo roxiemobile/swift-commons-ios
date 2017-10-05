@@ -12,6 +12,10 @@ target 'SwiftCommons.Core.Deprecated' do
 
   pod 'SwiftCommons/Core/Lang', :path => '../../'
   pod 'SQLCipher', '~> 3.4', :inhibit_warnings => true
+
+  target 'SwiftCommons.Core.Deprecated.UnitTests' do
+    inherit! :search_paths
+  end
 end
 
 # Implicit declaration of function 'sqlite3_rekey' is invalid in C99
