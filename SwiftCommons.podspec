@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
 
   s.default_subspecs      = 'Core/Concurrent',
                             'Core/Lang',
+                            'Core/Logging',
                             'Core/Deprecated',
                             'Infrastructure/Database'
 
@@ -40,13 +41,23 @@ Pod::Spec.new do |s|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Lang/Module/**/*.{swift,h,m,c}'
     end
 
-    # TODO: Write a description
+    # Provides simple abstraction layer over an existing logging frameworks.
+    sc.subspec 'Logging' do |sp|
+      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Logging/Module/**/*.{swift,h,m,c}'
+
+      # Dependencies
+      sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
+      sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
+    end
+
+    # FIXME: Must be deleted!
     sc.subspec 'Deprecated' do |sp|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Deprecated/Module/**/*.{swift,h,m,c}'
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
+      sp.dependency 'SwiftCommons/Core/Logging', s.version.to_s
       sp.dependency 'SQLCipher', '~> 3.4'
     end
   end

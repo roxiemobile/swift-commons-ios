@@ -91,9 +91,6 @@
 		19B6F5F31F85965400D90C3E /* ScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5ED1F85964F00D90C3E /* ScrollDirection.swift */; };
 		19B6F5F41F85965400D90C3E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EE1F85964F00D90C3E /* StringUtils.swift */; };
 		19B6F5F51F85965400D90C3E /* ValidatableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EF1F85964F00D90C3E /* ValidatableUtils.swift */; };
-		19B6F5F61F85965800D90C3E /* ChainedLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5C71F85964F00D90C3E /* ChainedLogger.swift */; };
-		19B6F5F71F85965800D90C3E /* LogcatLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5C81F85964F00D90C3E /* LogcatLogger.swift */; };
-		19B6F5F81F85965800D90C3E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5C91F85964F00D90C3E /* Logger.swift */; };
 		19B6F5F91F85966900D90C3E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5E21F85964F00D90C3E /* Array.swift */; };
 		19B6F5FA1F85966900D90C3E /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5E31F85964F00D90C3E /* Dictionary.swift */; };
 		19B6F5FB1F85966900D90C3E /* Int+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5E41F85964F00D90C3E /* Int+Crypto.swift */; };
@@ -257,9 +254,6 @@
 		19B6F5C31F85964F00D90C3E /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		19B6F5C41F85964F00D90C3E /* RegexValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
 		19B6F5C51F85964F00D90C3E /* UrlValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlValidator.swift; sourceTree = "<group>"; };
-		19B6F5C71F85964F00D90C3E /* ChainedLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedLogger.swift; sourceTree = "<group>"; };
-		19B6F5C81F85964F00D90C3E /* LogcatLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogcatLogger.swift; sourceTree = "<group>"; };
-		19B6F5C91F85964F00D90C3E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		19B6F5CB1F85964F00D90C3E /* Expect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
 		19B6F5CC1F85964F00D90C3E /* ExpectationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectationError.swift; sourceTree = "<group>"; };
 		19B6F5CD1F85964F00D90C3E /* Require.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Require.swift; sourceTree = "<group>"; };
@@ -595,16 +589,6 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		19B6F5C61F85964F00D90C3E /* Logging */ = {
-			isa = PBXGroup;
-			children = (
-				19B6F5C71F85964F00D90C3E /* ChainedLogger.swift */,
-				19B6F5C81F85964F00D90C3E /* LogcatLogger.swift */,
-				19B6F5C91F85964F00D90C3E /* Logger.swift */,
-			);
-			path = Logging;
-			sourceTree = "<group>";
-		};
 		19B6F5CA1F85964F00D90C3E /* Diagnostics */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,7 +709,6 @@
 				19B6F5B21F85964F00D90C3E /* Data */,
 				19B6F5CA1F85964F00D90C3E /* Diagnostics */,
 				19B6F5CF1F85964F00D90C3E /* Extension */,
-				19B6F5C61F85964F00D90C3E /* Logging */,
 				19B6F5E91F85964F00D90C3E /* Util */,
 			);
 			path = Sources;
@@ -985,13 +968,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Deprecated.UnitTests/Pods-SwiftCommons.Core.Deprecated.UnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang/SwiftCommons.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang-Core_Logging/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftCommons/SwiftCommons.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCommons.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCommons.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1028,7 +1013,6 @@
 				19B6F6271F85969300D90C3E /* DatabaseOpenDelegate.swift in Sources */,
 				19B6F6001F85966C00D90C3E /* Bundle.swift in Sources */,
 				19B6F60D1F85967100D90C3E /* Updatable.swift in Sources */,
-				19B6F5F61F85965800D90C3E /* ChainedLogger.swift in Sources */,
 				19044E6D1F85959900090515 /* StreamTypedCoder.m in Sources */,
 				19044E9D1F85960000090515 /* TransformOperators.swift in Sources */,
 				19B6F5FF1F85966900D90C3E /* Swift.swift in Sources */,
@@ -1102,7 +1086,6 @@
 				19044E741F8595A300090515 /* LFUnknownTypeException.m in Sources */,
 				19044E961F8595F000090515 /* NSDecimalNumberTransform.swift in Sources */,
 				19B6F6011F85966C00D90C3E /* Data+Crypto.swift in Sources */,
-				19B6F5F81F85965800D90C3E /* Logger.swift in Sources */,
 				19044E971F8595F000090515 /* TransformOf.swift in Sources */,
 				19044E851F8595CB00090515 /* Collation.swift in Sources */,
 				19044E901F8595F000090515 /* DateTransform.swift in Sources */,
@@ -1113,7 +1096,6 @@
 				19B6F6241F85969300D90C3E /* Database+Crypto.swift in Sources */,
 				19044E831F8595C800090515 /* Helpers.swift in Sources */,
 				19044E881F8595CB00090515 /* Expression.swift in Sources */,
-				19B6F5F71F85965800D90C3E /* LogcatLogger.swift in Sources */,
 				19044E991F8595F000090515 /* URLTransform.swift in Sources */,
 				19044E801F8595C800090515 /* FTS5.swift in Sources */,
 				19B6F6081F85967100D90C3E /* Digest.swift in Sources */,
