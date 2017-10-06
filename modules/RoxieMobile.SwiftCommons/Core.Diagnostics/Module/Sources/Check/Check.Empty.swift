@@ -30,7 +30,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that a string is `nil` or empty.
         /// </summary>
         /// - value: The string to check or `nil`.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void Empty(string value, string message = null)
         {
@@ -64,7 +64,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// - array: The array to check or `nil`.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void Empty<T>(T[] array, string message = null)
         {
@@ -99,7 +99,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// - collection: The collection to check or `nil`.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void Empty<T>(ICollection<T> collection, string message = null)
         {
@@ -136,25 +136,25 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isEmpty(_ value: String?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isEmpty(_ value: String?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(value.isEmpty, message, file, line)
 //    }
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isEmpty(array), message, file, line)
 //    }
 //
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isEmpty(set), message, file, line)
 //    }
 //
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isEmpty(map), message, file, line)
 //    }
 
@@ -165,7 +165,7 @@ extension Check
 //
 //     - Parameter value: The string to check or `nil`.
 //     */
-//    public static func empty(_ value: String?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func empty(_ value: String?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(StringUtils.isEmpty(value), message, file, line)
 //    }
 //
@@ -176,7 +176,7 @@ extension Check
 //
 //     - Parameter value: The array to check or `nil`.
 //     */
-//    public static func empty<T>(_ array: [T]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func empty<T>(_ array: [T]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isEmpty(array), message, file, line)
 //    }
 //
@@ -186,7 +186,7 @@ extension Check
 //
 //     - Parameter value: The set to check or `nil`.
 //     */
-//    public static func empty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func empty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isEmpty(set), message, file, line)
 //    }
 //
@@ -197,7 +197,7 @@ extension Check
 //
 //     - Parameter value: The dictionary to check or `nil`.
 //     */
-//    public static func empty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func empty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isEmpty(map), message, file, line)
 //    }
 }

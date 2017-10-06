@@ -29,7 +29,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all an objects in array is not `nil`.
         /// </summary>
         /// - objects: An array of objects.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void AllNotNull<T>(T[] objects, string message = null)
         {
@@ -62,7 +62,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all an objects in collection is not `nil`.
         /// </summary>
         /// - collection: A collection of objects.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void AllNotNull<T>(ICollection<T> collection, string message = null)
         {
@@ -98,7 +98,7 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNotNil<T>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNotNil<T>(_ objects: [T]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNotNil(objects) }
 //    }
 
@@ -109,7 +109,7 @@ extension Guard
 //         - objects: An array of objects.
 //         - message: Expects that an object isn't `nil`. If it is an {@link ExpectationError} is thrown with the given message.
 //     */
-//    public static func allNotNil<T>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNotNil<T>(_ objects: [T]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNotNil(objects) }
 //    }
 }

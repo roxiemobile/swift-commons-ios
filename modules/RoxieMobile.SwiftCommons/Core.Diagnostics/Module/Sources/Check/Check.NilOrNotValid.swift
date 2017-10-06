@@ -30,7 +30,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that an object is `nil` or not valid.
         /// </summary>
         /// - obj: Object to check or `nil`.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void NullOrNotValid(IValidatable obj, string message = null)
         {
@@ -66,7 +66,7 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNilOrNotValid(_ object: Validatable?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNilOrNotValid(_ object: Validatable?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(ValidatableUtils.isNilOrNotValid(object), message, file, line)
 //    }
 
@@ -75,7 +75,7 @@ extension Check
 //
 //     - Parameter object: Object to check or `nil`.
 //     */
-//    public static func nilOrNotValid(_ object: Validatable?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func nilOrNotValid(_ object: Validatable?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(ValidatableUtils.isNilOrNotValid(object), message, file, line)
 //    }
 }

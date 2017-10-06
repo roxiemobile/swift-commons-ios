@@ -13,64 +13,32 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.NotBlank")]
-        public void NotBlank(string method)
-        {
-            const string value = "value";
-            const string nilString = null;
-            const string emptyString = "";
-            const string whitespaceString = " \t\r\n";
-
-
-            CheckThrowsException(method,
-                () => Check.NotBlank(nilString));
-            CheckThrowsException(method,
-                () => Check.NotBlank(emptyString));
-            CheckThrowsException(method,
-                () => Check.NotBlank(whitespaceString));
-
-            CheckNotThrowsException(method,
-                () => Check.NotBlank(value));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    func testNotBlank()
-    {
-//        let string = "value"
-//        let nilString: String? = nil
-//        let emptyString = ""
-//        let whitespaceString = " \t\r\n"
-//
-//
-//        checkThrowsError("notBlank") {
-//            try Check.notBlank(nilString)
-//        }
-//        checkThrowsError("notBlank") {
-//            try Check.notBlank(emptyString)
-//        }
-//        checkThrowsError("notBlank") {
-//            try Check.notBlank(whitespaceString)
-//        }
-//
-//        checkNotThrowsError("notBlank") {
-//            try Check.notBlank(string)
-//        }
+    func testNotBlank() {
+        let method = "Check.notBlank"
+
+        let value = "value"
+        let nilValue: String? = nil
+        let emptyValue = ""
+        let whitespaceValue = " \t\r\n"
+
+
+        checkThrowsError(method) {
+            try Check.notBlank(nilValue)
+        }
+        checkThrowsError(method) {
+            try Check.notBlank(emptyValue)
+        }
+        checkThrowsError(method) {
+            try Check.notBlank(whitespaceValue)
+        }
+
+        checkNotThrowsError(method) {
+            try Check.notBlank(value)
+        }
     }
 }
 

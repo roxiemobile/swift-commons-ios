@@ -13,107 +13,70 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.Diagnostics.CodeAnalysis;
-using Xunit;
-using static RoxieMobile.CSharpCommons.Extensions.ArrayUtils;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    [SuppressMessage("ReSharper", "SuggestVarOrType_Elsewhere")]
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.AllNotEmpty")]
-        public void AllNotEmpty(string method)
-        {
-            const string value = "value";
-            const string nilString = null;
-            const string emptyString = "";
-
-            const string otherString = "otherValue";
-            string[] array = ToArray(value, otherString);
-            string[] nilArray = null;
-            string[] emptyArray = {};
-
-
-            CheckThrowsException(method,
-                () => Check.AllNotEmpty(ToArray(value, nilString)));
-            CheckThrowsException(method,
-                () => Check.AllNotEmpty(ToArray(value, emptyString)));
-
-            CheckNotThrowsException(method,
-                () => Check.AllNotEmpty(array));
-            CheckNotThrowsException(method,
-                () => Check.AllNotEmpty(nilArray));
-            CheckNotThrowsException(method,
-                () => Check.AllNotEmpty(emptyArray));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    func testAllNotEmpty_Array()
-    {
-//        let string = "value"
-//        let emptyString = ""
+    func testAllNotEmpty_Array() {
+        let method = "Check.allNotEmpty"
+
+//        let value = "value"
+//        let emptyValue = ""
 //
-//        let otherString = "otherValue"
-//        let array: [String]? = [string, otherString]
+//        let otherValue = "otherValue"
+//        let array: [String]? = [value, otherValue]
 //        let nilArray: [String]? = nil
 //        let emptyArray = [String]()
 //
 //
-//        checkThrowsError("allNotEmpty_Array") {
-//            try Check.allNotEmpty([string, emptyString])
+//        checkThrowsError("\(method)_Array") {
+//            try Check.allNotEmpty([value, emptyValue])
 //        }
 //
-//        checkNotThrowsError("allNotEmpty_Array") {
+//        checkNotThrowsError("\(method)_Array") {
 //            try Check.allNotEmpty(array)
 //        }
-//        checkNotThrowsError("allNotEmpty_Array") {
+//        checkNotThrowsError("\(method)_Array") {
 //            try Check.allNotEmpty(nilArray)
 //        }
-//        checkNotThrowsError("allNotEmpty_Array") {
+//        checkNotThrowsError("\(method)_Array") {
 //            try Check.allNotEmpty(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 
-    func testAllNotEmpty_ArrayOfOptionals()
-    {
-//        let string: String? = "value"
-//        let nilString: String? = nil
-//        let emptyString: String? = ""
+    func testAllNotEmpty_ArrayOfOptionals() {
+        let method = "Check.allNotEmpty"
+
+//        let value: String? = "value"
+//        let nilValue: String? = nil
+//        let emptyValue: String? = ""
 //
-//        let otherString: String? = "otherValue"
-//        let array: [String?]? = [string, otherString]
+//        let otherValue: String? = "otherValue"
+//        let array: [String?]? = [value, otherValue]
 //        let nilArray: [String?]? = nil
 //        let emptyArray = [String?]()
 //
 //
-//        checkThrowsError("allNotEmpty_ArrayOfOptionals") {
-//            try Check.allNotEmpty([string, nilString])
+//        checkThrowsError("\(method)_ArrayOfOptionals") {
+//            try Check.allNotEmpty([value, nilValue])
 //        }
-//        checkThrowsError("allNotEmpty_ArrayOfOptionals") {
-//            try Check.allNotEmpty([string, emptyString])
+//        checkThrowsError("\(method)_ArrayOfOptionals") {
+//            try Check.allNotEmpty([value, emptyValue])
 //        }
 //
-//        checkNotThrowsError("allNotEmpty_ArrayOfOptionals") {
+//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allNotEmpty(array)
 //        }
-//        checkNotThrowsError("allNotEmpty_ArrayOfOptionals") {
+//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allNotEmpty(nilArray)
 //        }
-//        checkNotThrowsError("allNotEmpty_ArrayOfOptionals") {
+//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allNotEmpty(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 }
 

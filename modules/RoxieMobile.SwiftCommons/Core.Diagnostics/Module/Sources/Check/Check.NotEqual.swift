@@ -29,7 +29,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// </summary>
         /// - unexpected: Unexpected value to check.
         /// - actual: The value to check against `unexpected`.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void NotEqual(object unexpected, object actual, string message = null)
         {
@@ -69,7 +69,7 @@ extension Check
 //    /// with the given message. If `unexpected` and <code>actual</code> are <code>nil</code>,
 //    /// they are considered equal.
 //    @available(*, deprecated)
-//    public static func isNotEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNotEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isFalse(safeEqual(unexpected, actual), message, file, line)
 //    }
 
@@ -80,7 +80,7 @@ extension Check
 //         - unexpected: Unexpected value to check.
 //         - actual: The value to check against `unexpected`.
 //     */
-//    public static func notEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func notEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isFalse(safeEqual(unexpected, actual), message, file, line)
 //    }
 }

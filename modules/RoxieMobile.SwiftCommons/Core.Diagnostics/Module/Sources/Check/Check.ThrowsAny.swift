@@ -32,7 +32,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// </summary>
         /// <typeparam name="T">The type of the exception expected to be thrown.</typeparam>
         /// - action: A delegate to the code that is expected to throw an exception when executed.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// <exception cref="ArgumentNullException">Thrown when the <see cref="action"/> is `nil`.</exception>
         /// <exception cref="CheckException">Thrown when an exception was not thrown, or when an exception of the incorrect type is thrown.</exception>
         public static void ThrowsAny<T>(Action action, string message = null)

@@ -29,7 +29,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that a string is not `nil` and not empty.
         /// </summary>
         /// - value: The string to check or `nil`.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void NotEmpty(string value, string message = null)
         {
@@ -63,7 +63,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// - array: The array to check or `nil`.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void NotEmpty<T>(T[] array, string message = null)
         {
@@ -98,7 +98,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// - collection: The collection to check or `nil`.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void NotEmpty<T>(ICollection<T> collection, string message = null)
         {
@@ -135,25 +135,25 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEmpty(_ value: String?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isNotEmpty(_ value: String?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isNotEmpty(value) }
 //    }
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isNotEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isNotEmpty(array) }
 //    }
 //
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isNotEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isNotEmpty(set) }
 //    }
 //
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isNotEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isNotEmpty(map) }
 //    }
 
@@ -164,7 +164,7 @@ extension Guard
 //
 //     - Parameter value: The string to check or `nil`.
 //     */
-//    public static func notEmpty(_ value: String?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func notEmpty(_ value: String?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.notEmpty(value) }
 //    }
 //
@@ -175,7 +175,7 @@ extension Guard
 //
 //     - Parameter array: The array to check or `nil`.
 //     */
-//    public static func notEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func notEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.notEmpty(array) }
 //    }
 //
@@ -186,7 +186,7 @@ extension Guard
 //
 //     - Parameter set: The set to check or `nil`.
 //     */
-//    public static func notEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func notEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.notEmpty(set) }
 //    }
 //
@@ -197,7 +197,7 @@ extension Guard
 //
 //     - Parameter map: The dictionary to check or `nil`.
 //     */
-//    public static func notEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func notEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.notEmpty(map) }
 //    }
 }

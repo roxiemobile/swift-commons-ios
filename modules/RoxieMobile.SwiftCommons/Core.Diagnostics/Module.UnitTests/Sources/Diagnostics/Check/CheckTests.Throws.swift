@@ -13,40 +13,30 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System;
-using System.IO;
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.Throws")]
-        public void Throws(string method)
-        {
-            CheckThrowsException(method,
-                () => Check.Throws<Exception>(() => {}));
-            CheckThrowsException(method,
-                () => Check.Throws<IOException>(() => throw new OperationCanceledException()));
-            CheckThrowsException(method,
-                () => Check.Throws<Exception>(() => throw new IOException()));
-
-            CheckNotThrowsException(method,
-                () => Check.Throws<IOException>(() => throw new IOException()));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    // TODO
+    func testThrows() {
+        let method = "Check.throws"
+
+// FIXME: C#
+//        CheckThrowsError(method) {
+//            Check.throws<Exception>(() => {})
+//        }
+//        CheckThrowsError(method) {
+//            Check.throws<IOException>(() => throw new OperationCanceledException())
+//        }
+//        CheckThrowsError(method) {
+//            Check.throws<Exception>(() => throw new IOException())
+//        }
+//
+//        CheckNotThrowsError(method) {
+//            Check.throws<IOException>(() => throw new IOException())
+//        }
+
+        XCTFail(method)
+    }
 }
 
 // ----------------------------------------------------------------------------

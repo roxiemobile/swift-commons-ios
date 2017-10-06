@@ -13,58 +13,13 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.Diagnostics.CodeAnalysis;
-using RoxieMobile.CSharpCommons.Abstractions.Models;
-using RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models;
-using Xunit;
-using static RoxieMobile.CSharpCommons.Extensions.ArrayUtils;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-    [SuppressMessage("ReSharper", "SuggestVarOrType_Elsewhere")]
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.AllValid")]
-        public void AllValid(string method)
-        {
-            IValidatable validObject = new ValidModel();
-            IValidatable nilObject = null;
-            IValidatable notValidObject = new NotValidModel();
-
-            IValidatable[] array = ToArray(validObject);
-            IValidatable[] nilArray = null;
-            IValidatable[] emptyArray = {};
-
-
-            CheckThrowsException(method,
-                () => Check.AllValid(ToArray(notValidObject)));
-            CheckThrowsException(method,
-                () => Check.AllValid(ToArray(validObject, nilObject)));
-            CheckThrowsException(method,
-                () => Check.AllValid(ToArray(validObject, notValidObject)));
-
-            CheckNotThrowsException(method,
-                () => Check.AllValid(array));
-            CheckNotThrowsException(method,
-                () => Check.AllValid(nilArray));
-            CheckNotThrowsException(method,
-                () => Check.AllValid(emptyArray));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    func testAllValid_Array()
-    {
+    func testAllValid_Array() {
+        let method = "Check.allValid"
+
 //        let validObject: Validatable = ValidModel()
 //        let notValidObject: Validatable = NotValidModel()
 //
@@ -73,26 +28,29 @@ extension CheckTests
 //        let emptyArray = [Validatable]()
 //
 //
-//        checkThrowsError("allValid_Array") {
+//        checkThrowsError("\(method)_Array") {
 //            try Check.allValid([notValidObject])
 //        }
-//        checkThrowsError("allValid_Array") {
+//        checkThrowsError("\(method)_Array") {
 //            try Check.allValid([validObject, notValidObject])
 //        }
 //
-//        checkNotThrowsError("allValid_Array") {
+//        checkNotThrowsError("\(method)_Array") {
 //            try Check.allValid(array)
 //        }
-//        checkNotThrowsError("allValid_Array") {
+//        checkNotThrowsError("\(method)_Array") {
 //            try Check.allValid(nilArray)
 //        }
-//        checkNotThrowsError("allValid_Array") {
+//        checkNotThrowsError("\(method)_Array") {
 //            try Check.allValid(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 
-    func testAllValid_ArrayOfOptionals()
-    {
+    func testAllValid_ArrayOfOptionals() {
+        let method = "Check.allValid"
+
 //        let validObject: Validatable? = ValidModel()
 //        let nilObject: Validatable? = nil
 //        let notValidObject: Validatable? = NotValidModel()
@@ -102,25 +60,27 @@ extension CheckTests
 //        let emptyArray = [Validatable?]()
 //
 //
-//        checkThrowsError("allValid_ArrayOfOptionals") {
+//        checkThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allValid([notValidObject])
 //        }
-//        checkThrowsError("allValid_ArrayOfOptionals") {
+//        checkThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allValid([validObject, nilObject])
 //        }
-//        checkThrowsError("allValid_ArrayOfOptionals") {
+//        checkThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allValid([validObject, notValidObject])
 //        }
 //
-//        checkNotThrowsError("allValid_ArrayOfOptionals") {
+//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allValid(array)
 //        }
-//        checkNotThrowsError("allValid_ArrayOfOptionals") {
+//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allValid(nilArray)
 //        }
-//        checkNotThrowsError("allValid_ArrayOfOptionals") {
+//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
 //            try Check.allValid(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 }
 

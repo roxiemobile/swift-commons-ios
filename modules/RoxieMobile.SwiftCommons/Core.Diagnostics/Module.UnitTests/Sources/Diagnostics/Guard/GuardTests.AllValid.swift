@@ -13,58 +13,13 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.Diagnostics.CodeAnalysis;
-using RoxieMobile.CSharpCommons.Abstractions.Models;
-using RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models;
-using Xunit;
-using static RoxieMobile.CSharpCommons.Extensions.ArrayUtils;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-    [SuppressMessage("ReSharper", "SuggestVarOrType_Elsewhere")]
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.AllValid")]
-        public void AllValid(string method)
-        {
-            IValidatable validObject = new ValidModel();
-            IValidatable nilObject = null;
-            IValidatable notValidObject = new NotValidModel();
-
-            IValidatable[] array = ToArray(validObject);
-            IValidatable[] nilArray = null;
-            IValidatable[] emptyArray = {};
-
-
-            GuardThrowsError(method,
-                () => Guard.AllValid(ToArray(notValidObject)));
-            GuardThrowsError(method,
-                () => Guard.AllValid(ToArray(validObject, nilObject)));
-            GuardThrowsError(method,
-                () => Guard.AllValid(ToArray(validObject, notValidObject)));
-
-            GuardNotThrowsError(method,
-                () => Guard.AllValid(array));
-            GuardNotThrowsError(method,
-                () => Guard.AllValid(nilArray));
-            GuardNotThrowsError(method,
-                () => Guard.AllValid(emptyArray));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    func testAllValid_Array()
-    {
+    func testAllValid_Array() {
+        let method = "Guard.allValid"
+
 //        let validObject: Validatable = ValidModel()
 //        let notValidObject: Validatable = NotValidModel()
 //
@@ -73,26 +28,29 @@ extension GuardTests
 //        let emptyArray = [Validatable]()
 //
 //
-//        guardThrowsException("isAllValid_Array") {
+//        guardThrowsException("\(method)_Array") {
 //            Guard.allValid([notValidObject])
 //        }
-//        guardThrowsException("isAllValid_Array") {
+//        guardThrowsException("\(method)_Array") {
 //            Guard.allValid([validObject, notValidObject])
 //        }
 //
-//        guardNotThrowsException("isAllValid_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allValid(array)
 //        }
-//        guardNotThrowsException("isAllValid_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allValid(nilArray)
 //        }
-//        guardNotThrowsException("isAllValid_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allValid(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 
-    func testAllValid_ArrayOfOptionals()
-    {
+    func testAllValid_ArrayOfOptionals() {
+        let method = "Guard.allValid"
+
 //        let validObject: Validatable? = ValidModel()
 //        let nilObject: Validatable? = nil
 //        let notValidObject: Validatable? = NotValidModel()
@@ -102,25 +60,27 @@ extension GuardTests
 //        let emptyArray = [Validatable?]()
 //
 //
-//        guardThrowsException("isAllValid_ArrayOfOptionals") {
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allValid([notValidObject])
 //        }
-//        guardThrowsException("isAllValid_ArrayOfOptionals") {
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allValid([validObject, nilObject])
 //        }
-//        guardThrowsException("isAllValid_ArrayOfOptionals") {
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allValid([validObject, notValidObject])
 //        }
 //
-//        guardNotThrowsException("isAllValid_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allValid(array)
 //        }
-//        guardNotThrowsException("isAllValid_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allValid(nilArray)
 //        }
-//        guardNotThrowsException("isAllValid_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allValid(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 }
 

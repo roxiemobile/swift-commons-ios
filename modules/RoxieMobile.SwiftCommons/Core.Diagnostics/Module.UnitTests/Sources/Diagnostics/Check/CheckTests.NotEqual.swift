@@ -13,60 +13,32 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.NotEqual")]
-        public void NotEqual(string method)
-        {
-            const string value = "value";
-            const string nilString = null;
-
-
-            CheckThrowsException(method,
-                () => Check.NotEqual(2, 2));
-            CheckThrowsException(method,
-                () => Check.NotEqual(value, value));
-
-            CheckNotThrowsException(method,
-                () => Check.NotEqual(1, 2));
-            CheckNotThrowsException(method,
-                () => Check.NotEqual(value, nilString));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    func testNotEqual()
-    {
-//        let string = "value"
-//        let nilString: String? = nil
+    func testNotEqual() {
+        let method = "Check.notEqual"
+
+//        let value = "value"
+//        let nilValue: String? = nil
 //
 //
-//        checkThrowsError("notEqual") {
+//        checkThrowsError(method) {
 //            try Check.notEqual(2, 2)
 //        }
-//        checkThrowsError("notEqual") {
-//            try Check.notEqual(string, string)
+//        checkThrowsError(method) {
+//            try Check.notEqual(value, value)
 //        }
 //
-//        checkNotThrowsError("notEqual") {
+//        checkNotThrowsError(method) {
 //            try Check.notEqual(1, 2)
 //        }
-//        checkNotThrowsError("notEqual") {
-//            try Check.notEqual(string, nilString)
+//        checkNotThrowsError(method) {
+//            try Check.notEqual(value, nilValue)
 //        }
+
+        XCTFail(method)
     }
 }
 

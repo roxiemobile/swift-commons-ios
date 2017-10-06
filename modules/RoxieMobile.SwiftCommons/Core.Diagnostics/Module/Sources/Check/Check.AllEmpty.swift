@@ -24,7 +24,7 @@ public static partial class Check
     /// Checks that all a string objects in array is `nil` or empty.
     /// </summary>
     /// - values: An array of string objects.
-    /// - message: The identifying message for the `CheckError` (`nil` okay).
+    /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
     /// - Throws: CheckError
     public static void AllEmpty(string[] values, string message = null)
     {
@@ -64,14 +64,14 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllEmpty(_ values: [String]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllEmpty(_ values: [String]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllEmpty(values), message, file, line)
 //        }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllEmpty(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllEmpty(_ values: [String?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllEmpty(values), message, file, line)
 //        }
@@ -83,7 +83,7 @@ extension Check
 //     - Parameters:
 //         - values: An array of string objects.
 //     */
-//    public static func allEmpty(_ values: [String]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func allEmpty(_ values: [String]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllEmpty(values), message, file, line)
 //        }
@@ -95,7 +95,7 @@ extension Check
 //     - Parameters:
 //         - values: An array of string objects.
 //     */
-//    public static func allEmpty(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func allEmpty(_ values: [String?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllEmpty(values), message, file, line)
 //        }

@@ -29,7 +29,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all an objects in array is `nil` or valid.
         /// </summary>
         /// - objects: An array of objects.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void AllNullOrValid(IValidatable[] objects, string message = null)
         {
@@ -65,22 +65,22 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNilOrValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNilOrValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNilOrValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNilOrValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNilOrValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNilOrValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNilOrValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNilOrValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNilOrValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNilOrValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNilOrValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNilOrValid(objects) }
 //    }
 
@@ -89,7 +89,7 @@ extension Guard
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNilOrValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNilOrValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNilOrValid(objects) }
 //    }
 //
@@ -98,7 +98,7 @@ extension Guard
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNilOrValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNilOrValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNilOrValid(objects) }
 //    }
 //
@@ -107,7 +107,7 @@ extension Guard
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNilOrValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNilOrValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNilOrValid(objects) }
 //    }
 //
@@ -116,7 +116,7 @@ extension Guard
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNilOrValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNilOrValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNilOrValid(objects) }
 //    }
 }

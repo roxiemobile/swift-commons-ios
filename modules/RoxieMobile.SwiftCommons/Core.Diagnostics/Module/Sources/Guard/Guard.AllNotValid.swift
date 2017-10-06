@@ -29,7 +29,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all an objects in array is not `nil` and not valid.
         /// </summary>
         /// - objects: An array of objects.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void AllNotValid(IValidatable[] objects, string message = null)
         {
@@ -65,22 +65,22 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNotValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNotValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNotValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNotValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNotValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNotValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNotValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNotValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNotValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNotValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllNotValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNotValid(objects) }
 //    }
 
@@ -89,7 +89,7 @@ extension Guard
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNotValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNotValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNotValid(objects) }
 //    }
 //
@@ -98,7 +98,7 @@ extension Guard
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNotValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNotValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNotValid(objects) }
 //    }
 //
@@ -107,7 +107,7 @@ extension Guard
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNotValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNotValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNotValid(objects) }
 //    }
 //
@@ -116,7 +116,7 @@ extension Guard
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNotValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allNotValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allNotValid(objects) }
 //    }
 }

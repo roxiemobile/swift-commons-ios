@@ -13,60 +13,32 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.NotEqual")]
-        public void NotEqual(string method)
-        {
-            const string value = "value";
-            const string nilString = null;
-
-
-            GuardThrowsError(method,
-                () => Guard.NotEqual(2, 2));
-            GuardThrowsError(method,
-                () => Guard.NotEqual(value, value));
-
-            GuardNotThrowsError(method,
-                () => Guard.NotEqual(1, 2));
-            GuardNotThrowsError(method,
-                () => Guard.NotEqual(value, nilString));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    func testNotEqual()
-    {
-//        let string = "value"
-//        let nilString: String? = nil
+    func testNotEqual() {
+        let method = "Guard.notEqual"
+
+//        let value = "value"
+//        let nilValue: String? = nil
 //
 //
-//        guardThrowsException("isNotEqual") {
+//        guardThrowsException(method) {
 //            Guard.notEqual(2, 2)
 //        }
-//        guardThrowsException("isNotEqual") {
-//            Guard.notEqual(string, string)
+//        guardThrowsException(method) {
+//            Guard.notEqual(value, value)
 //        }
 //
-//        guardNotThrowsException("isNotEqual") {
+//        guardNotThrowsException(method) {
 //            Guard.notEqual(1, 2)
 //        }
-//        guardNotThrowsException("isNotEqual") {
-//            Guard.notEqual(string, nilString)
+//        guardNotThrowsException(method) {
+//            Guard.notEqual(value, nilValue)
 //        }
+
+        XCTFail(method)
     }
 }
 

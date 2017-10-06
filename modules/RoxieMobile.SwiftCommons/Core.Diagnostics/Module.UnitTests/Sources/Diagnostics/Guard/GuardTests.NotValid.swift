@@ -13,52 +13,26 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using RoxieMobile.CSharpCommons.Abstractions.Models;
-using RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models;
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.NotValid")]
-        public void NotValid(string method)
-        {
-            IValidatable validObject = new ValidModel();
-            IValidatable notValidObject = new NotValidModel();
-
-
-            GuardThrowsError(method,
-                () => Guard.NotValid(validObject));
-
-            GuardNotThrowsError(method,
-                () => Guard.NotValid(notValidObject));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    func testNotValid()
-    {
+    func testNotValid() {
+        let method = "Guard.notValid"
+
 //        let validObject: Validatable = ValidModel()
 //        let notValidObject: Validatable = NotValidModel()
 //
 //
-//        guardThrowsException("isNotValid") {
+//        guardThrowsException(method) {
 //            Guard.notValid(validObject)
 //        }
 //
-//        guardNotThrowsException("isNotValid") {
+//        guardNotThrowsException(method) {
 //            Guard.notValid(notValidObject)
 //        }
+
+        XCTFail(method)
     }
 }
 

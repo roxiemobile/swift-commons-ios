@@ -13,71 +13,41 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Xunit;
-using static RoxieMobile.CSharpCommons.Extensions.ArrayUtils;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-    [SuppressMessage("ReSharper", "SuggestVarOrType_Elsewhere")]
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.AllNull")]
-        public void AllNull(string method)
-        {
-            const string value = "value";
-            const string nilString = null;
-            const string emptyString = "";
-
-            string[] nilArray = null;
-            string[] emptyArray = {};
-
-
-            GuardThrowsError($"{method}_Array",
-                () => Guard.AllNull(ToArray(nilString, value)));
-            GuardThrowsError($"{method}_Array",
-                () => Guard.AllNull(ToArray(nilString, emptyString)));
-
-            GuardNotThrowsError($"{method}_Array",
-                () => Guard.AllNull(ToArray(nilString, nilString)));
-            GuardNotThrowsError($"{method}_Array",
-                () => Guard.AllNull(nilArray));
-            GuardNotThrowsError($"{method}_Array",
-                () => Guard.AllNull(emptyArray));
-
-            // --
-
-            List<string> nilList = null;
-            List<string> emptyList = new List<string>();
-
-            GuardThrowsError($"{method}_List",
-                () => Guard.AllNotNull(ToArray(value, nilString).ToList()));
-            GuardThrowsError($"{method}_List",
-                () => Guard.AllNotNull(ToArray(emptyString, nilString).ToList()));
-
-            GuardNotThrowsError($"{method}_List",
-                () => Guard.AllNull(ToArray(nilString, nilString).ToList()));
-            GuardNotThrowsError($"{method}_List",
-                () => Guard.Empty(nilList));
-            GuardNotThrowsError($"{method}_List",
-                () => Guard.Empty(emptyList));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    // TODO
+    func testAllNil() {
+        let method = "Guard.allNil"
+
+// FIXME: C#
+//        const string value = "value";
+//        const string nilValue = null;
+//        const string emptyValue = "";
+//
+//        string[] nilArray = null;
+//        string[] emptyArray = {};
+//
+//
+//        guardThrowsException("\(method)_Array") {
+//            Guard.allNull(ToArray(nilValue, value))
+//        }
+//        guardThrowsException("\(method)_Array") {
+//            Guard.allNull(ToArray(nilValue, emptyValue))
+//        }
+//
+//        guardNotThrowsException("\(method)_Array") {
+//            Guard.allNull(ToArray(nilValue, nilValue))
+//        }
+//        guardNotThrowsException("\(method)_Array") {
+//            Guard.allNull(nilArray)
+//        }
+//        guardNotThrowsException("\(method)_Array") {
+//            Guard.allNull(emptyArray)
+//        }
+
+        XCTFail(method)
+    }
 }
 
 // ----------------------------------------------------------------------------

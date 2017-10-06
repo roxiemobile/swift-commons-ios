@@ -13,36 +13,26 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.LessThanOrEqualTo")]
-        public void LessThanOrEqualTo(string method)
-        {
-            CheckThrowsException(method,
-                () => Check.LessThanOrEqualTo(2, 1));
-
-            CheckNotThrowsException(method,
-                () => Check.LessThanOrEqualTo(2, 2));
-            CheckNotThrowsException(method,
-                () => Check.LessThanOrEqualTo(1, 2));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    // TODO
+    func testLessThanOrEqualTo() {
+        let method = "Check.lessThanOrEqualTo"
+
+//        checkThrowsError(method) {
+//            Check.lessThanOrEqualTo(2, 1)
+//        }
+//
+//        checkNotThrowsError(method) {
+//            Check.lessThanOrEqualTo(2, 2)
+//        }
+//        checkNotThrowsError(method) {
+//            Check.lessThanOrEqualTo(1, 2)
+//        }
+
+        XCTFail(method)
+    }
 }
 
 // ----------------------------------------------------------------------------

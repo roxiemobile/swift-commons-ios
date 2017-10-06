@@ -13,60 +13,30 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.Equal")]
-        public void Equal(string method)
-        {
-            const string value = "value";
-            const string nilString = null;
-
-
-            GuardThrowsError(method,
-                () => Guard.Equal(1, 2));
-            GuardThrowsError(method,
-                () => Guard.Equal(value, nilString));
-
-            GuardNotThrowsError(method,
-                () => Guard.Equal(2, 2));
-            GuardNotThrowsError(method,
-                () => Guard.Equal(value, value));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    func testEqual()
-    {
-//        let string = "value"
-//        let nilString: String? = nil
-//
-//
-//        guardThrowsException("isEqual") {
-//            Guard.equal(1, 2)
-//        }
-//        guardThrowsException("isEqual") {
-//            Guard.equal(string, nilString)
-//        }
-//
-//        guardNotThrowsException("isEqual") {
-//            Guard.equal(2, 2)
-//        }
-//        guardNotThrowsException("isEqual") {
-//            Guard.equal(string, string)
-//        }
+    func testEqual() {
+        let method = "Guard.equal"
+
+        let value = "value"
+        let nilValue: String? = nil
+
+
+        guardThrowsException(method) {
+            Guard.equal(1, 2)
+        }
+        guardThrowsException(method) {
+            Guard.equal(value, nilValue)
+        }
+
+        guardNotThrowsException(method) {
+            Guard.equal(2, 2)
+        }
+        guardNotThrowsException(method) {
+            Guard.equal(value, value)
+        }
     }
 }
 

@@ -30,7 +30,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
         /// </summary>
         /// - values: An array of string objects.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void AllNotBlank(string[] values, string message = null)
         {
@@ -71,14 +71,14 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNotBlank(_ values: [String]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNotBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllNotBlank(values), message, file, line)
 //        }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllNotBlank(values), message, file, line)
 //        }
@@ -90,7 +90,7 @@ extension Check
 //     - Parameters:
 //         -  values: An array of string objects.
 //     */
-//    public static func allNotBlank(_ values: [String]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func allNotBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllNotBlank(values), message, file, line)
 //        }
@@ -102,7 +102,7 @@ extension Check
 //     - Parameters:
 //         -  values: An array of string objects.
 //     */
-//    public static func allNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func allNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllNotBlank(values), message, file, line)
 //        }

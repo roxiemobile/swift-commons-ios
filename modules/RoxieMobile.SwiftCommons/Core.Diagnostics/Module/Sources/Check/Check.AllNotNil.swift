@@ -31,7 +31,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all an objects in array is not `nil`.
         /// </summary>
         /// - objects: An array of objects.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void AllNotNull<T>(T[] objects, string message = null)
         {
@@ -64,7 +64,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all an objects in collection is not `nil`.
         /// </summary>
         /// - collection: A collection of objects.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void AllNotNull<T>(ICollection<T> collection, string message = null)
         {
@@ -108,7 +108,7 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNotNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNotNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(objects!.all { $0 != nil }, message, file, line)
 //        }
@@ -121,7 +121,7 @@ extension Check
 //         -  objects: An array of objects.
 //         -  message: Expects that an object isn't `nil`. If it is an {@link ExpectationError} is thrown with the given message.
 //     */
-//    public static func allNotNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func allNotNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(objects!.all { $0 != nil }, message, file, line)
 //        }

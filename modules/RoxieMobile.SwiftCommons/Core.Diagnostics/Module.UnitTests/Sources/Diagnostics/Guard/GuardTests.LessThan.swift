@@ -13,36 +13,26 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.LessThan")]
-        public void LessThan(string method)
-        {
-            GuardThrowsError(method,
-                () => Guard.LessThan(2, 1));
-            GuardThrowsError(method,
-                () => Guard.LessThan(2, 1));
-
-            GuardNotThrowsError(method,
-                () => Guard.LessThan(1, 2));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    // TODO
+    func testLessThan() {
+        let method = "Guard.lessThan"
+
+//        guardThrowsException(method) {
+//            Guard.lessThan(2, 1)
+//        }
+//        guardThrowsException(method) {
+//            Guard.lessThan(2, 1)
+//        }
+//
+//        guardNotThrowsException(method) {
+//            Guard.lessThan(1, 2)
+//        }
+
+        XCTFail(method)
+    }
 }
 
 // ----------------------------------------------------------------------------

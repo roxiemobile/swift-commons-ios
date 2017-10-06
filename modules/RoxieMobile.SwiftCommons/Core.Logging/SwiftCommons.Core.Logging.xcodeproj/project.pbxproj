@@ -392,9 +392,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Logging.UnitTests/Pods-SwiftCommons.Core.Logging.UnitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Lang/SwiftCommons.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang-Core_Logging/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang/SwiftCommons.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang-Core_Logging/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCommons-e4e74e34/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",

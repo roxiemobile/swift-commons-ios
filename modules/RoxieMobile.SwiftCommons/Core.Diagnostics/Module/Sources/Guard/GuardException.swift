@@ -73,7 +73,7 @@ public class GuardException: NSException
 
 // MARK: - Properties
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// The error that is the cause of the current exception, or a `nil` reference if no inner error is specified.
     public let innerError: Error?
 
 // MARK: - Constants

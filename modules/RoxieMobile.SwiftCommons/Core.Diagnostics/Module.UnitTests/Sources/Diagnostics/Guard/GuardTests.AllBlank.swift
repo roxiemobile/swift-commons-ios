@@ -13,123 +13,82 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.Diagnostics.CodeAnalysis;
-using Xunit;
-using static RoxieMobile.CSharpCommons.Extensions.ArrayUtils;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-    [SuppressMessage("ReSharper", "SuggestVarOrType_Elsewhere")]
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.AllBlank")]
-        public void AllBlank(string method)
-        {
-            const string value = "value";
-            const string nilString = null;
-            const string emptyString = "";
-            const string whitespaceString = " \t\r\n";
-
-            string[] array = ToArray(nilString, emptyString, whitespaceString);
-            string[] nilArray = null;
-            string[] emptyArray = {};
-
-
-            GuardThrowsError(method,
-                () => Guard.AllBlank(ToArray(value)));
-            GuardThrowsError(method,
-                () => Guard.AllBlank(ToArray(nilString, value)));
-            GuardThrowsError(method,
-                () => Guard.AllBlank(ToArray(emptyString, value)));
-            GuardThrowsError(method,
-                () => Guard.AllBlank(ToArray(whitespaceString, value)));
-
-            GuardNotThrowsError(method,
-                () => Guard.AllBlank(array));
-            GuardNotThrowsError(method,
-                () => Guard.AllBlank(nilArray));
-            GuardNotThrowsError(method,
-                () => Guard.AllBlank(emptyArray));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    func testAllBlank_Array()
-    {
-//        let string = "value"
-//        let emptyString = ""
-//        let whitespaceString = " \t\r\n"
+    func testAllBlank_Array() {
+        let method = "Guard.allBlank"
+
+//        let value = "value"
+//        let emptyValue = ""
+//        let whitespaceValue = " \t\r\n"
 //
-//        let array: [String] = [emptyString, whitespaceString]
+//        let array: [String] = [emptyValue, whitespaceValue]
 //        let nilArray: [String]? = nil
 //        let emptyArray = [String]()
 //
 //
-//        guardThrowsException("isAllBlank_Array") {
-//            Guard.allBlank([string])
+//        guardThrowsException("\(method)_Array") {
+//            Guard.allBlank([value])
 //        }
-//        guardThrowsException("isAllBlank_Array") {
-//            Guard.allBlank([emptyString, string])
+//        guardThrowsException("\(method)_Array") {
+//            Guard.allBlank([emptyValue, value])
 //        }
-//        guardThrowsException("isAllBlank_Array") {
-//            Guard.allBlank([whitespaceString, string])
+//        guardThrowsException("\(method)_Array") {
+//            Guard.allBlank([whitespaceValue, value])
 //        }
 //
-//        guardNotThrowsException("isAllBlank_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allBlank(array)
 //        }
-//        guardNotThrowsException("isAllBlank_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allBlank(nilArray)
 //        }
-//        guardNotThrowsException("isAllBlank_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allBlank(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 
-    func testAllBlank_ArrayOfOptionals()
-    {
-//        let string: String? = "value"
-//        let nilString: String? = nil
-//        let emptyString: String? = ""
-//        let whitespaceString: String? = " \t\r\n"
+    func testAllBlank_ArrayOfOptionals() {
+        let method = "Guard.allBlank"
+
+//        let value: String? = "value"
+//        let nilValue: String? = nil
+//        let emptyValue: String? = ""
+//        let whitespaceValue: String? = " \t\r\n"
 //
-//        let array: [String?]? = [nilString, emptyString, whitespaceString]
+//        let array: [String?]? = [nilValue, emptyValue, whitespaceValue]
 //        let nilArray: [String?]? = nil
 //        let emptyArray = [String?]()
 //
 //
-//        guardThrowsException("isAllBlank_ArrayOfOptionals") {
-//            Guard.allBlank([string])
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
+//            Guard.allBlank([value])
 //        }
-//        guardThrowsException("isAllBlank_ArrayOfOptionals") {
-//            Guard.allBlank([nilString, string])
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
+//            Guard.allBlank([nilValue, value])
 //        }
-//        guardThrowsException("isAllBlank_ArrayOfOptionals") {
-//            Guard.allBlank([emptyString, string])
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
+//            Guard.allBlank([emptyValue, value])
 //        }
-//        guardThrowsException("isAllBlank_ArrayOfOptionals") {
-//            Guard.allBlank([whitespaceString, string])
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
+//            Guard.allBlank([whitespaceValue, value])
 //        }
 //
-//        guardNotThrowsException("isAllBlank_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allBlank(array)
 //        }
-//        guardNotThrowsException("isAllBlank_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allBlank(nilArray)
 //        }
-//        guardNotThrowsException("isAllBlank_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allBlank(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 }
 

@@ -30,7 +30,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// - value: The parameter value.
         /// - min: The minimum.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void GreaterThanOrEqualTo<T>(T value, T min, string message = null)
             where T : IComparable<T>

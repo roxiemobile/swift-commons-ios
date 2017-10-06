@@ -20,13 +20,15 @@ extension Check
      Checks that a condition is `true`.
 
      - Parameters:
-         - condition: Condition to be checked.
-         - message: The identifying message for the `CheckError` (`nil` okay).
+       - condition: Condition to be checked.
+       - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+       - file: The file name. The default is the file where function is called.
+       - line: The line number. The default is the line number where function is called.
 
      - Throws:
-         CheckError
+       CheckError
      */
-    public static func isTrue(_ condition: Bool, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) throws {
+    public static func isTrue(_ condition: Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         if !condition {
             throw newCheckError(message, file, line)
         }

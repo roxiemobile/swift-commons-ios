@@ -29,7 +29,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that an object is not `nil` and not valid.
         /// </summary>
         /// - obj: Object to check or `nil`.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void NotValid(IValidatable obj, string message = null)
         {
@@ -65,7 +65,7 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotValid(_ object: Validatable?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isNotValid(_ object: Validatable?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isNotValid(object) }
 //    }
 
@@ -75,7 +75,7 @@ extension Guard
 //     - Parameters:
 //         - object: Object to check or `nil`.
 //     */
-//    public static func notValid(_ object: Validatable?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func notValid(_ object: Validatable?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.notValid(object) }
 //    }
 }

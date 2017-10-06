@@ -13,36 +13,26 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.GreaterThan")]
-        public void GreaterThan(string method)
-        {
-            CheckThrowsException(method,
-                () => Check.GreaterThan(1, 2));
-            CheckThrowsException(method,
-                () => Check.GreaterThan(2, 2));
-
-            CheckNotThrowsException(method,
-                () => Check.GreaterThan(2, 1));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    // TODO
+    func testGreaterThan() {
+        let method = "Check.greaterThan"
+
+//        checkThrowsError(method) {
+//            Check.greaterThan(1, 2)
+//        }
+//        checkThrowsError(method) {
+//            Check.greaterThan(2, 2)
+//        }
+//
+//        checkNotThrowsError(method) {
+//            Check.greaterThan(2, 1)
+//        }
+
+        XCTFail(method)
+    }
 }
 
 // ----------------------------------------------------------------------------

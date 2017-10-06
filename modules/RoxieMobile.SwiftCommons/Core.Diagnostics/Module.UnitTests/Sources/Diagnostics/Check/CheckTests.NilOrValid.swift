@@ -13,61 +13,30 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.Diagnostics.CodeAnalysis;
-using RoxieMobile.CSharpCommons.Abstractions.Models;
-using RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models;
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.NullOrValid")]
-        public void NullOrValid(string method)
-        {
-            IValidatable validObject = new ValidModel();
-            IValidatable nilObject = null;
-            IValidatable notValidObject = new NotValidModel();
-
-
-            CheckThrowsException(method,
-                () => Check.NullOrValid(notValidObject));
-
-            CheckNotThrowsException(method,
-                () => Check.NullOrValid(validObject));
-            CheckNotThrowsException(method,
-                () => Check.NullOrValid(nilObject));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    func testNilOrValid()
-    {
+    func testNilOrValid() {
+        let method = "Check.nilOrValid"
+
 //        let validObject: Validatable = ValidModel()
 //        let nilObject: Validatable? = nil
 //        let notValidObject: Validatable = NotValidModel()
 //
 //
-//        checkThrowsError("nilorValid") {
+//        checkThrowsError(method) {
 //            try Check.nilOrValid(notValidObject)
 //        }
 //
-//        checkNotThrowsError("nilorValid") {
+//        checkNotThrowsError(method) {
 //            try Check.nilOrValid(validObject)
 //        }
-//        checkNotThrowsError("nilorValid") {
+//        checkNotThrowsError(method) {
 //            try Check.nilOrValid(nilObject)
 //        }
+
+        XCTFail(method)
     }
 }
 

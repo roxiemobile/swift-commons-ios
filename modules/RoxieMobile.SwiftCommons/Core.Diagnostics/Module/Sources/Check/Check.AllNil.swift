@@ -31,7 +31,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all an objects in array is `nil`.
         /// </summary>
         /// - objects: An array of objects.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void AllNull<T>(T[] objects, string message = null)
         {
@@ -64,7 +64,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all an objects in collection is `nil`.
         /// </summary>
         /// - collection: A collection of objects.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void AllNull<T>(ICollection<T> collection, string message = null)
         {
@@ -108,7 +108,7 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(objects!.all { $0 == nil }, message, file, line)
 //        }
@@ -119,7 +119,7 @@ extension Check
 //
 //     - Parameter objects: An array of objects.
 //     */
-//    public static func allNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func allNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(objects!.all { $0 == nil }, message, file, line)
 //        }

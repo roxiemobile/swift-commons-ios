@@ -13,107 +13,70 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.Diagnostics.CodeAnalysis;
-using Xunit;
-using static RoxieMobile.CSharpCommons.Extensions.ArrayUtils;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-    [SuppressMessage("ReSharper", "SuggestVarOrType_Elsewhere")]
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.AllNotEmpty")]
-        public void AllNotEmpty(string method)
-        {
-            const string value = "value";
-            const string nilString = null;
-            const string emptyString = "";
-
-            const string otherString = "otherValue";
-            string[] array = ToArray(value, otherString);
-            string[] nilArray = null;
-            string[] emptyArray = {};
-
-
-            GuardThrowsError(method,
-                () => Guard.AllNotEmpty(ToArray(value, nilString)));
-            GuardThrowsError(method,
-                () => Guard.AllNotEmpty(ToArray(value, emptyString)));
-
-            GuardNotThrowsError(method,
-                () => Guard.AllNotEmpty(array));
-            GuardNotThrowsError(method,
-                () => Guard.AllNotEmpty(nilArray));
-            GuardNotThrowsError(method,
-                () => Guard.AllNotEmpty(emptyArray));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    func testAllNotEmpty_Array()
-    {
-//        let string = "value"
-//        let emptyString = ""
+    func testAllNotEmpty_Array() {
+        let method = "Guard.allNotEmpty"
+
+//        let value = "value"
+//        let emptyValue = ""
 //
-//        let otherString = "otherValue"
-//        let array: [String]? = [string, otherString]
+//        let otherValue = "otherValue"
+//        let array: [String]? = [value, otherValue]
 //        let nilArray: [String]? = nil
 //        let emptyArray = [String]()
 //
 //
-//        guardThrowsException("isAllNotEmpty_Array") {
-//            Guard.allNotEmpty([string, emptyString])
+//        guardThrowsException("\(method)_Array") {
+//            Guard.allNotEmpty([value, emptyValue])
 //        }
 //
-//        guardNotThrowsException("isAllNotEmpty_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allNotEmpty(array)
 //        }
-//        guardNotThrowsException("isAllNotEmpty_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allNotEmpty(nilArray)
 //        }
-//        guardNotThrowsException("isAllNotEmpty_Array") {
+//        guardNotThrowsException("\(method)_Array") {
 //            Guard.allNotEmpty(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 
-    func testAllNotEmpty_ArrayOfOptionals()
-    {
-//        let string: String? = "value"
-//        let nilString: String? = nil
-//        let emptyString: String? = ""
+    func testAllNotEmpty_ArrayOfOptionals() {
+        let method = "Guard.allNotEmpty"
+
+//        let value: String? = "value"
+//        let nilValue: String? = nil
+//        let emptyValue: String? = ""
 //
-//        let otherString: String? = "otherValue"
-//        let array: [String?]? = [string, otherString]
+//        let otherValue: String? = "otherValue"
+//        let array: [String?]? = [value, otherValue]
 //        let nilArray: [String?]? = nil
 //        let emptyArray = [String?]()
 //
 //
-//        guardThrowsException("isAllNotEmpty_ArrayOfOptionals") {
-//            Guard.allNotEmpty([string, nilString])
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
+//            Guard.allNotEmpty([value, nilValue])
 //        }
-//        guardThrowsException("isAllNotEmpty_ArrayOfOptionals") {
-//            Guard.allNotEmpty([string, emptyString])
+//        guardThrowsException("\(method)_ArrayOfOptionals") {
+//            Guard.allNotEmpty([value, emptyValue])
 //        }
 //
-//        guardNotThrowsException("isAllNotEmpty_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allNotEmpty(array)
 //        }
-//        guardNotThrowsException("isAllNotEmpty_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allNotEmpty(nilArray)
 //        }
-//        guardNotThrowsException("isAllNotEmpty_ArrayOfOptionals") {
+//        guardNotThrowsException("\(method)_ArrayOfOptionals") {
 //            Guard.allNotEmpty(emptyArray)
 //        }
+
+        XCTFail(method)
     }
 }
 

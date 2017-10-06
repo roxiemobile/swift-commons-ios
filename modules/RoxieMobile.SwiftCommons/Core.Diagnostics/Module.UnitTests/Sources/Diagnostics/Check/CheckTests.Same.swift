@@ -13,49 +13,24 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.Same")]
-        public void Same(string method)
-        {
-            const string value = "value";
-            const string otherString = "otherValue";
-
-            CheckThrowsException(method,
-                () => Check.Same(value, otherString));
-
-            CheckNotThrowsException(method,
-                () => Check.Same(value, value));
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    func testSame()
-    {
-//        let view = UIView()
-//        let otherView = UIView()
-//
-//
-//        checkThrowsError("same") {
-//            try Check.same(view, otherView)
-//        }
-//
-//        checkNotThrowsError("same") {
-//            try Check.same(view, view)
-//        }
+    func testSame() {
+        let method = "Check.same"
+
+        let view = UIView()
+        let otherView = UIView()
+
+
+        checkThrowsError(method) {
+            try Check.same(view, otherView)
+        }
+
+        checkNotThrowsError(method) {
+            try Check.same(view, view)
+        }
     }
 }
 

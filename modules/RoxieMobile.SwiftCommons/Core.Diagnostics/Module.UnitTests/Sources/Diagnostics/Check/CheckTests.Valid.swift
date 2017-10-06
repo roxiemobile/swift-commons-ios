@@ -13,82 +13,43 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Newtonsoft.Json;
-using RoxieMobile.CSharpCommons.Abstractions.Models;
-using RoxieMobile.CSharpCommons.Data.Serialization.Json;
-using RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models;
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class CheckTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Check.Valid")]
-        public void Valid(string method)
-        {
-            IValidatable validObject = new ValidModel();
-            IValidatable notValidObject = new NotValidModel();
-
-
-            CheckThrowsException(method,
-                () => Check.Valid(notValidObject));
-
-            CheckNotThrowsException(method,
-                () => Check.Valid(validObject));
-        }
-
-        [Theory]
-        [InlineData("Check.Valid", "test_parking_model_with_valid_vehicles_in_array")]
-        public void ValidModel(string method, string fileName)
-        {
-            var json = LoadJsonString(fileName);
-            Assert.NotNull($"Could not parse JSON from file ‘Fixtures/{fileName}.json’");
-
-            ParkingModel parking = null;
-
-            CheckNotThrowsException($"{method}_Model", typeof(JsonSerializationException),
-                () => parking = JsonCoder.FromSnakeCaseJson<ParkingModel>(json));
-
-            Assert.NotNull(parking);
-            Assert.True(parking.IsValid());
-        }
-    }
-}
-*/
-
 extension CheckTests
 {
 // MARK: - Tests
 
-    func testValid()
-    {
+    func testValid() {
+        let method = "Check.valid"
+
 //        let validObject: Validatable = ValidModel()
 //        let notValidObject: Validatable = NotValidModel()
 //
-//        checkThrowsError("valid") {
+//
+//        checkThrowsError(method) {
 //            try Check.valid(notValidObject)
 //        }
 //
-//        checkNotThrowsError("valid") {
+//        checkNotThrowsError(method) {
 //            try Check.valid(validObject)
 //        }
+
+        XCTFail(method)
     }
 
     func testValidModel() {
+        let method = "Check.valid"
+
 //        var parking: ParkingModel? = nil
 //
 //        if let jsonObject = loadJson("test_parking_model_with_valid_vehicles_in_array") {
-//            checkNotThrowsError("validModel", errorType: ExpectationError.self) {
+//            checkNotThrowsError("\(method)_Model", errorType: CheckError.self) {
 //                parking = try ParkingModel(params: jsonObject)
 //            }
 //        }
 //
 //        XCTAssertNotNil(parking)
 //        XCTAssertTrue(parking!.isValid())
+
+        XCTFail(method)
     }
 }
 

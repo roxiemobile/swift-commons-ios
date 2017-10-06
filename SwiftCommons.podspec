@@ -42,6 +42,7 @@ Pod::Spec.new do |s|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Diagnostics/Module/**/*.{swift,h,m,c}'
 
       # Dependencies
+      sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
     end
 

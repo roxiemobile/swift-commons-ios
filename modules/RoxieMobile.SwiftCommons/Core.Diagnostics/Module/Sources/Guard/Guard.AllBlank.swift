@@ -28,7 +28,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that all a string objects in array is `nil`, empty or contains only whitespace characters.
         /// </summary>
         /// - values: An array of string objects.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void AllBlank(string[] values, string message = null)
         {
@@ -64,12 +64,12 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllBlank(_ values: [String]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllBlank(values) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllBlank(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isAllBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllBlank(values) }
 //    }
 
@@ -80,7 +80,7 @@ extension Guard
 //         - values: An array of string objects.
 //         - message: The identifying message for the `nil` okay.
 //     */
-//    public static func allBlank(_ values: [String]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allBlank(values) }
 //    }
 //
@@ -91,7 +91,7 @@ extension Guard
 //         - values: An array of string objects.
 //         - message: The identifying message for the `nil` okay.
 //     */
-//    public static func allBlank(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func allBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.allBlank(values) }
 //    }
 }

@@ -16,9 +16,16 @@ extension Roxie
 {
 // MARK: - Methods
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(_ message: String, file: StaticString = #file, line: UInt = #line) -> Never {
-        let logMessage = "Fatal error: \(message)\nFile: \(file)\nLine: \(line)"
+    /**
+     Unconditionally prints a given message and stops execution.
+    
+     - Parameters:
+       - message: The string to print. The default is an empty string.
+       - file: The file name to print with `message`. The default is the file where `fatalError(_:file:line:)` is called.
+       - line: The line number to print along with `message`. The default is the line number where `fatalError(_:file:line:)` is called.
+     */
+    public static func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
+        let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
     #if DEBUG
         preconditionFailure(logMessage)
@@ -31,8 +38,8 @@ extension Roxie
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(_ message: String, error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
-        var logMessage = message
+    public static func fatalError(_ message: @autoclosure () -> String = "", error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
+        var logMessage = message()
 
         // Add error description
         if let err = error {
@@ -44,8 +51,8 @@ extension Roxie
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(_ message: String, error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
-        var logMessage = message
+    public static func fatalError(_ message: @autoclosure () -> String = "", error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
+        var logMessage = message()
 
         // Add error description
         if let err = error {
@@ -65,8 +72,8 @@ extension Roxie
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(_ message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
-        var logMessage = message
+    public static func fatalError(_ message: @autoclosure () -> String = "", exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
+        var logMessage = message()
 
         // Add exception description
         if let exc = exception {

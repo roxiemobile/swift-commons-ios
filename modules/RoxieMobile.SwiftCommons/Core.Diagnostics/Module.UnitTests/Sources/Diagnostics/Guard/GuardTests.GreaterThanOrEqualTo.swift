@@ -13,36 +13,26 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.GreaterThanOrEqualTo")]
-        public void GreaterThanOrEqualTo(string method)
-        {
-            GuardThrowsError(method,
-                () => Guard.GreaterThanOrEqualTo(1, 2));
-
-            GuardNotThrowsError(method,
-                () => Guard.GreaterThanOrEqualTo(2, 2));
-            GuardNotThrowsError(method,
-                () => Guard.GreaterThanOrEqualTo(2, 1));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    // TODO
+    func testGreaterThanOrEqualTo() {
+        let method = "Guard.greaterThanOrEqualTo"
+
+//        guardThrowsException(method) {
+//            Guard.greaterThanOrEqualTo(1, 2)
+//        }
+//
+//        guardNotThrowsException(method) {
+//            Guard.greaterThanOrEqualTo(2, 2)
+//        }
+//        guardNotThrowsException(method) {
+//            Guard.greaterThanOrEqualTo(2, 1)
+//        }
+
+        XCTFail(method)
+    }
 }
 
 // ----------------------------------------------------------------------------

@@ -30,7 +30,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// - value: The parameter value.
         /// - max: The maximum.
-        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
         /// - Throws: CheckError
         public static void LessThanOrEqualTo<T>(T value, T max, string message = null)
             where T : IComparable<T>

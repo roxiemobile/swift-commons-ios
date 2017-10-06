@@ -13,61 +13,30 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.Diagnostics.CodeAnalysis;
-using RoxieMobile.CSharpCommons.Abstractions.Models;
-using RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models;
-using Xunit;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Diagnostics
-{
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-    public partial class GuardTests
-    {
-// MARK: - Tests
-
-        [Theory]
-        [InlineData("Guard.NullOrValid")]
-        public void NullOrValid(string method)
-        {
-            IValidatable validObject = new ValidModel();
-            IValidatable nilObject = null;
-            IValidatable notValidObject = new NotValidModel();
-
-
-            GuardThrowsError(method,
-                () => Guard.NullOrValid(notValidObject));
-
-            GuardNotThrowsError(method,
-                () => Guard.NullOrValid(validObject));
-            GuardNotThrowsError(method,
-                () => Guard.NullOrValid(nilObject));
-        }
-    }
-}
-*/
-
 extension GuardTests
 {
 // MARK: - Tests
 
-    func testNilOrValid()
-    {
+    func testNilOrValid() {
+        let method = "Guard.nilOrValid"
+
 //        let validObject: Validatable = ValidModel()
 //        let nilObject: Validatable? = nil
 //        let notValidObject: Validatable = NotValidModel()
 //
 //
-//        guardThrowsException("isNilOrValid") {
+//        guardThrowsException(method) {
 //            Guard.nilOrValid(notValidObject)
 //        }
 //
-//        guardNotThrowsException("isNilOrValid") {
+//        guardNotThrowsException(method) {
 //            Guard.nilOrValid(validObject)
 //        }
-//        guardNotThrowsException("isNilOrValid") {
+//        guardNotThrowsException(method) {
 //            Guard.nilOrValid(nilObject)
 //        }
+
+        XCTFail(method)
     }
 }
 

@@ -29,7 +29,7 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// </summary>
         /// - unexpected: Unexpected value to check.
         /// - actual: The value to check against `unexpected`.
-        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
         /// - Throws: GuardException
         public static void NotEqual(object unexpected, object actual, string message = null)
         {
@@ -66,7 +66,7 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func isNotEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isNotEqual(unexpected, actual) }
 //    }
 
@@ -77,7 +77,7 @@ extension Guard
 //         - unexpected: Unexpected value to check.
 //         - actual: The value to check against `unexpected`.
 //     */
-//    public static func notEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//    public static func notEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Check.notEqual(unexpected, actual) }
 //    }
 }
