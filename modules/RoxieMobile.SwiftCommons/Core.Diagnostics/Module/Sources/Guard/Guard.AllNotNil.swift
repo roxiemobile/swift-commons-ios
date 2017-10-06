@@ -26,11 +26,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: Array
 
         /// <summary>
-        /// Checks that all an objects in array is not <c>null</c>.
+        /// Checks that all an objects in array is not `nil`.
         /// </summary>
-        /// <param name="objects">An array of objects.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - objects: An array of objects.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void AllNotNull<T>(T[] objects, string message = null)
         {
             if (TryIsFailure(() => Check.AllNotNull(objects), out Exception cause)) {
@@ -39,12 +39,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that all an objects in array is not <c>null</c>.
+        /// Checks that all an objects in array is not `nil`.
         /// </summary>
-        /// <param name="objects">An array of objects.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - objects: An array of objects.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void AllNotNull<T>(T[] objects, Func<string> block)
         {
             if (block == null) {
@@ -59,11 +59,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: Collection
 
         /// <summary>
-        /// Checks that all an objects in collection is not <c>null</c>.
+        /// Checks that all an objects in collection is not `nil`.
         /// </summary>
-        /// <param name="collection">A collection of objects.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - collection: A collection of objects.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void AllNotNull<T>(ICollection<T> collection, string message = null)
         {
             if (TryIsFailure(() => Check.AllNotNull(collection), out Exception cause)) {
@@ -72,12 +72,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that all an objects in collection is not <c>null</c>.
+        /// Checks that all an objects in collection is not `nil`.
         /// </summary>
-        /// <param name="collection">A collection of objects.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - collection: A collection of objects.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void AllNotNull<T>(ICollection<T> collection, Func<string> block)
         {
             if (block == null) {
@@ -98,8 +98,19 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNotNil<T>(_ objects: [T]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isAllNotNil<T>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllNotNil(objects) }
+//    }
+
+//    /**
+//     Checks that all an objects in array is not `nil`.
+//
+//     - Parameters:
+//         - objects: An array of objects.
+//         - message: Expects that an object isn't `nil`. If it is an {@link ExpectationError} is thrown with the given message.
+//     */
+//    public static func allNotNil<T>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.allNotNil(objects) }
 //    }
 }
 

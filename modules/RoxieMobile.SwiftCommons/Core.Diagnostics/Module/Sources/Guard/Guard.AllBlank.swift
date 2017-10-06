@@ -25,11 +25,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that all a string objects in array is <c>null</c>, empty or contains only whitespace characters.
+        /// Checks that all a string objects in array is `nil`, empty or contains only whitespace characters.
         /// </summary>
-        /// <param name="values">An array of string objects.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - values: An array of string objects.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void AllBlank(string[] values, string message = null)
         {
             if (TryIsFailure(() => Check.AllBlank(values), out Exception cause)) {
@@ -38,12 +38,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that all a string objects in array is <c>null</c>, empty or contains only whitespace characters.
+        /// Checks that all a string objects in array is `nil`, empty or contains only whitespace characters.
         /// </summary>
-        /// <param name="values">An array of string objects.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - values: An array of string objects.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void AllBlank(string[] values, Func<string> block)
         {
             if (block == null) {
@@ -64,13 +64,35 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllBlank(_ values: [String]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isAllBlank(_ values: [String]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllBlank(values) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllBlank(_ values: [String?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isAllBlank(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllBlank(values) }
+//    }
+
+//    /**
+//     Checks that all a string objects in array is `nil`, empty or contains only whitespace characters.
+//
+//     - Parameters:
+//         - values: An array of string objects.
+//         - message: The identifying message for the `nil` okay.
+//     */
+//    public static func allBlank(_ values: [String]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.allBlank(values) }
+//    }
+//
+//    /**
+//     Checks that all a string objects in array is `nil`, empty or contains only whitespace characters.
+//
+//     - Parameters:
+//         - values: An array of string objects.
+//         - message: The identifying message for the `nil` okay.
+//     */
+//    public static func allBlank(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.allBlank(values) }
 //    }
 }
 

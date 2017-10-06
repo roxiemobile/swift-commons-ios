@@ -27,11 +27,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: String
 
         /// <summary>
-        /// Checks that a string is not <c>null</c> and not empty.
+        /// Checks that a string is not `nil` and not empty.
         /// </summary>
-        /// <param name="value">The string to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - value: The string to check or `nil`.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void NotEmpty(string value, string message = null)
         {
             if (!value.IsNotEmpty()) {
@@ -40,12 +40,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that a string is not <c>null</c> and not empty.
+        /// Checks that a string is not `nil` and not empty.
         /// </summary>
-        /// <param name="value">The string to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - value: The string to check or `nil`.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void NotEmpty(string value, Func<string> block)
         {
             if (block == null) {
@@ -60,12 +60,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: Array
 
         /// <summary>
-        /// Checks that an array is not <c>null</c> and not empty.
+        /// Checks that an array is not `nil` and not empty.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="array">The array to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - array: The array to check or `nil`.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void NotEmpty<T>(T[] array, string message = null)
         {
             if (!array.IsNotEmpty()) {
@@ -74,13 +74,13 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that an array is not <c>null</c> and not empty.
+        /// Checks that an array is not `nil` and not empty.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="array">The array to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - array: The array to check or `nil`.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void NotEmpty<T>(T[] array, Func<string> block)
         {
             if (block == null) {
@@ -95,12 +95,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: Generic Collection
 
         /// <summary>
-        /// Checks that a collection is not <c>null</c> and not empty.
+        /// Checks that a collection is not `nil` and not empty.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="collection">The collection to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - collection: The collection to check or `nil`.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void NotEmpty<T>(ICollection<T> collection, string message = null)
         {
             if (!collection.IsNotEmpty()) {
@@ -109,13 +109,13 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that a collection is not <c>null</c> and not empty.
+        /// Checks that a collection is not `nil` and not empty.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="collection">The collection to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - collection: The collection to check or `nil`.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void NotEmpty<T>(ICollection<T> collection, Func<string> block)
         {
             if (block == null) {
@@ -136,25 +136,68 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEmpty(_ value: String?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNotEmpty(_ value: String?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(value.isNotEmpty, message, file, line)
 //    }
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEmpty<T>(_ array: [T]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNotEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isNotEmpty(array), message, file, line)
 //    }
 //
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEmpty<T>(_ set: Set<T>?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNotEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isNotEmpty(set), message, file, line)
 //    }
 //
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNotEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isTrue(CollectionUtils.isNotEmpty(map), message, file, line)
+//    }
+
+//// MARK: - Methods: String
+//
+//    /**
+//     Checks that a string is not `nil` and not empty.
+//
+//     - Parameter value: The string to check or `nil`.
+//     */
+//    public static func notEmpty(_ value: String?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isTrue(StringUtils.isNotEmpty(value), message, file, line)
+//    }
+//
+//// MARK: - Methods: Array
+//
+//    /**
+//     Checks that an array is not `nil` and not empty.
+//
+//     - Parameter array: The array to check or `nil`.
+//     */
+//    public static func notEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isTrue(CollectionUtils.isNotEmpty(array), message, file, line)
+//    }
+//
+//// MARK: - Methods: Set
+//
+//    /**
+//     Checks that a set is not `nil` and not empty.
+//
+//     - Parameter set: The set to check or `nil`.
+//     */
+//    public static func notEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isTrue(CollectionUtils.isNotEmpty(set), message, file, line)
+//    }
+//
+//// MARK: - Methods: Dictionary
+//    /**
+//     Checks that a dictionary is not `nil` and not empty.
+//
+//     - Parameter map: The dictionary to check or `nil`.
+//     */
+//    public static func notEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(CollectionUtils.isNotEmpty(map), message, file, line)
 //    }
 }

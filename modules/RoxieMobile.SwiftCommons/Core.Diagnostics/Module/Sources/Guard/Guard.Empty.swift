@@ -26,11 +26,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: String
 
         /// <summary>
-        /// Checks that a string is <c>null</c> or empty.
+        /// Checks that a string is `nil` or empty.
         /// </summary>
-        /// <param name="value">The string to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - value: The string to check or `nil`.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void Empty(string value, string message = null)
         {
             if (TryIsFailure(() => Check.Empty(value), out Exception cause)) {
@@ -39,12 +39,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that a string is <c>null</c> or empty.
+        /// Checks that a string is `nil` or empty.
         /// </summary>
-        /// <param name="value">The string to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - value: The string to check or `nil`.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void Empty(string value, Func<string> block)
         {
             if (block == null) {
@@ -59,12 +59,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: Array
 
         /// <summary>
-        /// Checks that an array is <c>null</c> or empty.
+        /// Checks that an array is `nil` or empty.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="array">The array to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - array: The array to check or `nil`.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void Empty<T>(T[] array, string message = null)
         {
             if (TryIsFailure(() => Check.Empty(array), out Exception cause)) {
@@ -73,13 +73,13 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that an array is <c>null</c> or empty.
+        /// Checks that an array is `nil` or empty.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="array">The array to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - array: The array to check or `nil`.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void Empty<T>(T[] array, Func<string> block)
         {
             if (block == null) {
@@ -94,12 +94,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: Generic Collection
 
         /// <summary>
-        /// Checks that a collection is <c>null</c> or empty.
+        /// Checks that a collection is `nil` or empty.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="collection">The collection to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - collection: The collection to check or `nil`.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void Empty<T>(ICollection<T> collection, string message = null)
         {
             if (TryIsFailure(() => Check.Empty(collection), out Exception cause)) {
@@ -108,13 +108,13 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that a collection is <c>null</c> or empty.
+        /// Checks that a collection is `nil` or empty.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="collection">The collection to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - collection: The collection to check or `nil`.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void Empty<T>(ICollection<T> collection, Func<string> block)
         {
             if (block == null) {
@@ -135,26 +135,69 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isEmpty(_ value: String?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isEmpty(_ value: String?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isEmpty(value) }
 //    }
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isEmpty<T>(_ array: [T]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isEmpty<T>(_ array: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isEmpty(array) }
 //    }
 //
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isEmpty<T>(_ set: Set<T>?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isEmpty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isEmpty(set) }
 //    }
 //
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isEmpty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isEmpty(map) }
+//    }
+
+//// MARK: - Methods: String
+//
+//    /**
+//     Checks that a string is `nil` or empty.
+//
+//     - Parameter value: The string to check or `nil`.
+//     */
+//    public static func empty(_ value: String?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.empty(value) }
+//    }
+//
+//// MARK: - Methods: Array
+//
+//    /**
+//     Checks that a string is `nil` or empty.
+//
+//     - Parameter value: The array to check or `nil`.
+//     */
+//    public static func empty<T>(_ array: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.empty(array) }
+//    }
+//
+//// MARK: - Methods: Set
+//    /**
+//     Checks that a string is `nil` or empty.
+//
+//     - Parameter value: The set to check or `nil`.
+//     */
+//    public static func empty<T>(_ set: Set<T>?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.empty(set) }
+//    }
+//
+//// MARK: - Methods: Dictionary
+//
+//    /**
+//     Checks that a string is `nil` or empty.
+//
+//     - Parameter value: The dictionary to check or `nil`.
+//     */
+//    public static func empty<K, V>(_ map: Dictionary<K, V>?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.empty(map) }
 //    }
 }
 

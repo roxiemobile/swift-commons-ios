@@ -92,7 +92,7 @@ class MetatypeNameParser
                 canonicalName = value.replacingCharacters(in: range, with: "<\(canonicalName)>")
             }
             else {
-                Roxie.fatalError(message: "Invalid state. Value ‘\(value)’ does not contains placeholder ‘<T>’.")
+                Roxie.fatalError("Invalid state. Value ‘\(value)’ does not contains placeholder ‘<T>’.")
             }
         }
 

@@ -25,13 +25,13 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that two objects refer to the same object. If they are not, an <see cref="GuardError"/>
+        /// Checks that two objects refer to the same object. If they are not, an `GuardException`
         /// is thrown with the given message.
         /// </summary>
-        /// <param name="expected">The expected object</param>
-        /// <param name="actual">The object to compare to <c>expected</c></param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay)</param>
-        /// <exception cref="GuardError" />
+        /// - expected: The expected object
+        /// - actual: The object to compare to `expected`
+        /// - message: The identifying message for the `GuardException` (`nil` okay)
+        /// - Throws: GuardException
         public static void Same(object expected, object actual, string message = null)
         {
             if (TryIsFailure(() => Check.Same(expected, actual), out Exception cause)) {
@@ -40,14 +40,14 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that two objects refer to the same object. If they are not, an <see cref="GuardError"/>
+        /// Checks that two objects refer to the same object. If they are not, an `GuardException`
         /// is thrown with the given message.
         /// </summary>
-        /// <param name="expected">The expected object</param>
-        /// <param name="actual">The object to compare to <c>expected</c></param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/></param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - expected: The expected object
+        /// - actual: The object to compare to `expected`
+        /// - block: The function which returns identifying message for the `GuardException`
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void Same(object expected, object actual, Func<string> block)
         {
             if (block == null) {
@@ -68,8 +68,19 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isSame<T:AnyObject>(_ expected: T?, _ actual: T?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isSame<T:AnyObject>(_ expected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isSame(expected, actual) }
+//    }
+
+//    /**
+//     Checks that two objects refer to the same object. If they are not, an `GuardException` is thrown with the given message.
+//
+//     - Parameters:
+//         - message: Verifies that the exact exception is thrown (and not a derived exception type)
+//         - line: A delegate to the code that is expected to throw an exception when executed.
+//     */
+//    public static func same<T:AnyObject>(_ expected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.same(expected, actual) }
 //    }
 }
 

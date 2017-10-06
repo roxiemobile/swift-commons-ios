@@ -27,10 +27,10 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// <summary>
         /// Checks that two objects do not refer to the same object.
         /// </summary>
-        /// <param name="unexpected">The object you don't expect.</param>
-        /// <param name="actual">The object to compare to <code>unexpected</code>.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - unexpected: The object you don't expect.
+        /// - actual: The object to compare to `unexpected`.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void NotSame(object unexpected, object actual, string message = null)
         {
             if (TryIsFailure(() => Check.NotSame(unexpected, actual), out Exception cause)) {
@@ -41,11 +41,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// <summary>
         /// Checks that two objects do not refer to the same object.
         /// </summary>
-        /// <param name="unexpected">The object you don't expect.</param>
-        /// <param name="actual">The object to compare to <code>unexpected</code>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - unexpected: The object you don't expect.
+        /// - actual: The object to compare to `unexpected`.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void NotSame(object unexpected, object actual, Func<string> block)
         {
             if (block == null) {
@@ -66,8 +66,19 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotSame<T:AnyObject>(_ unexpected: T?, _ actual: T?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isNotSame<T:AnyObject>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isNotSame(unexpected, actual) }
+//    }
+
+//    /**
+//     Checks that two objects do not refer to the same object.
+//
+//     - Parameters:
+//         - unexpected: The object you don't expect.
+//         - actual: The object to compare to `unexpected`.
+//     */
+//    public static func notSame<T:AnyObject>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.notSame(unexpected, actual) }
 //    }
 }
 

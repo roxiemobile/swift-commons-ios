@@ -26,11 +26,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that an object is not <c>null</c> and valid.
+        /// Checks that an object is not `nil` and valid.
         /// </summary>
-        /// <param name="obj">Object to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - obj: Object to check or `nil`.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void Valid(IValidatable obj, string message = null)
         {
             if (!obj?.IsValid() ?? true) {
@@ -39,12 +39,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that an object is not <c>null</c> and valid.
+        /// Checks that an object is not `nil` and valid.
         /// </summary>
-        /// <param name="obj">Object to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - obj: Object to check or `nil`.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void Valid(IValidatable obj, Func<string> block)
         {
             if (block == null) {
@@ -65,7 +65,16 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isValid(_ object: Validatable?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isValid(_ object: Validatable?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isTrue(ValidatableUtils.isValid(object), message, file, line)
+//    }
+
+//    /**
+//     Checks that an object is not `nil` and valid.
+//
+//     - Parameter object: Object to check or `nil`.
+//     */
+//    public static func valid(_ object: Validatable?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(ValidatableUtils.isValid(object), message, file, line)
 //    }
 }

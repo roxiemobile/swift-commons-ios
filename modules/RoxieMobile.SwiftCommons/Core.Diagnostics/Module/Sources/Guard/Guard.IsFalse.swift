@@ -27,9 +27,9 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// <summary>
         /// Checks that a condition is <c>false</c>.
         /// </summary>
-        /// <param name="condition">Condition to be checked.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - condition: Condition to be checked.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void False(bool condition, string message = null)
         {
             if (TryIsFailure(() => Check.False(condition), out Exception cause)) {
@@ -40,10 +40,10 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// <summary>
         /// Checks that a condition is <c>false</c>.
         /// </summary>
-        /// <param name="condition">Condition to be checked.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - condition: Condition to be checked.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void False(bool condition, Func<string> block)
         {
             if (block == null) {
@@ -64,8 +64,17 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isFalse(_ condition: Bool, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isFalse(_ condition: Bool, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isFalse(condition) }
+//    }
+
+//    /**
+//     Checks that a collection is `nil` or empty.
+//
+//     - Parameter condition: The condition to check or `nil`.
+//     */
+//    public static func isFalse(_ condition: Bool, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.isFalse(condition) }
 //    }
 }
 

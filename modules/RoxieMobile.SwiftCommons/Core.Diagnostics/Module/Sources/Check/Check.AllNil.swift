@@ -28,11 +28,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: Array
 
         /// <summary>
-        /// Checks that all an objects in array is <c>null</c>.
+        /// Checks that all an objects in array is `nil`.
         /// </summary>
-        /// <param name="objects">An array of objects.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - objects: An array of objects.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void AllNull<T>(T[] objects, string message = null)
         {
             if (!TryAllNull(objects)) {
@@ -41,12 +41,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that all an objects in array is <c>null</c>.
+        /// Checks that all an objects in array is `nil`.
         /// </summary>
-        /// <param name="objects">An array of objects.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - objects: An array of objects.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void AllNull<T>(T[] objects, Func<string> block)
         {
             if (block == null) {
@@ -61,11 +61,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods: Generic Collection
 
         /// <summary>
-        /// Checks that all an objects in collection is <c>null</c>.
+        /// Checks that all an objects in collection is `nil`.
         /// </summary>
-        /// <param name="collection">A collection of objects.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - collection: A collection of objects.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void AllNull<T>(ICollection<T> collection, string message = null)
         {
             if (!TryAllNull(collection)) {
@@ -74,12 +74,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that all an objects in collection is <c>null</c>.
+        /// Checks that all an objects in collection is `nil`.
         /// </summary>
-        /// <param name="collection">A collection of objects.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - collection: A collection of objects.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void AllNull<T>(ICollection<T> collection, Func<string> block)
         {
             if (block == null) {
@@ -108,7 +108,18 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNil<T>(_ objects: [T?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        if CollectionUtils.isNotEmpty(objects) {
+//            try isTrue(objects!.all { $0 == nil }, message, file, line)
+//        }
+//    }
+
+//    /**
+//      Checks that all an objects in array is `nil`.
+//
+//     - Parameter objects: An array of objects.
+//     */
+//    public static func allNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(objects!.all { $0 == nil }, message, file, line)
 //        }

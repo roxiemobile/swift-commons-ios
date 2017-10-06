@@ -21,11 +21,11 @@ public static partial class Check
 // MARK: - Methods
 
     /// <summary>
-    /// Checks that all a string objects in array is <c>null</c> or empty.
+    /// Checks that all a string objects in array is `nil` or empty.
     /// </summary>
-    /// <param name="values">An array of string objects.</param>
-    /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-    /// <exception cref="CheckException" />
+    /// - values: An array of string objects.
+    /// - message: The identifying message for the `CheckError` (`nil` okay).
+    /// - Throws: CheckError
     public static void AllEmpty(string[] values, string message = null)
     {
         if (!TryAllEmpty(values)) {
@@ -34,12 +34,12 @@ public static partial class Check
     }
 
     /// <summary>
-    /// Checks that all a string objects in array is <c>null</c> or empty.
+    /// Checks that all a string objects in array is `nil` or empty.
     /// </summary>
-    /// <param name="values">An array of string objects.</param>
-    /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-    /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-    /// <exception cref="CheckException" />
+    /// - values: An array of string objects.
+    /// - block: The function which returns identifying message for the `CheckError`.
+    /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+    /// - Throws: CheckError
     public static void AllEmpty(string[] values, Func<string> block)
     {
         if (block == null) {
@@ -64,14 +64,38 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllEmpty(_ values: [String]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllEmpty(_ values: [String]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllEmpty(values), message, file, line)
 //        }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllEmpty(_ values: [String?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllEmpty(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        if CollectionUtils.isNotEmpty(values) {
+//            try isTrue(StringUtils.isAllEmpty(values), message, file, line)
+//        }
+//    }
+
+//    /**
+//     Checks that all a string objects in array is `nil` or empty.
+//
+//     - Parameters:
+//         - values: An array of string objects.
+//     */
+//    public static func allEmpty(_ values: [String]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        if CollectionUtils.isNotEmpty(values) {
+//            try isTrue(StringUtils.isAllEmpty(values), message, file, line)
+//        }
+//    }
+//
+//    /**
+//     Checks that all a string objects in array is `nil` or empty.
+//
+//     - Parameters:
+//         - values: An array of string objects.
+//     */
+//    public static func allEmpty(_ values: [String?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(values) {
 //            try isTrue(StringUtils.isAllEmpty(values), message, file, line)
 //        }

@@ -26,11 +26,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that a string is <c>null</c>, empty or contains only whitespace characters.
+        /// Checks that a string is `nil`, empty or contains only whitespace characters.
         /// </summary>
-        /// <param name="value">The string to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - value: The string to check or `nil`.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void Blank(string value, string message = null)
         {
             if (!value.IsBlank()) {
@@ -39,12 +39,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that a string is <c>null</c>, empty or contains only whitespace characters.
+        /// Checks that a string is `nil`, empty or contains only whitespace characters.
         /// </summary>
-        /// <param name="value">The string to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - value: The string to check or `nil`.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void Blank(string value, Func<string> block)
         {
             if (block == null) {
@@ -65,8 +65,26 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isBlank(_ value: String?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isBlank(_ value: String?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(value.isBlank, message, file, line)
+//    }
+
+//    /**
+//     Checks that a string is `nil`, empty or contains only whitespace characters.
+//
+//     - Parameters:
+//         - value: The string to check or `nil`
+//         - message: The identifying message for the
+//     */
+////    public static func blank(_ value: String?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+////        try isTrue(StringUtils.isBlank(nil), message, file, line)
+////    }
+//
+//    public static func blank(_ value: String?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        if !(StringUtils.isBlank(value))
+//        {
+//            try throwError(message, file, line)
+//        }
 //    }
 }
 

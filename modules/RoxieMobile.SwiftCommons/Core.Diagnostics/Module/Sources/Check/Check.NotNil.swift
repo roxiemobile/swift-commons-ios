@@ -25,11 +25,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that an object isn't <c>null</c>.
+        /// Checks that an object isn't `nil`.
         /// </summary>
-        /// <param name="reference">Object to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - reference: Object to check or `nil`.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void NotNull(object reference, string message = null)
         {
             if (reference == null) {
@@ -38,12 +38,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that an object isn't <c>null</c>.
+        /// Checks that an object isn't `nil`.
         /// </summary>
-        /// <param name="reference">Object to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - reference: Object to check or `nil`.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void NotNull(object reference, Func<string> block)
         {
             if (block == null) {
@@ -65,7 +65,18 @@ extension Check
 //    // TODO
 //    /// Expects that an object isn't nil. If it is an {@link ExpectationError} is thrown with the given message.
 //    @available(*, deprecated)
-//    public static func isNotNil(_ object: Any?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNotNil(_ object: Any?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isTrue(object != nil, message, file, line)
+//    }
+
+//    /**
+//     Checks that an object isn't `nil`.
+//
+//     - Parameters:
+//         - object: Object to check or `nil`.
+//         - message: Expects that an object isn't `nil`. If it is an {@link ExpectationError} is thrown with the given message.
+//     */
+//    public static func notNil(_ object: Any?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(object != nil, message, file, line)
 //    }
 }

@@ -25,11 +25,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that a string is not <c>null</c>, not empty and contains not only whitespace characters.
+        /// Checks that a string is not `nil`, not empty and contains not only whitespace characters.
         /// </summary>
-        /// <param name="value">The string to check or <c>null</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - value: The string to check or `nil`.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void NotBlank(string value, string message = null)
         {
             if (TryIsFailure(() => Check.NotBlank(value), out Exception cause)) {
@@ -38,12 +38,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that a string is not <c>null</c>, not empty and contains not only whitespace characters.
+        /// Checks that a string is not `nil`, not empty and contains not only whitespace characters.
         /// </summary>
-        /// <param name="value">The string to check or <c>null</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - value: The string to check or `nil`.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void NotBlank(string value, Func<string> block)
         {
             if (block == null) {
@@ -64,8 +64,17 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isNotBlank(_ value: String?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isNotBlank(_ value: String?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isNotBlank(value) }
+//    }
+
+//    /**
+//     Checks that a string is not `nil`, not empty and contains not only whitespace characters.
+//
+//     - Parameter value: The string to check or `nil`.
+//     */
+//    public static func notBlank(_ value: String?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.notBlank(value) }
 //    }
 }
 

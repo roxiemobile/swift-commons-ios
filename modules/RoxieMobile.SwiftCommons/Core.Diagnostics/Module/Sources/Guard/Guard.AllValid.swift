@@ -26,11 +26,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that all an objects in array is not <c>null</c> and valid.
+        /// Checks that all an objects in array is not `nil` and valid.
         /// </summary>
-        /// <param name="objects">An array of objects.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - objects: An array of objects.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void AllValid(IValidatable[] objects, string message = null)
         {
             if (TryIsFailure(() => Check.AllValid(objects), out Exception cause)) {
@@ -39,12 +39,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that all an objects in array is not <c>null</c> and valid.
+        /// Checks that all an objects in array is not `nil` and valid.
         /// </summary>
-        /// <param name="objects">An array of objects.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - objects: An array of objects.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void AllValid(IValidatable[] objects, Func<string> block)
         {
             if (block == null) {
@@ -65,23 +65,59 @@ extension Guard
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllValid(_ objects: [Validatable]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isAllValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllValid(_ objects: [Validatable?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isAllValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllValid<T:Validatable>(_ objects: [T]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isAllValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllValid(objects) }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllValid<T:Validatable>(_ objects: [T?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) {
+//    public static func isAllValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
 //        rethrowOnFailure(message, file, line) { try Expect.isAllValid(objects) }
+//    }
+
+//    /**
+//     Checks that all an objects in array is not `nil` and valid.
+//
+//     - Parameter objects: An array of objects.
+//     */
+//    public static func allValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.allValid(objects) }
+//    }
+//
+//    /**
+//     Checks that all an objects in array is not `nil` and valid.
+//
+//     - Parameter objects: An array of objects.
+//     */
+//    public static func allValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.allValid(objects) }
+//    }
+//
+//    /**
+//     Checks that all an objects in array is not `nil` and valid.
+//
+//     - Parameter objects: An array of objects.
+//     */
+//    public static func allValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.allValid(objects) }
+//    }
+//
+//    /**
+//     Checks that all an objects in array is not `nil` and valid.
+//
+//     - Parameter objects: An array of objects.
+//     */
+//    public static func allValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, file: StaticString = #file, line: UInt = #line) {
+//        rethrowOnFailure(message, file, line) { try Check.allValid(objects) }
 //    }
 }
 

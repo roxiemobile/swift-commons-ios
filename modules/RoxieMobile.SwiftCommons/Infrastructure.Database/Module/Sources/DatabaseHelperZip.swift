@@ -41,7 +41,7 @@ public class DatabaseHelperZip: DatabaseHelper
             }
         }
         else {
-            Roxie.fatalError(message: "Could not make temporary path for database ‘\(databaseName)’.")
+            Roxie.fatalError("Could not make temporary path for database ‘\(databaseName)’.")
         }
 
         return path

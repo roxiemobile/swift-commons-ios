@@ -25,13 +25,13 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that two objects refer to the same object. If they are not, an <see cref="CheckException"/>
+        /// Checks that two objects refer to the same object. If they are not, an `CheckError`
         /// is thrown with the given message.
         /// </summary>
-        /// <param name="expected">The expected object</param>
-        /// <param name="actual">The object to compare to <c>expected</c></param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay)</param>
-        /// <exception cref="CheckException" />
+        /// - expected: The expected object
+        /// - actual: The object to compare to `expected`
+        /// - message: The identifying message for the `CheckError` (`nil` okay)
+        /// - Throws: CheckError
         public static void Same(object expected, object actual, string message = null)
         {
             if (!ReferenceEquals(expected, actual)) {
@@ -40,14 +40,14 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that two objects refer to the same object. If they are not, an <see cref="CheckException"/>
+        /// Checks that two objects refer to the same object. If they are not, an `CheckError`
         /// is thrown with the given message.
         /// </summary>
-        /// <param name="expected">The expected object</param>
-        /// <param name="actual">The object to compare to <c>expected</c></param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/></param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - expected: The expected object
+        /// - actual: The object to compare to `expected`
+        /// - block: The function which returns identifying message for the `CheckError`
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void Same(object expected, object actual, Func<string> block)
         {
             if (block == null) {
@@ -70,7 +70,18 @@ extension Check
 //    /// Expects that two objects refer to the same object. If they are not, an {@link ExpectationError}
 //    /// is thrown with the given message.
 //    @available(*, deprecated)
-//    public static func isSame<T:AnyObject>(_ expected: T?, _ actual: T?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isSame<T:AnyObject>(_ expected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isTrue(expected === actual, message, file, line)
+//    }
+
+//    /**
+//     Checks that two objects refer to the same object. If they are not, an `GuardException` is thrown with the given message.
+//
+//     - Parameters:
+//         - expected: Expects that two objects refer to the same object. If they are not, an {@link ExpectationError} is thrown with the given message.
+//         - actual: The object to compare to `expected`.
+//     */
+//    public static func same<T:AnyObject>(_ expected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isTrue(expected === actual, message, file, line)
 //    }
 }

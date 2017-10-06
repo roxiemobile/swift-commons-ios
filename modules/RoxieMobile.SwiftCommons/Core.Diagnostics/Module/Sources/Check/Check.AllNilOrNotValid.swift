@@ -28,11 +28,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that all an objects in array is <c>null</c> or not valid.
+        /// Checks that all an objects in array is `nil` or not valid.
         /// </summary>
-        /// <param name="objects">An array of objects.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - objects: An array of objects.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void AllNullOrNotValid(IValidatable[] objects, string message = null)
         {
             if (!TryAllNullOrNotValid(objects)) {
@@ -41,12 +41,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that all an objects in array is <c>null</c> or not valid.
+        /// Checks that all an objects in array is `nil` or not valid.
         /// </summary>
-        /// <param name="objects">An array of objects.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - objects: An array of objects.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void AllNullOrNotValid(IValidatable[] objects, Func<string> block)
         {
             if (block == null) {
@@ -72,28 +72,67 @@ extension Check
 
 //    // TODO
 //    @available(*, deprecated)
-//    public static func isAllNilOrNotValid(_ objects: [Validatable]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNilOrNotValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(ValidatableUtils.isAllNilOrNotValid(objects), message, file, line)
 //        }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNilOrNotValid(_ objects: [Validatable?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNilOrNotValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(ValidatableUtils.isAllNilOrNotValid(objects), message, file, line)
 //        }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNilOrNotValid<T:Validatable>(_ objects: [T]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNilOrNotValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(ValidatableUtils.isAllNilOrNotValid(objects), message, file, line)
 //        }
 //    }
 //
 //    @available(*, deprecated)
-//    public static func isAllNilOrNotValid<T:Validatable>(_ objects: [T?]?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isAllNilOrNotValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        if CollectionUtils.isNotEmpty(objects) {
+//            try isTrue(ValidatableUtils.isAllNilOrNotValid(objects), message, file, line)
+//        }
+//    }
+
+//    /**
+//     Checks that all an objects in array is `nil` or not valid.
+//
+//     - Parameter objects: An array of objects.
+//     */
+//    public static func allNilOrNotValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        if CollectionUtils.isNotEmpty(objects) {
+//            try isTrue(ValidatableUtils.isAllNilOrNotValid(objects), message, file, line)
+//        }
+//    }
+//
+//    public static func allNilOrNotValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        if CollectionUtils.isNotEmpty(objects) {
+//            try isTrue(ValidatableUtils.isAllNilOrNotValid(objects), message, file, line)
+//        }
+//    }
+//
+//    /**
+//     Checks that all an objects in array is `nil` or not valid.
+//
+//     - Parameter objects: An array of objects.
+//     */
+//    public static func allNilOrNotValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        if CollectionUtils.isNotEmpty(objects) {
+//            try isTrue(ValidatableUtils.isAllNilOrNotValid(objects), message, file, line)
+//        }
+//    }
+//
+//    /**
+//     Checks that all an objects in array is `nil` or not valid.
+//
+//     - Parameter objects: An array of objects.
+//     */
+//    public static func allNilOrNotValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        if CollectionUtils.isNotEmpty(objects) {
 //            try isTrue(ValidatableUtils.isAllNilOrNotValid(objects), message, file, line)
 //        }

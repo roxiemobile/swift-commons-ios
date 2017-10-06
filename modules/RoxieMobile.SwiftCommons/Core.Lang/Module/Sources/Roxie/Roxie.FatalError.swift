@@ -17,7 +17,7 @@ extension Roxie
 // MARK: - Methods
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(message: String, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: String, file: StaticString = #file, line: UInt = #line) -> Never {
         let logMessage = "Fatal error: \(message)\nFile: \(file)\nLine: \(line)"
 
     #if DEBUG
@@ -31,7 +31,7 @@ extension Roxie
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(message: String, error: Error?, file: StaticString = #file, line: UInt = #line) {
+    public static func fatalError(_ message: String, error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message
 
         // Add error description
@@ -40,11 +40,11 @@ extension Roxie
         }
 
         // Terminate application with runtime exception
-        fatalError(message: logMessage, file: file, line: line)
+        Roxie.fatalError(logMessage, file: file, line: line)
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(message: String, error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: String, error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message
 
         // Add error description
@@ -61,11 +61,11 @@ extension Roxie
         }
 
         // Terminate application with runtime exception
-        fatalError(message: logMessage, file: file, line: line)
+        Roxie.fatalError(logMessage, file: file, line: line)
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: String, exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message
 
         // Add exception description
@@ -90,7 +90,7 @@ extension Roxie
         }
 
         // Terminate application with runtime exception
-        fatalError(message: logMessage, file: file, line: line)
+        Roxie.fatalError(logMessage, file: file, line: line)
     }
 }
 

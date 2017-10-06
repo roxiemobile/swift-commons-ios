@@ -28,10 +28,10 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that the parameter value is greater than or equal to the minimum value.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="value">The parameter value.</param>
-        /// <param name="min">The minimum.</param>
-        /// <param name="message">The identifying message for the <see cref="GuardError"/> (<c>null</c> okay).</param>
-        /// <exception cref="GuardError" />
+        /// - value: The parameter value.
+        /// - min: The minimum.
+        /// - message: The identifying message for the `GuardException` (`nil` okay).
+        /// - Throws: GuardException
         public static void GreaterThanOrEqualTo<T>(T value, T min, string message = null)
             where T : IComparable<T>
         {
@@ -44,11 +44,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// Checks that the parameter value is greater than or equal to the minimum value.
         /// </summary>
         /// <typeparam name="T">The type of the parameter.</typeparam>
-        /// <param name="value">The parameter value.</param>
-        /// <param name="min">The minimum.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="GuardError"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="GuardError" />
+        /// - value: The parameter value.
+        /// - min: The minimum.
+        /// - block: The function which returns identifying message for the `GuardException`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: GuardException
         public static void GreaterThanOrEqualTo<T>(T value, T min, Func<string> block)
             where T : IComparable<T>
         {

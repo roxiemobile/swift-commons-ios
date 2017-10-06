@@ -27,10 +27,10 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// <summary>
         /// Checks that two objects do not refer to the same object.
         /// </summary>
-        /// <param name="unexpected">The object you don't expect.</param>
-        /// <param name="actual">The object to compare to <code>unexpected</code>.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - unexpected: The object you don't expect.
+        /// - actual: The object to compare to `unexpected`.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void NotSame(object unexpected, object actual, string message = null)
         {
             if (ReferenceEquals(unexpected, actual)) {
@@ -41,11 +41,11 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         /// <summary>
         /// Checks that two objects do not refer to the same object.
         /// </summary>
-        /// <param name="unexpected">The object you don't expect.</param>
-        /// <param name="actual">The object to compare to <code>unexpected</code>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - unexpected: The object you don't expect.
+        /// - actual: The object to compare to `unexpected`.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void NotSame(object unexpected, object actual, Func<string> block)
         {
             if (block == null) {
@@ -68,7 +68,18 @@ extension Check
 //    /// Expects that two objects do not refer to the same object. If they do refer to the same object,
 //    /// an {@link ExpectationError} is thrown with the given message.
 //    @available(*, deprecated)
-//    public static func isNotSame<T:AnyObject>(_ unexpected: T?, _ actual: T?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNotSame<T:AnyObject>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isFalse(unexpected === actual, message, file, line)
+//    }
+
+//    /**
+//     Checks that two objects do not refer to the same object.
+//
+//     - Parameters:
+//         - unexpected: The object you don't expect.
+//         - actual: The object to compare to `unexpected`.
+//     */
+//    public static func notSame<T:AnyObject>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isFalse(unexpected === actual, message, file, line)
 //    }
 }

@@ -88,7 +88,7 @@ public class DatabaseHelper
             }
         }
         else {
-            Roxie.fatalError(message: "Could not make temporary path for database ‘\(databaseName)’.")
+            Roxie.fatalError("Could not make temporary path for database ‘\(databaseName)’.")
         }
 
         // Done
@@ -368,7 +368,7 @@ public class DatabaseHelper
             try database.execute(query)
         }
         catch {
-            Roxie.fatalError(message: "Database query \(query) failed with error \(error)")
+            Roxie.fatalError("Database query \(query) failed", error: error)
         }
     }
 
@@ -377,14 +377,14 @@ public class DatabaseHelper
     private func createDatabaseObject(uriPath: String?, readonly: Bool) -> Database?
     {
         if uriPath == nil {
-            Roxie.fatalError(message: "Can't create database object with nil uri path")
+            Roxie.fatalError("Can't create database object with nil uri path")
         }
 
         do {
             return try Database(uriPath!, readonly: false)
         }
         catch {
-            Roxie.fatalError(message: "Can't open db at \(uriPath!) with readonly \(readonly): \(error)")
+            Roxie.fatalError("Can't open db at \(uriPath!) with readonly \(readonly)", error: error)
         }
     }
 
@@ -393,14 +393,14 @@ public class DatabaseHelper
     private func runTransaction(database: Database?, mode: Database.TransactionMode, block: @escaping () throws -> Void)
     {
         if database == nil {
-            Roxie.fatalError(message: "Can't run transaction on nil database")
+            Roxie.fatalError("Can't run transaction on nil database")
         }
 
         do {
             try database!.transaction(mode, block: block)
         }
         catch {
-            Roxie.fatalError(message: "Transaction failed with error \(error)")
+            Roxie.fatalError("Transaction failed", error: error)
         }
     }
 

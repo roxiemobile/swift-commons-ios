@@ -195,10 +195,10 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
                 try self.validate()
             }
             catch let error as ExpectationError {
-                Roxie.fatalError(message: error.message ?? defaultMessage, file: error.file, line: error.line)
+                Roxie.fatalError(error.message ?? defaultMessage, file: error.file, line: error.line)
             }
             catch {
-                Roxie.fatalError(message: defaultMessage)
+                Roxie.fatalError(defaultMessage)
             }
 
             // Prevent further modifications

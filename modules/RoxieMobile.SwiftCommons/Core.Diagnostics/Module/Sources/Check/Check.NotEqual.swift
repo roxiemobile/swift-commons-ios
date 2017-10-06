@@ -25,12 +25,12 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that two objects are <b>not</b> equals. If <code>unexpected</code> and <c>actual</c> are <c>null</c>, they are considered equal.
+        /// Checks that two objects are *not* equals. If `unexpected` and `actual` are `nil`, they are considered equal.
         /// </summary>
-        /// <param name="unexpected">Unexpected value to check.</param>
-        /// <param name="actual">The value to check against <c>unexpected</c>.</param>
-        /// <param name="message">The identifying message for the <see cref="CheckException"/> (<c>null</c> okay).</param>
-        /// <exception cref="CheckException" />
+        /// - unexpected: Unexpected value to check.
+        /// - actual: The value to check against `unexpected`.
+        /// - message: The identifying message for the `CheckError` (`nil` okay).
+        /// - Throws: CheckError
         public static void NotEqual(object unexpected, object actual, string message = null)
         {
             if (Equals(unexpected, actual)) {
@@ -39,13 +39,13 @@ namespace RoxieMobile.CSharpCommons.Diagnostics
         }
 
         /// <summary>
-        /// Checks that two objects are <b>not</b> equals. If <code>unexpected</code> and <c>actual</c> are <c>null</c>, they are considered equal.
+        /// Checks that two objects are *not* equals. If `unexpected` and `actual` are `nil`, they are considered equal.
         /// </summary>
-        /// <param name="unexpected">Unexpected value to check.</param>
-        /// <param name="actual">The value to check against <c>unexpected</c>.</param>
-        /// <param name="block">The function which returns identifying message for the <see cref="CheckException"/>.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="block"/> is <c>null</c>.</exception>
-        /// <exception cref="CheckException" />
+        /// - unexpected: Unexpected value to check.
+        /// - actual: The value to check against `unexpected`.
+        /// - block: The function which returns identifying message for the `CheckError`.
+        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
+        /// - Throws: CheckError
         public static void NotEqual(object unexpected, object actual, Func<string> block)
         {
             if (block == null) {
@@ -65,11 +65,22 @@ extension Check
 // MARK: - Methods
 
 //    // TODO
-//    /// Expects that two objects are <b>not</b> equals. If they are, an {@link ExpectationError} is thrown
-//    /// with the given message. If <code>unexpected</code> and <code>actual</code> are <code>nil</code>,
+//    /// Expects that two objects are *not* equals. If they are, an {@link ExpectationError} is thrown
+//    /// with the given message. If `unexpected` and <code>actual</code> are <code>nil</code>,
 //    /// they are considered equal.
 //    @available(*, deprecated)
-//    public static func isNotEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//    public static func isNotEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
+//        try isFalse(safeEqual(unexpected, actual), message, file, line)
+//    }
+
+//    /**
+//     Checks that two objects are `not` equals. If `unexpected` and `actual` are `nil`, they are considered equal.
+//
+//     - Parameters:
+//         - unexpected: Unexpected value to check.
+//         - actual: The value to check against `unexpected`.
+//     */
+//    public static func notEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
 //        try isFalse(safeEqual(unexpected, actual), message, file, line)
 //    }
 }
