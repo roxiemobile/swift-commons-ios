@@ -12,6 +12,7 @@ import Foundation
 
 /// SignedInteger mapping
 public func <~ <T: SignedInteger>(left: inout T, right: Map) {
+	right.roxie_checkState()
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T = toSignedInteger(right.currentValue) ?? 0
@@ -36,6 +37,7 @@ public func <~ <T: SignedInteger>(left: inout T?, right: Map) {
 
 /// ImplicitlyUnwrappedOptional SignedInteger mapping
 public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
+	right.roxie_checkState()
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T! = toSignedInteger(right.currentValue)
@@ -51,6 +53,7 @@ public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
 
 /// UnsignedInteger mapping
 public func <~ <T: UnsignedInteger>(left: inout T, right: Map) {
+	right.roxie_checkState()
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T = toUnsignedInteger(right.currentValue) ?? 0
@@ -76,6 +79,7 @@ public func <~ <T: UnsignedInteger>(left: inout T?, right: Map) {
 
 /// ImplicitlyUnwrappedOptional UnsignedInteger mapping
 public func <~ <T: UnsignedInteger>(left: inout T!, right: Map) {
+	right.roxie_checkState()
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T! = toUnsignedInteger(right.currentValue)

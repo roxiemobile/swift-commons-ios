@@ -17,12 +17,14 @@ public final class ObjectMapperException: NSException
 {
 // MARK: - Construction
 
-    public init(reason aReason: String?, userInfo aUserInfo: [NSObject : AnyObject]?) {
-        super.init(name: Inner.ExceptionName, reason: aReason, userInfo: aUserInfo)
+    @available(*, deprecated, message: "\n• Write a description.")
+    public init(reason: String?, userInfo: [AnyHashable: Any]? = nil) {
+        super.init(name: Inner.ExceptionName, reason: reason, userInfo: userInfo)
     }
 
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    @available(*, deprecated, message: "\n• Write a description.")
+    public required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder)
     }
 
 // MARK: - Constants
@@ -33,11 +35,9 @@ public final class ObjectMapperException: NSException
 }
 
 // ----------------------------------------------------------------------------
-// MARK: - Global Functions
-// ----------------------------------------------------------------------------
 
-func roxie_objectMapperError(message: String, file: StaticString = #file, line: UInt = #line) -> Never {
-    let logMessage = "Fatal error: \(message)\nFile: \(file)\nLine: \(line)"
+func roxie_objectMapper_raiseException(message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
+    let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
 #if DEBUG
     preconditionFailure(logMessage)
@@ -45,15 +45,15 @@ func roxie_objectMapperError(message: String, file: StaticString = #file, line: 
     ObjectMapperException(reason: logMessage, userInfo: nil).raise()
 
     // Suppress error "Return from a ‘noreturn’ function"
-    fatalError(logMessage)
+    Swift.fatalError(logMessage)
 #endif
 }
 
 // ----------------------------------------------------------------------------
 
-func roxie_objectMapperAssertion(message: String, file: StaticString = #file, line: UInt = #line)
-{
-    let logMessage = "Assertion violated: \(message)\nFile: \(file)\nLine: \(line)"
+func roxie_objectMapper_assertionFailure(tag: String, message: @autoclosure () -> String, error: Error? = nil, file: StaticString = #file, line: UInt = #line) {
+    let logMessage = "Assertion violated: \(message())\nFile: \(file)\nLine: \(line)"
+    Logger.e(tag, logMessage, error)
     assertionFailure(logMessage)
 }
 

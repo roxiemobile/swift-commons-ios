@@ -27,6 +27,7 @@
 //  THE SOFTWARE.
 
 import Foundation
+import SwiftCommons
 
 public enum MappingType {
 	case fromJSON
@@ -274,7 +275,7 @@ public final class Mapper<N: BaseMappable> {
 			do {
 				parsedJSON = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
 			} catch let error {
-                roxie_objectMapperAssertion(message: "Failed to convert data \(data) to JSON")
+				roxie_objectMapper_assertionFailure(tag: Roxie.typeName(of: Mapper.self), message: "Failed to convert data ‘\(data)’ to JSON.", error: error)
 				print(error)
 				parsedJSON = nil
 			}
@@ -284,12 +285,11 @@ public final class Mapper<N: BaseMappable> {
 		return nil
 	}
 
-    /// Checks if an object is frozen.
-    private func roxie_checkState(_ object: BaseMappable) {
-        if object.frozen() {
-            roxie_objectMapperError(message: "Can't modify frozen object.")
-        }
-    }
+	/// Checks if an object is *not* frozen. Raises ObjC exception otherwise.
+	private func roxie_checkState(_ object: BaseMappable, file: StaticString = #file, line: UInt = #line) {
+		guard object.frozen() else { return }
+		roxie_objectMapper_raiseException(message: "Can't modify frozen object.", file: file, line: line)
+	}
 }
 
 extension Mapper {

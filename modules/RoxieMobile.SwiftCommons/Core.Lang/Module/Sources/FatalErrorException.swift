@@ -12,23 +12,23 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public class FatalErrorException: NSException
+open class FatalErrorException: NSException
 {
 // MARK: - Construction
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public init(reason aReason: String?, userInfo aUserInfo: [AnyHashable : Any]? = nil) {
-        super.init(name: Inner.ExceptionName, reason: aReason, userInfo: aUserInfo)
+    public init(reason: String?, userInfo: [AnyHashable: Any]? = nil) {
+        super.init(name: Inner.ExceptionName, reason: reason, userInfo: userInfo)
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    public required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder)
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    internal override init(name aName: NSExceptionName, reason aReason: String?, userInfo aUserInfo: [AnyHashable : Any]? = nil) {
-        super.init(name: aName, reason: aReason, userInfo: aUserInfo)
+    internal override init(name: NSExceptionName, reason: String?, userInfo: [AnyHashable: Any]? = nil) {
+        super.init(name: name, reason: reason, userInfo: userInfo)
     }
 
 // MARK: - Constants

@@ -179,3 +179,28 @@ private func valueFor(_ keyPathComponents: ArraySlice<String>, array: [Any]) -> 
 	
 	return (false, nil)
 }
+
+extension Map {
+
+	/// Checks if a current value is exists. Raises ObjC exception otherwise.
+	internal func roxie_checkState(file: StaticString = #file, line: UInt = #line) {
+		guard (self.mappingType == .fromJSON), (self.currentValue == nil) else { return }
+
+		var logMessage = "Key not found."
+		if let key = self.currentKey {
+			logMessage = "Key not found ‘\(key)’."
+		}
+		roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)
+	}
+
+	/// Checks if a value is transformed successfully. Raises ObjC exception otherwise.
+	internal func roxie_checkValue<T>(_ value: T?, file: StaticString = #file, line: UInt = #line) {
+		guard (self.currentValue != nil), (value == nil) else { return }
+
+		var logMessage = "Could not transform value."
+		if let key = self.currentKey {
+			logMessage = "Could not transform value for key ‘\(key)’."
+		}
+		roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)
+	}
+}
