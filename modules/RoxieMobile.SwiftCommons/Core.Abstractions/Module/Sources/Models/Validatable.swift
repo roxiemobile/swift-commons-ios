@@ -12,12 +12,11 @@ public protocol Validatable
 {
 // MARK: - Methods
 
-    /**
-     Tests the current state of the object.
-
-     - Returns:
-       `true` if object validation succeeded; otherwise, `false`.
-     */
+    /// Tests the current state of the object.
+    /// 
+    /// - Returns:
+    ///   `true` if object validation succeeded; otherwise, `false`.
+    ///
     func isValid() -> Bool
 }
 

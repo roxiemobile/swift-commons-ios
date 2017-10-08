@@ -2,18 +2,22 @@
 //
 //  JsonSyntaxError.swift
 //
-//  @author     Nikita Semakov <SemakovNV@ekassir.com>
-//  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
-//  @link       http://www.ekassir.com/
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
+import Foundation
+
+// ----------------------------------------------------------------------------
+
+@available(*, deprecated, message: "\n• Write a description.")
 public class JsonSyntaxError: Error
 {
 // MARK: - Construction
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public init(message: String? = nil, params: [String: AnyObject]? = nil, cause: NSException? = nil)
     {
         // Init instance variables
@@ -24,10 +28,13 @@ public class JsonSyntaxError: Error
 
 // MARK: - Properties
 
+    @available(*, deprecated, message: "\n• Write a description.")
     public let message: String?
 
+    @available(*, deprecated, message: "\n• Write a description.")
     public let params: [String: AnyObject]?
 
+    @available(*, deprecated, message: "\n• Write a description.")
     public let cause: NSException?
 }
 

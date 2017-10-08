@@ -12,30 +12,29 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-// Regular Expression for URL validation
-// @link https://gist.github.com/dperini/729294
-
-// In search of the perfect URL validation regex
-// @link https://mathiasbynens.be/demo/url-regex
-
-// ----------------------------------------------------------------------------
-
-@available(*, deprecated)
+/// Validates that a given object is a valid URL address.
 public final class UrlValidator: NonCreatable, StaticValidator
 {
 // MARK: - Methods
 
-    @available(*, deprecated)
-    public class func isValid(_ value: Any?) -> Bool {
+    /// Validates that a given object is a valid URL address.
+    ///
+    /// - Parameters:
+    ///   - object: The object to validate.
+    ///
+    /// - Returns:
+    ///   `true` if object is a valid URL address; otherwise, `false`.
+    ///
+    public class func isValid(_ object: Any?) -> Bool {
         var result = false
 
         // Validate incoming value
         if let validator = Inner.Validator
         {
-            if let value = value as? String {
+            if let value = object as? String {
                 result = validator.isValid(value)
             }
-            else if let value = value as? URL {
+            else if let value = object as? URL {
                 result = validator.isValid(value.absoluteString)
             }
         }
@@ -46,9 +45,14 @@ public final class UrlValidator: NonCreatable, StaticValidator
 
 // MARK: - Constants
 
-    @available(*, deprecated)
     private struct Inner
     {
+        // Regular Expression for URL validation
+        // @link https://gist.github.com/dperini/729294
+
+        // In search of the perfect URL validation regex
+        // @link https://mathiasbynens.be/demo/url-regex
+
         struct Pattern
         {
             /// Regular expression strings for URLs.
@@ -89,7 +93,7 @@ public final class UrlValidator: NonCreatable, StaticValidator
         }
 
         /// RegexValidator for matching URLs.
-        static let Validator = RegexValidator(Pattern.WebUrl)
+        static let Validator = RegexValidator(pattern: Pattern.WebUrl)
     }
 }
 

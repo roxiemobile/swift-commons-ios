@@ -12,17 +12,14 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
 public final class CommonKeys: NonCreatable
 {
 // MARK: - Constants
 
-    @available(*, deprecated)
     private struct Inner {
         static let URN = "urn:roxiemobile:shared"
     }
 
-    @available(*, deprecated)
     public struct Prefix
     {
         public static let Action = Inner.URN + ":action."
@@ -31,12 +28,10 @@ public final class CommonKeys: NonCreatable
         public static let State  = Inner.URN + ":state."
     }
 
-    @available(*, deprecated)
     public struct Action {
         // Do nothing
     }
 
-    @available(*, deprecated)
     public struct State {
         public static let Undefined = Prefix.State + "undefined";
     }

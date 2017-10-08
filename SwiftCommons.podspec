@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
 
   s.default_subspecs      = 'Core/Abstractions',
                             'Core/Concurrent',
+                            'Core/Data',
                             'Core/Diagnostics',
                             'Core/Extensions',
                             'Core/Lang',
@@ -41,6 +42,19 @@ Pod::Spec.new do |s|
     # TODO: Write a description
     sc.subspec 'Concurrent' do |sp|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Concurrent/Module/**/*.{swift,h,m,c}'
+    end
+
+    # A collection of reusable components used to simplify serialization, deserialization and validation operations on data objects.
+    sc.subspec 'Data' do |sp|
+      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Data/Module/**/*.{swift,h,m,c}'
+
+      # Dependencies
+      sp.dependency 'SwiftCommons/Core/Abstractions', s.version.to_s
+      sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
+      sp.dependency 'SwiftCommons/Core/Diagnostics', s.version.to_s
+      sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
+      sp.dependency 'SwiftCommons/Core/Logging', s.version.to_s
+      sp.dependency 'CryptoSwift', '~> 0.7'
     end
 
     # A collection of static classes for debugging and diagnostics of program contracts such as preconditions, postconditions, and invariants.

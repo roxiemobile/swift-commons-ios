@@ -7,47 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19044E6D1F85959900090515 /* StreamTypedCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 19044E1F1F85955800090515 /* StreamTypedCoder.m */; };
-		19044E6E1F8595A300090515 /* LFArchiver+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19044E101F85955800090515 /* LFArchiver+Encoding.m */; };
-		19044E6F1F8595A300090515 /* LFArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 19044E121F85955800090515 /* LFArchiver.m */; };
-		19044E701F8595A300090515 /* LFEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19044E141F85955800090515 /* LFEncoding.m */; };
-		19044E711F8595A300090515 /* LFMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 19044E161F85955800090515 /* LFMemory.m */; };
-		19044E721F8595A300090515 /* LFUnarchiver+Decoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19044E191F85955800090515 /* LFUnarchiver+Decoding.m */; };
-		19044E731F8595A300090515 /* LFUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 19044E1B1F85955800090515 /* LFUnarchiver.m */; };
-		19044E741F8595A300090515 /* LFUnknownTypeException.m in Sources */ = {isa = PBXBuildFile; fileRef = 19044E1D1F85955800090515 /* LFUnknownTypeException.m */; };
-		19044E8E1F8595F000090515 /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E401F85955800090515 /* CustomDateFormatTransform.swift */; };
-		19044E8F1F8595F000090515 /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E411F85955800090515 /* DateFormatterTransform.swift */; };
-		19044E901F8595F000090515 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E421F85955800090515 /* DateTransform.swift */; };
-		19044E911F8595F000090515 /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E431F85955800090515 /* ISO8601DateTransform.swift */; };
-		19044E921F8595F000090515 /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E3E1F85955800090515 /* DataTransform.swift */; };
-		19044E931F8595F000090515 /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E441F85955800090515 /* DictionaryTransform.swift */; };
-		19044E941F8595F000090515 /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E451F85955800090515 /* EnumTransform.swift */; };
-		19044E951F8595F000090515 /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E461F85955800090515 /* HexColorTransform.swift */; };
-		19044E961F8595F000090515 /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E471F85955800090515 /* NSDecimalNumberTransform.swift */; };
-		19044E971F8595F000090515 /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E481F85955800090515 /* TransformOf.swift */; };
-		19044E981F8595F000090515 /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E491F85955800090515 /* TransformType.swift */; };
-		19044E991F8595F000090515 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E4A1F85955800090515 /* URLTransform.swift */; };
-		19044E9A1F85960000090515 /* EnumOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E381F85955800090515 /* EnumOperators.swift */; };
-		19044E9B1F85960000090515 /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E391F85955800090515 /* IntegerOperators.swift */; };
-		19044E9C1F85960000090515 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E3A1F85955800090515 /* Operators.swift */; };
-		19044E9D1F85960000090515 /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E3B1F85955800090515 /* TransformOperators.swift */; };
-		19044E9E1F85960000090515 /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E301F85955800090515 /* FromJSON.swift */; };
-		19044E9F1F85960000090515 /* ImmutableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E311F85955800090515 /* ImmutableMappable.swift */; };
-		19044EA01F85960000090515 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E321F85955800090515 /* Map.swift */; };
-		19044EA11F85960000090515 /* MapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E331F85955800090515 /* MapError.swift */; };
-		19044EA21F85960000090515 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E341F85955800090515 /* Mappable.swift */; };
-		19044EA31F85960000090515 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E351F85955800090515 /* Mapper.swift */; };
-		19044EA41F85960000090515 /* ObjectMapperException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E361F85955800090515 /* ObjectMapperException.swift */; };
-		19044EA51F85960000090515 /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044E3C1F85955800090515 /* ToJSON.swift */; };
-		1922C7E91F859FCF00CEFA1B /* LFArchiver+Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E0F1F85955800090515 /* LFArchiver+Encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1922C7EA1F859FCF00CEFA1B /* LFArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E111F85955800090515 /* LFArchiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1922C7EB1F859FCF00CEFA1B /* LFEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E131F85955800090515 /* LFEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1922C7EC1F859FCF00CEFA1B /* LFMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E151F85955800090515 /* LFMemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1922C7ED1F859FCF00CEFA1B /* LFObjCRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E171F85955800090515 /* LFObjCRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1922C7EE1F859FCF00CEFA1B /* LFUnarchiver+Decoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E181F85955800090515 /* LFUnarchiver+Decoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1922C7EF1F859FCF00CEFA1B /* LFUnarchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E1A1F85955800090515 /* LFUnarchiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1922C7F01F859FCF00CEFA1B /* LFUnknownTypeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E1C1F85955800090515 /* LFUnknownTypeException.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1922C7F11F859FCF00CEFA1B /* StreamTypedCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 19044E1E1F85955800090515 /* StreamTypedCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1922C7F31F85A00300CEFA1B /* SwiftCommons.Core.Deprecated-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 19792A361F72E7200001768B /* SwiftCommons.Core.Deprecated-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreDeprecated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreDeprecated.a */; };
 		19ABC6F31F85A39C00AD0C41 /* RoxieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC6F21F85A39800AD0C41 /* RoxieTests.swift */; };
@@ -77,17 +36,6 @@
 		19B6F60C1F85967100D90C3E /* UInt32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5D81F85964F00D90C3E /* UInt32+Extension.swift */; };
 		19B6F60D1F85967100D90C3E /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5D91F85964F00D90C3E /* Updatable.swift */; };
 		19B6F60E1F85967100D90C3E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5DA1F85964F00D90C3E /* Utils.swift */; };
-		19B6F6191F85968800D90C3E /* StaticValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5C11F85964F00D90C3E /* StaticValidator.swift */; };
-		19B6F61A1F85968800D90C3E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5C21F85964F00D90C3E /* Validator.swift */; };
-		19B6F61B1F85968800D90C3E /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5C31F85964F00D90C3E /* EmailValidator.swift */; };
-		19B6F61C1F85968800D90C3E /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5C41F85964F00D90C3E /* RegexValidator.swift */; };
-		19B6F61D1F85968800D90C3E /* UrlValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5C51F85964F00D90C3E /* UrlValidator.swift */; };
-		19B6F61E1F85968800D90C3E /* CommonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5B31F85964F00D90C3E /* CommonKeys.swift */; };
-		19B6F61F1F85968D00D90C3E /* JsonSyntaxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5BA1F85964F00D90C3E /* JsonSyntaxError.swift */; };
-		19B6F6201F85968D00D90C3E /* JsonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5BB1F85964F00D90C3E /* JsonTypes.swift */; };
-		19B6F6211F85968D00D90C3E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5BC1F85964F00D90C3E /* Serializable.swift */; };
-		19B6F6221F85968D00D90C3E /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5BD1F85964F00D90C3E /* Validatable.swift */; };
-		19B6F6231F85968D00D90C3E /* ValidatableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5BE1F85964F00D90C3E /* ValidatableModel.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Deprecated.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Deprecated.UnitTests.swift */; };
 		340CE1F3428ADE075F7342E9 /* Pods_SwiftCommons_Core_Deprecated.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643E39C4CC31FA03ED0150A0 /* Pods_SwiftCommons_Core_Deprecated.framework */; };
 		F7A28E2968221FD93825521E /* Pods_SwiftCommons_Core_Deprecated_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBAA56D0B68FD6CFBA059A0 /* Pods_SwiftCommons_Core_Deprecated_UnitTests.framework */; };
@@ -116,62 +64,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		19044E0F1F85955800090515 /* LFArchiver+Encoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFArchiver+Encoding.h"; sourceTree = "<group>"; };
-		19044E101F85955800090515 /* LFArchiver+Encoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFArchiver+Encoding.m"; sourceTree = "<group>"; };
-		19044E111F85955800090515 /* LFArchiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFArchiver.h; sourceTree = "<group>"; };
-		19044E121F85955800090515 /* LFArchiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFArchiver.m; sourceTree = "<group>"; };
-		19044E131F85955800090515 /* LFEncoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFEncoding.h; sourceTree = "<group>"; };
-		19044E141F85955800090515 /* LFEncoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFEncoding.m; sourceTree = "<group>"; };
-		19044E151F85955800090515 /* LFMemory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFMemory.h; sourceTree = "<group>"; };
-		19044E161F85955800090515 /* LFMemory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFMemory.m; sourceTree = "<group>"; };
-		19044E171F85955800090515 /* LFObjCRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFObjCRuntime.h; sourceTree = "<group>"; };
-		19044E181F85955800090515 /* LFUnarchiver+Decoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFUnarchiver+Decoding.h"; sourceTree = "<group>"; };
-		19044E191F85955800090515 /* LFUnarchiver+Decoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFUnarchiver+Decoding.m"; sourceTree = "<group>"; };
-		19044E1A1F85955800090515 /* LFUnarchiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFUnarchiver.h; sourceTree = "<group>"; };
-		19044E1B1F85955800090515 /* LFUnarchiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFUnarchiver.m; sourceTree = "<group>"; };
-		19044E1C1F85955800090515 /* LFUnknownTypeException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFUnknownTypeException.h; sourceTree = "<group>"; };
-		19044E1D1F85955800090515 /* LFUnknownTypeException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFUnknownTypeException.m; sourceTree = "<group>"; };
-		19044E1E1F85955800090515 /* StreamTypedCoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamTypedCoder.h; sourceTree = "<group>"; };
-		19044E1F1F85955800090515 /* StreamTypedCoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamTypedCoder.m; sourceTree = "<group>"; };
-		19044E301F85955800090515 /* FromJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromJSON.swift; sourceTree = "<group>"; };
-		19044E311F85955800090515 /* ImmutableMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmutableMappable.swift; sourceTree = "<group>"; };
-		19044E321F85955800090515 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		19044E331F85955800090515 /* MapError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapError.swift; sourceTree = "<group>"; };
-		19044E341F85955800090515 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
-		19044E351F85955800090515 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		19044E361F85955800090515 /* ObjectMapperException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectMapperException.swift; sourceTree = "<group>"; };
-		19044E381F85955800090515 /* EnumOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.swift; sourceTree = "<group>"; };
-		19044E391F85955800090515 /* IntegerOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.swift; sourceTree = "<group>"; };
-		19044E3A1F85955800090515 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
-		19044E3B1F85955800090515 /* TransformOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperators.swift; sourceTree = "<group>"; };
-		19044E3C1F85955800090515 /* ToJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToJSON.swift; sourceTree = "<group>"; };
-		19044E3E1F85955800090515 /* DataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransform.swift; sourceTree = "<group>"; };
-		19044E401F85955800090515 /* CustomDateFormatTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatTransform.swift; sourceTree = "<group>"; };
-		19044E411F85955800090515 /* DateFormatterTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTransform.swift; sourceTree = "<group>"; };
-		19044E421F85955800090515 /* DateTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
-		19044E431F85955800090515 /* ISO8601DateTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateTransform.swift; sourceTree = "<group>"; };
-		19044E441F85955800090515 /* DictionaryTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTransform.swift; sourceTree = "<group>"; };
-		19044E451F85955800090515 /* EnumTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTransform.swift; sourceTree = "<group>"; };
-		19044E461F85955800090515 /* HexColorTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorTransform.swift; sourceTree = "<group>"; };
-		19044E471F85955800090515 /* NSDecimalNumberTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberTransform.swift; sourceTree = "<group>"; };
-		19044E481F85955800090515 /* TransformOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOf.swift; sourceTree = "<group>"; };
-		19044E491F85955800090515 /* TransformType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformType.swift; sourceTree = "<group>"; };
-		19044E4A1F85955800090515 /* URLTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTransform.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreDeprecated.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreDeprecated.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19792A361F72E7200001768B /* SwiftCommons.Core.Deprecated-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Deprecated-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Deprecated.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Deprecated.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19ABC6F21F85A39800AD0C41 /* RoxieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoxieTests.swift; sourceTree = "<group>"; };
-		19B6F5B31F85964F00D90C3E /* CommonKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonKeys.swift; sourceTree = "<group>"; };
-		19B6F5BA1F85964F00D90C3E /* JsonSyntaxError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSyntaxError.swift; sourceTree = "<group>"; };
-		19B6F5BB1F85964F00D90C3E /* JsonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonTypes.swift; sourceTree = "<group>"; };
-		19B6F5BC1F85964F00D90C3E /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
-		19B6F5BD1F85964F00D90C3E /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
-		19B6F5BE1F85964F00D90C3E /* ValidatableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatableModel.swift; sourceTree = "<group>"; };
-		19B6F5C11F85964F00D90C3E /* StaticValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticValidator.swift; sourceTree = "<group>"; };
-		19B6F5C21F85964F00D90C3E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		19B6F5C31F85964F00D90C3E /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
-		19B6F5C41F85964F00D90C3E /* RegexValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
-		19B6F5C51F85964F00D90C3E /* UrlValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlValidator.swift; sourceTree = "<group>"; };
 		19B6F5D11F85964F00D90C3E /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		19B6F5D31F85964F00D90C3E /* BatchedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchedCollection.swift; sourceTree = "<group>"; };
 		19B6F5D41F85964F00D90C3E /* Digest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digest.swift; sourceTree = "<group>"; };
@@ -230,101 +126,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19044E0D1F85955800090515 /* StreamTypedCoder */ = {
-			isa = PBXGroup;
-			children = (
-				19044E0E1F85955800090515 /* libFoundation */,
-				19044E1E1F85955800090515 /* StreamTypedCoder.h */,
-				19044E1F1F85955800090515 /* StreamTypedCoder.m */,
-			);
-			path = StreamTypedCoder;
-			sourceTree = "<group>";
-		};
-		19044E0E1F85955800090515 /* libFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				19044E0F1F85955800090515 /* LFArchiver+Encoding.h */,
-				19044E101F85955800090515 /* LFArchiver+Encoding.m */,
-				19044E111F85955800090515 /* LFArchiver.h */,
-				19044E121F85955800090515 /* LFArchiver.m */,
-				19044E131F85955800090515 /* LFEncoding.h */,
-				19044E141F85955800090515 /* LFEncoding.m */,
-				19044E151F85955800090515 /* LFMemory.h */,
-				19044E161F85955800090515 /* LFMemory.m */,
-				19044E171F85955800090515 /* LFObjCRuntime.h */,
-				19044E181F85955800090515 /* LFUnarchiver+Decoding.h */,
-				19044E191F85955800090515 /* LFUnarchiver+Decoding.m */,
-				19044E1A1F85955800090515 /* LFUnarchiver.h */,
-				19044E1B1F85955800090515 /* LFUnarchiver.m */,
-				19044E1C1F85955800090515 /* LFUnknownTypeException.h */,
-				19044E1D1F85955800090515 /* LFUnknownTypeException.m */,
-			);
-			path = libFoundation;
-			sourceTree = "<group>";
-		};
-		19044E2E1F85955800090515 /* ObjectMapper */ = {
-			isa = PBXGroup;
-			children = (
-				19044E2F1F85955800090515 /* Core */,
-				19044E3D1F85955800090515 /* Transforms */,
-			);
-			path = ObjectMapper;
-			sourceTree = "<group>";
-		};
-		19044E2F1F85955800090515 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				19044E371F85955800090515 /* Operators */,
-				19044E301F85955800090515 /* FromJSON.swift */,
-				19044E311F85955800090515 /* ImmutableMappable.swift */,
-				19044E321F85955800090515 /* Map.swift */,
-				19044E331F85955800090515 /* MapError.swift */,
-				19044E341F85955800090515 /* Mappable.swift */,
-				19044E351F85955800090515 /* Mapper.swift */,
-				19044E361F85955800090515 /* ObjectMapperException.swift */,
-				19044E3C1F85955800090515 /* ToJSON.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		19044E371F85955800090515 /* Operators */ = {
-			isa = PBXGroup;
-			children = (
-				19044E381F85955800090515 /* EnumOperators.swift */,
-				19044E391F85955800090515 /* IntegerOperators.swift */,
-				19044E3A1F85955800090515 /* Operators.swift */,
-				19044E3B1F85955800090515 /* TransformOperators.swift */,
-			);
-			path = Operators;
-			sourceTree = "<group>";
-		};
-		19044E3D1F85955800090515 /* Transforms */ = {
-			isa = PBXGroup;
-			children = (
-				19044E3F1F85955800090515 /* Date */,
-				19044E3E1F85955800090515 /* DataTransform.swift */,
-				19044E441F85955800090515 /* DictionaryTransform.swift */,
-				19044E451F85955800090515 /* EnumTransform.swift */,
-				19044E461F85955800090515 /* HexColorTransform.swift */,
-				19044E471F85955800090515 /* NSDecimalNumberTransform.swift */,
-				19044E481F85955800090515 /* TransformOf.swift */,
-				19044E491F85955800090515 /* TransformType.swift */,
-				19044E4A1F85955800090515 /* URLTransform.swift */,
-			);
-			path = Transforms;
-			sourceTree = "<group>";
-		};
-		19044E3F1F85955800090515 /* Date */ = {
-			isa = PBXGroup;
-			children = (
-				19044E401F85955800090515 /* CustomDateFormatTransform.swift */,
-				19044E411F85955800090515 /* DateFormatterTransform.swift */,
-				19044E421F85955800090515 /* DateTransform.swift */,
-				19044E431F85955800090515 /* ISO8601DateTransform.swift */,
-			);
-			path = Date;
-			sourceTree = "<group>";
-		};
 		195D39501F72CE4900118D17 /* Module.UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,48 +142,6 @@
 				19ABC6F21F85A39800AD0C41 /* RoxieTests.swift */,
 			);
 			path = Roxie;
-			sourceTree = "<group>";
-		};
-		19B6F5B21F85964F00D90C3E /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				19B6F5B91F85964F00D90C3E /* Model */,
-				19B6F5BF1F85964F00D90C3E /* Validator */,
-				19B6F5B31F85964F00D90C3E /* CommonKeys.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		19B6F5B91F85964F00D90C3E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				19B6F5BA1F85964F00D90C3E /* JsonSyntaxError.swift */,
-				19B6F5BB1F85964F00D90C3E /* JsonTypes.swift */,
-				19B6F5BC1F85964F00D90C3E /* Serializable.swift */,
-				19B6F5BD1F85964F00D90C3E /* Validatable.swift */,
-				19B6F5BE1F85964F00D90C3E /* ValidatableModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		19B6F5BF1F85964F00D90C3E /* Validator */ = {
-			isa = PBXGroup;
-			children = (
-				19B6F5C01F85964F00D90C3E /* Base */,
-				19B6F5C31F85964F00D90C3E /* EmailValidator.swift */,
-				19B6F5C41F85964F00D90C3E /* RegexValidator.swift */,
-				19B6F5C51F85964F00D90C3E /* UrlValidator.swift */,
-			);
-			path = Validator;
-			sourceTree = "<group>";
-		};
-		19B6F5C01F85964F00D90C3E /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				19B6F5C11F85964F00D90C3E /* StaticValidator.swift */,
-				19B6F5C21F85964F00D90C3E /* Validator.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		19B6F5CF1F85964F00D90C3E /* Extension */ = {
@@ -489,7 +248,6 @@
 		19EB0CA01F72DF0D0029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				19B6F5B21F85964F00D90C3E /* Data */,
 				19B6F5CF1F85964F00D90C3E /* Extension */,
 				19B6F5E91F85964F00D90C3E /* Util */,
 			);
@@ -499,8 +257,6 @@
 		19EB0CA21F72DF0D0029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				19044E2E1F85955800090515 /* ObjectMapper */,
-				19044E0D1F85955800090515 /* StreamTypedCoder */,
 				19792A361F72E7200001768B /* SwiftCommons.Core.Deprecated-Bridging-Header.h */,
 			);
 			path = Libraries;
@@ -559,15 +315,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1922C7F31F85A00300CEFA1B /* SwiftCommons.Core.Deprecated-Bridging-Header.h in Headers */,
-				1922C7E91F859FCF00CEFA1B /* LFArchiver+Encoding.h in Headers */,
-				1922C7EA1F859FCF00CEFA1B /* LFArchiver.h in Headers */,
-				1922C7EB1F859FCF00CEFA1B /* LFEncoding.h in Headers */,
-				1922C7EC1F859FCF00CEFA1B /* LFMemory.h in Headers */,
-				1922C7ED1F859FCF00CEFA1B /* LFObjCRuntime.h in Headers */,
-				1922C7EE1F859FCF00CEFA1B /* LFUnarchiver+Decoding.h in Headers */,
-				1922C7EF1F859FCF00CEFA1B /* LFUnarchiver.h in Headers */,
-				1922C7F01F859FCF00CEFA1B /* LFUnknownTypeException.h in Headers */,
-				1922C7F11F859FCF00CEFA1B /* StreamTypedCoder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,16 +486,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Deprecated.UnitTests/Pods-SwiftCommons.Core.Deprecated.UnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCommons-bec736a0/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCommons-Core_Concurrent-Core_Lang-Core_Logging/SwiftCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCommons-e4e74e34/SwiftCommons.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCommons-05c3917b/SwiftCommons.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCommons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCommons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,68 +527,25 @@
 				19B6F5FB1F85966900D90C3E /* Int+Crypto.swift in Sources */,
 				19B6F6091F85967100D90C3E /* DigestType.swift in Sources */,
 				19B6F6071F85967100D90C3E /* BatchedCollection.swift in Sources */,
-				19044E711F8595A300090515 /* LFMemory.m in Sources */,
-				19044E9B1F85960000090515 /* IntegerOperators.swift in Sources */,
 				19B6F6001F85966C00D90C3E /* Bundle.swift in Sources */,
 				19B6F60D1F85967100D90C3E /* Updatable.swift in Sources */,
-				19044E6D1F85959900090515 /* StreamTypedCoder.m in Sources */,
-				19044E9D1F85960000090515 /* TransformOperators.swift in Sources */,
 				19B6F5FF1F85966900D90C3E /* Swift.swift in Sources */,
-				19044EA51F85960000090515 /* ToJSON.swift in Sources */,
-				19044E731F8595A300090515 /* LFUnarchiver.m in Sources */,
-				19B6F6211F85968D00D90C3E /* Serializable.swift in Sources */,
-				19044E921F8595F000090515 /* DataTransform.swift in Sources */,
-				19044EA41F85960000090515 /* ObjectMapperException.swift in Sources */,
-				19044EA21F85960000090515 /* Mappable.swift in Sources */,
-				19B6F6201F85968D00D90C3E /* JsonTypes.swift in Sources */,
-				19044E931F8595F000090515 /* DictionaryTransform.swift in Sources */,
-				19044E9E1F85960000090515 /* FromJSON.swift in Sources */,
-				19B6F61C1F85968800D90C3E /* RegexValidator.swift in Sources */,
 				19B6F5F01F85965400D90C3E /* Assets.swift in Sources */,
-				19044E6F1F8595A300090515 /* LFArchiver.m in Sources */,
 				19B6F60E1F85967100D90C3E /* Utils.swift in Sources */,
-				19044EA11F85960000090515 /* MapError.swift in Sources */,
-				19B6F61F1F85968D00D90C3E /* JsonSyntaxError.swift in Sources */,
-				19044E9A1F85960000090515 /* EnumOperators.swift in Sources */,
-				19B6F61E1F85968800D90C3E /* CommonKeys.swift in Sources */,
 				19B6F5FD1F85966900D90C3E /* String+Crypto.swift in Sources */,
-				19044E9F1F85960000090515 /* ImmutableMappable.swift in Sources */,
-				19044E701F8595A300090515 /* LFEncoding.m in Sources */,
 				19B6F5F21F85965400D90C3E /* ObjectUtils.swift in Sources */,
-				19044E6E1F8595A300090515 /* LFArchiver+Encoding.m in Sources */,
 				19B6F6021F85966C00D90C3E /* Data.swift in Sources */,
-				19B6F6231F85968D00D90C3E /* ValidatableModel.swift in Sources */,
-				19044E8F1F8595F000090515 /* DateFormatterTransform.swift in Sources */,
 				19B6F60B1F85967100D90C3E /* SHA1.swift in Sources */,
-				19B6F6221F85968D00D90C3E /* Validatable.swift in Sources */,
 				19B6F5F11F85965400D90C3E /* CollectionUtils.swift in Sources */,
 				19B6F6061F85966C00D90C3E /* Timer.swift in Sources */,
-				19B6F61D1F85968800D90C3E /* UrlValidator.swift in Sources */,
 				19B6F5FE1F85966900D90C3E /* String.swift in Sources */,
-				19044E981F8595F000090515 /* TransformType.swift in Sources */,
-				19B6F61A1F85968800D90C3E /* Validator.swift in Sources */,
 				19B6F60C1F85967100D90C3E /* UInt32+Extension.swift in Sources */,
-				19044E9C1F85960000090515 /* Operators.swift in Sources */,
 				19B6F5FA1F85966900D90C3E /* Dictionary.swift in Sources */,
-				19044E8E1F8595F000090515 /* CustomDateFormatTransform.swift in Sources */,
 				19B6F6031F85966C00D90C3E /* Date.swift in Sources */,
 				19B6F5F51F85965400D90C3E /* ValidatableUtils.swift in Sources */,
-				19044E911F8595F000090515 /* ISO8601DateTransform.swift in Sources */,
-				19044EA31F85960000090515 /* Mapper.swift in Sources */,
-				19044E721F8595A300090515 /* LFUnarchiver+Decoding.m in Sources */,
 				19B6F5F91F85966900D90C3E /* Array.swift in Sources */,
-				19044EA01F85960000090515 /* Map.swift in Sources */,
-				19044E741F8595A300090515 /* LFUnknownTypeException.m in Sources */,
-				19044E961F8595F000090515 /* NSDecimalNumberTransform.swift in Sources */,
 				19B6F6011F85966C00D90C3E /* Data+Crypto.swift in Sources */,
-				19044E971F8595F000090515 /* TransformOf.swift in Sources */,
-				19044E901F8595F000090515 /* DateTransform.swift in Sources */,
-				19B6F61B1F85968800D90C3E /* EmailValidator.swift in Sources */,
-				19044E951F8595F000090515 /* HexColorTransform.swift in Sources */,
-				19044E991F8595F000090515 /* URLTransform.swift in Sources */,
 				19B6F6081F85967100D90C3E /* Digest.swift in Sources */,
-				19044E941F8595F000090515 /* EnumTransform.swift in Sources */,
-				19B6F6191F85968800D90C3E /* StaticValidator.swift in Sources */,
 				19B6F5FC1F85966900D90C3E /* Int.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

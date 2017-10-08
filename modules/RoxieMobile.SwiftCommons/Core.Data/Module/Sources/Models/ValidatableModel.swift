@@ -3,26 +3,33 @@
 //  ValidatableModel.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
-//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
+import CryptoSwift
 import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
-open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
+/// The abstract base class for data models.
+open class ValidatableModel: SerializableObject, Mappable, Hashable
 {
 // MARK: - Construction
 
-    @available(*, deprecated)
+    /// Initializes a new instance of the class from data in a given unarchiver.
+    ///
+    /// - Parameters:
+    ///   - decoder: An unarchiver object.
+    ///
+    /// - Returns:
+    ///   `self`, initialized using the data in decoder.
     public required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public required init(params: [String : Any]) throws {
         super.init()
 
@@ -31,7 +38,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 
             // Deserialize object
             self.unsafeMapping() {
-                let _ = Mapper<ValidatableModel>().map(JSON: params, toObject: self)
+                Mapper<ValidatableModel>().map(JSON: params, toObject: self)
             }
 
         }.objcCatch { e in
@@ -45,7 +52,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         }
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public required init?(map: Map) {
         super.init()
 
@@ -64,23 +71,25 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         }
 
         // Validate instance
-        if !result { return nil }
+        guard result else {
+            return nil
+        }
     }
 
 // MARK: - Properties
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     open var hashValue: Int {
         return self.hash ?? rehash()
     }
 
 // MARK: - Methods
 
-    @available(*, deprecated)
-    public override func encode(coder encoder: NSCoder) -> Bool
+    @available(*, deprecated, message: "\n• Write a description.")
+    open override func encodeObject(with encoder: NSCoder) -> Bool
     {
         // Parent processing
-        let result = super.encode(coder: encoder)
+        let result = super.encodeObject(with: encoder)
 
         // Encode internal object's state
         if result {
@@ -91,11 +100,11 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         return result
     }
 
-    @available(*, deprecated)
-    public override func decode(coder decoder: NSCoder) -> Bool
+    @available(*, deprecated, message: "\n• Write a description.")
+    open override func decodeObject(with decoder: NSCoder) -> Bool
     {
         // Parent processing
-        if frozen() || !super.decode(coder: decoder) {
+        guard !frozen() && super.decodeObject(with: decoder) else {
             return false
         }
 
@@ -106,7 +115,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
             if let json = decoder.decodeObject() as? [String: AnyObject]
             {
                 result = self.unsafeMapping() {
-                    let _ = Mapper<ValidatableModel>().map(JSON: json, toObject: self)
+                    Mapper<ValidatableModel>().map(JSON: json, toObject: self)
                 }
             }
 
@@ -118,17 +127,17 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         return result
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     open func mapping(map: Map) {
         // Do nothing
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public final func frozen() -> Bool {
         return self.freeze
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public final func rehash() -> Int
     {
         // Encode serializable object
@@ -138,39 +147,8 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         // Writing a good Hashable implementation in Swift
         // @link http://stackoverflow.com/a/24240011
 
-        self.hash = (31 &* NSStringFromClass(type(of: self)).hashValue) &+ (data as Data).rxm_md5String.hashValue
+        self.hash = (31 &* NSStringFromClass(type(of: self)).hashValue) &+ (data as Data).md5().hashValue
         return self.hash
-    }
-
-    /**
-     * TODO
-     */
-    @available(*, deprecated)
-    open func isValid() -> Bool {
-        var result = true
-
-        do {
-            // Check object's state
-            try validate()
-        }
-        catch {
-            let className = Roxie.typeName(of: self)
-            result = false
-
-            // Log validation error
-            Logger.w(className, "\(className) is invalid", error)
-        }
-
-        // Done
-        return result
-    }
-
-    /**
-     * Checks attribute values or a combination of attribute values for correctness (cross validation).
-     */
-    @available(*, deprecated)
-    open func validate() throws {
-        // Do nothing
     }
 
 // MARK: - Private Methods
@@ -178,10 +156,23 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
     /**
      * NOTE: Throws NSException from Objective-C
      */
-    @available(*, deprecated)
-    @discardableResult private func unsafeMapping(block: @escaping () -> Void) -> Bool
+    @available(*, deprecated, message: "\n• Write a description.")
+    @discardableResult
+    private func unsafeMapping(block: @escaping () -> Void) -> Bool
     {
-        if frozen() { return false }
+        guard !frozen() else {
+            return false
+        }
+
+        // TODO
+        // if (obj is IPostValidatable instance && instance.IsShouldPostValidate()) {
+        //     try {
+        //         instance.Validate();
+        //     }
+        //     catch (CheckException e) {
+        //         throw new JsonSerializationException(e.Message, e);
+        //     }
+        // }
 
         var cause: NSException?
         objcTry {
@@ -190,15 +181,16 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
             block()
 
             // Validate converted object
-            let defaultMessage = "Couldn't validate converted object"
-            do {
-                try self.validate()
-            }
-            catch let error as ExpectationError {
-                Roxie.fatalError(error.message ?? defaultMessage, file: error.file, line: error.line)
-            }
-            catch {
-                Roxie.fatalError(defaultMessage)
+            if self.isShouldPostValidate() {
+                do {
+                    try self.validate()
+                }
+                catch let error as CheckError {
+                    Roxie.fatalError(error.message ?? "Couldn't validate converted object", file: error.file, line: error.line)
+                }
+                catch {
+                    Roxie.fatalError("Unexpected error is thrown", error: error)
+                }
             }
 
             // Prevent further modifications
@@ -216,7 +208,7 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
         return frozen()
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     private func injectNestedParams(_ e: NSException, params: [String: Any]) -> NSException
     {
         var cause = e
@@ -236,7 +228,6 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 
 // MARK: - Constants
 
-    @available(*, deprecated)
     private struct Inner {
         static let NestedParams = CommonKeys.Prefix.Extra + "nested_params"
     }
@@ -249,20 +240,67 @@ open class ValidatableModel: Serializable, Mappable, Hashable, Validatable
 }
 
 // ----------------------------------------------------------------------------
+// MARK: - @protocol Validatable
+// ----------------------------------------------------------------------------
+
+extension ValidatableModel: Validatable
+{
+// MARK: - Methods
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    open func isValid() -> Bool {
+        var result = true
+
+        do {
+            // Check object's state
+            try validate()
+        }
+        catch {
+            let className = Roxie.typeName(of: self)
+            result = false
+
+            // Log validation error
+            Logger.w(className, "\(className) is invalid", error)
+        }
+
+        // Done
+        return result
+    }
+}
+
+// ----------------------------------------------------------------------------
+// MARK: - @protocol PostValidatable
+// ----------------------------------------------------------------------------
+
+extension ValidatableModel: PostValidatable
+{
+// MARK: - Methods
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    open func isShouldPostValidate() -> Bool {
+        return true
+    }
+
+    /// Checks attribute values or a combination of attribute values for correctness (cross validation).
+    open func validate() throws {
+        // Do nothing
+    }
+}
+
+// ----------------------------------------------------------------------------
 // MARK: - @protocol NSCopying
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
 extension ValidatableModel: NSCopying
 {
 // MARK: - Methods
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public func copy(with zone: NSZone? = nil) -> Any {
         return self.copy()
     }
 
-    @available(*, deprecated)
+    @available(*, deprecated, message: "\n• Write a description.")
     public func copy() -> Self {
         return try! type(of: self).init(params: Mapper().toJSON(self))
     }
@@ -272,7 +310,6 @@ extension ValidatableModel: NSCopying
 // MARK: - @protocol Equatable
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated)
 public func == (lhs: ValidatableModel, rhs: ValidatableModel) -> Bool
 {
     if (lhs === rhs) {

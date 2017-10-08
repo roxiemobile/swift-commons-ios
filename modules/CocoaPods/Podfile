@@ -3,6 +3,21 @@ use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 
+target 'SwiftCommons.Core.Data' do
+  project '../RoxieMobile.SwiftCommons/Core.Data/SwiftCommons.Core.Data.xcodeproj'
+
+  pod 'SwiftCommons/Core/Abstractions', :path => '../../'
+  pod 'SwiftCommons/Core/Concurrent', :path => '../../'
+  pod 'SwiftCommons/Core/Diagnostics', :path => '../../'
+  pod 'SwiftCommons/Core/Lang', :path => '../../'
+  pod 'SwiftCommons/Core/Logging', :path => '../../'
+  pod 'CryptoSwift', '~> 0.7'
+
+  target 'SwiftCommons.Core.Data.UnitTests' do
+    inherit! :search_paths
+  end
+end
+
 target 'SwiftCommons.Core.Diagnostics' do
   project '../RoxieMobile.SwiftCommons/Core.Diagnostics/SwiftCommons.Core.Diagnostics.xcodeproj'
 
@@ -55,6 +70,7 @@ end
 target 'SwiftCommons.Core.Deprecated' do
   project '../RoxieMobile.SwiftCommons/Core.Deprecated/SwiftCommons.Core.Deprecated.xcodeproj'
 
+  pod 'SwiftCommons/Core/Abstractions', :path => '../../'
   pod 'SwiftCommons/Core/Concurrent', :path => '../../'
   pod 'SwiftCommons/Core/Lang', :path => '../../'
   pod 'SwiftCommons/Core/Logging', :path => '../../'

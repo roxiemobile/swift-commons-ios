@@ -13,26 +13,6 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-/// The MDCoding protocol declares the two methods that a class must implement
-/// so that instances of that class can be encoded and decoded.
-@available(*, deprecated)
-public protocol MDCoding: AnyObject
-{
-    /// Decodes an object initialized from data in a given unarchiver.
-    @available(*, deprecated)
-    init?(coder decoder: NSCoder)
-
-    /// Encodes the receiver using a given archiver.
-    @available(*, deprecated)
-    func encode(coder encoder: NSCoder) -> Bool
-
-    /// Decodes the receiver using a given unarchiver.
-    @available(*, deprecated)
-    func decode(coder decoder: NSCoder) -> Bool
-}
-
-// ----------------------------------------------------------------------------
-
 /// The MDCopying protocol declares a method for providing functional copies
 /// of an object.
 @available(*, deprecated)

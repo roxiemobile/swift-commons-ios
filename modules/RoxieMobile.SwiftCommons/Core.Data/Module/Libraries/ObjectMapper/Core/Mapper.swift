@@ -65,10 +65,11 @@ public final class Mapper<N: BaseMappable> {
 	
 	/// Maps a JSON dictionary to an existing object that conforms to Mappable.
 	/// Usefull for those pesky objects that have crappy designated initializers like NSManagedObject
+	@discardableResult
 	public func map(JSON: [String: Any], toObject object: N) -> N {
-        roxie_checkState(object)
 		var mutableObject = object
 		let map = Map(mappingType: .fromJSON, JSON: JSON, toObject: true, context: context, shouldIncludeNilValues: shouldIncludeNilValues)
+		roxie_checkState(mutableObject)
 		mutableObject.mapping(map: map)
 		return mutableObject
 	}
@@ -99,11 +100,13 @@ public final class Mapper<N: BaseMappable> {
 		
 		if let klass = N.self as? StaticMappable.Type { // Check if object is StaticMappable
 			if var object = klass.objectForMapping(map: map) as? N {
+				roxie_checkState(object)
 				object.mapping(map: map)
 				return object
 			}
 		} else if let klass = N.self as? Mappable.Type { // Check if object is Mappable
 			if var object = klass.init(map: map) as? N {
+				roxie_checkState(object)
 				object.mapping(map: map)
 				return object
 			}

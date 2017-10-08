@@ -12,6 +12,7 @@
 		1990C4FE1F8A4A8A00A944A8 /* PostValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C4FD1F8A4A8A00A944A8 /* PostValidatable.swift */; };
 		1990C5011F8A4AF800A944A8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5001F8A4AF800A944A8 /* Validator.swift */; };
 		1990C5031F8A574700A944A8 /* StaticValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5021F8A574700A944A8 /* StaticValidator.swift */; };
+		1990C5111F8A64CB00A944A8 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5101F8A64CB00A944A8 /* Serializable.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Abstractions.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Abstractions.UnitTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		1990C4FD1F8A4A8A00A944A8 /* PostValidatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostValidatable.swift; sourceTree = "<group>"; };
 		1990C5001F8A4AF800A944A8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1990C5021F8A574700A944A8 /* StaticValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticValidator.swift; sourceTree = "<group>"; };
+		1990C5101F8A64CB00A944A8 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreAbstractions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsCoreAbstractions.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Abstractions.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Core.Abstractions.UnitTests.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				1990C4FD1F8A4A8A00A944A8 /* PostValidatable.swift */,
+				1990C5101F8A64CB00A944A8 /* Serializable.swift */,
 				1990C4FB1F8A495400A944A8 /* Validatable.swift */,
 			);
 			path = Models;
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1990C4FC1F8A495400A944A8 /* Validatable.swift in Sources */,
+				1990C5111F8A64CB00A944A8 /* Serializable.swift in Sources */,
 				1990C5011F8A4AF800A944A8 /* Validator.swift in Sources */,
 				1990C5031F8A574700A944A8 /* StaticValidator.swift in Sources */,
 				1990C4FE1F8A4A8A00A944A8 /* PostValidatable.swift in Sources */,

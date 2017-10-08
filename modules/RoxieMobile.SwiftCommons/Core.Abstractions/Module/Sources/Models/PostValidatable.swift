@@ -12,18 +12,14 @@ public protocol PostValidatable
 {
 // MARK: - Methods
 
-    /**
-     Checks if object should be validated after construction.
-
-     - Returns:
-       `true` if object should be validated after construction; otherwise, `false`.
-     */
+    /// Checks if object should be validated after construction.
+    /// 
+    /// - Returns:
+    ///   `true` if object should be validated after construction; otherwise, `false`.
     func isShouldPostValidate() -> Bool
 
-    /**
-     Checks the current state of the object for correctness.
-     */
-    func validate()
+    /// Checks the current state of the object for correctness.
+    func validate() throws
 }
 
 // ----------------------------------------------------------------------------
