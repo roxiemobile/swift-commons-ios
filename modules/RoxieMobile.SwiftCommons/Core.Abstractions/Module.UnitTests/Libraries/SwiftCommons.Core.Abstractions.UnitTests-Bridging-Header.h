@@ -1,21 +1,14 @@
 // ----------------------------------------------------------------------------
 //
-//  Validatable.swift
+//  SwiftCommons.Core.Abstractions.UnitTests-Bridging-Header.h
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
-//  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
-
-@available(*, deprecated)
-public protocol Validatable
-{
-// MARK: - Methods
-
-    /// Tests the current value of the object.
-    @available(*, deprecated)
-    func isValid() -> Bool
-}
-
+//
+//  Use this file to import your target's public headers that you would like
+//  to expose to Swift.
+//
 // ----------------------------------------------------------------------------

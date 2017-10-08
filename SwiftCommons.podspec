@@ -20,7 +20,8 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig   = { 'ENABLE_BITCODE' => 'NO', 'SWIFT_VERSION' => '4.0' }
 
-  s.default_subspecs      = 'Core/Concurrent',
+  s.default_subspecs      = 'Core/Abstractions',
+                            'Core/Concurrent',
                             'Core/Diagnostics',
                             'Core/Extensions',
                             'Core/Lang',
@@ -31,6 +32,11 @@ Pod::Spec.new do |s|
 
   # TODO: Write a description
   s.subspec 'Core' do |sc|
+
+    # The core abstractions and public protocols used for iOS application development.
+    sc.subspec 'Abstractions' do |sp|
+      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Abstractions/Module/**/*.{swift,h,m,c}'
+    end
 
     # TODO: Write a description
     sc.subspec 'Concurrent' do |sp|

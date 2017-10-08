@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Core.Abstractions/SwiftCommons.Core.Abstractions.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Core.Concurrent/SwiftCommons.Core.Concurrent.xcodeproj">
    </FileRef>
    <FileRef
