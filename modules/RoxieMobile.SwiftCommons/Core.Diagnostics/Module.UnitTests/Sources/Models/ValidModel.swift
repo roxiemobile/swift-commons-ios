@@ -8,27 +8,17 @@
 //
 // ----------------------------------------------------------------------------
 
-//import SwiftCommons
+import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-/*
-using RoxieMobile.CSharpCommons.Abstractions.Models;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models
+struct ValidModel: Validatable
 {
-    public class ValidModel : IValidatable
-    {
-        public bool IsValid() => true;
+// MARK: - Methods
+
+    func isValid() -> Bool {
+        return true
     }
 }
-*/
-
-//public struct ValidModel: Validatable
-//{
-//    public func isValid() -> Bool {
-//        return true
-//    }
-//}
 
 // ----------------------------------------------------------------------------

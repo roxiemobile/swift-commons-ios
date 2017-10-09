@@ -112,7 +112,6 @@
 		194276101F87D6CF00574076 /* ParkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194276081F87D6C200574076 /* ParkingModel.swift */; };
 		194276111F87D6CF00574076 /* ValidModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194276091F87D6C200574076 /* ValidModel.swift */; };
 		194276121F87D6CF00574076 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942760A1F87D6C200574076 /* VehicleModel.swift */; };
-		194276181F87D79700574076 /* AbstractValidatableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194276171F87D79700574076 /* AbstractValidatableModel.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreDiagnostics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreDiagnostics.a */; };
 		196632AD1F88001D00C4A54B /* Guard.NotNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966328D1F88001900C4A54B /* Guard.NotNil.swift */; };
 		196632AE1F88001D00C4A54B /* Guard.IsNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966328E1F88001900C4A54B /* Guard.IsNil.swift */; };
@@ -214,7 +213,6 @@
 		1942760A1F87D6C200574076 /* VehicleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
 		194276141F87D70F00574076 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_model_with_one_non_valid_vehicle_in_array.json; sourceTree = "<group>"; };
 		194276151F87D70F00574076 /* test_parking_model_with_valid_vehicles_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_model_with_valid_vehicles_in_array.json; sourceTree = "<group>"; };
-		194276171F87D79700574076 /* AbstractValidatableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractValidatableModel.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreDiagnostics.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreDiagnostics.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1966328D1F88001900C4A54B /* Guard.NotNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guard.NotNil.swift; sourceTree = "<group>"; };
 		1966328E1F88001900C4A54B /* Guard.IsNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guard.IsNil.swift; sourceTree = "<group>"; };
@@ -363,7 +361,6 @@
 		194276061F87D6C200574076 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				194276161F87D78400574076 /* Abstractions */,
 				194276071F87D6C200574076 /* NotValidModel.swift */,
 				194276081F87D6C200574076 /* ParkingModel.swift */,
 				194276091F87D6C200574076 /* ValidModel.swift */,
@@ -379,14 +376,6 @@
 				194276151F87D70F00574076 /* test_parking_model_with_valid_vehicles_in_array.json */,
 			);
 			path = Fixtures;
-			sourceTree = "<group>";
-		};
-		194276161F87D78400574076 /* Abstractions */ = {
-			isa = PBXGroup;
-			children = (
-				194276171F87D79700574076 /* AbstractValidatableModel.swift */,
-			);
-			path = Abstractions;
 			sourceTree = "<group>";
 		};
 		195D39501F72CE4900118D17 /* Module.UnitTests */ = {
@@ -965,7 +954,6 @@
 				196632C61F88001D00C4A54B /* Guard.AllBlank.swift in Sources */,
 				196632BD1F88001D00C4A54B /* Guard.GreaterThanOrEqualTo.swift in Sources */,
 				196632C21F88001D00C4A54B /* Guard.Empty.swift in Sources */,
-				194276181F87D79700574076 /* AbstractValidatableModel.swift in Sources */,
 				194275FC1F87AC9700574076 /* Check.NotEqual.swift in Sources */,
 				194276021F87AC9700574076 /* Check.ThrowsAny.swift in Sources */,
 				194275E51F87AC9700574076 /* Check.AllEmpty.swift in Sources */,

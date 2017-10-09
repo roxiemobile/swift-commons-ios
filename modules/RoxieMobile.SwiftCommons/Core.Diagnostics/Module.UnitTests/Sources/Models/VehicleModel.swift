@@ -2,68 +2,40 @@
 //
 //  VehicleModel.swift
 //
-//  @author     Nikita Semakov <SemakovNV@ekassir.com>
-//  @copyright  Copyright (c) 2016, eKassir Ltd. All rights reserved.
-//  @link       http://www.ekassir.com/
+//  @author     Alexander Bragin <bragin-av@roxiemobile.com>
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-//import SwiftCommons
+import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-/*
-using System.ComponentModel.DataAnnotations;
-using RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models.Abstractions;
-using static RoxieMobile.CSharpCommons.Extensions.ArrayUtils;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics.UnitTests.Models
+class VehicleModel: ValidatableModel
 {
-    public class VehicleModel : AbstractValidatableModel
-    {
 // MARK: - Properties
 
-        [Required]
-        public string Model { get; set; }
+    fileprivate(set) var model: String!
 
-        [Required]
-        public string Color { get; set; }
+    fileprivate(set) var color: String!
 
 // MARK: - Methods
 
-        public override void Validate()
-        {
-            // Validate instance variables
-            Check.AllNotBlank(ToArray(this.Model, this.Color));
-        }
+    open override func mapping(map: Map) {
+        super.mapping(map: map)
+
+        // (De)serialize to/from json
+        self.model <~ map["model"]
+        self.color <~ map["color"]
+    }
+
+    open override func validate() throws {
+        try super.validate()
+
+        // Validate instance state
+        try Check.allNotBlank([self.model, self.color])
     }
 }
-*/
-
-//open class VehicleModel: ValidatableModel
-//{
-//// MARK: - Properties
-//
-//    open fileprivate(set) var model: String!
-//
-//    open fileprivate(set) var color: String!
-//
-//// MARK: - Methods
-//
-//    open override func mapping(_ map: Map) {
-//        super.mapping(map)
-//
-//        // (De)serialize to/from json
-//        self.model <~ map["model"]
-//        self.color <~ map["color"]
-//    }
-//
-//    open override func validate() throws {
-//        try super.validate()
-//
-//        // Validate instance
-//        try Check.allNotBlank([self.model, self.color])
-//    }
-//}
 
 // ----------------------------------------------------------------------------

@@ -14,7 +14,7 @@ import SwiftCommons
 // ----------------------------------------------------------------------------
 
 /// The abstract base class for data models.
-open class ValidatableModel: SerializableObject, Mappable, Hashable
+open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable, PostValidatable, NSCopying
 {
 // MARK: - Construction
 
@@ -76,14 +76,7 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable
         }
     }
 
-// MARK: - Properties
-
-    @available(*, deprecated, message: "\n• Write a description.")
-    open var hashValue: Int {
-        return self.hash ?? rehash()
-    }
-
-// MARK: - Methods
+// MARK: - Methods: SerializableObject
 
     @available(*, deprecated, message: "\n• Write a description.")
     open override func encodeObject(with encoder: NSCoder) -> Bool
@@ -127,6 +120,8 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable
         return result
     }
 
+// MARK: - Methods: Mappable
+
     @available(*, deprecated, message: "\n• Write a description.")
     open func mapping(map: Map) {
         // Do nothing
@@ -135,6 +130,13 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable
     @available(*, deprecated, message: "\n• Write a description.")
     public final func frozen() -> Bool {
         return self.freeze
+    }
+
+// MARK: - Methods: Hashable
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    open var hashValue: Int {
+        return self.hash ?? rehash()
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
@@ -149,6 +151,52 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable
 
         self.hash = (31 &* NSStringFromClass(type(of: self)).hashValue) &+ (data as Data).md5().hashValue
         return self.hash
+    }
+
+// MARK: - Methods: Validatable
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    open func isValid() -> Bool {
+        var result = true
+
+        do {
+            // Check object's state
+            try validate()
+        }
+        catch {
+            let className = Roxie.typeName(of: self)
+            result = false
+
+            // Log validation error
+            Logger.w(className, "\(className) is invalid", error)
+        }
+
+        // Done
+        return result
+    }
+
+// MARK: - Methods: PostValidatable
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    open func isShouldPostValidate() -> Bool {
+        return true
+    }
+
+    /// Checks attribute values or a combination of attribute values for correctness (cross validation).
+    open func validate() throws {
+        // Do nothing
+    }
+
+// MARK: - Methods: NSCopying
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    open func copy(with zone: NSZone? = nil) -> Any {
+        return self.copy()
+    }
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    open func copy() -> Self {
+        return try! type(of: self).init(params: Mapper().toJSON(self))
     }
 
 // MARK: - Private Methods
@@ -237,73 +285,6 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable
     private var freeze = false
 
     private var hash: Int!
-}
-
-// ----------------------------------------------------------------------------
-// MARK: - @protocol Validatable
-// ----------------------------------------------------------------------------
-
-extension ValidatableModel: Validatable
-{
-// MARK: - Methods
-
-    @available(*, deprecated, message: "\n• Write a description.")
-    open func isValid() -> Bool {
-        var result = true
-
-        do {
-            // Check object's state
-            try validate()
-        }
-        catch {
-            let className = Roxie.typeName(of: self)
-            result = false
-
-            // Log validation error
-            Logger.w(className, "\(className) is invalid", error)
-        }
-
-        // Done
-        return result
-    }
-}
-
-// ----------------------------------------------------------------------------
-// MARK: - @protocol PostValidatable
-// ----------------------------------------------------------------------------
-
-extension ValidatableModel: PostValidatable
-{
-// MARK: - Methods
-
-    @available(*, deprecated, message: "\n• Write a description.")
-    open func isShouldPostValidate() -> Bool {
-        return true
-    }
-
-    /// Checks attribute values or a combination of attribute values for correctness (cross validation).
-    open func validate() throws {
-        // Do nothing
-    }
-}
-
-// ----------------------------------------------------------------------------
-// MARK: - @protocol NSCopying
-// ----------------------------------------------------------------------------
-
-extension ValidatableModel: NSCopying
-{
-// MARK: - Methods
-
-    @available(*, deprecated, message: "\n• Write a description.")
-    public func copy(with zone: NSZone? = nil) -> Any {
-        return self.copy()
-    }
-
-    @available(*, deprecated, message: "\n• Write a description.")
-    public func copy() -> Self {
-        return try! type(of: self).init(params: Mapper().toJSON(self))
-    }
 }
 
 // ----------------------------------------------------------------------------
