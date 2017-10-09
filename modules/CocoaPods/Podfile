@@ -3,14 +3,33 @@ use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 
+
+target 'SwiftCommons.Core.Abstractions' do
+  project '../RoxieMobile.SwiftCommons/Core.Abstractions/SwiftCommons.Core.Abstractions.xcodeproj'
+
+  target 'SwiftCommons.Core.Abstractions.UnitTests' do
+    inherit! :search_paths
+  end
+end
+
+
+target 'SwiftCommons.Core.Concurrent' do
+  project '../RoxieMobile.SwiftCommons/Core.Concurrent/SwiftCommons.Core.Concurrent.xcodeproj'
+
+  target 'SwiftCommons.Core.Concurrent.UnitTests' do
+    inherit! :search_paths
+  end
+end
+
+
 target 'SwiftCommons.Core.Data' do
   project '../RoxieMobile.SwiftCommons/Core.Data/SwiftCommons.Core.Data.xcodeproj'
 
-  pod 'SwiftCommons/Core/Abstractions', :path => '../../'
-  pod 'SwiftCommons/Core/Concurrent', :path => '../../'
-  pod 'SwiftCommons/Core/Diagnostics', :path => '../../'
-  pod 'SwiftCommons/Core/Lang', :path => '../../'
-  pod 'SwiftCommons/Core/Logging', :path => '../../'
+  pod 'SwiftCommons/Core/Abstractions', path: '../../'
+  pod 'SwiftCommons/Core/Concurrent', path: '../../'
+  pod 'SwiftCommons/Core/Diagnostics', path: '../../'
+  pod 'SwiftCommons/Core/Lang', path: '../../'
+  pod 'SwiftCommons/Core/Logging', path: '../../'
   pod 'CryptoSwift', '~> 0.7'
 
   target 'SwiftCommons.Core.Data.UnitTests' do
@@ -18,63 +37,79 @@ target 'SwiftCommons.Core.Data' do
   end
 end
 
+
 target 'SwiftCommons.Core.Diagnostics' do
   project '../RoxieMobile.SwiftCommons/Core.Diagnostics/SwiftCommons.Core.Diagnostics.xcodeproj'
 
-  pod 'SwiftCommons/Core/Concurrent', :path => '../../'
-  pod 'SwiftCommons/Core/Lang', :path => '../../'
+  pod 'SwiftCommons/Core/Concurrent', path: '../../'
+  pod 'SwiftCommons/Core/Lang', path: '../../'
 
   target 'SwiftCommons.Core.Diagnostics.UnitTests' do
     inherit! :search_paths
+
+    pod 'SwiftCommons/Core/Data', path: '../../'
   end
 end
+
 
 target 'SwiftCommons.Core.Extensions' do
   project '../RoxieMobile.SwiftCommons/Core.Extensions/SwiftCommons.Core.Extensions.xcodeproj'
 
-  pod 'SwiftCommons/Core/Lang', :path => '../../'
-  pod 'SwiftCommons/Core/Logging', :path => '../../'
+  pod 'SwiftCommons/Core/Lang', path: '../../'
+  pod 'SwiftCommons/Core/Logging', path: '../../'
 
   target 'SwiftCommons.Core.Extensions.UnitTests' do
     inherit! :search_paths
   end
 end
 
+
+target 'SwiftCommons.Core.Lang' do
+  project '../RoxieMobile.SwiftCommons/Core.Lang/SwiftCommons.Core.Lang.xcodeproj'
+
+  target 'SwiftCommons.Core.Lang.UnitTests' do
+    inherit! :search_paths
+  end
+end
+
+
 target 'SwiftCommons.Core.Logging' do
   project '../RoxieMobile.SwiftCommons/Core.Logging/SwiftCommons.Core.Logging.xcodeproj'
 
-  pod 'SwiftCommons/Core/Concurrent', :path => '../../'
-  pod 'SwiftCommons/Core/Lang', :path => '../../'
+  pod 'SwiftCommons/Core/Concurrent', path: '../../'
+  pod 'SwiftCommons/Core/Lang', path: '../../'
 
   target 'SwiftCommons.Core.Logging.UnitTests' do
     inherit! :search_paths
   end
 end
 
+
 target 'SwiftCommons.Infrastructure.Database' do
   project '../RoxieMobile.SwiftCommons/Infrastructure.Database/SwiftCommons.Infrastructure.Database.xcodeproj'
 
-  pod 'SwiftCommons/Core/Concurrent', :path => '../../'
-  pod 'SwiftCommons/Core/Extensions', :path => '../../'
-  pod 'SwiftCommons/Core/Lang', :path => '../../'
-  pod 'SwiftCommons/Core/Logging', :path => '../../'
+  pod 'SwiftCommons/Core/Concurrent', path: '../../'
+  pod 'SwiftCommons/Core/Extensions', path: '../../'
+  pod 'SwiftCommons/Core/Lang', path: '../../'
+  pod 'SwiftCommons/Core/Logging', path: '../../'
   pod 'CryptoSwift', '~> 0.7'
-  pod 'SQLCipher', '~> 3.4', :inhibit_warnings => true
+  pod 'SQLCipher', '~> 3.4', inhibit_warnings: true
 
   target 'SwiftCommons.Infrastructure.Database.UnitTests' do
     inherit! :search_paths
   end
 end
 
+
 # FIXME: Must be deleted!
 target 'SwiftCommons.Core.Deprecated' do
   project '../RoxieMobile.SwiftCommons/Core.Deprecated/SwiftCommons.Core.Deprecated.xcodeproj'
 
-  pod 'SwiftCommons/Core/Abstractions', :path => '../../'
-  pod 'SwiftCommons/Core/Concurrent', :path => '../../'
-  pod 'SwiftCommons/Core/Lang', :path => '../../'
-  pod 'SwiftCommons/Core/Logging', :path => '../../'
-  pod 'CryptoSwift', '~> 0.7'
+# pod 'SwiftCommons/Core/Abstractions', path: '../../'
+# pod 'SwiftCommons/Core/Concurrent', path: '../../'
+# pod 'SwiftCommons/Core/Lang', path: '../../'
+# pod 'SwiftCommons/Core/Logging', path: '../../'
+# pod 'CryptoSwift', '~> 0.7'
 
   target 'SwiftCommons.Core.Deprecated.UnitTests' do
     inherit! :search_paths

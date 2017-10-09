@@ -27,7 +27,7 @@ extension FileManager
                 let fm = FileManager.default
 
                 // Create directory if not exists
-                if let dstPath = dstURL?.path {
+                if let dstPath = dstURL?.path, let dstURL = dstURL {
 
                     if !fm.fileExists(atPath: dstPath) {
                         do {
