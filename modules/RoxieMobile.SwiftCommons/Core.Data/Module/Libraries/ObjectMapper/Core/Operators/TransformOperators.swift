@@ -17,7 +17,7 @@ public func <~ <Transform: TransformType>(left: inout Transform.Object, right: (
 	switch map.mappingType {
 	case .fromJSON where map.isKeyPresent:
 //		let value = transform.transformFromJSON(map.currentValue)
-        let value = roxie_transform(map.currentKey, map.currentValue) { transform.transformFromJSON($1) }
+		let value = roxie_transform(map.currentKey, map.currentValue) { transform.transformFromJSON($1) }
 		FromJSON.basicType(&left, object: value)
 	case .toJSON:
 		left >>> right
@@ -278,7 +278,7 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, Transfo
 	if map.mappingType == .fromJSON && map.isKeyPresent,
 		let object = map.currentValue as? [String: Any] {
 //		let value = fromJSONDictionaryWithTransform(object as Any?, transform: transform) ?? left
-		let value = roxie_transform(map.currentKey, object as Any?) { fromJSONDictionaryWithTransform($0, $1, transform: transform) } ?? left
+		let value = roxie_transform(map.currentKey, object as Any?, block: { fromJSONDictionaryWithTransform($0, $1, transform: transform) }) ?? left
 		FromJSON.basicType(&left, object: value)
 	} else if map.mappingType == .toJSON {
 		left >>> right
@@ -300,7 +300,7 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, Transfo
 	let (map, transform) = right
 	if map.mappingType == .fromJSON && map.isKeyPresent, let object = map.currentValue as? [String : Any]{
 //		let value = fromJSONDictionaryWithTransform(object as Any?, transform: transform) ?? left
-		let value = roxie_transform(map.currentKey, object as Any?) { fromJSONDictionaryWithTransform($0, $1, transform: transform) } ?? left
+		let value = roxie_transform(map.currentKey, object as Any?, block: { fromJSONDictionaryWithTransform($0, $1, transform: transform) }) ?? left
 		FromJSON.optionalBasicType(&left, object: value)
 	} else if map.mappingType == .toJSON {
 		left >>> right
@@ -323,7 +323,7 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, Transfo
 	map.roxie_checkState()
 	if map.mappingType == .fromJSON && map.isKeyPresent, let dictionary = map.currentValue as? [String : Any]{
 //		let transformedDictionary = fromJSONDictionaryWithTransform(dictionary as Any?, transform: transform) ?? left
-		let transformedDictionary = roxie_transform(map.currentKey, dictionary as Any?) { fromJSONDictionaryWithTransform($0, $1, transform: transform) } ?? left
+		let transformedDictionary = roxie_transform(map.currentKey, dictionary as Any?, block: { fromJSONDictionaryWithTransform($0, $1, transform: transform) }) ?? left
 		FromJSON.optionalBasicType(&left, object: transformedDictionary)
 	} else if map.mappingType == .toJSON {
 		left >>> right
@@ -339,7 +339,7 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transf
 		let transformedDictionary = dictionary.map { (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
 			let (key, values) = arg
 //			if let jsonArray = fromJSONArrayWithTransform(values, transform: transform) {
-			if let jsonArray = fromJSONArrayWithTransform(key, values, transform: transform) {
+			if let jsonArray = roxie_transform(key, values, block: { fromJSONArrayWithTransform($0, $1, transform: transform) }) {
 				return (key, jsonArray)
 			}
 			if let leftValue = left[key] {
@@ -347,7 +347,6 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transf
 			}
 			return (key, [])
 		}
-		// TODO: map.roxie_checkValue(?)
 		
 		FromJSON.basicType(&left, object: transformedDictionary)
 	} else if map.mappingType == .toJSON {
@@ -362,9 +361,8 @@ public func >>> <Transform: TransformType>(left: Dictionary<String, [Transform.O
 		
 		let transformedDictionary = left.map { (arg: (key: String, value: [Transform.Object])) in
 //			return (arg.key, toJSONArrayWithTransform(arg.value, transform: transform) ?? [])
-			return (arg.key, toJSONArrayWithTransform(arg.key, arg.value, transform: transform) ?? [])
+			return (arg.key, roxie_transform(arg.key, arg.value, block: { toJSONArrayWithTransform($0, $1, transform: transform) }) ?? [])
 		}
-		// TODO: map.roxie_checkValue(?)
 		
 		ToJSON.basicType(transformedDictionary, map: map)
 	}
@@ -380,7 +378,7 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transf
 		let transformedDictionary = dictionary.map { (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
 			let (key, values) = arg
 //			if let jsonArray = fromJSONArrayWithTransform(values, transform: transform) {
-			if let jsonArray = fromJSONArrayWithTransform(key, values, transform: transform) {
+			if let jsonArray = roxie_transform(key, values, block: { fromJSONArrayWithTransform($0, $1, transform: transform) }) {
 				return (key, jsonArray)
 			}
 			if let leftValue = left?[key] {
@@ -388,7 +386,6 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transf
 			}
 			return (key, [])
 		}
-		// TODO: map.roxie_checkValue(?)
 		
 		FromJSON.optionalBasicType(&left, object: transformedDictionary)
 	} else if map.mappingType == .toJSON {
@@ -402,9 +399,8 @@ public func >>> <Transform: TransformType>(left: Dictionary<String, [Transform.O
 	if map.mappingType == .toJSON {
 		let transformedDictionary = left?.map { (arg: (key: String, values: [Transform.Object])) in
 //			return (arg.key, toJSONArrayWithTransform(arg.values, transform: transform) ?? [])
-			return (arg.key, toJSONArrayWithTransform(arg.key, arg.values, transform: transform) ?? [])
+			return (arg.key, roxie_transform(arg.key, arg.values, block: { toJSONArrayWithTransform($0, $1, transform: transform) }) ?? [])
 		}
-		// TODO: map.roxie_checkValue(?)
 		
 		ToJSON.optionalBasicType(transformedDictionary, map: map)
 	}
@@ -420,7 +416,7 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transf
 		let transformedDictionary = dictionary.map { (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
 			let (key, values) = arg
 //			if let jsonArray = fromJSONArrayWithTransform(values, transform: transform) {
-			if let jsonArray = fromJSONArrayWithTransform(key, values, transform: transform) {
+			if let jsonArray = roxie_transform(key, values, block: { fromJSONArrayWithTransform($0, $1, transform: transform) }) {
 				return (key, jsonArray)
 			}
 			if let leftValue = left?[key] {
@@ -428,7 +424,6 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transf
 			}
 			return (key, [])
 		}
-		// TODO: map.roxie_checkValue(?)
 		FromJSON.optionalBasicType(&left, object: transformedDictionary)
 	} else if map.mappingType == .toJSON {
 		left >>> right
@@ -515,9 +510,8 @@ public func <~ <Transform: TransformType>(left: inout [[Transform.Object]], righ
 		guard let original2DArray = map.currentValue as? [[Any]] else { break }
 		let transformed2DArray = original2DArray.flatMap { values in
 //			fromJSONArrayWithTransform(values as Any?, transform: transform)
-			fromJSONArrayWithTransform(map.currentKey, values as Any?, transform: transform)
+			roxie_transform(map.currentKey, values as Any?) { fromJSONArrayWithTransform($0, $1, transform: transform) }
 		}
-		// TODO: map.roxie_checkValue(?)
 		FromJSON.basicType(&left, object: transformed2DArray)
 	default:
 		break
@@ -529,9 +523,8 @@ public func >>> <Transform: TransformType>(left: [[Transform.Object]], right: (M
 	if map.mappingType == .toJSON{
 		let transformed2DArray = left.flatMap { values in
 //			toJSONArrayWithTransform(values, transform: transform)
-			toJSONArrayWithTransform(map.currentKey, values, transform: transform)
+			roxie_transform(map.currentKey, values) { toJSONArrayWithTransform($0, $1, transform: transform) }
 		}
-		// TODO: map.roxie_checkValue(?)
 		ToJSON.basicType(transformed2DArray, map: map)
 	}
 }
@@ -546,9 +539,8 @@ public func <~ <Transform: TransformType>(left: inout [[Transform.Object]]?, rig
 		guard let original2DArray = map.currentValue as? [[Any]] else { break }
 		let transformed2DArray = original2DArray.flatMap { values in
 //			fromJSONArrayWithTransform(values as Any?, transform: transform)
-			fromJSONArrayWithTransform(map.currentKey, values as Any?, transform: transform)
+			roxie_transform(map.currentKey, values as Any?) { fromJSONArrayWithTransform($0, $1, transform: transform) }
 		}
-		// TODO: map.roxie_checkValue(?)
 		FromJSON.optionalBasicType(&left, object: transformed2DArray)
 	default:
 		break
@@ -560,9 +552,8 @@ public func >>> <Transform: TransformType>(left: [[Transform.Object]]?, right: (
 	if map.mappingType == .toJSON {
 		let transformed2DArray = left?.flatMap { values in
 //			toJSONArrayWithTransform(values, transform: transform)
-			toJSONArrayWithTransform(map.currentKey, values, transform: transform)
+			roxie_transform(map.currentKey, values) { toJSONArrayWithTransform($0, $1, transform: transform) }
 		}
-		// TODO: map.roxie_checkValue(?)
 		ToJSON.optionalBasicType(transformed2DArray, map: map)
 	}
 }
@@ -579,9 +570,8 @@ public func <~ <Transform: TransformType>(left: inout [[Transform.Object]]!, rig
 		guard let original2DArray = map.currentValue as? [[Any]] else { break }
 		let transformed2DArray = original2DArray.flatMap { values in
 //			fromJSONArrayWithTransform(values as Any?, transform: transform)
-			fromJSONArrayWithTransform(map.currentKey, values as Any?, transform: transform)
+			roxie_transform(map.currentKey, values as Any?) { fromJSONArrayWithTransform($0, $1, transform: transform) }
 		}
-		// TODO: map.roxie_checkValue(?)
 		FromJSON.optionalBasicType(&left, object: transformed2DArray)
 	default:
 		break
@@ -653,7 +643,6 @@ public func <~ <Transform: TransformType>(left: inout Set<Transform.Object>!, ri
 		if let transformedValues = roxie_transform(map.currentKey, map.currentValue, block: { fromJSONArrayWithTransform($0, $1, transform: transform) }) {
 			FromJSON.basicType(&left, object: Set(transformedValues))
 		}
-		// TODO: map.roxie_checkValue(?)
 	case .toJSON:
 		left >>> right
 	default: ()
@@ -665,7 +654,8 @@ public func <~ <Transform: TransformType>(left: inout Set<Transform.Object>!, ri
 private func fromJSONArrayWithTransform<Transform: TransformType>(_ key: String?, _ input: Any?, transform: Transform) -> [Transform.Object]? {
 	if let values = input as? [Any] {
 		return values.flatMap { value in
-			return transform.transformFromJSON(value)
+//			return transform.transformFromJSON(value)
+			return roxie_transform(key, value) { transform.transformFromJSON($1) }
 		}
 	} else {
 		return nil
@@ -676,7 +666,8 @@ private func fromJSONArrayWithTransform<Transform: TransformType>(_ key: String?
 private func fromJSONDictionaryWithTransform<Transform: TransformType>(_ key: String?, _ input: Any?, transform: Transform) -> [String: Transform.Object]? {
 	if let values = input as? [String: Any] {
 		return values.filterMap { value in
-			return transform.transformFromJSON(value)
+//			return transform.transformFromJSON(value)
+			return roxie_transform(key, value) { transform.transformFromJSON($1) }
 		}
 	} else {
 		return nil
@@ -686,33 +677,33 @@ private func fromJSONDictionaryWithTransform<Transform: TransformType>(_ key: St
 //private func toJSONArrayWithTransform<Transform: TransformType>(_ input: [Transform.Object]?, transform: Transform) -> [Transform.JSON]? {
 private func toJSONArrayWithTransform<Transform: TransformType>(_ key: String?, _ input: [Transform.Object]?, transform: Transform) -> [Transform.JSON]? {
 	return input?.flatMap { value in
-		return transform.transformToJSON(value)
+//		return transform.transformToJSON(value)
+		return roxie_transform(key, value) { transform.transformToJSON($1) }
 	}
 }
 
 //private func toJSONDictionaryWithTransform<Transform: TransformType>(_ input: [String: Transform.Object]?, transform: Transform) -> [String: Transform.JSON]? {
 private func toJSONDictionaryWithTransform<Transform: TransformType>(_ key: String?, _ input: [String: Transform.Object]?, transform: Transform) -> [String: Transform.JSON]? {
 	return input?.filterMap { value in
-		return transform.transformToJSON(value)
+//		return transform.transformToJSON(value)
+		return roxie_transform(key, value) { transform.transformToJSON($1) }
 	}
 }
 
 // TODO:
 fileprivate func roxie_transform<Ti, To>(_ key: String?, _ input: Ti?, _ file: StaticString = #file, _ line: UInt = #line, block: (String?, Ti?) -> To?) -> To? {
-    var result: To?
+	var result: To?
 
-    if let _ = input {
-        if let value = block(key, input) {
-            result = value
-        }
-        else {
-            var logMessage = "Could not transform value."
-            if let key = key {
-                logMessage = "Could not transform value for key ‘\(key)’."
-            }
-            roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)
-        }
-    }
-    return result
+	if let _ = input {
+		if let value = block(key, input) {
+			result = value
+		}
+		else {
+			var logMessage = (key != nil)
+					? "Could not transform value for key ‘\(key)’."
+					: "Could not transform value."
+			roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)
+		}
+	}
+	return result
 }
-
