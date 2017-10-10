@@ -156,7 +156,7 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
 // MARK: - Methods: Validatable
 
     @available(*, deprecated, message: "\n• Write a description.")
-    open func isValid() -> Bool {
+    open var isValid: Bool {
         var result = true
 
         do {
@@ -178,11 +178,12 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
 // MARK: - Methods: PostValidatable
 
     @available(*, deprecated, message: "\n• Write a description.")
-    open func isShouldPostValidate() -> Bool {
+    open var isShouldPostValidate: Bool {
         return true
     }
 
     /// Checks attribute values or a combination of attribute values for correctness (cross validation).
+    @available(*, deprecated, message: "\n• Write a description.")
     open func validate() throws {
         // Do nothing
     }
@@ -229,7 +230,7 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
             block()
 
             // Validate converted object
-            if self.isShouldPostValidate() {
+            if self.isShouldPostValidate {
                 do {
                     try self.validate()
                 }

@@ -9,16 +9,12 @@ PODS:
   - SwiftCommons/Core/Concurrent (0.0.1)
   - SwiftCommons/Core/Data (0.0.1):
     - CryptoSwift (~> 0.7)
-    - SwiftCommons/Core/Abstractions (= 0.0.1)
-    - SwiftCommons/Core/Concurrent (= 0.0.1)
     - SwiftCommons/Core/Diagnostics (= 0.0.1)
-    - SwiftCommons/Core/Lang (= 0.0.1)
-    - SwiftCommons/Core/Logging (= 0.0.1)
   - SwiftCommons/Core/Diagnostics (0.0.1):
     - SwiftCommons/Core/Concurrent (= 0.0.1)
-    - SwiftCommons/Core/Lang (= 0.0.1)
+    - SwiftCommons/Core/Extensions (= 0.0.1)
   - SwiftCommons/Core/Extensions (0.0.1):
-    - SwiftCommons/Core/Lang (= 0.0.1)
+    - SwiftCommons/Core/Abstractions (= 0.0.1)
     - SwiftCommons/Core/Logging (= 0.0.1)
   - SwiftCommons/Core/Lang (0.0.1)
   - SwiftCommons/Core/Logging (0.0.1):
@@ -43,8 +39,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CryptoSwift: cd2158be2bf639aabc63ec804707c7137c90157c
   SQLCipher: 43d12c0eb9c57fb438749618fc3ce0065509a559
-  SwiftCommons: 8bc50a60037b9355defc11bd004825afd0d49e88
+  SwiftCommons: ed6254732bc51524e59df2ff03b774babc5b5343
 
-PODFILE CHECKSUM: 79c3741ee7ea9c80c945a03d68a870fe16584586
+PODFILE CHECKSUM: 57a3b2373c7cafc41069895256bfe06e6e0566db
 
 COCOAPODS: 1.3.1

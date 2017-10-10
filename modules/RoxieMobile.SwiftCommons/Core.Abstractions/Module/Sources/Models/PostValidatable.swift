@@ -8,18 +8,29 @@
 //
 // ----------------------------------------------------------------------------
 
-public protocol PostValidatable
+@available(*, deprecated, message: "\n• Write a description.")
+public protocol AnyPostValidatable
 {
-// MARK: - Methods
+// MARK: - Properties
 
     /// Checks if object should be validated after construction.
     /// 
     /// - Returns:
     ///   `true` if object should be validated after construction; otherwise, `false`.
-    func isShouldPostValidate() -> Bool
+    ///
+    var isShouldPostValidate: Bool { get }
+
+// MARK: - Methods
 
     /// Checks the current state of the object for correctness.
     func validate() throws
+}
+
+// ----------------------------------------------------------------------------
+
+@available(*, deprecated, message: "\n• Write a description.")
+public protocol PostValidatable: AnyPostValidatable {
+    // Do nothing
 }
 
 // ----------------------------------------------------------------------------

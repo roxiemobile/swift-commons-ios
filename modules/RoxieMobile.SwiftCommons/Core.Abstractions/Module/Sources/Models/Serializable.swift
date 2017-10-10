@@ -12,9 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-/// The Serializable protocol declares the methods that a class must implement
-/// so that instances of that class can be encoded and decoded.
-public protocol Serializable: AnyObject
+@available(*, deprecated, message: "\n• Write a description.")
+public protocol AnySerializable: AnyObject
 {
     /// Returns an object initialized from data in a given unarchiver.
     ///
@@ -42,6 +41,14 @@ public protocol Serializable: AnyObject
     ///   `true` if decoding succeeded; otherwise, `false`.
     ///
     func decodeObject(with decoder: NSCoder) -> Bool
+}
+
+// ----------------------------------------------------------------------------
+
+/// The `Serializable` protocol declares the methods that a class must implement
+/// so that instances of that class can be encoded and decoded.
+public protocol Serializable: AnySerializable {
+    // Do nothing
 }
 
 // ----------------------------------------------------------------------------

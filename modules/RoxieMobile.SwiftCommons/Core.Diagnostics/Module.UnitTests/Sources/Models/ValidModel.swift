@@ -16,7 +16,7 @@ struct ValidModel: Validatable
 {
 // MARK: - Methods
 
-    func isValid() -> Bool {
+    var isValid: Bool {
         return true
     }
 }

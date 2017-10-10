@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  NotValidModel.swift
+//  Validatable+Extensions.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -12,13 +12,16 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-struct NotValidModel: Validatable
+public extension Validatable
 {
-// MARK: - Methods
+// MARK: - Properties
 
-    var isValid: Bool {
-        return false
-    }
+    /// Checks that an object is not valid.
+    ///
+    /// - Returns:
+    ///   `true` if object is not valid; otherwise, `false`.
+    ///
+    public var isNotValid: Bool { return !self.isValid }
 }
 
 // ----------------------------------------------------------------------------

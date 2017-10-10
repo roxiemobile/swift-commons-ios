@@ -8,16 +8,24 @@
 //
 // ----------------------------------------------------------------------------
 
-public protocol Validatable
+@available(*, deprecated, message: "\n• Write a description.")
+public protocol AnyValidatable
 {
-// MARK: - Methods
+// MARK: - Properties
 
-    /// Tests the current state of the object.
+    /// Checks that an object is valid.
     /// 
     /// - Returns:
-    ///   `true` if object validation succeeded; otherwise, `false`.
+    ///   `true` if object is valid; otherwise, `false`.
     ///
-    func isValid() -> Bool
+    var isValid: Bool { get }
+}
+
+// ----------------------------------------------------------------------------
+
+@available(*, deprecated, message: "\n• Write a description.")
+public protocol Validatable: AnyValidatable {
+    // Do nothing
 }
 
 // ----------------------------------------------------------------------------

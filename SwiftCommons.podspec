@@ -49,11 +49,7 @@ Pod::Spec.new do |s|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Data/Module/**/*.{swift,h,m,c}'
 
       # Dependencies
-      sp.dependency 'SwiftCommons/Core/Abstractions', s.version.to_s
-      sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Diagnostics', s.version.to_s
-      sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
-      sp.dependency 'SwiftCommons/Core/Logging', s.version.to_s
       sp.dependency 'CryptoSwift', '~> 0.7'
     end
 
@@ -63,7 +59,7 @@ Pod::Spec.new do |s|
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
-      sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
+      sp.dependency 'SwiftCommons/Core/Extensions', s.version.to_s
     end
 
     # A collection of useful type extensions used for iOS application development.
@@ -71,7 +67,7 @@ Pod::Spec.new do |s|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Extensions/Module/**/*.{swift,h,m,c}'
 
       # Dependencies
-      sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
+      sp.dependency 'SwiftCommons/Core/Abstractions', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Logging', s.version.to_s
     end
 
@@ -100,8 +96,6 @@ Pod::Spec.new do |s|
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Extensions', s.version.to_s
-      sp.dependency 'SwiftCommons/Core/Lang', s.version.to_s
-      sp.dependency 'SwiftCommons/Core/Logging', s.version.to_s
       sp.dependency 'CryptoSwift', '~> 0.7'
       sp.dependency 'SQLCipher', '~> 3.4'
     end

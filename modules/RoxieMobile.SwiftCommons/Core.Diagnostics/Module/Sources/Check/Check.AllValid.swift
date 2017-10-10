@@ -70,6 +70,62 @@ extension Check
 {
 // MARK: - Methods
 
+    /// Checks that all an objects in collection is valid.
+    ///
+    /// - Parameters:
+    ///   - collection: An collection of an objects.
+    ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   CheckError
+    ///
+    public static func allValid<T:Collection>(_ collection: T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws where T.Element: AnyValidatable {
+        if collection.isNotEmpty {
+            guard collection.contains(where: { $0.isValid }) else {
+                throw newCheckError(message, file, line)
+            }
+        }
+    }
+
+//    public static func allValid<T:Collection>(_ collection: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws where T.Element == Validatable {
+//        if let collection = collection, collection.isNotEmpty {
+//            guard collection.contains(where: { $0.isValid }) else {
+//                throw newCheckError(message, file, line)
+//            }
+//        }
+//    }
+
+//    public static func allValid<T:Collection>(_ collection: T!, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws where T.Element == Validatable {
+//        if collection.isNotEmpty {
+//            guard collection.contains(where: { $0.isValid }) else {
+//                throw newCheckError(message, file, line)
+//            }
+//        }
+//    }
+
+    /// Checks that all an objects in collection is not `nil` and valid.
+    ///
+    /// - Parameters:
+    ///   - collection: An collection of an objects.
+    ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   CheckError
+    ///
+//    public static func allValid<T:Collection>(_ collection: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws where T.Element == Validatable? {
+//        if let collection = collection, collection.isNotEmpty {
+//            guard collection.contains(where: { ($0 != nil) && $0!.isValid }) else {
+//                throw newCheckError(message, file, line)
+//            }
+//        }
+//    }
+
+// MARK: - Methods
+
 //    // TODO
 //    @available(*, deprecated)
 //    public static func isAllValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {

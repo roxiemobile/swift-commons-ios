@@ -25,11 +25,7 @@ end
 target 'SwiftCommons.Core.Data' do
   project '../RoxieMobile.SwiftCommons/Core.Data/SwiftCommons.Core.Data.xcodeproj'
 
-  pod 'SwiftCommons/Core/Abstractions', path: '../../'
-  pod 'SwiftCommons/Core/Concurrent', path: '../../'
   pod 'SwiftCommons/Core/Diagnostics', path: '../../'
-  pod 'SwiftCommons/Core/Lang', path: '../../'
-  pod 'SwiftCommons/Core/Logging', path: '../../'
   pod 'CryptoSwift', '~> 0.7'
 
   target 'SwiftCommons.Core.Data.UnitTests' do
@@ -42,7 +38,7 @@ target 'SwiftCommons.Core.Diagnostics' do
   project '../RoxieMobile.SwiftCommons/Core.Diagnostics/SwiftCommons.Core.Diagnostics.xcodeproj'
 
   pod 'SwiftCommons/Core/Concurrent', path: '../../'
-  pod 'SwiftCommons/Core/Lang', path: '../../'
+  pod 'SwiftCommons/Core/Extensions', path: '../../'
 
   target 'SwiftCommons.Core.Diagnostics.UnitTests' do
     inherit! :search_paths
@@ -55,7 +51,7 @@ end
 target 'SwiftCommons.Core.Extensions' do
   project '../RoxieMobile.SwiftCommons/Core.Extensions/SwiftCommons.Core.Extensions.xcodeproj'
 
-  pod 'SwiftCommons/Core/Lang', path: '../../'
+  pod 'SwiftCommons/Core/Abstractions', path: '../../'
   pod 'SwiftCommons/Core/Logging', path: '../../'
 
   target 'SwiftCommons.Core.Extensions.UnitTests' do
@@ -90,8 +86,6 @@ target 'SwiftCommons.Infrastructure.Database' do
 
   pod 'SwiftCommons/Core/Concurrent', path: '../../'
   pod 'SwiftCommons/Core/Extensions', path: '../../'
-  pod 'SwiftCommons/Core/Lang', path: '../../'
-  pod 'SwiftCommons/Core/Logging', path: '../../'
   pod 'CryptoSwift', '~> 0.7'
   pod 'SQLCipher', '~> 3.4', inhibit_warnings: true
 
