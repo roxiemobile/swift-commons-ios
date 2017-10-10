@@ -20,57 +20,72 @@ extension CheckTests
     func testNotEmpty() {
         let method = "Check.notEmpty"
 
-//        let value = "value"
-//        let nilValue: String? = nil
-//        let emptyValue = ""
-//
-//
-//        checkThrowsError(method) {
-//            try Check.notEmpty(nilValue)
-//        }
-//        checkThrowsError(method) {
-//            try Check.notEmpty(emptyValue)
-//        }
-//
-//        checkNotThrowsError(method) {
-//            try Check.notEmpty(value)
-//        }
-//
-//    // --
-//
-//        let array = ["value", "otherValue"]
-//        let nilArray: [String]? = nil
-//        let emptyArray = [String]()
-//
-//        checkThrowsError("\(method)_Array") {
-//            try Check.notEmpty(nilArray)
-//        }
-//        checkThrowsError("\(method)_Array") {
-//            try Check.notEmpty(emptyArray)
-//        }
-//
-//        checkNotThrowsError("\(method)_Array") {
-//            try Check.notEmpty(array)
-//        }
-//
-//    // --
-//
-//        let map = ["key": "value", "otherKey": "otherValue"]
-//        let nilMap: [String: String]? = nil
-//        let emptyMap = [String: String]()
-//
-//        checkThrowsError("\(method)_Map") {
-//            try Check.notEmpty(nilMap)
-//        }
-//        checkThrowsError("\(method)_Map") {
-//            try Check.notEmpty(emptyMap)
-//        }
-//
-//        checkNotThrowsError("\(method)_Map") {
-//            try Check.notEmpty(map)
-//        }
+        let value = "value"
+        let nilValue: String? = nil
+        let emptyValue = ""
 
-        XCTFail(method)
+
+        checkThrowsError(method) {
+            try Check.notEmpty(nilValue)
+        }
+        checkThrowsError(method) {
+            try Check.notEmpty(emptyValue)
+        }
+
+        checkNotThrowsError(method) {
+            try Check.notEmpty(value)
+        }
+
+        // --
+
+        let array = ["value", "otherValue"]
+        let nilArray: Array<String>? = nil
+        let emptyArray = Array<String>()
+
+        checkThrowsError("\(method)_Array") {
+            try Check.notEmpty(nilArray)
+        }
+        checkThrowsError("\(method)_Array") {
+            try Check.notEmpty(emptyArray)
+        }
+
+        checkNotThrowsError("\(method)_Array") {
+            try Check.notEmpty(array)
+        }
+
+        // --
+
+        let set: Set = ["value", "otherValue"]
+        let nilSet: Set<String>? = nil
+        let emptySet = Set<String>()
+
+        checkThrowsError("\(method)_Set") {
+            try Check.notEmpty(nilSet)
+        }
+        checkThrowsError("\(method)_Set") {
+            try Check.notEmpty(emptySet)
+        }
+
+        checkNotThrowsError("\(method)_Set") {
+            try Check.notEmpty(set)
+        }
+
+        // --
+
+        let map = ["key": "value", "otherKey": "otherValue"]
+        let nilMap: Dictionary<String, String>? = nil
+        let emptyMap = Dictionary<String, String>()
+
+        checkThrowsError("\(method)_Map") {
+            try Check.notEmpty(nilMap)
+        }
+        checkThrowsError("\(method)_Map") {
+            try Check.notEmpty(emptyMap)
+        }
+
+        checkNotThrowsError("\(method)_Map") {
+            try Check.notEmpty(map)
+        }
     }
 }
 
