@@ -23,6 +23,7 @@
 		19044E041F85932800090515 /* FatalErrorException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC91F85914200090515 /* FatalErrorException.swift */; };
 		19044E051F85932800090515 /* NonCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC71F85914100090515 /* NonCreatable.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreLang.a */; };
+		1969E0861F8ECDC2007A5F87 /* RoxieTests.TypeCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969E0821F8ECD4B007A5F87 /* RoxieTests.TypeCast.swift */; };
 		1986B9741F8E32DF004F6F8B /* Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986B9731F8E32DF004F6F8B /* Swift.swift */; };
 		19ABC6EF1F85A34700AD0C41 /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC6EE1F85A34100AD0C41 /* ReflectionTests.swift */; };
 		19ABC6F01F85A34700AD0C41 /* RoxieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC6EC1F85A34100AD0C41 /* RoxieTests.swift */; };
@@ -33,6 +34,7 @@
 		19C135E61F8E460400B27112 /* Collection.All.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C135E51F8E460400B27112 /* Collection.All.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Lang.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Lang.UnitTests.swift */; };
 		72BAEAA418EA401BDC3E5D32 /* Pods_SwiftCommons_Core_Lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4711E8DB16F1DE04DEC90BEC /* Pods_SwiftCommons_Core_Lang.framework */; };
+		8EE869A0CF0A8CF71C700245 /* Roxie.TypeCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE86835A2A0BB546044DA9F /* Roxie.TypeCast.swift */; };
 		F03EF9F83DBEEC942D6D755A /* Pods_SwiftCommons_Core_Lang_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F96B77F34AE9ABC6582B18E /* Pods_SwiftCommons_Core_Lang_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,7 @@
 		19044DE81F85922A00090515 /* ReflectedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectedType.swift; sourceTree = "<group>"; };
 		19044DE91F85922A00090515 /* Reflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreLang.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreLang.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1969E0821F8ECD4B007A5F87 /* RoxieTests.TypeCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoxieTests.TypeCast.swift; sourceTree = "<group>"; };
 		19792A361F72E7200001768B /* SwiftCommons.Core.Lang-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Lang-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Lang.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Lang.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1986B9731F8E32DF004F6F8B /* Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 		246AD7B63F78991CC2E769F3 /* Pods-SwiftCommons.Core.Lang.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Lang.UnitTests.debug.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Lang.UnitTests/Pods-SwiftCommons.Core.Lang.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C44598414B033F31176F81F /* Pods-SwiftCommons.Core.Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Lang.debug.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Lang/Pods-SwiftCommons.Core.Lang.debug.xcconfig"; sourceTree = "<group>"; };
 		4711E8DB16F1DE04DEC90BEC /* Pods_SwiftCommons_Core_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Core_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EE86835A2A0BB546044DA9F /* Roxie.TypeCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roxie.TypeCast.swift; sourceTree = "<group>"; };
 		A4BAA7F0C1EE8C4705F8313E /* Pods-SwiftCommons.Core.Lang.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Lang.UnitTests.release.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Lang.UnitTests/Pods-SwiftCommons.Core.Lang.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,7 @@
 			children = (
 				19044DD61F85922A00090515 /* Roxie.swift */,
 				19044DD51F85922A00090515 /* Roxie.FatalError.swift */,
+				8EE86835A2A0BB546044DA9F /* Roxie.TypeCast.swift */,
 			);
 			path = Roxie;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				19ABC6EC1F85A34100AD0C41 /* RoxieTests.swift */,
+				1969E0821F8ECD4B007A5F87 /* RoxieTests.TypeCast.swift */,
 			);
 			path = Roxie;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19ABC6EF1F85A34700AD0C41 /* ReflectionTests.swift in Sources */,
+				1969E0861F8ECDC2007A5F87 /* RoxieTests.TypeCast.swift in Sources */,
 				19ABC6F01F85A34700AD0C41 /* RoxieTests.swift in Sources */,
 				19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Lang.UnitTests.swift in Sources */,
 			);
@@ -520,6 +527,7 @@
 				19044DF11F85931300090515 /* Reflection.swift in Sources */,
 				19044E031F85932800090515 /* AbstractMethodException.swift in Sources */,
 				19044E001F85932800090515 /* String.Substring.swift in Sources */,
+				8EE869A0CF0A8CF71C700245 /* Roxie.TypeCast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
