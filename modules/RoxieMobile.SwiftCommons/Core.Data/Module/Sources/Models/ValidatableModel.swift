@@ -190,13 +190,29 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
 
 // MARK: - Methods: NSCopying
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Creates a new instance that’s a copy of the receiver.
+    ///
+    /// - Parameters:
+    ///   - zone: This parameter is ignored. Memory zones are no longer used by Objective-C.
+    ///
+    /// - Returns:
+    ///   A newly created copy of instance of the receiver.
+    ///
     open func copy(with zone: NSZone? = nil) -> Any {
-        return self.copy()
+        return clone()
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    open func copy() -> Self {
+    /// Returns the object returned by `copy(with:)`.
+    ///
+    /// - Returns:
+    ///   The object returned by the `NSCopying` protocol method `copy(with:)`.
+    ///
+    open func copy() -> Any {
+        return copy(with: nil)
+    }
+
+    /// Creates a deep copy of the receiver.
+    public final func clone() -> Self {
         return try! type(of: self).init(params: Mapper().toJSON(self))
     }
 
