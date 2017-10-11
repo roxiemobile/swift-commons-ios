@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-extension Roxie
+public extension Roxie
 {
 // MARK: - Methods
 

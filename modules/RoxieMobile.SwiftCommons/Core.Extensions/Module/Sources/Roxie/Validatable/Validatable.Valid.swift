@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Validatable+Extensions.swift
+//  Validatable.Valid.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -21,7 +21,9 @@ public extension Validatable
     /// - Returns:
     ///   `true` if object is not valid; otherwise, `false`.
     ///
-    public var isNotValid: Bool { return !self.isValid }
+    public var isNotValid: Bool {
+        return !self.isValid
+    }
 }
 
 // ----------------------------------------------------------------------------

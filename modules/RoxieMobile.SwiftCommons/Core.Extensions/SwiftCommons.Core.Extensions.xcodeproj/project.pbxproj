@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19227D2F1F8D11DC001A1664 /* Validatable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19227D2E1F8D11DC001A1664 /* Validatable+Extensions.swift */; };
-		19227D321F8D1423001A1664 /* Validatable+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19227D311F8D1423001A1664 /* Validatable+Optional.swift */; };
+		19227D2F1F8D11DC001A1664 /* Validatable.Valid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19227D2E1F8D11DC001A1664 /* Validatable.Valid.swift */; };
+		19227D321F8D1423001A1664 /* Validatable.NilOrValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19227D311F8D1423001A1664 /* Validatable.NilOrValid.swift */; };
 		194877ED1F8690440003A4AA /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194877EC1F8690440003A4AA /* FileManager+Extensions.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreExtensions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreExtensions.a */; };
 		1977FB111F869E330006E7FD /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977FB101F869E330006E7FD /* URL+Extensions.swift */; };
+		19C135EA1F8E552400B27112 /* Roxie.CustomTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C135E91F8E552400B27112 /* Roxie.CustomTag.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift */; };
 		1C6C0CD36C67D7AC7F667D48 /* Pods_SwiftCommons_Core_Extensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCF3342B8CE8C2FF89F8D16 /* Pods_SwiftCommons_Core_Extensions.framework */; };
 		DCC7BFAFC3247278998802A4 /* Pods_SwiftCommons_Core_Extensions_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89610661289AE6E60D9A7FC /* Pods_SwiftCommons_Core_Extensions_UnitTests.framework */; };
@@ -33,14 +34,15 @@
 		0367BCBA46ADFD0CBDB809C6 /* Pods-SwiftCommons.Core.Extensions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Extensions.debug.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Extensions/Pods-SwiftCommons.Core.Extensions.debug.xcconfig"; sourceTree = "<group>"; };
 		10816EE2F3C3C762062D77B7 /* Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Extensions.UnitTests/Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		16C06E247BDA02D43E18D219 /* Pods-SwiftCommons.Core.Extensions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Extensions.release.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Extensions/Pods-SwiftCommons.Core.Extensions.release.xcconfig"; sourceTree = "<group>"; };
-		19227D2E1F8D11DC001A1664 /* Validatable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Validatable+Extensions.swift"; sourceTree = "<group>"; };
-		19227D311F8D1423001A1664 /* Validatable+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Validatable+Optional.swift"; sourceTree = "<group>"; };
+		19227D2E1F8D11DC001A1664 /* Validatable.Valid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.Valid.swift; sourceTree = "<group>"; };
+		19227D311F8D1423001A1664 /* Validatable.NilOrValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.NilOrValid.swift; sourceTree = "<group>"; };
 		194877EC1F8690440003A4AA /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreExtensions.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreExtensions.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1977FB101F869E330006E7FD /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		19792A361F72E7200001768B /* SwiftCommons.Core.Extensions-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Extensions-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Extensions.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Extensions.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreExtensions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsCoreExtensions.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C135E91F8E552400B27112 /* Roxie.CustomTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roxie.CustomTag.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Core.Extensions.UnitTests.swift; sourceTree = "<group>"; };
 		7F1335B8D40F73DE239C3911 /* Pods-SwiftCommons.Core.Extensions.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Extensions.UnitTests.debug.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Extensions.UnitTests/Pods-SwiftCommons.Core.Extensions.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,8 +74,8 @@
 		19227D301F8D11E3001A1664 /* Roxie */ = {
 			isa = PBXGroup;
 			children = (
-				19227D2E1F8D11DC001A1664 /* Validatable+Extensions.swift */,
-				19227D311F8D1423001A1664 /* Validatable+Optional.swift */,
+				195BDFFB1F8E586D00910CBD /* Validatable */,
+				19C135E91F8E552400B27112 /* Roxie.CustomTag.swift */,
 			);
 			path = Roxie;
 			sourceTree = "<group>";
@@ -85,6 +87,15 @@
 				1977FB101F869E330006E7FD /* URL+Extensions.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		195BDFFB1F8E586D00910CBD /* Validatable */ = {
+			isa = PBXGroup;
+			children = (
+				19227D311F8D1423001A1664 /* Validatable.NilOrValid.swift */,
+				19227D2E1F8D11DC001A1664 /* Validatable.Valid.swift */,
+			);
+			path = Validatable;
 			sourceTree = "<group>";
 		};
 		195D39501F72CE4900118D17 /* Module.UnitTests */ = {
@@ -396,9 +407,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				194877ED1F8690440003A4AA /* FileManager+Extensions.swift in Sources */,
-				19227D2F1F8D11DC001A1664 /* Validatable+Extensions.swift in Sources */,
+				19227D2F1F8D11DC001A1664 /* Validatable.Valid.swift in Sources */,
 				1977FB111F869E330006E7FD /* URL+Extensions.swift in Sources */,
-				19227D321F8D1423001A1664 /* Validatable+Optional.swift in Sources */,
+				19227D321F8D1423001A1664 /* Validatable.NilOrValid.swift in Sources */,
+				19C135EA1F8E552400B27112 /* Roxie.CustomTag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
