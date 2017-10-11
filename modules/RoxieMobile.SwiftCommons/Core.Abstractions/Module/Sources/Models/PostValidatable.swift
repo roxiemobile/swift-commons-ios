@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 
 @available(*, deprecated, message: "\n• Write a description.")
-public protocol AnyPostValidatable
+public protocol PostValidatable
 {
 // MARK: - Properties
 
@@ -28,9 +28,3 @@ public protocol AnyPostValidatable
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "\n• Write a description.")
-public protocol PostValidatable: AnyPostValidatable {
-    // Do nothing
-}
-
-// ----------------------------------------------------------------------------

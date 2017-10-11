@@ -17,3 +17,29 @@ public extension Collection
 }
 
 // ----------------------------------------------------------------------------
+
+public extension Collection
+{
+    /**
+     * Checks if test returns true for all the elements in self
+     *
+     * - parameter test: Function to call for each element
+     * - returns: True if test returns true for all the elements in self
+     *
+     * @note Copy from ExSwift
+     * @link https://github.com/pNre/ExSwift
+     */
+    @available(*, deprecated, message: "\n• Must be deleted.")
+    func all(_ test: (Element) -> Bool) -> Bool
+    {
+        for item in self {
+            if !test(item) {
+                return false
+            }
+        }
+
+        return true
+    }
+}
+
+// ----------------------------------------------------------------------------

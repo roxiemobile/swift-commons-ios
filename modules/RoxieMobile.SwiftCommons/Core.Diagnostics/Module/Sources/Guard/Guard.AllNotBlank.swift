@@ -12,86 +12,43 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-/*
-using System;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics
-{
-    /// <summary>
-    /// A set of methods useful for validating objects states. Only failed checks are throws exceptions.
-    /// </summary>
-    public static partial class Guard
-    {
-// MARK: - Methods
-
-        /// <summary>
-        /// Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
-        /// </summary>
-        /// - values: An array of string objects.
-        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
-        /// - Throws: GuardException
-        public static void AllNotBlank(string[] values, string message = null)
-        {
-            if (TryIsFailure(() => Check.AllNotBlank(values), out Exception cause)) {
-                throw NewGuardError(message, cause);
-            }
-        }
-
-        /// <summary>
-        /// Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
-        /// </summary>
-        /// - values: An array of string objects.
-        /// - block: The function which returns identifying message for the `GuardException`.
-        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
-        /// - Throws: GuardException
-        public static void AllNotBlank(string[] values, Func<string> block)
-        {
-            if (block == null) {
-                throw new ArgumentNullException(nameof(block));
-            }
-
-            if (TryIsFailure(() => Check.AllNotBlank(values), out Exception cause)) {
-                throw NewGuardError(block(), cause);
-            }
-        }
-    }
-}
-*/
-
 extension Guard
 {
 // MARK: - Methods
 
-//    // TODO
-//    @available(*, deprecated)
-//    public static func isAllNotBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-//        rethrowOnFailure(message, file, line) { try Expect.isAllNotBlank(values) }
-//    }
-//
-//    @available(*, deprecated)
-//    public static func isAllNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-//        rethrowOnFailure(message, file, line) { try Expect.isAllNotBlank(values) }
-//    }
+    /// Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
+    ///
+    /// - Parameters:
+    ///   - values: An array of string objects.
+    ///   - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   GuardException
+    ///
+    public static func allNotBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
+        if let error = tryIsFailure(try Check.allNotBlank(values)) {
+            newGuardException(message, error, file, line).raise()
+        }
+    }
 
-//    /**
-//     Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
-//
-//     - Parameters:
-//         -  values: An array of string objects.
-//     */
-//    public static func allNotBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-//        rethrowOnFailure(message, file, line) { try Check.allNotBlank(values) }
-//    }
-//
-//    /**
-//     Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
-//
-//     - Parameters:
-//         -  values: An array of string objects.
-//     */
-//    public static func allNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-//        rethrowOnFailure(message, file, line) { try Check.allNotBlank(values) }
-//    }
+    /// Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
+    ///
+    /// - Parameters:
+    ///   - values: An array of string objects.
+    ///   - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   GuardException
+    ///
+    public static func allNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
+        if let error = tryIsFailure(try Check.allNotBlank(values)) {
+            newGuardException(message, error, file, line).raise()
+        }
+    }
 }
 
 // ----------------------------------------------------------------------------

@@ -12,8 +12,9 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "\n• Write a description.")
-public protocol AnySerializable: AnyObject
+/// The `Serializable` protocol declares the methods that a class must implement
+/// so that instances of that class can be encoded and decoded.
+public protocol Serializable: AnyObject
 {
     /// Returns an object initialized from data in a given unarchiver.
     ///
@@ -45,10 +46,3 @@ public protocol AnySerializable: AnyObject
 
 // ----------------------------------------------------------------------------
 
-/// The `Serializable` protocol declares the methods that a class must implement
-/// so that instances of that class can be encoded and decoded.
-public protocol Serializable: AnySerializable {
-    // Do nothing
-}
-
-// ----------------------------------------------------------------------------
