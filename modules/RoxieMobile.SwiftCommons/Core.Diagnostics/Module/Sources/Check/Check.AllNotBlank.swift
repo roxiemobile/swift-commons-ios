@@ -29,7 +29,7 @@ extension Check
     ///
     public static func allNotBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         if let values = values, values.isNotEmpty {
-            guard values.contains(where: { $0.isNotBlank }) else {
+            guard values.all({ $0.isNotBlank }) else {
                 throw newCheckError(message, file, line)
             }
         }
@@ -48,7 +48,7 @@ extension Check
     ///
     public static func allNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         if let values = values, values.isNotEmpty {
-            guard values.contains(where: { $0.isNotBlank }) else {
+            guard values.all({ $0.isNotBlank }) else {
                 throw newCheckError(message, file, line)
             }
         }
