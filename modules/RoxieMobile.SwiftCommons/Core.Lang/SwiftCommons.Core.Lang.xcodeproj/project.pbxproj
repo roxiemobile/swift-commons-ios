@@ -27,6 +27,7 @@
 		19044E041F85932800090515 /* FatalErrorException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC91F85914200090515 /* FatalErrorException.swift */; };
 		19044E051F85932800090515 /* NonCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC71F85914100090515 /* NonCreatable.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreLang.a */; };
+		1986B9741F8E32DF004F6F8B /* Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986B9731F8E32DF004F6F8B /* Swift.swift */; };
 		19ABC6EF1F85A34700AD0C41 /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC6EE1F85A34100AD0C41 /* ReflectionTests.swift */; };
 		19ABC6F01F85A34700AD0C41 /* RoxieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC6EC1F85A34100AD0C41 /* RoxieTests.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Lang.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Lang.UnitTests.swift */; };
@@ -70,6 +71,7 @@
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreLang.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreLang.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19792A361F72E7200001768B /* SwiftCommons.Core.Lang-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Lang-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Lang.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Lang.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		1986B9731F8E32DF004F6F8B /* Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift.swift; sourceTree = "<group>"; };
 		19ABC6EC1F85A34100AD0C41 /* RoxieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoxieTests.swift; sourceTree = "<group>"; };
 		19ABC6EE1F85A34100AD0C41 /* ReflectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionTests.swift; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreLang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsCoreLang.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				19044DD81F85922A00090515 /* Collection */,
 				19044DDB1F85922A00090515 /* Optional */,
 				19044DDE1F85922A00090515 /* String */,
+				1986B9731F8E32DF004F6F8B /* Swift.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				19044DFD1F85932800090515 /* String+Optional.swift in Sources */,
 				19044DF31F85931600090515 /* Roxie.swift in Sources */,
 				19044DF71F85932300090515 /* OptionalWrapper.swift in Sources */,
+				1986B9741F8E32DF004F6F8B /* Swift.swift in Sources */,
 				19044E041F85932800090515 /* FatalErrorException.swift in Sources */,
 				19044DF51F85931A00090515 /* Collection.swift in Sources */,
 				19044DF61F85932300090515 /* ImplicitlyUnwrappedOptionalWrapper.swift in Sources */,

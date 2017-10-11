@@ -22,9 +22,7 @@ extension Optional: OptionalWrapper
 // MARK: - Properties
 
     public var wrappedType: Any.Type {
-        get {
-            return Wrapped.self
-        }
+        return Wrapped.self
     }
 }
 
