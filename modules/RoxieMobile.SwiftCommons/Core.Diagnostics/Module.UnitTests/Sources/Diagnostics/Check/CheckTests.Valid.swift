@@ -45,7 +45,7 @@ extension CheckTests
 //        }
 //
 //        XCTAssertNotNil(parking)
-//        XCTAssertTrue(parking!.isValid())
+//        if let object = parking { XCTAssertTrue(object.isValid) }
 
         XCTFail(method)
     }

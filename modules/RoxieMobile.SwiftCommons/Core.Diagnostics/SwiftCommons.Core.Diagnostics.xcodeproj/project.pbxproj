@@ -145,6 +145,8 @@
 		196632CA1F88001D00C4A54B /* Guard.LessThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196632AA1F88001C00C4A54B /* Guard.LessThanOrEqualTo.swift */; };
 		196632CB1F88001D00C4A54B /* Guard.NotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196632AB1F88001D00C4A54B /* Guard.NotEmpty.swift */; };
 		196632CC1F88001D00C4A54B /* Guard.Same.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196632AC1F88001D00C4A54B /* Guard.Same.swift */; };
+		1978C3151F8FD7A300A7A723 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 194276141F87D70F00574076 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */; };
+		1978C3161F8FD7A400A7A723 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 194276151F87D70F00574076 /* test_parking_model_with_valid_vehicles_in_array.json */; };
 		19FDC1241F86E71800DA57BC /* Guard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDC07C1F86D50F00DA57BC /* Guard.swift */; };
 		19FDC1451F86E71800DA57BC /* GuardException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDC07D1F86D50F00DA57BC /* GuardException.swift */; };
 		A57E28B755A2B50E6D558C42 /* Pods_SwiftCommons_Core_Diagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41DFA1265DD8D85E1BAC44D /* Pods_SwiftCommons_Core_Diagnostics.framework */; };
@@ -728,6 +730,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1978C3151F8FD7A300A7A723 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */,
+				1978C3161F8FD7A400A7A723 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
