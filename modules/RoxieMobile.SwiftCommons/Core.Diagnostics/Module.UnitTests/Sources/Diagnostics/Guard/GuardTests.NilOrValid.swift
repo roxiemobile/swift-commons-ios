@@ -20,23 +20,21 @@ extension GuardTests
     func testNilOrValid() {
         let method = "Guard.nilOrValid"
 
-//        let validObject: Validatable = ValidModel()
-//        let nilObject: Validatable? = nil
-//        let notValidObject: Validatable = NotValidModel()
-//
-//
-//        guardThrowsException(method) {
-//            Guard.nilOrValid(notValidObject)
-//        }
-//
-//        guardNotThrowsException(method) {
-//            Guard.nilOrValid(validObject)
-//        }
-//        guardNotThrowsException(method) {
-//            Guard.nilOrValid(nilObject)
-//        }
+        let validObject: Validatable = ValidModel()
+        let nilObject: Validatable? = nil
+        let notValidObject: Validatable = NotValidModel()
 
-        XCTFail(method)
+
+        guardThrowsException(method) {
+            Guard.nilOrValid(notValidObject)
+        }
+
+        guardNotThrowsException(method) {
+            Guard.nilOrValid(validObject)
+        }
+        guardNotThrowsException(method) {
+            Guard.nilOrValid(nilObject)
+        }
     }
 }
 

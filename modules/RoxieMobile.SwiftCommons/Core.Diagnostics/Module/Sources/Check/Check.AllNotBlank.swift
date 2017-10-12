@@ -16,10 +16,10 @@ extension Check
 {
 // MARK: - Methods
 
-    /// Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
+    /// Checks that all a string objects in collection is not empty and contains not only whitespace characters.
     ///
     /// - Parameters:
-    ///   - values: An array of string objects.
+    ///   - values: An collection of string objects.
     ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -27,18 +27,22 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotBlank(_ values: [String]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
-        if let values = values, values.isNotEmpty {
-            guard values.all({ $0.isNotBlank }) else {
+    public static func allNotBlank<T:Collection>(
+            _ values: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    ) throws where T.Element == String {
+        // objects: Collection<String>?
+
+        if let collection = values, collection.isNotEmpty {
+            guard collection.all({ $0.isNotBlank }) else {
                 throw newCheckError(message, file, line)
             }
         }
     }
 
-    /// Checks that all a string objects in array is not `nil`, not empty and contains not only whitespace characters.
+    /// Checks that all a string objects in collection is not `nil`, not empty and contains not only whitespace characters.
     ///
     /// - Parameters:
-    ///   - values: An array of string objects.
+    ///   - values: An collection of string objects.
     ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -46,9 +50,13 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotBlank(_ values: [String?]?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
-        if let values = values, values.isNotEmpty {
-            guard values.all({ $0.isNotBlank }) else {
+    public static func allNotBlank<T:Collection>(
+            _ values: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    ) throws where T.Element == Optional<String> {
+        // objects: Collection<String?>?
+
+        if let collection = values, collection.isNotEmpty {
+            guard collection.all({ $0.isNotBlank }) else {
                 throw newCheckError(message, file, line)
             }
         }

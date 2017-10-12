@@ -19,7 +19,7 @@ extension Check
     /// Checks that two objects are equal. If `expected` and `actual` are `nil`, they are considered equal.
     ///
     /// - Parameters:
-    ///   - expected: Expected value.
+    ///   - expected: Expected value to check.
     ///   - actual: Actual value.
     ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
     ///   - file: The file name. The default is the file where function is called.

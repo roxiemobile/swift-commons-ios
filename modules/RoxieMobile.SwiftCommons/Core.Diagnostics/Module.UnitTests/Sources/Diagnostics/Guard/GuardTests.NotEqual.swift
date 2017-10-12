@@ -20,25 +20,23 @@ extension GuardTests
     func testNotEqual() {
         let method = "Guard.notEqual"
 
-//        let value = "value"
-//        let nilValue: String? = nil
-//
-//
-//        guardThrowsException(method) {
-//            Guard.notEqual(2, 2)
-//        }
-//        guardThrowsException(method) {
-//            Guard.notEqual(value, value)
-//        }
-//
-//        guardNotThrowsException(method) {
-//            Guard.notEqual(1, 2)
-//        }
-//        guardNotThrowsException(method) {
-//            Guard.notEqual(value, nilValue)
-//        }
+        let value = "value"
+        let nilValue: String? = nil
 
-        XCTFail(method)
+
+        guardThrowsException(method) {
+            Guard.notEqual(2, 2)
+        }
+        guardThrowsException(method) {
+            Guard.notEqual(value, value)
+        }
+
+        guardNotThrowsException(method) {
+            Guard.notEqual(1, 2)
+        }
+        guardNotThrowsException(method) {
+            Guard.notEqual(value, nilValue)
+        }
     }
 }
 

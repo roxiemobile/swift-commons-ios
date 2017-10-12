@@ -13,22 +13,11 @@ import SwiftCommons
 // ----------------------------------------------------------------------------
 
 /*
-using System;
-using System.Linq;
-using RoxieMobile.CSharpCommons.Abstractions.Models;
-using RoxieMobile.CSharpCommons.Extensions;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics
-{
-    /// <summary>
-    /// A set of methods useful for validating objects states. Only failed checks are throws exceptions.
-    /// </summary>
-    public static partial class Check
     {
 // MARK: - Methods
 
         /// <summary>
-        /// Checks that all an objects in array is not `nil` and not valid.
+        ///
         /// </summary>
         /// - objects: An array of objects.
         /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
@@ -70,78 +59,99 @@ extension Check
 {
 // MARK: - Methods
 
-//    // TODO
-//    @available(*, deprecated)
-//    public static func isAllNotValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllNotValid(objects), message, file, line)
-//        }
-//    }
-//
-//    @available(*, deprecated)
-//    public static func isAllNotValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllNotValid(objects), message, file, line)
-//        }
-//    }
-//
-//    @available(*, deprecated)
-//    public static func isAllNotValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllNotValid(objects), message, file, line)
-//        }
-//    }
-//
-//    @available(*, deprecated)
-//    public static func isAllNotValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllNotValid(objects), message, file, line)
-//        }
-//    }
+    /// Checks that all an objects in collection is not valid.
+    ///
+    /// - Parameters:
+    ///   - objects: An collection of an objects.
+    ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   CheckError
+    ///
+    public static func allNotValid<T:Collection>(
+            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    ) throws where T.Element == Validatable {
+        // objects: Collection<Validatable>?
 
-//    /**
-//     Checks that all an objects in array is not `nil` and not valid.
-//
-//     - Parameter objects: An array of objects.
-//     */
-//    public static func allNotValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllNotValid(objects), message, file, line)
-//        }
-//    }
-//
-//    /**
-//     Checks that all an objects in array is not `nil` and not valid.
-//
-//     - Parameter objects: An array of objects.
-//     */
-//    public static func allNotValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllNotValid(objects), message, file, line)
-//        }
-//    }
-//
-//    /**
-//     Checks that all an objects in array is not `nil` and not valid.
-//
-//     - Parameter objects: An array of objects.
-//     */
-//    public static func allNotValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllNotValid(objects), message, file, line)
-//        }
-//    }
-//
-//    /**
-//     Checks that all an objects in array is not `nil` and not valid.
-//
-//     - Parameter objects: An array of objects.
-//     */
-//    public static func allNotValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllNotValid(objects), message, file, line)
-//        }
-//    }
+        if let collection = objects, collection.isNotEmpty {
+            guard collection.all({ $0.isNotValid }) else {
+                throw newCheckError(message, file, line)
+            }
+        }
+    }
+
+    /// Checks that all an objects in collection is not valid.
+    ///
+    /// - Parameters:
+    ///   - objects: An collection of an objects.
+    ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   CheckError
+    ///
+    public static func allNotValid<T:Collection>(
+            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    ) throws where T.Element: Validatable {
+        // objects: Collection<Subtype: Validatable>?
+
+        if let collection = objects, collection.isNotEmpty {
+            guard collection.all({ $0.isNotValid }) else {
+                throw newCheckError(message, file, line)
+            }
+        }
+    }
+
+// MARK: - Methods
+
+    /// Checks that all an objects in collection is not `nil` and not valid.
+    ///
+    /// - Parameters:
+    ///   - objects: An collection of an objects.
+    ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   CheckError
+    ///
+    public static func allNotValid<T:Collection>(
+            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    ) throws where T.Element == Optional<Validatable> {
+        // objects: Collection<Validatable?>?
+
+        if let collection = objects, collection.isNotEmpty {
+            guard collection.all({ ($0 != nil) && $0!.isNotValid }) else {
+                throw newCheckError(message, file, line)
+            }
+        }
+    }
+
+    /// Checks that all an objects in collection is not `nil` and not valid.
+    ///
+    /// - Parameters:
+    ///   - objects: An collection of an objects.
+    ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   CheckError
+    ///
+    public static func allNotValid<T:Collection, V:Validatable>(
+            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    ) throws where T.Element == Optional<V> {
+        // objects: Collection<Subtype: Validatable?>?
+
+        if let collection = objects, collection.isNotEmpty {
+            guard collection.all({ ($0 != nil) && $0!.isNotValid }) else {
+                throw newCheckError(message, file, line)
+            }
+        }
+    }
 }
 
 // ----------------------------------------------------------------------------

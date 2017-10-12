@@ -25,9 +25,9 @@ extension GuardTests
         let whitespaceValue = " \t\r\n"
 
         let otherValue = "otherValue"
-        let array: [String]? = [value, otherValue]
-        let nilArray: [String]? = nil
-        let emptyArray = [String]()
+        let array: Array<String>? = [value, otherValue]
+        let nilArray: Array<String>? = nil
+        let emptyArray = Array<String>()
 
 
         guardThrowsException("\(method)_Array") {
@@ -49,6 +49,33 @@ extension GuardTests
         guardNotThrowsException("\(method)_Array") {
             Guard.allNotBlank(emptyArray)
         }
+
+        // --
+
+        let set: Set<String>? = [value, otherValue]
+        let nilSet: Set<String>? = nil
+        let emptySet = Set<String>()
+
+
+        guardThrowsException("\(method)_Set") {
+            Guard.allNotBlank(Set([emptyValue]))
+        }
+        guardThrowsException("\(method)_Set") {
+            Guard.allNotBlank(Set([whitespaceValue]))
+        }
+        guardThrowsException("\(method)_Set") {
+            Guard.allNotBlank(Set([value, whitespaceValue]))
+        }
+
+        guardNotThrowsException("\(method)_Set") {
+            Guard.allNotBlank(set)
+        }
+        guardNotThrowsException("\(method)_Set") {
+            Guard.allNotBlank(nilSet)
+        }
+        guardNotThrowsException("\(method)_Set") {
+            Guard.allNotBlank(emptySet)
+        }
     }
 
     func testAllNotBlank_ArrayOfOptionals() {
@@ -60,9 +87,9 @@ extension GuardTests
         let whitespaceValue: String? = " \t\r\n"
 
         let otherValue: String? = "otherValue"
-        let array: [String?]? = [value, otherValue]
-        let nilArray: [String?]? = nil
-        let emptyArray = [String?]()
+        let array: Array<String?>? = [value, otherValue]
+        let nilArray: Array<String?>? = nil
+        let emptyArray = Array<String?>()
 
 
         guardThrowsException("\(method)_ArrayOfOptionals") {

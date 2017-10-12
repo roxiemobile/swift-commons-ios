@@ -12,49 +12,6 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-/*
-    public partial class Check
-    {
-// MARK: - Methods
-
-        /// <summary>
-        /// Checks that all an objects in collection is not `nil` and valid.
-        /// </summary>
-        /// - objects: An collection of objects.
-        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
-        /// - Throws: CheckError
-        public static void AllValid(IValidatable[] objects, string message = null)
-        {
-            if (!TryAllValid(objects)) {
-                throw NewCheckException(message);
-            }
-        }
-
-        /// <summary>
-        /// Checks that all an objects in collection is not `nil` and valid.
-        /// </summary>
-        /// - objects: An collection of objects.
-        /// - block: The function which returns identifying message for the `CheckError`.
-        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
-        /// - Throws: CheckError
-        public static void AllValid(IValidatable[] objects, Func<string> block)
-        {
-            if (block == null) {
-                throw new ArgumentNullException(nameof(block));
-            }
-
-            if (!TryAllValid(objects)) {
-                throw NewCheckException(block());
-            }
-        }
-
-// MARK: - Private Methods
-
-        private static bool TryAllValid(IValidatable[] objects) =>
-            objects.IsEmpty() || objects.All(o => o?.IsValid() ?? false);
-    }
-*/
-
 extension Check
 {
 // MARK: - Methods
@@ -152,37 +109,6 @@ extension Check
             }
         }
     }
-
-// MARK: - Methods
-
-//    // TODO
-//    @available(*, deprecated)
-//    public static func isAllValid(_ objects: [Validatable]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllValid(objects), message, file, line)
-//        }
-//    }
-//
-//    @available(*, deprecated)
-//    public static func isAllValid(_ objects: [Validatable?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllValid(objects), message, file, line)
-//        }
-//    }
-//
-//    @available(*, deprecated)
-//    public static func isAllValid<T:Validatable>(_ objects: [T]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllValid(objects), message, file, line)
-//        }
-//    }
-//
-//    @available(*, deprecated)
-//    public static func isAllValid<T:Validatable>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(ValidatableUtils.isAllValid(objects), message, file, line)
-//        }
-//    }
 }
 
 // ----------------------------------------------------------------------------

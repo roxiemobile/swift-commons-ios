@@ -20,75 +20,71 @@ extension CheckTests
     func testAllBlank_Array() {
         let method = "Check.allBlank"
 
-//        let value = "value"
-//        let emptyValue = ""
-//        let whitespaceValue = " \t\r\n"
-//
-//        let array: [String] = [emptyValue, whitespaceValue]
-//        let nilArray: [String]? = nil
-//        let emptyArray = [String]()
-//
-//
-//        checkThrowsError("\(method)_Array") {
-//            try Check.allBlank([value])
-//        }
-//        checkThrowsError("\(method)_Array") {
-//            try Check.allBlank([emptyValue, value])
-//        }
-//        checkThrowsError("\(method)_Array") {
-//            try Check.allBlank([whitespaceValue, value])
-//        }
-//
-//        checkNotThrowsError("\(method)_Array") {
-//            try Check.allBlank(array)
-//        }
-//        checkNotThrowsError("\(method)_Array") {
-//            try Check.allBlank(nilArray)
-//        }
-//        checkNotThrowsError("\(method)_Array") {
-//            try Check.allBlank(emptyArray)
-//        }
+        let value = "value"
+        let emptyValue = ""
+        let whitespaceValue = " \t\r\n"
 
-        XCTFail(method)
+        let array: Array<String> = [emptyValue, whitespaceValue]
+        let nilArray: Array<String>? = nil
+        let emptyArray = Array<String>()
+
+
+        checkThrowsError("\(method)_Array") {
+            try Check.allBlank([value])
+        }
+        checkThrowsError("\(method)_Array") {
+            try Check.allBlank([emptyValue, value])
+        }
+        checkThrowsError("\(method)_Array") {
+            try Check.allBlank([whitespaceValue, value])
+        }
+
+        checkNotThrowsError("\(method)_Array") {
+            try Check.allBlank(array)
+        }
+        checkNotThrowsError("\(method)_Array") {
+            try Check.allBlank(nilArray)
+        }
+        checkNotThrowsError("\(method)_Array") {
+            try Check.allBlank(emptyArray)
+        }
     }
 
     func testAllBlank_ArrayOfOptionals() {
         let method = "Check.allBlank"
 
-//        let value: String? = "value"
-//        let nilValue: String? = nil
-//        let emptyValue: String? = ""
-//        let whitespaceValue: String? = " \t\r\n"
-//
-//        let array: [String?]? = [nilValue, emptyValue, whitespaceValue]
-//        let nilArray: [String?]? = nil
-//        let emptyArray = [String?]()
-//
-//
-//        checkThrowsError("\(method)_ArrayOfOptionals") {
-//            try Check.allBlank([value])
-//        }
-//        checkThrowsError("\(method)_ArrayOfOptionals") {
-//            try Check.allBlank([nilValue, value])
-//        }
-//        checkThrowsError("\(method)_ArrayOfOptionals") {
-//            try Check.allBlank([emptyValue, value])
-//        }
-//        checkThrowsError("\(method)_ArrayOfOptionals") {
-//            try Check.allBlank([whitespaceValue, value])
-//        }
-//
-//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
-//            try Check.allBlank(array)
-//        }
-//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
-//            try Check.allBlank(nilArray)
-//        }
-//        checkNotThrowsError("\(method)_ArrayOfOptionals") {
-//            try Check.allBlank(emptyArray)
-//        }
+        let value: String? = "value"
+        let nilValue: String? = nil
+        let emptyValue: String? = ""
+        let whitespaceValue: String? = " \t\r\n"
 
-        XCTFail(method)
+        let array: Array<String?>? = [nilValue, emptyValue, whitespaceValue]
+        let nilArray: Array<String?>? = nil
+        let emptyArray = Array<String?>()
+
+
+        checkThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allBlank([value])
+        }
+        checkThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allBlank([nilValue, value])
+        }
+        checkThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allBlank([emptyValue, value])
+        }
+        checkThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allBlank([whitespaceValue, value])
+        }
+
+        checkNotThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allBlank(array)
+        }
+        checkNotThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allBlank(nilArray)
+        }
+        checkNotThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allBlank(emptyArray)
+        }
     }
 }
 

@@ -25,9 +25,9 @@ extension CheckTests
         let whitespaceValue = " \t\r\n"
 
         let otherValue = "otherValue"
-        let array: [String]? = [value, otherValue]
-        let nilArray: [String]? = nil
-        let emptyArray = [String]()
+        let array: Array<String>? = [value, otherValue]
+        let nilArray: Array<String>? = nil
+        let emptyArray = Array<String>()
 
 
         checkThrowsError("\(method)_Array") {
@@ -49,6 +49,33 @@ extension CheckTests
         checkNotThrowsError("\(method)_Array") {
             try Check.allNotBlank(emptyArray)
         }
+
+        // --
+
+        let set: Set<String>? = [value, otherValue]
+        let nilSet: Set<String>? = nil
+        let emptySet = Set<String>()
+
+
+        checkThrowsError("\(method)_Set") {
+            try Check.allNotBlank(Set([emptyValue]))
+        }
+        checkThrowsError("\(method)_Set") {
+            try Check.allNotBlank(Set([whitespaceValue]))
+        }
+        checkThrowsError("\(method)_Set") {
+            try Check.allNotBlank(Set([value, whitespaceValue]))
+        }
+
+        checkNotThrowsError("\(method)_Set") {
+            try Check.allNotBlank(set)
+        }
+        checkNotThrowsError("\(method)_Set") {
+            try Check.allNotBlank(nilSet)
+        }
+        checkNotThrowsError("\(method)_Set") {
+            try Check.allNotBlank(emptySet)
+        }
     }
 
     func testAllNotBlank_ArrayOfOptionals() {
@@ -60,9 +87,9 @@ extension CheckTests
         let whitespaceValue: String? = " \t\r\n"
 
         let otherValue: String? = "otherValue"
-        let array: [String?]? = [value, otherValue]
-        let nilArray: [String?]? = nil
-        let emptyArray = [String?]()
+        let array: Array<String?>? = [value, otherValue]
+        let nilArray: Array<String?>? = nil
+        let emptyArray = Array<String?>()
 
 
         checkThrowsError("\(method)_ArrayOfOptionals") {

@@ -20,23 +20,21 @@ extension CheckTests
     func testNilOrNotValid() {
         let method = "Check.nilOrNotValid"
 
-//        let validObject: Validatable = ValidModel()
-//        let nilObject: Validatable? = nil
-//        let notValidObject: Validatable = NotValidModel()
-//
-//
-//        checkThrowsError(method) {
-//            try Check.nilOrNotValid(validObject)
-//        }
-//
-//        checkNotThrowsError(method) {
-//            try Check.nilOrNotValid(nilObject)
-//        }
-//        checkNotThrowsError(method) {
-//            try Check.nilOrNotValid(notValidObject)
-//        }
+        let validObject: Validatable = ValidModel()
+        let nilObject: Validatable? = nil
+        let notValidObject: Validatable = NotValidModel()
 
-        XCTFail(method)
+
+        checkThrowsError(method) {
+            try Check.nilOrNotValid(validObject)
+        }
+
+        checkNotThrowsError(method) {
+            try Check.nilOrNotValid(nilObject)
+        }
+        checkNotThrowsError(method) {
+            try Check.nilOrNotValid(notValidObject)
+        }
     }
 }
 

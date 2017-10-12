@@ -20,25 +20,23 @@ extension CheckTests
     func testNotEqual() {
         let method = "Check.notEqual"
 
-//        let value = "value"
-//        let nilValue: String? = nil
-//
-//
-//        checkThrowsError(method) {
-//            try Check.notEqual(2, 2)
-//        }
-//        checkThrowsError(method) {
-//            try Check.notEqual(value, value)
-//        }
-//
-//        checkNotThrowsError(method) {
-//            try Check.notEqual(1, 2)
-//        }
-//        checkNotThrowsError(method) {
-//            try Check.notEqual(value, nilValue)
-//        }
+        let value = "value"
+        let nilValue: String? = nil
 
-        XCTFail(method)
+
+        checkThrowsError(method) {
+            try Check.notEqual(2, 2)
+        }
+        checkThrowsError(method) {
+            try Check.notEqual(value, value)
+        }
+
+        checkNotThrowsError(method) {
+            try Check.notEqual(1, 2)
+        }
+        checkNotThrowsError(method) {
+            try Check.notEqual(value, nilValue)
+        }
     }
 }
 

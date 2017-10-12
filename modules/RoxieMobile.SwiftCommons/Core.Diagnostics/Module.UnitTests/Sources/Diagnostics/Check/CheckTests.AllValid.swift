@@ -23,9 +23,9 @@ extension CheckTests
         let validObject: Validatable = ValidModel()
         let notValidObject: Validatable = NotValidModel()
 
-        let array: [Validatable]? = [validObject]
-        let nilArray: [Validatable]? = nil
-        let emptyArray = [Validatable]()
+        let array: Array<Validatable>? = [validObject]
+        let nilArray: Array<Validatable>? = nil
+        let emptyArray = Array<Validatable>()
 
 
         checkThrowsError("\(method)_Array") {
@@ -47,9 +47,9 @@ extension CheckTests
 
         // --
 
-        let arrayOfModels: [ValidModel]? = [ValidModel()]
-        let nilArrayOfModels: [ValidModel]? = nil
-        let emptyArrayOfModels = [ValidModel]()
+        let arrayOfModels: Array<ValidModel>? = [ValidModel()]
+        let nilArrayOfModels: Array<ValidModel>? = nil
+        let emptyArrayOfModels = Array<ValidModel>()
 
 
         checkThrowsError("\(method)_Array") {
@@ -74,9 +74,9 @@ extension CheckTests
         let nilObject: Validatable? = nil
         let notValidObject: Validatable? = NotValidModel()
 
-        let array: [Validatable?]? = [validObject]
-        let nilArray: [Validatable?]? = nil
-        let emptyArray = [Validatable?]()
+        let array: Array<Validatable?>? = [validObject]
+        let nilArray: Array<Validatable?>? = nil
+        let emptyArray = Array<Validatable?>()
 
 
         checkThrowsError("\(method)_ArrayOfOptionals") {
@@ -101,9 +101,9 @@ extension CheckTests
 
         // --
 
-        let arrayOfModels: [ValidModel?]? = [ValidModel()]
-        let nilArrayOfModels: [ValidModel?]? = nil
-        let emptyArrayOfModels = [ValidModel?]()
+        let arrayOfModels: Array<ValidModel?>? = [ValidModel()]
+        let nilArrayOfModels: Array<ValidModel?>? = nil
+        let emptyArrayOfModels = Array<ValidModel?>()
 
 
         checkThrowsError("\(method)_Array") {
