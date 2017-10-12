@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 //
 //  GuardTests.GreaterThanOrEqualTo.swift
 //
@@ -20,18 +20,16 @@ extension GuardTests
     func testGreaterThanOrEqualTo() {
         let method = "Guard.greaterThanOrEqualTo"
 
-//        guardThrowsException(method) {
-//            Guard.greaterThanOrEqualTo(1, 2)
-//        }
-//
-//        guardNotThrowsException(method) {
-//            Guard.greaterThanOrEqualTo(2, 2)
-//        }
-//        guardNotThrowsException(method) {
-//            Guard.greaterThanOrEqualTo(2, 1)
-//        }
+        guardThrowsException(method) {
+            Guard.greaterThanOrEqualTo(1, 2)
+        }
 
-        XCTFail(method)
+        guardNotThrowsException(method) {
+            Guard.greaterThanOrEqualTo(2, 2)
+        }
+        guardNotThrowsException(method) {
+            Guard.greaterThanOrEqualTo(2, 1)
+        }
     }
 }
 

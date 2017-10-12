@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 //
 //  CheckTests.LessThan.swift
 //
@@ -20,18 +20,16 @@ extension CheckTests
     func testLessThan() {
         let method = "Check.lessThan"
 
-//        checkThrowsError(method) {
-//            Check.lessThan(2, 1)
-//        }
-//        checkThrowsError(method) {
-//            Check.lessThan(2, 2)
-//        }
-//
-//        checkNotThrowsError(method) {
-//            Check.lessThan(1, 2)
-//        }
+        checkThrowsError(method) {
+            try Check.lessThan(2, 1)
+        }
+        checkThrowsError(method) {
+            try Check.lessThan(2, 2)
+        }
 
-        XCTFail(method)
+        checkNotThrowsError(method) {
+            try Check.lessThan(1, 2)
+        }
     }
 }
 

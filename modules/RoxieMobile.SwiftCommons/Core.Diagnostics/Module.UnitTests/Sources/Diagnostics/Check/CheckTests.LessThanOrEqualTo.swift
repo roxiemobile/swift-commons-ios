@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 //
 //  CheckTests.LessThanOrEqualTo.swift
 //
@@ -20,18 +20,16 @@ extension CheckTests
     func testLessThanOrEqualTo() {
         let method = "Check.lessThanOrEqualTo"
 
-//        checkThrowsError(method) {
-//            Check.lessThanOrEqualTo(2, 1)
-//        }
-//
-//        checkNotThrowsError(method) {
-//            Check.lessThanOrEqualTo(2, 2)
-//        }
-//        checkNotThrowsError(method) {
-//            Check.lessThanOrEqualTo(1, 2)
-//        }
+        checkThrowsError(method) {
+            try Check.lessThanOrEqualTo(2, 1)
+        }
 
-        XCTFail(method)
+        checkNotThrowsError(method) {
+            try Check.lessThanOrEqualTo(2, 2)
+        }
+        checkNotThrowsError(method) {
+            try Check.lessThanOrEqualTo(1, 2)
+        }
     }
 }
 

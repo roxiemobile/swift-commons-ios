@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 //
 //  CheckTests.GreaterThan.swift
 //
@@ -20,18 +20,16 @@ extension CheckTests
     func testGreaterThan() {
         let method = "Check.greaterThan"
 
-//        checkThrowsError(method) {
-//            Check.greaterThan(1, 2)
-//        }
-//        checkThrowsError(method) {
-//            Check.greaterThan(2, 2)
-//        }
-//
-//        checkNotThrowsError(method) {
-//            Check.greaterThan(2, 1)
-//        }
+        checkThrowsError(method) {
+            try Check.greaterThan(1, 2)
+        }
+        checkThrowsError(method) {
+            try Check.greaterThan(2, 2)
+        }
 
-        XCTFail(method)
+        checkNotThrowsError(method) {
+            try Check.greaterThan(2, 1)
+        }
     }
 }
 

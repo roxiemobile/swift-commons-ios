@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 //
 //  GuardTests.LessThanOrEqualTo.swift
 //
@@ -20,19 +20,17 @@ extension GuardTests
     func testLessThanOrEqualTo() {
         let method = "Guard.lessThanOrEqualTo"
 
-//        guardThrowsError(method) {
-//            Guard.lessThanOrEqualTo(2, 1)
-//        }
-//
-//        guardNotThrowsError(method) {
-//            Guard.lessThanOrEqualTo(2, 2)
-//        }
-//
-//        guardNotThrowsError(method) {
-//            Guard.lessThanOrEqualTo(1, 2)
-//        }
+        guardThrowsException(method) {
+            Guard.lessThanOrEqualTo(2, 1)
+        }
 
-        XCTFail(method)
+        guardNotThrowsException(method) {
+            Guard.lessThanOrEqualTo(2, 2)
+        }
+
+        guardNotThrowsException(method) {
+            Guard.lessThanOrEqualTo(1, 2)
+        }
     }
 }
 

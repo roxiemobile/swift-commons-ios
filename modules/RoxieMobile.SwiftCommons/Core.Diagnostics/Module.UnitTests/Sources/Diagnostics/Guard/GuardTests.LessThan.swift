@@ -20,18 +20,16 @@ extension GuardTests
     func testLessThan() {
         let method = "Guard.lessThan"
 
-//        guardThrowsException(method) {
-//            Guard.lessThan(2, 1)
-//        }
-//        guardThrowsException(method) {
-//            Guard.lessThan(2, 1)
-//        }
-//
-//        guardNotThrowsException(method) {
-//            Guard.lessThan(1, 2)
-//        }
+        guardThrowsException(method) {
+            Guard.lessThan(2, 1)
+        }
+        guardThrowsException(method) {
+            Guard.lessThan(2, 1)
+        }
 
-        XCTFail(method)
+        guardNotThrowsException(method) {
+            Guard.lessThan(1, 2)
+        }
     }
 }
 

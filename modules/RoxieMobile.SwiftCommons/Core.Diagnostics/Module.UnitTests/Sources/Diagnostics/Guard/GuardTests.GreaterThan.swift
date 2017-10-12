@@ -20,18 +20,16 @@ extension GuardTests
     func testGreaterThan() {
         let method = "Guard.greaterThan"
 
-//        guardThrowsException(method) {
-//            Guard.greaterThan(1, 2)
-//        }
-//        guardThrowsException(method) {
-//            Guard.greaterThan(2, 2)
-//        }
-//
-//        guardNotThrowsException(method) {
-//            Guard.greaterThan(2, 1)
-//        }
+        guardThrowsException(method) {
+            Guard.greaterThan(1, 2)
+        }
+        guardThrowsException(method) {
+            Guard.greaterThan(2, 2)
+        }
 
-        XCTFail(method)
+        guardNotThrowsException(method) {
+            Guard.greaterThan(2, 1)
+        }
     }
 }
 

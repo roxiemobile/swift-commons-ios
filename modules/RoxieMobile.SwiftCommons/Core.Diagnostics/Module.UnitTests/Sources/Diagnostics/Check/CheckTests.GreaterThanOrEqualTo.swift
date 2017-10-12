@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 //
 //  CheckTests.GreaterThanOrEqualTo.swift
 //
@@ -20,18 +20,16 @@ extension CheckTests
     func testGreaterThanOrEqualTo() {
         let method = "Check.greaterThanOrEqualTo"
 
-//        checkThrowsError(method) {
-//            Check.greaterThanOrEqualTo(1, 2)
-//        }
-//
-//        checkNotThrowsException(method) {
-//            Check.greaterThanOrEqualTo(2, 2)
-//        }
-//        checkNotThrowsException(method) {
-//            Check.greaterThanOrEqualTo(2, 1)
-//        }
+        checkThrowsError(method) {
+            try Check.greaterThanOrEqualTo(1, 2)
+        }
 
-        XCTFail(method)
+        checkNotThrowsError(method) {
+            try Check.greaterThanOrEqualTo(2, 2)
+        }
+        checkNotThrowsError(method) {
+            try Check.greaterThanOrEqualTo(2, 1)
+        }
     }
 }
 
