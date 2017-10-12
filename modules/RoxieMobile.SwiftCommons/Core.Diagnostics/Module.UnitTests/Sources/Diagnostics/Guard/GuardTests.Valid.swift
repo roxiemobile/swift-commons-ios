@@ -20,19 +20,17 @@ extension GuardTests
     func testValid() {
         let method = "Guard.valid"
 
-//        let validObject: Validatable = ValidModel()
-//        let notValidObject: Validatable = NotValidModel()
-//
-//
-//        guardThrowsException(method) {
-//            Guard.valid(notValidObject)
-//        }
-//
-//        guardNotThrowsException(method) {
-//            Guard.valid(validObject)
-//        }
+        let validObject: Validatable = ValidModel()
+        let notValidObject: Validatable = NotValidModel()
 
-        XCTFail(method)
+
+        guardThrowsException(method) {
+            Guard.valid(notValidObject)
+        }
+
+        guardNotThrowsException(method) {
+            Guard.valid(validObject)
+        }
     }
 }
 

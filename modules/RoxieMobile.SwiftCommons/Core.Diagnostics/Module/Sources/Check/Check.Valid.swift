@@ -27,7 +27,7 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func valid<T:Validatable>(_ object: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
+    public static func valid(_ object: Validatable?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard let object = object, object.isValid else {
             throw newCheckError(message, file, line)
         }

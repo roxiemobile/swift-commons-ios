@@ -20,19 +20,17 @@ extension CheckTests
     func testNotValid() {
         let method = "Check.notValid"
 
-//        let validObject: Validatable = ValidModel()
-//        let notValidObject: Validatable = NotValidModel()
-//
-//
-//        checkThrowsError(method) {
-//            try Check.notValid(validObject)
-//        }
-//
-//        checkNotThrowsError(method) {
-//            try Check.notValid(notValidObject)
-//        }
+        let validObject: Validatable = ValidModel()
+        let notValidObject: Validatable = NotValidModel()
 
-        XCTFail(method)
+
+        checkThrowsError(method) {
+            try Check.notValid(validObject)
+        }
+
+        checkNotThrowsError(method) {
+            try Check.notValid(notValidObject)
+        }
     }
 
     func testNotValidModel() {
