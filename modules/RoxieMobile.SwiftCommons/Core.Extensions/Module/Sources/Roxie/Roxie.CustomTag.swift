@@ -17,7 +17,7 @@ public extension Roxie
 // MARK: - Methods
 
     /// Creates a custom tag for any class.
-    public func customTag(clazz: AnyClass) -> String
+    public static func customTag(clazz: AnyClass) -> String
     {
         let nameTag = String(format:"%08lx", Roxie.typeName(of: clazz).hashValue)
         let timeTag = String(format:"%08lx", mach_absolute_time())
