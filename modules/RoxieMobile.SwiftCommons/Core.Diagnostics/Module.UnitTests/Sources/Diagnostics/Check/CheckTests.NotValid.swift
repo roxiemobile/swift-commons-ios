@@ -36,17 +36,15 @@ extension CheckTests
     func testNotValidModel() {
         let method = "Check.notValid"
 
-//        var parking: ParkingModel? = nil
-//
-//        if let jsonObject = loadJson("test_parking_model_with_one_non_valid_vehicle_in_array") {
-//            checkThrowsError("\(method)_Model", errorType: JsonSyntaxError.self) {
-//                parking = try ParkingModel(params: jsonObject)
-//            }
-//        }
-//
-//        XCTAssertNil(parking)
+        var parking: ParkingModel? = nil
 
-        XCTFail(method)
+        if let jsonObject = loadJson("test_parking_model_with_one_non_valid_vehicle_in_array") {
+            checkThrowsError("\(method)_Model", errorType: JsonSyntaxError.self) {
+                parking = try ParkingModel(params: jsonObject)
+            }
+        }
+
+        XCTAssertNil(parking)
     }
 }
 
