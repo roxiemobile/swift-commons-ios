@@ -114,16 +114,7 @@ extension Check
 {
 // MARK: - Methods
 
-//    /**
-//     Checks that two objects refer to the same object. If they are not, an `GuardException` is thrown with the given message.
-//
-//     - Parameters:
-//         - message: Verifies that the exact exception is thrown (and not a derived exception type)
-//         - line: A delegate to the code that is expected to throw an exception when executed.
-//     */
-//    /*public static func throwError(_ message: String? = nil, _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        throw ExpectationError(message, file: file, line: line)
-//    }*/
+    // TODO
 }
 
 // ----------------------------------------------------------------------------

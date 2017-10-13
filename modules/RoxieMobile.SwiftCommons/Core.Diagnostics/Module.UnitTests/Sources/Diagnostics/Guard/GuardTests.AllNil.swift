@@ -20,33 +20,31 @@ extension GuardTests
     func testAllNil() {
         let method = "Guard.allNil"
 
-// FIXME: C#
-//        const string value = "value";
-//        const string nilValue = null;
-//        const string emptyValue = "";
-//
-//        string[] nilArray = null;
-//        string[] emptyArray = {};
-//
-//
-//        guardThrowsException("\(method)_Array") {
-//            Guard.allNull(ToArray(nilValue, value))
-//        }
-//        guardThrowsException("\(method)_Array") {
-//            Guard.allNull(ToArray(nilValue, emptyValue))
-//        }
-//
-//        guardNotThrowsException("\(method)_Array") {
-//            Guard.allNull(ToArray(nilValue, nilValue))
-//        }
-//        guardNotThrowsException("\(method)_Array") {
-//            Guard.allNull(nilArray)
-//        }
-//        guardNotThrowsException("\(method)_Array") {
-//            Guard.allNull(emptyArray)
-//        }
+        let value = "value"
+        let nilValue: String? = nil
+        let emptyValue = ""
 
-        XCTFail(method)
+        let array: Array<String?> = [nilValue, nilValue]
+        let nilArray: Array<String?>? = nil
+        let emptyArray = Array<String?>()
+
+
+        guardThrowsException("\(method)_ArrayOfOptionals") {
+            Guard.allNil([nilValue, value])
+        }
+        guardThrowsException("\(method)_ArrayOfOptionals") {
+            Guard.allNil([nilValue, emptyValue])
+        }
+
+        guardNotThrowsException("\(method)_ArrayOfOptionals") {
+            Guard.allNil(array)
+        }
+        guardNotThrowsException("\(method)_ArrayOfOptionals") {
+            Guard.allNil(nilArray)
+        }
+        guardNotThrowsException("\(method)_ArrayOfOptionals") {
+            Guard.allNil(emptyArray)
+        }
     }
 }
 

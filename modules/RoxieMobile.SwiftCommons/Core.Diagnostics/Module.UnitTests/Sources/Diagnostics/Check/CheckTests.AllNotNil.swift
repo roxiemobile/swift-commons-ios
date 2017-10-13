@@ -20,34 +20,31 @@ extension CheckTests
     func testAllNotNil() {
         let method = "Check.allNotNil"
 
-// FIXME: C#
-//        const string value = "value"
-//        const string nilValue = null
-//        const string emptyValue = ""
-//
-//        string[] array = ToArray(value, emptyValue)
-//        string[] nilArray = null
-//        string[] emptyArray = {}
-//
-//
-//        CheckThrowsError("\(method)_Array") {
-//            Check.allNotNil(ToArray(value, nilValue))
-//        }
-//        CheckThrowsError("\(method)_Array") {
-//            Check.allNotNil(ToArray(emptyValue, nilValue))
-//        }
-//
-//        CheckNotThrowsError("\(method)_Array") {
-//            Check.allNotNil(array)
-//        }
-//        CheckNotThrowsError("\(method)_Array") {
-//            Check.allNotNil(nilArray)
-//        }
-//        CheckNotThrowsError("\(method)_Array") {
-//            Check.allNotNil(emptyArray)
-//        }
+        let value = "value"
+        let nilValue: String? = nil
+        let emptyValue = ""
 
-        XCTFail(method)
+        let array: Array<String?> = [value, emptyValue]
+        let nilArray: Array<String?>? = nil
+        let emptyArray = Array<String?>()
+
+
+        checkThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allNotNil([value, nilValue])
+        }
+        checkThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allNotNil([emptyValue, nilValue])
+        }
+
+        checkNotThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allNotNil(array)
+        }
+        checkNotThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allNotNil(nilArray)
+        }
+        checkNotThrowsError("\(method)_ArrayOfOptionals") {
+            try Check.allNotNil(emptyArray)
+        }
     }
 }
 

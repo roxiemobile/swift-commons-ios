@@ -12,118 +12,32 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-/*
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using RoxieMobile.CSharpCommons.Extensions;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics
-{
-    /// <summary>
-    /// A set of methods useful for validating objects states. Only failed checks are throws exceptions.
-    /// </summary>
-    public static partial class Check
-    {
-// MARK: - Methods: Array
-
-        /// <summary>
-        /// Checks that all an objects in array is `nil`.
-        /// </summary>
-        /// - objects: An array of objects.
-        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
-        /// - Throws: CheckError
-        public static void AllNull<T>(T[] objects, string message = null)
-        {
-            if (!TryAllNull(objects)) {
-                throw NewCheckException(message);
-            }
-        }
-
-        /// <summary>
-        /// Checks that all an objects in array is `nil`.
-        /// </summary>
-        /// - objects: An array of objects.
-        /// - block: The function which returns identifying message for the `CheckError`.
-        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
-        /// - Throws: CheckError
-        public static void AllNull<T>(T[] objects, Func<string> block)
-        {
-            if (block == null) {
-                throw new ArgumentNullException(nameof(block));
-            }
-
-            if (!TryAllNull(objects)) {
-                throw NewCheckException(block());
-            }
-        }
-
-// MARK: - Methods: Generic Collection
-
-        /// <summary>
-        /// Checks that all an objects in collection is `nil`.
-        /// </summary>
-        /// - collection: A collection of objects.
-        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
-        /// - Throws: CheckError
-        public static void AllNull<T>(ICollection<T> collection, string message = null)
-        {
-            if (!TryAllNull(collection)) {
-                throw NewCheckException(message);
-            }
-        }
-
-        /// <summary>
-        /// Checks that all an objects in collection is `nil`.
-        /// </summary>
-        /// - collection: A collection of objects.
-        /// - block: The function which returns identifying message for the `CheckError`.
-        /// <exception cref="ArgumentNullException">Thrown when the `block` is `nil`.</exception>
-        /// - Throws: CheckError
-        public static void AllNull<T>(ICollection<T> collection, Func<string> block)
-        {
-            if (block == null) {
-                throw new ArgumentNullException(nameof(block));
-            }
-
-            if (!TryAllNull(collection)) {
-                throw NewCheckException(block());
-            }
-        }
-
-// MARK: - Private Methods
-
-        private static bool TryAllNull<T>(T[] objects) =>
-            objects.IsEmpty() || objects.All(o => o == null);
-
-        private static bool TryAllNull<T>(ICollection<T> collection) =>
-            collection.IsEmpty() || collection.All(o => o == null);
-    }
-}
-*/
-
 extension Check
 {
 // MARK: - Methods
 
-//    // TODO
-//    @available(*, deprecated)
-//    public static func isAllNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(objects!.all { $0 == nil }, message, file, line)
-//        }
-//    }
+    /// Checks that all an objects in collection is `nil`.
+    ///
+    /// - Parameters:
+    ///   - objects: An collection of an objects.
+    ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   CheckError
+    ///
+    public static func allNil<T:Collection, V>(
+            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    ) throws where T.Element == Optional<V> {
+        // objects: Collection<Any?>?
 
-//    /**
-//      Checks that all an objects in array is `nil`.
-//
-//     - Parameter objects: An array of objects.
-//     */
-//    public static func allNil<T>(_ objects: [T?]?, _ message: @autoclosure () -> String = "", _ file: StaticString = #file, _ line: UInt = #line) throws {
-//        if CollectionUtils.isNotEmpty(objects) {
-//            try isTrue(objects!.all { $0 == nil }, message, file, line)
-//        }
-//    }
+        if let collection = objects, collection.isNotEmpty {
+            guard collection.all({ $0 == nil }) else {
+                throw newCheckError(message, file, line)
+            }
+        }
+    }
 }
 
 // ----------------------------------------------------------------------------
