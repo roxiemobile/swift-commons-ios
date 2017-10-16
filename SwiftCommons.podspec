@@ -92,6 +92,7 @@ Pod::Spec.new do |s|
     # TODO: Write a description
     sc.subspec 'Database' do |sp|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Infrastructure.Database/Module/**/*.{swift,h,m,c}'
+      sp.compiler_flags = '-DSQLITE_SWIFT_SQLCIPHER'
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
