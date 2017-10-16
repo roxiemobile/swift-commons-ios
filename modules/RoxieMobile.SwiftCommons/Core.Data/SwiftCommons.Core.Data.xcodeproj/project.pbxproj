@@ -52,6 +52,7 @@
 		19574CC61F8A739500A218E4 /* JsonSyntaxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574CC41F8A739500A218E4 /* JsonSyntaxError.swift */; };
 		19574CC71F8A739500A218E4 /* JsonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574CC51F8A739500A218E4 /* JsonTypes.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreData.a */; };
+		198082001F94CA660077E58F /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198081FF1F94CA630077E58F /* Assets.swift */; };
 		1990C5081F8A57C500A944A8 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5051F8A57C500A944A8 /* EmailValidator.swift */; };
 		1990C5091F8A57C500A944A8 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5061F8A57C500A944A8 /* RegexValidator.swift */; };
 		1990C50A1F8A57C500A944A8 /* UrlValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5071F8A57C500A944A8 /* UrlValidator.swift */; };
@@ -122,6 +123,7 @@
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreData.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreData.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19792A361F72E7200001768B /* SwiftCommons.Core.Data-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Data-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Data.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Data.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		198081FF1F94CA630077E58F /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		1990C5051F8A57C500A944A8 /* EmailValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		1990C5061F8A57C500A944A8 /* RegexValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
 		1990C5071F8A57C500A944A8 /* UrlValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlValidator.swift; sourceTree = "<group>"; };
@@ -292,6 +294,14 @@
 			path = Module.UnitTests;
 			sourceTree = "<group>";
 		};
+		198081FE1F94CA630077E58F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				198081FF1F94CA630077E58F /* Assets.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		1990C5041F8A57C500A944A8 /* Validators */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +361,7 @@
 		19EB0CA01F72DF0D0029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				198081FE1F94CA630077E58F /* Helpers */,
 				1990C50B1F8A638200A944A8 /* Models */,
 				19574CC21F8A739500A218E4 /* Serialization */,
 				1990C5041F8A57C500A944A8 /* Validators */,
@@ -641,6 +652,7 @@
 				19574CAF1F8A6FB700A218E4 /* Operators.swift in Sources */,
 				19574CBD1F8A6FB700A218E4 /* URLTransform.swift in Sources */,
 				1990C5081F8A57C500A944A8 /* EmailValidator.swift in Sources */,
+				198082001F94CA660077E58F /* Assets.swift in Sources */,
 				1990C50E1F8A638200A944A8 /* ValidatableModel.swift in Sources */,
 				1949D1881F8A75FE009A5FED /* LFUnarchiver.m in Sources */,
 				19574CAC1F8A6FB700A218E4 /* ObjectMapperException.swift in Sources */,
