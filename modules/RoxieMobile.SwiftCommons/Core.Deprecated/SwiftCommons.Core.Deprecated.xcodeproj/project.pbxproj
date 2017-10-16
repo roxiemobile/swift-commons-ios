@@ -16,8 +16,6 @@
 		19B6F5F31F85965400D90C3E /* ScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5ED1F85964F00D90C3E /* ScrollDirection.swift */; };
 		19B6F5F41F85965400D90C3E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EE1F85964F00D90C3E /* StringUtils.swift */; };
 		19B6F5F51F85965400D90C3E /* ValidatableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EF1F85964F00D90C3E /* ValidatableUtils.swift */; };
-		19B6F5F91F85966900D90C3E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5E21F85964F00D90C3E /* Array.swift */; };
-		19B6F5FA1F85966900D90C3E /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5E31F85964F00D90C3E /* Dictionary.swift */; };
 		19B6F6021F85966C00D90C3E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5DC1F85964F00D90C3E /* Data.swift */; };
 		19B6F6031F85966C00D90C3E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5DD1F85964F00D90C3E /* Date.swift */; };
 		19B6F6061F85966C00D90C3E /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5E01F85964F00D90C3E /* Timer.swift */; };
@@ -46,8 +44,6 @@
 		19B6F5DC1F85964F00D90C3E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		19B6F5DD1F85964F00D90C3E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		19B6F5E01F85964F00D90C3E /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
-		19B6F5E21F85964F00D90C3E /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		19B6F5E31F85964F00D90C3E /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		19B6F5EA1F85964F00D90C3E /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		19B6F5EB1F85964F00D90C3E /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		19B6F5EC1F85964F00D90C3E /* ObjectUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectUtils.swift; sourceTree = "<group>"; };
@@ -119,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				19B6F5D01F85964F00D90C3E /* Foundation */,
-				19B6F5E11F85964F00D90C3E /* Swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -132,15 +127,6 @@
 				19B6F5E01F85964F00D90C3E /* Timer.swift */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		19B6F5E11F85964F00D90C3E /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-				19B6F5E21F85964F00D90C3E /* Array.swift */,
-				19B6F5E31F85964F00D90C3E /* Dictionary.swift */,
-			);
-			path = Swift;
 			sourceTree = "<group>";
 		};
 		19B6F5E91F85964F00D90C3E /* Util */ = {
@@ -453,10 +439,8 @@
 				19B6F6021F85966C00D90C3E /* Data.swift in Sources */,
 				19B6F5F11F85965400D90C3E /* CollectionUtils.swift in Sources */,
 				19B6F6061F85966C00D90C3E /* Timer.swift in Sources */,
-				19B6F5FA1F85966900D90C3E /* Dictionary.swift in Sources */,
 				19B6F6031F85966C00D90C3E /* Date.swift in Sources */,
 				19B6F5F51F85965400D90C3E /* ValidatableUtils.swift in Sources */,
-				19B6F5F91F85966900D90C3E /* Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
