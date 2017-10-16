@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193326921F94FA7E0024731B /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1933268D1F94FA5F0024731B /* Dispatch.swift */; };
+		193326931F94FA7E0024731B /* Dispatch.Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1933268F1F94FA760024731B /* Dispatch.Helpers.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreConcurrent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreConcurrent.a */; };
 		19C7B7551F8648EF0030F1D8 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7541F8648EB0030F1D8 /* Synchronized.swift */; };
 		19C7B7561F8648F30030F1D8 /* TryCatchFinally.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		0B1940C1D120FC6C8A64183A /* Pods-SwiftCommons.Core.Concurrent.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Concurrent.UnitTests.debug.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Concurrent.UnitTests/Pods-SwiftCommons.Core.Concurrent.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1933268D1F94FA5F0024731B /* Dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
+		1933268F1F94FA760024731B /* Dispatch.Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.Helpers.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreConcurrent.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreConcurrent.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19792A361F72E7200001768B /* SwiftCommons.Core.Concurrent-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Concurrent-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Concurrent.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Concurrent.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1933268C1F94FA5F0024731B /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				1933268D1F94FA5F0024731B /* Dispatch.swift */,
+				1933268F1F94FA760024731B /* Dispatch.Helpers.swift */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
 		195D39501F72CE4900118D17 /* Module.UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +165,7 @@
 		19EB0CA21F72DF0D0029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				1933268C1F94FA5F0024731B /* Dispatch */,
 				19C7B7531F8648EB0030F1D8 /* Synchronized */,
 				19C7B74E1F8648EB0030F1D8 /* TryCatchFinally */,
 				19792A361F72E7200001768B /* SwiftCommons.Core.Concurrent-Bridging-Header.h */,
@@ -405,6 +419,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C7B7571F8648F40030F1D8 /* TryCatchFinally.swift in Sources */,
+				193326931F94FA7E0024731B /* Dispatch.Helpers.swift in Sources */,
+				193326921F94FA7E0024731B /* Dispatch.swift in Sources */,
 				19C7B7551F8648EF0030F1D8 /* Synchronized.swift in Sources */,
 				19C7B7561F8648F30030F1D8 /* TryCatchFinally.m in Sources */,
 			);
