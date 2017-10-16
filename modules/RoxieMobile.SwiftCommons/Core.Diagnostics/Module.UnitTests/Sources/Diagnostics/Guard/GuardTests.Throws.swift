@@ -18,25 +18,27 @@ extension GuardTests
 // MARK: - Tests
 
     func testThrows() {
-        let method = "Guard.throws"
+        let method = "Guard.isThrows"
 
-// FIXME: C#
-//        GuardThrowsException(method) {
-//            Guard.throws<Exception>(() => {})
-//        }
-//        GuardThrowsException(method) {
-//            Guard.throws<IOException>(() => throw new OperationCanceledException())
-//        }
-//        GuardThrowsException(method) {
-//            Guard.throws<Exception>(() => throw new IOException())
-//        }
-//
-//        GuardNotThrowsException(method) {
-//            Guard.throws<IOException>(() => throw new IOException())
-//        }
+        guardThrowsException(method) {
+            Guard.isThrows({}, BaseError.self)
+        }
+        guardThrowsException(method) {
+            Guard.isThrows({ throw JsonSyntaxError() }, BaseError.self)
+        }
+        guardThrowsException(method) {
+            Guard.isThrows({ throw InheritedError() }, BaseError.self)
+        }
 
-        XCTFail(method)
+        guardNotThrowsException(method) {
+            Guard.isThrows({ throw InheritedError() }, InheritedError.self)
+        }
     }
+
+// MARK: - Inner Types
+
+    private class BaseError: Error {}
+    private class InheritedError: BaseError {}
 }
 
 // ----------------------------------------------------------------------------

@@ -20,23 +20,25 @@ extension GuardTests
     func testThrowsAny() {
         let method = "Guard.throwsAny"
 
-// FIXME: C#
-//        guardThrowsException(method) {
-//            Guard.throwsAny<Exception>(() => {})
-//        }
-//        guardThrowsException(method) {
-//            Guard.throwsAny<IOException>(() => throw new OperationCanceledException())
-//        }
-//
-//        guardNotThrowsException(method) {
-//            Guard.throwsAny<Exception>(() => throw new IOException())
-//        }
-//        guardNotThrowsException(method) {
-//            Guard.throwsAny<IOException>(() => throw new IOException())
-//        }
+        guardThrowsException(method) {
+            Guard.throwsAny({}, BaseError.self)
+        }
+        guardThrowsException(method) {
+            Guard.throwsAny({ throw JsonSyntaxError() }, BaseError.self)
+        }
 
-        XCTFail(method)
+        guardNotThrowsException(method) {
+            Guard.throwsAny({ throw InheritedError() }, BaseError.self)
+        }
+        guardNotThrowsException(method) {
+            Guard.throwsAny({ throw InheritedError() }, InheritedError.self)
+        }
     }
+
+// MARK: - Inner Types
+
+    private class BaseError: Error {}
+    private class InheritedError: BaseError {}
 }
 
 // ----------------------------------------------------------------------------

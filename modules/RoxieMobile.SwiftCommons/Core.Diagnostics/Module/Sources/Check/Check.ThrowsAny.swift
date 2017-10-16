@@ -12,111 +12,55 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-/*
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
-using RoxieMobile.CSharpCommons.Extensions;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics
-{
-    /// <summary>
-    /// A set of methods useful for validating objects states. Only failed checks are throws exceptions.
-    /// </summary>
-    public static partial class Check
-    {
-// MARK: - Methods
-
-        /// <summary>
-        /// Verifies that the exact exception or a derived exception type is thrown.
-        /// </summary>
-        /// <typeparam name="T">The type of the exception expected to be thrown.</typeparam>
-        /// - action: A delegate to the code that is expected to throw an exception when executed.
-        /// - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="action"/> is `nil`.</exception>
-        /// <exception cref="CheckException">Thrown when an exception was not thrown, or when an exception of the incorrect type is thrown.</exception>
-        public static void ThrowsAny<T>(Action action, string message = null)
-            where T : Exception
-        {
-            if (action == null) {
-                throw new ArgumentNullException(nameof(action));
-            }
-
-            if (!TryThrowsAny<T>(action, () => message, out CheckException exception)) {
-                throw exception;
-            }
-        }
-
-        /// <summary>
-        /// Verifies that the exact exception or a derived exception type is thrown.
-        /// </summary>
-        /// <typeparam name="T">The type of the exception expected to be thrown.</typeparam>
-        /// - action: A delegate to the code that is expected to throw an exception when executed.
-        /// - block: The function which returns identifying message for the `CheckError`.
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="action"/> or `block` is `nil`.</exception>
-        /// <exception cref="CheckException">Thrown when an exception was not thrown, or when an exception of the incorrect type is thrown.</exception>
-        public static void ThrowsAny<T>(Action action, Func<string> block)
-            where T : Exception
-        {
-            if (action == null) {
-                throw new ArgumentNullException(nameof(action));
-            }
-            if (block == null) {
-                throw new ArgumentNullException(nameof(block));
-            }
-
-            if (!TryThrowsAny<T>(action, block, out CheckException exception)) {
-                throw exception;
-            }
-        }
-
-// MARK: - Private Methods
-
-        [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
-        private static bool TryThrowsAny<T>(Action action, Func<string> block, out CheckException exception)
-            where T : Exception
-        {
-            Exception cause = null;
-            exception = null;
-
-            try {
-                action.Invoke();
-            }
-            catch (Exception e) {
-                cause = e;
-            }
-            finally {
-
-                if (cause == null) {
-                    var message = block();
-
-                    exception = NewCheckException(message.IsNotEmpty()
-                            ? message
-                            : $"Expected {typeof(T).Name} to be thrown, but nothing was thrown.",
-                        cause);
-                }
-                else if (!typeof(T).GetTypeInfo().IsAssignableFrom(cause.GetType().GetTypeInfo())) {
-                    var message = block();
-
-                    exception = NewCheckException(message.IsNotEmpty()
-                            ? message
-                            : $"Unexpected exception type thrown. Expected: {typeof(T).Name} but was: {cause.GetType().Name}",
-                        cause);
-                }
-            }
-
-            // Done
-            return (exception == null);
-        }
-    }
-}
-*/
-
 extension Check
 {
 // MARK: - Methods
 
-    // TODO
+    /// Verifies that the exact error or a derived error type is thrown.
+    ///
+    /// - Parameters:
+    ///   - action: A delegate to the code that is expected to throw an error when executed.
+    ///   - errorType: The type of the error expected to be thrown.
+    ///   - message: The identifying message for the `CheckError` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   CheckError
+    ///
+    public static func throwsAny<T:Error>(
+            _ action: () throws -> Void,
+            _ errorType: T.Type,
+            _ message: @autoclosure () -> String = "",
+            file: StaticString = #file,
+            line: UInt = #line
+    ) throws {
+
+        var cause: Error? = nil
+        do {
+            try action()
+        }
+        catch {
+            cause = error
+        }
+
+        if (cause == nil) {
+            let text = message()
+
+            throw newCheckError(
+                    text.isNotBlank ? text :
+                            "Expected \(Roxie.typeName(of: errorType)) to be thrown, but nothing was thrown.",
+                    file, line);
+        }
+        else if let error = cause, ((error as? T) == nil) {
+            let text = message()
+
+            throw newCheckError(
+                    text.isNotBlank ? text :
+                            "Unexpected error type thrown. Expected: \(Roxie.typeName(of: errorType)) but was: \(Roxie.typeName(of: error))",
+                    file, line);
+        }
+    }
 }
 
 // ----------------------------------------------------------------------------

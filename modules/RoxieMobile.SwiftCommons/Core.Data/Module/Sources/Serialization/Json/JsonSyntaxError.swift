@@ -13,7 +13,7 @@ import Foundation
 // ----------------------------------------------------------------------------
 
 @available(*, deprecated, message: "\n• Write a description.")
-public class JsonSyntaxError: Error
+public struct JsonSyntaxError: Error
 {
 // MARK: - Construction
 

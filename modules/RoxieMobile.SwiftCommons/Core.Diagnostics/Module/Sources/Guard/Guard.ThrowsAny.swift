@@ -12,69 +12,35 @@ import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-/*
-using System;
-
-namespace RoxieMobile.CSharpCommons.Diagnostics
-{
-    /// <summary>
-    /// A set of methods useful for validating objects states. Only failed checks are throws exceptions.
-    /// </summary>
-    public static partial class Guard
-    {
-// MARK: - Methods
-
-        /// <summary>
-        /// Verifies that the exact exception or a derived exception type is thrown.
-        /// </summary>
-        /// <typeparam name="T">The type of the exception expected to be thrown.</typeparam>
-        /// - action: A delegate to the code that is expected to throw an exception when executed.
-        /// - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="action"/> is `nil`.</exception>
-        /// <exception cref="GuardError">Thrown when an exception was not thrown, or when an exception of the incorrect type is thrown.</exception>
-        public static void ThrowsAny<T>(Action action, string message = null)
-            where T : Exception
-        {
-            if (action == null) {
-                throw new ArgumentNullException(nameof(action));
-            }
-
-            if (TryIsFailure(() => Check.ThrowsAny<T>(action), out Exception cause)) {
-                throw NewGuardError(message, cause);
-            }
-        }
-
-        /// <summary>
-        /// Verifies that the exact exception or a derived exception type is thrown.
-        /// </summary>
-        /// <typeparam name="T">The type of the exception expected to be thrown.</typeparam>
-        /// - action: A delegate to the code that is expected to throw an exception when executed.
-        /// - block: The function which returns identifying message for the `GuardException`.
-        /// <exception cref="ArgumentNullException">Thrown when the <see cref="action"/> or `block` is `nil`.</exception>
-        /// <exception cref="GuardError">Thrown when an exception was not thrown, or when an exception of the incorrect type is thrown.</exception>
-        public static void ThrowsAny<T>(Action action, Func<string> block)
-            where T : Exception
-        {
-            if (action == null) {
-                throw new ArgumentNullException(nameof(action));
-            }
-            if (block == null) {
-                throw new ArgumentNullException(nameof(block));
-            }
-
-            if (TryIsFailure(() => Check.ThrowsAny<T>(action), out Exception cause)) {
-                throw NewGuardError(block(), cause);
-            }
-        }
-    }
-}
-*/
-
 extension Guard
 {
 // MARK: - Methods
 
-    // TODO
+    /// Verifies that the exact error or a derived error type is thrown.
+    ///
+    /// - Parameters:
+    ///   - action: A delegate to the code that is expected to throw an error when executed.
+    ///   - errorType: The type of the error expected to be thrown.
+    ///   - message: The identifying message for the `GuardException` (`nil` okay). The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
+    /// - Throws:
+    ///   GuardException
+    ///
+    public static func throwsAny<T:Error>(
+            _ action: () throws -> Void,
+            _ errorType: T.Type,
+            _ message: @autoclosure () -> String = "",
+            file: StaticString = #file,
+            line: UInt = #line
+    ) {
+
+        if let error = tryIsFailure(try Check.throwsAny(action, errorType)) {
+            let text = message()
+            newGuardException(text.isBlank ? ((error as? CheckError)?.message) ?? text : text, error, file, line).raise()
+        }
+    }
 }
 
 // ----------------------------------------------------------------------------

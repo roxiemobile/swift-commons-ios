@@ -52,12 +52,12 @@ public sealed class GuardException : Error
 */
 
 /// Thrown to indicate that an validation has failed.
-public class GuardException: NSException
+public final class GuardException: NSException
 {
 // MARK: - Construction
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public init(reason aReason: String?, cause innerError: Error? = nil, userInfo aUserInfo: [AnyHashable : Any]? = nil)
+    public init(reason aReason: String? = nil, cause innerError: Error? = nil, userInfo aUserInfo: [AnyHashable : Any]? = nil)
     {
         // Init instance
         self.innerError = innerError

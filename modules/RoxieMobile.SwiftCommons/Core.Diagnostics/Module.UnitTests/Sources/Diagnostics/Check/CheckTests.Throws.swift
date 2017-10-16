@@ -18,25 +18,27 @@ extension CheckTests
 // MARK: - Tests
 
     func testThrows() {
-        let method = "Check.throws"
+        let method = "Check.isThrows"
 
-// FIXME: C#
-//        CheckThrowsError(method) {
-//            Check.throws<Exception>(() => {})
-//        }
-//        CheckThrowsError(method) {
-//            Check.throws<IOException>(() => throw new OperationCanceledException())
-//        }
-//        CheckThrowsError(method) {
-//            Check.throws<Exception>(() => throw new IOException())
-//        }
-//
-//        CheckNotThrowsError(method) {
-//            Check.throws<IOException>(() => throw new IOException())
-//        }
+        checkThrowsError(method) {
+            try Check.isThrows({}, BaseError.self)
+        }
+        checkThrowsError(method) {
+            try Check.isThrows({ throw JsonSyntaxError() }, BaseError.self)
+        }
+        checkThrowsError(method) {
+            try Check.isThrows({ throw InheritedError() }, BaseError.self)
+        }
 
-        XCTFail(method)
+        checkNotThrowsError(method) {
+            try Check.isThrows({ throw InheritedError() }, InheritedError.self)
+        }
     }
+
+// MARK: - Inner Types
+
+    private class BaseError: Error {}
+    private class InheritedError: BaseError {}
 }
 
 // ----------------------------------------------------------------------------
