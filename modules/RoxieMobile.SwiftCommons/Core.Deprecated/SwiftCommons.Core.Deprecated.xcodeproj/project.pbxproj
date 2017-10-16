@@ -10,13 +10,11 @@
 		1922C7F31F85A00300CEFA1B /* SwiftCommons.Core.Deprecated-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 19792A361F72E7200001768B /* SwiftCommons.Core.Deprecated-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreDeprecated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreDeprecated.a */; };
 		19ABC6F31F85A39C00AD0C41 /* RoxieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC6F21F85A39800AD0C41 /* RoxieTests.swift */; };
-		19B6F5F01F85965400D90C3E /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EA1F85964F00D90C3E /* Assets.swift */; };
 		19B6F5F11F85965400D90C3E /* CollectionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EB1F85964F00D90C3E /* CollectionUtils.swift */; };
 		19B6F5F21F85965400D90C3E /* ObjectUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EC1F85964F00D90C3E /* ObjectUtils.swift */; };
 		19B6F5F31F85965400D90C3E /* ScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5ED1F85964F00D90C3E /* ScrollDirection.swift */; };
 		19B6F5F41F85965400D90C3E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EE1F85964F00D90C3E /* StringUtils.swift */; };
 		19B6F5F51F85965400D90C3E /* ValidatableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5EF1F85964F00D90C3E /* ValidatableUtils.swift */; };
-		19B6F6021F85966C00D90C3E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5DC1F85964F00D90C3E /* Data.swift */; };
 		19B6F6031F85966C00D90C3E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5DD1F85964F00D90C3E /* Date.swift */; };
 		19B6F6061F85966C00D90C3E /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6F5E01F85964F00D90C3E /* Timer.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Deprecated.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Deprecated.UnitTests.swift */; };
@@ -41,10 +39,8 @@
 		19792A361F72E7200001768B /* SwiftCommons.Core.Deprecated-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Deprecated-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Deprecated.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Deprecated.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19ABC6F21F85A39800AD0C41 /* RoxieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoxieTests.swift; sourceTree = "<group>"; };
-		19B6F5DC1F85964F00D90C3E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		19B6F5DD1F85964F00D90C3E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		19B6F5E01F85964F00D90C3E /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
-		19B6F5EA1F85964F00D90C3E /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		19B6F5EB1F85964F00D90C3E /* CollectionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtils.swift; sourceTree = "<group>"; };
 		19B6F5EC1F85964F00D90C3E /* ObjectUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectUtils.swift; sourceTree = "<group>"; };
 		19B6F5ED1F85964F00D90C3E /* ScrollDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDirection.swift; sourceTree = "<group>"; };
@@ -122,7 +118,6 @@
 		19B6F5D01F85964F00D90C3E /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				19B6F5DC1F85964F00D90C3E /* Data.swift */,
 				19B6F5DD1F85964F00D90C3E /* Date.swift */,
 				19B6F5E01F85964F00D90C3E /* Timer.swift */,
 			);
@@ -132,7 +127,6 @@
 		19B6F5E91F85964F00D90C3E /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				19B6F5EA1F85964F00D90C3E /* Assets.swift */,
 				19B6F5EB1F85964F00D90C3E /* CollectionUtils.swift */,
 				19B6F5EC1F85964F00D90C3E /* ObjectUtils.swift */,
 				19B6F5ED1F85964F00D90C3E /* ScrollDirection.swift */,
@@ -434,9 +428,7 @@
 			files = (
 				19B6F5F31F85965400D90C3E /* ScrollDirection.swift in Sources */,
 				19B6F5F41F85965400D90C3E /* StringUtils.swift in Sources */,
-				19B6F5F01F85965400D90C3E /* Assets.swift in Sources */,
 				19B6F5F21F85965400D90C3E /* ObjectUtils.swift in Sources */,
-				19B6F6021F85966C00D90C3E /* Data.swift in Sources */,
 				19B6F5F11F85965400D90C3E /* CollectionUtils.swift in Sources */,
 				19B6F6061F85966C00D90C3E /* Timer.swift in Sources */,
 				19B6F6031F85966C00D90C3E /* Date.swift in Sources */,
