@@ -92,13 +92,13 @@ Pod::Spec.new do |s|
     # TODO: Write a description
     sc.subspec 'Database' do |sp|
       sp.source_files = 'modules/RoxieMobile.SwiftCommons/Infrastructure.Database/Module/**/*.{swift,h,m,c}'
-      sp.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_HAS_CODEC=1', 'OTHER_SWIFT_FLAGS' => '$(inherited) -DSQLITE_SWIFT_SQLCIPHER' }
+      sp.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SQLITE_HAS_CODEC=1', 'OTHER_SWIFT_FLAGS' => '$(inherited) -DSQLITE_SWIFT_SQLCIPHER' }
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Extensions', s.version.to_s
       sp.dependency 'CryptoSwift', '~> 0.7'
-      sp.dependency 'SQLCipher', '~> 3.4'
+      sp.dependency 'SQLite.swift/SQLCipher', '~> 0.11'
     end
   end
 end
