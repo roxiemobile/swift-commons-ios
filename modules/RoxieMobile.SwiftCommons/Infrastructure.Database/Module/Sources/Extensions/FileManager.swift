@@ -37,7 +37,7 @@ extension FileManager
                             Logger.e(Inner.TAG, "Can't create directory at URL ‘\(dstURL)’.", error)
                         }
                     }
-                    FileManager.roxie_excludedFromBackup(at: dstURL)
+                    FileManager.roxie_excludeFromBackup(at: dstURL)
                 }
 
                 // Done
