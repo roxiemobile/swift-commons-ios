@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
 
   s.platform              = :ios
   s.ios.deployment_target = '8.0'
+  s.static_framework      = true
 
   s.authors               = { 'Roxie Mobile Ltd.' => 'sales@roxiemobile.com', 'Alexander Bragin' => 'bragin-av@roxiemobile.com' }
   s.license               = { type: 'BSD-4-Clause', file: 'LICENSE.txt' }
