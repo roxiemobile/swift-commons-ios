@@ -87,28 +87,13 @@ target 'SwiftCommons.Infrastructure.Database' do
   pod 'SwiftCommons/Core/Concurrent', path: '../../'
   pod 'SwiftCommons/Core/Extensions', path: '../../'
   pod 'CryptoSwift', '~> 0.7'
-  pod 'SQLCipher', '~> 3.4', inhibit_warnings: true
+  pod 'SQLite.swift/SQLCipher', '~> 0.11', inhibit_warnings: true
 
   target 'SwiftCommons.Infrastructure.Database.UnitTests' do
     inherit! :search_paths
   end
 end
 
-
-# FIXME: Must be deleted!
-target 'SwiftCommons.Core.Deprecated' do
-  project '../RoxieMobile.SwiftCommons/Core.Deprecated/SwiftCommons.Core.Deprecated.xcodeproj'
-
-# pod 'SwiftCommons/Core/Abstractions', path: '../../'
-# pod 'SwiftCommons/Core/Concurrent', path: '../../'
-# pod 'SwiftCommons/Core/Lang', path: '../../'
-# pod 'SwiftCommons/Core/Logging', path: '../../'
-# pod 'CryptoSwift', '~> 0.7'
-
-  target 'SwiftCommons.Core.Deprecated.UnitTests' do
-    inherit! :search_paths
-  end
-end
 
 # Implicit declaration of function 'sqlite3_rekey' is invalid in C99
 # @link https://stackoverflow.com/a/46323483

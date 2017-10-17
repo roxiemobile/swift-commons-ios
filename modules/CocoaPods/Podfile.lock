@@ -5,6 +5,8 @@ PODS:
   - SQLCipher/common (3.4.1)
   - SQLCipher/standard (3.4.1):
     - SQLCipher/common
+  - SQLite.swift/SQLCipher (0.11.4):
+    - SQLCipher (>= 3.4.0)
   - SwiftCommons/Core/Abstractions (0.0.1)
   - SwiftCommons/Core/Concurrent (0.0.1)
   - SwiftCommons/Core/Data (0.0.1):
@@ -23,7 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - CryptoSwift (~> 0.7)
-  - SQLCipher (~> 3.4)
+  - SQLite.swift/SQLCipher (~> 0.11)
   - SwiftCommons/Core/Abstractions (from `../../`)
   - SwiftCommons/Core/Concurrent (from `../../`)
   - SwiftCommons/Core/Data (from `../../`)
@@ -39,8 +41,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CryptoSwift: cd2158be2bf639aabc63ec804707c7137c90157c
   SQLCipher: 43d12c0eb9c57fb438749618fc3ce0065509a559
-  SwiftCommons: 5afb683b34d6bf73aac080e33b6e2dcfae2a758d
+  SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
+  SwiftCommons: 7a9e1fac0e0922a1684b294dcc2e416c24e54f11
 
-PODFILE CHECKSUM: 57a3b2373c7cafc41069895256bfe06e6e0566db
+PODFILE CHECKSUM: 1f91da8fc18eac70137eb795418119ee6cc98910
 
 COCOAPODS: 1.3.1
