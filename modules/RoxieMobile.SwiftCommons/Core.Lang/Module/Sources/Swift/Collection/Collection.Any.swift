@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Collection.All.swift
+//  Collection.Any.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 
 // A set of Swift extensions for standard types and classes.
-// @link https://github.com/pNre/ExSwift/blob/master/ExSwift/Array.swift#L566
+// @link https://github.com/pNre/ExSwift/blob/master/ExSwift/Array.swift#L550
 
 // ----------------------------------------------------------------------------
 
@@ -23,15 +23,15 @@ public extension Collection
     ///   - test: Function to call for each element.
     ///
     /// - Returns:
-    ///   `true` if test returns `true` for all the elements in `self`.
+    ///   `true` if test returns `true` for any element of `self`.
     ///
-    func all(_ test: (Element) -> Bool) -> Bool {
+    func any(_ test: (Element) -> Bool) -> Bool {
         for item in self {
-            if !test(item) {
-                return false
+            if test(item) {
+                return true
             }
         }
-        return true
+        return false
     }
 }
 
