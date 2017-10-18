@@ -40,6 +40,10 @@ public final class UnfairLock
 // MARK: - @protocol Lockable
 // ----------------------------------------------------------------------------
 
+@available(iOS 10.0, *)
+@available(macOS 10.12, *)
+@available(tvOS 10.0, *)
+@available(watchOS 3.0, *)
 extension UnfairLock: Lockable
 {
     /// lock the unfair lock and block other threads from accessing until unlocked
