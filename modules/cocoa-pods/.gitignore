@@ -1,7 +1,0 @@
-# Ignore all
-*
-
-# Add some items back
-!.gitignore
-!Podfile
-!Podfile.lock

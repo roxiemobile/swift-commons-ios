@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
 
   s.platform              = :ios
   s.ios.deployment_target = '8.0'
+  s.static_framework      = true
 
   s.authors               = { 'Roxie Mobile Ltd.' => 'sales@roxiemobile.com', 'Alexander Bragin' => 'bragin-av@roxiemobile.com' }
   s.license               = { type: 'BSD-4-Clause', file: 'LICENSE.txt' }
@@ -50,7 +51,7 @@ Pod::Spec.new do |s|
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Diagnostics', s.version.to_s
-      sp.dependency 'CryptoSwift', '~> 0.7'
+      sp.dependency 'CryptoSwift', '~> 0.8.0'
     end
 
     # A collection of static classes for debugging and diagnostics of program contracts such as preconditions, postconditions, and invariants.
@@ -97,8 +98,8 @@ Pod::Spec.new do |s|
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Extensions', s.version.to_s
-      sp.dependency 'CryptoSwift', '~> 0.7'
-      sp.dependency 'SQLite.swift/SQLCipher', '~> 0.11'
+      sp.dependency 'CryptoSwift', '~> 0.8.0'
+      sp.dependency 'SQLite.swift/SQLCipher', '~> 0.11.4'
     end
   end
 end

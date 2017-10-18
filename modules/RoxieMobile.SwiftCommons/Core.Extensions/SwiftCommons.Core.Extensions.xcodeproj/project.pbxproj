@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		19227D2F1F8D11DC001A1664 /* Validatable.Valid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19227D2E1F8D11DC001A1664 /* Validatable.Valid.swift */; };
 		19227D321F8D1423001A1664 /* Validatable.NilOrValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19227D311F8D1423001A1664 /* Validatable.NilOrValid.swift */; };
-		194877ED1F8690440003A4AA /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194877EC1F8690440003A4AA /* FileManager+Extensions.swift */; };
+		1941B74F1F9650BD006484BD /* FileManager.Directories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941B74E1F9650BD006484BD /* FileManager.Directories.swift */; };
+		1941B7511F9656FA006484BD /* FileManager.RemoveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941B7501F9656F9006484BD /* FileManager.RemoveItem.swift */; };
+		1941B7531F96574F006484BD /* FileManager.CopyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941B7521F96574F006484BD /* FileManager.CopyItem.swift */; };
+		194877ED1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194877EC1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift */; };
 		195BDFFF1F8E5DA000910CBD /* Bundle.ExecutableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BDFFD1F8E5DA000910CBD /* Bundle.ExecutableName.swift */; };
 		195BE0001F8E5DA000910CBD /* Bundle.ShortVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BDFFE1F8E5DA000910CBD /* Bundle.ShortVersion.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreExtensions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreExtensions.a */; };
-		1977FB111F869E330006E7FD /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977FB101F869E330006E7FD /* URL+Extensions.swift */; };
+		1977FB111F869E330006E7FD /* URL.FileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977FB101F869E330006E7FD /* URL.FileExists.swift */; };
 		19C135EA1F8E552400B27112 /* Roxie.CustomTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C135E91F8E552400B27112 /* Roxie.CustomTag.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift */; };
 		19EC62941F961B3C00D94F04 /* Timer.Construction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EC62931F961B3C00D94F04 /* Timer.Construction.swift */; };
@@ -44,11 +47,14 @@
 		035371C701B8301610C6D2A9 /* Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Extensions.UnitTests/Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		19227D2E1F8D11DC001A1664 /* Validatable.Valid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.Valid.swift; sourceTree = "<group>"; };
 		19227D311F8D1423001A1664 /* Validatable.NilOrValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.NilOrValid.swift; sourceTree = "<group>"; };
-		194877EC1F8690440003A4AA /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
+		1941B74E1F9650BD006484BD /* FileManager.Directories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.Directories.swift; sourceTree = "<group>"; };
+		1941B7501F9656F9006484BD /* FileManager.RemoveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.RemoveItem.swift; sourceTree = "<group>"; };
+		1941B7521F96574F006484BD /* FileManager.CopyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.CopyItem.swift; sourceTree = "<group>"; };
+		194877EC1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.ExcludeFromBackup.swift; sourceTree = "<group>"; };
 		195BDFFD1F8E5DA000910CBD /* Bundle.ExecutableName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.ExecutableName.swift; sourceTree = "<group>"; };
 		195BDFFE1F8E5DA000910CBD /* Bundle.ShortVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.ShortVersion.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreExtensions.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreExtensions.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1977FB101F869E330006E7FD /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		1977FB101F869E330006E7FD /* URL.FileExists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.FileExists.swift; sourceTree = "<group>"; };
 		19792A361F72E7200001768B /* SwiftCommons.Core.Extensions-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Extensions-Bridging-Header.h"; sourceTree = "<group>"; };
 		19792A371F72E72A0001768B /* SwiftCommons.Core.Extensions.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Extensions.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreExtensions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsCoreExtensions.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,15 +106,34 @@
 			path = Roxie;
 			sourceTree = "<group>";
 		};
+		1941B74D1F965089006484BD /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				1941B7521F96574F006484BD /* FileManager.CopyItem.swift */,
+				1941B74E1F9650BD006484BD /* FileManager.Directories.swift */,
+				194877EC1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift */,
+				1941B7501F9656F9006484BD /* FileManager.RemoveItem.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		1941B7541F96590A006484BD /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				1977FB101F869E330006E7FD /* URL.FileExists.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
 		194877EE1F86905E0003A4AA /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
 				195BDFFC1F8E5DA000910CBD /* Bundle */,
 				19ED8B5D1F95747C004FD48B /* Data */,
 				19EC62981F961E9600D94F04 /* Date */,
+				1941B74D1F965089006484BD /* FileManager */,
 				19EC62951F961BE300D94F04 /* Timer */,
-				194877EC1F8690440003A4AA /* FileManager+Extensions.swift */,
-				1977FB101F869E330006E7FD /* URL+Extensions.swift */,
+				1941B7541F96590A006484BD /* URL */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -470,18 +495,21 @@
 			files = (
 				195BE0001F8E5DA000910CBD /* Bundle.ShortVersion.swift in Sources */,
 				19EC62971F961E9200D94F04 /* Date.Strideable.swift in Sources */,
-				194877ED1F8690440003A4AA /* FileManager+Extensions.swift in Sources */,
+				1941B7511F9656FA006484BD /* FileManager.RemoveItem.swift in Sources */,
+				194877ED1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift in Sources */,
 				19EC629E1F96225E00D94F04 /* Date.Intervals.swift in Sources */,
 				19ED8B5F1F95747F004FD48B /* Data.Empty.swift in Sources */,
 				19227D2F1F8D11DC001A1664 /* Validatable.Valid.swift in Sources */,
-				1977FB111F869E330006E7FD /* URL+Extensions.swift in Sources */,
+				1977FB111F869E330006E7FD /* URL.FileExists.swift in Sources */,
 				19EC629C1F961FF600D94F04 /* Date.Add.swift in Sources */,
 				19EC629A1F961EE700D94F04 /* Date.Components.swift in Sources */,
 				19EC62A01F962AA400D94F04 /* Date.Format.swift in Sources */,
 				19227D321F8D1423001A1664 /* Validatable.NilOrValid.swift in Sources */,
 				19EC62941F961B3C00D94F04 /* Timer.Construction.swift in Sources */,
 				19EC62A21F962BE300D94F04 /* Date.Operators.swift in Sources */,
+				1941B7531F96574F006484BD /* FileManager.CopyItem.swift in Sources */,
 				19C135EA1F8E552400B27112 /* Roxie.CustomTag.swift in Sources */,
+				1941B74F1F9650BD006484BD /* FileManager.Directories.swift in Sources */,
 				195BDFFF1F8E5DA000910CBD /* Bundle.ExecutableName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,7 +521,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C06DC330D3B8784560F4025A /* Pods-SwiftCommons.Core.Extensions.UnitTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA5933P8V8;
@@ -511,7 +538,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 035371C701B8301610C6D2A9 /* Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA5933P8V8;
@@ -643,7 +669,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA5933P8V8;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Module/Libraries/$(PROJECT_NAME)-Bridging-Header.h";
@@ -660,7 +689,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA5933P8V8;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Module/Libraries/$(PROJECT_NAME)-Bridging-Header.h";

@@ -308,7 +308,7 @@ public class DatabaseHelper
                         }
 
                         // Exclude file from back-up to iCloud
-                        FileManager.roxie_excludedFromBackup(at: dstPath)
+                        FileManager.roxie_excludeFromBackup(at: dstPath)
                     }
 
                     // Release resources
