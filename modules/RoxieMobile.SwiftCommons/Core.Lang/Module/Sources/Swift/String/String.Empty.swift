@@ -36,20 +36,3 @@ public extension Optional where Wrapped == String
 }
 
 // ----------------------------------------------------------------------------
-
-public extension ImplicitlyUnwrappedOptional where Wrapped == String
-{
-// MARK: - Properties
-
-    /// Checks if a String is empty ("") or nil.
-    public var isEmpty: Bool {
-        return (self == nil) || self!.isEmpty
-    }
-
-    /// Checks if a String is not empty ("") and not nil.
-    public var isNotEmpty: Bool {
-        return !self.isEmpty
-    }
-}
-
-// ----------------------------------------------------------------------------
