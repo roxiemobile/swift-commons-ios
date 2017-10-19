@@ -162,7 +162,7 @@ public class DatabaseHelper
     @available(*, deprecated, message: "\n• Write a description.")
     private func openDatabase(databaseName: String?, version: Int?, readonly: Bool, delegate: DatabaseOpenDelegate?) -> Database?
     {
-        var name: String! = sanitizeName(name: databaseName)
+        var name: String? = sanitizeName(name: databaseName)
         var database: Database!
 
         // Validate database name
