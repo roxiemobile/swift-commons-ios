@@ -50,7 +50,7 @@ public class DatabaseHelper
     @available(*, deprecated, message: "\n• Write a description.")
     public var userVersion: Int {
         get {
-            let version = (try? database?.scalar("PRAGMA user_version")) ?? Int64(0)
+            let version = (try! database?.scalar("PRAGMA user_version")) ?? Int64(0)
             return Int(version as! Int64)
         }
         set {
