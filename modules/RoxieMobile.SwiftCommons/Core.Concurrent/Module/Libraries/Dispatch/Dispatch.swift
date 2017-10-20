@@ -172,7 +172,12 @@ public extension Dispatch {
     let dispatch = Dispatch(closure)
     if (queue == Queue.main) && Thread.isMainThread {
       dispatch.currentItem.perform()
-    } else {
+    }
+    else
+    if (String(cString: __dispatch_queue_get_label(nil), encoding: .utf8) == String(cString: __dispatch_queue_get_label(queue), encoding: .utf8)) {
+      dispatch.currentItem.perform()
+    }
+    else {
       queue.sync(execute: dispatch.currentItem)
     }
     return dispatch
