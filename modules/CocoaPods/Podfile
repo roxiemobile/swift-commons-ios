@@ -93,13 +93,3 @@ target 'SwiftCommons.Infrastructure.Database' do
     inherit! :search_paths
   end
 end
-
-
-# Implicit declaration of function 'sqlite3_rekey' is invalid in C99
-# @link https://stackoverflow.com/a/46323483
-# @link https://discuss.zetetic.net/t/ios-11-xcode-issue-implicit-declaration-of-function-sqlite3-key-is-invalid-in-c99/2198/27
-
-post_install do | installer |
-  puts "SQLCipher: link Pods/SQLCipher/sqlite3.h"
-  system "mkdir -p Pods/Headers/Private/SQLCipher && ln -s ../../../SQLCipher/sqlite3.h Pods/Headers/Private/SQLCipher"
-end

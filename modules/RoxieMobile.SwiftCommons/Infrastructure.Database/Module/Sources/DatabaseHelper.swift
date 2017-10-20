@@ -50,7 +50,7 @@ public class DatabaseHelper
     @available(*, deprecated, message: "\n• Write a description.")
     public var userVersion: Int {
         get {
-            let version = (try? database?.scalar("PRAGMA user_version")) ?? Int64(0)
+            let version = (try! database?.scalar("PRAGMA user_version")) ?? Int64(0)
             return Int(version as! Int64)
         }
         set {
@@ -162,7 +162,7 @@ public class DatabaseHelper
     @available(*, deprecated, message: "\n• Write a description.")
     private func openDatabase(databaseName: String?, version: Int?, readonly: Bool, delegate: DatabaseOpenDelegate?) -> Database?
     {
-        var name: String! = sanitizeName(name: databaseName)
+        var name: String? = sanitizeName(name: databaseName)
         var database: Database!
 
         // Validate database name
