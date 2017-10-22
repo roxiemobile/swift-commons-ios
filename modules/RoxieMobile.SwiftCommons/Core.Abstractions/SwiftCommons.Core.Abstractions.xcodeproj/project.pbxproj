@@ -33,8 +33,6 @@
 /* Begin PBXFileReference section */
 		02300D4492BEFFC775322E75 /* Pods-SwiftCommons.Core.Abstractions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Abstractions.debug.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Abstractions/Pods-SwiftCommons.Core.Abstractions.debug.xcconfig"; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreAbstractions.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreAbstractions.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19792A361F72E7200001768B /* SwiftCommons.Core.Abstractions-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Abstractions-Bridging-Header.h"; sourceTree = "<group>"; };
-		19792A371F72E72A0001768B /* SwiftCommons.Core.Abstractions.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Abstractions.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1990C4FB1F8A495400A944A8 /* Validatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		1990C4FD1F8A4A8A00A944A8 /* PostValidatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostValidatable.swift; sourceTree = "<group>"; };
 		1990C5001F8A4AF800A944A8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 		19EB0CA21F72DF0D0029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				19792A361F72E7200001768B /* SwiftCommons.Core.Abstractions-Bridging-Header.h */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -166,7 +163,6 @@
 		19EB0CA41F72DF640029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				19792A371F72E72A0001768B /* SwiftCommons.Core.Abstractions.UnitTests-Bridging-Header.h */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -420,7 +416,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.roxiemobile.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME).UnitTests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Module.UnitTests/Libraries/$(TARGET_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -437,7 +432,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.roxiemobile.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME).UnitTests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Module.UnitTests/Libraries/$(TARGET_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -567,7 +561,6 @@
 				);
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Module/Libraries/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -587,7 +580,6 @@
 				);
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Module/Libraries/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

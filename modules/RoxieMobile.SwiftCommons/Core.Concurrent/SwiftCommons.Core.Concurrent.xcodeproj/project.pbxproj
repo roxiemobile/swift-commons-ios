@@ -44,6 +44,7 @@
 		190C77091F96BF91002C3847 /* PerformOnce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformOnce.swift; sourceTree = "<group>"; };
 		190C77101F96C4AD002C3847 /* PthreadLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PthreadLock.swift; sourceTree = "<group>"; };
 		190C77121F96C5B5002C3847 /* UnfairLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnfairLock.swift; sourceTree = "<group>"; };
+		194A7C551F9CD4F2002E0FD6 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		195A57341F9901A800A4F334 /* Dispatch.Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.Helpers.swift; sourceTree = "<group>"; };
 		195A57351F9901A800A4F334 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreConcurrent.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreConcurrent.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +192,7 @@
 				190C77051F96BF91002C3847 /* SCAAtomic */,
 				19C7B7531F8648EB0030F1D8 /* Synchronized */,
 				19C7B74E1F8648EB0030F1D8 /* TryCatchFinally */,
-				19792A361F72E7200001768B /* SwiftCommons.Core.Concurrent-Bridging-Header.h */,
+				194A7C551F9CD4F2002E0FD6 /* module.modulemap */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -199,7 +200,6 @@
 		19EB0CA41F72DF640029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				19792A371F72E72A0001768B /* SwiftCommons.Core.Concurrent.UnitTests-Bridging-Header.h */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -468,7 +468,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.roxiemobile.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME).UnitTests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Module.UnitTests/Libraries/$(TARGET_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -485,7 +484,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.roxiemobile.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME).UnitTests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Module.UnitTests/Libraries/$(TARGET_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -615,7 +613,7 @@
 				);
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Module/Libraries/$(PROJECT_NAME)-Bridging-Header.h";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module/Libraries/**";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -635,7 +633,7 @@
 				);
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Module/Libraries/$(PROJECT_NAME)-Bridging-Header.h";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module/Libraries/**";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

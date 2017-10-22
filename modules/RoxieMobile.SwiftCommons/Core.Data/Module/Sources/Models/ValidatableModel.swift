@@ -10,6 +10,7 @@
 
 import CryptoSwift
 import SwiftCommons
+import SwiftCommonsCoreDataObjC
 
 // ----------------------------------------------------------------------------
 

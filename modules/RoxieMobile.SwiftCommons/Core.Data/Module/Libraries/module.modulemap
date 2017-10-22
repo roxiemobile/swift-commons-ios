@@ -1,0 +1,4 @@
+module SwiftCommonsCoreDataObjC {
+  header "StreamTypedCoder/StreamTypedCoder.h"
+  export *
+}

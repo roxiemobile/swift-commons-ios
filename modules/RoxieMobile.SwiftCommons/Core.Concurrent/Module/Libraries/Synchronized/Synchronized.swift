@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import Foundation
+
 public func synchronized<T>(_ object: AnyObject, block: () -> T) -> T
 {
     var result: Any?

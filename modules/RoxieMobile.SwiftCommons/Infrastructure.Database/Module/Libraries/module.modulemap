@@ -1,0 +1,4 @@
+module SwiftCommonsInfrastructureDatabaseObjC {
+  header "SSZipArchive/SSZipArchive.h"
+  export *
+}

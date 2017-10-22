@@ -37,17 +37,34 @@ Pod::Spec.new do |s|
 
     # The core abstractions and public protocols used for iOS application development.
     sc.subspec 'Abstractions' do |sp|
-      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Abstractions/Module/**/*.{swift,h,m,c}'
+      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Abstractions'
+
+      # Configuration
+      sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
     end
 
     # TODO: Write a description
     sc.subspec 'Concurrent' do |sp|
-      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Concurrent/Module/**/*.{swift,h,m,c}'
+      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Concurrent'
+
+      # Configuration
+      sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
+      sp.preserve_path = "#{src_path}/Module/Libraries/module.modulemap"
+      sp.pod_target_xcconfig = {
+        'SWIFT_INCLUDE_PATHS' => "$(PODS_TARGET_SRCROOT)/#{src_path}/**"
+      }
     end
 
     # A collection of reusable components used to simplify serialization, deserialization and validation operations on data objects.
     sc.subspec 'Data' do |sp|
-      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Data/Module/**/*.{swift,h,m,c}'
+      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Data'
+
+      # Configuration
+      sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
+      sp.preserve_path = "#{src_path}/Module/Libraries/module.modulemap"
+      sp.pod_target_xcconfig = {
+        'SWIFT_INCLUDE_PATHS' => "$(PODS_TARGET_SRCROOT)/#{src_path}/**"
+      }
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Diagnostics', s.version.to_s
@@ -56,7 +73,10 @@ Pod::Spec.new do |s|
 
     # A collection of static classes for debugging and diagnostics of program contracts such as preconditions, postconditions, and invariants.
     sc.subspec 'Diagnostics' do |sp|
-      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Diagnostics/Module/**/*.{swift,h,m,c}'
+      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Diagnostics'
+
+      # Configuration
+      sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
@@ -65,7 +85,10 @@ Pod::Spec.new do |s|
 
     # A collection of useful type extensions used for iOS application development.
     sc.subspec 'Extensions' do |sp|
-      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Extensions/Module/**/*.{swift,h,m,c}'
+      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Extensions'
+
+      # Configuration
+      sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Abstractions', s.version.to_s
@@ -74,12 +97,18 @@ Pod::Spec.new do |s|
 
     # A collection of useful classes and Swift language extensions.
     sc.subspec 'Lang' do |sp|
-      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Lang/Module/**/*.{swift,h,m,c}'
+      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Lang'
+
+      # Configuration
+      sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
     end
 
     # Provides simple abstraction layer over an existing logging frameworks.
     sc.subspec 'Logging' do |sp|
-      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Core.Logging/Module/**/*.{swift,h,m,c}'
+      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Logging'
+
+      # Configuration
+      sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
@@ -92,8 +121,18 @@ Pod::Spec.new do |s|
 
     # TODO: Write a description
     sc.subspec 'Database' do |sp|
-      sp.source_files = 'modules/RoxieMobile.SwiftCommons/Infrastructure.Database/Module/**/*.{swift,h,m,c}'
-      sp.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SQLITE_HAS_CODEC=1', 'OTHER_SWIFT_FLAGS' => '$(inherited) -DSQLITE_SWIFT_SQLCIPHER' }
+      src_path = 'modules/RoxieMobile.SwiftCommons/Infrastructure.Database'
+
+      # Configuration
+      sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
+      sp.preserve_path = "#{src_path}/Module/Libraries/module.modulemap"
+      sp.xcconfig = {
+        'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SQLITE_HAS_CODEC=1',
+        'OTHER_SWIFT_FLAGS' => '$(inherited) -DSQLITE_SWIFT_SQLCIPHER'
+      }
+      sp.pod_target_xcconfig = {
+        'SWIFT_INCLUDE_PATHS' => "$(PODS_TARGET_SRCROOT)/#{src_path}/**"
+      }
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
