@@ -183,22 +183,66 @@ private func valueFor(_ keyPathComponents: ArraySlice<String>, array: [Any]) -> 
 extension Map {
 
 	/// Checks if a current value is exists. Raises ObjC exception otherwise.
-	internal func roxie_checkState(file: StaticString = #file, line: UInt = #line) {
-		guard (self.mappingType == .fromJSON), (self.currentValue == nil) else { return }
+	internal func roxie_checkState<T>(
+			_ value: T?,
+			file: StaticString = #file,
+			line: UInt = #line
+	) -> Void {
 
-		var logMessage = "Key not found."
+		switch self.mappingType {
+			case .fromJSON:
+				if let _ = self.currentValue {
+					return
+				}
+			case .toJSON:
+				if let _ = value {
+					return
+				}
+		}
+
+		var logMessage = "Value not found."
 		if let key = self.currentKey {
-			logMessage = "Key not found ‘\(key)’."
+			logMessage = "Value for key ‘\(key)’ not found."
 		}
 		roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)
 	}
 
 	/// Checks if a value is transformed successfully. Raises ObjC exception otherwise.
-	internal func roxie_checkValue<T>(_ value: T?, file: StaticString = #file, line: UInt = #line) {
-		guard (self.currentValue != nil), (value == nil) else { return }
+	internal func roxie_checkValue(
+			_ value: Any?,
+			optional: Bool = false,
+			file: StaticString = #file,
+			line: UInt = #line
+	) -> Void {
+
+		switch self.mappingType {
+			case .fromJSON:
+				roxie_checkValue(self.currentKey, self.currentValue, value, optional: optional, file: file, line: line)
+
+			case .toJSON:
+				roxie_checkValue(self.currentKey, value, self.currentValue, optional: optional, file: file, line: line)
+		}
+	}
+
+	/// Checks if a value is transformed successfully. Raises ObjC exception otherwise.
+	internal func roxie_checkValue(
+			_ key: String?,
+			_ value: Any?,
+			_ transformedValue: Any?,
+			optional: Bool = false,
+			file: StaticString = #file,
+			line: UInt = #line
+	) -> Void {
+
+		if let _ = value, let _ = transformedValue {
+			return
+		}
+		else if optional && (value == nil) && (transformedValue == nil) {
+			return
+		}
 
 		var logMessage = "Could not transform value."
-		if let key = self.currentKey {
+		if let key = key {
 			logMessage = "Could not transform value for key ‘\(key)’."
 		}
 		roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)

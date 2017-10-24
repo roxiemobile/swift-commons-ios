@@ -12,7 +12,7 @@ import Foundation
 
 /// SignedInteger mapping
 public func <~ <T: SignedInteger>(left: inout T, right: Map) {
-	right.roxie_checkState()
+	right.roxie_checkState(left)
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T = toSignedInteger(right.currentValue) ?? 0
@@ -21,6 +21,7 @@ public func <~ <T: SignedInteger>(left: inout T, right: Map) {
 		left >>> right
 	default: ()
 	}
+	right.roxie_checkValue(left)
 }
 
 /// Optional SignedInteger mapping
@@ -33,11 +34,12 @@ public func <~ <T: SignedInteger>(left: inout T?, right: Map) {
 		left >>> right
 	default: ()
 	}
+	right.roxie_checkValue(left, optional: true)
 }
 
 /// ImplicitlyUnwrappedOptional SignedInteger mapping
 public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
-	right.roxie_checkState()
+	right.roxie_checkState(left)
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T! = toSignedInteger(right.currentValue)
@@ -46,6 +48,7 @@ public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
 		left >>> right
 	default: ()
 	}
+	right.roxie_checkValue(left)
 }
 
 
@@ -53,7 +56,7 @@ public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
 
 /// UnsignedInteger mapping
 public func <~ <T: UnsignedInteger>(left: inout T, right: Map) {
-	right.roxie_checkState()
+	right.roxie_checkState(left)
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T = toUnsignedInteger(right.currentValue) ?? 0
@@ -62,6 +65,7 @@ public func <~ <T: UnsignedInteger>(left: inout T, right: Map) {
 		left >>> right
 	default: ()
 	}
+	right.roxie_checkValue(left)
 }
 
 
@@ -75,11 +79,12 @@ public func <~ <T: UnsignedInteger>(left: inout T?, right: Map) {
 		left >>> right
 	default: ()
 	}
+	right.roxie_checkValue(left, optional: true)
 }
 
 /// ImplicitlyUnwrappedOptional UnsignedInteger mapping
 public func <~ <T: UnsignedInteger>(left: inout T!, right: Map) {
-	right.roxie_checkState()
+	right.roxie_checkState(left)
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T! = toUnsignedInteger(right.currentValue)
@@ -88,6 +93,7 @@ public func <~ <T: UnsignedInteger>(left: inout T!, right: Map) {
 		left >>> right
 	default: ()
 	}
+	right.roxie_checkValue(left)
 }
 
 // MARK: - Casting Utils
