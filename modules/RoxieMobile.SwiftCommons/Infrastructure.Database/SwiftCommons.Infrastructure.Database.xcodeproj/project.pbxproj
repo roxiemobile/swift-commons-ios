@@ -23,9 +23,9 @@
 		19164CFD1F86861700E0BB6D /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 19164CF01F86860000E0BB6D /* zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19164CFE1F86861700E0BB6D /* SSZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 19164CF11F86860000E0BB6D /* SSZipArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19164CFF1F86861700E0BB6D /* SSZipArchiveDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 19164CF31F86860000E0BB6D /* SSZipArchiveDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		193F9A641F9F46BB00094163 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F9A631F9F46B500094163 /* NSError.swift */; };
+		193F9A651F9F46BB00094163 /* Roxie.DatabasesDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F9A611F9F46B500094163 /* Roxie.DatabasesDirectory.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsInfrastructureDatabase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsInfrastructureDatabase.a */; };
-		1977FB131F86A1A60006E7FD /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977FB121F86A1A60006E7FD /* FileManager.swift */; };
-		1977FB1B1F86A9090006E7FD /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977FB191F86A9030006E7FD /* NSError.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Infrastructure.Database.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Infrastructure.Database.UnitTests.swift */; };
 		2E45F7557C87782603993040 /* Pods_SwiftCommons_Infrastructure_Database_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0123100C55AE4B3DBA7EF2 /* Pods_SwiftCommons_Infrastructure_Database_UnitTests.framework */; };
 		FBB308D43C3192060F018E41 /* Pods_SwiftCommons_Infrastructure_Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A8B0743BF75ADA2377CDEA /* Pods_SwiftCommons_Infrastructure_Database.framework */; };
@@ -61,9 +61,9 @@
 		19164CF21F86860000E0BB6D /* SSZipArchive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		19164CF31F86860000E0BB6D /* SSZipArchiveDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSZipArchiveDelegate.h; sourceTree = "<group>"; };
 		193728FF1F9CE8D400C92954 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		193F9A611F9F46B500094163 /* Roxie.DatabasesDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roxie.DatabasesDirectory.swift; sourceTree = "<group>"; };
+		193F9A631F9F46B500094163 /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsInfrastructureDatabase.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsInfrastructureDatabase.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1977FB121F86A1A60006E7FD /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
-		1977FB191F86A9030006E7FD /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsInfrastructureDatabase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsInfrastructureDatabase.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Infrastructure.Database.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Infrastructure.Database.UnitTests.swift; sourceTree = "<group>"; };
@@ -123,6 +123,22 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
+		193F9A601F9F46B500094163 /* Roxie */ = {
+			isa = PBXGroup;
+			children = (
+				193F9A611F9F46B500094163 /* Roxie.DatabasesDirectory.swift */,
+			);
+			path = Roxie;
+			sourceTree = "<group>";
+		};
+		193F9A621F9F46B500094163 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				193F9A631F9F46B500094163 /* NSError.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		195D39501F72CE4900118D17 /* Module.UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,8 +152,8 @@
 		1977FB141F86A1AB0006E7FD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1977FB121F86A1A60006E7FD /* FileManager.swift */,
-				1977FB191F86A9030006E7FD /* NSError.swift */,
+				193F9A621F9F46B500094163 /* Foundation */,
+				193F9A601F9F46B500094163 /* Roxie */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,17 +466,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1977FB1B1F86A9090006E7FD /* NSError.swift in Sources */,
 				19164CF81F86860E00E0BB6D /* SSZipArchive.m in Sources */,
 				19164CB01F867E7E00E0BB6D /* DatabaseHelperZip.swift in Sources */,
 				19164CF51F86860E00E0BB6D /* mztools.c in Sources */,
-				1977FB131F86A1A60006E7FD /* FileManager.swift in Sources */,
 				19164CAF1F867E7E00E0BB6D /* DatabaseHelper.swift in Sources */,
 				19164CF61F86860E00E0BB6D /* unzip.c in Sources */,
 				19164CAE1F867E7E00E0BB6D /* Database+Crypto.swift in Sources */,
 				19164CB11F867E7E00E0BB6D /* DatabaseOpenDelegate.swift in Sources */,
 				19164CF71F86860E00E0BB6D /* zip.c in Sources */,
 				19164CF41F86860E00E0BB6D /* ioapi.c in Sources */,
+				193F9A641F9F46BB00094163 /* NSError.swift in Sources */,
+				193F9A651F9F46BB00094163 /* Roxie.DatabasesDirectory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

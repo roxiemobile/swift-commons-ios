@@ -104,7 +104,7 @@ public class DatabaseHelper
 
         // Build path to the database file
         if !name.isEmpty && (name != Inner.InMemoryDatabase) {
-            path = FileManager.roxie_databasesDirectory?.appendingPathComponent((name.md5() as NSString).appendingPathExtension(FileExtension.SQLite)!)
+            path = Roxie.databasesDirectory?.appendingPathComponent((name.md5() as NSString).appendingPathExtension(FileExtension.SQLite)!)
         }
 
         // Done
@@ -119,7 +119,7 @@ public class DatabaseHelper
 
         // Build path to the template file
         if !name.isEmpty && (name != Inner.InMemoryDatabase) {
-            path = FileManager.roxie_temporaryDirectory?.appendingPathComponent((name.md5() as NSString).appendingPathExtension(FileExtension.SQLite)!)
+            path = Roxie.temporaryDirectory?.appendingPathComponent((name.md5() as NSString).appendingPathExtension(FileExtension.SQLite)!)
         }
 
         // Done

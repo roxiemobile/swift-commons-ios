@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		19227D2F1F8D11DC001A1664 /* Validatable.Valid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19227D2E1F8D11DC001A1664 /* Validatable.Valid.swift */; };
 		19227D321F8D1423001A1664 /* Validatable.NilOrValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19227D311F8D1423001A1664 /* Validatable.NilOrValid.swift */; };
-		1941B74F1F9650BD006484BD /* FileManager.Directories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941B74E1F9650BD006484BD /* FileManager.Directories.swift */; };
+		193F9A581F9F38D100094163 /* Roxie.Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F9A571F9F38D100094163 /* Roxie.Timer.swift */; };
+		193F9A5D1F9F447800094163 /* Roxie.CachesDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F9A5A1F9F447200094163 /* Roxie.CachesDirectory.swift */; };
+		193F9A5E1F9F447800094163 /* Roxie.DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F9A5B1F9F447200094163 /* Roxie.DocumentsDirectory.swift */; };
+		193F9A5F1F9F447800094163 /* Roxie.TemporaryDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F9A5C1F9F447200094163 /* Roxie.TemporaryDirectory.swift */; };
 		1941B7511F9656FA006484BD /* FileManager.RemoveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941B7501F9656F9006484BD /* FileManager.RemoveItem.swift */; };
 		1941B7531F96574F006484BD /* FileManager.CopyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941B7521F96574F006484BD /* FileManager.CopyItem.swift */; };
 		194877ED1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194877EC1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift */; };
@@ -19,7 +22,6 @@
 		1977FB111F869E330006E7FD /* URL.FileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977FB101F869E330006E7FD /* URL.FileExists.swift */; };
 		19C135EA1F8E552400B27112 /* Roxie.CustomTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C135E91F8E552400B27112 /* Roxie.CustomTag.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift */; };
-		19EC62941F961B3C00D94F04 /* Timer.Construction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EC62931F961B3C00D94F04 /* Timer.Construction.swift */; };
 		19EC62971F961E9200D94F04 /* Date.Strideable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EC62961F961E9200D94F04 /* Date.Strideable.swift */; };
 		19EC629A1F961EE700D94F04 /* Date.Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EC62991F961EE700D94F04 /* Date.Components.swift */; };
 		19EC629C1F961FF600D94F04 /* Date.Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EC629B1F961FF600D94F04 /* Date.Add.swift */; };
@@ -47,7 +49,10 @@
 		035371C701B8301610C6D2A9 /* Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Extensions.UnitTests/Pods-SwiftCommons.Core.Extensions.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		19227D2E1F8D11DC001A1664 /* Validatable.Valid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.Valid.swift; sourceTree = "<group>"; };
 		19227D311F8D1423001A1664 /* Validatable.NilOrValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.NilOrValid.swift; sourceTree = "<group>"; };
-		1941B74E1F9650BD006484BD /* FileManager.Directories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.Directories.swift; sourceTree = "<group>"; };
+		193F9A571F9F38D100094163 /* Roxie.Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roxie.Timer.swift; sourceTree = "<group>"; };
+		193F9A5A1F9F447200094163 /* Roxie.CachesDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roxie.CachesDirectory.swift; sourceTree = "<group>"; };
+		193F9A5B1F9F447200094163 /* Roxie.DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roxie.DocumentsDirectory.swift; sourceTree = "<group>"; };
+		193F9A5C1F9F447200094163 /* Roxie.TemporaryDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roxie.TemporaryDirectory.swift; sourceTree = "<group>"; };
 		1941B7501F9656F9006484BD /* FileManager.RemoveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.RemoveItem.swift; sourceTree = "<group>"; };
 		1941B7521F96574F006484BD /* FileManager.CopyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.CopyItem.swift; sourceTree = "<group>"; };
 		194877EC1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.ExcludeFromBackup.swift; sourceTree = "<group>"; };
@@ -59,7 +64,6 @@
 		19C135E91F8E552400B27112 /* Roxie.CustomTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roxie.CustomTag.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Core.Extensions.UnitTests.swift; sourceTree = "<group>"; };
-		19EC62931F961B3C00D94F04 /* Timer.Construction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.Construction.swift; sourceTree = "<group>"; };
 		19EC62961F961E9200D94F04 /* Date.Strideable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.Strideable.swift; sourceTree = "<group>"; };
 		19EC62991F961EE700D94F04 /* Date.Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.Components.swift; sourceTree = "<group>"; };
 		19EC629B1F961FF600D94F04 /* Date.Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.Add.swift; sourceTree = "<group>"; };
@@ -98,17 +102,28 @@
 		19227D301F8D11E3001A1664 /* Roxie */ = {
 			isa = PBXGroup;
 			children = (
+				193F9A591F9F447200094163 /* Directories */,
 				195BDFFB1F8E586D00910CBD /* Validatable */,
 				19C135E91F8E552400B27112 /* Roxie.CustomTag.swift */,
+				193F9A571F9F38D100094163 /* Roxie.Timer.swift */,
 			);
 			path = Roxie;
+			sourceTree = "<group>";
+		};
+		193F9A591F9F447200094163 /* Directories */ = {
+			isa = PBXGroup;
+			children = (
+				193F9A5A1F9F447200094163 /* Roxie.CachesDirectory.swift */,
+				193F9A5B1F9F447200094163 /* Roxie.DocumentsDirectory.swift */,
+				193F9A5C1F9F447200094163 /* Roxie.TemporaryDirectory.swift */,
+			);
+			path = Directories;
 			sourceTree = "<group>";
 		};
 		1941B74D1F965089006484BD /* FileManager */ = {
 			isa = PBXGroup;
 			children = (
 				1941B7521F96574F006484BD /* FileManager.CopyItem.swift */,
-				1941B74E1F9650BD006484BD /* FileManager.Directories.swift */,
 				194877EC1F8690440003A4AA /* FileManager.ExcludeFromBackup.swift */,
 				1941B7501F9656F9006484BD /* FileManager.RemoveItem.swift */,
 			);
@@ -130,7 +145,6 @@
 				19ED8B5D1F95747C004FD48B /* Data */,
 				19EC62981F961E9600D94F04 /* Date */,
 				1941B74D1F965089006484BD /* FileManager */,
-				19EC62951F961BE300D94F04 /* Timer */,
 				1941B7541F96590A006484BD /* URL */,
 			);
 			path = Foundation;
@@ -238,14 +252,6 @@
 				19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Extensions.UnitTests.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		19EC62951F961BE300D94F04 /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-				19EC62931F961B3C00D94F04 /* Timer.Construction.swift */,
-			);
-			path = Timer;
 			sourceTree = "<group>";
 		};
 		19EC62981F961E9600D94F04 /* Date */ = {
@@ -496,16 +502,18 @@
 				19EC629E1F96225E00D94F04 /* Date.Intervals.swift in Sources */,
 				19ED8B5F1F95747F004FD48B /* Data.Empty.swift in Sources */,
 				19227D2F1F8D11DC001A1664 /* Validatable.Valid.swift in Sources */,
+				193F9A5D1F9F447800094163 /* Roxie.CachesDirectory.swift in Sources */,
 				1977FB111F869E330006E7FD /* URL.FileExists.swift in Sources */,
 				19EC629C1F961FF600D94F04 /* Date.Add.swift in Sources */,
+				193F9A5F1F9F447800094163 /* Roxie.TemporaryDirectory.swift in Sources */,
 				19EC629A1F961EE700D94F04 /* Date.Components.swift in Sources */,
+				193F9A581F9F38D100094163 /* Roxie.Timer.swift in Sources */,
 				19EC62A01F962AA400D94F04 /* Date.Format.swift in Sources */,
 				19227D321F8D1423001A1664 /* Validatable.NilOrValid.swift in Sources */,
-				19EC62941F961B3C00D94F04 /* Timer.Construction.swift in Sources */,
 				19EC62A21F962BE300D94F04 /* Date.Operators.swift in Sources */,
+				193F9A5E1F9F447800094163 /* Roxie.DocumentsDirectory.swift in Sources */,
 				1941B7531F96574F006484BD /* FileManager.CopyItem.swift in Sources */,
 				19C135EA1F8E552400B27112 /* Roxie.CustomTag.swift in Sources */,
-				1941B74F1F9650BD006484BD /* FileManager.Directories.swift in Sources */,
 				195BDFFF1F8E5DA000910CBD /* Bundle.ExecutableName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Roxie.CustomTag.swift
+//  Roxie.CachesDirectory.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -15,16 +15,19 @@ import SwiftCommons
 
 public extension Roxie
 {
-// MARK: - Methods
+// MARK: - Properties
 
-    /// Creates a new URN tag for any object.
-    public static func newTag(for subject: Any) -> String
+    /// Returns the caches directory for the current user.
+    public static var cachesDirectory: URL? {
+        return Directories.Caches
+    }
+
+// MARK: - Constants
+
+    private struct Directories
     {
-        let nameTag = String(format:"%08lx", Roxie.typeName(of: subject).hashValue & 0xFFFFFFFF)
-        let timeTag = String(format:"%08lx", mach_absolute_time() & 0xFFFFFFFF)
-
-        // Done
-        return "urn:tag:\(nameTag):\(timeTag)"
+        /// The caches directory for the current user.
+        static let Caches: URL? = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
     }
 }
 

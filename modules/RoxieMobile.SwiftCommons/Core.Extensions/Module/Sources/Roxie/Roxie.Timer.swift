@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Timer.Construction.swift
+//  Roxie.Timer.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -9,6 +9,7 @@
 // ----------------------------------------------------------------------------
 
 import Foundation
+import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
@@ -20,7 +21,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Timer
+public extension Roxie
 {
 // MARK: - Construction
 
@@ -28,18 +29,26 @@ public extension Timer
     /// and schedules it on the current run loop in the default mode.
     ///
     /// - Parameters:
-    ///   - timeInterval: The number of seconds between firings of the timer. If seconds is less than or equal to 0.0, this method chooses the nonnegative value of 0.1 milliseconds instead.
+    ///   - interval: The number of seconds between firings of the timer. If seconds is less than or equal to 0.0, this method chooses the nonnegative value of 0.1 milliseconds instead.
     ///   - repeats: If `true`, the timer will repeatedly reschedule itself until invalidated. If `false`, the timer will be invalidated after it fires.
     ///   - block: The execution body of the timer; the timer itself is passed as the parameter to this block when executed to aid in avoiding cyclical references.
     ///
-    public static func roxie_scheduledTimer(
-            timeInterval ti: TimeInterval,
+    /// - Returns:
+    ///   A new `Timer` object, configured according to the specified parameters.
+    ///
+    public static func scheduledTimer(
+            withTimeInterval interval: TimeInterval,
             repeats: Bool,
-            block: @escaping TimerCompletionHandler
+            block: @escaping TimerBlock
     ) -> Timer {
 
-        let userInfo = UserInfo(completion: block)
-        return scheduledTimer(timeInterval: ti, target: self, selector: Inner.ExecuteCompletionHandler, userInfo: userInfo, repeats: repeats)
+        if #available(*, iOS 10.0) {
+            return Timer.scheduledTimer(withTimeInterval: interval, repeats: repeats, block: block)
+        }
+        else {
+            let blockHolder = TimerBlockHolder(block: block)
+            return Timer.scheduledTimer(timeInterval: interval, target: self, selector: Inner.ExecuteTimerBlock, userInfo: blockHolder, repeats: repeats)
+        }
     }
 
     /// Creates and returns a new `Timer` object initialized with the specified block object. This timer
@@ -50,37 +59,42 @@ public extension Timer
     ///   - repeats: If `true`, the timer will repeatedly reschedule itself until invalidated. If `false`, the timer will be invalidated after it fires.
     ///   - block: The execution body of the timer; the timer itself is passed as the parameter to this block when executed to aid in avoiding cyclical references.
     ///
-    public static func roxie_timer(
-            timeInterval ti: TimeInterval,
+    public static func timer(
+            timeInterval interval: TimeInterval,
             repeats: Bool,
-            block: @escaping TimerCompletionHandler
+            block: @escaping TimerBlock
     ) -> Timer {
 
-        let userInfo = UserInfo(completion: block)
-        return Timer(timeInterval: ti, target: self, selector: Inner.ExecuteCompletionHandler, userInfo: userInfo, repeats: repeats)
+        if #available(*, iOS 10.0) {
+            return Timer(timeInterval: interval, repeats: repeats, block: block)
+        }
+        else {
+            let blockHolder = TimerBlockHolder(block: block)
+            return Timer(timeInterval: interval, target: self, selector: Inner.ExecuteTimerBlock, userInfo: blockHolder, repeats: repeats)
+        }
     }
 
 // MARK: - Private Methods
 
     @objc
-    private static func roxie_executeCompletionHandler(_ timer: Timer) -> Void {
-        if let userInfo = (timer.userInfo as? UserInfo) {
-            userInfo.completion(timer)
+    private static func executeTimerBlock(_ timer: Timer) -> Void {
+        if let holder = (timer.userInfo as? TimerBlockHolder) {
+            holder.block(timer)
         }
     }
 
 // MARK: - Inner Types
 
-    public typealias TimerCompletionHandler = (@convention(block) (_ timer: Timer) -> Void)
+    public typealias TimerBlock = (@convention(block) (_ timer: Timer) -> Void)
 
-    private struct UserInfo {
-        let completion: TimerCompletionHandler
+    private struct TimerBlockHolder {
+        let block: TimerBlock
     }
 
 // MARK: - Constants
 
     private struct Inner {
-        static let ExecuteCompletionHandler = #selector(Timer.roxie_executeCompletionHandler(_:))
+        static let ExecuteTimerBlock = #selector(Roxie.executeTimerBlock(_:))
     }
 }
 

@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  FileManager.Directories.swift
+//  Roxie.TemporaryDirectory.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -9,25 +9,16 @@
 // ----------------------------------------------------------------------------
 
 import Foundation
+import SwiftCommons
 
 // ----------------------------------------------------------------------------
 
-public extension FileManager
+public extension Roxie
 {
 // MARK: - Properties
 
-    /// Returns the documents directory for the current user.
-    public static var roxie_documentsDirectory: URL? {
-        return Directories.Documents
-    }
-
-    /// Returns the caches directory for the current user.
-    public static var roxie_cachesDirectory: URL? {
-        return Directories.Caches
-    }
-
     /// Returns the temporary directory for the current user.
-    public static var roxie_temporaryDirectory: URL? {
+    public static var temporaryDirectory: URL? {
         return Directories.Temporary
     }
 
@@ -35,12 +26,6 @@ public extension FileManager
 
     private struct Directories
     {
-        /// The documents directory for the current user.
-        static let Documents: URL? = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-
-        /// The caches directory for the current user.
-        static let Caches: URL? = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
-
         /// The temporary directory for the current user.
         static let Temporary: URL? = URL.init(fileURLWithPath: NSTemporaryDirectory())
     }
