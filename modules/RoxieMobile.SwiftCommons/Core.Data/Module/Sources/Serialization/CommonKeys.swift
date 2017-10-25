@@ -33,7 +33,7 @@ public final class CommonKeys: NonCreatable
     }
 
     public struct State {
-        public static let Undefined = Prefix.State + "undefined";
+        public static let Undefined = Prefix.State + "UNDEFINED";
     }
 }
 

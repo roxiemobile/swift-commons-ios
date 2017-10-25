@@ -220,7 +220,12 @@ extension Map {
 				roxie_checkValue(self.currentKey, self.currentValue, value, optional: optional, file: file, line: line)
 
 			case .toJSON:
-				roxie_checkValue(self.currentKey, value, self.currentValue, optional: optional, file: file, line: line)
+				if let key = self.currentKey {
+					roxie_checkValue(self.currentKey, value, self.JSON[key], optional: optional, file: file, line: line)
+				}
+				else {
+					roxie_objectMapper_raiseException(message: "Current key is not set.")
+				}
 		}
 	}
 
