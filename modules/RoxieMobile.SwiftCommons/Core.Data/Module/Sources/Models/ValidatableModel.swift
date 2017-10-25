@@ -31,7 +31,7 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public required init(params: [String : Any]) throws {
+    public required init(JSON json: [String: Any]) throws {
         super.init()
 
         var cause: NSException?
@@ -39,13 +39,14 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
 
             // Deserialize object
             self.unsafeMapping() {
-                Mapper<ValidatableModel>().map(JSON: params, toObject: self)
+                let map = Map(mappingType: .fromJSON, JSON: json, toObject: true)
+                self.mapping(map: map)
             }
 
         }.objcCatch { e in
 
             // Update exception
-            cause = self.injectNestedParams(e, params: params)
+            cause = self.injectNestedParams(e, params: json)
         }
 
         if let e = cause {
@@ -106,10 +107,11 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
         objcTry {
 
             // Decode internal object's state
-            if let json = decoder.decodeObject() as? [String: AnyObject]
+            if let json = decoder.decodeObject() as? [String: Any]
             {
                 result = self.unsafeMapping() {
-                    Mapper<ValidatableModel>().map(JSON: json, toObject: self)
+                    let map = Map(mappingType: .fromJSON, JSON: json, toObject: true)
+                    self.mapping(map: map)
                 }
             }
 
@@ -214,7 +216,7 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
 
     /// Creates a deep copy of the receiver.
     public final func clone() -> Self {
-        return try! type(of: self).init(params: Mapper().toJSON(self))
+        return try! type(of: self).init(JSON: Mapper().toJSON(self))
     }
 
 // MARK: - Private Methods

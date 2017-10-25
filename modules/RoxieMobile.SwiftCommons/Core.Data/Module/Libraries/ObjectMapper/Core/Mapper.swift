@@ -66,7 +66,6 @@ public final class Mapper<N: BaseMappable> {
 	
 	/// Maps a JSON dictionary to an existing object that conforms to Mappable.
 	/// Usefull for those pesky objects that have crappy designated initializers like NSManagedObject
-	@discardableResult
 	public func map(JSON: [String: Any], toObject object: N) -> N {
 		var mutableObject = object
 		let map = Map(mappingType: .fromJSON, JSON: JSON, toObject: true, context: context, shouldIncludeNilValues: shouldIncludeNilValues)
