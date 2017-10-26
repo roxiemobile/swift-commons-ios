@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1946AE2B1FA22A8000167B03 /* RawRepresentableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946AE2A1FA22A8000167B03 /* RawRepresentableOption.swift */; };
 		1949D17C1F8A75FE009A5FED /* LFArchiver+Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1949D1581F8A758D009A5FED /* LFArchiver+Encoding.h */; };
 		1949D17D1F8A75FE009A5FED /* LFArchiver+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1949D1591F8A758D009A5FED /* LFArchiver+Encoding.m */; };
 		1949D17E1F8A75FE009A5FED /* LFArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 1949D15A1F8A758D009A5FED /* LFArchiver.h */; };
@@ -76,6 +77,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1946AE2A1FA22A8000167B03 /* RawRepresentableOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableOption.swift; sourceTree = "<group>"; };
 		1949D1581F8A758D009A5FED /* LFArchiver+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFArchiver+Encoding.h"; sourceTree = "<group>"; };
 		1949D1591F8A758D009A5FED /* LFArchiver+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFArchiver+Encoding.m"; sourceTree = "<group>"; };
 		1949D15A1F8A758D009A5FED /* LFArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFArchiver.h; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		1990C50B1F8A638200A944A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1946AE2A1FA22A8000167B03 /* RawRepresentableOption.swift */,
 				1990C5121F8A652400A944A8 /* SerializableObject.swift */,
 				1990C50C1F8A638200A944A8 /* ValidatableModel.swift */,
 			);
@@ -650,6 +653,7 @@
 				1990C5081F8A57C500A944A8 /* EmailValidator.swift in Sources */,
 				198082001F94CA660077E58F /* Assets.swift in Sources */,
 				1990C50E1F8A638200A944A8 /* ValidatableModel.swift in Sources */,
+				1946AE2B1FA22A8000167B03 /* RawRepresentableOption.swift in Sources */,
 				1949D1881F8A75FE009A5FED /* LFUnarchiver.m in Sources */,
 				19574CAC1F8A6FB700A218E4 /* ObjectMapperException.swift in Sources */,
 				19574CC71F8A739500A218E4 /* JsonTypes.swift in Sources */,
