@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
 
     # The core abstractions and public protocols used for iOS application development.
     sc.subspec 'Abstractions' do |sp|
-      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Abstractions'
+      src_path = 'Modules/RoxieMobile.SwiftCommons/Core.Abstractions'
 
       # Configuration
       sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
 
     # TODO: Write a description
     sc.subspec 'Concurrent' do |sp|
-      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Concurrent'
+      src_path = 'Modules/RoxieMobile.SwiftCommons/Core.Concurrent'
 
       # Configuration
       sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
@@ -57,7 +57,7 @@ Pod::Spec.new do |s|
 
     # A collection of reusable components used to simplify serialization, deserialization and validation operations on data objects.
     sc.subspec 'Data' do |sp|
-      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Data'
+      src_path = 'Modules/RoxieMobile.SwiftCommons/Core.Data'
 
       # Configuration
       sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
@@ -73,7 +73,7 @@ Pod::Spec.new do |s|
 
     # A collection of static classes for debugging and diagnostics of program contracts such as preconditions, postconditions, and invariants.
     sc.subspec 'Diagnostics' do |sp|
-      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Diagnostics'
+      src_path = 'Modules/RoxieMobile.SwiftCommons/Core.Diagnostics'
 
       # Configuration
       sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
@@ -85,7 +85,7 @@ Pod::Spec.new do |s|
 
     # A collection of useful type extensions used for iOS application development.
     sc.subspec 'Extensions' do |sp|
-      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Extensions'
+      src_path = 'Modules/RoxieMobile.SwiftCommons/Core.Extensions'
 
       # Configuration
       sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
@@ -97,7 +97,7 @@ Pod::Spec.new do |s|
 
     # A collection of useful classes and Swift language extensions.
     sc.subspec 'Lang' do |sp|
-      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Lang'
+      src_path = 'Modules/RoxieMobile.SwiftCommons/Core.Lang'
 
       # Configuration
       sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
@@ -105,7 +105,7 @@ Pod::Spec.new do |s|
 
     # Provides simple abstraction layer over an existing logging frameworks.
     sc.subspec 'Logging' do |sp|
-      src_path = 'modules/RoxieMobile.SwiftCommons/Core.Logging'
+      src_path = 'Modules/RoxieMobile.SwiftCommons/Core.Logging'
 
       # Configuration
       sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
@@ -121,7 +121,7 @@ Pod::Spec.new do |s|
 
     # TODO: Write a description
     sc.subspec 'Database' do |sp|
-      src_path = 'modules/RoxieMobile.SwiftCommons/Infrastructure.Database'
+      src_path = 'Modules/RoxieMobile.SwiftCommons/Infrastructure.Database'
 
       # Configuration
       sp.source_files  = "#{src_path}/Module/**/*.{swift,h,m,c,modulemap}"
