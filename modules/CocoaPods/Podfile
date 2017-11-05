@@ -28,7 +28,7 @@ target 'SwiftCommons.Core.Data' do
   project '../RoxieMobile.SwiftCommons/Core.Data/SwiftCommons.Core.Data.xcodeproj'
 
   pod 'SwiftCommons/Core/Diagnostics', path: '../../'
-  pod 'CryptoSwift', '~> 0.8.0'
+  pod 'CryptoSwift/Static', '~> 0.8.0'
 
   target 'SwiftCommons.Core.Data.UnitTests' do
     inherit! :search_paths
@@ -88,8 +88,8 @@ target 'SwiftCommons.Infrastructure.Database' do
 
   pod 'SwiftCommons/Core/Concurrent', path: '../../'
   pod 'SwiftCommons/Core/Extensions', path: '../../'
-  pod 'CryptoSwift', '~> 0.8.0'
-  pod 'SQLite.swift/SQLCipher', '~> 0.11.4', inhibit_warnings: true
+  pod 'CryptoSwift/Static', '~> 0.8.0'
+  pod 'SQLite.swift/SQLCipher/Static', '~> 0.11.4'
 
   target 'SwiftCommons.Infrastructure.Database.UnitTests' do
     inherit! :search_paths

@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
 
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Diagnostics', s.version.to_s
-      sp.dependency 'CryptoSwift', '~> 0.8.0'
+      sp.dependency 'CryptoSwift/Static', '~> 0.8.0'
     end
 
     # A collection of static classes for debugging and diagnostics of program contracts such as preconditions, postconditions, and invariants.
@@ -137,8 +137,8 @@ Pod::Spec.new do |s|
       # Dependencies
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Extensions', s.version.to_s
-      sp.dependency 'CryptoSwift', '~> 0.8.0'
-      sp.dependency 'SQLite.swift/SQLCipher', '~> 0.11.4'
+      sp.dependency 'CryptoSwift/Static', '~> 0.8.0'
+      sp.dependency 'SQLite.swift/SQLCipher/Static', '~> 0.11.4'
     end
   end
 end
