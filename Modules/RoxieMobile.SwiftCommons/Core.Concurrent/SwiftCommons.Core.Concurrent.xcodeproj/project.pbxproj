@@ -12,8 +12,6 @@
 		190C770E1F96BF96002C3847 /* PerformOnce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190C77091F96BF91002C3847 /* PerformOnce.swift */; };
 		190C77111F96C4AD002C3847 /* PthreadLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190C77101F96C4AD002C3847 /* PthreadLock.swift */; };
 		190C77131F96C5B5002C3847 /* UnfairLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190C77121F96C5B5002C3847 /* UnfairLock.swift */; };
-		195A57381F9901C900A4F334 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A57351F9901A800A4F334 /* Dispatch.swift */; };
-		195A57391F9901C900A4F334 /* Dispatch.Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A57341F9901A800A4F334 /* Dispatch.Helpers.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreConcurrent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreConcurrent.a */; };
 		19C7B7551F8648EF0030F1D8 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7541F8648EB0030F1D8 /* Synchronized.swift */; };
 		19C7B7561F8648F30030F1D8 /* TryCatchFinally.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */; };
@@ -45,11 +43,7 @@
 		190C77101F96C4AD002C3847 /* PthreadLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PthreadLock.swift; sourceTree = "<group>"; };
 		190C77121F96C5B5002C3847 /* UnfairLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnfairLock.swift; sourceTree = "<group>"; };
 		194A7C551F9CD4F2002E0FD6 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		195A57341F9901A800A4F334 /* Dispatch.Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.Helpers.swift; sourceTree = "<group>"; };
-		195A57351F9901A800A4F334 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreConcurrent.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreConcurrent.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19792A361F72E7200001768B /* SwiftCommons.Core.Concurrent-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Concurrent-Bridging-Header.h"; sourceTree = "<group>"; };
-		19792A371F72E72A0001768B /* SwiftCommons.Core.Concurrent.UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Concurrent.UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreConcurrent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsCoreConcurrent.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TryCatchFinally.h; sourceTree = "<group>"; };
 		19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryCatchFinally.m; sourceTree = "<group>"; };
@@ -94,15 +88,6 @@
 				190C77121F96C5B5002C3847 /* UnfairLock.swift */,
 			);
 			path = SCAAtomic;
-			sourceTree = "<group>";
-		};
-		195A57331F9901A800A4F334 /* Dispatch */ = {
-			isa = PBXGroup;
-			children = (
-				195A57351F9901A800A4F334 /* Dispatch.swift */,
-				195A57341F9901A800A4F334 /* Dispatch.Helpers.swift */,
-			);
-			path = Dispatch;
 			sourceTree = "<group>";
 		};
 		195D39501F72CE4900118D17 /* Module.UnitTests */ = {
@@ -188,7 +173,6 @@
 		19EB0CA21F72DF0D0029F302 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				195A57331F9901A800A4F334 /* Dispatch */,
 				190C77051F96BF91002C3847 /* SCAAtomic */,
 				19C7B7531F8648EB0030F1D8 /* Synchronized */,
 				19C7B74E1F8648EB0030F1D8 /* TryCatchFinally */,
@@ -441,13 +425,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				195A57381F9901C900A4F334 /* Dispatch.swift in Sources */,
 				190C77131F96C5B5002C3847 /* UnfairLock.swift in Sources */,
 				190C770B1F96BF96002C3847 /* Atomic.swift in Sources */,
 				19C7B7571F8648F40030F1D8 /* TryCatchFinally.swift in Sources */,
 				190C770C1F96BF96002C3847 /* Lockable.swift in Sources */,
 				19C7B7551F8648EF0030F1D8 /* Synchronized.swift in Sources */,
-				195A57391F9901C900A4F334 /* Dispatch.Helpers.swift in Sources */,
 				19C7B7561F8648F30030F1D8 /* TryCatchFinally.m in Sources */,
 				190C77111F96C4AD002C3847 /* PthreadLock.swift in Sources */,
 				190C770E1F96BF96002C3847 /* PerformOnce.swift in Sources */,
