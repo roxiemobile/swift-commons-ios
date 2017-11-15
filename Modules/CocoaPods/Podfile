@@ -6,6 +6,11 @@ use_frameworks!
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 
 
+def inject_shared_dependencies
+  pod 'CryptoSwift/Static', '~> 0.8.0'
+end
+
+
 target 'SwiftCommons.Core.Abstractions' do
   project '../RoxieMobile.SwiftCommons/Core.Abstractions/SwiftCommons.Core.Abstractions.xcodeproj'
 
@@ -18,6 +23,8 @@ end
 target 'SwiftCommons.Core.Concurrent' do
   project '../RoxieMobile.SwiftCommons/Core.Concurrent/SwiftCommons.Core.Concurrent.xcodeproj'
 
+  pod 'Dispatch/Static', '~> 2.0.4'
+
   target 'SwiftCommons.Core.Concurrent.UnitTests' do
     inherit! :search_paths
   end
@@ -27,8 +34,8 @@ end
 target 'SwiftCommons.Core.Data' do
   project '../RoxieMobile.SwiftCommons/Core.Data/SwiftCommons.Core.Data.xcodeproj'
 
+  inject_shared_dependencies
   pod 'SwiftCommons/Core/Diagnostics', path: '../../'
-  pod 'CryptoSwift/Static', '~> 0.8.0'
 
   target 'SwiftCommons.Core.Data.UnitTests' do
     inherit! :search_paths
@@ -86,9 +93,9 @@ end
 target 'SwiftCommons.Infrastructure.Database' do
   project '../RoxieMobile.SwiftCommons/Infrastructure.Database/SwiftCommons.Infrastructure.Database.xcodeproj'
 
+  inject_shared_dependencies
   pod 'SwiftCommons/Core/Concurrent', path: '../../'
   pod 'SwiftCommons/Core/Extensions', path: '../../'
-  pod 'CryptoSwift/Static', '~> 0.8.0'
   pod 'SQLite.swift/SQLCipher/Static', '~> 0.11.4'
 
   target 'SwiftCommons.Infrastructure.Database.UnitTests' do

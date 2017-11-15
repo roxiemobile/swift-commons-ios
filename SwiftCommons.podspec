@@ -30,6 +30,12 @@ Pod::Spec.new do |s|
                             'Core/Logging',
                             'Infrastructure/Database'
 
+# MARK: - Methods
+
+  def self.inject_shared_dependencies(spec)
+    spec.dependency 'CryptoSwift/Static', '~> 0.8.0'
+  end
+
 # MARK: - Modules
 
   # TODO: Write a description
@@ -53,6 +59,9 @@ Pod::Spec.new do |s|
       sp.pod_target_xcconfig = {
         'SWIFT_INCLUDE_PATHS' => "$(PODS_TARGET_SRCROOT)/#{src_path}/**"
       }
+
+      # Dependencies
+      sp.dependency 'Dispatch/Static', '~> 2.0.4'
     end
 
     # A collection of reusable components used to simplify serialization, deserialization and validation operations on data objects.
@@ -67,8 +76,8 @@ Pod::Spec.new do |s|
       }
 
       # Dependencies
+      inject_shared_dependencies(sp)
       sp.dependency 'SwiftCommons/Core/Diagnostics', s.version.to_s
-      sp.dependency 'CryptoSwift/Static', '~> 0.8.0'
     end
 
     # A collection of static classes for debugging and diagnostics of program contracts such as preconditions, postconditions, and invariants.
@@ -135,9 +144,9 @@ Pod::Spec.new do |s|
       }
 
       # Dependencies
+      inject_shared_dependencies(sp)
       sp.dependency 'SwiftCommons/Core/Concurrent', s.version.to_s
       sp.dependency 'SwiftCommons/Core/Extensions', s.version.to_s
-      sp.dependency 'CryptoSwift/Static', '~> 0.8.0'
       sp.dependency 'SQLite.swift/SQLCipher/Static', '~> 0.11.4'
     end
   end
