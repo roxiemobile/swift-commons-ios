@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source                = { git: 'https://github.com/roxiemobile/swift-commons.ios.git', tag: "v#{s.version}" }
   s.preserve_path         = 'LICENSE.txt'
 
-  s.pod_target_xcconfig   = { 'ENABLE_BITCODE' => 'NO', 'SWIFT_VERSION' => '4.0' }
+  s.pod_target_xcconfig   = { 'SWIFT_VERSION' => '4.0' }
 
   s.default_subspecs      = 'Core/Abstractions',
                             'Core/Concurrent',
