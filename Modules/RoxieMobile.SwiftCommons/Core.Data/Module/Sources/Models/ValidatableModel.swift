@@ -30,52 +30,33 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
         super.init(coder: decoder)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public required init(JSON json: [String: Any]) throws {
-        super.init()
-
-        var cause: NSException?
-        objcTry {
-
-            // Deserialize object
-            self.unsafeMapping() {
-                let map = Map(mappingType: .fromJSON, JSON: json, toObject: true)
-                self.mapping(map: map)
-            }
-
-        }.objcCatch { e in
-
-            // Update exception
-            cause = self.injectNestedParams(e, params: json)
-        }
-
-        if let e = cause {
-            throw JsonSyntaxError(message: e.reason, params: e.userInfo?[Inner.NestedParams] as? [String: AnyObject], cause: e)
-        }
-    }
-
+    /**
+     * NOTE: Throws NSException from Objective-C
+     */
     @available(*, deprecated, message: "\n• Write a description.")
     public required init?(map: Map) {
         super.init()
 
-        var result = false
-        objcTry {
+        // Deserialize object
+        let exception = safeMapping(map) {
+            self.mapping(map: $0)
+        }
 
-            // Deserialize object
-            result = self.unsafeMapping() {
-                self.mapping(map: map)
+        // Raise exception if mapping was failed
+        if let cause = exception {
+
+            if let options = (map.context as? Options), options.raiseExceptionOnFailure {
+                cause.raise()
             }
-
-        }.objcCatch { e in
-
-            // Rethrow exception
-            self.injectNestedParams(e, params: map.JSON).raise()
+            else {
+                return nil
+            }
         }
+    }
 
-        // Validate instance
-        guard result else {
-            return nil
-        }
+    /// Creates a new instance of the class.
+    fileprivate override init() {
+        super.init()
     }
 
 // MARK: - Methods: SerializableObject
@@ -84,35 +65,39 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
     open override func encodeObject(with encoder: NSCoder) -> Bool
     {
         // Parent processing
-        let result = super.encodeObject(with: encoder)
-
-        // Encode internal object's state
-        if result {
-            encoder.encode(Mapper().toJSON(self))
+        guard self.frozen && super.encodeObject(with: encoder) else {
+            return false
         }
 
-        // Done
-        return result
+        // Serialize object
+        encoder.encode(Mapper().toJSON(self))
+        return true
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
     open override func decodeObject(with decoder: NSCoder) -> Bool
     {
         // Parent processing
-        guard !frozen() && super.decodeObject(with: decoder) else {
+        guard !self.frozen && super.decodeObject(with: decoder) else {
             return false
         }
 
         var result = false
         objcTry {
 
-            // Decode internal object's state
-            if let json = decoder.decodeObject() as? [String: Any]
-            {
-                result = self.unsafeMapping() {
-                    let map = Map(mappingType: .fromJSON, JSON: json, toObject: true)
-                    self.mapping(map: map)
+            // Deserialize object
+            if let JSON = decoder.decodeObject() as? JsonObject {
+
+                let map = Map(mappingType: .fromJSON, JSON: JSON, toObject: true).tap {
+                    $0.context = Options(raiseExceptionOnFailure: true)
                 }
+
+                let exception = self.safeMapping(map) {
+                    self.mapping(map: $0)
+                }
+
+                // Check result of the deserialization
+                result = (exception != nil)
             }
 
         }.objcCatch { e in
@@ -131,7 +116,7 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public final func frozen() -> Bool {
+    public final var frozen: Bool {
         return self.freeze
     }
 
@@ -152,7 +137,8 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
         // Writing a good Hashable implementation in Swift
         // @link http://stackoverflow.com/a/24240011
 
-        self.hash = (31 &* NSStringFromClass(type(of: self)).hashValue) &+ (data as Data).md5().hashValue
+        let className = Reflection(of: self).type.fullName
+        self.hash = (31 &* className.hashValue) &+ (data as Data).md5().hashValue
         return self.hash
     }
 
@@ -215,38 +201,54 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
     }
 
     /// Creates a deep copy of the receiver.
+    ///
+    /// - Returns:
+    ///   A newly created copy of instance of the receiver.
+    ///
     public final func clone() -> Self {
-        return try! type(of: self).init(JSON: Mapper().toJSON(self))
-    }
+        let typeOfT = type(of: self)
 
-// MARK: - Private Methods
-
-    /**
-     * NOTE: Throws NSException from Objective-C
-     */
-    @available(*, deprecated, message: "\n• Write a description.")
-    @discardableResult
-    private func unsafeMapping(block: @escaping () -> Void) -> Bool
-    {
-        guard !frozen() else {
-            return false
-        }
-
-        // TODO
-        // if (obj is IPostValidatable instance && instance.IsShouldPostValidate()) {
-        //     try {
-        //         instance.Validate();
-        //     }
-        //     catch (CheckException e) {
-        //         throw new JsonSerializationException(e.Message, e);
-        //     }
-        // }
-
+        var clone: AnyObject?
         var cause: NSException?
         objcTry {
 
             // Deserialize object
-            block()
+            let map = Map(mappingType: .fromJSON, JSON: Mapper().toJSON(self), toObject: true).tap {
+                $0.context = Options(raiseExceptionOnFailure: true)
+            }
+            clone = typeOfT.init(map: map)
+
+        }.objcCatch { e in
+            cause = e
+        }
+
+        // Check result of the cloning
+        if let instance = clone {
+            return Roxie.forceCast(instance, to: typeOfT)
+        }
+        else {
+            Roxie.fatalError("Couldn't clone object ‘\(Roxie.typeName(of: self))’.", exception: cause)
+        }
+    }
+
+// MARK: - Private Methods
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    fileprivate func safeMapping(_ map: Map, closure: @escaping (Map) -> Void) -> NSException? {
+        let className = Roxie.typeName(of: self)
+
+        var cause: NSException?
+        objcTry {
+
+            guard !self.frozen else {
+                roxie_objectMapper_raiseException(message: "Can't modify frozen object ‘\(className)’.")
+            }
+
+            // Deserialize object
+            closure(map)
+
+            // Prevent further modifications
+            self.freeze = true
 
             // Validate converted object
             if self.isShouldPostValidate {
@@ -254,50 +256,48 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
                     try self.validate()
                 }
                 catch let error as CheckError {
-                    Roxie.fatalError(error.message ?? "Couldn't validate converted object", file: error.file, line: error.line)
+                    roxie_objectMapper_raiseException(message: error.message ?? "Couldn't validate object ‘\(className)’.", file: error.file, line: error.line)
                 }
                 catch {
-                    Roxie.fatalError("Unexpected error is thrown", error: error)
+                    roxie_objectMapper_raiseException(message: "Unexpected error is thrown: " + String(describing: error).trim())
                 }
             }
 
-            // Prevent further modifications
-            self.freeze = true
-
         }.objcCatch { e in
-            cause = e
-        }
 
-        if let exception = cause {
-            exception.raise()
-        }
-
-        // Done
-        return frozen()
-    }
-
-    @available(*, deprecated, message: "\n• Write a description.")
-    private func injectNestedParams(_ e: NSException, params: [String: Any]) -> NSException
-    {
-        var cause = e
-        if e.userInfo?[Inner.NestedParams] == nil {
-
-            // Add params to an exception
-            var dict = e.userInfo ?? [:]
-            dict[Inner.NestedParams] = params
-
-            // Create new exception with nested params
-            cause = NSException(name: e.name, reason: e.reason, userInfo: dict)
+            // Append JSON to a thrown exception
+            cause = self.exception(from: e, with: map.JSON)
         }
 
         // Done
         return cause
     }
 
+    @available(*, deprecated, message: "\n• Write a description.")
+    private func exception(from exception: NSException, with JSON: JsonObject) -> NSException {
+
+        guard (exception.userInfo?[Inner.InvalidJson] == nil) else {
+            return exception
+        }
+
+        // Put JSON to a dictionary
+        var dict = exception.userInfo ?? [:]
+        dict[Inner.InvalidJson] = JSON
+
+        // Create new exception with passed JSON
+        return NSException(name: exception.name, reason: exception.reason, userInfo: dict)
+    }
+
+// MARK: - Inner Types
+
+    fileprivate struct Options: MapContext {
+        let raiseExceptionOnFailure: Bool
+    }
+
 // MARK: - Constants
 
     private struct Inner {
-        static let NestedParams = CommonKeys.Prefix.Extra + "nested_params"
+        static let InvalidJson = CommonKeys.Prefix.Extra + "INVALID_JSON"
     }
 
 // MARK: - Variables
@@ -305,6 +305,52 @@ open class ValidatableModel: SerializableObject, Mappable, Hashable, Validatable
     private var freeze = false
 
     private var hash: Int!
+}
+
+// ----------------------------------------------------------------------------
+// MARK: - Convenience Initializers
+// ----------------------------------------------------------------------------
+
+public extension ValidatableModel
+{
+// MARK: - Construction
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    public convenience init(from JSONString: String) throws {
+
+        // Convert passed string to JSON
+        guard let JSON = Mapper<ValidatableModel>.parseJSONStringIntoDictionary(JSONString: JSONString) else {
+            throw JsonSyntaxError(message: "Failed to convert string to JSON:\n\(JSONString)")
+        }
+
+        // Deserialize object
+        try self.init(from: JSON)
+    }
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    public convenience init(from JSON: JsonObject) throws {
+
+        // Deserialize object
+        let map = Map(mappingType: .fromJSON, JSON: JSON, toObject: true).tap {
+            $0.context = Options(raiseExceptionOnFailure: true)
+        }
+        try self.init(from: map)
+    }
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    public convenience init(from map: Map) throws {
+        self.init()
+
+        // Deserialize object
+        let exception = safeMapping(map) {
+            self.mapping(map: $0)
+        }
+
+        // Throw error if mapping was failed
+        if let cause = exception {
+            throw JsonSyntaxError(message: cause.reason, params: cause.userInfo?[Inner.InvalidJson] as? JsonObject, cause: exception)
+        }
+    }
 }
 
 // ----------------------------------------------------------------------------

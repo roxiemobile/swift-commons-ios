@@ -284,7 +284,7 @@ public final class Mapper<N: BaseMappable> {
 
 	/// Checks if an object is *not* frozen. Raises ObjC exception otherwise.
 	private func roxie_checkState(_ object: BaseMappable, file: StaticString = #file, line: UInt = #line) {
-		guard object.frozen() else { return }
+		guard object.frozen else { return }
 		roxie_objectMapper_raiseException(message: "Can't modify frozen object.", file: file, line: line)
 	}
 }

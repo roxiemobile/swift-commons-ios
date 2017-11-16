@@ -18,7 +18,7 @@ public struct JsonSyntaxError: Error
 // MARK: - Construction
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public init(message: String? = nil, params: [String: AnyObject]? = nil, cause: NSException? = nil)
+    public init(message: String? = nil, params: [String: Any]? = nil, cause: NSException? = nil)
     {
         // Init instance variables
         self.message = message
@@ -32,7 +32,7 @@ public struct JsonSyntaxError: Error
     public let message: String?
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public let params: [String: AnyObject]?
+    public let params: [String: Any]?
 
     @available(*, deprecated, message: "\n• Write a description.")
     public let cause: NSException?
