@@ -44,7 +44,7 @@ public final class Guard: NonCreatable
             cause = error
         }
         catch {
-            Roxie.fatalError("Unexpected error is thrown", error: error)
+            Roxie.fatalError("Unexpected error is thrown", cause: error)
         }
         return cause
     }

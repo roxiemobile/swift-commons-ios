@@ -252,10 +252,4 @@ extension Map {
 		}
 		roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)
 	}
-
-    /// Yields `self` to the block, and then returns `self`.
-    internal func tap(closure: (Map) -> Void) -> Self {
-        closure(self)
-        return  self
-    }
 }

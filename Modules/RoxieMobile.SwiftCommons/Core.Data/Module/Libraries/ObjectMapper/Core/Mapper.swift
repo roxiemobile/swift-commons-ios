@@ -27,7 +27,6 @@
 //  THE SOFTWARE.
 
 import Foundation
-import SwiftCommons
 
 public enum MappingType {
 	case fromJSON
@@ -69,7 +68,6 @@ public final class Mapper<N: BaseMappable> {
 	public func map(JSON: [String: Any], toObject object: N) -> N {
 		var mutableObject = object
 		let map = Map(mappingType: .fromJSON, JSON: JSON, toObject: true, context: context, shouldIncludeNilValues: shouldIncludeNilValues)
-		roxie_checkState(mutableObject)
 		mutableObject.mapping(map: map)
 		return mutableObject
 	}
@@ -98,7 +96,12 @@ public final class Mapper<N: BaseMappable> {
 	public func map(JSON: [String: Any]) -> N? {
 		let map = Map(mappingType: .fromJSON, JSON: JSON, context: context, shouldIncludeNilValues: shouldIncludeNilValues)
 		
-		if let klass = N.self as? StaticMappable.Type { // Check if object is StaticMappable
+		if let klass = N.self as? ValidatableMappable.Type { // Check if object is ValidatableMappable
+			if var object = klass.init(options: ValidatableOptions(map: map)) as? N {
+				object.mapping(map: map)
+				return object
+			}
+		} else if let klass = N.self as? StaticMappable.Type { // Check if object is StaticMappable
 			if var object = klass.objectForMapping(map: map) as? N {
 				object.mapping(map: map)
 				return object
@@ -272,7 +275,6 @@ public final class Mapper<N: BaseMappable> {
 			do {
 				parsedJSON = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
 			} catch let error {
-				roxie_objectMapper_assertionFailure(tag: Roxie.typeName(of: Mapper.self), message: "Failed to convert data ‘\(data)’ to JSON.", error: error)
 				print(error)
 				parsedJSON = nil
 			}
@@ -280,12 +282,6 @@ public final class Mapper<N: BaseMappable> {
 		}
 
 		return nil
-	}
-
-	/// Checks if an object is *not* frozen. Raises ObjC exception otherwise.
-	private func roxie_checkState(_ object: BaseMappable, file: StaticString = #file, line: UInt = #line) {
-		guard object.frozen else { return }
-		roxie_objectMapper_raiseException(message: "Can't modify frozen object.", file: file, line: line)
 	}
 }
 

@@ -38,7 +38,7 @@ public extension Roxie
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(_ message: @autoclosure () -> String = "", error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: @autoclosure () -> String = "", cause error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 
         // Add error description
@@ -51,7 +51,7 @@ public extension Roxie
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(_ message: @autoclosure () -> String = "", error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: @autoclosure () -> String = "", cause error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 
         // Add error description
@@ -72,7 +72,7 @@ public extension Roxie
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
-    public static func fatalError(_ message: @autoclosure () -> String = "", exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: @autoclosure () -> String = "", cause exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 
         // Add exception description

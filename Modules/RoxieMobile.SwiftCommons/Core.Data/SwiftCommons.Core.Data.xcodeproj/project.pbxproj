@@ -59,6 +59,7 @@
 		1990C50E1F8A638200A944A8 /* ValidatableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C50C1F8A638200A944A8 /* ValidatableModel.swift */; };
 		1990C50F1F8A638200A944A8 /* CommonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C50D1F8A638200A944A8 /* CommonKeys.swift */; };
 		1990C5131F8A652400A944A8 /* SerializableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5121F8A652400A944A8 /* SerializableObject.swift */; };
+		19CAA9371FBF9A850034FD4E /* ValidatableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CAA9361FBF9A850034FD4E /* ValidatableMappable.swift */; };
 		19EB0CD01F72E1770029F302 /* SwiftCommons.Core.Data.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Data.UnitTests.swift */; };
 		C9E6F82CE9F59609D4500A6E /* Pods_SwiftCommons_Core_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6BAF95F72C06B2DEF5C721 /* Pods_SwiftCommons_Core_Data.framework */; };
 		E7AA20C53C78DC25E06DCDCF /* Pods_SwiftCommons_Core_Data_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6DCF63746CA97B40EE944A1 /* Pods_SwiftCommons_Core_Data_UnitTests.framework */; };
@@ -131,6 +132,7 @@
 		1990C5121F8A652400A944A8 /* SerializableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableObject.swift; sourceTree = "<group>"; };
 		19924AE21F9CE031009BD6A0 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCommonsCoreData.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		19CAA9361FBF9A850034FD4E /* ValidatableMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatableMappable.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Core.Data.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Core.Data.UnitTests.swift; sourceTree = "<group>"; };
 		506AC7BE4BB057C2FB419CD3 /* Pods-SwiftCommons.Core.Data.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Core.Data.debug.xcconfig"; path = "../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Core.Data/Pods-SwiftCommons.Core.Data.debug.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				19574C901F8A6FB600A218E4 /* Mapper.swift */,
 				19574C911F8A6FB600A218E4 /* ObjectMapperException.swift */,
 				19574C971F8A6FB600A218E4 /* ToJSON.swift */,
+				19CAA9361FBF9A850034FD4E /* ValidatableMappable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				1949D1811F8A75FE009A5FED /* LFEncoding.m in Sources */,
 				19574CB01F8A6FB700A218E4 /* TransformOperators.swift in Sources */,
 				19574CAD1F8A6FB700A218E4 /* EnumOperators.swift in Sources */,
+				19CAA9371FBF9A850034FD4E /* ValidatableMappable.swift in Sources */,
 				1990C5091F8A57C500A944A8 /* RegexValidator.swift in Sources */,
 				1949D17F1F8A75FE009A5FED /* LFArchiver.m in Sources */,
 				1990C50F1F8A638200A944A8 /* CommonKeys.swift in Sources */,

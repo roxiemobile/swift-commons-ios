@@ -26,8 +26,7 @@ open class SerializableObject: Serializable, NSCoding
     /// - Returns:
     ///   `self`, initialized using the data in decoder.
     @objc
-    public required init?(coder decoder: NSCoder)
-    {
+    public required init?(coder decoder: NSCoder) {
         // Deserialize object
         guard decodeObject(with: decoder) else {
             return nil

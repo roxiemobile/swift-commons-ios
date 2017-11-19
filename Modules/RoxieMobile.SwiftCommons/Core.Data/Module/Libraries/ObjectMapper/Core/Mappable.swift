@@ -32,23 +32,26 @@ import Foundation
 public protocol BaseMappable {
 	/// This function is where all variable mappings should occur. It is executed by Mapper during the mapping (serialization and deserialization) process.
 	mutating func mapping(map: Map)
-	/// Returns the freeze status of object.
-    var frozen: Bool { get }
 }
 
-public protocol Mappable: BaseMappable {
-    /// This function can be used to validate JSON prior to mapping. Return nil to cancel mapping at this point
-    init?(map: Map)
+/// CreationalMappable should not be implemented directly. Mappable or StaticMappable should be used instead
+public protocol CreationalMappable: BaseMappable {
+	// Do nothing
 }
 
-public protocol StaticMappable: BaseMappable {
+public protocol Mappable: CreationalMappable {
+	/// This function can be used to validate JSON prior to mapping. Return nil to cancel mapping at this point
+	init?(map: Map)
+}
+
+public protocol StaticMappable: CreationalMappable {
 	/// This is function that can be used to:
 	///		1) provide an existing cached object to be used for mapping
 	///		2) return an object of another class (which conforms to BaseMappable) to be used for mapping. For instance, you may inspect the JSON to infer the type of object that should be used for any given mapping
 	static func objectForMapping(map: Map) -> BaseMappable?
 }
 
-public extension BaseMappable {
+public extension CreationalMappable {
 	
 	/// Initializes object from a JSON String
 	public init?(JSONString: String, context: MapContext? = nil) {
@@ -67,7 +70,10 @@ public extension BaseMappable {
 			return nil
 		}
 	}
-	
+}
+
+public extension BaseMappable {
+
 	/// Returns the JSON Dictionary for the object
 	public func toJSON() -> [String: Any] {
 		return Mapper().toJSON(self)
@@ -79,7 +85,7 @@ public extension BaseMappable {
 	}
 }
 
-public extension Array where Element: BaseMappable {
+public extension Array where Element: CreationalMappable {
 	
 	/// Initialize Array from a JSON String
 	public init?(JSONString: String, context: MapContext? = nil) {
@@ -95,7 +101,10 @@ public extension Array where Element: BaseMappable {
 		let obj: [Element] = Mapper(context: context).mapArray(JSONArray: JSONArray)
 		self = obj
 	}
-	
+}
+
+public extension Array where Element: BaseMappable {
+
 	/// Returns the JSON Array
 	public func toJSON() -> [[String: Any]] {
 		return Mapper().toJSONArray(self)
@@ -107,7 +116,7 @@ public extension Array where Element: BaseMappable {
 	}
 }
 
-public extension Set where Element: BaseMappable {
+public extension Set where Element: CreationalMappable {
 	
 	/// Initializes a set from a JSON String
 	public init?(JSONString: String, context: MapContext? = nil) {
@@ -121,11 +130,14 @@ public extension Set where Element: BaseMappable {
 	/// Initializes a set from JSON
 	public init?(JSONArray: [[String: Any]], context: MapContext? = nil) {
 		guard let obj = Mapper(context: context).mapSet(JSONArray: JSONArray) as Set<Element>? else {
-            return nil
-        }
+			return nil
+		}
 		self = obj
 	}
-	
+}
+
+public extension Set where Element: BaseMappable {
+
 	/// Returns the JSON Set
 	public func toJSON() -> [[String: Any]] {
 		return Mapper().toJSONSet(self)

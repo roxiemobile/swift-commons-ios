@@ -369,7 +369,7 @@ public class DatabaseHelper
             try database.execute(query)
         }
         catch {
-            Roxie.fatalError("Database query \(query) failed", error: error)
+            Roxie.fatalError("Database query \(query) failed", cause: error)
         }
     }
 
@@ -385,7 +385,7 @@ public class DatabaseHelper
             return try Database(uriPath!, readonly: false)
         }
         catch {
-            Roxie.fatalError("Can't open db at \(uriPath!) with readonly \(readonly)", error: error)
+            Roxie.fatalError("Can't open db at \(uriPath!) with readonly \(readonly)", cause: error)
         }
     }
 
@@ -401,7 +401,7 @@ public class DatabaseHelper
             try database!.transaction(mode, block: block)
         }
         catch {
-            Roxie.fatalError("Transaction failed", error: error)
+            Roxie.fatalError("Transaction failed", cause: error)
         }
     }
 

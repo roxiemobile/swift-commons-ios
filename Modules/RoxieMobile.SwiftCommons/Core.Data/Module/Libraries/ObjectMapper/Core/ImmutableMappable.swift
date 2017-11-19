@@ -26,7 +26,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-public protocol ImmutableMappable: BaseMappable {
+public protocol ImmutableMappable: CreationalMappable {
 	init(map: Map) throws
 }
 
