@@ -52,6 +52,12 @@
 		19574CC61F8A739500A218E4 /* JsonSyntaxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574CC41F8A739500A218E4 /* JsonSyntaxError.swift */; };
 		19574CC71F8A739500A218E4 /* JsonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574CC51F8A739500A218E4 /* JsonTypes.swift */; };
 		195D39541F72CE4900118D17 /* libSwiftCommonsCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C017241F72CC3A00D29F73 /* libSwiftCommonsCoreData.a */; };
+		1976D4DE1FCB81FF00C07C72 /* SwiftCommons.Core.Data-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 1976D4DC1FCB81FF00C07C72 /* SwiftCommons.Core.Data-Bridging-Header.h */; };
+		1976D4F21FCC327B00C07C72 /* libSwiftCommonsCoreAbstractions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1976D4F81FCC327B00C07C72 /* libSwiftCommonsCoreAbstractions.a */; };
+		1976D4F31FCC327B00C07C72 /* libSwiftCommonsCoreConcurrent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1976D4F91FCC327B00C07C72 /* libSwiftCommonsCoreConcurrent.a */; };
+		1976D4F41FCC327B00C07C72 /* libSwiftCommonsCoreDiagnostics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1976D4FA1FCC327B00C07C72 /* libSwiftCommonsCoreDiagnostics.a */; };
+		1976D4F61FCC327B00C07C72 /* libSwiftCommonsCoreLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1976D4FC1FCC327B00C07C72 /* libSwiftCommonsCoreLang.a */; };
+		1976D4F71FCC327B00C07C72 /* libSwiftCommonsCoreLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1976D4FD1FCC327B00C07C72 /* libSwiftCommonsCoreLogging.a */; };
 		198082001F94CA660077E58F /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198081FF1F94CA630077E58F /* Assets.swift */; };
 		1990C5081F8A57C500A944A8 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5051F8A57C500A944A8 /* EmailValidator.swift */; };
 		1990C5091F8A57C500A944A8 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5061F8A57C500A944A8 /* RegexValidator.swift */; };
@@ -123,6 +129,14 @@
 		19574CC41F8A739500A218E4 /* JsonSyntaxError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSyntaxError.swift; sourceTree = "<group>"; };
 		19574CC51F8A739500A218E4 /* JsonTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonTypes.swift; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsCoreData.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsCoreData.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1976D4DC1FCB81FF00C07C72 /* SwiftCommons.Core.Data-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftCommons.Core.Data-Bridging-Header.h"; sourceTree = "<group>"; };
+		1976D4DD1FCB81FF00C07C72 /* SwiftCommons.Core.Data.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.Core.Data.xcconfig; sourceTree = "<group>"; };
+		1976D4F81FCC327B00C07C72 /* libSwiftCommonsCoreAbstractions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftCommonsCoreAbstractions.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1976D4F91FCC327B00C07C72 /* libSwiftCommonsCoreConcurrent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftCommonsCoreConcurrent.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1976D4FA1FCC327B00C07C72 /* libSwiftCommonsCoreDiagnostics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftCommonsCoreDiagnostics.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1976D4FB1FCC327B00C07C72 /* libSwiftCommonsCoreExtensions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftCommonsCoreExtensions.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1976D4FC1FCC327B00C07C72 /* libSwiftCommonsCoreLang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftCommonsCoreLang.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1976D4FD1FCC327B00C07C72 /* libSwiftCommonsCoreLogging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftCommonsCoreLogging.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		198081FF1F94CA630077E58F /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		1990C5051F8A57C500A944A8 /* EmailValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		1990C5061F8A57C500A944A8 /* RegexValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
@@ -157,6 +171,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1976D4F21FCC327B00C07C72 /* libSwiftCommonsCoreAbstractions.a in Frameworks */,
+				1976D4F31FCC327B00C07C72 /* libSwiftCommonsCoreConcurrent.a in Frameworks */,
+				1976D4F41FCC327B00C07C72 /* libSwiftCommonsCoreDiagnostics.a in Frameworks */,
+				1976D4F61FCC327B00C07C72 /* libSwiftCommonsCoreLang.a in Frameworks */,
+				1976D4F71FCC327B00C07C72 /* libSwiftCommonsCoreLogging.a in Frameworks */,
 				C9E6F82CE9F59609D4500A6E /* Pods_SwiftCommons_Core_Data.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,10 +301,19 @@
 			isa = PBXGroup;
 			children = (
 				19EB0CA81F72DF640029F302 /* Sources */,
-				19EB0CA61F72DF640029F302 /* Resources */,
-				19EB0CA41F72DF640029F302 /* Libraries */,
+				19EB0CA61F72DF640029F302 /* Configuration */,
+				19EB0CA41F72DF640029F302 /* Fixtures */,
 			);
 			path = Module.UnitTests;
+			sourceTree = "<group>";
+		};
+		1976D4DB1FCB81FF00C07C72 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1976D4DD1FCB81FF00C07C72 /* SwiftCommons.Core.Data.xcconfig */,
+				1976D4DC1FCB81FF00C07C72 /* SwiftCommons.Core.Data-Bridging-Header.h */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		198081FE1F94CA630077E58F /* Helpers */ = {
@@ -340,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				19EB0CA01F72DF0D0029F302 /* Sources */,
+				1976D4DB1FCB81FF00C07C72 /* Configuration */,
 				19EB0C9E1F72DF0D0029F302 /* Resources */,
 				19EB0CA21F72DF0D0029F302 /* Libraries */,
 			);
@@ -374,19 +403,19 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
-		19EB0CA41F72DF640029F302 /* Libraries */ = {
+		19EB0CA41F72DF640029F302 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Libraries;
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
-		19EB0CA61F72DF640029F302 /* Resources */ = {
+		19EB0CA61F72DF640029F302 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				19EB0CA71F72DF640029F302 /* Info.plist */,
 			);
-			path = Resources;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		19EB0CA81F72DF640029F302 /* Sources */ = {
@@ -411,6 +440,12 @@
 		C96C58FFEB20D40F4751A88C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1976D4F81FCC327B00C07C72 /* libSwiftCommonsCoreAbstractions.a */,
+				1976D4F91FCC327B00C07C72 /* libSwiftCommonsCoreConcurrent.a */,
+				1976D4FA1FCC327B00C07C72 /* libSwiftCommonsCoreDiagnostics.a */,
+				1976D4FB1FCC327B00C07C72 /* libSwiftCommonsCoreExtensions.a */,
+				1976D4FC1FCC327B00C07C72 /* libSwiftCommonsCoreLang.a */,
+				1976D4FD1FCC327B00C07C72 /* libSwiftCommonsCoreLogging.a */,
 				DD6BAF95F72C06B2DEF5C721 /* Pods_SwiftCommons_Core_Data.framework */,
 				B6DCF63746CA97B40EE944A1 /* Pods_SwiftCommons_Core_Data_UnitTests.framework */,
 			);
@@ -431,6 +466,7 @@
 				1949D17C1F8A75FE009A5FED /* LFArchiver+Encoding.h in Headers */,
 				1949D1821F8A75FE009A5FED /* LFMemory.h in Headers */,
 				1949D1851F8A75FE009A5FED /* LFUnarchiver+Decoding.h in Headers */,
+				1976D4DE1FCB81FF00C07C72 /* SwiftCommons.Core.Data-Bridging-Header.h in Headers */,
 				1949D1871F8A75FE009A5FED /* LFUnarchiver.h in Headers */,
 				1949D1841F8A75FE009A5FED /* LFObjCRuntime.h in Headers */,
 			);
@@ -682,7 +718,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA5933P8V8;
-				INFOPLIST_FILE = Module.UnitTests/Resources/Info.plist;
+				INFOPLIST_FILE = Module.UnitTests/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.roxiemobile.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME).UnitTests";
@@ -698,7 +734,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EA5933P8V8;
-				INFOPLIST_FILE = Module.UnitTests/Resources/Info.plist;
+				INFOPLIST_FILE = Module.UnitTests/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.roxiemobile.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME).UnitTests";
@@ -709,6 +745,7 @@
 		};
 		19C0172B1F72CC3A00D29F73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1976D4DD1FCB81FF00C07C72 /* SwiftCommons.Core.Data.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -756,17 +793,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		19C0172C1F72CC3A00D29F73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1976D4DD1FCB81FF00C07C72 /* SwiftCommons.Core.Data.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -808,7 +846,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -831,7 +869,7 @@
 				);
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module/Libraries/**";
+				SWIFT_OBJC_BRIDGING_HEADER = "Module/Configuration/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -851,7 +889,7 @@
 				);
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module/Libraries/**";
+				SWIFT_OBJC_BRIDGING_HEADER = "Module/Configuration/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

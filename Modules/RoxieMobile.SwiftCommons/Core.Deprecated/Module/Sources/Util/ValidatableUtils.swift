@@ -8,7 +8,8 @@
 //
 // ----------------------------------------------------------------------------
 
-import SwiftCommons
+import SwiftCommonsCoreAbstractions
+import SwiftCommonsCoreLang
 
 // ----------------------------------------------------------------------------
 

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftCommonsCoreConcurrentObjC
 
 public func objcTry(Try: @escaping () -> Void) -> TryCatchFinally {
     return TryCatchFinally(Try)

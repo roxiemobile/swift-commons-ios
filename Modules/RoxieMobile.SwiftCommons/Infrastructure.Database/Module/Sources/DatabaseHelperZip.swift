@@ -9,8 +9,8 @@
 // ----------------------------------------------------------------------------
 
 import Foundation
-import SwiftCommons
-import SwiftCommonsInfrastructureDatabaseObjC
+import SwiftCommonsCoreExtensions
+import SwiftCommonsCoreLang
 
 // ----------------------------------------------------------------------------
 

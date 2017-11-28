@@ -1,4 +1,0 @@
-module SwiftCommonsCoreConcurrentObjC {
-  header "TryCatchFinally/Bridging/TryCatchFinally.h"
-  export *
-}

@@ -9,8 +9,11 @@
 // ----------------------------------------------------------------------------
 
 import CryptoSwift
-import SwiftCommons
-import SwiftCommonsCoreDataObjC
+import SwiftCommonsCoreAbstractions
+import SwiftCommonsCoreConcurrent
+import SwiftCommonsCoreDiagnostics
+import SwiftCommonsCoreLang
+import SwiftCommonsCoreLogging
 
 // ----------------------------------------------------------------------------
 

@@ -1,0 +1,21 @@
+PODS:
+  - CryptoSwift/Static (0.8.0)
+  - Dispatch/Static (2.0.4)
+  - SQLCipher/Static (3.4.1)
+  - SQLite.swift/SQLCipher/Static (0.11.4):
+    - SQLCipher/Static (~> 3.4.1)
+
+DEPENDENCIES:
+  - CryptoSwift/Static (~> 0.8.0)
+  - Dispatch/Static (~> 2.0.4)
+  - SQLite.swift/SQLCipher/Static (~> 0.11.4)
+
+SPEC CHECKSUMS:
+  CryptoSwift: b013d05129134ab1f9637525703f45082c724953
+  Dispatch: 3456ea74f98635cecb671828660ef4abad607e5c
+  SQLCipher: 2078bcf53713be94b0badac2f104a3120daf87bf
+  SQLite.swift: 026807f308c13f84271cdd65f07ea70cd3199216
+
+PODFILE CHECKSUM: fc2dc7f5e6196ff6d40a9a9765d44d8efeb538a1
+
+COCOAPODS: 1.4.0.beta.2

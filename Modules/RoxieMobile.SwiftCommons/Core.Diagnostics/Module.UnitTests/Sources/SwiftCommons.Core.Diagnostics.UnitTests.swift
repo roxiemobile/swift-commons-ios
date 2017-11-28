@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-@testable import SwiftCommons
+@testable import SwiftCommonsCoreDiagnostics
 import XCTest
 
 // ----------------------------------------------------------------------------
