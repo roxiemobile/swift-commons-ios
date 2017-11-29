@@ -1,0 +1,15 @@
+PODS:
+  - CryptoSwift/Static (0.8.0)
+  - Dispatch/Static (2.0.4)
+
+DEPENDENCIES:
+  - CryptoSwift/Static (~> 0.8.0)
+  - Dispatch/Static (~> 2.0.4)
+
+SPEC CHECKSUMS:
+  CryptoSwift: b013d05129134ab1f9637525703f45082c724953
+  Dispatch: 3456ea74f98635cecb671828660ef4abad607e5c
+
+PODFILE CHECKSUM: f213d5a5d56e16f57817cb37071ecd15e6d1a770
+
+COCOAPODS: 1.4.0.beta.2

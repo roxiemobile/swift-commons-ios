@@ -1,0 +1,39 @@
+source 'https://github.com/roxiemobile/shared-cocoa-frameworks.ios.git'
+
+platform :ios, '8.0'
+use_frameworks!
+
+workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
+
+def inject_shared_dependencies_1
+  pod 'Dispatch/Static', '~> 2.0.4'
+end
+
+def inject_shared_dependencies_2
+  pod 'CryptoSwift/Static', '~> 0.8.0'
+end
+
+
+target 'SwiftCommons.Concurrent' do
+  project '../RoxieMobile.SwiftCommons/Sources/Concurrent/SwiftCommons.Concurrent.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_1
+end
+
+
+target 'SwiftCommons.Data' do
+  project '../RoxieMobile.SwiftCommons/Sources/Data/SwiftCommons.Data.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_2
+end
+
+
+target 'SwiftCommons.Diagnostics.UnitTests' do
+  project '../RoxieMobile.SwiftCommons/Tests/Diagnostics.UnitTests/SwiftCommons.Diagnostics.UnitTests.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_1
+  inject_shared_dependencies_2
+end

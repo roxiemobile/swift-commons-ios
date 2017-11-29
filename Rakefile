@@ -9,16 +9,15 @@ FRAMEWORK ||= RoxieMobile::Framework.new(
   name: 'SwiftCommons',
   base_dir: base_dir,
   projects: [
-    'Core.Abstractions',
-    'Core.Concurrent',
-    'Core.Data',
-    'Core.Deprecated',
-    'Core.Diagnostics',
-    'Core.Extensions',
-    'Core.Lang',
-    'Core.Logging',
-    'Core.ObjC',
-    'Infrastructure.Database'
+    'Abstractions',
+    'Concurrent',
+    'Data',
+    'Deprecated',
+    'Diagnostics',
+    'Extensions',
+    'Lang',
+    'Logging',
+    'ObjC',
   ]
 )
 

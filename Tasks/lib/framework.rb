@@ -29,7 +29,6 @@ module RoxieMobile
 
         # XCConfig file
         files << XCConfig.new(File.join(
-          # NetworkingApi.Core.Converters.xcconfig
           @base_dir,
           'Modules',
           "RoxieMobile.#{@name}",

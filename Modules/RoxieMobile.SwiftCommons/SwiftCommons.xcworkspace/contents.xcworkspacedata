@@ -2,42 +2,39 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Sources/Core.Abstractions/SwiftCommons.Core.Abstractions.xcodeproj">
+      location = "group:Sources/Abstractions/SwiftCommons.Abstractions.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Core.Concurrent/SwiftCommons.Core.Concurrent.xcodeproj">
+      location = "group:Sources/Concurrent/SwiftCommons.Concurrent.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Core.Data/SwiftCommons.Core.Data.xcodeproj">
+      location = "group:Sources/Data/SwiftCommons.Data.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Core.Deprecated/SwiftCommons.Core.Deprecated.xcodeproj">
+      location = "group:Sources/Deprecated/SwiftCommons.Deprecated.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Core.Diagnostics/SwiftCommons.Core.Diagnostics.xcodeproj">
+      location = "group:Sources/Diagnostics/SwiftCommons.Diagnostics.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Tests/Core.Diagnostics.Tests/SwiftCommons.Core.Diagnostics.Tests.xcodeproj">
+      location = "group:Tests/Diagnostics.UnitTests/SwiftCommons.Diagnostics.UnitTests.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Core.Extensions/SwiftCommons.Core.Extensions.xcodeproj">
+      location = "group:Sources/Extensions/SwiftCommons.Extensions.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Core.Lang/SwiftCommons.Core.Lang.xcodeproj">
+      location = "group:Sources/Lang/SwiftCommons.Lang.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Tests/Core.Lang.Tests/SwiftCommons.Core.Lang.Tests.xcodeproj">
+      location = "group:Tests/Lang.UnitTests/SwiftCommons.Lang.UnitTests.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Core.Logging/SwiftCommons.Core.Logging.xcodeproj">
+      location = "group:Sources/Logging/SwiftCommons.Logging.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Core.ObjC/SwiftCommons.Core.ObjC.xcodeproj">
+      location = "group:Sources/ObjC/SwiftCommons.ObjC.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Sources/Infrastructure.Database/SwiftCommons.Infrastructure.Database.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:CocoaPods/Pods/Pods.xcodeproj">
+      location = "group:../CocoaPods/Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
