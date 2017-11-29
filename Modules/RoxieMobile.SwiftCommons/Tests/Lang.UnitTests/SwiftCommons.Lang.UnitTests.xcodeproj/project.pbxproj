@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		193AC5231FCCCB3000017493 /* SwiftCommonsLang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193AC5241FCCCB3000017493 /* SwiftCommonsLang.framework */; };
-		193AC5301FCCD3D800017493 /* SwiftCommons.Lang.UnitTests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 193AC52F1FCCD3D800017493 /* SwiftCommons.Lang.UnitTests.xcconfig */; };
 		1969E0861F8ECDC2007A5F87 /* RoxieTests.TypeCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969E0821F8ECD4B007A5F87 /* RoxieTests.TypeCast.swift */; };
 		19ABC6EF1F85A34700AD0C41 /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC6EE1F85A34100AD0C41 /* ReflectionTests.swift */; };
 		19ABC6F01F85A34700AD0C41 /* RoxieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC6EC1F85A34100AD0C41 /* RoxieTests.swift */; };
@@ -135,7 +134,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Alexander Bragin";
 				TargetAttributes = {
 					195D394E1F72CE4900118D17 = {
@@ -167,7 +166,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				193AC5301FCCD3D800017493 /* SwiftCommons.Lang.UnitTests.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

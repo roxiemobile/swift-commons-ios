@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		193AC5281FCCCDFE00017493 /* SwiftCommonsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193AC5291FCCCDFE00017493 /* SwiftCommonsData.framework */; };
-		193AC52E1FCCD23400017493 /* SwiftCommons.Diagnostics.UnitTests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 193AC52D1FCCD23400017493 /* SwiftCommons.Diagnostics.UnitTests.xcconfig */; };
 		1942755F1F87AC0300574076 /* CheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDC1851F86F09200DA57BC /* CheckTests.swift */; };
 		194275601F87AC0300574076 /* CheckTests.AllBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDC1CE1F86F7C300DA57BC /* CheckTests.AllBlank.swift */; };
 		194275611F87AC0300574076 /* CheckTests.AllEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDC1EB1F86F7C700DA57BC /* CheckTests.AllEmpty.swift */; };
@@ -377,7 +376,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Alexander Bragin";
 				TargetAttributes = {
 					195D394E1F72CE4900118D17 = {
@@ -410,7 +409,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1978C3151F8FD7A300A7A723 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */,
-				193AC52E1FCCD23400017493 /* SwiftCommons.Diagnostics.UnitTests.xcconfig in Resources */,
 				1978C3161F8FD7A400A7A723 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

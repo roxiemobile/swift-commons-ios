@@ -28,11 +28,14 @@ Pod::Spec.new do |s|
   s.source_files = base_dir + '{Sources,Dependencies}/**/*.{h,m,c}'
 
   s.public_header_files = [
+    # SSZipArchive
     base_dir + 'Sources/SSZipArchive/SSZipArchive.h',
     base_dir + 'Sources/SSZipArchive/SSZipArchiveDelegate.h',
     base_dir + 'Sources/SSZipArchive/minizip/unzip.h',
     base_dir + 'Sources/SSZipArchive/minizip/ioapi.h',
+    # StreamTypedCoder
     base_dir + 'Sources/StreamTypedCoder/StreamTypedCoder.h',
+    # TryCatchFinally
     base_dir + 'Sources/TryCatchFinally/TryCatchFinally.h'
   ]
 
