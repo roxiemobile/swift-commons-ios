@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsObjC'
   s.summary               = 'A collection of Objective-C frameworks, utility classes and 3rd party libraries used for iOS application development.'
-  s.version               = '0.0.1'
+  s.version               = '1.1.0'
 
   s.platform              = :ios
   s.ios.deployment_target = '8.0'

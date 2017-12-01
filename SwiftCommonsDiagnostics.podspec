@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsDiagnostics'
   s.summary               = 'A collection of static classes for debugging and diagnostics of program contracts such as preconditions, postconditions, and invariants.'
-  s.version               = '0.0.1'
+  s.version               = '1.1.0'
 
   s.platform              = :ios
   s.ios.deployment_target = '8.0'
