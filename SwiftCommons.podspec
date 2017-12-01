@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
     sp.dependency 'SwiftCommonsAbstractions', s.version.to_s
   end
 
-  # TODO: Write a description
+  # A collection of reusable components used to simplify the work of writing concurrent and asynchronous code.
   s.subspec 'Concurrent' do |sp|
     sp.dependency 'SwiftCommonsConcurrent', s.version.to_s
   end
@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
     sp.dependency 'SwiftCommonsLogging', s.version.to_s
   end
 
-  # Provides simple abstraction layer over an existing logging frameworks.
+  # A collection of Objective-C frameworks, utility classes and 3rd party libraries used for iOS application development.
   s.subspec 'ObjC' do |sp|
     sp.dependency 'SwiftCommonsObjC', s.version.to_s
   end

@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 # MARK: - Description
 
   s.name                  = 'SwiftCommonsConcurrent'
-  s.summary               = 'TODO:'
+  s.summary               = 'A collection of reusable components used to simplify the work of writing concurrent and asynchronous code.'
   s.version               = '0.0.1'
 
   s.platform              = :ios
