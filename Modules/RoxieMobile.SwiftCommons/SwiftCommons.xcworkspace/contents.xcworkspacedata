@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Sources/Abstractions/SwiftCommons.Abstractions.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Concurrent/SwiftCommons.Concurrent.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Data/SwiftCommons.Data.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Deprecated/SwiftCommons.Deprecated.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Diagnostics/SwiftCommons.Diagnostics.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tests/Diagnostics.UnitTests/SwiftCommons.Diagnostics.UnitTests.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Extensions/SwiftCommons.Extensions.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Lang/SwiftCommons.Lang.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tests/Lang.UnitTests/SwiftCommons.Lang.UnitTests.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Logging/SwiftCommons.Logging.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/ObjC/SwiftCommons.ObjC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../CocoaPods/Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

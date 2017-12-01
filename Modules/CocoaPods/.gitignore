@@ -1,0 +1,9 @@
+# Ignore all
+*
+
+# Add some items back
+!.gitignore
+!Gemfile
+!Gemfile.lock
+!Podfile
+!Podfile.lock
