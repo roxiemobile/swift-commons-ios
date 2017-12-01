@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 # MARK: - Description
 
   s.name                  = 'SwiftCommonsObjC'
-  s.summary               = 'A collection of Objective-C frameworks, utility classes and 3rd party libraries used for iOS application development.'
+  s.summary               = 'A collection of Objective-C frameworks, utility classes and 3rd party libraries used by other modules of this library.'
   s.version               = '1.1.0'
 
   s.platform              = :ios

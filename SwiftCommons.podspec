@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
     sp.dependency 'SwiftCommonsLogging', s.version.to_s
   end
 
-  # A collection of Objective-C frameworks, utility classes and 3rd party libraries used for iOS application development.
+  # A collection of Objective-C frameworks, utility classes and 3rd party libraries used by other modules of this library.
   s.subspec 'ObjC' do |sp|
     sp.dependency 'SwiftCommonsObjC', s.version.to_s
   end
