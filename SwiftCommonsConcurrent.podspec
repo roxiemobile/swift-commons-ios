@@ -34,6 +34,6 @@ Pod::Spec.new do |s|
 
 # MARK: - Dependencies
 
-  s.dependency 'Dispatch/Static', '~> 2.0.4'
+  s.dependency 'Dispatch', '~> 2.0.4'
   s.dependency 'SwiftCommonsObjC', s.version.to_s
 end
