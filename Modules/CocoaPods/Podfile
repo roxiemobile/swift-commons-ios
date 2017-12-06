@@ -1,16 +1,21 @@
-source 'https://github.com/roxiemobile/shared-cocoa-frameworks.ios.git'
+source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
 
 platform :ios, '8.0'
 use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 
+def pod_from(name, *args)
+  name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF" }.reject(&:empty?).join('/')
+  pod(name, *args)
+end
+
 def inject_shared_dependencies_1
-  pod 'Dispatch/Static', '~> 2.0.4'
+  pod_from 'Dispatch', '~> 2.0.4'
 end
 
 def inject_shared_dependencies_2
-  pod 'CryptoSwift/Static', '~> 0.8.0'
+  pod_from 'CryptoSwift', '~> 0.8.0'
 end
 
 

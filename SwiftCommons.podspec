@@ -24,15 +24,6 @@ Pod::Spec.new do |s|
     tag: s.version.to_s
   }
 
-  s.default_subspecs = 'Abstractions',
-                       'Concurrent',
-                       'Data',
-                       'Diagnostics',
-                       'Extensions',
-                       'Lang',
-                       'Logging',
-                       'ObjC'
-
 # MARK: - Modules
 
   # The core abstractions and public protocols used for iOS application development.
