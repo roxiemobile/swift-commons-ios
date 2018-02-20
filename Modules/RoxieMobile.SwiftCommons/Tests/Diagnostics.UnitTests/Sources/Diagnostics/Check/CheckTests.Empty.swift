@@ -21,6 +21,7 @@ extension CheckTests
         let method = "Check.empty"
 
         let value = "value"
+        let otherValue = "otherValue"
         let nilValue: String? = nil
         let emptyValue = ""
 
@@ -38,7 +39,7 @@ extension CheckTests
 
         // --
 
-        let array = ["value", "otherValue"]
+        let array = [value, otherValue]
         let nilArray: Array<String>? = nil
         let emptyArray = Array<String>()
 
@@ -55,7 +56,7 @@ extension CheckTests
 
         // --
 
-        let set: Set = ["value", "otherValue"]
+        let set: Set = [value, otherValue]
         let nilSet: Set<String>? = nil
         let emptySet = Set<String>()
 
@@ -72,7 +73,7 @@ extension CheckTests
 
         // --
 
-        let map = ["key": "value", "otherKey": "otherValue"]
+        let map = ["key": value, "otherKey": otherValue]
         let nilMap: Dictionary<String, String>? = nil
         let emptyMap = Dictionary<String, String>()
 

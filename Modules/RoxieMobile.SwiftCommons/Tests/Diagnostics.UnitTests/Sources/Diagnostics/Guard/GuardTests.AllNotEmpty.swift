@@ -21,9 +21,9 @@ extension GuardTests
         let method = "Guard.allNotEmpty"
 
         let value = "value"
+        let otherValue = "otherValue"
         let emptyValue = ""
 
-        let otherValue = "otherValue"
         let array: [String]? = [value, otherValue]
         let nilArray: [String]? = nil
         let emptyArray = [String]()
@@ -69,10 +69,10 @@ extension GuardTests
         let method = "Guard.allNotEmpty"
 
         let value: String? = "value"
+        let otherValue: String? = "otherValue"
         let nilValue: String? = nil
         let emptyValue: String? = ""
 
-        let otherValue: String? = "otherValue"
         let array: [String?]? = [value, otherValue]
         let nilArray: [String?]? = nil
         let emptyArray = [String?]()

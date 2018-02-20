@@ -21,6 +21,7 @@ extension GuardTests
         let method = "Guard.notEmpty"
 
         let value = "value"
+        let otherValue = "otherValue"
         let nilValue: String? = nil
         let emptyValue = ""
 
@@ -38,7 +39,7 @@ extension GuardTests
 
         // --
 
-        let array = ["value", "otherValue"]
+        let array = [value, otherValue]
         let nilArray: [String]? = nil
         let emptyArray = [String]()
 
@@ -55,7 +56,7 @@ extension GuardTests
 
         // --
 
-        let set: Set = ["value", "otherValue"]
+        let set: Set = [value, otherValue]
         let nilSet: Set<String>? = nil
         let emptySet = Set<String>()
 
@@ -72,7 +73,7 @@ extension GuardTests
 
         // --
 
-        let map = ["key": "value", "otherKey": "otherValue"]
+        let map = ["key": value, "otherKey": otherValue]
         let nilMap: [String: String]? = nil
         let emptyMap = [String: String]()
 

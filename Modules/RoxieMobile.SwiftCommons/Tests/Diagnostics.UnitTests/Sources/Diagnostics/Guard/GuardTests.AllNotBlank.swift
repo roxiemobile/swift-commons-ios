@@ -21,10 +21,10 @@ extension GuardTests
         let method = "Guard.allNotBlank"
 
         let value = "value"
+        let otherValue = "otherValue"
         let emptyValue = ""
         let whitespaceValue = " \t\r\n"
 
-        let otherValue = "otherValue"
         let array: Array<String>? = [value, otherValue]
         let nilArray: Array<String>? = nil
         let emptyArray = Array<String>()
@@ -82,11 +82,11 @@ extension GuardTests
         let method = "Guard.allNotBlank"
 
         let value: String? = "value"
+        let otherValue: String? = "otherValue"
         let nilValue: String? = nil
         let emptyValue: String? = ""
         let whitespaceValue: String? = " \t\r\n"
 
-        let otherValue: String? = "otherValue"
         let array: Array<String?>? = [value, otherValue]
         let nilArray: Array<String?>? = nil
         let emptyArray = Array<String?>()
