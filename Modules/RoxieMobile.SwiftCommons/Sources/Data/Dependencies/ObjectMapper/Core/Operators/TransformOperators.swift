@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftCommonsAbstractions
 
 // MARK:- Transforms
 
@@ -23,6 +24,8 @@ public func <~ <Transform: TransformType>(left: inout Transform.Object, right: (
 	default: ()
 	}
 	map.roxie_checkValue(left)
+
+    let _ = transform as? DefaultValueProvider<Transform.Object>
 }
 
 public func >>> <Transform: TransformType>(left: Transform.Object, right: (Map, Transform)) {

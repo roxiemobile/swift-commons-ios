@@ -206,8 +206,7 @@ open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, 
         return true
     }
 
-    /// Checks attribute values or a combination of attribute values for correctness (cross validation).
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Checks the current state of the object for correctness.
     open func validate() throws {
         // Do nothing
     }

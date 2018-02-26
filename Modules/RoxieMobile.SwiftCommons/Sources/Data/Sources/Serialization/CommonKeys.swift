@@ -24,12 +24,17 @@ public final class CommonKeys: NonCreatable
     {
         public static let Action = Inner.URN + ":action."
         public static let Extra  = Inner.URN + ":extra."
+        public static let Option = Inner.URN + ":option."
         public static let Prefs  = Inner.URN + ":prefs."
         public static let State  = Inner.URN + ":state."
     }
 
     public struct Action {
         // Do nothing
+    }
+
+    public struct Option {
+        public static let Invalid = Prefix.Option + "INVALID";
     }
 
     public struct State {
