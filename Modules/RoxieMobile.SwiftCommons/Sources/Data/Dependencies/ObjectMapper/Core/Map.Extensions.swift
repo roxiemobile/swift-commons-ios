@@ -10,6 +10,40 @@
 
 extension Map
 {
+// MARK: - Methods: Subscript
+
+    public subscript(key: String, default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key], defaultValue: `default`)
+    }
+
+    public subscript(key: String, delimiter delimiter: String, default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, delimiter], defaultValue: `default`)
+    }
+
+    public subscript(key: String, nested nested: Bool, default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, nested: nested], defaultValue: `default`)
+    }
+
+    public subscript(key: String, nested nested: Bool, delimiter delimiter: String, default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, nested: nested, delimiter: delimiter], defaultValue: `default`)
+    }
+
+    public subscript(key: String, ignoreNil ignoreNil: Bool, default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, ignoreNil: ignoreNil], defaultValue: `default`)
+    }
+
+    public subscript(key: String, delimiter delimiter: String, ignoreNil ignoreNil: Bool, default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, delimiter: delimiter, ignoreNil: ignoreNil], defaultValue: `default`)
+    }
+
+    public subscript(key: String, nested nested: Bool, ignoreNil ignoreNil: Bool, default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, nested: nested, ignoreNil: ignoreNil], defaultValue: `default`)
+    }
+
+    public subscript(key: String, nested nested: Bool?, delimiter delimiter: String, ignoreNil ignoreNil: Bool, default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, nested: nested, delimiter: delimiter, ignoreNil: ignoreNil], defaultValue: `default`)
+    }
+
 // MARK: - Methods
 
     /// Checks if a current value is exists. Raises ObjC exception otherwise.
@@ -106,6 +140,19 @@ extension Map
             logMessage = "Could not transform value for key ‘\(key)’."
         }
         roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)
+    }
+
+// MARK: - Private Methods
+
+    private func replaceNilWithDefault(map: Map, defaultValue: Any) -> Map {
+        switch map.mappingType {
+            // Change internal state of a Map
+            case .fromJSON where (map.currentValue == nil):
+                map.currentValue = defaultValue
+                map.isKeyPresent = true
+            default: ()
+        }
+        return map
     }
 }
 
