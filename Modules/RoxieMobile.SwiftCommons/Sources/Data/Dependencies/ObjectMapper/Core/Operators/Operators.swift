@@ -43,25 +43,25 @@ infix operator >>>
 /// Object of Basic type
 public func <~ <T>(left: inout T, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        right.roxie_checkState(left)
-        let result: T? = right.value()
-        right.roxie_checkValue(result)
-        FromJSON.basicType(&left, object: result!)
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result: T? = right.value()
+            right.roxie_checkValue(result)
+            left = result!
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
 public func >>> <T>(left: T, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        right.roxie_checkState(left)
-        ToJSON.basicType(left, map: right)
-        right.roxie_checkValue(left)
+        case .toJSON:
+            right.roxie_checkState(left)
+            ToJSON.basicType(left, map: right)
+            right.roxie_checkValue(left)
 
-    default: ()
+        default: ()
     }
 }
 
@@ -69,23 +69,23 @@ public func >>> <T>(left: T, right: Map) {
 /// Optional object of basic type
 public func <~ <T>(left: inout T?, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        let result: T? = right.value()
-        right.roxie_checkValue(result, optional: true)
-        FromJSON.optionalBasicType(&left, object: result)
+        case .fromJSON:
+            let result: T? = right.value()
+            right.roxie_checkValue(result, optional: true)
+            left = result
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
 public func >>> <T>(left: T?, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        ToJSON.optionalBasicType(left, map: right)
-        right.roxie_checkValue(left, optional: true)
+        case .toJSON:
+            ToJSON.optionalBasicType(left, map: right)
+            right.roxie_checkValue(left, optional: true)
 
-    default: ()
+        default: ()
     }
 }
 
@@ -93,14 +93,14 @@ public func >>> <T>(left: T?, right: Map) {
 /// Implicitly unwrapped optional object of basic type
 public func <~ <T>(left: inout T!, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        right.roxie_checkState(left)
-        let result: T? = right.value()
-        right.roxie_checkValue(result)
-        FromJSON.optionalBasicType(&left, object: result!)
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result: T? = right.value()
+            right.roxie_checkValue(result)
+            left = result!
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
@@ -108,24 +108,26 @@ public func <~ <T>(left: inout T!, right: Map) {
 
 /// Object conforming to Mappable
 public func <~ <T: BaseMappable>(left: inout T, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON:
-        FromJSON.object(&left, map: right)
-    case .toJSON:
-        left >>> right
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.object(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 public func >>> <T: BaseMappable>(left: T, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        right.roxie_checkState(left)
-        ToJSON.object(left, map: right)
-        right.roxie_checkValue(left)
+        case .toJSON:
+            right.roxie_checkState(left)
+            ToJSON.object(left, map: right)
+            right.roxie_checkValue(left)
 
-    default: ()
+        default: ()
     }
 }
 
@@ -133,62 +135,65 @@ public func >>> <T: BaseMappable>(left: T, right: Map) {
 /// Optional Mappable objects
 public func <~ <T: BaseMappable>(left: inout T?, right: Map) {
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObject(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let result = FromJSON.optionalObject(left, map: right)
+            right.roxie_checkValue(result, optional: true)
+            left = result
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <T: BaseMappable>(left: T?, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        ToJSON.optionalObject(left, map: right)
-        right.roxie_checkValue(left, optional: true)
+        case .toJSON:
+            ToJSON.optionalObject(left, map: right)
+            right.roxie_checkValue(left, optional: true)
 
-    default: ()
+        default: ()
     }
 }
 
 
 /// Implicitly unwrapped optional Mappable objects
 public func <~ <T: BaseMappable>(left: inout T!, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObject(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.implicitlyUnwrappedOptionalObject(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 // MARK:- Dictionary of Mappable objects - Dictionary<String, T: BaseMappable>
 
 /// Dictionary of Mappable objects <String, T: Mappable>
 public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.objectDictionary(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.objectDictionary(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 public func >>> <T: BaseMappable>(left: Dictionary<String, T>, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        right.roxie_checkState(left)
-        ToJSON.objectDictionary(left, map: right)
-        right.roxie_checkValue(left)
+        case .toJSON:
+            right.roxie_checkState(left)
+            ToJSON.objectDictionary(left, map: right)
+            right.roxie_checkValue(left)
 
-    default: ()
+        default: ()
     }
 }
 
@@ -196,247 +201,259 @@ public func >>> <T: BaseMappable>(left: Dictionary<String, T>, right: Map) {
 /// Optional Dictionary of Mappable object <String, T: Mappable>
 public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>?, right: Map) {
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObjectDictionary(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let result = FromJSON.optionalObjectDictionary(left, map: right)
+            right.roxie_checkValue(result, optional: true)
+            left = result
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <T: BaseMappable>(left: Dictionary<String, T>?, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        ToJSON.optionalObjectDictionary(left, map: right)
-        right.roxie_checkValue(left, optional: true)
+        case .toJSON:
+            ToJSON.optionalObjectDictionary(left, map: right)
+            right.roxie_checkValue(left, optional: true)
 
-    default: ()
+        default: ()
     }
 }
 
 
 /// Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable>
 public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>!, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObjectDictionary(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.implicitlyUnwrappedOptionalObjectDictionary(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 /// Dictionary of Mappable objects <String, T: Mappable>
 public func <~ <T: BaseMappable>(left: inout Dictionary<String, [T]>, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.objectDictionaryOfArrays(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.objectDictionaryOfArrays(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 public func >>> <T: BaseMappable>(left: Dictionary<String, [T]>, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        right.roxie_checkState(left)
-        ToJSON.objectDictionaryOfArrays(left, map: right)
-        right.roxie_checkValue(left)
+        case .toJSON:
+            right.roxie_checkState(left)
+            ToJSON.objectDictionaryOfArrays(left, map: right)
+            right.roxie_checkValue(left)
 
-    default: ()
+        default: ()
     }
 }
 
 /// Optional Dictionary of Mappable object <String, T: Mappable>
 public func <~ <T: BaseMappable>(left: inout Dictionary<String, [T]>?, right: Map) {
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObjectDictionaryOfArrays(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let result = FromJSON.optionalObjectDictionaryOfArrays(left, map: right)
+            right.roxie_checkValue(result, optional: true)
+            left = result
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <T: BaseMappable>(left: Dictionary<String, [T]>?, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        ToJSON.optionalObjectDictionaryOfArrays(left, map: right)
-        right.roxie_checkValue(left, optional: true)
+        case .toJSON:
+            ToJSON.optionalObjectDictionaryOfArrays(left, map: right)
+            right.roxie_checkValue(left, optional: true)
 
-    default: ()
+        default: ()
     }
 }
 
 
 /// Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable>
 public func <~ <T: BaseMappable>(left: inout Dictionary<String, [T]>!, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObjectDictionaryOfArrays(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.implicitlyUnwrappedOptionalObjectDictionaryOfArrays(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 // MARK:- Array of Mappable objects - Array<T: BaseMappable>
 
 /// Array of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Array<T>, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.objectArray(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.objectArray(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 public func >>> <T: BaseMappable>(left: Array<T>, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        right.roxie_checkState(left)
-        ToJSON.objectArray(left, map: right)
-        right.roxie_checkValue(left)
+        case .toJSON:
+            right.roxie_checkState(left)
+            ToJSON.objectArray(left, map: right)
+            right.roxie_checkValue(left)
 
-    default: ()
+        default: ()
     }
 }
 
 /// Optional array of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Array<T>?, right: Map) {
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObjectArray(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let result = FromJSON.optionalObjectArray(left, map: right)
+            right.roxie_checkValue(result, optional: true)
+            left = result
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <T: BaseMappable>(left: Array<T>?, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        ToJSON.optionalObjectArray(left, map: right)
-        right.roxie_checkValue(left, optional: true)
+        case .toJSON:
+            ToJSON.optionalObjectArray(left, map: right)
+            right.roxie_checkValue(left, optional: true)
 
-    default: ()
+        default: ()
     }
 }
 
 
 /// Implicitly unwrapped Optional array of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Array<T>!, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObjectArray(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.implicitlyUnwrappedOptionalObjectArray(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 // MARK:- Array of Array of Mappable objects - Array<Array<T: BaseMappable>>
 
 /// Array of Array Mappable objects
 public func <~ <T: BaseMappable>(left: inout Array<Array<T>>, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.twoDimensionalObjectArray(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.twoDimensionalObjectArray(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 public func >>> <T: BaseMappable>(left: Array<Array<T>>, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        right.roxie_checkState(left)
-        ToJSON.twoDimensionalObjectArray(left, map: right)
-        right.roxie_checkValue(left)
+        case .toJSON:
+            right.roxie_checkState(left)
+            ToJSON.twoDimensionalObjectArray(left, map: right)
+            right.roxie_checkValue(left)
 
-    default: ()
+        default: ()
     }
 }
 
 
 /// Optional array of Mappable objects
-public func <~ <T: BaseMappable>(left:inout Array<Array<T>>?, right: Map) {
+public func <~ <T: BaseMappable>(left: inout Array<Array<T>>?, right: Map) {
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalTwoDimensionalObjectArray(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let result = FromJSON.optionalTwoDimensionalObjectArray(left, map: right)
+            right.roxie_checkValue(result, optional: true)
+            left = result
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <T: BaseMappable>(left: Array<Array<T>>?, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        ToJSON.optionalTwoDimensionalObjectArray(left, map: right)
-        right.roxie_checkValue(left, optional: true)
+        case .toJSON:
+            ToJSON.optionalTwoDimensionalObjectArray(left, map: right)
+            right.roxie_checkValue(left, optional: true)
 
-    default: ()
+        default: ()
     }
 }
 
 
 /// Implicitly unwrapped Optional array of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Array<Array<T>>!, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalTwoDimensionalObjectArray(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.implicitlyUnwrappedOptionalTwoDimensionalObjectArray(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 // MARK:- Set of Mappable objects - Set<T: BaseMappable>
 
 /// Set of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Set<T>, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.objectSet(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.objectSet(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }
 
 public func >>> <T: BaseMappable>(left: Set<T>, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        right.roxie_checkState(left)
-        ToJSON.objectSet(left, map: right)
-        right.roxie_checkValue(left)
+        case .toJSON:
+            right.roxie_checkState(left)
+            ToJSON.objectSet(left, map: right)
+            right.roxie_checkValue(left)
 
-    default: ()
+        default: ()
     }
 }
 
@@ -444,35 +461,37 @@ public func >>> <T: BaseMappable>(left: Set<T>, right: Map) {
 /// Optional Set of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Set<T>?, right: Map) {
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObjectSet(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let result = FromJSON.optionalObjectSet(left, map: right)
+            right.roxie_checkValue(left, optional: true)
+            left = result
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <T: BaseMappable>(left: Set<T>?, right: Map) {
     switch right.mappingType {
-    case .toJSON:
-        ToJSON.optionalObjectSet(left, map: right)
-        right.roxie_checkValue(left, optional: true)
+        case .toJSON:
+            ToJSON.optionalObjectSet(left, map: right)
+            right.roxie_checkValue(left, optional: true)
 
-    default: ()
+        default: ()
     }
 }
 
 
 /// Implicitly unwrapped Optional Set of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Set<T>!, right: Map) {
-    right.roxie_checkState(left)
     switch right.mappingType {
-    case .fromJSON where right.isKeyPresent:
-        FromJSON.optionalObjectSet(&left, map: right)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result = FromJSON.implicitlyUnwrappedOptionalObjectSet(left, map: right)
+            right.roxie_checkValue(result)
+            left = result!
+
+        case .toJSON:
+            left >>> right
     }
-    right.roxie_checkValue(left)
 }

@@ -13,41 +13,41 @@ import Foundation
 /// SignedInteger mapping
 public func <~ <T: SignedInteger>(left: inout T, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        right.roxie_checkState(left)
-        let result: T? = toSignedInteger(right.currentValue)
-        right.roxie_checkValue(result)
-        FromJSON.basicType(&left, object: result!)
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result: T? = toSignedInteger(right.currentValue)
+            right.roxie_checkValue(result)
+            left = result!
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
 /// Optional SignedInteger mapping
 public func <~ <T: SignedInteger>(left: inout T?, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        let result: T? = toSignedInteger(right.currentValue)
-        right.roxie_checkValue(result, optional: true)
-        FromJSON.basicType(&left, object: result)
+        case .fromJSON:
+            let result: T? = toSignedInteger(right.currentValue)
+            right.roxie_checkValue(result, optional: true)
+            left = result
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
 /// ImplicitlyUnwrappedOptional SignedInteger mapping
 public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        right.roxie_checkState(left)
-        let result: T? = toSignedInteger(right.currentValue)
-        right.roxie_checkValue(result)
-        FromJSON.basicType(&left, object: result!)
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result: T? = toSignedInteger(right.currentValue)
+            right.roxie_checkValue(result)
+            left = result!
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
@@ -57,14 +57,14 @@ public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
 /// UnsignedInteger mapping
 public func <~ <T: UnsignedInteger>(left: inout T, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        right.roxie_checkState(left)
-        let result: T? = toUnsignedInteger(right.currentValue)
-        right.roxie_checkValue(result)
-        FromJSON.basicType(&left, object: result!)
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result: T? = toUnsignedInteger(right.currentValue)
+            right.roxie_checkValue(result)
+            left = result!
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
@@ -72,27 +72,27 @@ public func <~ <T: UnsignedInteger>(left: inout T, right: Map) {
 /// Optional UnsignedInteger mapping
 public func <~ <T: UnsignedInteger>(left: inout T?, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        let result: T? = toUnsignedInteger(right.currentValue)
-        right.roxie_checkValue(result, optional: true)
-        FromJSON.basicType(&left, object: result)
+        case .fromJSON:
+            let result: T? = toUnsignedInteger(right.currentValue)
+            right.roxie_checkValue(result, optional: true)
+            left = result
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
 /// ImplicitlyUnwrappedOptional UnsignedInteger mapping
 public func <~ <T: UnsignedInteger>(left: inout T!, right: Map) {
     switch right.mappingType {
-    case .fromJSON:
-        right.roxie_checkState(left)
-        let result: T? = toUnsignedInteger(right.currentValue)
-        right.roxie_checkValue(result)
-        FromJSON.basicType(&left, object: result!)
+        case .fromJSON:
+            right.roxie_checkState(left)
+            let result: T? = toUnsignedInteger(right.currentValue)
+            right.roxie_checkValue(result)
+            left = result!
 
-    case .toJSON:
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
 }
 
