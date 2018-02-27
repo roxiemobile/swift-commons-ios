@@ -35,6 +35,11 @@ target 'SwiftCommons.Data' do
 end
 
 
+target 'SwiftCommons.Data.UnitTests' do
+  project '../RoxieMobile.SwiftCommons/Tests/Data.UnitTests/SwiftCommons.Data.UnitTests.xcodeproj'
+end
+
+
 target 'SwiftCommons.Diagnostics.UnitTests' do
   project '../RoxieMobile.SwiftCommons/Tests/Diagnostics.UnitTests/SwiftCommons.Diagnostics.UnitTests.xcodeproj'
 
