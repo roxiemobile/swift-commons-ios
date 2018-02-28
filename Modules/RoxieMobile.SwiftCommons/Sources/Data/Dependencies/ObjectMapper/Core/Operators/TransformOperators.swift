@@ -7,34 +7,30 @@
 //
 
 import Foundation
-import SwiftCommonsAbstractions
 
 // MARK:- Transforms
 
 /// Object of Basic type with Transform
 public func <~ <Transform: TransformType>(left: inout Transform.Object, right: (Map, Transform)) {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let value = transform.transformFromJSON(map.currentValue)
-        FromJSON.basicType(&left, object: value)
-    case .toJSON:
-        left >>> right
-    default: ()
-    }
-    map.roxie_checkValue(left)
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedValue = transform.transformFromJSON(map.currentValue)
+            map.roxie_checkValue(transformedValue)
+            left = transformedValue!
 
-    let _ = transform as? DefaultValueProvider<Transform.Object>
+        case .toJSON:
+            left >>> right
+    }
 }
 
 public func >>> <Transform: TransformType>(left: Transform.Object, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result = transform.transformToJSON(left)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedObject = transform.transformToJSON(left)
+            ToJSON.optionalBasicType(transformedObject, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -46,22 +42,22 @@ public func >>> <Transform: TransformType>(left: Transform.Object, right: (Map, 
 public func <~ <Transform: TransformType>(left: inout Transform.Object?, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let value = transform.transformFromJSON(map.currentValue)
-        FromJSON.optionalBasicType(&left, object: value)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let transformedValue = transform.transformFromJSON(map.currentValue)
+            map.roxie_checkValue(transformedValue, optional: true)
+            left = transformedValue
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: Transform.Object?, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            let result = transform.transformToJSON(left)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedObject = transform.transformToJSON(left)
+            ToJSON.optionalBasicType(transformedObject, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -72,40 +68,39 @@ public func >>> <Transform: TransformType>(left: Transform.Object?, right: (Map,
 /// Implicitly unwrapped optional object of basic type with Transform
 public func <~ <Transform: TransformType>(left: inout Transform.Object!, right: (Map, Transform)) {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let value = transform.transformFromJSON(map.currentValue)
-        FromJSON.optionalBasicType(&left, object: value)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedValue = transform.transformFromJSON(map.currentValue)
+            map.roxie_checkValue(transformedValue)
+            left = transformedValue!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 /// Array of Basic type with Transform
 public func <~ <Transform: TransformType>(left: inout [Transform.Object], right: (Map, Transform)) {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let values = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
-        FromJSON.basicType(&left, object: values)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray)
+            left = transformedArray!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 public func >>> <Transform: TransformType>(left: [Transform.Object], right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result = toJSONArrayWithTransform(map, left, transform: transform)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedArray = toJSONArrayWithTransform(map, left, transform: transform)
+            ToJSON.optionalBasicType(transformedArray, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -117,22 +112,22 @@ public func >>> <Transform: TransformType>(left: [Transform.Object], right: (Map
 public func <~ <Transform: TransformType>(left: inout [Transform.Object]?, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let values = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
-        FromJSON.optionalBasicType(&left, object: values)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray, optional: true)
+            left = transformedArray
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: [Transform.Object]?, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            let result = toJSONArrayWithTransform(map, left, transform: transform)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedArray = toJSONArrayWithTransform(map, left, transform: transform)
+            ToJSON.optionalBasicType(transformedArray, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -143,40 +138,39 @@ public func >>> <Transform: TransformType>(left: [Transform.Object]?, right: (Ma
 /// Implicitly unwrapped optional array of Basic type with Transform
 public func <~ <Transform: TransformType>(left: inout [Transform.Object]!, right: (Map, Transform)) {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let values = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
-        FromJSON.optionalBasicType(&left, object: values)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray)
+            left = transformedArray!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 /// Dictionary of Basic type with Transform
 public func <~ <Transform: TransformType>(left: inout [String: Transform.Object], right: (Map, Transform)) {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let values = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
-        FromJSON.basicType(&left, object: values)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedDictionary = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedDictionary)
+            left = transformedDictionary!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 public func >>> <Transform: TransformType>(left: [String: Transform.Object], right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result = toJSONDictionaryWithTransform(map, left, transform: transform)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedDictionary = toJSONDictionaryWithTransform(map, left, transform: transform)
+            ToJSON.optionalBasicType(transformedDictionary, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -188,22 +182,22 @@ public func >>> <Transform: TransformType>(left: [String: Transform.Object], rig
 public func <~ <Transform: TransformType>(left: inout [String: Transform.Object]?, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let values = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
-        FromJSON.optionalBasicType(&left, object: values)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let transformedDictionary = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedDictionary, optional: true)
+            left = transformedDictionary
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: [String: Transform.Object]?, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            let result = toJSONDictionaryWithTransform(map, left, transform: transform)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedDictionary = toJSONDictionaryWithTransform(map, left, transform: transform)
+            ToJSON.optionalBasicType(transformedDictionary, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -214,16 +208,16 @@ public func >>> <Transform: TransformType>(left: [String: Transform.Object]?, ri
 /// Implicitly unwrapped optional dictionary of Basic type with Transform
 public func <~ <Transform: TransformType>(left: inout [String: Transform.Object]!, right: (Map, Transform)) {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let values = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
-        FromJSON.optionalBasicType(&left, object: values)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedDictionary = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedDictionary)
+            left = transformedDictionary!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 // MARK:- Transforms of Mappable Objects - <T: BaseMappable>
@@ -231,25 +225,24 @@ public func <~ <Transform: TransformType>(left: inout [String: Transform.Object]
 /// Object conforming to Mappable that have transforms
 public func <~ <Transform: TransformType>(left: inout Transform.Object, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let value: Transform.Object? = transform.transformFromJSON(map.currentValue)
-        FromJSON.basicType(&left, object: value)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedObject = transform.transformFromJSON(map.currentValue)
+            map.roxie_checkValue(transformedObject)
+            left = transformedObject!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 public func >>> <Transform: TransformType>(left: Transform.Object, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result: Transform.JSON? = transform.transformToJSON(left)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedObject = transform.transformToJSON(left)
+            ToJSON.optionalBasicType(transformedObject, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -261,22 +254,22 @@ public func >>> <Transform: TransformType>(left: Transform.Object, right: (Map, 
 public func <~ <Transform: TransformType>(left: inout Transform.Object?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let value: Transform.Object? = transform.transformFromJSON(map.currentValue)
-        FromJSON.optionalBasicType(&left, object: value)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let transformedObject = transform.transformFromJSON(map.currentValue)
+            map.roxie_checkValue(transformedObject, optional: true)
+            left = transformedObject
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: Transform.Object?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            let result: Transform.JSON? = transform.transformToJSON(left)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedObject = transform.transformToJSON(left)
+            ToJSON.optionalBasicType(transformedObject, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -287,16 +280,16 @@ public func >>> <Transform: TransformType>(left: Transform.Object?, right: (Map,
 /// Implicitly unwrapped optional Mappable objects that have transforms
 public func <~ <Transform: TransformType>(left: inout Transform.Object!, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let value: Transform.Object? = transform.transformFromJSON(map.currentValue)
-        FromJSON.optionalBasicType(&left, object: value)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedObject = transform.transformFromJSON(map.currentValue)
+            map.roxie_checkValue(transformedObject)
+            left = transformedObject!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 
@@ -305,24 +298,24 @@ public func <~ <Transform: TransformType>(left: inout Transform.Object!, right: 
 /// Dictionary of Mappable objects <String, T: Mappable> with a transform
 public func <~ <Transform: TransformType>(left: inout Dictionary<String, Transform.Object>, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
-    if map.mappingType == .fromJSON && map.isKeyPresent,
-        let object = map.currentValue as? [String: Any] {
-        let value = fromJSONDictionaryWithTransform(map, object as Any?, transform: transform) ?? left
-        FromJSON.basicType(&left, object: value)
-    } else if map.mappingType == .toJSON {
-        left >>> right
+    switch map.mappingType {
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedDictionary = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedDictionary)
+            left = transformedDictionary!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 public func >>> <Transform: TransformType>(left: Dictionary<String, Transform.Object>, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result = toJSONDictionaryWithTransform(map, left, transform: transform)
-            ToJSON.basicType(result, map: map)
+            let transformedDictionary = toJSONDictionaryWithTransform(map, left, transform: transform)
+            ToJSON.basicType(transformedDictionary, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -333,21 +326,23 @@ public func >>> <Transform: TransformType>(left: Dictionary<String, Transform.Ob
 /// Optional Dictionary of Mappable object <String, T: Mappable> with a transform
 public func <~ <Transform: TransformType>(left: inout Dictionary<String, Transform.Object>?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    if map.mappingType == .fromJSON && map.isKeyPresent, let object = map.currentValue as? [String : Any]{
-        let value = fromJSONDictionaryWithTransform(map, object as Any?, transform: transform) ?? left
-        FromJSON.optionalBasicType(&left, object: value)
-    } else if map.mappingType == .toJSON {
-        left >>> right
+    switch map.mappingType {
+        case .fromJSON:
+            let transformedDictionary = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedDictionary, optional: true)
+            left = transformedDictionary
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: Dictionary<String, Transform.Object>?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            let result = toJSONDictionaryWithTransform(map, left, transform: transform)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedDictionary = toJSONDictionaryWithTransform(map, left, transform: transform)
+            ToJSON.optionalBasicType(transformedDictionary, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -358,49 +353,53 @@ public func >>> <Transform: TransformType>(left: Dictionary<String, Transform.Ob
 /// Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable> with a transform
 public func <~ <Transform: TransformType>(left: inout Dictionary<String, Transform.Object>!, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
-    if map.mappingType == .fromJSON && map.isKeyPresent, let dictionary = map.currentValue as? [String : Any]{
-        let transformedDictionary = fromJSONDictionaryWithTransform(map, dictionary as Any?, transform: transform) ?? left
-        FromJSON.optionalBasicType(&left, object: transformedDictionary)
-    } else if map.mappingType == .toJSON {
-        left >>> right
+    switch map.mappingType {
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedDictionary = fromJSONDictionaryWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedDictionary)
+            left = transformedDictionary!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 /// Dictionary of Mappable objects <String, T: Mappable> with a transform
 public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transform.Object]>, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
+    switch map.mappingType {
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let dictionary = map.currentValue as? [String: [Any]]
+            let transformedDictionary = dictionary?.map {
+                (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
 
-    if let dictionary = map.currentValue as? [String : [Any]], map.mappingType == .fromJSON && map.isKeyPresent {
-        let transformedDictionary = dictionary.map { (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
-            let (key, values) = arg
-            if let jsonArray = fromJSONArrayWithTransform(map, values, transform: transform) {
-                return (key, jsonArray)
+                let (key, values) = arg
+                if let jsonArray = fromJSONArrayWithTransform(map, values, transform: transform) {
+                    return (key, jsonArray)
+                }
+                if let leftValue = left[key] {
+                    return (key, leftValue)
+                }
+                return (key, [])
             }
-            if let leftValue = left[key] {
-                return (key, leftValue)
-            }
-            return (key, [])
-        }
+            map.roxie_checkValue(transformedDictionary)
+            left = transformedDictionary!
 
-        FromJSON.basicType(&left, object: transformedDictionary)
-    } else if map.mappingType == .toJSON {
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 public func >>> <Transform: TransformType>(left: Dictionary<String, [Transform.Object]>, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result = left.map { (arg: (key: String, value: [Transform.Object])) in
+            let transformedDictionary = left.map { (arg: (key: String, value: [Transform.Object])) in
                 return (arg.key, toJSONArrayWithTransform(map, arg.value, transform: transform) ?? [])
             }
-            ToJSON.basicType(result, map: map)
+            ToJSON.basicType(transformedDictionary, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -411,35 +410,37 @@ public func >>> <Transform: TransformType>(left: Dictionary<String, [Transform.O
 /// Optional Dictionary of Mappable object <String, T: Mappable> with a transform
 public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transform.Object]>?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
+    switch map.mappingType {
+        case .fromJSON:
+            let dictionary = map.currentValue as? [String: [Any]]
+            let transformedDictionary = dictionary?.map {
+                (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
 
-    if let dictionary = map.currentValue as? [String : [Any]], map.mappingType == .fromJSON && map.isKeyPresent {
-
-        let transformedDictionary = dictionary.map { (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
-            let (key, values) = arg
-            if let jsonArray = fromJSONArrayWithTransform(map, values, transform: transform) {
-                return (key, jsonArray)
+                let (key, values) = arg
+                if let jsonArray = fromJSONArrayWithTransform(map, values, transform: transform) {
+                    return (key, jsonArray)
+                }
+                if let leftValue = left?[key] {
+                    return (key, leftValue)
+                }
+                return (key, [])
             }
-            if let leftValue = left?[key] {
-                return (key, leftValue)
-            }
-            return (key, [])
-        }
+            map.roxie_checkValue(transformedDictionary, optional: true)
+            left = transformedDictionary
 
-        FromJSON.optionalBasicType(&left, object: transformedDictionary)
-    } else if map.mappingType == .toJSON {
-        left >>> right
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: Dictionary<String, [Transform.Object]>?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            let result = left?.map { (arg: (key: String, values: [Transform.Object])) in
+            let transformedDictionary = left?.map { (arg: (key: String, values: [Transform.Object])) in
                 return (arg.key, toJSONArrayWithTransform(map, arg.values, transform: transform) ?? [])
             }
-            ToJSON.optionalBasicType(result, map: map)
+            ToJSON.optionalBasicType(transformedDictionary, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -450,24 +451,28 @@ public func >>> <Transform: TransformType>(left: Dictionary<String, [Transform.O
 /// Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable> with a transform
 public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transform.Object]>!, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
+    switch map.mappingType {
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let dictionary = map.currentValue as? [String: [Any]]
+            let transformedDictionary = dictionary?.map {
+                (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
 
-    if let dictionary = map.currentValue as? [String : [Any]], map.mappingType == .fromJSON && map.isKeyPresent {
-        let transformedDictionary = dictionary.map { (arg: (key: String, values: [Any])) -> (String, [Transform.Object]) in
-            let (key, values) = arg
-            if let jsonArray = fromJSONArrayWithTransform(map, values, transform: transform) {
-                return (key, jsonArray)
+                let (key, values) = arg
+                if let jsonArray = fromJSONArrayWithTransform(map, values, transform: transform) {
+                    return (key, jsonArray)
+                }
+                if let leftValue = left?[key] {
+                    return (key, leftValue)
+                }
+                return (key, [])
             }
-            if let leftValue = left?[key] {
-                return (key, leftValue)
-            }
-            return (key, [])
-        }
-        FromJSON.optionalBasicType(&left, object: transformedDictionary)
-    } else if map.mappingType == .toJSON {
-        left >>> right
+            map.roxie_checkValue(transformedDictionary)
+            left = transformedDictionary!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 // MARK:- Array of Mappable objects with transforms - Array<T: BaseMappable>
@@ -475,26 +480,24 @@ public func <~ <Transform: TransformType>(left: inout Dictionary<String, [Transf
 /// Array of Mappable objects
 public func <~ <Transform: TransformType>(left: inout Array<Transform.Object>, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        if let transformedValues = fromJSONArrayWithTransform(map, map.currentValue, transform: transform) {
-            FromJSON.basicType(&left, object: transformedValues)
-        }
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray)
+            left = transformedArray!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 public func >>> <Transform: TransformType>(left: Array<Transform.Object>, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result = toJSONArrayWithTransform(map, left, transform: transform)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedArray = toJSONArrayWithTransform(map, left, transform: transform)
+            ToJSON.optionalBasicType(transformedArray, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -506,22 +509,22 @@ public func >>> <Transform: TransformType>(left: Array<Transform.Object>, right:
 public func <~ <Transform: TransformType>(left: inout Array<Transform.Object>?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let transformedValues = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
-        FromJSON.optionalBasicType(&left, object: transformedValues)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray, optional: true)
+            left = transformedArray
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: Array<Transform.Object>?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            let result = toJSONArrayWithTransform(map, left, transform: transform)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedArray = toJSONArrayWithTransform(map, left, transform: transform)
+            ToJSON.optionalBasicType(transformedArray, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -532,16 +535,16 @@ public func >>> <Transform: TransformType>(left: Array<Transform.Object>?, right
 /// Implicitly unwrapped Optional array of Mappable objects
 public func <~ <Transform: TransformType>(left: inout Array<Transform.Object>!, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        let transformedValues = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
-        FromJSON.optionalBasicType(&left, object: transformedValues)
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray)
+            left = transformedArray!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 // MARK:- Array of Array of objects - Array<Array<T>>> with transforms
@@ -549,31 +552,29 @@ public func <~ <Transform: TransformType>(left: inout Array<Transform.Object>!, 
 /// Array of Array of objects with transform
 public func <~ <Transform: TransformType>(left: inout [[Transform.Object]], right: (Map, Transform)) {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .toJSON:
-        left >>> right
-    case .fromJSON where map.isKeyPresent:
-        guard let original2DArray = map.currentValue as? [[Any]] else { break }
-        let transformed2DArray = original2DArray.flatMap { values in
-            fromJSONArrayWithTransform(map, values as Any?, transform: transform)
-        }
-        FromJSON.basicType(&left, object: transformed2DArray)
-    default:
-        break
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let array = map.currentValue as? [[Any]]
+            let transformedArray = array?.flatMap { values in
+                return fromJSONArrayWithTransform(map, values as Any?, transform: transform)
+            }
+            map.roxie_checkValue(transformedArray)
+            left = transformedArray!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 public func >>> <Transform: TransformType>(left: [[Transform.Object]], right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result = left.flatMap { values in
-                toJSONArrayWithTransform(map, values, transform: transform)
+            let transformedArray = left.flatMap { values in
+                return toJSONArrayWithTransform(map, values, transform: transform)
             }
-            ToJSON.basicType(result, map: map)
+            ToJSON.basicType(transformedArray, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -584,28 +585,27 @@ public func >>> <Transform: TransformType>(left: [[Transform.Object]], right: (M
 public func <~ <Transform: TransformType>(left: inout [[Transform.Object]]?, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
-    case .toJSON:
-        left >>> right
-    case .fromJSON where map.isKeyPresent:
-        guard let original2DArray = map.currentValue as? [[Any]] else { break }
-        let transformed2DArray = original2DArray.flatMap { values in
-            fromJSONArrayWithTransform(map, values as Any?, transform: transform)
-        }
-        FromJSON.optionalBasicType(&left, object: transformed2DArray)
-    default:
-        break
+        case .fromJSON:
+            let array = map.currentValue as? [[Any]]
+            let transformedArray = array?.flatMap { values in
+                return fromJSONArrayWithTransform(map, values as Any?, transform: transform)
+            }
+            map.roxie_checkValue(transformedArray, optional: true)
+            left = transformedArray
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: [[Transform.Object]]?, right: (Map, Transform)) {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            let result = left?.flatMap { values in
-                toJSONArrayWithTransform(map, values, transform: transform)
+            let transformedArray = left?.flatMap { values in
+                return toJSONArrayWithTransform(map, values, transform: transform)
             }
-            ToJSON.optionalBasicType(result, map: map)
+            ToJSON.optionalBasicType(transformedArray, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -616,20 +616,19 @@ public func >>> <Transform: TransformType>(left: [[Transform.Object]]?, right: (
 /// Implicitly unwrapped Optional array of array of objects with transform
 public func <~ <Transform: TransformType>(left: inout [[Transform.Object]]!, right: (Map, Transform)) {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .toJSON:
-        left >>> right
-    case .fromJSON where map.isKeyPresent:
-        guard let original2DArray = map.currentValue as? [[Any]] else { break }
-        let transformed2DArray = original2DArray.flatMap { values in
-            fromJSONArrayWithTransform(map, values as Any?, transform: transform)
-        }
-        FromJSON.optionalBasicType(&left, object: transformed2DArray)
-    default:
-        break
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let array = map.currentValue as? [[Any]]
+            let transformedArray = array?.flatMap { values in
+                return fromJSONArrayWithTransform(map, values as Any?, transform: transform)
+            }
+            map.roxie_checkValue(transformedArray)
+            left = transformedArray!
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 // MARK:- Set of Mappable objects with a transform - Set<T: BaseMappable>
@@ -637,26 +636,24 @@ public func <~ <Transform: TransformType>(left: inout [[Transform.Object]]!, rig
 /// Set of Mappable objects with transform
 public func <~ <Transform: TransformType>(left: inout Set<Transform.Object>, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        if let transformedValues = fromJSONArrayWithTransform(map, map.currentValue, transform: transform) {
-            FromJSON.basicType(&left, object: Set(transformedValues))
-        }
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray)
+            left = Set(transformedArray!)
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 public func >>> <Transform: TransformType>(left: Set<Transform.Object>, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            map.roxie_checkState(left)
-            let result = toJSONArrayWithTransform(map, Array(left), transform: transform)
-            ToJSON.optionalBasicType(result, map: map)
+            let transformedSet = toJSONArrayWithTransform(map, Array(left), transform: transform)
+            ToJSON.optionalBasicType(transformedSet, map: map)
             map.roxie_checkValue(left)
 
         default: ()
@@ -668,25 +665,22 @@ public func >>> <Transform: TransformType>(left: Set<Transform.Object>, right: (
 public func <~ <Transform: TransformType>(left: inout Set<Transform.Object>?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        if let transformedValues = fromJSONArrayWithTransform(map, map.currentValue, transform: transform) {
-            FromJSON.basicType(&left, object: Set(transformedValues))
-        }
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray, optional: true)
+            left = (transformedArray != nil) ? Set(transformedArray!) : nil
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left, optional: true)
 }
 
 public func >>> <Transform: TransformType>(left: Set<Transform.Object>?, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
     switch map.mappingType {
         case .toJSON:
-            if let values = left {
-                let result = toJSONArrayWithTransform(map, Array(values), transform: transform)
-                ToJSON.optionalBasicType(result, map: map)
-            }
+            let transformedSet = toJSONArrayWithTransform(map, Array(left ?? []), transform: transform)
+            ToJSON.optionalBasicType(transformedSet, map: map)
             map.roxie_checkValue(left, optional: true)
 
         default: ()
@@ -697,41 +691,36 @@ public func >>> <Transform: TransformType>(left: Set<Transform.Object>?, right: 
 /// Implicitly unwrapped Optional set of Mappable objects with transform
 public func <~ <Transform: TransformType>(left: inout Set<Transform.Object>!, right: (Map, Transform)) where Transform.Object: BaseMappable {
     let (map, transform) = right
-    map.roxie_checkState(left)
     switch map.mappingType {
-    case .fromJSON where map.isKeyPresent:
-        if let transformedValues = fromJSONArrayWithTransform(map, map.currentValue, transform: transform) {
-            FromJSON.basicType(&left, object: Set(transformedValues))
-        }
-    case .toJSON:
-        left >>> right
-    default: ()
+        case .fromJSON:
+            map.roxie_checkState(left)
+            let transformedArray = fromJSONArrayWithTransform(map, map.currentValue, transform: transform)
+            map.roxie_checkValue(transformedArray)
+            left = Set(transformedArray!)
+
+        case .toJSON:
+            left >>> right
     }
-    map.roxie_checkValue(left)
 }
 
 
+// MARK:- Private Functions
+
 private func fromJSONArrayWithTransform<Transform: TransformType>(_ map: Map, _ input: Any?, transform: Transform) -> [Transform.Object]? {
-    if let values = input as? [Any] {
-        return values.flatMap { value in
-            let transformedValue = transform.transformFromJSON(value)
-            map.roxie_checkValue(map.currentKey, value, transformedValue, optional: true)
-            return transformedValue
-        }
-    } else {
-        return nil
+    let array = input as? [Any]
+    return array?.flatMap { value in
+        let transformedValue = transform.transformFromJSON(value)
+        map.roxie_checkValue(map.currentKey, value, transformedValue)
+        return transformedValue
     }
 }
 
 private func fromJSONDictionaryWithTransform<Transform: TransformType>(_ map: Map, _ input: Any?, transform: Transform) -> [String: Transform.Object]? {
-    if let values = input as? [String: Any] {
-        return values.filterMap { value in
-            let transformedValue = transform.transformFromJSON(value)
-            map.roxie_checkValue(map.currentKey, value, transformedValue, optional: true)
-            return transformedValue
-        }
-    } else {
-        return nil
+    let dictionary = input as? [String: Any]
+    return dictionary?.filterMap { value in
+        let transformedValue = transform.transformFromJSON(value)
+        map.roxie_checkValue(map.currentKey, value, transformedValue)
+        return transformedValue
     }
 }
 

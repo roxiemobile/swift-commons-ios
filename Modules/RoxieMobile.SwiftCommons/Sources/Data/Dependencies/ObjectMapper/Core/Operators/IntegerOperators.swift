@@ -107,10 +107,10 @@ private func toSignedInteger<T: SignedInteger>(_ value: Any?) -> T? {
         return nil
     }
 
-    if T.self ==   Int.self, let x = Int(exactly: number.int64Value) {
+    if T.self == Int.self, let x = Int(exactly: number.int64Value) {
         return T.init(x)
     }
-    if T.self ==  Int8.self, let x = Int8(exactly: number.int64Value) {
+    if T.self == Int8.self, let x = Int8(exactly: number.int64Value) {
         return T.init(x)
     }
     if T.self == Int16.self, let x = Int16(exactly: number.int64Value) {
