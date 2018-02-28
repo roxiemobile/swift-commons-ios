@@ -59,7 +59,7 @@ public final class Map {
     }
 
     /// Sets the current mapper value and key.
-    /// The Key paramater can be a period separated string (ex. "distance.value") to access sub objects.
+    /// The Key parameter can be a period separated string (ex. "distance.value") to access sub objects.
     public subscript(key: String) -> Map {
         // save key and value associated to it
         return self.subscript(key: key)
