@@ -12,36 +12,36 @@ extension Map
 {
 // MARK: - Methods: Subscript
 
-    public subscript(key: String, default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key], defaultValue: `default`)
+    public subscript(key: String, default default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key], `default`)
     }
 
-    public subscript(key: String, delimiter delimiter: String, default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, delimiter], defaultValue: `default`)
+    public subscript(key: String, delimiter delimiter: String, default default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, delimiter: delimiter], `default`)
     }
 
-    public subscript(key: String, nested nested: Bool, default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, nested: nested], defaultValue: `default`)
+    public subscript(key: String, nested nested: Bool, default default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, nested: nested], `default`)
     }
 
-    public subscript(key: String, nested nested: Bool, delimiter delimiter: String, default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, nested: nested, delimiter: delimiter], defaultValue: `default`)
+    public subscript(key: String, nested nested: Bool, delimiter delimiter: String, default default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, nested: nested, delimiter: delimiter], `default`)
     }
 
-    public subscript(key: String, ignoreNil ignoreNil: Bool, default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, ignoreNil: ignoreNil], defaultValue: `default`)
+    public subscript(key: String, ignoreNil ignoreNil: Bool, default default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, ignoreNil: ignoreNil], `default`)
     }
 
-    public subscript(key: String, delimiter delimiter: String, ignoreNil ignoreNil: Bool, default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, delimiter: delimiter, ignoreNil: ignoreNil], defaultValue: `default`)
+    public subscript(key: String, delimiter delimiter: String, ignoreNil ignoreNil: Bool, default default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, delimiter: delimiter, ignoreNil: ignoreNil], `default`)
     }
 
-    public subscript(key: String, nested nested: Bool, ignoreNil ignoreNil: Bool, default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, nested: nested, ignoreNil: ignoreNil], defaultValue: `default`)
+    public subscript(key: String, nested nested: Bool, ignoreNil ignoreNil: Bool, default default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, nested: nested, ignoreNil: ignoreNil], `default`)
     }
 
-    public subscript(key: String, nested nested: Bool?, delimiter delimiter: String, ignoreNil ignoreNil: Bool, default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, nested: nested, delimiter: delimiter, ignoreNil: ignoreNil], defaultValue: `default`)
+    public subscript(key: String, nested nested: Bool?, delimiter delimiter: String, ignoreNil ignoreNil: Bool, default default: Any) -> Map {
+        return replaceNilWithDefault(map: self[key, nested: nested, delimiter: delimiter, ignoreNil: ignoreNil], `default`)
     }
 
 // MARK: - Methods
@@ -120,7 +120,7 @@ extension Map
 
 // MARK: - Private Methods
 
-    private func replaceNilWithDefault(map: Map, defaultValue: Any) -> Map {
+    private func replaceNilWithDefault(map: Map, _ defaultValue: Any) -> Map {
         switch map.mappingType {
             // Change internal state of a Map
             case .fromJSON where (map.currentValue == nil):
