@@ -1,6 +1,6 @@
 source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
@@ -32,6 +32,11 @@ target 'SwiftCommons.Data' do
 
   # Dependencies
   inject_shared_dependencies_2
+end
+
+
+target 'SwiftCommons.Data.UnitTests' do
+  project '../RoxieMobile.SwiftCommons/Tests/Data.UnitTests/SwiftCommons.Data.UnitTests.xcodeproj'
 end
 
 

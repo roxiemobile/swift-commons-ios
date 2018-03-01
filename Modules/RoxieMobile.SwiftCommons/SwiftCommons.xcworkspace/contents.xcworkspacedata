@@ -11,6 +11,9 @@
       location = "group:Sources/Data/SwiftCommons.Data.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Tests/Data.UnitTests/SwiftCommons.Data.UnitTests.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Sources/Deprecated/SwiftCommons.Deprecated.xcodeproj">
    </FileRef>
    <FileRef

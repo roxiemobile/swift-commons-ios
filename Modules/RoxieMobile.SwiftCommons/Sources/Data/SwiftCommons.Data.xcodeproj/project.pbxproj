@@ -45,6 +45,7 @@
 		19A7065E1FCCB8EE001182AF /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5051F8A57C500A944A8 /* EmailValidator.swift */; };
 		19A7065F1FCCB8EE001182AF /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5061F8A57C500A944A8 /* RegexValidator.swift */; };
 		19A706601FCCB8EE001182AF /* UrlValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5071F8A57C500A944A8 /* UrlValidator.swift */; };
+		19B0266B2040BBD000584342 /* Map.Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0266A2040BBD000584342 /* Map.Extensions.swift */; };
 		E1878A32E761D1684863AAE0 /* Pods_SwiftCommons_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF42310CE1471D1E79A316DD /* Pods_SwiftCommons_Data.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		1990C50D1F8A638200A944A8 /* CommonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonKeys.swift; sourceTree = "<group>"; };
 		1990C5121F8A652400A944A8 /* SerializableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableObject.swift; sourceTree = "<group>"; };
 		199FFD941FCCBA27006969AF /* SwiftCommonsDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19B0266A2040BBD000584342 /* Map.Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.Extensions.swift; sourceTree = "<group>"; };
 		19CAA9361FBF9A850034FD4E /* ValidatableMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatableMappable.swift; sourceTree = "<group>"; };
 		6F5D3AA0E3EC989B4452A948 /* Pods-SwiftCommons.Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.release.xcconfig"; sourceTree = "<group>"; };
 		CF16D7706F5A8B6769B3594D /* Pods-SwiftCommons.Data.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				19574C8B1F8A6FB600A218E4 /* FromJSON.swift */,
 				19574C8C1F8A6FB600A218E4 /* ImmutableMappable.swift */,
 				19574C8D1F8A6FB600A218E4 /* Map.swift */,
+				19B0266A2040BBD000584342 /* Map.Extensions.swift */,
 				19574C8E1F8A6FB600A218E4 /* MapError.swift */,
 				19574C8F1F8A6FB600A218E4 /* Mappable.swift */,
 				19574C901F8A6FB600A218E4 /* Mapper.swift */,
@@ -423,6 +426,7 @@
 				194862491FCCB86C0058735E /* DateFormatterTransform.swift in Sources */,
 				19A706571FCCB8EE001182AF /* Assets.swift in Sources */,
 				194862461FCCB86C0058735E /* ToJSON.swift in Sources */,
+				19B0266B2040BBD000584342 /* Map.Extensions.swift in Sources */,
 				194862411FCCB86C0058735E /* Map.swift in Sources */,
 				194862441FCCB86C0058735E /* Mapper.swift in Sources */,
 				19A706601FCCB8EE001182AF /* UrlValidator.swift in Sources */,
@@ -544,7 +548,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -595,7 +598,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
