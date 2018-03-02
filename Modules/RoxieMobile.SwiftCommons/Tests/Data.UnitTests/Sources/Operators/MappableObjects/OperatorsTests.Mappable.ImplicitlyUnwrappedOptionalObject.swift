@@ -13,21 +13,26 @@ extension OperatorsTests
 {
 
     
-//    func testObjectImplicitlyUnwrappedOptionalMappableToJSON() {
-//        let JSONString = ["bool" : true,
-//                          "boolOpt" : true,
-//                          "boolImp" : true]
-//
-//
-//        var object: SomeBoolObject! = Mapper<SomeBoolObject>().map(JSON: JSONString)!
-//        print(object.bool)
-//        var map = Map(mappingType: .toJSON, JSON: [:])
-//        object >>> map["object"]
-//        let someDictionary = map.JSON["object"]! as! [String : Bool]
-//        let bool = someDictionary["bool"]!
-//
-//        XCTAssertEqual(object.bool, bool)
-//    }
+    func testObjectImplicitlyUnwrappedOptionalMappableToJSON() {
+        let JSONString = ["bool" : true,
+                          "boolOpt" : true,
+                          "boolImp" : true]
+
+
+        var object: SomeBoolObject! = Mapper<SomeBoolObject>().map(JSON: JSONString)!
+        print(object.bool)
+        var map = Map(mappingType: .toJSON, JSON: [:])
+        object <~ map["object"]
+        let someDictionary = map.JSON["object"]! as! [String : Bool]
+        let bool = someDictionary["bool"]!
+
+        /// Positive results
+        XCTAssertEqual(object.bool, bool)
+        
+        /// Negative results
+        let someDateTime = SomeDateObject(map: map)
+        guardNegativeException { someDateTime >>> map ["some"] }
+    }
     
     func testObjectImplicitlyUnwrappedOptionalMappableFromJSON() {
         let JSONString = ["object": ["bool" : true,
