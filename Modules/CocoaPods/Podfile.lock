@@ -1,19 +1,19 @@
 PODS:
-  - CryptoSwift-SCF (0.8.0):
-    - CryptoSwift-SCF/StaticCocoaFramework (= 0.8.0)
-  - CryptoSwift-SCF/StaticCocoaFramework (0.8.0)
+  - CryptoSwift-SCF (0.8.3):
+    - CryptoSwift-SCF/StaticCocoaFramework (= 0.8.3)
+  - CryptoSwift-SCF/StaticCocoaFramework (0.8.3)
   - Dispatch-SCF (2.0.4):
     - Dispatch-SCF/StaticCocoaFramework (= 2.0.4)
   - Dispatch-SCF/StaticCocoaFramework (2.0.4)
 
 DEPENDENCIES:
-  - CryptoSwift-SCF (~> 0.8.0)
+  - CryptoSwift-SCF (~> 0.8.3)
   - Dispatch-SCF (~> 2.0.4)
 
 SPEC CHECKSUMS:
-  CryptoSwift-SCF: a9c0686544450d97e6c5e13b7172ea3d677aaf9a
+  CryptoSwift-SCF: b50fb8c9bf3e28b27ed9c454b8e9f7102471b589
   Dispatch-SCF: 260f244bfae3213f83e77cb99b275cefa4c3ba62
 
-PODFILE CHECKSUM: 63a822b3afc09fff61c10df44d37f777b2050a06
+PODFILE CHECKSUM: 6a3cf3626d2fc055249643acfc0b0efe29ac8657
 
 COCOAPODS: 1.4.0
