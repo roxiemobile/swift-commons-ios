@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
 
   s.cocoapods_version     = '>= 1.4.0'
   s.static_framework      = true
+  s.swift_version         = '4.0'
 
   s.homepage              = 'https://github.com/roxiemobile/swift-commons.ios'
   s.authors               = { 'Roxie Mobile Ltd.' => 'sales@roxiemobile.com', 'Alexander Bragin' => 'bragin-av@roxiemobile.com' }
@@ -40,7 +41,6 @@ Pod::Spec.new do |s|
   ]
 
   s.pod_target_xcconfig = {
-    'GCC_PREPROCESSOR_DEFINITIONS' => "$(inherited) SWIFTCOMMONS_FRAMEWORK_VERSION=@\\\"#{s.version}\\\"",
-    'SWIFT_VERSION' => '4.0'
+    'GCC_PREPROCESSOR_DEFINITIONS' => "$(inherited) SWIFTCOMMONS_FRAMEWORK_VERSION=@\\\"#{s.version}\\\""
   }
 end
