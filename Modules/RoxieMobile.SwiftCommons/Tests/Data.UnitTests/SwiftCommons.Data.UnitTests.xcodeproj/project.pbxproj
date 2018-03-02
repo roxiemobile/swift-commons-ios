@@ -16,6 +16,7 @@
 		1AFA5DFA2048219600B2BB15 /* OperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF92048219600B2BB15 /* OperatorsTests.swift */; };
 		1AFA5DFD2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DFC2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift */; };
 		1AFA5DFF204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DFE204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift */; };
+		1AFA5E092049653800B2BB15 /* OperatorsTests.ArrayMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.swift */; };
 		345AB3175DE5026155CD4150 /* Pods_SwiftCommons_Data_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A188E4D8AF6256439212FE43 /* Pods_SwiftCommons_Data_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		1AFA5DF92048219600B2BB15 /* OperatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.swift; sourceTree = "<group>"; };
 		1AFA5DFC2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.Mappable.OptionalObject.swift; sourceTree = "<group>"; };
 		1AFA5DFE204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
+		1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.ArrayMappable.swift; sourceTree = "<group>"; };
 		2E3FEEE925ABBE68E6AE0308 /* Pods-SwiftCommons.Data.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9470D933D4C8F5F95213E89A /* Pods-SwiftCommons.Data.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		A188E4D8AF6256439212FE43 /* Pods_SwiftCommons_Data_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 				1AFA5DF92048219600B2BB15 /* OperatorsTests.swift */,
 				1AFA5DE22048128800B2BB15 /* BasicTypes */,
 				1AFA5DFB2048227E00B2BB15 /* MappableObjects */,
+				1AFA5E07204964CE00B2BB15 /* ArrayMappableObjects */,
 			);
 			path = Operators;
 			sourceTree = "<group>";
@@ -132,6 +135,14 @@
 				1AFA5DFE204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift */,
 			);
 			path = MappableObjects;
+			sourceTree = "<group>";
+		};
+		1AFA5E07204964CE00B2BB15 /* ArrayMappableObjects */ = {
+			isa = PBXGroup;
+			children = (
+				1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.swift */,
+			);
+			path = ArrayMappableObjects;
 			sourceTree = "<group>";
 		};
 		1B229613B2DC7CB798640435 /* Pods */ = {
@@ -272,6 +283,7 @@
 				1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift in Sources */,
 				1AFA5DEE2048161100B2BB15 /* SwiftCommons.Data.UnitTests.swift in Sources */,
 				1AFA5DFF204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
+				1AFA5E092049653800B2BB15 /* OperatorsTests.ArrayMappable.swift in Sources */,
 				1AFA5DFA2048219600B2BB15 /* OperatorsTests.swift in Sources */,
 				1AFA5DF420481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift in Sources */,
 			);
