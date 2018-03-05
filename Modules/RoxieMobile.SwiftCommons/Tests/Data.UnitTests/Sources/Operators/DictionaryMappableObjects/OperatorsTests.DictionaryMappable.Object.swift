@@ -67,7 +67,7 @@ extension OperatorsTests
         /// Empty Dictionary
         guardNegativeException { dictionaryObjects <~ emptyMap["object"] }
 
-        /// Not Valid Set
+        /// Not Valid Dictionary
         guardNegativeException { dictionaryObjects <~ notValidMap["object"] }
 
         /// Not Valid Key

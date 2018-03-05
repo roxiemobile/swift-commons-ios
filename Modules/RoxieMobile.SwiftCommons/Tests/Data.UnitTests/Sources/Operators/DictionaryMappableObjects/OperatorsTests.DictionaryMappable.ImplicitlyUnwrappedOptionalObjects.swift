@@ -17,13 +17,13 @@ extension OperatorsTests
         let notValidObject = NotValidModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
         
-        let dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, ValidModel>! = ["object" : validObject]
+        var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, ValidModel>! = ["object" : validObject]
         
         let notValidDictionary: Dictionary<String, NotValidModel> = ["object" : notValidObject]
         let emptyDictionary: Dictionary<String, ValidModel> = [:]
         let nilDictionary: Dictionary<String, ValidModel>? = nil
         
-        dictionaryObjectsImplicitlyUnwrappedOptional >>> map["validImplicitlyUnwrappedObjects"]
+        dictionaryObjectsImplicitlyUnwrappedOptional <~ map["validImplicitlyUnwrappedObjects"]
         
         
         XCTAssertNotNil(map.JSON["validImplicitlyUnwrappedObjects"])
@@ -61,13 +61,13 @@ extension OperatorsTests
         
         dictionaryObjectsImplicitlyUnwrappedOptional <~ validMap["object"]
         
-        /// Valid Set
+        /// Valid Dictionary
         XCTAssertNotNil(dictionaryObjectsImplicitlyUnwrappedOptional["object"])
         
-        /// Empty Set
+        /// Empty Dictionary
         guardNegativeException { dictionaryObjectsImplicitlyUnwrappedOptional <~ emptyMap["object"] }
 
-        /// Not Valid Set
+        /// Not Valid Dictionary
         guardNegativeException { dictionaryObjectsImplicitlyUnwrappedOptional <~ notValidMap["object"] }
 
         /// Not Valid Key
