@@ -1,52 +1,43 @@
 //
-//  OperatorsTests.SetMappable.swift
+//  OperatorsTests.SetMappable.OptionalObject.swift
 //  SwiftCommons.Data.UnitTests
 //
-//  Created by Мамунина Наталья Вадимовна on 3/2/18.
+//  Created by Мамунина Наталья Вадимовна on 3/5/18.
 //  Copyright © 2018 Alexander Bragin. All rights reserved.
 //
-
-import Foundation
-
 @testable import SwiftCommonsData
 import XCTest
 
 extension OperatorsTests
 {
     
-    func testSetMappableObjectsToJSON() {
+    func testSetMappableOptionalObjectsToJSON() {
         let validObject = ValidModel()
         let notValidObject = NotValidModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
-
-        let setObjects: Set<ValidModel> = [validObject]
+        
         let setObjectsOptional: Set<ValidModel>? = [validObject]
-        let setObjectsImplicitlyUnwrappedOptional: Set<ValidModel>! = [validObject]
         
         let notValidSet: Set<NotValidModel> = [notValidObject]
         let emptySet: Set<ValidModel> = []
         let nilSet: Set<ValidModel>? = nil
-
-        setObjects >>> map["validSetObjects"]
+        
         setObjectsOptional >>> map["validSetOptionalObjects"]
-        setObjectsImplicitlyUnwrappedOptional >>> map["validImplicitlyUnwrappedObjects"]
-
-
-        XCTAssertNotNil(map.JSON["validSetObjects"])
+        
+        
         XCTAssertNotNil(map.JSON["validSetOptionalObjects"])
-        XCTAssertNotNil(map.JSON["validImplicitlyUnwrappedObjects"])
-
-
+        
+        
         guardNegativeException { notValidSet >>> map["notValidSet"] }
-
+        
         emptySet >>> map["emptySet"]
         XCTAssertNotNil(map.JSON["emptySet"])
-
+        
         nilSet >>> map["nilValidSet"]
         XCTAssertNil(map.JSON["nilSet"])
     }
     
-    func testSetMappableObjectsFromJSON() {
+    func testSetMappableOptionalObjectsFromJSON() {
         let value: Int = 10
         let validJSONString = ["object" : [["x" : value,
                                             "y" : value,
@@ -60,41 +51,28 @@ extension OperatorsTests
                                     ]
         let emptyJSONString =  ["object" : [[:]]
                                 ]
-
+        
         var validObject = ValidModel()
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
         let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
         let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
-
-        var setObjects: Set<ValidModel> = []
+        
         var setObjectsOptional: Set<ValidModel>? = []
-        var setObjectsImplicitlyUnwrappedOptional: Set<ValidModel>!
-
-        setObjects <~ validMap["object"]
+        
         setObjectsOptional <~ validMap["object"]
-        setObjectsImplicitlyUnwrappedOptional <~ validMap["object"]
-
+        
         /// Valid Set
-        XCTAssertNotNil(setObjects.first)
         XCTAssertNotNil(setObjectsOptional?.first)
-        XCTAssertNotNil(setObjectsImplicitlyUnwrappedOptional.first)
-        print(setObjectsOptional?.first?.y)
-        setObjectsOptional = []
+        
         /// Empty Set
-        guardNegativeException { setObjects <~ emptyMap["object"] }
         guardNegativeException { setObjectsOptional <~ emptyMap["object"] }
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ emptyMap["object"] }
-
+        
         /// Not Valid Set
-        guardNegativeException { setObjects <~ notValidMap["object"] }
         guardNegativeException { setObjectsOptional <~ notValidMap["object"] }
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ notValidMap["object"] }
-
+        
         /// Not Valid Key
-        guardNegativeException { setObjects <~ validMap["notValidKey"] }
         guardNegativeException { setObjectsOptional <~ validMap["notValidKey"] }
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ validMap["notValidKey"] }
-
+        
     }
 }
 
@@ -110,13 +88,13 @@ fileprivate struct NotValidModel: Mappable, Hashable, Equatable {
     }
     
     init() {
-
+        
     }
-
+    
     init?(map: Map) {
-
+        
     }
-
+    
     mutating func mapping(map: Map) {
         date        <~ map["date"]
     }
@@ -136,7 +114,7 @@ fileprivate struct ValidModel: Mappable, Hashable, Equatable {
     //    var boolImp: Bool! = false
     
     var hashValue: Int {
-            return self.x^self.y^self.z
+        return self.x^self.y^self.z
     }
     
     init() {
@@ -160,4 +138,3 @@ fileprivate struct ValidModel: Mappable, Hashable, Equatable {
 fileprivate func ==(lhs: ValidModel, rhs: ValidModel) -> Bool {
     return lhs.z == rhs.z
 }
-
