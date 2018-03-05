@@ -18,15 +18,15 @@ extension OperatorsTests
 // MARK: - Tests
     
     func testArrayMappableOptionalObjectsToJSON() {
-        let validObject = ValidModel()
-        let notValidObject = NotValidModel()
+        let validObject = ValidMappableObjectModel()
+        let notValidObject = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
         
-        let arrayObjectsOptional: Array<ValidModel>? = [validObject]
+        let arrayObjectsOptional: Array<ValidMappableObjectModel>? = [validObject]
         
-        let notValidArray: Array<NotValidModel> = [notValidObject]
-        let emptyArray: Array<ValidModel> = []
-        let nilArray: Array<ValidModel>? = nil
+        let notValidArray: Array<NotValidMappableObjectModel> = [notValidObject]
+        let emptyArray: Array<ValidMappableObjectModel> = []
+        let nilArray: Array<ValidMappableObjectModel>? = nil
         
         arrayObjectsOptional >>> map["validArrayOptionalObjects"]
         
@@ -58,12 +58,12 @@ extension OperatorsTests
         let emptyJSONString =  ["object" : [[]]
                                 ]
         
-        let validObject = ValidModel()
+        let validObject = ValidMappableObjectModel()
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
         let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
         let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
         
-        var arrayObjectsOptional: Array<ValidModel>? = nil
+        var arrayObjectsOptional: Array<ValidMappableObjectModel>? = nil
         
         arrayObjectsOptional <~ validMap["object"]
         
@@ -80,43 +80,6 @@ extension OperatorsTests
         arrayObjectsOptional <~ validMap["notValidKey"]
         XCTAssertNil(arrayObjectsOptional)
         
-    }
-}
-
-
-fileprivate class NotValidModel: Mappable {
-    var date: Date = Date(timeIntervalSinceReferenceDate: -123456789.0)
-    
-    init() {
-        
-    }
-    
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        date        <~ map["date"]
-    }
-}
-
-fileprivate class ValidModel: Mappable {
-    var bool: Bool = false
-    var boolOpt: Bool? = false
-    var boolImp: Bool! = false
-    
-    init() {
-        
-    }
-    
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        bool        <~ map["bool"]
-        boolOpt     <~ map["boolOpt"]
-        boolImp     <~ map["boolImp"]
     }
 }
 

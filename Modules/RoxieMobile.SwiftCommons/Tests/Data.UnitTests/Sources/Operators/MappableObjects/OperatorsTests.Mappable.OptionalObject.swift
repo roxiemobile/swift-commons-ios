@@ -18,13 +18,8 @@ extension OperatorsTests
 // MARK: - Tests
     
     func testOptionalMappableObjectsToJSON() {
-        
-        let JSONString = ["bool" : true,
-                          "boolOpt" : true,
-                          "boolImp" : true]
-        
-        
-        var object: SomeBoolObject? = Mapper<SomeBoolObject>().map(JSON: JSONString)
+
+        var object: ValidMappableObjectModel? = ValidMappableObjectModel()
         var map = Map(mappingType: .toJSON, JSON: [:])
         object >>> map["object"]
         let someDictionary = map.JSON["object"]! as! [String : Bool]
@@ -34,7 +29,7 @@ extension OperatorsTests
         XCTAssertEqual(object?.bool, bool)
         
         /// Negative results
-        let someDateTime: SomeDateObject? = SomeDateObject(map: map)
+        let someDateTime: NotValidMappableObjectModel? = NotValidMappableObjectModel(map: map)
         guardNegativeException { someDateTime >>> map ["some"] }
     }
     
@@ -49,7 +44,7 @@ extension OperatorsTests
         let map = Map(mappingType: .fromJSON, JSON: JSONString)
         map.JSON["noValue"] = nil
         let mapNotBoolValue = Map(mappingType: .toJSON, JSON: notBoolValueJson)
-        var object: SomeBoolObject? = SomeBoolObject(map: mapSet)
+        var object: ValidMappableObjectModel? = ValidMappableObjectModel(map: mapSet)
         object <~ map["object"]
         print(object?.bool)
         let bool = object?.bool
@@ -66,34 +61,6 @@ extension OperatorsTests
         XCTAssertNil(object?.boolOpt)
     }
     
-}
-
-fileprivate class SomeDateObject: Mappable {
-    var date: Date = Date(timeIntervalSinceReferenceDate: -123456789.0)
-    
-    required init?(map: Map) {
-        // Do nothing
-    }
-    
-    func mapping(map: Map) {
-        date        <~ map["date"]
-    }
-}
-
-fileprivate class SomeBoolObject: Mappable {
-    var bool: Bool = false
-    var boolOpt: Bool? = false
-    var boolImp: Bool! = false
-    
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        bool        <~ map["bool"]
-        boolOpt     <~ map["boolOpt"]
-        boolImp     <~ map["boolImp"]
-    }
 }
 
 // ----------------------------------------------------------------------------

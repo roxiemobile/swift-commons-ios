@@ -18,15 +18,15 @@ extension OperatorsTests
 // MARK: - Tests
     
     func testDictionaryMappableImplicitlyUnwrappedOptionalArrayObjectsToJSON() {
-        let validObject = ValidModel()
-        let notValidObject = NotValidModel()
+        let validObject = ValidMappableObjectModel()
+        let notValidObject = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
         
-        var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, [ValidModel]>! = ["object" : [validObject]]
+        var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, [ValidMappableObjectModel]>! = ["object" : [validObject]]
         
-        let notValidDictionary: Dictionary<String, [NotValidModel]> = ["object" : [notValidObject]]
-        let emptyDictionary: Dictionary<String, [ValidModel]> = [:]
-        let nilDictionary: Dictionary<String, [ValidModel]>? = nil
+        let notValidDictionary: Dictionary<String, [NotValidMappableObjectModel]> = ["object" : [notValidObject]]
+        let emptyDictionary: Dictionary<String, [ValidMappableObjectModel]> = [:]
+        let nilDictionary: Dictionary<String, [ValidMappableObjectModel]>? = nil
         
         dictionaryObjectsImplicitlyUnwrappedOptional <~ map["validImplicitlyUnwrappedObjects"]
         
@@ -44,17 +44,17 @@ extension OperatorsTests
     }
     
     func testDictionaryMappableImplicitlyUnwrappedOptionalArrayObjectsFromJSON() {
-        let value: Int = 10
-        let validJSONString = ["object" : ["object" : [["x" : value,
-                                                       "y" : value,
-                                                       "z" : value]]
-                                            ]
-                                ]
-        let notValidJSONString = ["object" : ["object" : [["x" : "value",
-                                                          "y" : "value",
-                                                          "z" : "value"]]
-                                                ]
-                                    ]
+        let value: Bool = true
+        let validJSONString = ["object" : ["object" : [["bool" : value,
+                                                        "boolOpt" : value,
+                                                        "boolImp" : value]]
+            ]
+        ]
+        let notValidJSONString = ["object" : ["object" : [["bool" : "value",
+                                                           "boolOpt" : "value",
+                                                           "boolImp" : "value"]]
+            ]
+        ]
         let emptyJSONString =  ["object" : [[:]]
                                 ]
         
@@ -62,7 +62,7 @@ extension OperatorsTests
         let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
         let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
         
-        var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, [ValidModel]>!
+        var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, [ValidMappableObjectModel]>!
         
         dictionaryObjectsImplicitlyUnwrappedOptional <~ validMap["object"]
         
@@ -79,69 +79,6 @@ extension OperatorsTests
         guardNegativeException { dictionaryObjectsImplicitlyUnwrappedOptional <~ validMap["notValidKey"] }
         
     }
-}
-
-
-fileprivate struct NotValidModel: Mappable, Hashable, Equatable {
-    var date: Date = Date(timeIntervalSinceReferenceDate: -123456789.0)
-    var x: Int = 1
-    var y: Int = 2
-    var z: Int = 3
-    
-    var hashValue: Int {
-        return self.x^self.y^self.z
-    }
-    
-    init() {
-        
-    }
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        date        <~ map["date"]
-    }
-}
-
-fileprivate func ==(lhs: NotValidModel, rhs: NotValidModel) -> Bool {
-    return lhs.date == rhs.date
-}
-
-
-fileprivate struct ValidModel: Mappable, Hashable, Equatable {
-    var x: Int = 1
-    var y: Int = 2
-    var z: Int = 3
-    //    var bool: Bool = false
-    //    var boolOpt: Bool? = false
-    //    var boolImp: Bool! = false
-    
-    var hashValue: Int {
-        return self.x^self.y^self.z
-    }
-    
-    init() {
-        
-    }
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        x       <~ map["x"]
-        y       <~ map["y"]
-        z       <~ map["z"]
-        //        bool        <~ map["bool"]
-        //        boolOpt     <~ map["boolOpt"]
-        //        boolImp     <~ map["boolImp"]
-    }
-}
-
-fileprivate func ==(lhs: ValidModel, rhs: ValidModel) -> Bool {
-    return lhs.z == rhs.z
 }
 
 // ----------------------------------------------------------------------------

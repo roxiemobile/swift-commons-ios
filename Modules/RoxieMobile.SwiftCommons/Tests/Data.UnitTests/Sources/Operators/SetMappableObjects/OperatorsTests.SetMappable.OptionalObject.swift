@@ -18,15 +18,15 @@ extension OperatorsTests
 // MARK: - Tests
     
     func testSetMappableOptionalObjectsToJSON() {
-        let validObject = ValidModel()
-        let notValidObject = NotValidModel()
+        let validObject = SetValidMappableObjectModel()
+        let notValidObject = SetNotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
         
-        let setObjectsOptional: Set<ValidModel>? = [validObject]
+        let setObjectsOptional: Set<SetValidMappableObjectModel>? = [validObject]
         
-        let notValidSet: Set<NotValidModel> = [notValidObject]
-        let emptySet: Set<ValidModel> = []
-        let nilSet: Set<ValidModel>? = nil
+        let notValidSet: Set<SetNotValidMappableObjectModel> = [notValidObject]
+        let emptySet: Set<SetValidMappableObjectModel> = []
+        let nilSet: Set<SetValidMappableObjectModel>? = nil
         
         setObjectsOptional >>> map["validSetOptionalObjects"]
         
@@ -58,12 +58,12 @@ extension OperatorsTests
         let emptyJSONString =  ["object" : [[:]]
                                 ]
         
-        var validObject = ValidModel()
+        var validObject = SetValidMappableObjectModel()
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
         let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
         let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
         
-        var setObjectsOptional: Set<ValidModel>? = []
+        var setObjectsOptional: Set<SetValidMappableObjectModel>? = []
         
         setObjectsOptional <~ validMap["object"]
         
@@ -80,69 +80,6 @@ extension OperatorsTests
         guardNegativeException { setObjectsOptional <~ validMap["notValidKey"] }
         
     }
-}
-
-
-fileprivate struct NotValidModel: Mappable, Hashable, Equatable {
-    var date: Date = Date(timeIntervalSinceReferenceDate: -123456789.0)
-    var x: Int = 1
-    var y: Int = 2
-    var z: Int = 3
-    
-    var hashValue: Int {
-        return self.x^self.y^self.z
-    }
-    
-    init() {
-        
-    }
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        date        <~ map["date"]
-    }
-}
-
-fileprivate func ==(lhs: NotValidModel, rhs: NotValidModel) -> Bool {
-    return lhs.date == rhs.date
-}
-
-
-fileprivate struct ValidModel: Mappable, Hashable, Equatable {
-    var x: Int = 1
-    var y: Int = 2
-    var z: Int = 3
-    //    var bool: Bool = false
-    //    var boolOpt: Bool? = false
-    //    var boolImp: Bool! = false
-    
-    var hashValue: Int {
-        return self.x^self.y^self.z
-    }
-    
-    init() {
-        
-    }
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        x       <~ map["x"]
-        y       <~ map["y"]
-        z       <~ map["z"]
-        //        bool        <~ map["bool"]
-        //        boolOpt     <~ map["boolOpt"]
-        //        boolImp     <~ map["boolImp"]
-    }
-}
-
-fileprivate func ==(lhs: ValidModel, rhs: ValidModel) -> Bool {
-    return lhs.z == rhs.z
 }
 
 // ----------------------------------------------------------------------------
