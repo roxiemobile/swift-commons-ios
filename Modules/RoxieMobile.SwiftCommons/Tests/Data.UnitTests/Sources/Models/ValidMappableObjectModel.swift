@@ -1,0 +1,43 @@
+// ----------------------------------------------------------------------------
+//
+//  ValidMappableObjectModel.swift
+//
+//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
+//
+// ----------------------------------------------------------------------------
+
+import SwiftCommonsData
+import SwiftCommonsConcurrent
+
+// ----------------------------------------------------------------------------
+
+internal final class ValidMappableObjectModel: Mappable
+{
+// MARK: - Construction
+
+    init() {
+
+    }
+
+    required init?(map: Map) {
+        // Required method of protocol Mappable
+    }
+
+// MARK: - Properties
+
+    var bool: Bool = false
+    var boolOpt: Bool? = false
+    var boolImp: Bool! = false
+
+// MARK: - Methods
+
+    func mapping(map: Map) {
+        self.bool    <~ map["bool"]
+        self.boolOpt <~ map["boolOpt"]
+        self.boolImp <~ map["boolImp"]
+    }
+}
+
+// ----------------------------------------------------------------------------
