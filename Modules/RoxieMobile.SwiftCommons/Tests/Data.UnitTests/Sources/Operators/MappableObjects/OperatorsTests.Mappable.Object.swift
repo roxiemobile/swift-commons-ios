@@ -1,16 +1,21 @@
+// ----------------------------------------------------------------------------
 //
-//  SwiftCommons.Data.Tests.swift
-//  SwiftCommons.Data.UnitTests
+//  OperatorsTests.Mappable.Object.swift
 //
-//  Created by Мамунина Наталья Вадимовна on 3/1/18.
-//  Copyright © 2018 Alexander Bragin. All rights reserved.
+//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
+// ----------------------------------------------------------------------------
 
 @testable import SwiftCommonsData
 import XCTest
 
+// ----------------------------------------------------------------------------
+
 extension OperatorsTests
 {
+// MARK: - Tests
     
     func testObjectMappableToJSON() {
         let JSONString = ["bool" : true,
@@ -33,10 +38,13 @@ extension OperatorsTests
     }
     
     func testObjectMappableFromJSON() {
-        let JSONString = ["object": ["bool" : true,
-                                     "boolOpt" : true,
-                                     "boolImp" : true]
-                            ]
+        let JSONString = [
+            "object": [
+                "bool" : true,
+               "boolOpt" : true,
+               "boolImp" : true
+            ]
+        ]
         let notBoolValueJson = ["object": ["bool": "notBoolValue"]]
         let mapSet = Map(mappingType: .fromJSON, JSON: [:])
         let map = Map(mappingType: .fromJSON, JSON: JSONString)
@@ -82,7 +90,8 @@ fileprivate class SomeBoolObject: Mappable {
     func mapping(map: Map) {
         bool        <~ map["bool"]
         boolOpt     <~ map["boolOpt"]
-        boolImp     <~ map["boolImp"]
+        boolImp <~ map["boolImp"]
     }
 }
 
+// ----------------------------------------------------------------------------

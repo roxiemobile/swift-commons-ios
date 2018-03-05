@@ -1,16 +1,21 @@
+// ----------------------------------------------------------------------------
 //
 //  OperatorsTests.DictionaryMappable.ArrayObjects.swift
-//  SwiftCommons.Data.UnitTests
 //
-//  Created by Мамунина Наталья Вадимовна on 3/5/18.
-//  Copyright © 2018 Alexander Bragin. All rights reserved.
+//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
+// ----------------------------------------------------------------------------
 
 @testable import SwiftCommonsData
 import XCTest
 
+// ----------------------------------------------------------------------------
+
 extension OperatorsTests
 {
+// MARK: - Tests
     
     func testDictionaryMappableArrayObjectsToJSON() {
         let validObject = ValidModel()
@@ -138,3 +143,5 @@ fileprivate struct ValidModel: Mappable, Hashable, Equatable {
 fileprivate func ==(lhs: ValidModel, rhs: ValidModel) -> Bool {
     return lhs.z == rhs.z
 }
+
+// ----------------------------------------------------------------------------

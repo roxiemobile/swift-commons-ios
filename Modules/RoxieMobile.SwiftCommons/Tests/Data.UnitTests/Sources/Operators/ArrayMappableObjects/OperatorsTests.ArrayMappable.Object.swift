@@ -1,16 +1,21 @@
+// ----------------------------------------------------------------------------
 //
-//  OperatorsTestsArrayMappableObject.swift
-//  SwiftCommons.Data.UnitTests
+//  OperatorsTests.ArrayMappable.Object.swift
 //
-//  Created by Мамунина Наталья Вадимовна on 3/2/18.
-//  Copyright © 2018 Alexander Bragin. All rights reserved.
+//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
+// ----------------------------------------------------------------------------
 
 @testable import SwiftCommonsData
 import XCTest
 
+// ----------------------------------------------------------------------------
+
 extension OperatorsTests
 {
+// MARK: - Tests
     
     func testArrayMappableObjectsToJSON() {
         let validObject = ValidModel()
@@ -114,3 +119,4 @@ fileprivate class ValidModel: Mappable {
     }
 }
 
+// ----------------------------------------------------------------------------
