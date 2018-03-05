@@ -17,21 +17,15 @@ extension OperatorsTests
         let notValidObject = NotValidModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
         
-        let setObjects: Set<ValidModel> = [validObject]
-        let setObjectsOptional: Set<ValidModel>? = [validObject]
         let setObjectsImplicitlyUnwrappedOptional: Set<ValidModel>! = [validObject]
         
         let notValidSet: Set<NotValidModel> = [notValidObject]
         let emptySet: Set<ValidModel> = []
         let nilSet: Set<ValidModel>? = nil
         
-        setObjects >>> map["validSetObjects"]
-        setObjectsOptional >>> map["validSetOptionalObjects"]
         setObjectsImplicitlyUnwrappedOptional >>> map["validImplicitlyUnwrappedObjects"]
         
         
-        XCTAssertNotNil(map.JSON["validSetObjects"])
-        XCTAssertNotNil(map.JSON["validSetOptionalObjects"])
         XCTAssertNotNil(map.JSON["validImplicitlyUnwrappedObjects"])
         
         
