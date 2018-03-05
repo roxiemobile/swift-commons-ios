@@ -2,7 +2,7 @@
 //
 //  IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift
 //
-//  @author     Na//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -15,7 +15,7 @@ import XCTest
 
 extension IntegerOperators
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testImplicityUnwrappedOptionalSignedIntegerMappingFromJSON() {
 
@@ -111,4 +111,3 @@ extension IntegerOperators
 }
 
 // ----------------------------------------------------------------------------
-

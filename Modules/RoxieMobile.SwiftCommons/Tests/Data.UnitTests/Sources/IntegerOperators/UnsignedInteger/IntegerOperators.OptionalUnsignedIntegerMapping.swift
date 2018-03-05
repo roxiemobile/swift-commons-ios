@@ -15,7 +15,7 @@ import XCTest
 
 extension IntegerOperators
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testOptionalUnsignedIntegerMappingFromJSON() {
 
@@ -124,5 +124,3 @@ extension IntegerOperators
 }
 
 // ----------------------------------------------------------------------------
-
-

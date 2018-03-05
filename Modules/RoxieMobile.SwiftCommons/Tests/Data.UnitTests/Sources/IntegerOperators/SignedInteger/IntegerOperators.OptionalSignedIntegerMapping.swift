@@ -15,7 +15,7 @@ import XCTest
 
 extension IntegerOperators
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testOptionalSignedIntegerMappingFromJSON() {
         let JSONString = ["int8" : 2,
@@ -122,4 +122,3 @@ extension IntegerOperators
 }
 
 // ----------------------------------------------------------------------------
-
