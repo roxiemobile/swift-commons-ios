@@ -2,13 +2,15 @@
 //
 //  IntegerOperators.swift
 //
-//  @author     Natalia Mamunina <___EMAIL___>
-//  @copyright  Copyright (c) 2018, ___COMPANY___. All rights reserved.
-//  @link       ___WEBSITE___
+//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
+//  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
+@testable import SwiftCommonsData
+import SwiftCommonsConcurrent
+import XCTest
 
 // ----------------------------------------------------------------------------
 
@@ -24,7 +26,18 @@ class IntegerOperators: XCTestCase
 
 // MARK: - Methods
 
-    // ...
+    internal func guardNegativeException (
+        action: @escaping () -> ()
+    ) -> Void {
+        var exception: NSException? = nil
+        objcTry {
+            action()
+        }.objcCatch { e in
+            exception = e
+        }.objcFinally {
+            XCTAssertNotNil(exception)
+        }
+    }
 
 // MARK: - Actions
 
