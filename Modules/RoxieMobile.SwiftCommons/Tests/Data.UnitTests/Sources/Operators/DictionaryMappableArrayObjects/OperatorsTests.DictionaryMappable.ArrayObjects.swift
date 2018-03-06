@@ -22,39 +22,49 @@ extension OperatorsTests
         let notValidObject = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
         
-        let dictionaryObjects: Dictionary<String, [ValidMappableObjectModel]> = ["validObject" : [validObject]]
+        let dictionaryObjects: Dictionary<String, [ValidMappableObjectModel]> = [CodingKeys.validDictionaryArrayObjects : [validObject]]
         
-        let notValidDictionary: Dictionary<String, [NotValidMappableObjectModel]> = ["validObject" : [notValidObject]]
+        let notValidDictionary: Dictionary<String, [NotValidMappableObjectModel]> = [CodingKeys.notValidValue : [notValidObject]]
         let emptyDictionary: Dictionary<String, [ValidMappableObjectModel]> = [:]
         let nilDictionary: Dictionary<String, [ValidMappableObjectModel]>? = nil
 
-        dictionaryObjects >>> map["validDictionaryObjects"]
+        dictionaryObjects >>> map[CodingKeys.validDictionaryArrayObjects]
 
-        XCTAssertNotNil(map.JSON["validDictionaryObjects"])
+        XCTAssertNotNil(map.JSON[CodingKeys.validDictionaryArrayObjects])
 
-        guardNegativeException { notValidDictionary >>> map["notValidDictionary"] }
+        guardNegativeException { notValidDictionary >>> map[CodingKeys.notValidValue] }
 
-        emptyDictionary >>> map["emptyDictionary"]
-        XCTAssertNotNil(map.JSON["emptyDictionary"])
+        emptyDictionary >>> map[CodingKeys.emptyValue]
+        XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
 
-        nilDictionary >>> map["nilDictionary"]
-        XCTAssertNil(map.JSON["nilDictionary"])
+        nilDictionary >>> map[CodingKeys.nilValue]
+        XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
     
     func testDictionaryMappableArrayObjectsFromJSON() {
-        let value: Bool = true
-        let validJSONString = ["object" : ["object" : [["bool" : value,
-                                                        "boolOpt" : value,
-                                                        "boolImp" : value]]
+        let validJSONString = [
+            CodingKeys.validDictionaryArrayObjects : [
+                CodingKeys.validDictionaryArrayObjects : [
+                    [CodingKeys.bool : Constants.boolTrue,
+                     CodingKeys.boolOptional : Constants.boolTrue,
+                     CodingKeys.boolImplicityUnwrapped : Constants.boolTrue]
+                ]
             ]
         ]
-        let notValidJSONString = ["object" : ["object" : [["bool" : "value",
-                                                           "boolOpt" : "value",
-                                                           "boolImp" : "value"]]
+        let notValidJSONString = [
+            CodingKeys.notValidValue : [
+                CodingKeys.notValidValue : [
+                    [CodingKeys.bool : Constants.notValidValue,
+                     CodingKeys.boolOptional : Constants.notValidValue,
+                     CodingKeys.boolImplicityUnwrapped : Constants.notValidValue]
+                ]
             ]
         ]
         
-        let emptyJSONString =  ["object" : ["object":[:]]
+        let emptyJSONString =  [
+            CodingKeys.emptyValue : [
+                CodingKeys.emptyValue : [:]
+            ]
         ]
         
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
@@ -63,85 +73,22 @@ extension OperatorsTests
         
         var dictionaryObjects: Dictionary<String, [ValidMappableObjectModel]> = [:]
         
-        dictionaryObjects <~ validMap["object"]
+        dictionaryObjects <~ validMap[CodingKeys.validDictionaryArrayObjects]
         
         
         /// Valid Dictionary
-        XCTAssertNotNil(dictionaryObjects["object"])
+        XCTAssertNotNil(dictionaryObjects[CodingKeys.validDictionaryArrayObjects])
         
         /// Empty Dictionary
-        guardNegativeException { dictionaryObjects <~ emptyMap["object"] }
+        guardNegativeException { dictionaryObjects <~ emptyMap[CodingKeys.emptyValue] }
         
         /// Not Valid Dictionary
-        guardNegativeException { dictionaryObjects <~ notValidMap["object"] }
+        guardNegativeException { dictionaryObjects <~ notValidMap[CodingKeys.notValidValue] }
         
         /// Not Valid Key
-        guardNegativeException { dictionaryObjects <~ validMap["notValidKey"] }
+        guardNegativeException { dictionaryObjects <~ validMap[CodingKeys.noSuchKey] }
         
     }
 }
-
-
-//fileprivate struct NotValidMappableObjectModel: Mappable, Hashable, Equatable {
-//    var date: Date = Date(timeIntervalSinceReferenceDate: -123456789.0)
-//    var x: Int = 1
-//    var y: Int = 2
-//    var z: Int = 3
-//    
-//    var hashValue: Int {
-//        return self.x^self.y^self.z
-//    }
-//    
-//    init() {
-//        
-//    }
-//    
-//    init?(map: Map) {
-//        
-//    }
-//    
-//    mutating func mapping(map: Map) {
-//        date        <~ map["date"]
-//    }
-//}
-//
-//fileprivate func ==(lhs: NotValidMappableObjectModel, rhs: NotValidMappableObjectModel) -> Bool {
-//    return lhs.date == rhs.date
-//}
-
-
-//fileprivate struct ValidMappableObjectModel: Mappable, Hashable, Equatable {
-//    var x: Int = 1
-//    var y: Int = 2
-//    var z: Int = 3
-//    //    var bool: Bool = false
-//    //    var boolOpt: Bool? = false
-//    //    var boolImp: Bool! = false
-//
-//    var hashValue: Int {
-//        return self.x^self.y^self.z
-//    }
-//
-//    init() {
-//
-//    }
-//
-//    init?(map: Map) {
-//
-//    }
-//
-//    mutating func mapping(map: Map) {
-//        x       <~ map["x"]
-//        y       <~ map["y"]
-//        z       <~ map["z"]
-//        //        bool        <~ map["bool"]
-//        //        boolOpt     <~ map["boolOpt"]
-//        //        boolImp     <~ map["boolImp"]
-//    }
-//}
-//
-//fileprivate func ==(lhs: ValidMappableObjectModel, rhs: ValidMappableObjectModel) -> Bool {
-//    return lhs.z == rhs.z
-//}
 
 // ----------------------------------------------------------------------------

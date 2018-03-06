@@ -19,23 +19,23 @@ extension OperatorsTests
     
     func testOptionalObjectBoolValueToJSON()  {
         
-        let JSONString = ["bool" : true]
+        let JSONString = [CodingKeys.bool : Constants.boolTrue]
         let mapFromJSON = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotBool = Map(mappingType: .fromJSON, JSON: ["notBool" : "notBool"])
-        mapFromJSON.JSON["noValue"] = nil
+        let mapNotBool = Map(mappingType: .fromJSON, JSON: [CodingKeys.notValidValue : Constants.notValidValue])
+        mapFromJSON.JSON[CodingKeys.nilValue] = nil
         
         /// Bool Positive results
-        let bool: Bool? = Bool(JSONString["bool"]!)
-        var boolValueFromJSON: Bool? = false
-        boolValueFromJSON <~ mapFromJSON["bool"]
+        let bool: Bool? = Bool(JSONString[CodingKeys.bool]!)
+        var boolValueFromJSON: Bool? = Constants.boolFalse
+        boolValueFromJSON <~ mapFromJSON[CodingKeys.bool]
         XCTAssertEqual(boolValueFromJSON, bool)
         
         /// Bool Negative results
-        boolValueFromJSON <~ mapFromJSON["NoSuchKey"]
+        boolValueFromJSON <~ mapFromJSON[CodingKeys.noSuchKey]
         XCTAssertEqual(boolValueFromJSON, nil)
-        boolValueFromJSON <~ mapFromJSON["noValue"]
+        boolValueFromJSON <~ mapFromJSON[CodingKeys.nilValue]
         XCTAssertEqual(boolValueFromJSON, nil)
-        guardNegativeException { boolValueFromJSON <~ mapNotBool["notBool"] }
+        guardNegativeException { boolValueFromJSON <~ mapNotBool[CodingKeys.notValidValue] }
         
     }
     
@@ -43,13 +43,12 @@ extension OperatorsTests
         let mapToJSON = Map(mappingType: .toJSON, JSON: [:])
         
         /// Bool Positive results
-        let boolValueToJSON: Bool? = true
-        boolValueToJSON >>> mapToJSON["bool"]
-        XCTAssertNotNil(mapToJSON.JSON["bool"])
+        let boolValueToJSON: Bool? = Constants.boolTrue
+        boolValueToJSON >>> mapToJSON[CodingKeys.bool]
+        XCTAssertNotNil(mapToJSON.JSON[CodingKeys.bool])
         
         /// Bool Negative results
-        let someDateTime: Date? = Date(timeIntervalSinceReferenceDate: -123456789.0)
-        guardNegativeException { someDateTime >>> mapToJSON["notBoolValue"] }
+        guardNegativeException { Constants.dateValue >>> mapToJSON[CodingKeys.notValidValue] }
     }
     
 }

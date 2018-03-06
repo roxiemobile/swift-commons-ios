@@ -35,9 +35,9 @@ internal struct SetValidMappableObjectModel: Mappable, Hashable, Equatable
 
 // MARK: - Methods
     mutating func mapping(map: Map) {
-        self.x  <~ map["x"]
-        self.y  <~ map["y"]
-        self.z  <~ map["z"]
+        self.x  <~ map[CodingKeys.x]
+        self.y  <~ map[CodingKeys.y]
+        self.z  <~ map[CodingKeys.z]
     }
 }
 

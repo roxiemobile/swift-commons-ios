@@ -28,35 +28,39 @@ extension OperatorsTests
         let emptySet: Set<SetValidMappableObjectModel> = []
         let nilSet: Set<SetValidMappableObjectModel>? = nil
         
-        setObjectsImplicitlyUnwrappedOptional >>> map["validImplicitlyUnwrappedObjects"]
+        setObjectsImplicitlyUnwrappedOptional >>> map[CodingKeys.validSetImplicitlyUnwrappedObjects]
         
         
-        XCTAssertNotNil(map.JSON["validImplicitlyUnwrappedObjects"])
+        XCTAssertNotNil(map.JSON[CodingKeys.validSetImplicitlyUnwrappedObjects])
         
         
-        guardNegativeException { notValidSet >>> map["notValidSet"] }
+        guardNegativeException { notValidSet >>> map[CodingKeys.notValidValue] }
         
-        emptySet >>> map["emptySet"]
-        XCTAssertNotNil(map.JSON["emptySet"])
+        emptySet >>> map[CodingKeys.emptyValue]
+        XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
         
-        nilSet >>> map["nilValidSet"]
-        XCTAssertNil(map.JSON["nilSet"])
+        nilSet >>> map[CodingKeys.nilValue]
+        XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
     
     func testSetMappableImplicitlyUnwrappedOptionalObjectsFromJSON() {
-        let value: Int = 10
-        let validJSONString = ["object" : [["x" : value,
-                                            "y" : value,
-                                            "z" : value]
-                                            ]
-                                ]
-        let notValidJSONString = ["object" : [["x" : "value",
-                                               "y" : "value",
-                                               "z" : "value"]
-                                            ]
-                                ]
-        let emptyJSONString =  ["object" : [[:]]
-                                ]
+        let validJSONString = [
+            CodingKeys.validSetImplicitlyUnwrappedObjects: [
+                [CodingKeys.x : Constants.intMax,
+                 CodingKeys.y : Constants.intMax,
+                 CodingKeys.z : Constants.intMax]
+            ]
+        ]
+        let notValidJSONString = [
+            CodingKeys.notValidValue : [
+                [CodingKeys.x : Constants.notValidValue,
+                 CodingKeys.y : Constants.notValidValue,
+                 CodingKeys.z : Constants.notValidValue]
+            ]
+        ]
+        let emptyJSONString =  [
+            CodingKeys.emptyValue : [[:]]
+        ]
         
         var validObject = SetValidMappableObjectModel()
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
@@ -65,19 +69,19 @@ extension OperatorsTests
         
         var setObjectsImplicitlyUnwrappedOptional: Set<SetValidMappableObjectModel>!
         
-        setObjectsImplicitlyUnwrappedOptional <~ validMap["object"]
+        setObjectsImplicitlyUnwrappedOptional <~ validMap[CodingKeys.validSetImplicitlyUnwrappedObjects]
         
         /// Valid Set
         XCTAssertNotNil(setObjectsImplicitlyUnwrappedOptional.first)
 
         /// Empty Set
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ emptyMap["object"] }
+        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ emptyMap[CodingKeys.emptyValue] }
         
         /// Not Valid Set
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ notValidMap["object"] }
+        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ notValidMap[CodingKeys.notValidValue] }
         
         /// Not Valid Key
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ validMap["notValidKey"] }
+        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ validMap[CodingKeys.noSuchKey] }
         
     }
 }

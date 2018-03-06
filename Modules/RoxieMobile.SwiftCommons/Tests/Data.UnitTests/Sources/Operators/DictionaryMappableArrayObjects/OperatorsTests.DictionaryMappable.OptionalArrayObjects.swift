@@ -22,40 +22,51 @@ extension OperatorsTests
         let notValidObject = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
         
-        let dictionaryObjectsOptional: Dictionary<String, [ValidMappableObjectModel]>? = ["object" : [validObject]]
+        let dictionaryObjectsOptional: Dictionary<String, [ValidMappableObjectModel]>? = [CodingKeys.validDictionaryArrayOptionalObjects : [validObject]]
         
-        let notValidDictionary: Dictionary<String, [NotValidMappableObjectModel]> = ["object" : [notValidObject]]
+        let notValidDictionary: Dictionary<String, [NotValidMappableObjectModel]> = [CodingKeys.notValidValue : [notValidObject]]
         let emptyDictionary: Dictionary<String, ValidMappableObjectModel> = [:]
         let nilDictionary: Dictionary<String, ValidMappableObjectModel>? = nil
         
-        dictionaryObjectsOptional >>> map["validDictionaryOptionalObjects"]
+        dictionaryObjectsOptional >>> map[CodingKeys.validDictionaryArrayOptionalObjects]
         
         
-        XCTAssertNotNil(map.JSON["validDictionaryOptionalObjects"])
+        XCTAssertNotNil(map.JSON[CodingKeys.validDictionaryArrayOptionalObjects])
         
-        guardNegativeException { notValidDictionary >>> map["notValidDictionary"] }
+        guardNegativeException { notValidDictionary >>> map[CodingKeys.notValidValue] }
 
-        emptyDictionary >>> map["emptyDictionary"]
-        XCTAssertNotNil(map.JSON["emptyDictionary"])
+        emptyDictionary >>> map[CodingKeys.emptyValue]
+        XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
 
-        nilDictionary >>> map["nilValidDictionary"]
-        XCTAssertNil(map.JSON["nilValidDictionary"])
+        nilDictionary >>> map[CodingKeys.nilValue]
+        XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
     
     func testDictionaryMappableOptionalArrayObjectsFromJSON() {
-        let value: Bool = true
-        let validJSONString = ["object" : ["object" : [["bool" : value,
-                                                        "boolOpt" : value,
-                                                        "boolImp" : value]]
+        let validJSONString = [
+            CodingKeys.validDictionaryArrayOptionalObjects : [
+                CodingKeys.validDictionaryArrayOptionalObjects : [
+                    [CodingKeys.bool : Constants.boolTrue,
+                     CodingKeys.boolOptional : Constants.boolTrue,
+                     CodingKeys.boolImplicityUnwrapped : Constants.boolTrue]
+                ]
             ]
         ]
-        let notValidJSONString = ["object" : ["object" : [["bool" : "value",
-                                                           "boolOpt" : "value",
-                                                           "boolImp" : "value"]]
+        let notValidJSONString = [
+            CodingKeys.notValidValue : [
+                CodingKeys.notValidValue : [
+                    [CodingKeys.bool : Constants.notValidValue,
+                     CodingKeys.boolOptional : Constants.notValidValue,
+                     CodingKeys.boolImplicityUnwrapped : Constants.notValidValue]
+                ]
             ]
         ]
-        let emptyJSONString =  ["object" : ["object" : [:]]
-                                ]
+
+        let emptyJSONString =  [
+            CodingKeys.emptyValue : [
+                CodingKeys.emptyValue : [:]
+            ]
+        ]
 
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
         let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
@@ -63,19 +74,19 @@ extension OperatorsTests
         
         var dictionaryObjectsOptional: Dictionary<String, [ValidMappableObjectModel]>? = nil
         
-        dictionaryObjectsOptional <~ validMap["object"]
+        dictionaryObjectsOptional <~ validMap[CodingKeys.validDictionaryArrayOptionalObjects]
         
         /// Valid Dictionary
-        XCTAssertNotNil(dictionaryObjectsOptional?["object"])
+        XCTAssertNotNil(dictionaryObjectsOptional?[CodingKeys.validDictionaryArrayOptionalObjects])
         
         /// Empty Dictionary
-        guardNegativeException { dictionaryObjectsOptional <~ emptyMap["object"] }
+        guardNegativeException { dictionaryObjectsOptional <~ emptyMap[CodingKeys.emptyValue] }
         
         /// Not Valid Dictionary
-        guardNegativeException { dictionaryObjectsOptional <~ notValidMap["object"] }
+        guardNegativeException { dictionaryObjectsOptional <~ notValidMap[CodingKeys.notValidValue] }
         
         /// Not Valid Key
-        dictionaryObjectsOptional <~ validMap["notValidKey"]
+        dictionaryObjectsOptional <~ validMap[CodingKeys.noSuchKey]
         XCTAssertNil(dictionaryObjectsOptional)
         
     }

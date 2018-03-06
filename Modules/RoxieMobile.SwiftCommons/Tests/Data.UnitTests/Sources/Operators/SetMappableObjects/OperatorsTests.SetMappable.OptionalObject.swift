@@ -28,35 +28,39 @@ extension OperatorsTests
         let emptySet: Set<SetValidMappableObjectModel> = []
         let nilSet: Set<SetValidMappableObjectModel>? = nil
         
-        setObjectsOptional >>> map["validSetOptionalObjects"]
+        setObjectsOptional >>> map[CodingKeys.validSetOptionalObjects]
         
         
-        XCTAssertNotNil(map.JSON["validSetOptionalObjects"])
+        XCTAssertNotNil(map.JSON[CodingKeys.validSetOptionalObjects])
         
         
-        guardNegativeException { notValidSet >>> map["notValidSet"] }
+        guardNegativeException { notValidSet >>> map[CodingKeys.notValidValue] }
         
-        emptySet >>> map["emptySet"]
-        XCTAssertNotNil(map.JSON["emptySet"])
+        emptySet >>> map[CodingKeys.emptyValue]
+        XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
         
-        nilSet >>> map["nilValidSet"]
-        XCTAssertNil(map.JSON["nilSet"])
+        nilSet >>> map[CodingKeys.nilValue]
+        XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
     
     func testSetMappableOptionalObjectsFromJSON() {
-        let value: Int = 10
-        let validJSONString = ["object" : [["x" : value,
-                                            "y" : value,
-                                            "z" : value]
-                                            ]
-                                ]
-        let notValidJSONString = ["object" : [["x" : "value",
-                                               "y" : "value",
-                                               "z" : "value"]
-                                                ]
-                                    ]
-        let emptyJSONString =  ["object" : [[:]]
-                                ]
+        let validJSONString = [
+            CodingKeys.validSetOptionalObjects : [
+                [CodingKeys.x : Constants.intMin,
+                 CodingKeys.y : Constants.intMin,
+                 CodingKeys.z : Constants.intMin]
+            ]
+        ]
+        let notValidJSONString = [
+            CodingKeys.notValidValue : [
+                [CodingKeys.x : Constants.notValidValue,
+                 CodingKeys.y : Constants.notValidValue,
+                 CodingKeys.z : Constants.notValidValue]
+            ]
+        ]
+        let emptyJSONString =  [
+            CodingKeys.emptyValue : [[:]]
+        ]
         
         var validObject = SetValidMappableObjectModel()
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
@@ -65,19 +69,19 @@ extension OperatorsTests
         
         var setObjectsOptional: Set<SetValidMappableObjectModel>? = []
         
-        setObjectsOptional <~ validMap["object"]
+        setObjectsOptional <~ validMap[CodingKeys.validSetOptionalObjects]
         
         /// Valid Set
         XCTAssertNotNil(setObjectsOptional?.first)
         
         /// Empty Set
-        guardNegativeException { setObjectsOptional <~ emptyMap["object"] }
+        guardNegativeException { setObjectsOptional <~ emptyMap[CodingKeys.emptyValue] }
         
         /// Not Valid Set
-        guardNegativeException { setObjectsOptional <~ notValidMap["object"] }
+        guardNegativeException { setObjectsOptional <~ notValidMap[CodingKeys.notValidValue] }
         
         /// Not Valid Key
-        guardNegativeException { setObjectsOptional <~ validMap["notValidKey"] }
+        guardNegativeException { setObjectsOptional <~ validMap[CodingKeys.noSuchKey] }
         
     }
 }

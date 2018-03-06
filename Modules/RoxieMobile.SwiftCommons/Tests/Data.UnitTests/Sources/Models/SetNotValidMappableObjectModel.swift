@@ -36,7 +36,7 @@ internal struct SetNotValidMappableObjectModel: Mappable, Hashable, Equatable
 
 // MARK: - Methods
     mutating func mapping(map: Map) {
-        date    <~ map["date"]
+        date    <~ map[CodingKeys.date]
     }
 }
 

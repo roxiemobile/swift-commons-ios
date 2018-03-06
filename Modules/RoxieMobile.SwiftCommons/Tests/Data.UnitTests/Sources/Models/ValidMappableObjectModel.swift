@@ -34,9 +34,9 @@ internal final class ValidMappableObjectModel: Mappable
 // MARK: - Methods
 
     func mapping(map: Map) {
-        self.bool    <~ map["bool"]
-        self.boolOpt <~ map["boolOpt"]
-        self.boolImp <~ map["boolImp"]
+        self.bool    <~ map[CodingKeys.bool]
+        self.boolOpt <~ map[CodingKeys.boolOptional]
+        self.boolImp <~ map[CodingKeys.boolImplicityUnwrapped]
     }
 }
 

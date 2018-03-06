@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		193AC5281FCCCDFE00017493 /* SwiftCommonsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193AC5291FCCCDFE00017493 /* SwiftCommonsData.framework */; };
+		1A2B5D6B204D87A000E165AD /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6A204D87A000E165AD /* IntegerOperators.swift */; };
+		1A2B5D6D204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6C204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift */; };
+		1A2B5D6F204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6E204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift */; };
+		1A2B5D71204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D70204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift */; };
+		1A2B5D73204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D72204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift */; };
+		1A2B5D75204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D74204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift */; };
+		1A2B5D77204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D76204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift */; };
+		1A2B5D7A204D9F6B00E165AD /* ValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D79204D9F6B00E165AD /* ValidMappableObjectModel.swift */; };
+		1A2B5D7C204DA20700E165AD /* NotValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */; };
+		1A2B5D7E204DA6E100E165AD /* SetValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */; };
+		1A2B5D80204DA82F00E165AD /* SetNotValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */; };
 		1A629D36204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift */; };
 		1A629D38204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D37204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift */; };
 		1A629D3A204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D39204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift */; };
 		1AFA5DED2048160E00B2BB15 /* OperatorsTests.Mappable.Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DDF2048025D00B2BB15 /* OperatorsTests.Mappable.Object.swift */; };
-		1AFA5DEE2048161100B2BB15 /* SwiftCommons.Data.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Data.UnitTests.swift */; };
 		1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF1204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift */; };
 		1AFA5DF420481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF320481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift */; };
 		1AFA5DF620481F0500B2BB15 /* OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF520481F0500B2BB15 /* OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift */; };
@@ -29,6 +39,9 @@
 		1AFA5E22204D391F00B2BB15 /* OperatorsTests.DictionaryMappable.OptionalObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E21204D391F00B2BB15 /* OperatorsTests.DictionaryMappable.OptionalObjects.swift */; };
 		1AFA5E24204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E23204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift */; };
 		345AB3175DE5026155CD4150 /* Pods_SwiftCommons_Data_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A188E4D8AF6256439212FE43 /* Pods_SwiftCommons_Data_UnitTests.framework */; };
+		5AFC96D560035CD7E35786B0 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC95AD6EF07A3223B5C23C /* StringConstants.swift */; };
+		5AFC97997C417CB8182145EE /* CodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC90A81397DEA3E86FF565 /* CodingKeys.swift */; };
+		5AFC9DE0CD324E18B9C9584E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC92D86F151DDA43B3AB47 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +50,17 @@
 		195D394F1F72CE4900118D17 /* SwiftCommonsData.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsData.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Data.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Data.UnitTests.swift; sourceTree = "<group>"; };
+		1A2B5D6A204D87A000E165AD /* IntegerOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.swift; sourceTree = "<group>"; };
+		1A2B5D6C204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.SignedIntegerMapping.swift; sourceTree = "<group>"; };
+		1A2B5D6E204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.UnsignedIntegerMapping.swift; sourceTree = "<group>"; };
+		1A2B5D70204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.OptionalSignedIntegerMapping.swift; sourceTree = "<group>"; };
+		1A2B5D72204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.OptionalUnsignedIntegerMapping.swift; sourceTree = "<group>"; };
+		1A2B5D74204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift; sourceTree = "<group>"; };
+		1A2B5D76204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift; sourceTree = "<group>"; };
+		1A2B5D79204D9F6B00E165AD /* ValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidMappableObjectModel.swift; sourceTree = "<group>"; };
+		1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotValidMappableObjectModel.swift; sourceTree = "<group>"; };
+		1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetValidMappableObjectModel.swift; sourceTree = "<group>"; };
+		1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.ArrayObjects.swift; sourceTree = "<group>"; };
 		1A629D37204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift; sourceTree = "<group>"; };
 		1A629D39204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift; sourceTree = "<group>"; };
@@ -57,6 +81,9 @@
 		1AFA5E21204D391F00B2BB15 /* OperatorsTests.DictionaryMappable.OptionalObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.OptionalObjects.swift; sourceTree = "<group>"; };
 		1AFA5E23204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift; sourceTree = "<group>"; };
 		2E3FEEE925ABBE68E6AE0308 /* Pods-SwiftCommons.Data.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5AFC90A81397DEA3E86FF565 /* CodingKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodingKeys.swift; sourceTree = "<group>"; };
+		5AFC92D86F151DDA43B3AB47 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5AFC95AD6EF07A3223B5C23C /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		9470D933D4C8F5F95213E89A /* Pods-SwiftCommons.Data.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		A188E4D8AF6256439212FE43 /* Pods_SwiftCommons_Data_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,10 +149,43 @@
 		19EB0CA81F72DF640029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				19EB0CCF1F72E1770029F302 /* SwiftCommons.Data.UnitTests.swift */,
+				1A2B5D78204D9E2F00E165AD /* Models */,
+				1A629D3B204D6A6500EE49AC /* IntegerOperators */,
 				1AFA5DE12048124900B2BB15 /* Operators */,
+				5AFC98A0A7331D3805573AB0 /* Helper */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		1A2B5D66204D865700E165AD /* SignedInteger */ = {
+			isa = PBXGroup;
+			children = (
+				1A2B5D6C204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift */,
+				1A2B5D70204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift */,
+				1A2B5D74204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift */,
+			);
+			path = SignedInteger;
+			sourceTree = "<group>";
+		};
+		1A2B5D67204D866400E165AD /* UnsignedInteger */ = {
+			isa = PBXGroup;
+			children = (
+				1A2B5D6E204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift */,
+				1A2B5D72204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift */,
+				1A2B5D76204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift */,
+			);
+			path = UnsignedInteger;
+			sourceTree = "<group>";
+		};
+		1A2B5D78204D9E2F00E165AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A2B5D79204D9F6B00E165AD /* ValidMappableObjectModel.swift */,
+				1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */,
+				1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */,
+				1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1A629D34204D5D7000EE49AC /* DictionaryMappableArrayObjects */ = {
@@ -136,6 +196,17 @@
 				1A629D39204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift */,
 			);
 			path = DictionaryMappableArrayObjects;
+			sourceTree = "<group>";
+		};
+		1A629D3B204D6A6500EE49AC /* IntegerOperators */ = {
+			isa = PBXGroup;
+			children = (
+				1A2B5D6A204D87A000E165AD /* IntegerOperators.swift */,
+				1A2B5D66204D865700E165AD /* SignedInteger */,
+				1A2B5D67204D866400E165AD /* UnsignedInteger */,
+				19EB0CCF1F72E1770029F302 /* SwiftCommons.Data.UnitTests.swift */,
+			);
+			path = IntegerOperators;
 			sourceTree = "<group>";
 		};
 		1AFA5DE12048124900B2BB15 /* Operators */ = {
@@ -211,6 +282,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5AFC98A0A7331D3805573AB0 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5AFC90A81397DEA3E86FF565 /* CodingKeys.swift */,
+				5AFC95AD6EF07A3223B5C23C /* StringConstants.swift */,
+				5AFC92D86F151DDA43B3AB47 /* Constants.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -242,7 +323,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0910;
-				ORGANIZATIONNAME = "Alexander Bragin";
+				ORGANIZATIONNAME = "Roxie Mobile Ltd.";
 				TargetAttributes = {
 					195D394E1F72CE4900118D17 = {
 						CreatedOnToolsVersion = 9.0;
@@ -334,14 +415,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2B5D6B204D87A000E165AD /* IntegerOperators.swift in Sources */,
+				1A2B5D75204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift in Sources */,
+				1A2B5D7E204DA6E100E165AD /* SetValidMappableObjectModel.swift in Sources */,
 				1AFA5DED2048160E00B2BB15 /* OperatorsTests.Mappable.Object.swift in Sources */,
 				1AFA5DFD2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift in Sources */,
+				1A2B5D71204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift in Sources */,
 				1AFA5DF620481F0500B2BB15 /* OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
 				1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift in Sources */,
 				1AFA5E17204D329D00B2BB15 /* OperatorsTests.ArrayMappable.OptionalObject.swift in Sources */,
-				1AFA5DEE2048161100B2BB15 /* SwiftCommons.Data.UnitTests.swift in Sources */,
+				1A2B5D6D204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift in Sources */,
+				1A2B5D80204DA82F00E165AD /* SetNotValidMappableObjectModel.swift in Sources */,
+				1A2B5D73204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift in Sources */,
 				1A629D36204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift in Sources */,
 				1AFA5E24204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift in Sources */,
+				1A2B5D77204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift in Sources */,
 				1AFA5DFF204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
 				1A629D3A204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift in Sources */,
 				1AFA5E092049653800B2BB15 /* OperatorsTests.ArrayMappable.Object.swift in Sources */,
@@ -351,9 +439,15 @@
 				1AFA5E1B204D35E300B2BB15 /* OperatorsTests.SetMappable.OptionalObject.swift in Sources */,
 				1AFA5E1D204D360400B2BB15 /* OperatorsTests.SetMappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
 				1AFA5E1520499ED000B2BB15 /* OperatorsTests.SetMappable.Object.swift in Sources */,
+				1A2B5D7C204DA20700E165AD /* NotValidMappableObjectModel.swift in Sources */,
+				1A2B5D7A204D9F6B00E165AD /* ValidMappableObjectModel.swift in Sources */,
 				1AFA5DF420481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift in Sources */,
 				1AFA5E19204D32C000B2BB15 /* OperatorsTests.ArrayMappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
+				1A2B5D6F204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift in Sources */,
 				1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryMappable.Object.swift in Sources */,
+				5AFC97997C417CB8182145EE /* CodingKeys.swift in Sources */,
+				5AFC96D560035CD7E35786B0 /* StringConstants.swift in Sources */,
+				5AFC9DE0CD324E18B9C9584E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
