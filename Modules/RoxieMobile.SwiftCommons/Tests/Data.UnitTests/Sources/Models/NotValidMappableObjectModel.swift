@@ -18,7 +18,7 @@ internal final class NotValidMappableObjectModel: Mappable
 // MARK: - Construction
 
     init() {
-        
+        // Do nothing
     }
 
     required init?(map: Map) {
@@ -32,7 +32,7 @@ internal final class NotValidMappableObjectModel: Mappable
 // MARK: - Methods
 
     func mapping(map: Map) {
-        self.date    <~ map[CodingKeys.date]
+        self.date <~ map[CodingKeys.date]
     }
 }
 

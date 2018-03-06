@@ -19,65 +19,93 @@ extension IntegerOperators
 
     func testImplicityUnwrappedOptionalUnsignedIntegerMappingFromJSON() {
 
-        let JSONString  = JSONKeys.forUIntValues
-        let notValidJSONString = JSONKeys.forIntValuesNotValid
-        
-        let map = Map(mappingType: .fromJSON, JSON: JSONString)
-        let map2 = Map(mappingType: .fromJSON, JSON: notValidJSONString )
-        map.JSON[CodingKeys.nilValue] = nil
+        let JSONString = JSONKeys.forUIntValues
+        let JSONStringNotValid = JSONKeys.forIntValuesNotValid
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        mapValid.JSON[CodingKeys.nilValue] = nil
 
         let valueU8: UInt8! = UInt8(JSONString[CodingKeys.uint8]!)
         var uInt8Value: UInt8! = 0
-        uInt8Value <~ map[CodingKeys.uint8]
+        uInt8Value <~ mapValid[CodingKeys.uint8]
         XCTAssertEqual(uInt8Value, valueU8)
         // Negative
-        guardNegativeException { uInt8Value <~ map2[CodingKeys.notValidValue] }
-        guardNegativeException { uInt8Value <~ map[CodingKeys.noSuchKey] }
-        guardNegativeException { uInt8Value <~ map[CodingKeys.nilValue] }
+        guardNegativeException {
+            uInt8Value <~ mapNotValid[CodingKeys.notValidValue]
+        }
+        guardNegativeException {
+            uInt8Value <~ mapValid[CodingKeys.noSuchKey]
+        }
+        guardNegativeException {
+            uInt8Value <~ mapValid[CodingKeys.nilValue]
+        }
 
         let valueU16: UInt16! = UInt16(JSONString[CodingKeys.uint16]!)
         var uInt16Value: UInt16! = 0
-        uInt16Value <~ map[CodingKeys.uint16]
+        uInt16Value <~ mapValid[CodingKeys.uint16]
         XCTAssertEqual(uInt16Value, valueU16)
         // Negative
-        guardNegativeException { uInt16Value <~ map2[CodingKeys.notValidValue] }
-        guardNegativeException { uInt16Value <~ map[CodingKeys.noSuchKey] }
-        guardNegativeException { uInt16Value <~ map[CodingKeys.nilValue] }
+        guardNegativeException {
+            uInt16Value <~ mapNotValid[CodingKeys.notValidValue]
+        }
+        guardNegativeException {
+            uInt16Value <~ mapValid[CodingKeys.noSuchKey]
+        }
+        guardNegativeException {
+            uInt16Value <~ mapValid[CodingKeys.nilValue]
+        }
 
         let valueU32: UInt32! = UInt32(JSONString[CodingKeys.uint32]!)
         var uInt32Value: UInt32! = 0
-        uInt32Value <~ map[CodingKeys.uint32]
+        uInt32Value <~ mapValid[CodingKeys.uint32]
         XCTAssertEqual(uInt32Value, valueU32)
         // Negative
-        guardNegativeException { uInt32Value <~ map2[CodingKeys.notValidValue] }
-        guardNegativeException { uInt32Value <~ map[CodingKeys.noSuchKey] }
-        guardNegativeException { uInt32Value <~ map[CodingKeys.nilValue] }
+        guardNegativeException {
+            uInt32Value <~ mapNotValid[CodingKeys.notValidValue]
+        }
+        guardNegativeException {
+            uInt32Value <~ mapValid[CodingKeys.noSuchKey]
+        }
+        guardNegativeException {
+            uInt32Value <~ mapValid[CodingKeys.nilValue]
+        }
 
         let valueU64: UInt64! = UInt64(JSONString[CodingKeys.uint64]!)
         var uInt64Value: UInt64! = 0
-        uInt64Value <~ map[CodingKeys.uint64]
+        uInt64Value <~ mapValid[CodingKeys.uint64]
         XCTAssertEqual(uInt64Value, valueU64)
         // Negative
-        guardNegativeException { uInt64Value <~ map2[CodingKeys.notValidValue] }
-        guardNegativeException { uInt64Value <~ map[CodingKeys.noSuchKey] }
-        guardNegativeException { uInt64Value <~ map[CodingKeys.nilValue] }
+        guardNegativeException {
+            uInt64Value <~ mapNotValid[CodingKeys.notValidValue]
+        }
+        guardNegativeException {
+            uInt64Value <~ mapValid[CodingKeys.noSuchKey]
+        }
+        guardNegativeException {
+            uInt64Value <~ mapValid[CodingKeys.nilValue]
+        }
 
         let uValue: UInt! = UInt(JSONString[CodingKeys.uint]!)
         var uIntValue: UInt! = 0
-        uIntValue <~ map[CodingKeys.uint]
+        uIntValue <~ mapValid[CodingKeys.uint]
         XCTAssertEqual(uIntValue, uValue)
         // Negative
-        guardNegativeException { uIntValue <~ map2[CodingKeys.notValidValue] }
-        guardNegativeException { uIntValue <~ map[CodingKeys.noSuchKey] }
-        guardNegativeException { uIntValue <~ map[CodingKeys.nilValue] }
-
+        guardNegativeException {
+            uIntValue <~ mapNotValid[CodingKeys.notValidValue]
+        }
+        guardNegativeException {
+            uIntValue <~ mapValid[CodingKeys.noSuchKey]
+        }
+        guardNegativeException {
+            uIntValue <~ mapValid[CodingKeys.nilValue]
+        }
     }
 
     func testImplicityUnwrappedOptionalUnsignedIntegerMappingToJSON() {
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-
-        /// UnsignedInteger Positive results
+        /// Positive
         var uInt8Value: UInt8! = UInt8(Constants.uintMin)
         uInt8Value <~ map[CodingKeys.uint8]
         XCTAssertNotNil(map.JSON[CodingKeys.uint8])
@@ -99,9 +127,10 @@ extension IntegerOperators
         XCTAssertNotNil(map.JSON[CodingKeys.uint])
 
         // Negative
-        guardNegativeException { Constants.dateValue <~ map[CodingKeys.notValidValue] }
+        guardNegativeException {
+            Constants.dateValue <~ map[CodingKeys.notValidValue]
+        }
     }
-
 }
 
 // ----------------------------------------------------------------------------

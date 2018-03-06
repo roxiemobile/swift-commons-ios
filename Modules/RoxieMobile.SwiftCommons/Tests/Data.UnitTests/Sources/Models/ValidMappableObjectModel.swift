@@ -18,7 +18,7 @@ internal final class ValidMappableObjectModel: Mappable
 // MARK: - Construction
 
     init() {
-
+        // Do nothing
     }
 
     required init?(map: Map) {
@@ -34,7 +34,7 @@ internal final class ValidMappableObjectModel: Mappable
 // MARK: - Methods
 
     func mapping(map: Map) {
-        self.bool    <~ map[CodingKeys.bool]
+        self.bool <~ map[CodingKeys.bool]
         self.boolOpt <~ map[CodingKeys.boolOptional]
         self.boolImp <~ map[CodingKeys.boolImplicityUnwrapped]
     }

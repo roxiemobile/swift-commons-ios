@@ -16,57 +16,63 @@ import XCTest
 extension OperatorsTests
 {
 // MARK: - Tests
-    
+
     func testSetMappableObjectsToJSON() {
-        let validObject = SetValidMappableObjectModel()
-        let notValidObject = SetNotValidMappableObjectModel()
+        let objectValid = SetValidMappableObjectModel()
+        let objectNotValid = SetNotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        let setObjects: Set<SetValidMappableObjectModel> = [validObject]
-        
-        let notValidSet: Set<SetNotValidMappableObjectModel> = [notValidObject]
-        let emptySet: Set<SetValidMappableObjectModel> = []
-        let nilSet: Set<SetValidMappableObjectModel>? = nil
+        let setObjects: Set<SetValidMappableObjectModel> = [objectValid]
+
+        let setNotValid: Set<SetNotValidMappableObjectModel> = [objectNotValid]
+        let setEmpty: Set<SetValidMappableObjectModel> = []
+        let setNil: Set<SetValidMappableObjectModel>? = nil
 
         setObjects >>> map[CodingKeys.validSetObjects]
 
         XCTAssertNotNil(map.JSON[CodingKeys.validSetObjects])
 
-        guardNegativeException { notValidSet >>> map[CodingKeys.notValidValue] }
+        guardNegativeException {
+            setNotValid >>> map[CodingKeys.notValidValue]
+        }
 
-        emptySet >>> map[CodingKeys.emptyValue]
+        setEmpty >>> map[CodingKeys.emptyValue]
         XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
 
-        nilSet >>> map[CodingKeys.nilValue]
+        setNil >>> map[CodingKeys.nilValue]
         XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
-    
-    func testSetMappableObjectsFromJSON() {
-        let validJSONString = JSONKeys.forSetMappableObject
-        let notValidJSONString = JSONKeys.forSetMappableObjectsNotValid
-        let emptyJSONString =  JSONKeys.forSetMappableObjectsEmpty
 
-        var validObject = SetValidMappableObjectModel()
-        let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
-        let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
-        let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
+    func testSetMappableObjectsFromJSON() {
+        let JSONString = JSONKeys.forSetMappableObject
+        let JSONStringNotValid = JSONKeys.forSetMappableObjectsNotValid
+        let JSONStringEmpty = JSONKeys.forSetMappableObjectsEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
 
         var setObjects: Set<SetValidMappableObjectModel> = []
 
-        setObjects <~ validMap[CodingKeys.validSetObjects]
+        setObjects <~ mapValid[CodingKeys.validSetObjects]
 
         /// Valid Set
         XCTAssertNotNil(setObjects.first)
-        
+
         /// Empty Set
-        guardNegativeException { setObjects <~ emptyMap[CodingKeys.emptyValue] }
+        guardNegativeException {
+            setObjects <~ mapEmpty[CodingKeys.emptyValue]
+        }
 
         /// Not Valid Set
-        guardNegativeException { setObjects <~ notValidMap[CodingKeys.notValidValue] }
+        guardNegativeException {
+            setObjects <~ mapNotValid[CodingKeys.notValidValue]
+        }
 
         /// Not Valid Key
-        guardNegativeException { setObjects <~ validMap[CodingKeys.noSuchKey] }
-
+        guardNegativeException {
+            setObjects <~ mapValid[CodingKeys.noSuchKey]
+        }
     }
 }
 

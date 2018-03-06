@@ -16,61 +16,64 @@ import XCTest
 extension OperatorsTests
 {
 // MARK: - Tests
-    
+
     func testArrayMappableImplicitlyUnwrappedOptionalObjectsToJSON() {
-        let validObject = ValidMappableObjectModel()
-        let notValidObject = NotValidMappableObjectModel()
+        let objectValid = ValidMappableObjectModel()
+        let objectNotValid = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
-        
-        let arrayObjectsImplicitlyUnwrappedOptional: Array<ValidMappableObjectModel>! = [validObject]
-        
-        let notValidArray: Array<NotValidMappableObjectModel> = [notValidObject]
-        let emptyArray: Array<ValidMappableObjectModel> = []
-        let nilArray: Array<ValidMappableObjectModel>? = nil
-        
+
+        let arrayObjectsImplicitlyUnwrappedOptional: Array<ValidMappableObjectModel>! = [objectValid]
+        let arrayNotValid: Array<NotValidMappableObjectModel> = [objectNotValid]
+        let arrayEmpty: Array<ValidMappableObjectModel> = []
+        let arrayNil: Array<ValidMappableObjectModel>? = nil
+
         arrayObjectsImplicitlyUnwrappedOptional >>> map[CodingKeys.validArrayImplicitlyUnwrappedObjects]
-        
-        
+
+
         XCTAssertNotNil(map.JSON[CodingKeys.validArrayImplicitlyUnwrappedObjects])
-        
-        
-        guardNegativeException { notValidArray >>> map[CodingKeys.notValidValue] }
-        
-        emptyArray >>> map[CodingKeys.emptyValue]
+
+
+        guardNegativeException {
+            arrayNotValid >>> map[CodingKeys.notValidValue]
+        }
+
+        arrayEmpty >>> map[CodingKeys.emptyValue]
         XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
-        
-        nilArray >>> map[CodingKeys.nilValue]
+
+        arrayNil >>> map[CodingKeys.nilValue]
         XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
-    
-    func testArrayMappableImplicitlyUnwrappedOptionalFromJSON() {
-        let validJSONString = JSONKeys.forArrayMappableImplicitlyUnwrappedOptionalObjects
-        let notValidJSONString = JSONKeys.forArrayMappableObjectsNotValid
-        let emptyJSONString =  JSONKeys.forArrayMappableObjectsEmpty
 
-        let validObject = ValidMappableObjectModel()
-        let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
-        let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
-        let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
-        
+    func testArrayMappableImplicitlyUnwrappedOptionalFromJSON() {
+        let JSONString = JSONKeys.forArrayMappableImplicitlyUnwrappedOptionalObjects
+        let JSONStringNotValid = JSONKeys.forArrayMappableObjectsNotValid
+        let JSONStringEmpty = JSONKeys.forArrayMappableObjectsEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
+
         var arrayObjectsImplicitlyUnwrappedOptional: Array<ValidMappableObjectModel>!
-        
-        arrayObjectsImplicitlyUnwrappedOptional <~ validMap[CodingKeys.validArrayImplicitlyUnwrappedObjects]
-        
+
+        arrayObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.validArrayImplicitlyUnwrappedObjects]
+
         /// Valid Array
         XCTAssertNotNil(arrayObjectsImplicitlyUnwrappedOptional.first)
-        
+
         /// Empty Array
         guardNegativeException {
-            arrayObjectsImplicitlyUnwrappedOptional <~ emptyMap[CodingKeys.emptyValue]
+            arrayObjectsImplicitlyUnwrappedOptional <~ mapEmpty[CodingKeys.emptyValue]
         }
-        
+
         /// Not Valid Array
-        guardNegativeException { arrayObjectsImplicitlyUnwrappedOptional <~ notValidMap[CodingKeys.notValidValue] }
-        
+        guardNegativeException {
+            arrayObjectsImplicitlyUnwrappedOptional <~ mapNotValid[CodingKeys.notValidValue]
+        }
+
         /// Not Valid Key
-        guardNegativeException { arrayObjectsImplicitlyUnwrappedOptional <~ validMap[CodingKeys.noSuchKey] }
-        
+        guardNegativeException {
+            arrayObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.noSuchKey]
+        }
     }
 }
 

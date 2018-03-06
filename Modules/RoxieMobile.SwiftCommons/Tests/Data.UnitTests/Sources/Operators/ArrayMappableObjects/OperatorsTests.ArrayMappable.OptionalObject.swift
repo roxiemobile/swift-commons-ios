@@ -16,60 +16,61 @@ import XCTest
 extension OperatorsTests
 {
 // MARK: - Tests
-    
+
     func testArrayMappableOptionalObjectsToJSON() {
-        let validObject = ValidMappableObjectModel()
-        let notValidObject = NotValidMappableObjectModel()
+        let objectValid = ValidMappableObjectModel()
+        let objectNotValid = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
-        
-        let arrayObjectsOptional: Array<ValidMappableObjectModel>? = [validObject]
-        
-        let notValidArray: Array<NotValidMappableObjectModel> = [notValidObject]
-        let emptyArray: Array<ValidMappableObjectModel> = []
-        let nilArray: Array<ValidMappableObjectModel>? = nil
-        
+
+        let arrayObjectsOptional: Array<ValidMappableObjectModel>? = [objectValid]
+        let arrayNotValid: Array<NotValidMappableObjectModel> = [objectNotValid]
+        let arrayEmpty: Array<ValidMappableObjectModel> = []
+        let arrayNil: Array<ValidMappableObjectModel>? = nil
+
         arrayObjectsOptional >>> map[CodingKeys.validArrayOptionalObjects]
-        
-        
+
         XCTAssertNotNil(map.JSON[CodingKeys.validArrayOptionalObjects])
-        
-        
-        guardNegativeException { notValidArray >>> map[CodingKeys.notValidValue] }
-        
-        emptyArray >>> map[CodingKeys.emptyValue]
+
+        guardNegativeException {
+            arrayNotValid >>> map[CodingKeys.notValidValue]
+        }
+
+        arrayEmpty >>> map[CodingKeys.emptyValue]
         XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
-        
-        nilArray >>> map[CodingKeys.nilValue]
+
+        arrayNil >>> map[CodingKeys.nilValue]
         XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
-    
+
     func testArrayMappableOptionalObjectsFromJSON() {
-        let validJSONString = JSONKeys.forArrayMappableOptionalObjects
-        let notValidJSONString = JSONKeys.forArrayMappableObjectsNotValid
-        let emptyJSONString =  JSONKeys.forArrayMappableObjectsEmpty
-        
-        let validObject = ValidMappableObjectModel()
-        let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
-        let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
-        let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
-        
+        let JSONString = JSONKeys.forArrayMappableOptionalObjects
+        let JSONStringNotValid = JSONKeys.forArrayMappableObjectsNotValid
+        let JSONStringEmpty = JSONKeys.forArrayMappableObjectsEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
+
         var arrayObjectsOptional: Array<ValidMappableObjectModel>? = nil
-        
-        arrayObjectsOptional <~ validMap[CodingKeys.validArrayOptionalObjects]
-        
+
+        arrayObjectsOptional <~ mapValid[CodingKeys.validArrayOptionalObjects]
+
         /// Valid Array
         XCTAssertNotNil(arrayObjectsOptional?.first)
-        
+
         /// Empty Array
-        guardNegativeException { arrayObjectsOptional <~ emptyMap[CodingKeys.emptyValue] }
-        
+        guardNegativeException {
+            arrayObjectsOptional <~ mapEmpty[CodingKeys.emptyValue]
+        }
+
         /// Not Valid Array
-        guardNegativeException { arrayObjectsOptional <~ notValidMap[CodingKeys.notValidValue] }
-        
+        guardNegativeException {
+            arrayObjectsOptional <~ mapNotValid[CodingKeys.notValidValue]
+        }
+
         /// Not Valid Key
-        arrayObjectsOptional <~ validMap[CodingKeys.noSuchKey]
+        arrayObjectsOptional <~ mapValid[CodingKeys.noSuchKey]
         XCTAssertNil(arrayObjectsOptional)
-        
     }
 }
 

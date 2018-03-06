@@ -16,58 +16,64 @@ import XCTest
 extension OperatorsTests
 {
 // MARK: - Tests
-    
+
     func testDictionaryMappableImplicitlyUnwrappedOptionalArrayObjectsToJSON() {
-        let validObject = ValidMappableObjectModel()
-        let notValidObject = NotValidMappableObjectModel()
+        let objectValid = ValidMappableObjectModel()
+        let objectNotValid = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
-        
-        var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, [ValidMappableObjectModel]>! = [CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects : [validObject]]
-        
-        let notValidDictionary: Dictionary<String, [NotValidMappableObjectModel]> = [CodingKeys.notValidValue: [notValidObject]]
-        let emptyDictionary: Dictionary<String, [ValidMappableObjectModel]> = [:]
-        let nilDictionary: Dictionary<String, [ValidMappableObjectModel]>? = nil
-        
+
+        var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, [ValidMappableObjectModel]>! = [CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects: [objectValid]]
+        let dictionaryNotValid: Dictionary<String, [NotValidMappableObjectModel]> = [CodingKeys.notValidValue: [objectNotValid]]
+        let dictionaryEmpty: Dictionary<String, [ValidMappableObjectModel]> = [:]
+        let dictionaryNil: Dictionary<String, [ValidMappableObjectModel]>? = nil
+
         dictionaryObjectsImplicitlyUnwrappedOptional <~ map[CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects]
-        
-        
+
+
         XCTAssertNotNil(map.JSON[CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects])
-        
-        
-        guardNegativeException { notValidDictionary >>> map[CodingKeys.notValidValue] }
-        
-        emptyDictionary >>> map[CodingKeys.emptyValue]
+
+
+        guardNegativeException {
+            dictionaryNotValid >>> map[CodingKeys.notValidValue]
+        }
+
+        dictionaryEmpty >>> map[CodingKeys.emptyValue]
         XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
-        
-        nilDictionary >>> map[CodingKeys.nilValue]
+
+        dictionaryNil >>> map[CodingKeys.nilValue]
         XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
-    
+
     func testDictionaryMappableImplicitlyUnwrappedOptionalArrayObjectsFromJSON() {
-        let validJSONString = JSONKeys.forDictionaryMappableArrayImplicitlyUnwrappedOptionalObjects
-        let notValidJSONString = JSONKeys.forDictionaryMappableArrayObjectsNotValid
-        let emptyJSONString =  JSONKeys.forDictionaryMappableArrayObjectsEmpty
-        
-        let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
-        let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
-        let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
-        
+        let JSONString = JSONKeys.forDictionaryMappableArrayImplicitlyUnwrappedOptionalObjects
+        let JSONStringNotValid = JSONKeys.forDictionaryMappableArrayObjectsNotValid
+        let JSONStringEmpty = JSONKeys.forDictionaryMappableArrayObjectsEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
+
         var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, [ValidMappableObjectModel]>!
-        
-        dictionaryObjectsImplicitlyUnwrappedOptional <~ validMap[CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects]
-        
+
+        dictionaryObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects]
+
         /// Valid Dictionary
         XCTAssertNotNil(dictionaryObjectsImplicitlyUnwrappedOptional[CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects])
-        
+
         /// Empty Dictionary
-        guardNegativeException { dictionaryObjectsImplicitlyUnwrappedOptional <~ emptyMap[CodingKeys.emptyValue] }
-        
+        guardNegativeException {
+            dictionaryObjectsImplicitlyUnwrappedOptional <~ mapEmpty[CodingKeys.emptyValue]
+        }
+
         /// Not Valid Dictionary
-        guardNegativeException { dictionaryObjectsImplicitlyUnwrappedOptional <~ notValidMap[CodingKeys.notValidValue] }
-        
+        guardNegativeException {
+            dictionaryObjectsImplicitlyUnwrappedOptional <~ mapNotValid[CodingKeys.notValidValue]
+        }
+
         /// Not Valid Key
-        guardNegativeException { dictionaryObjectsImplicitlyUnwrappedOptional <~ validMap[CodingKeys.nilValue] }
-        
+        guardNegativeException {
+            dictionaryObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.nilValue]
+        }
     }
 }
 

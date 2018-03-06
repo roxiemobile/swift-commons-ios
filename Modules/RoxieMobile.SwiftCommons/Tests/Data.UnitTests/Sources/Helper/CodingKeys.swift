@@ -16,12 +16,12 @@ final class CodingKeys
 {
 // MARK: - Properties
 
-    /// Bool Coding Keys
+// MARK: -  Bool Coding Keys
     static let bool = "bool"
     static let boolOptional = "boolOpt"
     static let boolImplicityUnwrapped = "boolImp"
 
-    /// Signed Integer Coding Keys
+// MARK: -  Signed Integer Coding Keys
     static let int = "int"
     static let intOptional = "intOpt"
     static let intImplicityUnwrapped = "intImp"
@@ -42,7 +42,7 @@ final class CodingKeys
     static let int64Optional = "int64Opt"
     static let int64ImplicityUnwrapped = "int64Imp"
 
-    /// Unsigned Integer Coding Keys
+// MARK: -  Unsigned Integer Coding Keys
     static let uint = "uint"
     static let uintOptional = "uintOpt"
     static let uintImplicityUnwrapped = "uintImp"
@@ -63,48 +63,43 @@ final class CodingKeys
     static let uint64Optional = "uint64Opt"
     static let uint64ImplicityUnwrapped = "uint64Imp"
 
-    /// Date Coding Keys
+// MARK: -  Date Coding Keys
     static let date = "date"
     static let dateOptional = "dateOpt"
     static let dateImplicityUnwrapped = "dateImp"
 
-
-//    static let validValue = "validValue"
-//    static let validOptionalValue = "validOptionalValue"
-//    static let validImplicitlyUnwrappedValue = "validImplicitlyUnwrappedValue"
-
-    /// Negative Exception Coding Keys
+// MARK: -  Negative Exception Coding Keys
     static let nilValue = "nilValue"
     static let emptyValue = "emptyValue"
     static let notValidValue = "notValidValue"
     static let noSuchKey = "noSuchKey"
 
-    /// XYZ Coding Keys
+// MARK: -  XYZ Coding Keys
     static let x = "x"
     static let y = "y"
     static let z = "z"
 
-    /// Valid Object Coding Keys
+// MARK: -  Valid Object Coding Keys
     static let validObject = "validObject"
     static let validOptionalObject = "validOptionalObject"
     static let validImplicitlyUnwrappedObject = "validImplicitlyUnwrappedObject"
 
-    /// Valid Array Objects Coding Keys
+// MARK: -  Valid Array Objects Coding Keys
     static let validArrayObjects = "validArrayObjects"
     static let validArrayOptionalObjects = "validArrayOptionalObjects"
     static let validArrayImplicitlyUnwrappedObjects = "validArrayImplicitlyUnwrappedObjects"
 
-    /// Valid Set Objects Coding Keys
+// MARK: -  Valid Set Objects Coding Keys
     static let validSetObjects = "validSetObjects"
     static let validSetOptionalObjects = "validSetOptionalObjects"
     static let validSetImplicitlyUnwrappedObjects = "validSetImplicitlyUnwrappedObjects"
 
-    /// Valid Dictionary Objects Coding Keys
+// MARK: -  Valid Dictionary Objects Coding Keys
     static let validDictionaryObjects = "validDictionaryObjects"
     static let validDictionaryOptionalObjects = "validDictionaryOptionalObjects"
     static let validDictionaryImplicitlyUnwrappedObjects = "validDictionaryImplicitlyUnwrappedObjects"
 
-    /// Valid Dictionary Array Objects Coding Keys
+// MARK: -  Valid Dictionary Array Objects Coding Keys
     static let validDictionaryArrayObjects = "validDictionaryArrayObjects"
     static let validDictionaryArrayOptionalObjects = "validDictionaryArrayOptionalObjects"
     static let validDictionaryArrayImplicitlyUnwrappedObjects = "validDictionaryArrayImplicitlyUnwrappedObjects"

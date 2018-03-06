@@ -16,18 +16,10 @@ import XCTest
 
 class IntegerOperators: XCTestCase
 {
-// MARK: - Construction
-
-    // ...
-
-// MARK: - Properties
-
-    // ...
-
 // MARK: - Methods
 
-    internal func guardNegativeException (
-        action: @escaping () -> ()
+    internal func guardNegativeException(
+            action: @escaping () -> ()
     ) -> Void {
         var exception: NSException? = nil
         objcTry {
@@ -38,27 +30,6 @@ class IntegerOperators: XCTestCase
             XCTAssertNotNil(exception)
         }
     }
-
-// MARK: - Actions
-
-    // ...
-
-// MARK: - Private Methods
-
-    // ...
-
-// MARK: - Inner Types
-
-    // ...
-
-// MARK: - Constants
-
-    // ...
-
-// MARK: - Variables
-
-    // ...
-
 }
 
 // ----------------------------------------------------------------------------

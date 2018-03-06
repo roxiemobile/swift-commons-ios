@@ -16,59 +16,62 @@ import XCTest
 extension OperatorsTests
 {
 // MARK: - Tests
-    
+
     func testSetMappableImplicitlyUnwrappedOptionalObjectsToJSON() {
-        let validObject = SetValidMappableObjectModel()
-        let notValidObject = SetNotValidMappableObjectModel()
+        let objectValid = SetValidMappableObjectModel()
+        let objectNotValid = SetNotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
-        
-        let setObjectsImplicitlyUnwrappedOptional: Set<SetValidMappableObjectModel>! = [validObject]
-        
-        let notValidSet: Set<SetNotValidMappableObjectModel> = [notValidObject]
-        let emptySet: Set<SetValidMappableObjectModel> = []
-        let nilSet: Set<SetValidMappableObjectModel>? = nil
-        
+
+        let setObjectsImplicitlyUnwrappedOptional: Set<SetValidMappableObjectModel>! = [objectValid]
+        let setNotValid: Set<SetNotValidMappableObjectModel> = [objectNotValid]
+        let setEmpty: Set<SetValidMappableObjectModel> = []
+        let setNil: Set<SetValidMappableObjectModel>? = nil
+
         setObjectsImplicitlyUnwrappedOptional >>> map[CodingKeys.validSetImplicitlyUnwrappedObjects]
-        
-        
+
         XCTAssertNotNil(map.JSON[CodingKeys.validSetImplicitlyUnwrappedObjects])
-        
-        
-        guardNegativeException { notValidSet >>> map[CodingKeys.notValidValue] }
-        
-        emptySet >>> map[CodingKeys.emptyValue]
+
+        guardNegativeException {
+            setNotValid >>> map[CodingKeys.notValidValue]
+        }
+
+        setEmpty >>> map[CodingKeys.emptyValue]
         XCTAssertNotNil(map.JSON[CodingKeys.emptyValue])
-        
-        nilSet >>> map[CodingKeys.nilValue]
+
+        setNil >>> map[CodingKeys.nilValue]
         XCTAssertNil(map.JSON[CodingKeys.nilValue])
     }
-    
+
     func testSetMappableImplicitlyUnwrappedOptionalObjectsFromJSON() {
-        let validJSONString = JSONKeys.forSetMappableImplicitlyUnwrappedOptionalObjects
-        let notValidJSONString = JSONKeys.forSetMappableObjectsNotValid
-        let emptyJSONString =  JSONKeys.forSetMappableObjectsEmpty
-        
-        var validObject = SetValidMappableObjectModel()
-        let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
-        let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)
-        let emptyMap = Map(mappingType: .fromJSON, JSON: emptyJSONString)
-        
+        let JSONString = JSONKeys.forSetMappableImplicitlyUnwrappedOptionalObjects
+        let JSONStringNotValid = JSONKeys.forSetMappableObjectsNotValid
+        let JSONStringEmpty = JSONKeys.forSetMappableObjectsEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
+
         var setObjectsImplicitlyUnwrappedOptional: Set<SetValidMappableObjectModel>!
-        
-        setObjectsImplicitlyUnwrappedOptional <~ validMap[CodingKeys.validSetImplicitlyUnwrappedObjects]
-        
+
+        setObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.validSetImplicitlyUnwrappedObjects]
+
         /// Valid Set
         XCTAssertNotNil(setObjectsImplicitlyUnwrappedOptional.first)
 
         /// Empty Set
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ emptyMap[CodingKeys.emptyValue] }
-        
+        guardNegativeException {
+            setObjectsImplicitlyUnwrappedOptional <~ mapEmpty[CodingKeys.emptyValue]
+        }
+
         /// Not Valid Set
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ notValidMap[CodingKeys.notValidValue] }
-        
+        guardNegativeException {
+            setObjectsImplicitlyUnwrappedOptional <~ mapNotValid[CodingKeys.notValidValue]
+        }
+
         /// Not Valid Key
-        guardNegativeException { setObjectsImplicitlyUnwrappedOptional <~ validMap[CodingKeys.noSuchKey] }
-        
+        guardNegativeException {
+            setObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.noSuchKey]
+        }
     }
 }
 

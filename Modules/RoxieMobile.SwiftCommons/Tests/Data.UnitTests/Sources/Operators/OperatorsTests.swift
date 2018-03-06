@@ -14,22 +14,22 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class OperatorsTests: XCTestCase {
+class OperatorsTests: XCTestCase
+{
 // MARK: - Methods
 
-    internal func guardNegativeException (
-        action: @escaping () -> ()
+    internal func guardNegativeException(
+            action: @escaping () -> ()
     ) -> Void {
         var exception: NSException? = nil
         objcTry {
             action()
-            }.objcCatch { e in
-                exception = e
-            }.objcFinally {
-                XCTAssertNotNil(exception)
+        }.objcCatch { e in
+            exception = e
+        }.objcFinally {
+            XCTAssertNotNil(exception)
         }
     }
-    
 }
 
 // ----------------------------------------------------------------------------

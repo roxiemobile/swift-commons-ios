@@ -16,41 +16,47 @@ import XCTest
 extension OperatorsTests
 {
 // MARK: - Tests
-    
-    func testImplicityUnwrappedOptionalObjectBoolValueToJSON()  {
-        
-        let JSONString = JSONKeys.forBasicTypes
-        let notValidJSONString = JSONKeys.forNotValidBasicTypes
 
-        let mapFromJSON = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotBool = Map(mappingType: .fromJSON, JSON: notValidJSONString)
-        mapFromJSON.JSON[CodingKeys.nilValue] = nil
-        
+    func testBasicTypesImplicitlyUnwrappedOptionalObjectToJSON() {
+
+        let JSONString = JSONKeys.forBasicTypes
+        let JSONStringNotValid = JSONKeys.forBasicTypesNotValid
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        mapValid.JSON[CodingKeys.nilValue] = nil
+
         /// Bool Positive results
         let bool: Bool! = Bool(JSONString[CodingKeys.bool]!)
         var boolValueFromJSON: Bool! = Constants.boolFalse
-        boolValueFromJSON <~ mapFromJSON[CodingKeys.bool]
+        boolValueFromJSON <~ mapValid[CodingKeys.bool]
         XCTAssertEqual(boolValueFromJSON, bool)
-        
+
         /// Bool Negative results
-        guardNegativeException { boolValueFromJSON <~ mapNotBool[CodingKeys.notValidValue] }
-        guardNegativeException { boolValueFromJSON <~ mapFromJSON[CodingKeys.noSuchKey] }
-        guardNegativeException { boolValueFromJSON <~ mapFromJSON[CodingKeys.nilValue] }
-        
+        guardNegativeException {
+            boolValueFromJSON <~ mapNotValid[CodingKeys.notValidValue]
+        }
+        guardNegativeException {
+            boolValueFromJSON <~ mapValid[CodingKeys.noSuchKey]
+        }
+        guardNegativeException {
+            boolValueFromJSON <~ mapValid[CodingKeys.nilValue]
+        }
     }
-    
-    func testImplicityUnwrappedOptionalObjectBoolValueFromJSON() {
-        let mapToJSON = Map(mappingType: .toJSON, JSON: [:])
-        
+
+    func testBasicTypesImplicitlyUnwrappedOptionalObjectFromJSON() {
+        let map = Map(mappingType: .toJSON, JSON: [:])
+
         /// Bool Positive results
         let boolValueToJSON: Bool! = true
-        boolValueToJSON >>> mapToJSON[CodingKeys.bool]
-        XCTAssertNotNil(mapToJSON.JSON[CodingKeys.bool])
-        
+        boolValueToJSON >>> map[CodingKeys.bool]
+        XCTAssertNotNil(map.JSON[CodingKeys.bool])
+
         /// Bool Negative results
-        guardNegativeException { Constants.dateValue >>> mapToJSON[CodingKeys.notValidValue] }
+        guardNegativeException {
+            Constants.dateValue >>> map[CodingKeys.notValidValue]
+        }
     }
-    
 }
 
 // ----------------------------------------------------------------------------
