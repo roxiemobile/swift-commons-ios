@@ -42,23 +42,9 @@ extension OperatorsTests
     }
     
     func testSetMappableObjectsFromJSON() {
-        let validJSONString = [
-            CodingKeys.validSetObjects : [
-                [CodingKeys.x : Constants.intMax,
-                 CodingKeys.y : Constants.intMax,
-                 CodingKeys.z : Constants.intMax]
-            ]
-        ]
-        let notValidJSONString = [
-            CodingKeys.notValidValue : [
-                [CodingKeys.x : Constants.notValidValue,
-                 CodingKeys.y : Constants.notValidValue,
-                 CodingKeys.z : Constants.notValidValue]
-            ]
-        ]
-        let emptyJSONString =  [
-            CodingKeys.emptyValue : [[:]]
-        ]
+        let validJSONString = JSONKeys.forSetMappableObject
+        let notValidJSONString = JSONKeys.forSetMappableObjectsNotValid
+        let emptyJSONString =  JSONKeys.forSetMappableObjectsEmpty
 
         var validObject = SetValidMappableObjectModel()
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)

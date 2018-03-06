@@ -34,19 +34,8 @@ extension OperatorsTests
     }
     
     func testObjectMappableFromJSON() {
-        let JSONString = [
-            CodingKeys.validObject: [
-                CodingKeys.bool : Constants.boolTrue,
-                CodingKeys.boolOptional : Constants.boolTrue,
-                CodingKeys.boolImplicityUnwrapped : Constants.boolTrue
-            ]
-        ]
-
-        let notBoolValueJson = [
-            CodingKeys.validObject: [
-                CodingKeys.notValidValue: Constants.notValidValue
-                ]
-            ]
+        let JSONString = JSONKeys.forMappableObjects
+        let notBoolValueJson = JSONKeys.forMappableObjectsNotValid
 
         let mapSet = Map(mappingType: .fromJSON, JSON: [:])
         let map = Map(mappingType: .fromJSON, JSON: JSONString)

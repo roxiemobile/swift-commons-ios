@@ -19,9 +19,11 @@ extension OperatorsTests
 
     func testObjectBoolValueToJSON()  {
 
-        let JSONString = [CodingKeys.bool : Constants.boolTrue]
+        let JSONString = JSONKeys.forBasicTypes
+        let notValidJSONString = JSONKeys.forNotValidBasicTypes
+
         let mapFromJSON = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotBool = Map(mappingType: .fromJSON, JSON: [CodingKeys.notValidValue : Constants.notValidValue])
+        let mapNotBool = Map(mappingType: .fromJSON, JSON: notValidJSONString)
         mapFromJSON.JSON[CodingKeys.nilValue] = nil
         
         /// Bool Positive results

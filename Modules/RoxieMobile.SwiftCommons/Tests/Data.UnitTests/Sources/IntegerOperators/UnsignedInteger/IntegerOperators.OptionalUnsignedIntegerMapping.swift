@@ -19,16 +19,11 @@ extension IntegerOperators
 
     func testOptionalUnsignedIntegerMappingFromJSON() {
 
-        let JSONString  = [
-            CodingKeys.uint : Constants.uintMax,
-            CodingKeys.uint8 : Constants.uintMin,
-            CodingKeys.uint16 : Constants.uintMax,
-            CodingKeys.uint32 : Constants.uintMin,
-            CodingKeys.uint64 : Constants.uintMax
-        ]
+        let JSONString  = JSONKeys.forUIntValues
+        let notValidJSONString = JSONKeys.forIntValuesNotValid
 
         let map = Map(mappingType: .fromJSON, JSON: JSONString)
-        let map2 = Map(mappingType: .fromJSON, JSON: [CodingKeys.notValidValue : Constants.notValidValue] )
+        let map2 = Map(mappingType: .fromJSON, JSON: notValidJSONString)
         map.JSON[CodingKeys.nilValue] = nil
 
         let valueU8: UInt8? = UInt8(JSONString[CodingKeys.uint8]!)

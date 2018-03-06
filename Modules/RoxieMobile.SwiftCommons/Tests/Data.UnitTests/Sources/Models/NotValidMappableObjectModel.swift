@@ -27,7 +27,7 @@ internal final class NotValidMappableObjectModel: Mappable
 
 // MARK: - Properties
 
-    var date: Date = Date(timeIntervalSinceReferenceDate: -123456789.0)
+    var date = Constants.dateValue
 
 // MARK: - Methods
 

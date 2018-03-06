@@ -19,6 +19,7 @@
 		1A2B5D7C204DA20700E165AD /* NotValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */; };
 		1A2B5D7E204DA6E100E165AD /* SetValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */; };
 		1A2B5D80204DA82F00E165AD /* SetNotValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */; };
+		1A2B5D88204ED91800E165AD /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D87204ED91800E165AD /* JSONKeys.swift */; };
 		1A629D36204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift */; };
 		1A629D38204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D37204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift */; };
 		1A629D3A204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D39204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift */; };
@@ -61,6 +62,7 @@
 		1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotValidMappableObjectModel.swift; sourceTree = "<group>"; };
+		1A2B5D87204ED91800E165AD /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
 		1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.ArrayObjects.swift; sourceTree = "<group>"; };
 		1A629D37204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift; sourceTree = "<group>"; };
 		1A629D39204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				5AFC90A81397DEA3E86FF565 /* CodingKeys.swift */,
 				5AFC95AD6EF07A3223B5C23C /* StringConstants.swift */,
 				5AFC92D86F151DDA43B3AB47 /* Constants.swift */,
+				1A2B5D87204ED91800E165AD /* JSONKeys.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				5AFC97997C417CB8182145EE /* CodingKeys.swift in Sources */,
 				5AFC96D560035CD7E35786B0 /* StringConstants.swift in Sources */,
 				5AFC9DE0CD324E18B9C9584E /* Constants.swift in Sources */,
+				1A2B5D88204ED91800E165AD /* JSONKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

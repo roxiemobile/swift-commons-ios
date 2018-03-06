@@ -43,30 +43,9 @@ extension OperatorsTests
     }
     
     func testDictionaryMappableOptionalObjectsFromJSON() {
-        let validJSONString = [
-            CodingKeys.validDictionaryOptionalObjects : [
-                CodingKeys.validDictionaryOptionalObjects : [
-                    CodingKeys.bool : Constants.boolTrue,
-                    CodingKeys.boolOptional : Constants.boolTrue,
-                    CodingKeys.boolImplicityUnwrapped : Constants.boolTrue
-                ]
-            ]
-        ]
-        let notValidJSONString = [
-            CodingKeys.notValidValue : [
-                CodingKeys.notValidValue : [
-                    CodingKeys.bool : Constants.notValidValue,
-                    CodingKeys.boolOptional : Constants.notValidValue,
-                    CodingKeys.boolImplicityUnwrapped : Constants.notValidValue
-                ]
-            ]
-        ]
-
-        let emptyJSONString =  [
-            CodingKeys.emptyValue : [
-                CodingKeys.emptyValue:[:]
-            ]
-        ]
+        let validJSONString = JSONKeys.forDictionaryMappableOptionalObjects
+        let notValidJSONString = JSONKeys.forDictionaryMappableObjectsNotValid
+        let emptyJSONString =  JSONKeys.forDictionaryMappableObjectsEmpty
 
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)
         let notValidMap = Map(mappingType: .fromJSON, JSON: notValidJSONString)

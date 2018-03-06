@@ -18,15 +18,10 @@ extension IntegerOperators
 // MARK: - Tests
 
     func testOptionalSignedIntegerMappingFromJSON() {
-        let JSONString  = [
-            CodingKeys.int8 : Constants.intMax,
-            CodingKeys.int16 : Constants.intMin,
-            CodingKeys.int32 : Constants.intMax,
-            CodingKeys.int64 : Constants.intMin,
-            CodingKeys.int : Constants.intMax,
-        ]
+        let JSONString  = JSONKeys.forIntValues
+        let notValidJSONString = JSONKeys.forIntValuesNotValid
         let map = Map(mappingType: .fromJSON, JSON: JSONString)
-        let map2 = Map(mappingType: .fromJSON, JSON: [CodingKeys.notValidValue : Constants.notValidValue] )
+        let map2 = Map(mappingType: .fromJSON, JSON: notValidJSONString)
         map.JSON[CodingKeys.nilValue] = nil
 
         let value8: Int8? = Int8(JSONString[CodingKeys.int8]!)

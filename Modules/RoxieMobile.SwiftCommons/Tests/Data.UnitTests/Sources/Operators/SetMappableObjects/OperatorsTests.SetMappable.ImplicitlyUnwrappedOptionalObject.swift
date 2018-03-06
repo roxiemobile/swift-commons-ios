@@ -44,23 +44,9 @@ extension OperatorsTests
     }
     
     func testSetMappableImplicitlyUnwrappedOptionalObjectsFromJSON() {
-        let validJSONString = [
-            CodingKeys.validSetImplicitlyUnwrappedObjects: [
-                [CodingKeys.x : Constants.intMax,
-                 CodingKeys.y : Constants.intMax,
-                 CodingKeys.z : Constants.intMax]
-            ]
-        ]
-        let notValidJSONString = [
-            CodingKeys.notValidValue : [
-                [CodingKeys.x : Constants.notValidValue,
-                 CodingKeys.y : Constants.notValidValue,
-                 CodingKeys.z : Constants.notValidValue]
-            ]
-        ]
-        let emptyJSONString =  [
-            CodingKeys.emptyValue : [[:]]
-        ]
+        let validJSONString = JSONKeys.forSetMappableImplicitlyUnwrappedOptionalObjects
+        let notValidJSONString = JSONKeys.forSetMappableObjectsNotValid
+        let emptyJSONString =  JSONKeys.forSetMappableObjectsEmpty
         
         var validObject = SetValidMappableObjectModel()
         let validMap = Map(mappingType: .fromJSON, JSON: validJSONString)

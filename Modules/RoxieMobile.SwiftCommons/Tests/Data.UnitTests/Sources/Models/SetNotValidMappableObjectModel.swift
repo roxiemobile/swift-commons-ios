@@ -25,7 +25,7 @@ internal struct SetNotValidMappableObjectModel: Mappable, Hashable, Equatable
     }
 
 // MARK: - Properties
-    var date: Date = Date(timeIntervalSinceReferenceDate: -123456789.0)
+    var date = Constants.dateValue
     var x: Int = 1
     var y: Int = 2
     var z: Int = 3
