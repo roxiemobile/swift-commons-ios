@@ -25,17 +25,17 @@ internal class ValidModelTransform: TransformType
 
     // MARK: - Methods
     func transformFromJSON(_ value: Any?) -> ValidTransformMappableObjectModel? {
-        guard let string = value as? [String : Any] else{
+        guard let string = value as? [String: Any] else {
             return nil
         }
         return ValidTransformMappableObjectModel(JSON: string)
     }
 
     func transformToJSON(_ value: ValidTransformMappableObjectModel?) -> String? {
-        guard let validModel = value else{
+        guard let validModel = value else {
             return nil
         }
-        
+
         let JSONString = Mapper().toJSONString(validModel, prettyPrint: true)
         return JSONString
     }

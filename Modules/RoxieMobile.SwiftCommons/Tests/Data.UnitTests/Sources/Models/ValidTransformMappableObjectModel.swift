@@ -13,15 +13,14 @@ import SwiftCommonsConcurrent
 
 // ----------------------------------------------------------------------------
 
-internal class ValidTransformMappableObjectModel:  Mappable
+internal class ValidTransformMappableObjectModel: Mappable
 {
 
     init() {
         // Do nothing
     }
 
-    required init?(map: Map){
-
+    required init?(map: Map) {
     }
 
     // MARK: - Properties

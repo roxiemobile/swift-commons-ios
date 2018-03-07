@@ -13,15 +13,14 @@ import SwiftCommonsConcurrent
 
 // ----------------------------------------------------------------------------
 
-internal class SetValidTransformMappableObjectModel:  Mappable, Equatable, Hashable
+internal class SetValidTransformMappableObjectModel: Mappable, Equatable, Hashable
 {
 
     init() {
         // Do nothing
     }
 
-    required init?(map: Map){
-
+    required init?(map: Map) {
     }
 
     // MARK: - Properties
@@ -29,9 +28,9 @@ internal class SetValidTransformMappableObjectModel:  Mappable, Equatable, Hasha
     var x: Int = Int(Constants.intMin)
     var y: Int = Int(Constants.intMin)
     var z: Int! = Int(Constants.intMin)
-        var hashValue: Int {
-            return self.x ^ self.y ^ self.z
-        }
+    var hashValue: Int {
+        return self.x ^ self.y ^ self.z
+    }
 
     // MARK: - Methods
 

@@ -25,14 +25,14 @@ internal class SetValidModelTransform: TransformType
 
     // MARK: - Methods
     func transformFromJSON(_ value: Any?) -> SetValidTransformMappableObjectModel? {
-        guard let string = value as? [String : Any] else{
+        guard let string = value as? [String: Any] else {
             return nil
         }
         return SetValidTransformMappableObjectModel(JSON: string)
     }
 
     func transformToJSON(_ value: SetValidTransformMappableObjectModel?) -> String? {
-        guard let validModel = value else{
+        guard let validModel = value else {
             return nil
         }
 

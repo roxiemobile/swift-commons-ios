@@ -25,19 +25,18 @@ internal class IntTransform: TransformType
 
 // MARK: - Methods
     func transformFromJSON(_ value: Any?) -> Int? {
-        guard let string = value as? String else{
+        guard let string = value as? String else {
             return nil
         }
         return Int(string)
     }
 
     func transformToJSON(_ value: Int?) -> String? {
-        guard let int = value else{
+        guard let int = value else {
             return nil
         }
         return String("\(int)")
     }
-
 }
 
 // ----------------------------------------------------------------------------
