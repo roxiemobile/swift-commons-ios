@@ -220,6 +220,125 @@ final class JSONKeys
             CodingKeys.emptyValue: [:]
         ]
     ]
+
+// MARK: -  Transforms BasicTypes
+    static let forTransformBasicTypes = [
+        CodingKeys.int : "\(Constants.intMin)"
+    ]
+    static let forTransformBasicTypesNotValid = [
+        CodingKeys.notValidValue : Constants.notValidValue
+    ]
+
+// MARK: -  Transforms Array BasicTypes
+    static let forTransformArrayBasicTypes = [
+        CodingKeys.int : [
+            "\(Constants.intMin)", "\(Constants.intMax)"
+        ]
+    ]
+    static let forTransformArrayBasicTypesNotValid = [
+        CodingKeys.notValidValue : [
+            Constants.intMin, Constants.intMax
+        ]
+    ]
+
+// MARK: -  Transforms Dictionary BasicTypes
+    static let forTransformDictionaryBasicTypes = [
+        CodingKeys.validObject : [
+            CodingKeys.validObject : "\(Constants.intMin)"
+        ]
+    ]
+    static let forTransformDictionaryBasicTypesNotValid = [
+        CodingKeys.validObject : [
+            CodingKeys.validObject : Constants.intMin
+        ]
+    ]
+
+// MARK: -  Transforms Mappable Object
+    static let forTransformMappableObject = [
+        CodingKeys.validObject : [
+            CodingKeys.x : "\(Constants.intMax)",
+            CodingKeys.y : "\(Constants.intMax)",
+            CodingKeys.z : "\(Constants.intMax)"
+        ]
+    ]
+    static let forTransformMappableObjectNotValid = [
+        CodingKeys.validObject : [
+            CodingKeys.x : Constants.intMax,
+            CodingKeys.y : Constants.intMax,
+            CodingKeys.z : Constants.intMax
+        ]
+    ]
+    static let forTransformMappableObjectEmpty = [
+        CodingKeys.emptyValue : [:]
+    ]
+
+// MARK: -  Transforms Array of Mappable Object
+    static let forTransformArrayMappableObject = [
+        CodingKeys.validObject : [
+            [CodingKeys.x : "\(Constants.intMax)",
+            CodingKeys.y : "\(Constants.intMax)",
+            CodingKeys.z : "\(Constants.intMax)"
+            ]
+        ]
+    ]
+    static let forTransformArrayMappableObjectNotValid = [
+        CodingKeys.validObject : [
+            [CodingKeys.x : Constants.intMax,
+                CodingKeys.y : Constants.intMax,
+                CodingKeys.z : Constants.intMax
+            ]
+        ]
+    ]
+    static let forTransformArrayMappableObjectEmpty = [
+        CodingKeys.validObject : [
+            [
+            ]
+        ]
+    ]
+
+// MARK: -  Transforms Dictionary of Mappable Object
+    static let forTransformDictionaryMappableObject = [
+        CodingKeys.validObject : [
+            CodingKeys.validObject : [
+                CodingKeys.x : "\(Constants.intMax)",
+                CodingKeys.y : "\(Constants.intMax)",
+                CodingKeys.z : "\(Constants.intMax)"
+            ]
+        ]
+    ]
+    static let forTransformDictionaryMappableObjectNotValid = [
+        CodingKeys.validObject : [
+            CodingKeys.validObject : [
+                CodingKeys.x : Constants.intMax,
+                CodingKeys.y : Constants.intMax,
+                CodingKeys.z : Constants.intMax
+            ]
+        ]
+    ]
+    static let forTransformDictionaryMappableObjectEmpty = [
+        CodingKeys.validObject : [:]
+    ]
+
+// MARK: -  Transforms Set of Mappable Object
+    static let forTransformSetMappableObject = [
+        CodingKeys.validObject: [
+            [CodingKeys.x: "\(Constants.intMax)",
+             CodingKeys.y: "\(Constants.intMax)",
+             CodingKeys.z: "\(Constants.intMax)"
+            ]
+        ]
+    ]
+    static let forTransformSetMappableObjectNotValid = [
+        CodingKeys.validObject: [
+            [CodingKeys.x: Constants.intMax,
+             CodingKeys.y: Constants.intMax,
+             CodingKeys.z: Constants.intMax
+            ]
+        ]
+    ]
+    static let forTransformSetMappableObjectEmpty = [
+        CodingKeys.validObject: [[:]]
+    ]
 }
 
 // ----------------------------------------------------------------------------

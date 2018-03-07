@@ -81,8 +81,8 @@ final class CodingKeys
 
 // MARK: -  Valid Object Coding Keys
     static let validObject = "validObject"
-    static let validOptionalObject = "validOptionalObject"
-    static let validImplicitlyUnwrappedObject = "validImplicitlyUnwrappedObject"
+    static let validObjectOptional = "validOptionalObject"
+    static let validObjectImplicitlyUnwrapped = "validImplicitlyUnwrappedObject"
 
 // MARK: -  Valid Array Objects Coding Keys
     static let validArrayObjects = "validArrayObjects"
