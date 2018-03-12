@@ -17,7 +17,7 @@
 		1A2B5D7C204DA20700E165AD /* NotValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */; };
 		1A2B5D7E204DA6E100E165AD /* SetValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */; };
 		1A2B5D80204DA82F00E165AD /* SetNotValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */; };
-		1A2B5D88204ED91800E165AD /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D87204ED91800E165AD /* JSONKeys.swift */; };
+		1A2B5D88204ED91800E165AD /* JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D87204ED91800E165AD /* JsonKeys.swift */; };
 		1A3807872056765300605CA6 /* EnumOperatorsTests.ArrayRawRepresentableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3807862056765300605CA6 /* EnumOperatorsTests.ArrayRawRepresentableType.swift */; };
 		1A629D36204D5DEB00EE49AC /* OperatorsTests.DictionaryArrayMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryArrayMappable.swift */; };
 		1A62DE5E20504BAD005ACD21 /* SetValidModelTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A62DE5D20504BAD005ACD21 /* SetValidModelTransform.swift */; };
@@ -60,7 +60,7 @@
 		1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotValidMappableObjectModel.swift; sourceTree = "<group>"; };
-		1A2B5D87204ED91800E165AD /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
+		1A2B5D87204ED91800E165AD /* JsonKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonKeys.swift; sourceTree = "<group>"; };
 		1A3807862056765300605CA6 /* EnumOperatorsTests.ArrayRawRepresentableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.ArrayRawRepresentableType.swift; sourceTree = "<group>"; };
 		1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryArrayMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryArrayMappable.swift; sourceTree = "<group>"; };
 		1A62DE5D20504BAD005ACD21 /* SetValidModelTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetValidModelTransform.swift; sourceTree = "<group>"; };
@@ -215,23 +215,15 @@
 			isa = PBXGroup;
 			children = (
 				1AB4DDA3204FD5EB00DD1134 /* TransformOperatorsTests.swift */,
-				1AB4DDA5204FD66C00DD1134 /* BasicType */,
+				1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicType.swift */,
 				1AB4DDAA204FD74000DD1134 /* TransformOperatorsTests.Mappable.swift */,
+				1AD56542205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicType.swift */,
 				1AC0FC1920503C86007F72FA /* TransformOperatorsTests.ArrayMappable.swift */,
+				1A1E0CFE2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicType.swift */,
 				1A176410205044180037F6FB /* TransformOperatorsTests.DictionaryMappable.swift */,
 				1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetMappable.swift */,
 			);
 			path = TransformOperators;
-			sourceTree = "<group>";
-		};
-		1AB4DDA5204FD66C00DD1134 /* BasicType */ = {
-			isa = PBXGroup;
-			children = (
-				1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicType.swift */,
-				1AD56542205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicType.swift */,
-				1A1E0CFE2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicType.swift */,
-			);
-			path = BasicType;
 			sourceTree = "<group>";
 		};
 		1AFA5DE12048124900B2BB15 /* Operators */ = {
@@ -261,7 +253,7 @@
 			children = (
 				5AFC90A81397DEA3E86FF565 /* CodingKeys.swift */,
 				5AFC92D86F151DDA43B3AB47 /* Constants.swift */,
-				1A2B5D87204ED91800E165AD /* JSONKeys.swift */,
+				1A2B5D87204ED91800E165AD /* JsonKeys.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -423,7 +415,7 @@
 				5AFC97997C417CB8182145EE /* CodingKeys.swift in Sources */,
 				1AB4DDAD204FDB8100DD1134 /* ValidTransformMappableObjectModel.swift in Sources */,
 				5AFC9DE0CD324E18B9C9584E /* Constants.swift in Sources */,
-				1A2B5D88204ED91800E165AD /* JSONKeys.swift in Sources */,
+				1A2B5D88204ED91800E165AD /* JsonKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

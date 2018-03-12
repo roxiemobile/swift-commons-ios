@@ -87,6 +87,7 @@ extension OperatorsTests
     // MARK: - Tests
 
     func testSetMappableImplicitlyUnwrappedOptionalObjectsToJSON() {
+
         let objectValid = SetValidMappableObjectModel()
         let objectNotValid = SetNotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])

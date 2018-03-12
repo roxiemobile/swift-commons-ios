@@ -17,7 +17,7 @@ import XCTest
 
 extension EnumOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testRawRepresentableTypesObjectToJSON() {
 
@@ -122,7 +122,7 @@ extension EnumOperatorsTests
 
 extension EnumOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testRawRepresentableTypesImplicitlyUnwrappedOptionalObjectToJSON() {
 
