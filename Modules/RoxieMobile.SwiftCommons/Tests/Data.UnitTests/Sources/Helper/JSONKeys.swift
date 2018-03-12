@@ -339,6 +339,33 @@ final class JSONKeys
     static let forTransformSetMappableObjectEmpty = [
         CodingKeys.validObject: [[:]]
     ]
+
+// MARK: - Enum Operators Object
+    static let forEnumOperatorsObject = [
+        CodingKeys.validObject: Constants.enumObjectAnother
+    ]
+    static let forEnumOperatorsObjectNotValid = [
+        CodingKeys.validObject: Constants.boolTrue
+    ]
+    static let forEnumOperatorsObjectEmpty: [String: Any] = [:]
+
+// MARK: - Enum Operators Array Object
+    static let forEnumOperatorsArrayObject = [
+        CodingKeys.validObject: [Constants.enumObjectAnother]
+    ]
+    static let forEnumOperatorsArrayObjectNotValid = [
+        CodingKeys.validObject: [Constants.boolTrue]
+    ]
+    static let forEnumOperatorsArrayObjectEmpty: [String: [Any]] = [:]
+
+// MARK: - Enum Operators Dictionary Object
+    static let forEnumOperatorsDictionaryObject = [
+        CodingKeys.validObject: [CodingKeys.enumObject: Constants.enumObjectAnother]
+    ]
+    static let forEnumOperatorsDictionaryObjectNotValid = [
+        CodingKeys.validObject: [CodingKeys.enumObject: Constants.boolTrue]
+    ]
+    static let forEnumOperatorsDictionaryObjectEmpty: [String: [Any]] = [:]
 }
 
 // ----------------------------------------------------------------------------

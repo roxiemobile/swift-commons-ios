@@ -29,6 +29,10 @@ final class Constants
 // MARK: -  Other Values
     static let notValidValue: String = "notValidValue"
     static var dateValue: Date = Date(timeIntervalSinceReferenceDate: -123456789.0)
+
+// MARK: - Enum Values
+    static let enumObjectAnother: String = "Another"
+    static let enumObjectDefault: String = "Default"
 }
 
 // ----------------------------------------------------------------------------

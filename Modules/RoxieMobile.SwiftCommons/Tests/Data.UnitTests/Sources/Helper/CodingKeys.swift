@@ -103,6 +103,10 @@ final class CodingKeys
     static let validDictionaryArrayObjects = "validDictionaryArrayObjects"
     static let validDictionaryArrayOptionalObjects = "validDictionaryArrayOptionalObjects"
     static let validDictionaryArrayImplicitlyUnwrappedObjects = "validDictionaryArrayImplicitlyUnwrappedObjects"
+
+// MARK: - Enum Coding Keys
+    static let enumObject = "enumObject"
+
 }
 
 // ----------------------------------------------------------------------------
