@@ -1,6 +1,6 @@
 source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
@@ -15,7 +15,7 @@ def inject_shared_dependencies_1
 end
 
 def inject_shared_dependencies_2
-  pod_from 'CryptoSwift', '~> 0.8.0'
+  pod_from 'CryptoSwift', '~> 0.8.3'
 end
 
 
