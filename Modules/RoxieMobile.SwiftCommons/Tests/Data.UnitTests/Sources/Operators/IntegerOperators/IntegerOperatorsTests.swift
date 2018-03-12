@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  OperatorsTests.swift
+//  IntegerOperatorsTests.swift
 //
 //  @author     Natalia Mamunina <mamuninanv@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -14,22 +14,9 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-internal class OperatorsTests: XCTestCase
+internal class IntegerOperatorsTests: OperatorsTests
 {
-// MARK: - Methods
-
-    internal func guardNegativeException(
-            action: @escaping () -> ()
-    ) -> Void {
-        var exception: NSException? = nil
-        objcTry {
-            action()
-        }.objcCatch { e in
-            exception = e
-        }.objcFinally {
-            XCTAssertNotNil(exception)
-        }
-    }
+    // Do nothing
 }
 
 // ----------------------------------------------------------------------------

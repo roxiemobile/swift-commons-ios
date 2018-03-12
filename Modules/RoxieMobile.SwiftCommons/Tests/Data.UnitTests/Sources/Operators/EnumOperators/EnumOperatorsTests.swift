@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 //
-//  OperatorsTests.swift
+//  EnumOperatorsTests.swift
 //
 //  @author     Natalia Mamunina <mamuninanv@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       http://www.roxiemobile.com/www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,22 +14,9 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-internal class OperatorsTests: XCTestCase
+internal class EnumOperatorsTests: OperatorsTests
 {
-// MARK: - Methods
-
-    internal func guardNegativeException(
-            action: @escaping () -> ()
-    ) -> Void {
-        var exception: NSException? = nil
-        objcTry {
-            action()
-        }.objcCatch { e in
-            exception = e
-        }.objcFinally {
-            XCTAssertNotNil(exception)
-        }
-    }
+    // Do nothing
 }
 
 // ----------------------------------------------------------------------------

@@ -8,76 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		193AC5281FCCCDFE00017493 /* SwiftCommonsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193AC5291FCCCDFE00017493 /* SwiftCommonsData.framework */; };
-		1A176411205044180037F6FB /* TransformOperatorsTests.DictionaryMappableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A176410205044180037F6FB /* TransformOperatorsTests.DictionaryMappableObject.swift */; };
-		1A176413205044450037F6FB /* TransformOperatorsTests.DictionaryMappableOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A176412205044450037F6FB /* TransformOperatorsTests.DictionaryMappableOptionalObject.swift */; };
-		1A1764152050446A0037F6FB /* TransformOperatorsTests.DictionaryMappableImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1764142050446A0037F6FB /* TransformOperatorsTests.DictionaryMappableImplicitlyUnwrappedOptionalObject.swift */; };
-		1A1E0CFF2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicTypeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E0CFE2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicTypeObject.swift */; };
-		1A1E0D012050229F0062D5AC /* TransformOperatorsTests.DictionaryOptionalBasicTypeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E0D002050229F0062D5AC /* TransformOperatorsTests.DictionaryOptionalBasicTypeObject.swift */; };
-		1A1E0D03205022DF0062D5AC /* TransformOperatorsTests.DictionaryImplicitlyUnwrappedOptionalBasicTypeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E0D02205022DF0062D5AC /* TransformOperatorsTests.DictionaryImplicitlyUnwrappedOptionalBasicTypeObject.swift */; };
-		1A2B5D6B204D87A000E165AD /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6A204D87A000E165AD /* IntegerOperators.swift */; };
-		1A2B5D6D204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6C204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift */; };
-		1A2B5D6F204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6E204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift */; };
-		1A2B5D71204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D70204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift */; };
-		1A2B5D73204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D72204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift */; };
-		1A2B5D75204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D74204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift */; };
-		1A2B5D77204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D76204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift */; };
+		1A176411205044180037F6FB /* TransformOperatorsTests.DictionaryMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A176410205044180037F6FB /* TransformOperatorsTests.DictionaryMappable.swift */; };
+		1A1E0CFF2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E0CFE2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicType.swift */; };
+		1A2B5D6B204D87A000E165AD /* IntegerOperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6A204D87A000E165AD /* IntegerOperatorsTests.swift */; };
+		1A2B5D6D204D88AE00E165AD /* IntegerOperatorsTests.SignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6C204D88AE00E165AD /* IntegerOperatorsTests.SignedIntegerMapping.swift */; };
+		1A2B5D6F204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegerMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6E204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegerMapping.swift */; };
 		1A2B5D7A204D9F6B00E165AD /* ValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D79204D9F6B00E165AD /* ValidMappableObjectModel.swift */; };
 		1A2B5D7C204DA20700E165AD /* NotValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */; };
 		1A2B5D7E204DA6E100E165AD /* SetValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */; };
 		1A2B5D80204DA82F00E165AD /* SetNotValidMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */; };
 		1A2B5D88204ED91800E165AD /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D87204ED91800E165AD /* JSONKeys.swift */; };
-		1A3807872056765300605CA6 /* EnumOperators.ArrayRawRepresentableTypesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3807862056765300605CA6 /* EnumOperators.ArrayRawRepresentableTypesObject.swift */; };
-		1A3807892056798E00605CA6 /* EnumOperators.ArrayRawRepresentableTypesOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3807882056798E00605CA6 /* EnumOperators.ArrayRawRepresentableTypesOptionalObject.swift */; };
-		1A38078B20567AAB00605CA6 /* EnumOperators.ArrayRawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38078A20567AAB00605CA6 /* EnumOperators.ArrayRawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift */; };
-		1A38078D20567B6D00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38078C20567B6D00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeOptionalObject.swift */; };
-		1A38078F20567B9F00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38078E20567B9F00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeImplicitlyUnwrappedOptionalObject.swift */; };
-		1A629D36204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift */; };
-		1A629D38204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D37204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift */; };
-		1A629D3A204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D39204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift */; };
+		1A3807872056765300605CA6 /* EnumOperatorsTests.ArrayRawRepresentableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3807862056765300605CA6 /* EnumOperatorsTests.ArrayRawRepresentableType.swift */; };
+		1A629D36204D5DEB00EE49AC /* OperatorsTests.DictionaryArrayMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryArrayMappable.swift */; };
 		1A62DE5E20504BAD005ACD21 /* SetValidModelTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A62DE5D20504BAD005ACD21 /* SetValidModelTransform.swift */; };
 		1A7FDBDF2050485000F62996 /* SetValidTransformMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7FDBDE2050485000F62996 /* SetValidTransformMappableObjectModel.swift */; };
-		1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetMappableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetMappableObject.swift */; };
-		1A7FDBE3205048D800F62996 /* TransformOperatorsTests.SetMappableOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7FDBE2205048D800F62996 /* TransformOperatorsTests.SetMappableOptionalObject.swift */; };
-		1A7FDBE5205048F600F62996 /* TransformOperatorsTests.SetMappableImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7FDBE4205048F600F62996 /* TransformOperatorsTests.SetMappableImplicitlyUnwrappedOptionalObject.swift */; };
-		1A9D106B2056672100049F39 /* EnumOperators.DictionariesRawRepresentableTypeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D106A2056672100049F39 /* EnumOperators.DictionariesRawRepresentableTypeObject.swift */; };
-		1A9D106D2056683000049F39 /* EnumOperators.RawRepresentableTypesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D106C2056683000049F39 /* EnumOperators.RawRepresentableTypesObject.swift */; };
+		1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetMappable.swift */; };
+		1A9D106B2056672100049F39 /* EnumOperatorsTests.DictionariesRawRepresentableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D106A2056672100049F39 /* EnumOperatorsTests.DictionariesRawRepresentableType.swift */; };
+		1A9D106D2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D106C2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift */; };
 		1A9D106F2056689500049F39 /* EnumOperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D106E2056689500049F39 /* EnumOperatorsTests.swift */; };
-		1A9D107120566A2D00049F39 /* EnumOperators.RawRepresentableTypesOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D107020566A2D00049F39 /* EnumOperators.RawRepresentableTypesOptionalObject.swift */; };
-		1A9D107320566A8B00049F39 /* EnumOperators.RawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D107220566A8B00049F39 /* EnumOperators.RawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift */; };
 		1A9D107520566C9B00049F39 /* EnumModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D107420566C9B00049F39 /* EnumModels.swift */; };
 		1AB4DDA4204FD5EB00DD1134 /* TransformOperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4DDA3204FD5EB00DD1134 /* TransformOperatorsTests.swift */; };
 		1AB4DDAD204FDB8100DD1134 /* ValidTransformMappableObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4DDAC204FDB8100DD1134 /* ValidTransformMappableObjectModel.swift */; };
 		1AB4DDAF204FE66A00DD1134 /* IntTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4DDAE204FE66A00DD1134 /* IntTransform.swift */; };
-		1ABBD6C2205006D20049264C /* TransformOperatorsTests.BasicTypeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicTypeObject.swift */; };
-		1ABBD6C420500A210049264C /* TransformOperatorsTests.BasicTypeOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBD6C320500A210049264C /* TransformOperatorsTests.BasicTypeOptionalObject.swift */; };
-		1ABBD6C620500AC40049264C /* TransformOperatorsTests.BasicTypeImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBD6C520500AC40049264C /* TransformOperatorsTests.BasicTypeImplicitlyUnwrappedOptionalObject.swift */; };
-		1AC0FC1320502930007F72FA /* TransformOperatorsTests.MappableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4DDAA204FD74000DD1134 /* TransformOperatorsTests.MappableObject.swift */; };
+		1ABBD6C2205006D20049264C /* TransformOperatorsTests.BasicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicType.swift */; };
+		1AC0FC1320502930007F72FA /* TransformOperatorsTests.Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4DDAA204FD74000DD1134 /* TransformOperatorsTests.Mappable.swift */; };
 		1AC0FC1520502C86007F72FA /* ValidModelTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0FC1420502C86007F72FA /* ValidModelTransform.swift */; };
-		1AC0FC1620503340007F72FA /* TransformOperatorsTests.MappableOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4DDB0204FED9400DD1134 /* TransformOperatorsTests.MappableOptionalObject.swift */; };
-		1AC0FC18205033AF007F72FA /* TransformOperatorsTests.MappableImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0FC17205033AF007F72FA /* TransformOperatorsTests.MappableImplicitlyUnwrappedOptionalObject.swift */; };
-		1AC0FC1A20503C86007F72FA /* TransformOperatorsTests.ArrayMappableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0FC1920503C86007F72FA /* TransformOperatorsTests.ArrayMappableObject.swift */; };
-		1AC0FC1C20503CD6007F72FA /* TransformOperatorsTests.ArrayMappableOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0FC1B20503CD6007F72FA /* TransformOperatorsTests.ArrayMappableOptionalObject.swift */; };
-		1AC0FC1E20503D5E007F72FA /* TransformOperatorsTests.ArrayMappableImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0FC1D20503D5E007F72FA /* TransformOperatorsTests.ArrayMappableImplicitlyUnwrappedOptionalObject.swift */; };
-		1AD56543205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicTypeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD56542205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicTypeObject.swift */; };
-		1AD565452050121A0029C0B5 /* TransformOperatorsTests.ArrayOptionalBasicTypeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD565442050121A0029C0B5 /* TransformOperatorsTests.ArrayOptionalBasicTypeObject.swift */; };
-		1AD56547205012680029C0B5 /* TransformOperatorsTests.ArrayImplicitlyUnwrappedOptionalBasicTypeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD56546205012680029C0B5 /* TransformOperatorsTests.ArrayImplicitlyUnwrappedOptionalBasicTypeObject.swift */; };
-		1AFA5DED2048160E00B2BB15 /* OperatorsTests.Mappable.Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DDF2048025D00B2BB15 /* OperatorsTests.Mappable.Object.swift */; };
-		1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF1204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift */; };
-		1AFA5DF420481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF320481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift */; };
-		1AFA5DF620481F0500B2BB15 /* OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF520481F0500B2BB15 /* OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift */; };
+		1AC0FC1A20503C86007F72FA /* TransformOperatorsTests.ArrayMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0FC1920503C86007F72FA /* TransformOperatorsTests.ArrayMappable.swift */; };
+		1AD56543205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD56542205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicType.swift */; };
+		1AFA5DED2048160E00B2BB15 /* OperatorsTests.Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DDF2048025D00B2BB15 /* OperatorsTests.Mappable.swift */; };
+		1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF1204816EC00B2BB15 /* OperatorsTests.BasicTypes.swift */; };
 		1AFA5DFA2048219600B2BB15 /* OperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DF92048219600B2BB15 /* OperatorsTests.swift */; };
-		1AFA5DFD2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DFC2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift */; };
-		1AFA5DFF204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5DFE204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift */; };
-		1AFA5E092049653800B2BB15 /* OperatorsTests.ArrayMappable.Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.Object.swift */; };
-		1AFA5E1520499ED000B2BB15 /* OperatorsTests.SetMappable.Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetMappable.Object.swift */; };
-		1AFA5E17204D329D00B2BB15 /* OperatorsTests.ArrayMappable.OptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E16204D329C00B2BB15 /* OperatorsTests.ArrayMappable.OptionalObject.swift */; };
-		1AFA5E19204D32C000B2BB15 /* OperatorsTests.ArrayMappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E18204D32C000B2BB15 /* OperatorsTests.ArrayMappable.ImplicitlyUnwrappedOptionalObject.swift */; };
-		1AFA5E1D204D360400B2BB15 /* OperatorsTests.SetMappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E1C204D360400B2BB15 /* OperatorsTests.SetMappable.ImplicitlyUnwrappedOptionalObject.swift */; };
-		1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryMappable.Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryMappable.Object.swift */; };
-		1AFA5E22204D391F00B2BB15 /* OperatorsTests.DictionaryMappable.OptionalObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E21204D391F00B2BB15 /* OperatorsTests.DictionaryMappable.OptionalObjects.swift */; };
-		1AFA5E24204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E23204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift */; };
+		1AFA5E092049653800B2BB15 /* OperatorsTests.ArrayMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.swift */; };
+		1AFA5E1520499ED000B2BB15 /* OperatorsTests.SetMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetMappable.swift */; };
+		1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryMappable.swift */; };
 		345AB3175DE5026155CD4150 /* Pods_SwiftCommons_Data_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A188E4D8AF6256439212FE43 /* Pods_SwiftCommons_Data_UnitTests.framework */; };
-		5AFC94F3D8762D88D0D23017 /* OperatorsTests.SetMappable.OptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC9943306C2CC7764416CD /* OperatorsTests.SetMappable.OptionalObject.swift */; };
 		5AFC97997C417CB8182145EE /* CodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC90A81397DEA3E86FF565 /* CodingKeys.swift */; };
 		5AFC9DE0CD324E18B9C9584E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC92D86F151DDA43B3AB47 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -87,79 +51,43 @@
 		193AC52D1FCCD23400017493 /* SwiftCommons.Data.UnitTests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.Data.UnitTests.xcconfig; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsData.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsData.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A176410205044180037F6FB /* TransformOperatorsTests.DictionaryMappableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.DictionaryMappableObject.swift; sourceTree = "<group>"; };
-		1A176412205044450037F6FB /* TransformOperatorsTests.DictionaryMappableOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.DictionaryMappableOptionalObject.swift; sourceTree = "<group>"; };
-		1A1764142050446A0037F6FB /* TransformOperatorsTests.DictionaryMappableImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.DictionaryMappableImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1A1E0CFE2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicTypeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.DictionaryBasicTypeObject.swift; sourceTree = "<group>"; };
-		1A1E0D002050229F0062D5AC /* TransformOperatorsTests.DictionaryOptionalBasicTypeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.DictionaryOptionalBasicTypeObject.swift; sourceTree = "<group>"; };
-		1A1E0D02205022DF0062D5AC /* TransformOperatorsTests.DictionaryImplicitlyUnwrappedOptionalBasicTypeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.DictionaryImplicitlyUnwrappedOptionalBasicTypeObject.swift; sourceTree = "<group>"; };
-		1A2B5D6A204D87A000E165AD /* IntegerOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.swift; sourceTree = "<group>"; };
-		1A2B5D6C204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.SignedIntegerMapping.swift; sourceTree = "<group>"; };
-		1A2B5D6E204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.UnsignedIntegerMapping.swift; sourceTree = "<group>"; };
-		1A2B5D70204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.OptionalSignedIntegerMapping.swift; sourceTree = "<group>"; };
-		1A2B5D72204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.OptionalUnsignedIntegerMapping.swift; sourceTree = "<group>"; };
-		1A2B5D74204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift; sourceTree = "<group>"; };
-		1A2B5D76204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift; sourceTree = "<group>"; };
+		1A176410205044180037F6FB /* TransformOperatorsTests.DictionaryMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.DictionaryMappable.swift; sourceTree = "<group>"; };
+		1A1E0CFE2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.DictionaryBasicType.swift; sourceTree = "<group>"; };
+		1A2B5D6A204D87A000E165AD /* IntegerOperatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperatorsTests.swift; sourceTree = "<group>"; };
+		1A2B5D6C204D88AE00E165AD /* IntegerOperatorsTests.SignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperatorsTests.SignedIntegerMapping.swift; sourceTree = "<group>"; };
+		1A2B5D6E204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegerMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperatorsTests.UnsignedIntegerMapping.swift; sourceTree = "<group>"; };
 		1A2B5D79204D9F6B00E165AD /* ValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A2B5D7B204DA20700E165AD /* NotValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotValidMappableObjectModel.swift; sourceTree = "<group>"; };
 		1A2B5D87204ED91800E165AD /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
-		1A3807862056765300605CA6 /* EnumOperators.ArrayRawRepresentableTypesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.ArrayRawRepresentableTypesObject.swift; sourceTree = "<group>"; };
-		1A3807882056798E00605CA6 /* EnumOperators.ArrayRawRepresentableTypesOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.ArrayRawRepresentableTypesOptionalObject.swift; sourceTree = "<group>"; };
-		1A38078A20567AAB00605CA6 /* EnumOperators.ArrayRawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.ArrayRawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1A38078C20567B6D00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.DictionariesRawRepresentableTypeOptionalObject.swift; sourceTree = "<group>"; };
-		1A38078E20567B9F00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.DictionariesRawRepresentableTypeImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.ArrayObjects.swift; sourceTree = "<group>"; };
-		1A629D37204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift; sourceTree = "<group>"; };
-		1A629D39204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift; sourceTree = "<group>"; };
+		1A3807862056765300605CA6 /* EnumOperatorsTests.ArrayRawRepresentableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.ArrayRawRepresentableType.swift; sourceTree = "<group>"; };
+		1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryArrayMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryArrayMappable.swift; sourceTree = "<group>"; };
 		1A62DE5D20504BAD005ACD21 /* SetValidModelTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetValidModelTransform.swift; sourceTree = "<group>"; };
 		1A7FDBDE2050485000F62996 /* SetValidTransformMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetValidTransformMappableObjectModel.swift; sourceTree = "<group>"; };
-		1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetMappableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.SetMappableObject.swift; sourceTree = "<group>"; };
-		1A7FDBE2205048D800F62996 /* TransformOperatorsTests.SetMappableOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.SetMappableOptionalObject.swift; sourceTree = "<group>"; };
-		1A7FDBE4205048F600F62996 /* TransformOperatorsTests.SetMappableImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.SetMappableImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1A9D106A2056672100049F39 /* EnumOperators.DictionariesRawRepresentableTypeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.DictionariesRawRepresentableTypeObject.swift; sourceTree = "<group>"; };
-		1A9D106C2056683000049F39 /* EnumOperators.RawRepresentableTypesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.RawRepresentableTypesObject.swift; sourceTree = "<group>"; };
+		1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.SetMappable.swift; sourceTree = "<group>"; };
+		1A9D106A2056672100049F39 /* EnumOperatorsTests.DictionariesRawRepresentableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.DictionariesRawRepresentableType.swift; sourceTree = "<group>"; };
+		1A9D106C2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.RawRepresentableTypes.swift; sourceTree = "<group>"; };
 		1A9D106E2056689500049F39 /* EnumOperatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.swift; sourceTree = "<group>"; };
-		1A9D107020566A2D00049F39 /* EnumOperators.RawRepresentableTypesOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.RawRepresentableTypesOptionalObject.swift; sourceTree = "<group>"; };
-		1A9D107220566A8B00049F39 /* EnumOperators.RawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperators.RawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
 		1A9D107420566C9B00049F39 /* EnumModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumModels.swift; sourceTree = "<group>"; };
 		1AB4DDA3204FD5EB00DD1134 /* TransformOperatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.swift; sourceTree = "<group>"; };
-		1AB4DDAA204FD74000DD1134 /* TransformOperatorsTests.MappableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.MappableObject.swift; sourceTree = "<group>"; };
+		1AB4DDAA204FD74000DD1134 /* TransformOperatorsTests.Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.Mappable.swift; sourceTree = "<group>"; };
 		1AB4DDAC204FDB8100DD1134 /* ValidTransformMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidTransformMappableObjectModel.swift; sourceTree = "<group>"; };
 		1AB4DDAE204FE66A00DD1134 /* IntTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntTransform.swift; sourceTree = "<group>"; };
-		1AB4DDB0204FED9400DD1134 /* TransformOperatorsTests.MappableOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.MappableOptionalObject.swift; sourceTree = "<group>"; };
 		1ABBD6BF204FFC2B0049264C /* ValidOptionalTransformMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidOptionalTransformMappableObjectModel.swift; sourceTree = "<group>"; };
-		1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicTypeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.BasicTypeObject.swift; sourceTree = "<group>"; };
-		1ABBD6C320500A210049264C /* TransformOperatorsTests.BasicTypeOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.BasicTypeOptionalObject.swift; sourceTree = "<group>"; };
-		1ABBD6C520500AC40049264C /* TransformOperatorsTests.BasicTypeImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.BasicTypeImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
+		1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.BasicType.swift; sourceTree = "<group>"; };
 		1AC0FC1420502C86007F72FA /* ValidModelTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidModelTransform.swift; sourceTree = "<group>"; };
-		1AC0FC17205033AF007F72FA /* TransformOperatorsTests.MappableImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.MappableImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1AC0FC1920503C86007F72FA /* TransformOperatorsTests.ArrayMappableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayMappableObject.swift; sourceTree = "<group>"; };
-		1AC0FC1B20503CD6007F72FA /* TransformOperatorsTests.ArrayMappableOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayMappableOptionalObject.swift; sourceTree = "<group>"; };
-		1AC0FC1D20503D5E007F72FA /* TransformOperatorsTests.ArrayMappableImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayMappableImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1AD56542205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicTypeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayBasicTypeObject.swift; sourceTree = "<group>"; };
-		1AD565442050121A0029C0B5 /* TransformOperatorsTests.ArrayOptionalBasicTypeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayOptionalBasicTypeObject.swift; sourceTree = "<group>"; };
-		1AD56546205012680029C0B5 /* TransformOperatorsTests.ArrayImplicitlyUnwrappedOptionalBasicTypeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayImplicitlyUnwrappedOptionalBasicTypeObject.swift; sourceTree = "<group>"; };
-		1AFA5DDF2048025D00B2BB15 /* OperatorsTests.Mappable.Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.Mappable.Object.swift; sourceTree = "<group>"; };
-		1AFA5DF1204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.BasicTypes.Object.swift; sourceTree = "<group>"; };
-		1AFA5DF320481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.BasicTypes.OptionalObject.swift; sourceTree = "<group>"; };
-		1AFA5DF520481F0500B2BB15 /* OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
+		1AC0FC1920503C86007F72FA /* TransformOperatorsTests.ArrayMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayMappable.swift; sourceTree = "<group>"; };
+		1AD56542205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayBasicType.swift; sourceTree = "<group>"; };
+		1AFA5DDF2048025D00B2BB15 /* OperatorsTests.Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.Mappable.swift; sourceTree = "<group>"; };
+		1AFA5DF1204816EC00B2BB15 /* OperatorsTests.BasicTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.BasicTypes.swift; sourceTree = "<group>"; };
 		1AFA5DF92048219600B2BB15 /* OperatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.swift; sourceTree = "<group>"; };
-		1AFA5DFC2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.Mappable.OptionalObject.swift; sourceTree = "<group>"; };
-		1AFA5DFE204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.ArrayMappable.Object.swift; sourceTree = "<group>"; };
-		1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetMappable.Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.SetMappable.Object.swift; sourceTree = "<group>"; };
-		1AFA5E16204D329C00B2BB15 /* OperatorsTests.ArrayMappable.OptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.ArrayMappable.OptionalObject.swift; sourceTree = "<group>"; };
-		1AFA5E18204D32C000B2BB15 /* OperatorsTests.ArrayMappable.ImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.ArrayMappable.ImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1AFA5E1C204D360400B2BB15 /* OperatorsTests.SetMappable.ImplicitlyUnwrappedOptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.SetMappable.ImplicitlyUnwrappedOptionalObject.swift; sourceTree = "<group>"; };
-		1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryMappable.Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.Object.swift; sourceTree = "<group>"; };
-		1AFA5E21204D391F00B2BB15 /* OperatorsTests.DictionaryMappable.OptionalObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.OptionalObjects.swift; sourceTree = "<group>"; };
-		1AFA5E23204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift; sourceTree = "<group>"; };
+		1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.ArrayMappable.swift; sourceTree = "<group>"; };
+		1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.SetMappable.swift; sourceTree = "<group>"; };
+		1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryMappable.swift; sourceTree = "<group>"; };
 		2E3FEEE925ABBE68E6AE0308 /* Pods-SwiftCommons.Data.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5AFC90A81397DEA3E86FF565 /* CodingKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodingKeys.swift; sourceTree = "<group>"; };
 		5AFC92D86F151DDA43B3AB47 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		5AFC9943306C2CC7764416CD /* OperatorsTests.SetMappable.OptionalObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsTests.SetMappable.OptionalObject.swift; sourceTree = "<group>"; };
 		9470D933D4C8F5F95213E89A /* Pods-SwiftCommons.Data.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		A188E4D8AF6256439212FE43 /* Pods_SwiftCommons_Data_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -225,64 +153,11 @@
 		19EB0CA81F72DF640029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1A9D10662056666800049F39 /* EnumOperators */,
-				1AB4DDA2204FD5AD00DD1134 /* TransformOperators */,
+				1A77CFF82056A346006174BB /* Operators */,
 				1A2B5D78204D9E2F00E165AD /* Models */,
-				1A629D3B204D6A6500EE49AC /* IntegerOperators */,
-				1AFA5DE12048124900B2BB15 /* Operators */,
-				5AFC98A0A7331D3805573AB0 /* Helper */,
+				5AFC98A0A7331D3805573AB0 /* Helpers */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		1A1E0CFA2050220A0062D5AC /* BasicType */ = {
-			isa = PBXGroup;
-			children = (
-				1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicTypeObject.swift */,
-				1ABBD6C320500A210049264C /* TransformOperatorsTests.BasicTypeOptionalObject.swift */,
-				1ABBD6C520500AC40049264C /* TransformOperatorsTests.BasicTypeImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = BasicType;
-			sourceTree = "<group>";
-		};
-		1A1E0CFC205022240062D5AC /* ArrayBasicType */ = {
-			isa = PBXGroup;
-			children = (
-				1AD56542205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicTypeObject.swift */,
-				1AD565442050121A0029C0B5 /* TransformOperatorsTests.ArrayOptionalBasicTypeObject.swift */,
-				1AD56546205012680029C0B5 /* TransformOperatorsTests.ArrayImplicitlyUnwrappedOptionalBasicTypeObject.swift */,
-			);
-			path = ArrayBasicType;
-			sourceTree = "<group>";
-		};
-		1A1E0CFD205022360062D5AC /* DictionaryBasicType */ = {
-			isa = PBXGroup;
-			children = (
-				1A1E0CFE2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicTypeObject.swift */,
-				1A1E0D002050229F0062D5AC /* TransformOperatorsTests.DictionaryOptionalBasicTypeObject.swift */,
-				1A1E0D02205022DF0062D5AC /* TransformOperatorsTests.DictionaryImplicitlyUnwrappedOptionalBasicTypeObject.swift */,
-			);
-			path = DictionaryBasicType;
-			sourceTree = "<group>";
-		};
-		1A2B5D66204D865700E165AD /* SignedInteger */ = {
-			isa = PBXGroup;
-			children = (
-				1A2B5D6C204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift */,
-				1A2B5D70204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift */,
-				1A2B5D74204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift */,
-			);
-			path = SignedInteger;
-			sourceTree = "<group>";
-		};
-		1A2B5D67204D866400E165AD /* UnsignedInteger */ = {
-			isa = PBXGroup;
-			children = (
-				1A2B5D6E204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift */,
-				1A2B5D72204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift */,
-				1A2B5D76204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift */,
-			);
-			path = UnsignedInteger;
 			sourceTree = "<group>";
 		};
 		1A2B5D78204D9E2F00E165AD /* Models */ = {
@@ -303,76 +178,48 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		1A629D34204D5D7000EE49AC /* DictionaryMappableArrayObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift */,
-				1A629D37204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift */,
-				1A629D39204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift */,
-			);
-			path = DictionaryMappableArrayObjects;
-			sourceTree = "<group>";
-		};
 		1A629D3B204D6A6500EE49AC /* IntegerOperators */ = {
 			isa = PBXGroup;
 			children = (
-				1A2B5D6A204D87A000E165AD /* IntegerOperators.swift */,
-				1A2B5D66204D865700E165AD /* SignedInteger */,
-				1A2B5D67204D866400E165AD /* UnsignedInteger */,
+				1A2B5D6A204D87A000E165AD /* IntegerOperatorsTests.swift */,
+				1A2B5D6C204D88AE00E165AD /* IntegerOperatorsTests.SignedIntegerMapping.swift */,
+				1A2B5D6E204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegerMapping.swift */,
 			);
 			path = IntegerOperators;
+			sourceTree = "<group>";
+		};
+		1A77CFF82056A346006174BB /* Operators */ = {
+			isa = PBXGroup;
+			children = (
+				1A9D10662056666800049F39 /* EnumOperators */,
+				1AB4DDA2204FD5AD00DD1134 /* TransformOperators */,
+				1A629D3B204D6A6500EE49AC /* IntegerOperators */,
+				1AFA5DE12048124900B2BB15 /* Operators */,
+				1AFA5DF92048219600B2BB15 /* OperatorsTests.swift */,
+			);
+			path = Operators;
 			sourceTree = "<group>";
 		};
 		1A9D10662056666800049F39 /* EnumOperators */ = {
 			isa = PBXGroup;
 			children = (
-				1A9D1069205666DF00049F39 /* DictionariesRawRepresentableType */,
-				1A9D1068205666C600049F39 /* ArraysRawRepresentableType */,
-				1A9D1067205666B200049F39 /* RawRepresentableTypes */,
 				1A9D106E2056689500049F39 /* EnumOperatorsTests.swift */,
+				1A9D106C2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift */,
+				1A3807862056765300605CA6 /* EnumOperatorsTests.ArrayRawRepresentableType.swift */,
+				1A9D106A2056672100049F39 /* EnumOperatorsTests.DictionariesRawRepresentableType.swift */,
 			);
 			path = EnumOperators;
-			sourceTree = "<group>";
-		};
-		1A9D1067205666B200049F39 /* RawRepresentableTypes */ = {
-			isa = PBXGroup;
-			children = (
-				1A9D106C2056683000049F39 /* EnumOperators.RawRepresentableTypesObject.swift */,
-				1A9D107020566A2D00049F39 /* EnumOperators.RawRepresentableTypesOptionalObject.swift */,
-				1A9D107220566A8B00049F39 /* EnumOperators.RawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = RawRepresentableTypes;
-			sourceTree = "<group>";
-		};
-		1A9D1068205666C600049F39 /* ArraysRawRepresentableType */ = {
-			isa = PBXGroup;
-			children = (
-				1A3807862056765300605CA6 /* EnumOperators.ArrayRawRepresentableTypesObject.swift */,
-				1A3807882056798E00605CA6 /* EnumOperators.ArrayRawRepresentableTypesOptionalObject.swift */,
-				1A38078A20567AAB00605CA6 /* EnumOperators.ArrayRawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = ArraysRawRepresentableType;
-			sourceTree = "<group>";
-		};
-		1A9D1069205666DF00049F39 /* DictionariesRawRepresentableType */ = {
-			isa = PBXGroup;
-			children = (
-				1A9D106A2056672100049F39 /* EnumOperators.DictionariesRawRepresentableTypeObject.swift */,
-				1A38078C20567B6D00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeOptionalObject.swift */,
-				1A38078E20567B9F00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = DictionariesRawRepresentableType;
 			sourceTree = "<group>";
 		};
 		1AB4DDA2204FD5AD00DD1134 /* TransformOperators */ = {
 			isa = PBXGroup;
 			children = (
-				1AB4DDA9204FD6EE00DD1134 /* SetMappableObjects */,
-				1AB4DDA8204FD6CF00DD1134 /* ArrayMappableObjects */,
-				1AB4DDA7204FD69A00DD1134 /* DictionaryMappableObjects */,
-				1AB4DDA6204FD69200DD1134 /* MappableObjects */,
-				1AB4DDA5204FD66C00DD1134 /* BasicType */,
 				1AB4DDA3204FD5EB00DD1134 /* TransformOperatorsTests.swift */,
+				1AB4DDA5204FD66C00DD1134 /* BasicType */,
+				1AB4DDAA204FD74000DD1134 /* TransformOperatorsTests.Mappable.swift */,
+				1AC0FC1920503C86007F72FA /* TransformOperatorsTests.ArrayMappable.swift */,
+				1A176410205044180037F6FB /* TransformOperatorsTests.DictionaryMappable.swift */,
+				1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetMappable.swift */,
 			);
 			path = TransformOperators;
 			sourceTree = "<group>";
@@ -380,115 +227,24 @@
 		1AB4DDA5204FD66C00DD1134 /* BasicType */ = {
 			isa = PBXGroup;
 			children = (
-				1A1E0CFD205022360062D5AC /* DictionaryBasicType */,
-				1A1E0CFA2050220A0062D5AC /* BasicType */,
-				1A1E0CFC205022240062D5AC /* ArrayBasicType */,
+				1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicType.swift */,
+				1AD56542205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicType.swift */,
+				1A1E0CFE2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicType.swift */,
 			);
 			path = BasicType;
-			sourceTree = "<group>";
-		};
-		1AB4DDA6204FD69200DD1134 /* MappableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1AB4DDAA204FD74000DD1134 /* TransformOperatorsTests.MappableObject.swift */,
-				1AB4DDB0204FED9400DD1134 /* TransformOperatorsTests.MappableOptionalObject.swift */,
-				1AC0FC17205033AF007F72FA /* TransformOperatorsTests.MappableImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = MappableObjects;
-			sourceTree = "<group>";
-		};
-		1AB4DDA7204FD69A00DD1134 /* DictionaryMappableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1A176410205044180037F6FB /* TransformOperatorsTests.DictionaryMappableObject.swift */,
-				1A176412205044450037F6FB /* TransformOperatorsTests.DictionaryMappableOptionalObject.swift */,
-				1A1764142050446A0037F6FB /* TransformOperatorsTests.DictionaryMappableImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = DictionaryMappableObjects;
-			sourceTree = "<group>";
-		};
-		1AB4DDA8204FD6CF00DD1134 /* ArrayMappableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1AC0FC1920503C86007F72FA /* TransformOperatorsTests.ArrayMappableObject.swift */,
-				1AC0FC1B20503CD6007F72FA /* TransformOperatorsTests.ArrayMappableOptionalObject.swift */,
-				1AC0FC1D20503D5E007F72FA /* TransformOperatorsTests.ArrayMappableImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = ArrayMappableObjects;
-			sourceTree = "<group>";
-		};
-		1AB4DDA9204FD6EE00DD1134 /* SetMappableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetMappableObject.swift */,
-				1A7FDBE2205048D800F62996 /* TransformOperatorsTests.SetMappableOptionalObject.swift */,
-				1A7FDBE4205048F600F62996 /* TransformOperatorsTests.SetMappableImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = SetMappableObjects;
 			sourceTree = "<group>";
 		};
 		1AFA5DE12048124900B2BB15 /* Operators */ = {
 			isa = PBXGroup;
 			children = (
-				1AFA5DF92048219600B2BB15 /* OperatorsTests.swift */,
-				1AFA5DE22048128800B2BB15 /* BasicTypes */,
-				1AFA5DFB2048227E00B2BB15 /* MappableObjects */,
-				1AFA5E07204964CE00B2BB15 /* ArrayMappableObjects */,
-				1AFA5E1320499E8300B2BB15 /* SetMappableObjects */,
-				1AFA5E1E204D38B500B2BB15 /* DictionaryMappableObjects */,
-				1A629D34204D5D7000EE49AC /* DictionaryMappableArrayObjects */,
+				1AFA5DF1204816EC00B2BB15 /* OperatorsTests.BasicTypes.swift */,
+				1AFA5DDF2048025D00B2BB15 /* OperatorsTests.Mappable.swift */,
+				1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.swift */,
+				1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryMappable.swift */,
+				1A629D35204D5DEB00EE49AC /* OperatorsTests.DictionaryArrayMappable.swift */,
+				1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetMappable.swift */,
 			);
 			path = Operators;
-			sourceTree = "<group>";
-		};
-		1AFA5DE22048128800B2BB15 /* BasicTypes */ = {
-			isa = PBXGroup;
-			children = (
-				1AFA5DF1204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift */,
-				1AFA5DF320481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift */,
-				1AFA5DF520481F0500B2BB15 /* OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = BasicTypes;
-			sourceTree = "<group>";
-		};
-		1AFA5DFB2048227E00B2BB15 /* MappableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1AFA5DDF2048025D00B2BB15 /* OperatorsTests.Mappable.Object.swift */,
-				1AFA5DFC2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift */,
-				1AFA5DFE204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = MappableObjects;
-			sourceTree = "<group>";
-		};
-		1AFA5E07204964CE00B2BB15 /* ArrayMappableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1AFA5E082049653800B2BB15 /* OperatorsTests.ArrayMappable.Object.swift */,
-				1AFA5E16204D329C00B2BB15 /* OperatorsTests.ArrayMappable.OptionalObject.swift */,
-				1AFA5E18204D32C000B2BB15 /* OperatorsTests.ArrayMappable.ImplicitlyUnwrappedOptionalObject.swift */,
-			);
-			path = ArrayMappableObjects;
-			sourceTree = "<group>";
-		};
-		1AFA5E1320499E8300B2BB15 /* SetMappableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetMappable.Object.swift */,
-				1AFA5E1C204D360400B2BB15 /* OperatorsTests.SetMappable.ImplicitlyUnwrappedOptionalObject.swift */,
-				5AFC9943306C2CC7764416CD /* OperatorsTests.SetMappable.OptionalObject.swift */,
-			);
-			path = SetMappableObjects;
-			sourceTree = "<group>";
-		};
-		1AFA5E1E204D38B500B2BB15 /* DictionaryMappableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryMappable.Object.swift */,
-				1AFA5E21204D391F00B2BB15 /* OperatorsTests.DictionaryMappable.OptionalObjects.swift */,
-				1AFA5E23204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift */,
-			);
-			path = DictionaryMappableObjects;
 			sourceTree = "<group>";
 		};
 		1B229613B2DC7CB798640435 /* Pods */ = {
@@ -500,14 +256,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		5AFC98A0A7331D3805573AB0 /* Helper */ = {
+		5AFC98A0A7331D3805573AB0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				5AFC90A81397DEA3E86FF565 /* CodingKeys.swift */,
 				5AFC92D86F151DDA43B3AB47 /* Constants.swift */,
 				1A2B5D87204ED91800E165AD /* JSONKeys.swift */,
 			);
-			path = Helper;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -633,77 +389,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A2B5D6B204D87A000E165AD /* IntegerOperators.swift in Sources */,
-				1A2B5D75204D900500E165AD /* IntegerOperators.ImplicityUnwrappedOptionalSignedIntegerMapping.swift in Sources */,
-				1A9D107120566A2D00049F39 /* EnumOperators.RawRepresentableTypesOptionalObject.swift in Sources */,
-				1AC0FC18205033AF007F72FA /* TransformOperatorsTests.MappableImplicitlyUnwrappedOptionalObject.swift in Sources */,
+				1A2B5D6B204D87A000E165AD /* IntegerOperatorsTests.swift in Sources */,
 				1AB4DDAF204FE66A00DD1134 /* IntTransform.swift in Sources */,
-				1A38078F20567B9F00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeImplicitlyUnwrappedOptionalObject.swift in Sources */,
 				1A2B5D7E204DA6E100E165AD /* SetValidMappableObjectModel.swift in Sources */,
-				1AFA5DED2048160E00B2BB15 /* OperatorsTests.Mappable.Object.swift in Sources */,
-				1AC0FC1C20503CD6007F72FA /* TransformOperatorsTests.ArrayMappableOptionalObject.swift in Sources */,
-				1AD56543205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicTypeObject.swift in Sources */,
-				1AD56547205012680029C0B5 /* TransformOperatorsTests.ArrayImplicitlyUnwrappedOptionalBasicTypeObject.swift in Sources */,
-				1A1E0D012050229F0062D5AC /* TransformOperatorsTests.DictionaryOptionalBasicTypeObject.swift in Sources */,
-				1AC0FC1320502930007F72FA /* TransformOperatorsTests.MappableObject.swift in Sources */,
-				1ABBD6C620500AC40049264C /* TransformOperatorsTests.BasicTypeImplicitlyUnwrappedOptionalObject.swift in Sources */,
-				1AFA5DFD2048479B00B2BB15 /* OperatorsTests.Mappable.OptionalObject.swift in Sources */,
+				1AFA5DED2048160E00B2BB15 /* OperatorsTests.Mappable.swift in Sources */,
+				1AD56543205011F20029C0B5 /* TransformOperatorsTests.ArrayBasicType.swift in Sources */,
+				1AC0FC1320502930007F72FA /* TransformOperatorsTests.Mappable.swift in Sources */,
 				1A62DE5E20504BAD005ACD21 /* SetValidModelTransform.swift in Sources */,
-				1A2B5D71204D8EB100E165AD /* IntegerOperators.OptionalSignedIntegerMapping.swift in Sources */,
-				1A1764152050446A0037F6FB /* TransformOperatorsTests.DictionaryMappableImplicitlyUnwrappedOptionalObject.swift in Sources */,
-				1AFA5DF620481F0500B2BB15 /* OperatorsTests.BasicTypes.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
-				1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.Object.swift in Sources */,
-				1AFA5E17204D329D00B2BB15 /* OperatorsTests.ArrayMappable.OptionalObject.swift in Sources */,
-				1A1E0D03205022DF0062D5AC /* TransformOperatorsTests.DictionaryImplicitlyUnwrappedOptionalBasicTypeObject.swift in Sources */,
-				1A9D106B2056672100049F39 /* EnumOperators.DictionariesRawRepresentableTypeObject.swift in Sources */,
-				1A2B5D6D204D88AE00E165AD /* IntegerOperators.SignedIntegerMapping.swift in Sources */,
+				1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.swift in Sources */,
+				1A9D106B2056672100049F39 /* EnumOperatorsTests.DictionariesRawRepresentableType.swift in Sources */,
+				1A2B5D6D204D88AE00E165AD /* IntegerOperatorsTests.SignedIntegerMapping.swift in Sources */,
 				1A2B5D80204DA82F00E165AD /* SetNotValidMappableObjectModel.swift in Sources */,
-				1A2B5D73204D8ED600E165AD /* IntegerOperators.OptionalUnsignedIntegerMapping.swift in Sources */,
-				1A7FDBE5205048F600F62996 /* TransformOperatorsTests.SetMappableImplicitlyUnwrappedOptionalObject.swift in Sources */,
-				1A629D36204D5DEB00EE49AC /* OperatorsTests.DictionaryMappable.ArrayObjects.swift in Sources */,
-				1AFA5E24204D393F00B2BB15 /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalObjects.swift in Sources */,
-				1A38078D20567B6D00605CA6 /* EnumOperators.DictionariesRawRepresentableTypeOptionalObject.swift in Sources */,
-				1A2B5D77204D903200E165AD /* IntegerOperators.ImplicityUnwrappedOptionalUnsignedIntegerMapping.swift in Sources */,
+				1A629D36204D5DEB00EE49AC /* OperatorsTests.DictionaryArrayMappable.swift in Sources */,
 				1A9D106F2056689500049F39 /* EnumOperatorsTests.swift in Sources */,
-				1A7FDBE3205048D800F62996 /* TransformOperatorsTests.SetMappableOptionalObject.swift in Sources */,
-				1AFA5DFF204847CF00B2BB15 /* OperatorsTests.Mappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
-				1A629D3A204D5E1A00EE49AC /* OperatorsTests.DictionaryMappable.ImplicitlyUnwrappedOptionalArrayObjects.swift in Sources */,
-				1ABBD6C2205006D20049264C /* TransformOperatorsTests.BasicTypeObject.swift in Sources */,
-				1AFA5E092049653800B2BB15 /* OperatorsTests.ArrayMappable.Object.swift in Sources */,
-				1AFA5E22204D391F00B2BB15 /* OperatorsTests.DictionaryMappable.OptionalObjects.swift in Sources */,
-				1ABBD6C420500A210049264C /* TransformOperatorsTests.BasicTypeOptionalObject.swift in Sources */,
-				1A629D38204D5E0200EE49AC /* OperatorsTests.DictionaryMappable.OptionalArrayObjects.swift in Sources */,
-				1A9D107320566A8B00049F39 /* EnumOperators.RawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift in Sources */,
-				1A1E0CFF2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicTypeObject.swift in Sources */,
+				1ABBD6C2205006D20049264C /* TransformOperatorsTests.BasicType.swift in Sources */,
+				1AFA5E092049653800B2BB15 /* OperatorsTests.ArrayMappable.swift in Sources */,
+				1A1E0CFF2050225E0062D5AC /* TransformOperatorsTests.DictionaryBasicType.swift in Sources */,
 				1AFA5DFA2048219600B2BB15 /* OperatorsTests.swift in Sources */,
-				1AFA5E1D204D360400B2BB15 /* OperatorsTests.SetMappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
-				1A176411205044180037F6FB /* TransformOperatorsTests.DictionaryMappableObject.swift in Sources */,
-				1AFA5E1520499ED000B2BB15 /* OperatorsTests.SetMappable.Object.swift in Sources */,
+				1A176411205044180037F6FB /* TransformOperatorsTests.DictionaryMappable.swift in Sources */,
+				1AFA5E1520499ED000B2BB15 /* OperatorsTests.SetMappable.swift in Sources */,
 				1A9D107520566C9B00049F39 /* EnumModels.swift in Sources */,
-				1AC0FC1620503340007F72FA /* TransformOperatorsTests.MappableOptionalObject.swift in Sources */,
-				1A176413205044450037F6FB /* TransformOperatorsTests.DictionaryMappableOptionalObject.swift in Sources */,
 				1AC0FC1520502C86007F72FA /* ValidModelTransform.swift in Sources */,
-				1AD565452050121A0029C0B5 /* TransformOperatorsTests.ArrayOptionalBasicTypeObject.swift in Sources */,
 				1A2B5D7C204DA20700E165AD /* NotValidMappableObjectModel.swift in Sources */,
-				1A3807892056798E00605CA6 /* EnumOperators.ArrayRawRepresentableTypesOptionalObject.swift in Sources */,
-				1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetMappableObject.swift in Sources */,
+				1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetMappable.swift in Sources */,
 				1A2B5D7A204D9F6B00E165AD /* ValidMappableObjectModel.swift in Sources */,
-				1AFA5DF420481D1B00B2BB15 /* OperatorsTests.BasicTypes.OptionalObject.swift in Sources */,
 				1AB4DDA4204FD5EB00DD1134 /* TransformOperatorsTests.swift in Sources */,
-				1A9D106D2056683000049F39 /* EnumOperators.RawRepresentableTypesObject.swift in Sources */,
-				1AFA5E19204D32C000B2BB15 /* OperatorsTests.ArrayMappable.ImplicitlyUnwrappedOptionalObject.swift in Sources */,
+				1A9D106D2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift in Sources */,
 				1A7FDBDF2050485000F62996 /* SetValidTransformMappableObjectModel.swift in Sources */,
-				1AC0FC1A20503C86007F72FA /* TransformOperatorsTests.ArrayMappableObject.swift in Sources */,
-				1A3807872056765300605CA6 /* EnumOperators.ArrayRawRepresentableTypesObject.swift in Sources */,
-				1A2B5D6F204D8DB900E165AD /* IntegerOperators.UnsignedIntegerMapping.swift in Sources */,
-				1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryMappable.Object.swift in Sources */,
+				1AC0FC1A20503C86007F72FA /* TransformOperatorsTests.ArrayMappable.swift in Sources */,
+				1A3807872056765300605CA6 /* EnumOperatorsTests.ArrayRawRepresentableType.swift in Sources */,
+				1A2B5D6F204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegerMapping.swift in Sources */,
+				1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryMappable.swift in Sources */,
 				5AFC97997C417CB8182145EE /* CodingKeys.swift in Sources */,
 				1AB4DDAD204FDB8100DD1134 /* ValidTransformMappableObjectModel.swift in Sources */,
-				1AC0FC1E20503D5E007F72FA /* TransformOperatorsTests.ArrayMappableImplicitlyUnwrappedOptionalObject.swift in Sources */,
 				5AFC9DE0CD324E18B9C9584E /* Constants.swift in Sources */,
 				1A2B5D88204ED91800E165AD /* JSONKeys.swift in Sources */,
-				1A38078B20567AAB00605CA6 /* EnumOperators.ArrayRawRepresentableTypesImplicitlyUnwrappedOptionalObject.swift in Sources */,
-				5AFC94F3D8762D88D0D23017 /* OperatorsTests.SetMappable.OptionalObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
