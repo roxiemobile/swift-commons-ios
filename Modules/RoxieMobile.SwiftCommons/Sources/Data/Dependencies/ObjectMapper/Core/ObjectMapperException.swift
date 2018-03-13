@@ -40,14 +40,14 @@ public final class ObjectMapperException: NSException
 func roxie_objectMapper_raiseException(message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
     let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
-#if DEBUG
-    preconditionFailure(logMessage)
-#else
-    ObjectMapperException(reason: logMessage, userInfo: nil).raise()
-
+//#if DEBUG
+//    preconditionFailure(logMessage)
+//#else
+//    ObjectMapperException(reason: logMessage, userInfo: nil).raise()
+    NSException(name: NSExceptionName(rawValue: "ObjectMapperException"), reason: nil, userInfo: nil).raise()
     // Suppress error "Return from a ‘noreturn’ function"
     Swift.fatalError(logMessage)
-#endif
+//#endif
 }
 
 // ----------------------------------------------------------------------------
