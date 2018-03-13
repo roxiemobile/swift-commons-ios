@@ -357,7 +357,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = roxiemobile;
+				ORGANIZATIONNAME = "Alexander Bragin";
 				TargetAttributes = {
 					193BE2EE1FCCB2EB00E35C0C = {
 						CreatedOnToolsVersion = 9.1;

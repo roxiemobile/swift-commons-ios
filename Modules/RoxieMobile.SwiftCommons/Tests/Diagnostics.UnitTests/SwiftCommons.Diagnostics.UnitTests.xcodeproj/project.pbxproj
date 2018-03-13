@@ -81,17 +81,6 @@
 		194276121F87D6CF00574076 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942760A1F87D6C200574076 /* VehicleModel.swift */; };
 		1978C3151F8FD7A300A7A723 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 194276141F87D70F00574076 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */; };
 		1978C3161F8FD7A400A7A723 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 194276151F87D70F00574076 /* test_parking_model_with_valid_vehicles_in_array.json */; };
-		19B02652204082BE00584342 /* test_complete_model.json in Resources */ = {isa = PBXBuildFile; fileRef = 19B02650204082BE00584342 /* test_complete_model.json */; };
-		19B02653204082BE00584342 /* test_incomplete_model.json in Resources */ = {isa = PBXBuildFile; fileRef = 19B02651204082BE00584342 /* test_incomplete_model.json */; };
-		19B0265D204082CF00584342 /* BoolModelWithDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B02656204082CF00584342 /* BoolModelWithDefaultValues.swift */; };
-		19B0265E204082CF00584342 /* BoolModelWithDefaultValuesOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B02657204082CF00584342 /* BoolModelWithDefaultValuesOptional.swift */; };
-		19B0265F204082CF00584342 /* BoolModelWithDefaultValuesRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B02658204082CF00584342 /* BoolModelWithDefaultValuesRequired.swift */; };
-		19B02660204082CF00584342 /* BoolModelWithoutDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0265A204082CF00584342 /* BoolModelWithoutDefaultValues.swift */; };
-		19B02661204082CF00584342 /* BoolModelWithoutDefaultValuesOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0265B204082CF00584342 /* BoolModelWithoutDefaultValuesOptional.swift */; };
-		19B02662204082CF00584342 /* BoolModelWithoutDefaultValuesRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0265C204082CF00584342 /* BoolModelWithoutDefaultValuesRequired.swift */; };
-		19B02666204082D900584342 /* CheckTests.BoolWithDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B02664204082D900584342 /* CheckTests.BoolWithDefaultValues.swift */; };
-		19B02667204082D900584342 /* CheckTests.BoolWithoutDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B02665204082D900584342 /* CheckTests.BoolWithoutDefaultValues.swift */; };
-		19B02669204083CC00584342 /* BooleanTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B02668204083CC00584342 /* BooleanTransform.swift */; };
 		345AB3175DE5026155CD4150 /* Pods_SwiftCommons_Diagnostics_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A188E4D8AF6256439212FE43 /* Pods_SwiftCommons_Diagnostics_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,17 +94,6 @@
 		194276141F87D70F00574076 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_model_with_one_non_valid_vehicle_in_array.json; sourceTree = "<group>"; };
 		194276151F87D70F00574076 /* test_parking_model_with_valid_vehicles_in_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_parking_model_with_valid_vehicles_in_array.json; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsDiagnostics.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsDiagnostics.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B02650204082BE00584342 /* test_complete_model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_complete_model.json; sourceTree = "<group>"; };
-		19B02651204082BE00584342 /* test_incomplete_model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_incomplete_model.json; sourceTree = "<group>"; };
-		19B02656204082CF00584342 /* BoolModelWithDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolModelWithDefaultValues.swift; sourceTree = "<group>"; };
-		19B02657204082CF00584342 /* BoolModelWithDefaultValuesOptional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolModelWithDefaultValuesOptional.swift; sourceTree = "<group>"; };
-		19B02658204082CF00584342 /* BoolModelWithDefaultValuesRequired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolModelWithDefaultValuesRequired.swift; sourceTree = "<group>"; };
-		19B0265A204082CF00584342 /* BoolModelWithoutDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolModelWithoutDefaultValues.swift; sourceTree = "<group>"; };
-		19B0265B204082CF00584342 /* BoolModelWithoutDefaultValuesOptional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolModelWithoutDefaultValuesOptional.swift; sourceTree = "<group>"; };
-		19B0265C204082CF00584342 /* BoolModelWithoutDefaultValuesRequired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolModelWithoutDefaultValuesRequired.swift; sourceTree = "<group>"; };
-		19B02664204082D900584342 /* CheckTests.BoolWithDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTests.BoolWithDefaultValues.swift; sourceTree = "<group>"; };
-		19B02665204082D900584342 /* CheckTests.BoolWithoutDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTests.BoolWithoutDefaultValues.swift; sourceTree = "<group>"; };
-		19B02668204083CC00584342 /* BooleanTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanTransform.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Diagnostics.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Diagnostics.UnitTests.swift; sourceTree = "<group>"; };
 		19FDC1631F86F09200DA57BC /* GuardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardTests.swift; sourceTree = "<group>"; };
@@ -223,7 +201,6 @@
 		194276051F87D68F00574076 /* Diagnostics */ = {
 			isa = PBXGroup;
 			children = (
-				19B02663204082D900584342 /* __tmp */,
 				19FDC1681F86F09200DA57BC /* Check */,
 				19FDC1461F86F09200DA57BC /* Guard */,
 			);
@@ -233,61 +210,12 @@
 		194276061F87D6C200574076 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				19B02654204082CF00584342 /* __tmp */,
 				194276071F87D6C200574076 /* NotValidModel.swift */,
 				194276081F87D6C200574076 /* ParkingModel.swift */,
 				194276091F87D6C200574076 /* ValidModel.swift */,
 				1942760A1F87D6C200574076 /* VehicleModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		19B0264F204082BE00584342 /* __tmp */ = {
-			isa = PBXGroup;
-			children = (
-				19B02650204082BE00584342 /* test_complete_model.json */,
-				19B02651204082BE00584342 /* test_incomplete_model.json */,
-			);
-			path = __tmp;
-			sourceTree = "<group>";
-		};
-		19B02654204082CF00584342 /* __tmp */ = {
-			isa = PBXGroup;
-			children = (
-				19B02668204083CC00584342 /* BooleanTransform.swift */,
-				19B02655204082CF00584342 /* WithDefaultValues */,
-				19B02659204082CF00584342 /* WithoutDefaultValues */,
-			);
-			path = __tmp;
-			sourceTree = "<group>";
-		};
-		19B02655204082CF00584342 /* WithDefaultValues */ = {
-			isa = PBXGroup;
-			children = (
-				19B02656204082CF00584342 /* BoolModelWithDefaultValues.swift */,
-				19B02657204082CF00584342 /* BoolModelWithDefaultValuesOptional.swift */,
-				19B02658204082CF00584342 /* BoolModelWithDefaultValuesRequired.swift */,
-			);
-			path = WithDefaultValues;
-			sourceTree = "<group>";
-		};
-		19B02659204082CF00584342 /* WithoutDefaultValues */ = {
-			isa = PBXGroup;
-			children = (
-				19B0265A204082CF00584342 /* BoolModelWithoutDefaultValues.swift */,
-				19B0265B204082CF00584342 /* BoolModelWithoutDefaultValuesOptional.swift */,
-				19B0265C204082CF00584342 /* BoolModelWithoutDefaultValuesRequired.swift */,
-			);
-			path = WithoutDefaultValues;
-			sourceTree = "<group>";
-		};
-		19B02663204082D900584342 /* __tmp */ = {
-			isa = PBXGroup;
-			children = (
-				19B02664204082D900584342 /* CheckTests.BoolWithDefaultValues.swift */,
-				19B02665204082D900584342 /* CheckTests.BoolWithoutDefaultValues.swift */,
-			);
-			path = __tmp;
 			sourceTree = "<group>";
 		};
 		19C0171B1F72CC3A00D29F73 = {
@@ -313,7 +241,6 @@
 		19EB0CA41F72DF640029F302 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				19B0264F204082BE00584342 /* __tmp */,
 				194276141F87D70F00574076 /* test_parking_model_with_one_non_valid_vehicle_in_array.json */,
 				194276151F87D70F00574076 /* test_parking_model_with_valid_vehicles_in_array.json */,
 			);
@@ -482,9 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1978C3151F8FD7A300A7A723 /* test_parking_model_with_one_non_valid_vehicle_in_array.json in Resources */,
-				19B02653204082BE00584342 /* test_incomplete_model.json in Resources */,
 				1978C3161F8FD7A400A7A723 /* test_parking_model_with_valid_vehicles_in_array.json in Resources */,
-				19B02652204082BE00584342 /* test_complete_model.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +481,6 @@
 				1942758C1F87AC0A00574076 /* GuardTests.Blank.swift in Sources */,
 				194275661F87AC0300574076 /* CheckTests.AllNotEmpty.swift in Sources */,
 				1942759A1F87AC0A00574076 /* GuardTests.NotEqual.swift in Sources */,
-				19B0265D204082CF00584342 /* BoolModelWithDefaultValues.swift in Sources */,
 				194275901F87AC0A00574076 /* GuardTests.GreaterThanOrEqualTo.swift in Sources */,
 				1942758E1F87AC0A00574076 /* GuardTests.Equal.swift in Sources */,
 				194275611F87AC0300574076 /* CheckTests.AllEmpty.swift in Sources */,
@@ -564,7 +488,6 @@
 				194275911F87AC0A00574076 /* GuardTests.IsFalse.swift in Sources */,
 				1942757F1F87AC0300574076 /* CheckTests.Valid.swift in Sources */,
 				194275791F87AC0300574076 /* CheckTests.NotNil.swift in Sources */,
-				19B0265E204082CF00584342 /* BoolModelWithDefaultValuesOptional.swift in Sources */,
 				1942759C1F87AC0A00574076 /* GuardTests.NotSame.swift in Sources */,
 				194275691F87AC0300574076 /* CheckTests.AllValid.swift in Sources */,
 				194275601F87AC0300574076 /* CheckTests.AllBlank.swift in Sources */,
@@ -572,14 +495,12 @@
 				1942757A1F87AC0300574076 /* CheckTests.NotSame.swift in Sources */,
 				194276101F87D6CF00574076 /* ParkingModel.swift in Sources */,
 				1942755F1F87AC0300574076 /* CheckTests.swift in Sources */,
-				19B0265F204082CF00584342 /* BoolModelWithDefaultValuesRequired.swift in Sources */,
 				1942758F1F87AC0A00574076 /* GuardTests.GreaterThan.swift in Sources */,
 				1942757E1F87AC0300574076 /* CheckTests.ThrowsAny.swift in Sources */,
 				194275971F87AC0A00574076 /* GuardTests.NilOrValid.swift in Sources */,
 				194275671F87AC0300574076 /* CheckTests.AllNotNil.swift in Sources */,
 				194275921F87AC0A00574076 /* GuardTests.IsNil.swift in Sources */,
 				194276121F87D6CF00574076 /* VehicleModel.swift in Sources */,
-				19B02660204082CF00584342 /* BoolModelWithoutDefaultValues.swift in Sources */,
 				194275A01F87AC0A00574076 /* GuardTests.ThrowsAny.swift in Sources */,
 				194275981F87AC0A00574076 /* GuardTests.NotBlank.swift in Sources */,
 				194275651F87AC0300574076 /* CheckTests.AllNotBlank.swift in Sources */,
@@ -591,14 +512,11 @@
 				1942756A1F87AC0300574076 /* CheckTests.Blank.swift in Sources */,
 				194275941F87AC0A00574076 /* GuardTests.LessThan.swift in Sources */,
 				194275741F87AC0300574076 /* CheckTests.NilOrNotValid.swift in Sources */,
-				19B02666204082D900584342 /* CheckTests.BoolWithDefaultValues.swift in Sources */,
 				194275A11F87AC0A00574076 /* GuardTests.Valid.swift in Sources */,
-				19B02667204082D900584342 /* CheckTests.BoolWithoutDefaultValues.swift in Sources */,
 				194275621F87AC0300574076 /* CheckTests.AllNil.swift in Sources */,
 				194275881F87AC0A00574076 /* GuardTests.AllNotEmpty.swift in Sources */,
 				194275781F87AC0300574076 /* CheckTests.NotEqual.swift in Sources */,
 				1942756C1F87AC0300574076 /* CheckTests.Equal.swift in Sources */,
-				19B02661204082CF00584342 /* BoolModelWithoutDefaultValuesOptional.swift in Sources */,
 				1942756B1F87AC0300574076 /* CheckTests.Empty.swift in Sources */,
 				194275721F87AC0300574076 /* CheckTests.LessThan.swift in Sources */,
 				194275641F87AC0300574076 /* CheckTests.AllNilOrValid.swift in Sources */,
@@ -607,7 +525,6 @@
 				194275991F87AC0A00574076 /* GuardTests.NotEmpty.swift in Sources */,
 				194275751F87AC0300574076 /* CheckTests.NilOrValid.swift in Sources */,
 				194276111F87D6CF00574076 /* ValidModel.swift in Sources */,
-				19B02669204083CC00584342 /* BooleanTransform.swift in Sources */,
 				194275681F87AC0300574076 /* CheckTests.AllNotValid.swift in Sources */,
 				194275761F87AC0300574076 /* CheckTests.NotBlank.swift in Sources */,
 				194275A21F87AC0A00574076 /* SwiftCommons.Diagnostics.UnitTests.swift in Sources */,
@@ -616,7 +533,6 @@
 				194275731F87AC0300574076 /* CheckTests.LessThanOrEqualTo.swift in Sources */,
 				1942756E1F87AC0300574076 /* CheckTests.GreaterThanOrEqualTo.swift in Sources */,
 				1942757C1F87AC0300574076 /* CheckTests.Same.swift in Sources */,
-				19B02662204082CF00584342 /* BoolModelWithoutDefaultValuesRequired.swift in Sources */,
 				194275861F87AC0A00574076 /* GuardTests.AllNilOrValid.swift in Sources */,
 				194275771F87AC0300574076 /* CheckTests.NotEmpty.swift in Sources */,
 				1942759E1F87AC0A00574076 /* GuardTests.Same.swift in Sources */,

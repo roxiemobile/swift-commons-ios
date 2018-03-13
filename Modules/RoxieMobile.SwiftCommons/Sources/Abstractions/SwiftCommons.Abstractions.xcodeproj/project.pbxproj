@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19B0266F2040C7E700584342 /* DefaultValueProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0266E2040C7E700584342 /* DefaultValueProviderType.swift */; };
-		19B026712040CFAC00584342 /* DefaultValueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B026702040CFAC00584342 /* DefaultValueProvider.swift */; };
 		19BAC0B01FCCA68300DDEA92 /* PostValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C4FD1F8A4A8A00A944A8 /* PostValidatable.swift */; };
 		19BAC0B11FCCA68300DDEA92 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5101F8A64CB00A944A8 /* Serializable.swift */; };
 		19BAC0B21FCCA68300DDEA92 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C4FB1F8A495400A944A8 /* Validatable.swift */; };
@@ -27,8 +25,6 @@
 		1990C5001F8A4AF800A944A8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1990C5021F8A574700A944A8 /* StaticValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticValidator.swift; sourceTree = "<group>"; };
 		1990C5101F8A64CB00A944A8 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
-		19B0266E2040C7E700584342 /* DefaultValueProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValueProviderType.swift; sourceTree = "<group>"; };
-		19B026702040CFAC00584342 /* DefaultValueProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValueProvider.swift; sourceTree = "<group>"; };
 		19C434EA1FCC9E2900984A2D /* SwiftCommonsAbstractions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsAbstractions.h; sourceTree = "<group>"; };
 		19C434EC1FCC9F0800984A2D /* SwiftCommonsAbstractions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsAbstractions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,8 +55,6 @@
 				1990C4FD1F8A4A8A00A944A8 /* PostValidatable.swift */,
 				1990C5101F8A64CB00A944A8 /* Serializable.swift */,
 				1990C4FB1F8A495400A944A8 /* Validatable.swift */,
-				19B0266E2040C7E700584342 /* DefaultValueProviderType.swift */,
-				19B026702040CFAC00584342 /* DefaultValueProvider.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,9 +194,7 @@
 			files = (
 				19BAC0B31FCCA68300DDEA92 /* StaticValidator.swift in Sources */,
 				19BAC0B11FCCA68300DDEA92 /* Serializable.swift in Sources */,
-				19B026712040CFAC00584342 /* DefaultValueProvider.swift in Sources */,
 				19BAC0B21FCCA68300DDEA92 /* Validatable.swift in Sources */,
-				19B0266F2040C7E700584342 /* DefaultValueProviderType.swift in Sources */,
 				19C434ED1FCC9F0800984A2D /* SwiftCommonsAbstractions.m in Sources */,
 				19BAC0B41FCCA68300DDEA92 /* Validator.swift in Sources */,
 				19BAC0B01FCCA68300DDEA92 /* PostValidatable.swift in Sources */,
