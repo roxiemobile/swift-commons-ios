@@ -2,7 +2,7 @@
 //
 //  Constants.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -16,25 +16,21 @@ internal final class Constants
 {
 // MARK: -  Integer Values
 
-    static let intMax = Int8.max
-    static let intMin = Int8.min
+    static let maxInt = Int8.max
+    static let minInt = Int8.min
 
-    static let uintMax = UInt8.max
-    static let uintMin = UInt8.min
+    static let maxUInt = UInt8.max
+    static let minUInt = UInt8.min
 
-// MARK: -  Boolean Values
-    static let boolTrue = true
-    static let boolFalse: Bool = false
-
-// MARK: -  Other Values
+// MARK: -  Not Valid Values
 
     static let notValidValue = "notValidValue"
     static var dateValue = Date(timeIntervalSinceReferenceDate: -123456789.0)
 
 // MARK: - Enum Values
 
-    static let enumObjectAnother: String = "Another"
-    static let enumObjectDefault: String = "Default"
+    static let enumObjectAnother = "Another"
+    static let enumObjectDefault = "Default"
 }
 
 // ----------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 // ----------------------------------------------------------------------------
 //
-//  JSONKeys.swift
+//  JsonKeys.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -12,80 +12,68 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-internal final class JSONKeys
+internal final class JsonKeys
 {
 // MARK: -  Integer
 
-    static let forIntValues = [
-        CodingKeys.int8: Constants.intMax,
-        CodingKeys.int16: Constants.intMin,
-        CodingKeys.int32: Constants.intMax,
-        CodingKeys.int64: Constants.intMin,
-        CodingKeys.int: Constants.intMax,
+    static let intValues = [
+        CodingKeys.int8: Constants.maxInt,
+        CodingKeys.int16: Constants.minInt,
+        CodingKeys.int32: Constants.maxInt,
+        CodingKeys.int64: Constants.minInt,
+        CodingKeys.int: Constants.maxInt,
     ]
 
-    static let forUIntValues = [
-        CodingKeys.uint8: Constants.uintMax,
-        CodingKeys.uint16: Constants.uintMin,
-        CodingKeys.uint32: Constants.uintMax,
-        CodingKeys.uint64: Constants.uintMin,
-        CodingKeys.uint: Constants.uintMax,
+    static let uintValues = [
+        CodingKeys.uint8: Constants.maxUInt,
+        CodingKeys.uint16: Constants.minUInt,
+        CodingKeys.uint32: Constants.maxUInt,
+        CodingKeys.uint64: Constants.minUInt,
+        CodingKeys.uint: Constants.maxUInt,
     ]
 
-    static let forIntValuesNotValid = [
+    static let intValuesNotValid = [
         CodingKeys.notValidValue: Constants.notValidValue
     ]
 
 // MARK: -  BasicTypes
 
-    static let forBasicTypes = [
-        CodingKeys.bool: Constants.boolTrue
+    static let basicTypes = [
+        CodingKeys.bool: true
     ]
 
-    static let forBasicTypesNotValid = [
+    static let basicTypesNotValid = [
         CodingKeys.notValidValue: Constants.notValidValue
     ]
 
 // MARK: -  Mappable Objects
-    static let forMappableObjects = [
+
+    static let mappableObjects = [
         CodingKeys.validObject: [
-            CodingKeys.bool: Constants.boolTrue,
-            CodingKeys.boolOptional: Constants.boolTrue,
-            CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
+            CodingKeys.bool: true,
+            CodingKeys.boolOptional: true,
+            CodingKeys.boolImplicityUnwrapped: true
         ]
     ]
-    static let forMappableObjectsNotValid = [
+
+    static let mappableObjectsNotValid = [
         CodingKeys.validObject: [
             CodingKeys.notValidValue: Constants.notValidValue
         ]
     ]
 
 // MARK: - Array Mappable Objects
-    static let forArrayMappableObjects = [
-        CodingKeys.validArrayObjects: [
-            [CodingKeys.bool: Constants.boolTrue,
-             CodingKeys.boolOptional: Constants.boolTrue,
-             CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
+
+    static let arrayMappableObjects = [
+        CodingKeys.validObject: [
+            [CodingKeys.bool: true,
+             CodingKeys.boolOptional: true,
+             CodingKeys.boolImplicityUnwrapped: true
             ]
         ]
     ]
-    static let forArrayMappableOptionalObjects = [
-        CodingKeys.validArrayOptionalObjects: [
-            [CodingKeys.bool: Constants.boolTrue,
-             CodingKeys.boolOptional: Constants.boolTrue,
-             CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
-            ]
-        ]
-    ]
-    static let forArrayMappableImplicitlyUnwrappedOptionalObjects = [
-        CodingKeys.validArrayImplicitlyUnwrappedObjects: [
-            [CodingKeys.bool: Constants.boolTrue,
-             CodingKeys.boolOptional: Constants.boolTrue,
-             CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
-            ]
-        ]
-    ]
-    static let forArrayMappableObjectsNotValid = [
+
+    static let arrayMappableObjectsNotValid = [
         CodingKeys.notValidValue: [
             [CodingKeys.bool: Constants.notValidValue,
              CodingKeys.boolOptional: Constants.notValidValue,
@@ -93,36 +81,23 @@ internal final class JSONKeys
             ]
         ]
     ]
-    static let forArrayMappableObjectsEmpty = [
+
+    static let arrayMappableObjectsEmpty = [
         CodingKeys.emptyValue: [[]]
     ]
 
 // MARK: - Set Mappable Objects
-    static let forSetMappableObject = [
-        CodingKeys.validSetObjects: [
-            [CodingKeys.x: Constants.intMax,
-             CodingKeys.y: Constants.intMax,
-             CodingKeys.z: Constants.intMax
+
+    static let setMappableObject = [
+        CodingKeys.validObject: [
+            [CodingKeys.x: Constants.maxInt,
+             CodingKeys.y: Constants.maxInt,
+             CodingKeys.z: Constants.maxInt
             ]
         ]
     ]
-    static let forSetMappableOptionalObjects = [
-        CodingKeys.validSetOptionalObjects: [
-            [CodingKeys.x: Constants.intMin,
-             CodingKeys.y: Constants.intMin,
-             CodingKeys.z: Constants.intMin
-            ]
-        ]
-    ]
-    static let forSetMappableImplicitlyUnwrappedOptionalObjects = [
-        CodingKeys.validSetImplicitlyUnwrappedObjects: [
-            [CodingKeys.x: Constants.intMax,
-             CodingKeys.y: Constants.intMax,
-             CodingKeys.z: Constants.intMax
-            ]
-        ]
-    ]
-    static let forSetMappableObjectsNotValid = [
+
+    static let setMappableObjectsNotValid = [
         CodingKeys.notValidValue: [
             [CodingKeys.x: Constants.notValidValue,
              CodingKeys.y: Constants.notValidValue,
@@ -130,39 +105,24 @@ internal final class JSONKeys
             ]
         ]
     ]
-    static let forSetMappableObjectsEmpty = [
+
+    static let setMappableObjectsEmpty = [
         CodingKeys.emptyValue: [[:]]
     ]
 
 // MARK: - Dictionary Mappable Objects
-    static let forDictionaryMappableObjects = [
-        CodingKeys.validDictionaryObjects: [
-            CodingKeys.validDictionaryObjects: [
-                CodingKeys.bool: Constants.boolTrue,
-                CodingKeys.boolOptional: Constants.boolTrue,
-                CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
+
+    static let dictionaryMappableObjects = [
+        CodingKeys.validObject: [
+            CodingKeys.validObject: [
+                CodingKeys.bool: true,
+                CodingKeys.boolOptional: true,
+                CodingKeys.boolImplicityUnwrapped: true
             ]
         ]
     ]
-    static let forDictionaryMappableOptionalObjects = [
-        CodingKeys.validDictionaryOptionalObjects: [
-            CodingKeys.validDictionaryOptionalObjects: [
-                CodingKeys.bool: Constants.boolTrue,
-                CodingKeys.boolOptional: Constants.boolTrue,
-                CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
-            ]
-        ]
-    ]
-    static let forDictionaryMappableImplicitlyUnwrappedOptionalObjects = [
-        CodingKeys.validDictionaryImplicitlyUnwrappedObjects: [
-            CodingKeys.validDictionaryImplicitlyUnwrappedObjects: [
-                CodingKeys.bool: Constants.boolTrue,
-                CodingKeys.boolOptional: Constants.boolTrue,
-                CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
-            ]
-        ]
-    ]
-    static let forDictionaryMappableObjectsNotValid = [
+
+    static let dictionaryMappableObjectsNotValid = [
         CodingKeys.notValidValue: [
             CodingKeys.notValidValue: [
                 CodingKeys.bool: Constants.notValidValue,
@@ -171,44 +131,27 @@ internal final class JSONKeys
             ]
         ]
     ]
-    static let forDictionaryMappableObjectsEmpty = [
+
+    static let dictionaryMappableObjectsEmpty = [
         CodingKeys.emptyValue: [
             CodingKeys.emptyValue: [:]
         ]
     ]
 
 // MARK: - Dictionary Array Mappable Objects
-    static let forDictionaryMappableArrayObjects = [
-        CodingKeys.validDictionaryArrayObjects: [
-            CodingKeys.validDictionaryArrayObjects: [
-                [CodingKeys.bool: Constants.boolTrue,
-                 CodingKeys.boolOptional: Constants.boolTrue,
-                 CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
+
+    static let dictionaryMappableArrayObjects = [
+        CodingKeys.validObject: [
+            CodingKeys.validObject: [
+                [CodingKeys.bool: true,
+                 CodingKeys.boolOptional: true,
+                 CodingKeys.boolImplicityUnwrapped: true
                 ]
             ]
         ]
     ]
-    static let forDictionaryMappableArrayOptionalObjects = [
-        CodingKeys.validDictionaryArrayOptionalObjects: [
-            CodingKeys.validDictionaryArrayOptionalObjects: [
-                [CodingKeys.bool: Constants.boolTrue,
-                 CodingKeys.boolOptional: Constants.boolTrue,
-                 CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
-                ]
-            ]
-        ]
-    ]
-    static let forDictionaryMappableArrayImplicitlyUnwrappedOptionalObjects = [
-        CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects: [
-            CodingKeys.validDictionaryArrayImplicitlyUnwrappedObjects: [
-                [CodingKeys.bool: Constants.boolTrue,
-                 CodingKeys.boolOptional: Constants.boolTrue,
-                 CodingKeys.boolImplicityUnwrapped: Constants.boolTrue
-                ]
-            ]
-        ]
-    ]
-    static let forDictionaryMappableArrayObjectsNotValid = [
+
+    static let dictionaryMappableArrayObjectsNotValid = [
         CodingKeys.notValidValue: [
             CodingKeys.notValidValue: [
                 [CodingKeys.bool: Constants.notValidValue,
@@ -218,81 +161,94 @@ internal final class JSONKeys
             ]
         ]
     ]
-    static let forDictionaryMappableArrayObjectsEmpty = [
+
+    static let dictionaryMappableArrayObjectsEmpty = [
         CodingKeys.emptyValue: [
             CodingKeys.emptyValue: [:]
         ]
     ]
 
 // MARK: -  Transforms BasicTypes
-    static let forTransformBasicTypes = [
-        CodingKeys.int: "\(Constants.intMin)"
+
+    static let transformBasicTypes = [
+        CodingKeys.int: "\(Constants.minInt)"
     ]
-    static let forTransformBasicTypesNotValid = [
+
+    static let transformBasicTypesNotValid = [
         CodingKeys.notValidValue: Constants.notValidValue
     ]
 
 // MARK: -  Transforms Array BasicTypes
-    static let forTransformArrayBasicTypes = [
+
+    static let transformArrayBasicTypes = [
         CodingKeys.int: [
-            "\(Constants.intMin)", "\(Constants.intMax)"
+            "\(Constants.minInt)", "\(Constants.maxInt)"
         ]
     ]
-    static let forTransformArrayBasicTypesNotValid = [
+
+    static let transformArrayBasicTypesNotValid = [
         CodingKeys.notValidValue: [
-            Constants.intMin, Constants.intMax
+            Constants.minInt, Constants.maxInt
         ]
     ]
 
 // MARK: -  Transforms Dictionary BasicTypes
-    static let forTransformDictionaryBasicTypes = [
+
+    static let transformDictionaryBasicTypes = [
         CodingKeys.validObject: [
-            CodingKeys.validObject: "\(Constants.intMin)"
+            CodingKeys.validObject: "\(Constants.minInt)"
         ]
     ]
-    static let forTransformDictionaryBasicTypesNotValid = [
+
+    static let transformDictionaryBasicTypesNotValid = [
         CodingKeys.validObject: [
-            CodingKeys.validObject: Constants.intMin
+            CodingKeys.validObject: Constants.minInt
         ]
     ]
 
 // MARK: -  Transforms Mappable Object
-    static let forTransformMappableObject = [
+
+    static let transformMappableObject = [
         CodingKeys.validObject: [
-            CodingKeys.x: "\(Constants.intMax)",
-            CodingKeys.y: "\(Constants.intMax)",
-            CodingKeys.z: "\(Constants.intMax)"
+            CodingKeys.x: "\(Constants.maxInt)",
+            CodingKeys.y: "\(Constants.maxInt)",
+            CodingKeys.z: "\(Constants.maxInt)"
         ]
     ]
-    static let forTransformMappableObjectNotValid = [
+
+    static let transformMappableObjectNotValid = [
         CodingKeys.validObject: [
-            CodingKeys.x: Constants.intMax,
-            CodingKeys.y: Constants.intMax,
-            CodingKeys.z: Constants.intMax
+            CodingKeys.x: Constants.maxInt,
+            CodingKeys.y: Constants.maxInt,
+            CodingKeys.z: Constants.maxInt
         ]
     ]
-    static let forTransformMappableObjectEmpty = [
+
+    static let transformMappableObjectEmpty = [
         CodingKeys.emptyValue: [:]
     ]
 
 // MARK: -  Transforms Array of Mappable Object
-    static let forTransformArrayMappableObject = [
+
+    static let transformArrayMappableObject = [
         CodingKeys.validObject: [
-            [CodingKeys.x: "\(Constants.intMax)",
-             CodingKeys.y: "\(Constants.intMax)",
-             CodingKeys.z: "\(Constants.intMax)"
+            [CodingKeys.x: "\(Constants.maxInt)",
+             CodingKeys.y: "\(Constants.maxInt)",
+             CodingKeys.z: "\(Constants.maxInt)"
             ]
         ]
     ]
-    static let forTransformArrayMappableObjectNotValid = [
+
+    static let transformArrayMappableObjectNotValid = [
         CodingKeys.validObject: [
-            [CodingKeys.x: Constants.intMax,
-             CodingKeys.y: Constants.intMax,
-             CodingKeys.z: Constants.intMax
+            [CodingKeys.x: Constants.maxInt,
+             CodingKeys.y: Constants.maxInt,
+             CodingKeys.z: Constants.maxInt
             ]
         ]
     ]
-    static let forTransformArrayMappableObjectEmpty = [
+
+    static let transformArrayMappableObjectEmpty = [
         CodingKeys.validObject: [
             [
             ]
@@ -300,75 +256,90 @@ internal final class JSONKeys
     ]
 
 // MARK: -  Transforms Dictionary of Mappable Object
-    static let forTransformDictionaryMappableObject = [
+
+    static let transformDictionaryMappableObject = [
         CodingKeys.validObject: [
             CodingKeys.validObject: [
-                CodingKeys.x: "\(Constants.intMax)",
-                CodingKeys.y: "\(Constants.intMax)",
-                CodingKeys.z: "\(Constants.intMax)"
+                CodingKeys.x: "\(Constants.maxInt)",
+                CodingKeys.y: "\(Constants.maxInt)",
+                CodingKeys.z: "\(Constants.maxInt)"
             ]
         ]
     ]
-    static let forTransformDictionaryMappableObjectNotValid = [
+
+    static let transformDictionaryMappableObjectNotValid = [
         CodingKeys.validObject: [
             CodingKeys.validObject: [
-                CodingKeys.x: Constants.intMax,
-                CodingKeys.y: Constants.intMax,
-                CodingKeys.z: Constants.intMax
+                CodingKeys.x: Constants.maxInt,
+                CodingKeys.y: Constants.maxInt,
+                CodingKeys.z: Constants.maxInt
             ]
         ]
     ]
-    static let forTransformDictionaryMappableObjectEmpty = [
+
+    static let transformDictionaryMappableObjectEmpty = [
         CodingKeys.validObject: [:]
     ]
 
 // MARK: -  Transforms Set of Mappable Object
-    static let forTransformSetMappableObject = [
+
+    static let transformSetMappableObject = [
         CodingKeys.validObject: [
-            [CodingKeys.x: "\(Constants.intMax)",
-             CodingKeys.y: "\(Constants.intMax)",
-             CodingKeys.z: "\(Constants.intMax)"
+            [CodingKeys.x: "\(Constants.maxInt)",
+             CodingKeys.y: "\(Constants.maxInt)",
+             CodingKeys.z: "\(Constants.maxInt)"
             ]
         ]
     ]
-    static let forTransformSetMappableObjectNotValid = [
+
+    static let transformSetMappableObjectNotValid = [
         CodingKeys.validObject: [
-            [CodingKeys.x: Constants.intMax,
-             CodingKeys.y: Constants.intMax,
-             CodingKeys.z: Constants.intMax
+            [CodingKeys.x: Constants.maxInt,
+             CodingKeys.y: Constants.maxInt,
+             CodingKeys.z: Constants.maxInt
             ]
         ]
     ]
-    static let forTransformSetMappableObjectEmpty = [
+
+    static let transformSetMappableObjectEmpty = [
         CodingKeys.validObject: [[:]]
     ]
 
 // MARK: - Enum Operators Object
-    static let forEnumOperatorsObject = [
+
+    static let enumOperatorsObject = [
         CodingKeys.validObject: Constants.enumObjectAnother
     ]
-    static let forEnumOperatorsObjectNotValid = [
-        CodingKeys.validObject: Constants.boolTrue
+
+    static let enumOperatorsObjectNotValid = [
+        CodingKeys.validObject: true
     ]
-    static let forEnumOperatorsObjectEmpty: [String: Any] = [:]
+
+    static let enumOperatorsObjectEmpty: [String: Any] = [:]
 
 // MARK: - Enum Operators Array Object
-    static let forEnumOperatorsArrayObject = [
+
+    static let enumOperatorsArrayObject = [
         CodingKeys.validObject: [Constants.enumObjectAnother]
     ]
-    static let forEnumOperatorsArrayObjectNotValid = [
-        CodingKeys.validObject: [Constants.boolTrue]
+
+    static let enumOperatorsArrayObjectNotValid = [
+        CodingKeys.validObject: [true]
     ]
-    static let forEnumOperatorsArrayObjectEmpty: [String: [Any]] = [:]
+
+    static let enumOperatorsArrayObjectEmpty: [String: [Any]] = [:]
 
 // MARK: - Enum Operators Dictionary Object
-    static let forEnumOperatorsDictionaryObject = [
+
+    static let enumOperatorsDictionaryObject = [
         CodingKeys.validObject: [CodingKeys.enumObject: Constants.enumObjectAnother]
     ]
-    static let forEnumOperatorsDictionaryObjectNotValid = [
-        CodingKeys.validObject: [CodingKeys.enumObject: Constants.boolTrue]
+
+    static let enumOperatorsDictionaryObjectNotValid = [
+        CodingKeys.validObject: [CodingKeys.enumObject: true]
     ]
-    static let forEnumOperatorsDictionaryObjectEmpty: [String: [Any]] = [:]
+
+    static let enumOperatorsDictionaryObjectEmpty: [String: [Any]] = [:]
 }
 
 // ----------------------------------------------------------------------------

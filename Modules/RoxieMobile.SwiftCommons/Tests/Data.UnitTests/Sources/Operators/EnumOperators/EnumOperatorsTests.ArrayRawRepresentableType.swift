@@ -2,7 +2,7 @@
 //
 //  EnumOperatorsTests.ArrayRawRepresentableType.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -17,14 +17,14 @@ import XCTest
 
 extension EnumOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testArrayRawRepresentableTypesObjectToJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
+        let object: [EnumObject] = [EnumObject.Another]
 
         // Positive
-        let object: [EnumObject] = [EnumObject.Another]
         object >>> map[CodingKeys.validObject]
         XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
@@ -35,17 +35,20 @@ extension EnumOperatorsTests
     }
 
     func testArrayRawRepresentableTypesObjectFromJSON() {
-        let JSONString = JSONKeys.forEnumOperatorsArrayObject
-        let JSONStringNotValid = JSONKeys.forEnumOperatorsArrayObjectNotValid
-        let JSONStringEmpty = JSONKeys.forEnumOperatorsArrayObjectEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
-        mapValid.JSON[CodingKeys.nilValue] = nil
+        let JsonString = JsonKeys.enumOperatorsArrayObject
+        let JsonStringNotValid = JsonKeys.enumOperatorsArrayObjectNotValid
+        let JsonStringEmpty = JsonKeys.enumOperatorsArrayObjectEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
         var object: [EnumObject] = [EnumObject.Default]
+
         object <~ mapValid[CodingKeys.validObject]
+
+        // Positive
         XCTAssertEqual(object.first?.rawValue, "Another")
 
         // Negative
@@ -55,6 +58,8 @@ extension EnumOperatorsTests
         guardNegativeException {
             object <~ mapValid[CodingKeys.noSuchKey]
         }
+
+        mapValid.JSON[CodingKeys.nilValue] = nil
         guardNegativeException {
             object <~ mapValid[CodingKeys.nilValue]
         }
@@ -70,15 +75,16 @@ extension EnumOperatorsTests
 
 extension EnumOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testArrayRawRepresentableTypesOptionalObjectToJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
+        let object: [EnumObject]? = [EnumObject.Another]
+
+        object >>> map[CodingKeys.validObject]
 
         // Positive
-        let object: [EnumObject]? = [EnumObject.Another]
-        object >>> map[CodingKeys.validObject]
         XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
         // Negative
@@ -88,26 +94,31 @@ extension EnumOperatorsTests
     }
 
     func testArrayRawRepresentableTypesOptionalObjectFromJSON() {
-        let JSONString = JSONKeys.forEnumOperatorsArrayObject
-        let JSONStringNotValid = JSONKeys.forEnumOperatorsArrayObjectNotValid
-        let JSONStringEmpty = JSONKeys.forEnumOperatorsArrayObjectEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
-        mapValid.JSON[CodingKeys.nilValue] = nil
+        let JsonString = JsonKeys.enumOperatorsArrayObject
+        let JsonStringNotValid = JsonKeys.enumOperatorsArrayObjectNotValid
+        let JsonStringEmpty = JsonKeys.enumOperatorsArrayObjectEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
         var object: [EnumObject]? = nil
+
         object <~ mapValid[CodingKeys.validObject]
+
+        // Positive
         XCTAssertEqual(object?.first?.rawValue, "Another")
 
         // Negative
         guardNegativeException {
             object <~ mapNotValid[CodingKeys.validObject]
         }
+
         object <~ mapValid[CodingKeys.noSuchKey]
         XCTAssertNil(object)
 
+        mapValid.JSON[CodingKeys.nilValue] = nil
         object <~ mapValid[CodingKeys.nilValue]
         XCTAssertNil(object)
 
@@ -122,15 +133,16 @@ extension EnumOperatorsTests
 
 extension EnumOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testArrayRawRepresentableTypesImplicitlyUnwrappedOptionalObjectToJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
+        var object: [EnumObject]! = [EnumObject.Another]
+
+        object <~ map[CodingKeys.validObject]
 
         // Positive
-        var object: [EnumObject]! = [EnumObject.Another]
-        object <~ map[CodingKeys.validObject]
         XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
         // Negative
@@ -140,17 +152,19 @@ extension EnumOperatorsTests
     }
 
     func testArrayRawRepresentableTypesImplicitlyUnwrappedOptionalObjectFromJSON() {
-        let JSONString = JSONKeys.forEnumOperatorsArrayObject
-        let JSONStringNotValid = JSONKeys.forEnumOperatorsArrayObjectNotValid
-        let JSONStringEmpty = JSONKeys.forEnumOperatorsArrayObjectEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
-        mapValid.JSON[CodingKeys.nilValue] = nil
+        let JsonString = JsonKeys.enumOperatorsArrayObject
+        let JsonStringNotValid = JsonKeys.enumOperatorsArrayObjectNotValid
+        let JsonStringEmpty = JsonKeys.enumOperatorsArrayObjectEmpty
 
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
         var object: [EnumObject]! = [EnumObject.Default]
+
         object <~ mapValid[CodingKeys.validObject]
+
+        // Positive
         XCTAssertEqual(object.first?.rawValue, "Another")
 
         // Negative
@@ -160,6 +174,8 @@ extension EnumOperatorsTests
         guardNegativeException {
             object <~ mapValid[CodingKeys.noSuchKey]
         }
+
+        mapValid.JSON[CodingKeys.nilValue] = nil
         guardNegativeException {
             object <~ mapValid[CodingKeys.nilValue]
         }

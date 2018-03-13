@@ -2,7 +2,7 @@
 //
 //  OperatorsTests.DictionaryMappable.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -20,20 +20,22 @@ extension OperatorsTests
 // MARK: - Tests
 
     func testDictionaryMappableObjectsToJSON() {
+
         let objectValid = ValidMappableObjectModel()
         let objectNotValid = SetNotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
 
         let dictionaryObjects: Dictionary<String, ValidMappableObjectModel> = [CodingKeys.validDictionaryObjects: objectValid]
-
         let dictionaryNotValid: Dictionary<String, SetNotValidMappableObjectModel> = [CodingKeys.notValidValue: objectNotValid]
         let dictionaryEmpty: Dictionary<String, ValidMappableObjectModel> = [:]
         let dictionaryNil: Dictionary<String, ValidMappableObjectModel>? = nil
 
-        dictionaryObjects >>> map[CodingKeys.validDictionaryObjects]
+        dictionaryObjects >>> map[CodingKeys.validObject]
 
-        XCTAssertNotNil(map.JSON[CodingKeys.validDictionaryObjects])
+        // Positive
+        XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
+        // Negative
         guardNegativeException {
             dictionaryNotValid >>> map[CodingKeys.notValidValue]
         }
@@ -46,33 +48,31 @@ extension OperatorsTests
     }
 
     func testDictionaryMappableObjectsFromJSON() {
-        let JSONString = JSONKeys.forDictionaryMappableObjects
-        let JSONStringNotValid = JSONKeys.forDictionaryMappableObjectsNotValid
-        let JSONStringEmpty = JSONKeys.forDictionaryMappableObjectsEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
+        let JsonString = JsonKeys.dictionaryMappableObjects
+        let JsonStringNotValid = JsonKeys.dictionaryMappableObjectsNotValid
+        let JsonStringEmpty = JsonKeys.dictionaryMappableObjectsEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
         var dictionaryObjects: Dictionary<String, ValidMappableObjectModel> = [:]
 
-        dictionaryObjects <~ mapValid[CodingKeys.validDictionaryObjects]
+        dictionaryObjects <~ mapValid[CodingKeys.validObject]
 
+        // Positive
+        XCTAssertNotNil(dictionaryObjects[CodingKeys.validObject])
 
-        /// Valid Dictionary
-        XCTAssertNotNil(dictionaryObjects[CodingKeys.validDictionaryObjects])
-
-        /// Empty Dictionary
+        // Negative
         guardNegativeException {
             dictionaryObjects <~ mapEmpty[CodingKeys.emptyValue]
         }
 
-        /// Not Valid Dictionary
         guardNegativeException {
             dictionaryObjects <~ mapNotValid[CodingKeys.notValidValue]
         }
 
-        /// Not Valid Key
         guardNegativeException {
             dictionaryObjects <~ mapValid[CodingKeys.noSuchKey]
         }
@@ -85,9 +85,10 @@ extension OperatorsTests
 
 extension OperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testDictionaryMappableOptionalObjectsToJSON() {
+
         let objectValid = ValidMappableObjectModel()
         let objectNotValid = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
@@ -97,11 +98,12 @@ extension OperatorsTests
         let dictionaryEmpty: Dictionary<String, ValidMappableObjectModel> = [:]
         let dictionaryNil: Dictionary<String, ValidMappableObjectModel>? = nil
 
-        dictionaryObjectsOptional >>> map[CodingKeys.validDictionaryOptionalObjects]
+        dictionaryObjectsOptional >>> map[CodingKeys.validObject]
 
-        XCTAssertNotNil(map.JSON[CodingKeys.validDictionaryOptionalObjects])
+        // Positive
+        XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
-
+        // Negative
         guardNegativeException {
             dictionaryNotValid >>> map[CodingKeys.notValidValue]
         }
@@ -114,32 +116,31 @@ extension OperatorsTests
     }
 
     func testDictionaryMappableOptionalObjectsFromJSON() {
-        let JSONString = JSONKeys.forDictionaryMappableOptionalObjects
-        let JSONStringNotValid = JSONKeys.forDictionaryMappableObjectsNotValid
-        let JSONStringEmpty = JSONKeys.forDictionaryMappableObjectsEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
+        let JsonString = JsonKeys.dictionaryMappableObjects
+        let JsonStringNotValid = JsonKeys.dictionaryMappableObjectsNotValid
+        let JsonStringEmpty = JsonKeys.dictionaryMappableObjectsEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
         var dictionaryObjectsOptional: Dictionary<String, ValidMappableObjectModel>? = nil
 
-        dictionaryObjectsOptional <~ mapValid[CodingKeys.validDictionaryOptionalObjects]
+        dictionaryObjectsOptional <~ mapValid[CodingKeys.validObject]
 
-        /// Valid Dictionary
+        // Positive
         XCTAssertNotNil(dictionaryObjectsOptional?.first)
 
-        /// Empty Dictionary
+        // Negative
         guardNegativeException {
             dictionaryObjectsOptional <~ mapEmpty[CodingKeys.emptyValue]
         }
 
-        /// Not Valid Dictionary
         guardNegativeException {
             dictionaryObjectsOptional <~ mapNotValid[CodingKeys.notValidValue]
         }
 
-        /// Not Valid Key
         dictionaryObjectsOptional <~ mapValid[CodingKeys.noSuchKey]
         XCTAssertNil(dictionaryObjectsOptional)
     }
@@ -151,9 +152,10 @@ extension OperatorsTests
 
 extension OperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testDictionaryMappableImplicitlyUnwrappedOptionalObjectsToJSON() {
+
         let objectValid = ValidMappableObjectModel()
         let objectNotValid = NotValidMappableObjectModel()
         let map = Map(mappingType: .toJSON, JSON: [:])
@@ -163,12 +165,12 @@ extension OperatorsTests
         let dictionaryEmpty: Dictionary<String, ValidMappableObjectModel> = [:]
         let dictionaryNil: Dictionary<String, ValidMappableObjectModel>? = nil
 
-        dictionaryObjectsImplicitlyUnwrappedOptional <~ map[CodingKeys.validDictionaryImplicitlyUnwrappedObjects]
+        dictionaryObjectsImplicitlyUnwrappedOptional <~ map[CodingKeys.validObject]
 
+        // Positive
+        XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
-        XCTAssertNotNil(map.JSON[CodingKeys.validDictionaryImplicitlyUnwrappedObjects])
-
-
+        // Negative
         guardNegativeException {
             dictionaryNotValid >>> map[CodingKeys.notValidValue]
         }
@@ -181,32 +183,31 @@ extension OperatorsTests
     }
 
     func testDictionaryMappableImplicitlyUnwrappedOptionalObjectsFromJSON() {
-        let JSONString = JSONKeys.forDictionaryMappableImplicitlyUnwrappedOptionalObjects
-        let JSONStringNotValid = JSONKeys.forDictionaryMappableObjectsNotValid
-        let JSONStringEmpty = JSONKeys.forDictionaryMappableObjectsEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
+        let JsonString = JsonKeys.dictionaryMappableObjects
+        let JsonStringNotValid = JsonKeys.dictionaryMappableObjectsNotValid
+        let JsonStringEmpty = JsonKeys.dictionaryMappableObjectsEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
         var dictionaryObjectsImplicitlyUnwrappedOptional: Dictionary<String, ValidMappableObjectModel>!
 
-        dictionaryObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.validDictionaryImplicitlyUnwrappedObjects]
+        dictionaryObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.validObject]
 
-        /// Valid Dictionary
-        XCTAssertNotNil(dictionaryObjectsImplicitlyUnwrappedOptional[CodingKeys.validDictionaryImplicitlyUnwrappedObjects])
+        // Positive
+        XCTAssertNotNil(dictionaryObjectsImplicitlyUnwrappedOptional[CodingKeys.validObject])
 
-        /// Empty Dictionary
+        // Negative
         guardNegativeException {
             dictionaryObjectsImplicitlyUnwrappedOptional <~ mapEmpty[CodingKeys.emptyValue]
         }
 
-        /// Not Valid Dictionary
         guardNegativeException {
             dictionaryObjectsImplicitlyUnwrappedOptional <~ mapNotValid[CodingKeys.notValidValue]
         }
 
-        /// Not Valid Key
         guardNegativeException {
             dictionaryObjectsImplicitlyUnwrappedOptional <~ mapValid[CodingKeys.noSuchKey]
         }

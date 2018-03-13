@@ -2,7 +2,7 @@
 //
 //  SetValidModelTransform.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -15,15 +15,13 @@ import SwiftCommonsConcurrent
 
 internal class SetValidModelTransform: TransformType
 {
-    typealias Object = SetValidTransformMappableObjectModel
-    typealias JSON = String
+// MARK: - Construction
 
-    // MARK: - Construction
     init() {
         // Do nothing
     }
 
-    // MARK: - Methods
+// MARK: - Methods
     func transformFromJSON(_ value: Any?) -> SetValidTransformMappableObjectModel? {
         guard let string = value as? [String: Any] else {
             return nil
@@ -36,9 +34,14 @@ internal class SetValidModelTransform: TransformType
             return nil
         }
 
-        let JSONString = Mapper().toJSONString(validModel, prettyPrint: true)
-        return JSONString
+        let JsonString = Mapper().toJSONString(validModel, prettyPrint: true)
+        return JsonString
     }
+
+// MARK: - Inner Types
+
+    typealias Object = SetValidTransformMappableObjectModel
+    typealias JSON = String
 }
 
 // ----------------------------------------------------------------------------

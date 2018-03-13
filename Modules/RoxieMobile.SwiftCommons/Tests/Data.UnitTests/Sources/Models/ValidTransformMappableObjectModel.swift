@@ -2,7 +2,7 @@
 //
 //  ValidTransformMappableObjectModel.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -15,6 +15,7 @@ import SwiftCommonsConcurrent
 
 internal class ValidTransformMappableObjectModel: Mappable
 {
+// MARK: - Construction
 
     init() {
         // Do nothing
@@ -23,13 +24,13 @@ internal class ValidTransformMappableObjectModel: Mappable
     required init?(map: Map) {
     }
 
-    // MARK: - Properties
+// MARK: - Properties
 
-    var x: Int = Int(Constants.intMin)
-    var y: Int? = Int(Constants.intMin)
-    var z: Int! = Int(Constants.intMin)
+    var x: Int = Int(Constants.minInt)
+    var y: Int? = Int(Constants.minInt)
+    var z: Int! = Int(Constants.minInt)
 
-    // MARK: - Methods
+// MARK: - Methods
 
     func mapping(map: Map) {
         self.x <~ (map[CodingKeys.x], IntTransform())

@@ -2,7 +2,7 @@
 //
 //  CodingKeys.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -21,6 +21,7 @@ internal final class CodingKeys
     static let boolImplicityUnwrapped = "boolImp"
 
 // MARK: -  Signed Integer Coding Keys
+
     static let int = "int"
     static let intOptional = "intOpt"
     static let intImplicityUnwrapped = "intImp"
@@ -42,6 +43,7 @@ internal final class CodingKeys
     static let int64ImplicityUnwrapped = "int64Imp"
 
 // MARK: -  Unsigned Integer Coding Keys
+
     static let uint = "uint"
     static let uintOptional = "uintOpt"
     static let uintImplicityUnwrapped = "uintImp"
@@ -69,44 +71,51 @@ internal final class CodingKeys
     static let dateImplicityUnwrapped = "dateImp"
 
 // MARK: -  Negative Exception Coding Keys
+
     static let nilValue = "nilValue"
     static let emptyValue = "emptyValue"
     static let notValidValue = "notValidValue"
     static let noSuchKey = "noSuchKey"
 
 // MARK: -  XYZ Coding Keys
+
     static let x = "x"
     static let y = "y"
     static let z = "z"
 
 // MARK: -  Valid Object Coding Keys
+
     static let validObject = "validObject"
     static let validObjectOptional = "validOptionalObject"
     static let validObjectImplicitlyUnwrapped = "validImplicitlyUnwrappedObject"
 
 // MARK: -  Valid Array Objects Coding Keys
+
     static let validArrayObjects = "validArrayObjects"
     static let validArrayOptionalObjects = "validArrayOptionalObjects"
     static let validArrayImplicitlyUnwrappedObjects = "validArrayImplicitlyUnwrappedObjects"
 
 // MARK: -  Valid Set Objects Coding Keys
+
     static let validSetObjects = "validSetObjects"
     static let validSetOptionalObjects = "validSetOptionalObjects"
     static let validSetImplicitlyUnwrappedObjects = "validSetImplicitlyUnwrappedObjects"
 
 // MARK: -  Valid Dictionary Objects Coding Keys
+
     static let validDictionaryObjects = "validDictionaryObjects"
     static let validDictionaryOptionalObjects = "validDictionaryOptionalObjects"
     static let validDictionaryImplicitlyUnwrappedObjects = "validDictionaryImplicitlyUnwrappedObjects"
 
 // MARK: -  Valid Dictionary Array Objects Coding Keys
+
     static let validDictionaryArrayObjects = "validDictionaryArrayObjects"
     static let validDictionaryArrayOptionalObjects = "validDictionaryArrayOptionalObjects"
     static let validDictionaryArrayImplicitlyUnwrappedObjects = "validDictionaryArrayImplicitlyUnwrappedObjects"
 
 // MARK: - Enum Coding Keys
-    static let enumObject = "enumObject"
 
+    static let enumObject = "enumObject"
 }
 
 // ----------------------------------------------------------------------------

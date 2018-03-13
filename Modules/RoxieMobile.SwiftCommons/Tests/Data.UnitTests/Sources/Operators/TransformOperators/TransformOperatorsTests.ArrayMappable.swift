@@ -2,7 +2,7 @@
 //
 //  TransformOperatorsTests.ArrayMappable.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -17,14 +17,16 @@ import XCTest
 
 extension TransformOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testTransformArrayMappableObjectsToJSON() {
+
         let map = Map(mappingType: .toJSON, JSON: [:])
+        let objectBasicType: [ValidTransformMappableObjectModel] = [ValidTransformMappableObjectModel()]
+
+        objectBasicType >>> (map[CodingKeys.validObject], ValidModelTransform())
 
         // Positive
-        let objectBasicType: [ValidTransformMappableObjectModel] = [ValidTransformMappableObjectModel()]
-        objectBasicType >>> (map[CodingKeys.validObject], ValidModelTransform())
         XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
         // Negative
@@ -34,18 +36,21 @@ extension TransformOperatorsTests
     }
 
     func testTransformArrayMappableObjectsFromJSON() {
-        let JSONString = JSONKeys.forTransformArrayMappableObject
-        let JSONStringNotValid = JSONKeys.forTransformArrayMappableObjectNotValid
-        let JSONStringEmpty = JSONKeys.forTransformArrayMappableObjectEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
-        mapValid.JSON[CodingKeys.nilValue] = nil
+        let JsonString = JsonKeys.transformArrayMappableObject
+        let JsonStringNotValid = JsonKeys.transformArrayMappableObjectNotValid
+        let JsonStringEmpty = JsonKeys.transformArrayMappableObjectEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
         var objectBasicType: [ValidTransformMappableObjectModel] = []
+
         objectBasicType <~ (mapValid[CodingKeys.validObject], ValidModelTransform())
-        XCTAssertEqual(objectBasicType[0].x, Int(Constants.intMax))
+
+        // Positive
+        XCTAssertEqual(objectBasicType[0].x, Int(Constants.maxInt))
 
         // Negative
         guardNegativeException {
@@ -54,6 +59,8 @@ extension TransformOperatorsTests
         guardNegativeException {
             objectBasicType <~ (mapValid[CodingKeys.noSuchKey], ValidModelTransform())
         }
+
+        mapValid.JSON[CodingKeys.nilValue] = nil
         guardNegativeException {
             objectBasicType <~ (mapValid[CodingKeys.nilValue], ValidModelTransform())
         }
@@ -69,14 +76,16 @@ extension TransformOperatorsTests
 
 extension TransformOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testTransformArrayMappableOptionalObjectsToJSON() {
+
         let map = Map(mappingType: .toJSON, JSON: [:])
+        let objectBasicType: [ValidTransformMappableObjectModel]? = [ValidTransformMappableObjectModel()]
+
+        objectBasicType >>> (map[CodingKeys.validObject], ValidModelTransform())
 
         // Positive
-        let objectBasicType: [ValidTransformMappableObjectModel]? = [ValidTransformMappableObjectModel()]
-        objectBasicType >>> (map[CodingKeys.validObject], ValidModelTransform())
         XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
         // Negative
@@ -86,18 +95,21 @@ extension TransformOperatorsTests
     }
 
     func testTransformArrayMappableOptionalObjectsFromJSON() {
-        let JSONString = JSONKeys.forTransformArrayMappableObject
-        let JSONStringNotValid = JSONKeys.forTransformArrayMappableObjectNotValid
-        let JSONStringEmpty = JSONKeys.forTransformArrayMappableObjectEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
-        mapValid.JSON[CodingKeys.nilValue] = nil
+        let JsonString = JsonKeys.transformArrayMappableObject
+        let JsonStringNotValid = JsonKeys.transformArrayMappableObjectNotValid
+        let JsonStringEmpty = JsonKeys.transformArrayMappableObjectEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
         var objectBasicType: [ValidTransformMappableObjectModel]? = nil
+
         objectBasicType <~ (mapValid[CodingKeys.validObject], ValidModelTransform())
-        XCTAssertEqual(objectBasicType?[0].x, Int(Constants.intMax))
+
+        // Positive
+        XCTAssertEqual(objectBasicType?[0].x, Int(Constants.maxInt))
 
         // Negative
         objectBasicType <~ (mapNotValid[CodingKeys.notValidValue], ValidModelTransform())
@@ -106,6 +118,7 @@ extension TransformOperatorsTests
         objectBasicType <~ (mapValid[CodingKeys.noSuchKey], ValidModelTransform())
         XCTAssertNil(objectBasicType)
 
+        mapValid.JSON[CodingKeys.nilValue] = nil
         objectBasicType <~ (mapValid[CodingKeys.nilValue], ValidModelTransform())
         XCTAssertNil(objectBasicType)
 
@@ -120,14 +133,16 @@ extension TransformOperatorsTests
 
 extension TransformOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testTransformArrayMappableImplicitlyUnwrappedOptionalObjectToJSON() {
+
         let map = Map(mappingType: .toJSON, JSON: [:])
+        var objectBasicType: [ValidTransformMappableObjectModel]! = [ValidTransformMappableObjectModel()]
+
+        objectBasicType <~ (map[CodingKeys.validObject], ValidModelTransform())
 
         // Positive
-        var objectBasicType: [ValidTransformMappableObjectModel]! = [ValidTransformMappableObjectModel()]
-        objectBasicType <~ (map[CodingKeys.validObject], ValidModelTransform())
         XCTAssertNotNil(map.JSON[CodingKeys.validObject])
 
         // Negative
@@ -137,18 +152,21 @@ extension TransformOperatorsTests
     }
 
     func testTransformArrayMappableImplicitlyUnwrappedOptionalObjectFromJSON() {
-        let JSONString = JSONKeys.forTransformArrayMappableObject
-        let JSONStringNotValid = JSONKeys.forTransformArrayMappableObjectNotValid
-        let JSONStringEmpty = JSONKeys.forTransformArrayMappableObjectEmpty
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
-        let mapEmpty = Map(mappingType: .fromJSON, JSON: JSONStringEmpty)
-        mapValid.JSON[CodingKeys.nilValue] = nil
+        let JsonString = JsonKeys.transformArrayMappableObject
+        let JsonStringNotValid = JsonKeys.transformArrayMappableObjectNotValid
+        let JsonStringEmpty = JsonKeys.transformArrayMappableObjectEmpty
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
+        let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
         var objectBasicType: [ValidTransformMappableObjectModel]! = []
+
         objectBasicType <~ (mapValid[CodingKeys.validObject], ValidModelTransform())
-        XCTAssertEqual(objectBasicType[0].x, Int(Constants.intMax))
+
+        // Positive
+        XCTAssertEqual(objectBasicType[0].x, Int(Constants.maxInt))
 
         // Negative
         guardNegativeException {
@@ -157,6 +175,8 @@ extension TransformOperatorsTests
         guardNegativeException {
             objectBasicType <~ (mapValid[CodingKeys.noSuchKey], ValidModelTransform())
         }
+
+        mapValid.JSON[CodingKeys.nilValue] = nil
         guardNegativeException {
             objectBasicType <~ (mapValid[CodingKeys.nilValue], ValidModelTransform())
         }

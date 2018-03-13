@@ -74,7 +74,6 @@
 		1AB4DDAA204FD74000DD1134 /* TransformOperatorsTests.Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.Mappable.swift; sourceTree = "<group>"; };
 		1AB4DDAC204FDB8100DD1134 /* ValidTransformMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidTransformMappableObjectModel.swift; sourceTree = "<group>"; };
 		1AB4DDAE204FE66A00DD1134 /* IntTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntTransform.swift; sourceTree = "<group>"; };
-		1ABBD6BF204FFC2B0049264C /* ValidOptionalTransformMappableObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidOptionalTransformMappableObjectModel.swift; sourceTree = "<group>"; };
 		1ABBD6C1205006D20049264C /* TransformOperatorsTests.BasicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.BasicType.swift; sourceTree = "<group>"; };
 		1AC0FC1420502C86007F72FA /* ValidModelTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidModelTransform.swift; sourceTree = "<group>"; };
 		1AC0FC1920503C86007F72FA /* TransformOperatorsTests.ArrayMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.ArrayMappable.swift; sourceTree = "<group>"; };
@@ -168,7 +167,6 @@
 				1A2B5D7D204DA6E100E165AD /* SetValidMappableObjectModel.swift */,
 				1A2B5D7F204DA82F00E165AD /* SetNotValidMappableObjectModel.swift */,
 				1AB4DDAC204FDB8100DD1134 /* ValidTransformMappableObjectModel.swift */,
-				1ABBD6BF204FFC2B0049264C /* ValidOptionalTransformMappableObjectModel.swift */,
 				1AB4DDAE204FE66A00DD1134 /* IntTransform.swift */,
 				1AC0FC1420502C86007F72FA /* ValidModelTransform.swift */,
 				1A7FDBDE2050485000F62996 /* SetValidTransformMappableObjectModel.swift */,

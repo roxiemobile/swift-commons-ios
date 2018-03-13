@@ -2,7 +2,7 @@
 //
 //  SetValidMappableObjectModel.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -27,9 +27,9 @@ internal struct SetValidMappableObjectModel: Mappable, Hashable, Equatable
 
 // MARK: - Properties
 
-    var x: Int = Int(Constants.intMax)
-    var y: Int = Int(Constants.intMax)
-    var z: Int = Int(Constants.intMax)
+    var x: Int = Int(Constants.maxInt)
+    var y: Int = Int(Constants.maxInt)
+    var z: Int = Int(Constants.maxInt)
     var hashValue: Int {
         return self.x ^ self.y ^ self.z
     }

@@ -2,7 +2,7 @@
 //
 //  OperatorsTests.Mappable.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -38,12 +38,13 @@ extension OperatorsTests
     }
 
     func testObjectMappableFromJSON() {
-        let JSONString = JSONKeys.forMappableObjects
-        let JSONStringNotValid = JSONKeys.forMappableObjectsNotValid
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
+        let JsonString = JsonKeys.mappableObjects
+        let JsonStringNotValid = JsonKeys.mappableObjectsNotValid
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         mapValid.JSON[CodingKeys.nilValue] = nil
-        let mapNotValid = Map(mappingType: .toJSON, JSON: JSONStringNotValid)
+        let mapNotValid = Map(mappingType: .toJSON, JSON: JsonStringNotValid)
         var object: ValidMappableObjectModel = ValidMappableObjectModel()
         object <~ mapValid[CodingKeys.validObject]
         print(object.bool)
@@ -70,7 +71,7 @@ extension OperatorsTests
 
 extension OperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testOptionalMappableObjectsToJSON() {
 
@@ -92,12 +93,12 @@ extension OperatorsTests
 
     func testOptionalMappableObjectsFromJSON() {
 
-        let JSONString = JSONKeys.forMappableObjects
-        let JSONStringNotValid = JSONKeys.forMappableObjectsNotValid
+        let JsonString = JsonKeys.mappableObjects
+        let JsonStringNotValid = JsonKeys.mappableObjectsNotValid
 
-        let map = Map(mappingType: .fromJSON, JSON: JSONString)
+        let map = Map(mappingType: .fromJSON, JSON: JsonString)
         map.JSON[CodingKeys.nilValue] = nil
-        let mapNotValid = Map(mappingType: .toJSON, JSON: JSONStringNotValid)
+        let mapNotValid = Map(mappingType: .toJSON, JSON: JsonStringNotValid)
         var object: ValidMappableObjectModel? = ValidMappableObjectModel()
         object <~ map[CodingKeys.validObject]
         print(object?.bool)
@@ -122,21 +123,22 @@ extension OperatorsTests
 
 extension OperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testObjectImplicitlyUnwrappedOptionalMappableToJSON() {
 
         var object: ValidMappableObjectModel! = ValidMappableObjectModel()
-        print(object.bool)
         var map = Map(mappingType: .toJSON, JSON: [:])
+
         object <~ map[CodingKeys.validObject]
+
+
+        // Positive
         let someDictionary = map.JSON[CodingKeys.validObject]! as! [String: Bool]
         let bool = someDictionary[CodingKeys.bool]!
-
-        /// Positive results
         XCTAssertEqual(object.bool, bool)
 
-        /// Negative results
+        // Negative
         let someDateTime = NotValidMappableObjectModel(map: map)
         guardNegativeException {
             someDateTime >>> map[CodingKeys.date]
@@ -144,26 +146,29 @@ extension OperatorsTests
     }
 
     func testObjectImplicitlyUnwrappedOptionalMappableFromJSON() {
-        let JSONString = JSONKeys.forMappableObjects
-        let JSONStringNotValid = JSONKeys.forMappableObjectsNotValid
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .toJSON, JSON: JSONStringNotValid)
-        mapValid.JSON[CodingKeys.nilValue] = nil
+        let JsonString = JsonKeys.mappableObjects
+        let JsonStringNotValid = JsonKeys.mappableObjectsNotValid
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .toJSON, JSON: JsonStringNotValid)
+
         var object: ValidMappableObjectModel! = ValidMappableObjectModel()
+
         object <~ mapValid[CodingKeys.validObject]
-        print(object.bool)
+
+        // Positive
         XCTAssertTrue(object.bool)
 
-        /// Positive results
-        XCTAssertTrue(object.bool)
-
-        /// Negative results
+        // Negative
         object <~ mapNotValid[CodingKeys.validObject]
         XCTAssertTrue(object.bool)
+
         guardNegativeException {
             object <~ mapValid[CodingKeys.noSuchKey]
         }
+
+        mapValid.JSON[CodingKeys.nilValue] = nil
         guardNegativeException {
             object <~ mapValid[CodingKeys.nilValue]
         }

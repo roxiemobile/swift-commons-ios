@@ -2,7 +2,7 @@
 //
 //  TransformOperatorsTests.ArrayBasicType.swift
 //
-//  @author     Natalia Mamunina <mamuninanv@ekassir.com>
+//  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -17,15 +17,17 @@ import XCTest
 
 extension TransformOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testTransformArrayBasicTypesObjectToJSON() {
-        let map = Map(mappingType: .toJSON, JSON: [:])
 
-        /// Positive
+        let map = Map(mappingType: .toJSON, JSON: [:])
         var objectBasicType: Int = 0
         var arrayObjectBasicType = [objectBasicType]
+
         arrayObjectBasicType >>> (map[CodingKeys.int], IntTransform())
+
+        // Positive
         XCTAssertNotNil(map.JSON[CodingKeys.int])
 
         /// Negative
@@ -35,16 +37,19 @@ extension TransformOperatorsTests
     }
 
     func testTransformArrayBasicTypesObjectFromJSON() {
-        let JSONString = JSONKeys.forTransformArrayBasicTypes
-        let JSONStringNotValid = JSONKeys.forTransformArrayBasicTypesNotValid
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        let JsonString = JsonKeys.transformArrayBasicTypes
+        let JsonStringNotValid = JsonKeys.transformArrayBasicTypesNotValid
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
 
         var arrayObjectBasicType: [Int] = []
+
         arrayObjectBasicType <~ (mapValid[CodingKeys.int], IntTransform())
-        print(arrayObjectBasicType)
-        XCTAssertEqual(arrayObjectBasicType.first, Int(Constants.intMin))
+
+        // Positive
+        XCTAssertEqual(arrayObjectBasicType.first, Int(Constants.minInt))
 
         // Negative
         guardNegativeException {
@@ -62,34 +67,39 @@ extension TransformOperatorsTests
 
 extension TransformOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testTransformArrayOptionalBasicTypesToJSON() {
-        let map = Map(mappingType: .toJSON, JSON: [:])
 
-        /// Positive
+        let map = Map(mappingType: .toJSON, JSON: [:])
         var objectBasicType: Int = 0
         var arrayObjectBasicType: [Int]? = [objectBasicType]
+
         arrayObjectBasicType >>> (map[CodingKeys.int], IntTransform())
+
+        // Positive
         XCTAssertNotNil(map.JSON[CodingKeys.int])
 
-        /// Negative
+        // Negative
         guardNegativeException {
             Constants.dateValue >>> map[CodingKeys.notValidValue]
         }
     }
 
     func testTransformArrayOptionalBasicTypesFromJSON() {
-        let JSONString = JSONKeys.forTransformArrayBasicTypes
-        let JSONStringNotValid = JSONKeys.forTransformArrayBasicTypesNotValid
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        let JsonString = JsonKeys.transformArrayBasicTypes
+        let JsonStringNotValid = JsonKeys.transformArrayBasicTypesNotValid
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
 
         var arrayObjectBasicType: [Int]? = []
+
         arrayObjectBasicType <~ (mapValid[CodingKeys.int], IntTransform())
-        print(arrayObjectBasicType)
-        XCTAssertEqual(arrayObjectBasicType?.first!, Int(Constants.intMin))
+
+        // Positive
+        XCTAssertEqual(arrayObjectBasicType?.first!, Int(Constants.minInt))
 
         // Negative
         guardNegativeException {
@@ -106,15 +116,18 @@ extension TransformOperatorsTests
 
 extension TransformOperatorsTests
 {
-    // MARK: - Tests
+// MARK: - Tests
 
     func testTransformArrayImplicitlyUnwrappedOptionalBasicTypesObjectToJSON() {
+
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        /// Positive
         var objectBasicType: Int = 0
         var arrayObjectBasicType: [Int]! = [objectBasicType]
+
         arrayObjectBasicType <~ (map[CodingKeys.int], IntTransform())
+
+        // Positive
         XCTAssertNotNil(map.JSON[CodingKeys.int])
 
         /// Negative
@@ -124,16 +137,19 @@ extension TransformOperatorsTests
     }
 
     func testTransformArrayImplicitlyUnwrappedOptionalBasicTypesObjectFromJSON() {
-        let JSONString = JSONKeys.forTransformArrayBasicTypes
-        let JSONStringNotValid = JSONKeys.forTransformArrayBasicTypesNotValid
 
-        let mapValid = Map(mappingType: .fromJSON, JSON: JSONString)
-        let mapNotValid = Map(mappingType: .fromJSON, JSON: JSONStringNotValid)
+        let JsonString = JsonKeys.transformArrayBasicTypes
+        let JsonStringNotValid = JsonKeys.transformArrayBasicTypesNotValid
+
+        let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
+        let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
 
         var arrayObjectBasicType: [Int]! = []
+
         arrayObjectBasicType <~ (mapValid[CodingKeys.int], IntTransform())
-        print(arrayObjectBasicType)
-        XCTAssertEqual(arrayObjectBasicType.first, Int(Constants.intMin))
+
+        // Positive
+        XCTAssertEqual(arrayObjectBasicType.first, Int(Constants.minInt))
 
         // Negative
         guardNegativeException {
