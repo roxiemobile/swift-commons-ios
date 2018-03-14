@@ -37,22 +37,26 @@ public final class ObjectMapperException: NSException
 
 // ----------------------------------------------------------------------------
 
-func roxie_objectMapper_raiseException(message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
+internal func roxie_objectMapper_raiseException(message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
     let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
 #if DEBUG
-    preconditionFailure(logMessage)
+    if Roxie.isRunningXCTest {
+        ObjectMapperException(reason: logMessage, userInfo: nil).raise()
+    } else {
+        preconditionFailure(logMessage)
+    }
 #else
     ObjectMapperException(reason: logMessage, userInfo: nil).raise()
+#endif
 
     // Suppress error "Return from a ‘noreturn’ function"
     Swift.fatalError(logMessage)
-#endif
 }
 
 // ----------------------------------------------------------------------------
 
-func roxie_objectMapper_assertionFailure(tag: String, message: @autoclosure () -> String, error: Error? = nil, file: StaticString = #file, line: UInt = #line) {
+internal func roxie_objectMapper_assertionFailure(tag: String, message: @autoclosure () -> String, error: Error? = nil, file: StaticString = #file, line: UInt = #line) {
     let logMessage = "Assertion violated: \(message())\nFile: \(file)\nLine: \(line)"
     Logger.e(tag, logMessage, error)
     assertionFailure(logMessage)

@@ -16,6 +16,13 @@ public final class Roxie: NonCreatable
     public static func typeName(of subject: Any) -> String {
         return Reflection(of: subject).type.name
     }
+
+    @available(*, deprecated, message: "\n• Write a description.")
+    public static var isRunningXCTest: Bool {
+        // How to let the app know if its running Unit tests in a pure Swift project?
+        // @link https://stackoverflow.com/a/29991529
+        return ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+    }
 }
 
 // ----------------------------------------------------------------------------

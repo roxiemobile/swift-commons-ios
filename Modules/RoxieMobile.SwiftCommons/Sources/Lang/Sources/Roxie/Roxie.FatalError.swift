@@ -28,13 +28,17 @@ public extension Roxie
         let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
     #if DEBUG
-        preconditionFailure(logMessage)
+        if Roxie.isRunningXCTest {
+            FatalErrorException(reason: logMessage, userInfo: nil).raise()
+        } else {
+            preconditionFailure(logMessage)
+        }
     #else
         FatalErrorException(reason: logMessage, userInfo: nil).raise()
+    #endif
 
         // Suppress error "Return from a ‘noreturn’ function"
         Swift.fatalError(logMessage)
-    #endif
     }
 
     @available(*, deprecated, message: "\n• Write a description.")
