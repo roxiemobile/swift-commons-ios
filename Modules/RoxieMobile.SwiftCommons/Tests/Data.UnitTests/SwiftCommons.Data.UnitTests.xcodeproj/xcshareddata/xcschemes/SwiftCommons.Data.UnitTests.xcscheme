@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "195D394E1F72CE4900118D17"
-               BuildableName = "SwiftCommonsLang.UnitTests.xctest"
-               BlueprintName = "SwiftCommons.Lang.UnitTests"
-               ReferencedContainer = "container:SwiftCommons.Lang.UnitTests.xcodeproj">
+               BuildableName = "SwiftCommonsData.UnitTests.xctest"
+               BlueprintName = "SwiftCommons.Data.UnitTests"
+               ReferencedContainer = "container:SwiftCommons.Data.UnitTests.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "195D394E1F72CE4900118D17"
-               BuildableName = "SwiftCommonsLang.UnitTests.xctest"
-               BlueprintName = "SwiftCommons.Lang.UnitTests"
-               ReferencedContainer = "container:SwiftCommons.Lang.UnitTests.xcodeproj">
+               BuildableName = "SwiftCommonsData.UnitTests.xctest"
+               BlueprintName = "SwiftCommons.Data.UnitTests"
+               ReferencedContainer = "container:SwiftCommons.Data.UnitTests.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "195D394E1F72CE4900118D17"
-            BuildableName = "SwiftCommonsLang.UnitTests.xctest"
-            BlueprintName = "SwiftCommons.Lang.UnitTests"
-            ReferencedContainer = "container:SwiftCommons.Lang.UnitTests.xcodeproj">
+            BuildableName = "SwiftCommonsData.UnitTests.xctest"
+            BlueprintName = "SwiftCommons.Data.UnitTests"
+            ReferencedContainer = "container:SwiftCommons.Data.UnitTests.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "195D394E1F72CE4900118D17"
-            BuildableName = "SwiftCommonsLang.UnitTests.xctest"
-            BlueprintName = "SwiftCommons.Lang.UnitTests"
-            ReferencedContainer = "container:SwiftCommons.Lang.UnitTests.xcodeproj">
+            BuildableName = "SwiftCommonsData.UnitTests.xctest"
+            BlueprintName = "SwiftCommons.Data.UnitTests"
+            ReferencedContainer = "container:SwiftCommons.Data.UnitTests.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
