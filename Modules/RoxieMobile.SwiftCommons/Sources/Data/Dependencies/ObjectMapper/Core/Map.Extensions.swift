@@ -85,8 +85,7 @@ extension Map
 
             case .toJSON:
                 if let key = self.currentKey {
-                    // FIXME: self.JSON[key] -> valueFor(ArraySlice(self.currentKey.components(separatedBy: delimiter)), dictionary: self.JSON)
-                    roxie_checkValue(self.currentKey, value, self.JSON[key], optional: optional, file: file, line: line)
+                    roxie_checkValue(self.currentKey, value, fetch(valueFor: key, ignoreNil: true).value, optional: optional, file: file, line: line)
                 }
                 else {
                     roxie_objectMapper_raiseException(message: "Current key is not set.")

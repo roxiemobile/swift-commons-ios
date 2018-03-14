@@ -94,37 +94,43 @@ public final class Map {
     }
 
     private func `subscript`(key: String, nested: Bool? = nil, delimiter: String = ".", ignoreNil: Bool = false) -> Map {
-        // save key and value associated to it
-        currentKey = key
-        keyIsNested = nested ?? key.contains(delimiter)
-        nestedKeyDelimiter = delimiter
+        // Save key and value associated to it
+        self.currentKey = key
+        self.keyIsNested = nested ?? key.contains(delimiter)
+        self.nestedKeyDelimiter = delimiter
 
-        if mappingType == .fromJSON {
-            // check if a value exists for the current key
-            // do this pre-check for performance reasons
-            if keyIsNested {
-                // break down the components of the key that are separated by delimiter
-                (isKeyPresent, currentValue) = valueFor(ArraySlice(key.components(separatedBy: delimiter)), dictionary: JSON)
-            } else {
-                let object = JSON[key]
-                let isNSNull = object is NSNull
-                isKeyPresent = isNSNull ? true : object != nil
-                currentValue = isNSNull ? nil : object
-            }
-
-            // update isKeyPresent if ignoreNil is true
-            if ignoreNil && currentValue == nil {
-                isKeyPresent = false
-            }
+        switch self.mappingType {
+            case .fromJSON:
+                (self.isKeyPresent, self.currentValue) = fetch(valueFor: self.currentKey!,
+                        nested: self.keyIsNested, delimiter: self.nestedKeyDelimiter, ignoreNil: ignoreNil)
+            default: ()
         }
 
+        // Done
         return self
     }
 
-    public func value<T>() -> T? {
-        return currentValue as? T
-    }
+    internal func fetch(valueFor key: String, nested: Bool? = nil, delimiter: String = ".", ignoreNil: Bool = false) -> (keyExists: Bool, value: Any?) {
+        var result: (keyExists: Bool, value: Any?) = (false, nil)
 
+        // Check if a value exists for the passed key. Do this pre-check for performance reasons
+        if nested ?? key.contains(delimiter) {
+            result = valueFor(ArraySlice(key.components(separatedBy: delimiter)), dictionary: self.JSON)
+        }
+        else {
+            let object = self.JSON[key]
+            let isNSNull = object is NSNull
+            result = (isNSNull || (object != nil), isNSNull ? nil : object)
+        }
+
+        // Update `result.keyExists` if `ignoreNil` is true
+        if ignoreNil && (result.value == nil) {
+            result = (false, nil)
+        }
+
+        // Done
+        return result
+    }
 }
 
 /// Fetch value from JSON dictionary, loop through keyPathComponents until we reach the desired object

@@ -45,7 +45,7 @@ public func <~ <T>(left: inout T, right: Map) {
     switch right.mappingType {
         case .fromJSON:
             right.roxie_checkState(left)
-            let result: T? = right.value()
+            let result: T? = (right.currentValue as? T)
             right.roxie_checkValue(result)
             left = result!
 
@@ -69,7 +69,7 @@ public func >>> <T>(left: T, right: Map) {
 public func <~ <T>(left: inout T?, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            let result: T? = right.value()
+            let result: T? = (right.currentValue as? T)
             right.roxie_checkValue(result, optional: true)
             left = result
 
@@ -94,7 +94,7 @@ public func <~ <T>(left: inout T!, right: Map) {
     switch right.mappingType {
         case .fromJSON:
             right.roxie_checkState(left)
-            let result: T? = right.value()
+            let result: T? = (right.currentValue as? T)
             right.roxie_checkValue(result)
             left = result!
 
