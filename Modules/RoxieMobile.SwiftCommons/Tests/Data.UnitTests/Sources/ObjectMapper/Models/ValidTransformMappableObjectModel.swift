@@ -26,24 +26,24 @@ public class ValidTransformMappableObjectModel: Mappable, Hashable, Equatable
 
 // MARK: - Properties
 
-    public var x = Int(Constants.minInt)
+    public var x = Int.min
 
-    public var y: Int? = Int(Constants.minInt)
+    public var y: Int? = Int.min
 
-    public var z: Int! = Int(Constants.minInt)
+    public var z: Int! = Int.min
 
 // MARK: - Properties: Hashable
 
     public var hashValue: Int {
-        return 31 ^ self.x ^ (self.y ?? 0) ^ self.z
+        return 31 ^ self.x.hashValue ^ (self.y ?? 0).hashValue ^ self.z.hashValue
     }
 
 // MARK: - Methods
 
     public func mapping(map: Map) {
-        self.x <~ (map[JsonKeys.x], IntTransform.shared)
-        self.y <~ (map[JsonKeys.y], IntTransform.shared)
-        self.z <~ (map[JsonKeys.z], IntTransform.shared)
+        self.x <~ (map[JsonKeys.x], StringToIntegerTransform.shared)
+        self.y <~ (map[JsonKeys.y], StringToIntegerTransform.shared)
+        self.z <~ (map[JsonKeys.z], StringToIntegerTransform.shared)
     }
 }
 

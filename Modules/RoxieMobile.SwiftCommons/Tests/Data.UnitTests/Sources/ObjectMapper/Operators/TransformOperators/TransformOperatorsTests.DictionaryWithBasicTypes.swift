@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  TransformOperatorsTests.DictionaryBasicType.swift
+//  TransformOperatorsTests.DictionaryWithBasicTypes.swift
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -26,38 +26,38 @@ extension TransformOperatorsTests
         var objectBasicType: Int = 0
         var dictionaryObjectBasicType = [JsonKeys.int: objectBasicType]
 
-        dictionaryObjectBasicType >>> (map[JsonKeys.int], IntTransform.shared)
+        dictionaryObjectBasicType >>> (map[JsonKeys.int], StringToIntegerTransform.shared)
 
         // Positive
         XCTAssertNotNil(map.JSON[JsonKeys.int])
 
         // Negative
-        guardNegativeException {
-            Constants.invalidDateValue >>> map[JsonKeys.notValidValue]
+        assertExceptionNotNil {
+            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
         }
     }
 
     func testTransformDictionaryBasicTypesObjectFromJSON() {
 
-        let JsonString = Constants.transformDictionaryBasicTypes
-        let JsonStringNotValid = Constants.transformDictionaryBasicTypesNotValid
+        let JsonString = Constants.transformDictionaryWithBasicTypes
+        let JsonStringNotValid = Constants.transformDictionaryWithInvalidBasicTypes
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
 
         var dictionaryObjectBasicType: [String: Int] = [:]
 
-        dictionaryObjectBasicType <~ (mapValid[JsonKeys.validObject], IntTransform.shared)
+        dictionaryObjectBasicType <~ (mapValid[JsonKeys.validObject], StringToIntegerTransform.shared)
 
         // Positive
-        XCTAssertEqual(dictionaryObjectBasicType[JsonKeys.validObject], Int(Constants.minInt))
+        XCTAssertEqual(dictionaryObjectBasicType[JsonKeys.validObject], Int.min)
 
         // Negative
-        guardNegativeException {
-            dictionaryObjectBasicType <~ (mapNotValid[JsonKeys.notValidValue], IntTransform.shared)
+        assertExceptionNotNil {
+            dictionaryObjectBasicType <~ (mapNotValid[JsonKeys.invalidValue], StringToIntegerTransform.shared)
         }
-        guardNegativeException {
-            dictionaryObjectBasicType <~ (mapValid[JsonKeys.noSuchKey], IntTransform.shared)
+        assertExceptionNotNil {
+            dictionaryObjectBasicType <~ (mapValid[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
         }
     }
 }
@@ -77,37 +77,37 @@ extension TransformOperatorsTests
         var objectBasicType: Int = 0
         var dictionaryObjectBasicType: [String: Int]? = [JsonKeys.int: objectBasicType]
 
-        dictionaryObjectBasicType >>> (map[JsonKeys.int], IntTransform.shared)
+        dictionaryObjectBasicType >>> (map[JsonKeys.int], StringToIntegerTransform.shared)
 
         // Positive
         XCTAssertNotNil(map.JSON[JsonKeys.int])
 
         // Negative
-        guardNegativeException {
-            Constants.invalidDateValue >>> map[JsonKeys.notValidValue]
+        assertExceptionNotNil {
+            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
         }
     }
 
     func testTransformDictionaryOptionalBasicTypesFromJSON() {
 
-        let JsonString = Constants.transformDictionaryBasicTypes
-        let JsonStringNotValid = Constants.transformDictionaryBasicTypesNotValid
+        let JsonString = Constants.transformDictionaryWithBasicTypes
+        let JsonStringNotValid = Constants.transformDictionaryWithInvalidBasicTypes
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
 
         var dictionaryObjectBasicType: [String: Int]? = [:]
 
-        dictionaryObjectBasicType <~ (mapValid[JsonKeys.validObject], IntTransform.shared)
+        dictionaryObjectBasicType <~ (mapValid[JsonKeys.validObject], StringToIntegerTransform.shared)
 
         // Positive
-        XCTAssertEqual(dictionaryObjectBasicType?[JsonKeys.validObject]!, Int(Constants.minInt))
+        XCTAssertEqual(dictionaryObjectBasicType?[JsonKeys.validObject]!, Int.min)
 
         // Negative
-        dictionaryObjectBasicType <~ (mapNotValid[JsonKeys.notValidValue], IntTransform.shared)
+        dictionaryObjectBasicType <~ (mapNotValid[JsonKeys.invalidValue], StringToIntegerTransform.shared)
         XCTAssertNil(dictionaryObjectBasicType)
 
-        dictionaryObjectBasicType <~ (mapValid[JsonKeys.noSuchKey], IntTransform.shared)
+        dictionaryObjectBasicType <~ (mapValid[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
         XCTAssertNil(dictionaryObjectBasicType)
     }
 }
@@ -127,38 +127,38 @@ extension TransformOperatorsTests
         var objectBasicType: Int = 0
         var dictionaryObjectBasicType: [String: Int]! = [JsonKeys.int: objectBasicType]
 
-        dictionaryObjectBasicType <~ (map[JsonKeys.int], IntTransform.shared)
+        dictionaryObjectBasicType <~ (map[JsonKeys.int], StringToIntegerTransform.shared)
 
         // Positive
         XCTAssertNotNil(map.JSON[JsonKeys.int])
 
         // Negative
-        guardNegativeException {
-            Constants.invalidDateValue >>> map[JsonKeys.notValidValue]
+        assertExceptionNotNil {
+            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
         }
     }
 
     func testTransformDictionaryImplicitlyUnwrappedOptionalBasicTypesObjectFromJSON() {
 
-        let JsonString = Constants.transformDictionaryBasicTypes
-        let JsonStringNotValid = Constants.transformDictionaryBasicTypesNotValid
+        let JsonString = Constants.transformDictionaryWithBasicTypes
+        let JsonStringNotValid = Constants.transformDictionaryWithInvalidBasicTypes
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
 
         var dictionaryObjectBasicType: [String: Int]! = [:]
 
-        dictionaryObjectBasicType <~ (mapValid[JsonKeys.validObject], IntTransform.shared)
+        dictionaryObjectBasicType <~ (mapValid[JsonKeys.validObject], StringToIntegerTransform.shared)
 
         // Positive
-        XCTAssertEqual(dictionaryObjectBasicType[JsonKeys.validObject], Int(Constants.minInt))
+        XCTAssertEqual(dictionaryObjectBasicType[JsonKeys.validObject], Int.min)
 
         // Negative
-        guardNegativeException {
-            dictionaryObjectBasicType <~ (mapNotValid[JsonKeys.notValidValue], IntTransform.shared)
+        assertExceptionNotNil {
+            dictionaryObjectBasicType <~ (mapNotValid[JsonKeys.invalidValue], StringToIntegerTransform.shared)
         }
-        guardNegativeException {
-            dictionaryObjectBasicType <~ (mapValid[JsonKeys.noSuchKey], IntTransform.shared)
+        assertExceptionNotNil {
+            dictionaryObjectBasicType <~ (mapValid[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
         }
     }
 }

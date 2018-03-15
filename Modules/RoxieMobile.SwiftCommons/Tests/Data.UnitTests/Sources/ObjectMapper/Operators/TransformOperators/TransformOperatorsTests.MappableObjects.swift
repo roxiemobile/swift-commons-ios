@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  TransformOperatorsTests.DictionaryMappable.swift
+//  TransformOperatorsTests.MappableObjects.swift
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -12,17 +12,17 @@
 import XCTest
 
 // ----------------------------------------------------------------------------
-// MARK: - Dictionary of Mappable objects <String, T: Mappable> with a transform
+// MARK: - Object conforming to Mappable that have transforms
 // ----------------------------------------------------------------------------
 
 extension TransformOperatorsTests
 {
 // MARK: - Tests
 
-    func testTransformDictionaryMappableObjectsToJSON() {
+    func testTransformMappableObjectsToJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
-        let objectBasicType: [String: ValidTransformMappableObjectModel] = [JsonKeys.validObject: ValidTransformMappableObjectModel()]
+        let objectBasicType: ValidTransformMappableObjectModel = ValidTransformMappableObjectModel()
 
         objectBasicType >>> (map[JsonKeys.validObject], ValidModelTransform.shared)
 
@@ -35,22 +35,22 @@ extension TransformOperatorsTests
         }
     }
 
-    func testTransformDictionaryMappableObjectsFromJSON() {
+    func testTransformMappableObjectsFromJSON() {
 
-        let JsonString = Constants.transformDictionaryWithMappableObjects
-        let JsonStringNotValid = Constants.transformDictionaryWithInvalidMappableObjects
-        let JsonStringEmpty = Constants.transformEmptyDictionaryWithMappableObjects
+        let JsonString = Constants.transformMappableObjects
+        let JsonStringNotValid = Constants.transformInvalidMappableObjects
+        let JsonStringEmpty = Constants.transformEmptyMappableObjects
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
         let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
-        var objectBasicType: [String: ValidTransformMappableObjectModel] = [:]
+        var objectBasicType: ValidTransformMappableObjectModel = ValidTransformMappableObjectModel()
 
         objectBasicType <~ (mapValid[JsonKeys.validObject], ValidModelTransform.shared)
 
         // Positive
-        XCTAssertEqual(objectBasicType[JsonKeys.validObject]?.x, Int.max)
+        XCTAssertEqual(objectBasicType.x, Int.max)
 
         // Negative
         assertExceptionNotNil {
@@ -71,17 +71,17 @@ extension TransformOperatorsTests
 }
 
 // ----------------------------------------------------------------------------
-// MARK: - Optional Dictionary of Mappable object <String, T: Mappable> with a transform
+// MARK: - Optional Mappable objects that have transforms
 // ----------------------------------------------------------------------------
 
 extension TransformOperatorsTests
 {
 // MARK: - Tests
 
-    func testTransformDictionaryMappableOptionalObjectsToJSON() {
+    func testTransformMappableOptionalObjectsToJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
-        let objectBasicType: [String: ValidTransformMappableObjectModel]? = [JsonKeys.validObject: ValidTransformMappableObjectModel()]
+        let objectBasicType: ValidTransformMappableObjectModel? = ValidTransformMappableObjectModel()
 
         objectBasicType >>> (map[JsonKeys.validObject], ValidModelTransform.shared)
 
@@ -94,22 +94,22 @@ extension TransformOperatorsTests
         }
     }
 
-    func testTransformDictionaryMappableOptionalObjectsFromJSON() {
+    func testTransformMappableOptionalObjectsFromJSON() {
 
-        let JsonString = Constants.transformDictionaryWithMappableObjects
-        let JsonStringNotValid = Constants.transformDictionaryWithInvalidMappableObjects
-        let JsonStringEmpty = Constants.transformEmptyDictionaryWithMappableObjects
+        let JsonString = Constants.transformMappableObjects
+        let JsonStringNotValid = Constants.transformInvalidMappableObjects
+        let JsonStringEmpty = Constants.transformEmptyMappableObjects
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
         let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
-        var objectBasicType: [String: ValidTransformMappableObjectModel]? = nil
+        var objectBasicType: ValidTransformMappableObjectModel? = ValidTransformMappableObjectModel()
 
         objectBasicType <~ (mapValid[JsonKeys.validObject], ValidModelTransform.shared)
 
         // Positive
-        XCTAssertNotNil(objectBasicType)
+        XCTAssertEqual(objectBasicType!.x, Int.max)
 
         // Negative
         objectBasicType <~ (mapNotValid[JsonKeys.invalidValue], ValidModelTransform.shared)
@@ -122,23 +122,24 @@ extension TransformOperatorsTests
         objectBasicType <~ (mapValid[JsonKeys.nilValue], ValidModelTransform.shared)
         XCTAssertNil(objectBasicType)
 
-        objectBasicType <~ (mapEmpty[JsonKeys.emptyValue], ValidModelTransform.shared)
-        XCTAssertNil(objectBasicType)
+        assertExceptionNotNil {
+            objectBasicType <~ (mapEmpty[JsonKeys.emptyValue], ValidModelTransform.shared)
+        }
     }
 }
 
 // ----------------------------------------------------------------------------
-// MARK: - Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable> with a transform
+// MARK: - Implicitly unwrapped optional Mappable objects that have transforms
 // ----------------------------------------------------------------------------
 
 extension TransformOperatorsTests
 {
 // MARK: - Tests
 
-    func testTransformDictionaryMappableImplicitlyUnwrappedOptionalObjectToJSON() {
+    func testTransformMappableImplicitlyUnwrappedOptionalObjectToJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
-        var objectBasicType: [String: ValidTransformMappableObjectModel]! = [JsonKeys.validObject: ValidTransformMappableObjectModel()]
+        var objectBasicType: ValidTransformMappableObjectModel! = ValidTransformMappableObjectModel()
 
         objectBasicType <~ (map[JsonKeys.validObject], ValidModelTransform.shared)
 
@@ -151,22 +152,22 @@ extension TransformOperatorsTests
         }
     }
 
-    func testTransformDictionaryMappableImplicitlyUnwrappedOptionalObjectFromJSON() {
+    func testTransformMappableImplicitlyUnwrappedOptionalObjectFromJSON() {
 
-        let JsonString = Constants.transformDictionaryWithMappableObjects
-        let JsonStringNotValid = Constants.transformDictionaryWithInvalidMappableObjects
-        let JsonStringEmpty = Constants.transformEmptyDictionaryWithMappableObjects
+        let JsonString = Constants.transformMappableObjects
+        let JsonStringNotValid = Constants.transformInvalidMappableObjects
+        let JsonStringEmpty = Constants.transformEmptyMappableObjects
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
         let mapEmpty = Map(mappingType: .fromJSON, JSON: JsonStringEmpty)
 
-        var objectBasicType: [String: ValidTransformMappableObjectModel]! = [:]
+        var objectBasicType: ValidTransformMappableObjectModel! = ValidTransformMappableObjectModel()
 
         objectBasicType <~ (mapValid[JsonKeys.validObject], ValidModelTransform.shared)
 
         // Positive
-        XCTAssertEqual(objectBasicType[JsonKeys.validObject]?.x, Int.max)
+        XCTAssertEqual(objectBasicType.x, Int.max)
 
         // Negative
         assertExceptionNotNil {
@@ -187,4 +188,3 @@ extension TransformOperatorsTests
 }
 
 // ----------------------------------------------------------------------------
-

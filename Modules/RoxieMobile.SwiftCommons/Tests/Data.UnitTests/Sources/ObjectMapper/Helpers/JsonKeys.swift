@@ -18,63 +18,63 @@ internal final class JsonKeys: NonCreatable
 
     static let bool = "bool"
     static let boolOptional = "boolOpt"
-    static let boolImplicitlyUnwrapped = "boolIUOpt"
+    static let boolImplicitlyUnwrapped = "boolImpOpt"
 
 // MARK: -  Signed Integer Coding Keys
 
     static let int = "int"
     static let intOptional = "intOpt"
-    static let intImplicitlyUnwrapped = "intIUOpt"
+    static let intImplicitlyUnwrapped = "intImpOpt"
 
     static let int8 = "int8"
     static let int8Optional = "int8Opt"
-    static let int8ImplicitlyUnwrapped = "int8IUOpt"
+    static let int8ImplicitlyUnwrapped = "int8ImpOpt"
 
     static let int16 = "int16"
     static let int16Optional = "int16Opt"
-    static let int16ImplicitlyUnwrapped = "int16IUOpt"
+    static let int16ImplicitlyUnwrapped = "int16ImpOpt"
 
     static let int32 = "int32"
     static let int32Optional = "int32Opt"
-    static let int32ImplicitlyUnwrapped = "int32IUOpt"
+    static let int32ImplicitlyUnwrapped = "int32ImpOpt"
 
     static let int64 = "int64"
     static let int64Optional = "int64Opt"
-    static let int64ImplicitlyUnwrapped = "int64IUOpt"
+    static let int64ImplicitlyUnwrapped = "int64ImpOpt"
 
 // MARK: -  Unsigned Integer Coding Keys
 
     static let uint = "uint"
     static let uintOptional = "uintOpt"
-    static let uintImplicitlyUnwrapped = "uintIUOpt"
+    static let uintImplicitlyUnwrapped = "uintImpOpt"
 
     static let uint8 = "uint8"
     static let uint8Optional = "uint8Opt"
-    static let uint8ImplicitlyUnwrapped = "uint8IUOpt"
+    static let uint8ImplicitlyUnwrapped = "uint8ImpOpt"
 
     static let uint16 = "uint16"
     static let uint16Optional = "uint16Opt"
-    static let uint16ImplicitlyUnwrapped = "uint16IUOpt"
+    static let uint16ImplicitlyUnwrapped = "uint16ImpOpt"
 
     static let uint32 = "uint32"
     static let uint32Optional = "uint32Opt"
-    static let uint32ImplicitlyUnwrapped = "uint32IUOpt"
+    static let uint32ImplicitlyUnwrapped = "uint32ImpOpt"
 
     static let uint64 = "uint64"
     static let uint64Optional = "uint64Opt"
-    static let uint64ImplicitlyUnwrapped = "uint64IUOpt"
+    static let uint64ImplicitlyUnwrapped = "uint64ImpOpt"
 
 // MARK: -  Date Coding Keys
 
     static let date = "date"
     static let dateOptional = "dateOpt"
-    static let dateImplicitlyUnwrapped = "dateIUOpt"
+    static let dateImplicitlyUnwrapped = "dateImpOpt"
 
 // MARK: -  Negative Exception Coding Keys
 
     static let nilValue = "nilValue"
     static let emptyValue = "emptyValue"
-    static let notValidValue = "notValidValue"
+    static let invalidValue = "invalidValue"
     static let noSuchKey = "noSuchKey"
 
 // MARK: -  XYZ Coding Keys

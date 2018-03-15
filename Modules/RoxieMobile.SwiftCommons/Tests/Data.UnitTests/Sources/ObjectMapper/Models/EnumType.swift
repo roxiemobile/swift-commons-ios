@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  Constants.swift
+//  EnumType.swift
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -8,18 +8,11 @@
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
-
-// ----------------------------------------------------------------------------
-
-internal final class Constants
+internal enum EnumType: String
 {
-// MARK: -  Invalid Values
+// MARK: - Construction
 
-    static let invalidValue = "invalidValue"
-
-    // FIXME: WTF?
-    static let invalidDateObject = Date(timeIntervalSinceReferenceDate: -123456789.0)
+    case typeValue, otherTypeValue
 }
 
 // ----------------------------------------------------------------------------

@@ -9,7 +9,6 @@
 // ----------------------------------------------------------------------------
 
 import SwiftCommonsData
-import SwiftCommonsConcurrent
 
 // ----------------------------------------------------------------------------
 
@@ -27,7 +26,7 @@ internal final class NotValidMappableObjectModel: Mappable
 
 // MARK: - Properties
 
-    var date = Constants.invalidDateValue
+    var date = Constants.invalidDateObject
 
 // MARK: - Methods
 

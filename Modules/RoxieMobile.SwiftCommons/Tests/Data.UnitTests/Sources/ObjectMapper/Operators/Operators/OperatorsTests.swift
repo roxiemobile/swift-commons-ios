@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  EnumModels.swift
+//  OperatorsTests.swift
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -8,17 +8,28 @@
 //
 // ----------------------------------------------------------------------------
 
-import SwiftCommonsData
+@testable import SwiftCommonsData
 import SwiftCommonsConcurrent
+import XCTest
 
 // ----------------------------------------------------------------------------
 
-internal enum EnumObject: String
+internal class OperatorsTests: XCTestCase
 {
-// MARK: - Construction
+// MARK: - Methods
 
-    case Default
-    case Another
+    internal func assertExceptionNotNil(
+            action: @escaping () -> ()
+    ) -> Void {
+        var exception: NSException? = nil
+        objcTry {
+            action()
+        }.objcCatch { e in
+            exception = e
+        }.objcFinally {
+            XCTAssertNotNil(exception)
+        }
+    }
 }
 
 // ----------------------------------------------------------------------------

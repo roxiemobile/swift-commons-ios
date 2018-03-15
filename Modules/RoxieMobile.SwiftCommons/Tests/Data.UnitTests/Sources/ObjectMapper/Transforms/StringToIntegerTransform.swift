@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  SetValidModelTransform.swift
+//  StringToIntegerTransform.swift
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -12,11 +12,11 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-public final class SetValidModelTransform: TransformType
+public final class StringToIntegerTransform: TransformType
 {
 // MARK: - Construction
 
-    public static let shared = SetValidModelTransform()
+    public static let shared = StringToIntegerTransform()
 
     private init() {
         // Do nothing
@@ -25,27 +25,22 @@ public final class SetValidModelTransform: TransformType
 // MARK: - Methods
 
     public func transformFromJSON(_ value: Any?) -> Object? {
-        if let value = value as? [String: Any] {
-            return SetValidTransformMappableObjectModel(JSON: value)
+        if let value = value as? String {
+            return Int(value)
         }
         return nil
     }
 
     public func transformToJSON(_ value: Object?) -> JSON? {
         if let value = value {
-            return Inner.sharedMapper.toJSONString(value, prettyPrint: true)
+            return String(value)
         }
         return nil
     }
 
 // MARK: - Inner Types
 
-    private struct Inner
-    {
-        static let sharedMapper = Mapper<Object>()
-    }
-
-    public typealias Object = SetValidTransformMappableObjectModel
+    public typealias Object = Int
     public typealias JSON = String
 }
 

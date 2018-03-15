@@ -9,7 +9,6 @@
 // ----------------------------------------------------------------------------
 
 import SwiftCommonsData
-import SwiftCommonsConcurrent
 
 // ----------------------------------------------------------------------------
 
@@ -27,9 +26,9 @@ internal struct SetValidMappableObjectModel: Mappable, Hashable, Equatable
 
 // MARK: - Properties
 
-    var x: Int = Int(Constants.maxInt)
-    var y: Int = Int(Constants.maxInt)
-    var z: Int = Int(Constants.maxInt)
+    var x: Int = Int.max
+    var y: Int = Int.max
+    var z: Int = Int.max
     var hashValue: Int {
         return self.x ^ self.y ^ self.z
     }

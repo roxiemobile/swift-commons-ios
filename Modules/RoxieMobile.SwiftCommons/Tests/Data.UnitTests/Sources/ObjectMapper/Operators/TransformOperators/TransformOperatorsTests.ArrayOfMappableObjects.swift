@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  TransformOperatorsTests.ArrayMappable.swift
+//  TransformOperatorsTests.ArrayOfMappableObjects.swift
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -30,16 +30,16 @@ extension TransformOperatorsTests
         XCTAssertNotNil(map.JSON[JsonKeys.validObject])
 
         // Negative
-        guardNegativeException {
-            Constants.invalidDateValue >>> map[JsonKeys.notValidValue]
+        assertExceptionNotNil {
+            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
         }
     }
 
     func testTransformArrayMappableObjectsFromJSON() {
 
-        let JsonString = Constants.transformArrayMappableObject
-        let JsonStringNotValid = Constants.transformArrayMappableObjectNotValid
-        let JsonStringEmpty = Constants.transformArrayMappableObjectEmpty
+        let JsonString = Constants.transformArrayOfMappableObjects
+        let JsonStringNotValid = Constants.transformArrayOfInvalidMappableObject
+        let JsonStringEmpty = Constants.transformEmptyArrayOfMappableObjects
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
@@ -50,21 +50,21 @@ extension TransformOperatorsTests
         objectBasicType <~ (mapValid[JsonKeys.validObject], ValidModelTransform.shared)
 
         // Positive
-        XCTAssertEqual(objectBasicType[0].x, Int(Constants.maxInt))
+        XCTAssertEqual(objectBasicType[0].x, Int.max)
 
         // Negative
-        guardNegativeException {
-            objectBasicType <~ (mapNotValid[JsonKeys.notValidValue], ValidModelTransform.shared)
+        assertExceptionNotNil {
+            objectBasicType <~ (mapNotValid[JsonKeys.invalidValue], ValidModelTransform.shared)
         }
-        guardNegativeException {
+        assertExceptionNotNil {
             objectBasicType <~ (mapValid[JsonKeys.noSuchKey], ValidModelTransform.shared)
         }
 
         mapValid.JSON[JsonKeys.nilValue] = nil
-        guardNegativeException {
+        assertExceptionNotNil {
             objectBasicType <~ (mapValid[JsonKeys.nilValue], ValidModelTransform.shared)
         }
-        guardNegativeException {
+        assertExceptionNotNil {
             objectBasicType <~ (mapEmpty[JsonKeys.emptyValue], ValidModelTransform.shared)
         }
     }
@@ -89,16 +89,16 @@ extension TransformOperatorsTests
         XCTAssertNotNil(map.JSON[JsonKeys.validObject])
 
         // Negative
-        guardNegativeException {
-            Constants.invalidDateValue >>> map[JsonKeys.notValidValue]
+        assertExceptionNotNil {
+            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
         }
     }
 
     func testTransformArrayMappableOptionalObjectsFromJSON() {
 
-        let JsonString = Constants.transformArrayMappableObject
-        let JsonStringNotValid = Constants.transformArrayMappableObjectNotValid
-        let JsonStringEmpty = Constants.transformArrayMappableObjectEmpty
+        let JsonString = Constants.transformArrayOfMappableObjects
+        let JsonStringNotValid = Constants.transformArrayOfInvalidMappableObject
+        let JsonStringEmpty = Constants.transformEmptyArrayOfMappableObjects
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
@@ -109,10 +109,10 @@ extension TransformOperatorsTests
         objectBasicType <~ (mapValid[JsonKeys.validObject], ValidModelTransform.shared)
 
         // Positive
-        XCTAssertEqual(objectBasicType?[0].x, Int(Constants.maxInt))
+        XCTAssertEqual(objectBasicType?[0].x, Int.max)
 
         // Negative
-        objectBasicType <~ (mapNotValid[JsonKeys.notValidValue], ValidModelTransform.shared)
+        objectBasicType <~ (mapNotValid[JsonKeys.invalidValue], ValidModelTransform.shared)
         XCTAssertNil(objectBasicType)
 
         objectBasicType <~ (mapValid[JsonKeys.noSuchKey], ValidModelTransform.shared)
@@ -146,16 +146,16 @@ extension TransformOperatorsTests
         XCTAssertNotNil(map.JSON[JsonKeys.validObject])
 
         // Negative
-        guardNegativeException {
-            Constants.invalidDateValue >>> map[JsonKeys.notValidValue]
+        assertExceptionNotNil {
+            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
         }
     }
 
     func testTransformArrayMappableImplicitlyUnwrappedOptionalObjectFromJSON() {
 
-        let JsonString = Constants.transformArrayMappableObject
-        let JsonStringNotValid = Constants.transformArrayMappableObjectNotValid
-        let JsonStringEmpty = Constants.transformArrayMappableObjectEmpty
+        let JsonString = Constants.transformArrayOfMappableObjects
+        let JsonStringNotValid = Constants.transformArrayOfInvalidMappableObject
+        let JsonStringEmpty = Constants.transformEmptyArrayOfMappableObjects
 
         let mapValid = Map(mappingType: .fromJSON, JSON: JsonString)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: JsonStringNotValid)
@@ -166,21 +166,21 @@ extension TransformOperatorsTests
         objectBasicType <~ (mapValid[JsonKeys.validObject], ValidModelTransform.shared)
 
         // Positive
-        XCTAssertEqual(objectBasicType[0].x, Int(Constants.maxInt))
+        XCTAssertEqual(objectBasicType[0].x, Int.max)
 
         // Negative
-        guardNegativeException {
-            objectBasicType <~ (mapNotValid[JsonKeys.notValidValue], ValidModelTransform.shared)
+        assertExceptionNotNil {
+            objectBasicType <~ (mapNotValid[JsonKeys.invalidValue], ValidModelTransform.shared)
         }
-        guardNegativeException {
+        assertExceptionNotNil {
             objectBasicType <~ (mapValid[JsonKeys.noSuchKey], ValidModelTransform.shared)
         }
 
         mapValid.JSON[JsonKeys.nilValue] = nil
-        guardNegativeException {
+        assertExceptionNotNil {
             objectBasicType <~ (mapValid[JsonKeys.nilValue], ValidModelTransform.shared)
         }
-        guardNegativeException {
+        assertExceptionNotNil {
             objectBasicType <~ (mapEmpty[JsonKeys.emptyValue], ValidModelTransform.shared)
         }
     }

@@ -9,7 +9,6 @@
 // ----------------------------------------------------------------------------
 
 import SwiftCommonsData
-import SwiftCommonsConcurrent
 
 // ----------------------------------------------------------------------------
 
@@ -27,13 +26,13 @@ internal struct SetNotValidMappableObjectModel: Mappable, Hashable, Equatable
 
 // MARK: - Properties
 
-    var date = Constants.invalidDateValue
+    var date = Constants.invalidDateObject
 
-    var x: Int = Int(Constants.maxInt)
+    var x: Int = Int.max
 
-    var y: Int = Int(Constants.maxInt)
+    var y: Int = Int.max
 
-    var z: Int = Int(Constants.maxInt)
+    var z: Int = Int.max
 
     var hashValue: Int {
         return 31 ^ self.x ^ self.y ^ self.z
