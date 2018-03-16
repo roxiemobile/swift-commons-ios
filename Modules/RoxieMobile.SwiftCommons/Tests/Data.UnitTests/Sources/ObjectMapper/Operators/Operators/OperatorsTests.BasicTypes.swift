@@ -26,6 +26,8 @@ extension OperatorsTests
 
         mapNotValid.JSON[JsonKeys.nilValue] = NSNull()
 
+        // --
+
         let boolConst = Bool(Constants.basicTypes[JsonKeys.bool]!)
         var boolValue = false
 
@@ -78,6 +80,8 @@ extension OperatorsTests
 
         mapNotValid.JSON[JsonKeys.nilValue] = NSNull()
 
+        // --
+
         let boolConst: Bool? = Bool(Constants.basicTypes[JsonKeys.bool]!)
         var boolValue: Bool? = false
 
@@ -129,6 +133,8 @@ extension OperatorsTests
         let mapNotValid = Map(mappingType: .fromJSON, JSON: Constants.invalidBasicTypes)
 
         mapNotValid.JSON[JsonKeys.nilValue] = NSNull()
+
+        // --
 
         let boolConst: Bool! = Bool(Constants.basicTypes[JsonKeys.bool]!)
         var boolValue: Bool! = false
