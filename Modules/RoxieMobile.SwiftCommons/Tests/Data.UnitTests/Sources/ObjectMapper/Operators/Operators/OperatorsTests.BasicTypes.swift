@@ -24,9 +24,7 @@ extension OperatorsTests
         let mapValid = Map(mappingType: .fromJSON, JSON: Constants.basicTypes)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: Constants.invalidBasicTypes)
 
-        mapValid.JSON[JsonKeys.nilValue] = nil
-
-        // --
+        mapNotValid.JSON[JsonKeys.nilValue] = NSNull()
 
         let boolConst = Bool(Constants.basicTypes[JsonKeys.bool]!)
         var boolValue = false
@@ -35,15 +33,15 @@ extension OperatorsTests
         boolValue <~ mapValid[JsonKeys.bool]
         XCTAssertEqual(boolValue, boolConst)
 
-        /// Bool Negative results
-        assertExceptionNotNil {
-            boolValue <~ mapNotValid[JsonKeys.invalidValue]
-        }
+        // Negative
         assertExceptionNotNil {
             boolValue <~ mapValid[JsonKeys.noSuchKey]
         }
         assertExceptionNotNil {
-            boolValue <~ mapValid[JsonKeys.nilValue]
+            boolValue <~ mapNotValid[JsonKeys.invalidValue]
+        }
+        assertExceptionNotNil {
+            boolValue <~ mapNotValid[JsonKeys.nilValue]
         }
     }
 
@@ -52,14 +50,15 @@ extension OperatorsTests
         let map = Map(mappingType: .toJSON, JSON: [:])
 
         let boolValue = true
+        let invalidValue = Constants.invalidDateObject
 
         // Positive
         boolValue >>> map[JsonKeys.bool]
-        XCTAssertNotNil(map.JSON[JsonKeys.bool])
+        XCTAssertNotNil(map.fetch(valueFor: JsonKeys.bool).value)
 
         // Negative
         assertExceptionNotNil {
-            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
+            invalidValue >>> map[JsonKeys.invalidValue]
         }
     }
 }
@@ -77,9 +76,7 @@ extension OperatorsTests
         let mapValid = Map(mappingType: .fromJSON, JSON: Constants.basicTypes)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: Constants.invalidBasicTypes)
 
-        mapValid.JSON[JsonKeys.nilValue] = nil
-
-        // --
+        mapNotValid.JSON[JsonKeys.nilValue] = NSNull()
 
         let boolConst: Bool? = Bool(Constants.basicTypes[JsonKeys.bool]!)
         var boolValue: Bool? = false
@@ -88,13 +85,13 @@ extension OperatorsTests
         boolValue <~ mapValid[JsonKeys.bool]
         XCTAssertEqual(boolValue, boolConst)
 
+        boolValue <~ mapNotValid[JsonKeys.noSuchKey]
+        XCTAssertNil(boolValue)
+
+        boolValue <~ mapNotValid[JsonKeys.nilValue]
+        XCTAssertNil(boolValue)
+
         // Negative
-        boolValue <~ mapValid[JsonKeys.noSuchKey]
-        XCTAssertNotNil(boolValue)
-
-        boolValue <~ mapValid[JsonKeys.nilValue]
-        XCTAssertNotNil(boolValue)
-
         assertExceptionNotNil {
             boolValue <~ mapNotValid[JsonKeys.invalidValue]
         }
@@ -105,14 +102,15 @@ extension OperatorsTests
         let map = Map(mappingType: .toJSON, JSON: [:])
 
         let boolValue: Bool? = true
+        let invalidValue: Date? = Constants.invalidDateObject
 
         // Positive
         boolValue >>> map[JsonKeys.bool]
-        XCTAssertNotNil(map.JSON[JsonKeys.bool])
+        XCTAssertNotNil(map.fetch(valueFor: JsonKeys.bool).value)
 
         // Negative
         assertExceptionNotNil {
-            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
+            invalidValue >>> map[JsonKeys.invalidValue]
         }
     }
 }
@@ -130,9 +128,7 @@ extension OperatorsTests
         let mapValid = Map(mappingType: .fromJSON, JSON: Constants.basicTypes)
         let mapNotValid = Map(mappingType: .fromJSON, JSON: Constants.invalidBasicTypes)
 
-        mapValid.JSON[JsonKeys.nilValue] = nil
-
-        // --
+        mapNotValid.JSON[JsonKeys.nilValue] = NSNull()
 
         let boolConst: Bool! = Bool(Constants.basicTypes[JsonKeys.bool]!)
         var boolValue: Bool! = false
@@ -143,13 +139,13 @@ extension OperatorsTests
 
         // Negative
         assertExceptionNotNil {
-            boolValue <~ mapNotValid[JsonKeys.invalidValue]
-        }
-        assertExceptionNotNil {
             boolValue <~ mapValid[JsonKeys.noSuchKey]
         }
         assertExceptionNotNil {
-            boolValue <~ mapValid[JsonKeys.nilValue]
+            boolValue <~ mapNotValid[JsonKeys.nilValue]
+        }
+        assertExceptionNotNil {
+            boolValue <~ mapNotValid[JsonKeys.invalidValue]
         }
     }
 
@@ -157,15 +153,16 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        let boolValue: Bool! = true
+        var boolValue: Bool! = true
+        var invalidValue: Date! = Constants.invalidDateObject
 
         // Positive
-        boolValue >>> map[JsonKeys.bool]
-        XCTAssertNotNil(map.JSON[JsonKeys.bool])
+        boolValue <~ map[JsonKeys.bool]
+        XCTAssertNotNil(map.fetch(valueFor: JsonKeys.bool).value)
 
         // Negative
         assertExceptionNotNil {
-            Constants.invalidDateObject >>> map[JsonKeys.invalidValue]
+            invalidValue <~ map[JsonKeys.invalidValue]
         }
     }
 }
