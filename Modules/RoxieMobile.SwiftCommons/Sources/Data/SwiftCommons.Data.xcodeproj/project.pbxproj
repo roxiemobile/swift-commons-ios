@@ -21,7 +21,7 @@
 		194862441FCCB86C0058735E /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574C901F8A6FB600A218E4 /* Mapper.swift */; };
 		194862451FCCB86C0058735E /* ObjectMapperException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574C911F8A6FB600A218E4 /* ObjectMapperException.swift */; };
 		194862461FCCB86C0058735E /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574C971F8A6FB600A218E4 /* ToJSON.swift */; };
-		194862471FCCB86C0058735E /* ValidatableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CAA9361FBF9A850034FD4E /* ValidatableMappable.swift */; };
+		194862471FCCB86C0058735E /* SerializableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CAA9361FBF9A850034FD4E /* SerializableMappable.swift */; };
 		194862481FCCB86C0058735E /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574C9B1F8A6FB600A218E4 /* CustomDateFormatTransform.swift */; };
 		194862491FCCB86C0058735E /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574C9C1F8A6FB600A218E4 /* DateFormatterTransform.swift */; };
 		1948624A1FCCB86C0058735E /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19574C9D1F8A6FB600A218E4 /* DateTransform.swift */; };
@@ -91,7 +91,7 @@
 		1990C5121F8A652400A944A8 /* SerializableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableObject.swift; sourceTree = "<group>"; };
 		199FFD941FCCBA27006969AF /* SwiftCommonsDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0266A2040BBD000584342 /* Map.Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.Extensions.swift; sourceTree = "<group>"; };
-		19CAA9361FBF9A850034FD4E /* ValidatableMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatableMappable.swift; sourceTree = "<group>"; };
+		19CAA9361FBF9A850034FD4E /* SerializableMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializableMappable.swift; sourceTree = "<group>"; };
 		6F5D3AA0E3EC989B4452A948 /* Pods-SwiftCommons.Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.release.xcconfig"; sourceTree = "<group>"; };
 		CF16D7706F5A8B6769B3594D /* Pods-SwiftCommons.Data.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.debug.xcconfig"; sourceTree = "<group>"; };
 		FF42310CE1471D1E79A316DD /* Pods_SwiftCommons_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +141,7 @@
 				19574C901F8A6FB600A218E4 /* Mapper.swift */,
 				19574C911F8A6FB600A218E4 /* ObjectMapperException.swift */,
 				19574C971F8A6FB600A218E4 /* ToJSON.swift */,
-				19CAA9361FBF9A850034FD4E /* ValidatableMappable.swift */,
+				19CAA9361FBF9A850034FD4E /* SerializableMappable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 				19A7065F1FCCB8EE001182AF /* RegexValidator.swift in Sources */,
 				194862431FCCB86C0058735E /* Mappable.swift in Sources */,
 				1948623D1FCCB86C0058735E /* Operators.swift in Sources */,
-				194862471FCCB86C0058735E /* ValidatableMappable.swift in Sources */,
+				194862471FCCB86C0058735E /* SerializableMappable.swift in Sources */,
 				194862491FCCB86C0058735E /* DateFormatterTransform.swift in Sources */,
 				19A706571FCCB8EE001182AF /* Assets.swift in Sources */,
 				194862461FCCB86C0058735E /* ToJSON.swift in Sources */,

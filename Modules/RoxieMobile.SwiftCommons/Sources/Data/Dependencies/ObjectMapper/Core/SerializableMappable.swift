@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  ValidatableMappable.swift
+//  SerializableMappable.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -14,7 +14,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-public protocol ValidatableMappable: BaseMappable
+public protocol SerializableMappable: BaseMappable
 {
 // MARK: - Construction
 
@@ -95,7 +95,7 @@ internal class ValidatableHelper: NonCreatable
 // MARK: -
 // ----------------------------------------------------------------------------
 
-public extension ValidatableMappable
+public extension SerializableMappable
 {
 // MARK: - Methods
 

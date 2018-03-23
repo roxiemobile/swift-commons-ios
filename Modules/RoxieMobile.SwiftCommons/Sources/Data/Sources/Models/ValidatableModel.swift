@@ -19,7 +19,7 @@ import SwiftCommonsObjC
 // ----------------------------------------------------------------------------
 
 /// The abstract base class for data models.
-open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, Validatable, PostValidatable, NSCopying
+open class ValidatableModel: SerializableObject, SerializableMappable, Hashable, Validatable, PostValidatable, NSCopying
 {
 // MARK: - Construction
 
@@ -72,11 +72,14 @@ open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, 
 
         // Parent processing
         guard !self.frozen && super.decodeObject(with: decoder) else {
-            return result
+            return false
         }
 
         // Deserialize JSON to object
-        if let JSON = decoder.decodeObject() as? JsonObject {
+        if decoder is JSONHolderDecoder {
+            result = true
+        }
+        else if let JSON = decoder.decodeObject() as? JsonObject {
             objcTry {
 
                 // Map object
@@ -92,7 +95,7 @@ open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, 
         return result
     }
 
-// MARK: - Methods: ValidatableMappable
+// MARK: - Methods: SerializableMappable
 
     /// Maps JSON to a model's properties values and back. It is executed by Mapper during
     /// the mapping (serialization and deserialization) process.

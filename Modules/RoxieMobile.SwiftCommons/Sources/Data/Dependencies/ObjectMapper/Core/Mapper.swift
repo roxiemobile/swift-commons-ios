@@ -33,15 +33,15 @@ public enum MappingType {
     case toJSON
 }
 
-private class JSONHolder: NSCoder {
-    private let JSON: JsonObject
+public class JSONHolderDecoder: NSCoder {
+    private let map: Map
 
-    fileprivate init(JSON: JsonObject) {
-        self.JSON = JSON
+    fileprivate init(map: Map) {
+        self.map = map
     }
 
     open override func decodeObject() -> Any? {
-        return self.JSON
+        return self.map.JSON
     }
 }
 
@@ -108,8 +108,8 @@ public final class Mapper<N: BaseMappable> {
     public func map(JSON: [String: Any]) -> N? {
         let map = Map(mappingType: .fromJSON, JSON: JSON, context: context, shouldIncludeNilValues: shouldIncludeNilValues)
 
-        if let klass = N.self as? ValidatableMappable.Type { // Check if object is ValidatableMappable
-            if var object = klass.init(coder: JSONHolder(JSON: JSON)) as? N {
+        if let klass = N.self as? SerializableMappable.Type { // Check if object is SerializableMappable
+            if var object = klass.init(coder: JSONHolderDecoder(map: map)) as? N {
                 object.mapping(map: map)
                 return object
             }
