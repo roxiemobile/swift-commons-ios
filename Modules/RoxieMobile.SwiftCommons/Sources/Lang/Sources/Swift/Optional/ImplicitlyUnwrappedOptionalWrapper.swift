@@ -21,6 +21,12 @@ extension ImplicitlyUnwrappedOptional: ImplicitlyUnwrappedOptionalWrapper
 {
 // MARK: - Properties
 
+    /// Checks if an object is `nil`.
+    public var isNone: Bool {
+        return self == nil
+    }
+
+    @available(*, deprecated, message: "\n• Write a description.")
     public var wrappedType: Any.Type {
         return Wrapped.self
     }

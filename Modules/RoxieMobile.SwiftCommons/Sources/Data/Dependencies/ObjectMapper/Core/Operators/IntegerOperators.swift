@@ -14,7 +14,7 @@ import Foundation
 public func <~ <T: SignedInteger>(left: inout T, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result: T? = toSignedInteger(right.currentValue)
             right.roxie_checkValue(result)
             left = result!
@@ -41,7 +41,7 @@ public func <~ <T: SignedInteger>(left: inout T?, right: Map) {
 public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result: T? = toSignedInteger(right.currentValue)
             right.roxie_checkValue(result)
             left = result!
@@ -58,7 +58,7 @@ public func <~ <T: SignedInteger>(left: inout T!, right: Map) {
 public func <~ <T: UnsignedInteger>(left: inout T, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result: T? = toUnsignedInteger(right.currentValue)
             right.roxie_checkValue(result)
             left = result!
@@ -86,7 +86,7 @@ public func <~ <T: UnsignedInteger>(left: inout T?, right: Map) {
 public func <~ <T: UnsignedInteger>(left: inout T!, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result: T? = toUnsignedInteger(right.currentValue)
             right.roxie_checkValue(result)
             left = result!

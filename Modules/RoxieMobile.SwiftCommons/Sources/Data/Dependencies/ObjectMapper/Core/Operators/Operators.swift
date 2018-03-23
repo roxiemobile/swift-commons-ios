@@ -38,13 +38,14 @@ infix operator <~
 /// Operator used to define mappings to JSON
 infix operator >>> 
 
+
 // MARK:- Objects with Basic types
 
 /// Object of Basic type
 public func <~ <T>(left: inout T, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result: T? = (right.currentValue as? T)
             right.roxie_checkValue(result)
             left = result!
@@ -63,7 +64,6 @@ public func >>> <T>(left: T, right: Map) {
         default: ()
     }
 }
-
 
 /// Optional object of basic type
 public func <~ <T>(left: inout T?, right: Map) {
@@ -88,12 +88,11 @@ public func >>> <T>(left: T?, right: Map) {
     }
 }
 
-
 /// Implicitly unwrapped optional object of basic type
 public func <~ <T>(left: inout T!, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result: T? = (right.currentValue as? T)
             right.roxie_checkValue(result)
             left = result!
@@ -103,13 +102,14 @@ public func <~ <T>(left: inout T!, right: Map) {
     }
 }
 
+
 // MARK:- Mappable Objects - <T: BaseMappable>
 
 /// Object conforming to Mappable
 public func <~ <T: BaseMappable>(left: inout T, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result = FromJSON.object(left, map: right)
             right.roxie_checkValue(result)
             left = result!
@@ -128,7 +128,6 @@ public func >>> <T: BaseMappable>(left: T, right: Map) {
         default: ()
     }
 }
-
 
 /// Optional Mappable objects
 public func <~ <T: BaseMappable>(left: inout T?, right: Map) {
@@ -153,12 +152,11 @@ public func >>> <T: BaseMappable>(left: T?, right: Map) {
     }
 }
 
-
 /// Implicitly unwrapped optional Mappable objects
 public func <~ <T: BaseMappable>(left: inout T!, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result = FromJSON.implicitlyUnwrappedOptionalObject(left, map: right)
             right.roxie_checkValue(result)
             left = result!
@@ -168,13 +166,14 @@ public func <~ <T: BaseMappable>(left: inout T!, right: Map) {
     }
 }
 
+
 // MARK:- Dictionary of Mappable objects - Dictionary<String, T: BaseMappable>
 
 /// Dictionary of Mappable objects <String, T: Mappable>
-public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>, right: Map) {
+public func <~ <T: BaseMappable>(left: inout [String: T], right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result = FromJSON.objectDictionary(left, map: right)
             right.roxie_checkValue(result)
             left = result!
@@ -184,7 +183,7 @@ public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>, right: Map) 
     }
 }
 
-public func >>> <T: BaseMappable>(left: Dictionary<String, T>, right: Map) {
+public func >>> <T: BaseMappable>(left: [String: T], right: Map) {
     switch right.mappingType {
         case .toJSON:
             ToJSON.objectDictionary(left, map: right)
@@ -194,9 +193,8 @@ public func >>> <T: BaseMappable>(left: Dictionary<String, T>, right: Map) {
     }
 }
 
-
 /// Optional Dictionary of Mappable object <String, T: Mappable>
-public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>?, right: Map) {
+public func <~ <T: BaseMappable>(left: inout [String: T]?, right: Map) {
     switch right.mappingType {
         case .fromJSON:
             let result = FromJSON.optionalObjectDictionary(left, map: right)
@@ -208,7 +206,7 @@ public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>?, right: Map)
     }
 }
 
-public func >>> <T: BaseMappable>(left: Dictionary<String, T>?, right: Map) {
+public func >>> <T: BaseMappable>(left: [String: T]?, right: Map) {
     switch right.mappingType {
         case .toJSON:
             ToJSON.optionalObjectDictionary(left, map: right)
@@ -218,12 +216,11 @@ public func >>> <T: BaseMappable>(left: Dictionary<String, T>?, right: Map) {
     }
 }
 
-
 /// Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable>
-public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>!, right: Map) {
+public func <~ <T: BaseMappable>(left: inout [String: T]!, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result = FromJSON.implicitlyUnwrappedOptionalObjectDictionary(left, map: right)
             right.roxie_checkValue(result)
             left = result!
@@ -233,75 +230,14 @@ public func <~ <T: BaseMappable>(left: inout Dictionary<String, T>!, right: Map)
     }
 }
 
-/// Dictionary of Mappable objects <String, T: Mappable>
-public func <~ <T: BaseMappable>(left: inout Dictionary<String, [T]>, right: Map) {
-    switch right.mappingType {
-        case .fromJSON:
-            right.roxie_checkState(left)
-            let result = FromJSON.objectDictionaryOfArrays(left, map: right)
-            right.roxie_checkValue(result)
-            left = result!
-
-        case .toJSON:
-            left >>> right
-    }
-}
-
-public func >>> <T: BaseMappable>(left: Dictionary<String, [T]>, right: Map) {
-    switch right.mappingType {
-        case .toJSON:
-            ToJSON.objectDictionaryOfArrays(left, map: right)
-            right.roxie_checkValue(left)
-
-        default: ()
-    }
-}
-
-/// Optional Dictionary of Mappable object <String, T: Mappable>
-public func <~ <T: BaseMappable>(left: inout Dictionary<String, [T]>?, right: Map) {
-    switch right.mappingType {
-        case .fromJSON:
-            let result = FromJSON.optionalObjectDictionaryOfArrays(left, map: right)
-            right.roxie_checkValue(result, optional: true)
-            left = result
-
-        case .toJSON:
-            left >>> right
-    }
-}
-
-public func >>> <T: BaseMappable>(left: Dictionary<String, [T]>?, right: Map) {
-    switch right.mappingType {
-        case .toJSON:
-            ToJSON.optionalObjectDictionaryOfArrays(left, map: right)
-            right.roxie_checkValue(left, optional: true)
-
-        default: ()
-    }
-}
-
-
-/// Implicitly unwrapped Optional Dictionary of Mappable object <String, T: Mappable>
-public func <~ <T: BaseMappable>(left: inout Dictionary<String, [T]>!, right: Map) {
-    switch right.mappingType {
-        case .fromJSON:
-            right.roxie_checkState(left)
-            let result = FromJSON.implicitlyUnwrappedOptionalObjectDictionaryOfArrays(left, map: right)
-            right.roxie_checkValue(result)
-            left = result!
-
-        case .toJSON:
-            left >>> right
-    }
-}
 
 // MARK:- Array of Mappable objects - Array<T: BaseMappable>
 
 /// Array of Mappable objects
-public func <~ <T: BaseMappable>(left: inout Array<T>, right: Map) {
+public func <~ <T: BaseMappable>(left: inout [T], right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result = FromJSON.objectArray(left, map: right)
             right.roxie_checkValue(result)
             left = result!
@@ -311,7 +247,7 @@ public func <~ <T: BaseMappable>(left: inout Array<T>, right: Map) {
     }
 }
 
-public func >>> <T: BaseMappable>(left: Array<T>, right: Map) {
+public func >>> <T: BaseMappable>(left: [T], right: Map) {
     switch right.mappingType {
         case .toJSON:
             ToJSON.objectArray(left, map: right)
@@ -322,7 +258,7 @@ public func >>> <T: BaseMappable>(left: Array<T>, right: Map) {
 }
 
 /// Optional array of Mappable objects
-public func <~ <T: BaseMappable>(left: inout Array<T>?, right: Map) {
+public func <~ <T: BaseMappable>(left: inout [T]?, right: Map) {
     switch right.mappingType {
         case .fromJSON:
             let result = FromJSON.optionalObjectArray(left, map: right)
@@ -334,7 +270,7 @@ public func <~ <T: BaseMappable>(left: inout Array<T>?, right: Map) {
     }
 }
 
-public func >>> <T: BaseMappable>(left: Array<T>?, right: Map) {
+public func >>> <T: BaseMappable>(left: [T]?, right: Map) {
     switch right.mappingType {
         case .toJSON:
             ToJSON.optionalObjectArray(left, map: right)
@@ -344,12 +280,11 @@ public func >>> <T: BaseMappable>(left: Array<T>?, right: Map) {
     }
 }
 
-
 /// Implicitly unwrapped Optional array of Mappable objects
-public func <~ <T: BaseMappable>(left: inout Array<T>!, right: Map) {
+public func <~ <T: BaseMappable>(left: inout [T]!, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result = FromJSON.implicitlyUnwrappedOptionalObjectArray(left, map: right)
             right.roxie_checkValue(result)
             left = result!
@@ -359,70 +294,6 @@ public func <~ <T: BaseMappable>(left: inout Array<T>!, right: Map) {
     }
 }
 
-// MARK:- Array of Array of Mappable objects - Array<Array<T: BaseMappable>>
-
-/// Array of Array Mappable objects
-public func <~ <T: BaseMappable>(left: inout Array<Array<T>>, right: Map) {
-    switch right.mappingType {
-        case .fromJSON:
-            right.roxie_checkState(left)
-            let result = FromJSON.twoDimensionalObjectArray(left, map: right)
-            right.roxie_checkValue(result)
-            left = result!
-
-        case .toJSON:
-            left >>> right
-    }
-}
-
-public func >>> <T: BaseMappable>(left: Array<Array<T>>, right: Map) {
-    switch right.mappingType {
-        case .toJSON:
-            ToJSON.twoDimensionalObjectArray(left, map: right)
-            right.roxie_checkValue(left)
-
-        default: ()
-    }
-}
-
-
-/// Optional array of Mappable objects
-public func <~ <T: BaseMappable>(left: inout Array<Array<T>>?, right: Map) {
-    switch right.mappingType {
-        case .fromJSON:
-            let result = FromJSON.optionalTwoDimensionalObjectArray(left, map: right)
-            right.roxie_checkValue(result, optional: true)
-            left = result
-
-        case .toJSON:
-            left >>> right
-    }
-}
-
-public func >>> <T: BaseMappable>(left: Array<Array<T>>?, right: Map) {
-    switch right.mappingType {
-        case .toJSON:
-            ToJSON.optionalTwoDimensionalObjectArray(left, map: right)
-            right.roxie_checkValue(left, optional: true)
-
-        default: ()
-    }
-}
-
-
-/// Implicitly unwrapped Optional array of Mappable objects
-public func <~ <T: BaseMappable>(left: inout Array<Array<T>>!, right: Map) {
-    switch right.mappingType {
-        case .fromJSON:
-            right.roxie_checkState(left)
-            let result = FromJSON.implicitlyUnwrappedOptionalTwoDimensionalObjectArray(left, map: right)
-            right.roxie_checkValue(result)
-            left = result!
-
-        case .toJSON:
-            left >>> right
-    }
-}
 
 // MARK:- Set of Mappable objects - Set<T: BaseMappable>
 
@@ -430,7 +301,7 @@ public func <~ <T: BaseMappable>(left: inout Array<Array<T>>!, right: Map) {
 public func <~ <T: BaseMappable>(left: inout Set<T>, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result = FromJSON.objectSet(left, map: right)
             right.roxie_checkValue(result)
             left = result!
@@ -450,13 +321,12 @@ public func >>> <T: BaseMappable>(left: Set<T>, right: Map) {
     }
 }
 
-
 /// Optional Set of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Set<T>?, right: Map) {
     switch right.mappingType {
         case .fromJSON:
             let result = FromJSON.optionalObjectSet(left, map: right)
-            right.roxie_checkValue(left, optional: true)
+            right.roxie_checkValue(result, optional: true)
             left = result
 
         case .toJSON:
@@ -474,12 +344,11 @@ public func >>> <T: BaseMappable>(left: Set<T>?, right: Map) {
     }
 }
 
-
 /// Implicitly unwrapped Optional Set of Mappable objects
 public func <~ <T: BaseMappable>(left: inout Set<T>!, right: Map) {
     switch right.mappingType {
         case .fromJSON:
-            right.roxie_checkState(left)
+            right.roxie_checkInput(left)
             let result = FromJSON.implicitlyUnwrappedOptionalObjectSet(left, map: right)
             right.roxie_checkValue(result)
             left = result!

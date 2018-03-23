@@ -33,6 +33,18 @@ public enum MappingType {
     case toJSON
 }
 
+private class JSONHolder: NSCoder {
+    private let JSON: JsonObject
+
+    fileprivate init(JSON: JsonObject) {
+        self.JSON = JSON
+    }
+
+    open override func decodeObject() -> Any? {
+        return self.JSON
+    }
+}
+
 /// The Mapper class provides methods for converting Model objects to JSON and methods for converting JSON to Model objects
 public final class Mapper<N: BaseMappable> {
 
@@ -97,7 +109,7 @@ public final class Mapper<N: BaseMappable> {
         let map = Map(mappingType: .fromJSON, JSON: JSON, context: context, shouldIncludeNilValues: shouldIncludeNilValues)
 
         if let klass = N.self as? ValidatableMappable.Type { // Check if object is ValidatableMappable
-            if var object = klass.init(options: ValidatableOptions(map: map)) as? N {
+            if var object = klass.init(coder: JSONHolder(JSON: JSON)) as? N {
                 object.mapping(map: map)
                 return object
             }
@@ -187,11 +199,7 @@ public final class Mapper<N: BaseMappable> {
     public func mapDictionary(JSON: [String: [String: Any]]) -> [String: N]? {
         // map every value in dictionary to type N
         let result = JSON.filterMap(map)
-        if result.isEmpty == false {
-            return result
-        }
-
-        return nil
+        return result
     }
 
     /// Maps a JSON object to a dictionary of Mappable objects if it is a JSON dictionary of dictionaries, or returns nil.
@@ -232,12 +240,7 @@ public final class Mapper<N: BaseMappable> {
         let result = JSON.filterMap {
             mapArray(JSONArray: $0)
         }
-
-        if result.isEmpty == false {
-            return result
-        }
-
-        return nil
+        return result
     }
 
     /// Maps an 2 dimentional array of JSON dictionaries to a 2 dimentional array of Mappable objects
@@ -430,7 +433,7 @@ extension Mapper where N: Hashable {
     /// Maps an Set of JSON dictionary to an array of Mappable objects
     public func mapSet(JSONArray: [[String: Any]]) -> Set<N> {
         // map every element in JSON array to type N
-        return Set(JSONArray.flatMap(map))
+        return Set(JSONArray.flatMap(self.map))
     }
 
     ///Maps a Set of Objects to a Set of JSON dictionaries [[String : Any]]

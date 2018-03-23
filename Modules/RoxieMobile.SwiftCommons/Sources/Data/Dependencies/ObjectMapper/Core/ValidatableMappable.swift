@@ -18,23 +18,12 @@ public protocol ValidatableMappable: BaseMappable
 {
 // MARK: - Construction
 
-    /// This initializer can be used to validate JSON prior to mapping. Return nil to cancel mapping at this point.
-    init(options: ValidatableOptions)
-}
-
-// ----------------------------------------------------------------------------
-// MARK: -
-// ----------------------------------------------------------------------------
-
-public struct ValidatableOptions
-{
-    /// Protected default initializer.
-    internal init(map: Map) {
-        self.map = map
-    }
-
-    /// A property used for holding mapping data.
-    internal let map: Map
+    /// Initializes an object from data in a given unarchiver.
+    ///
+    /// - Parameters:
+    ///   - decoder: An unarchiver object.
+    ///
+    init?(coder decoder: NSCoder)
 }
 
 // ----------------------------------------------------------------------------

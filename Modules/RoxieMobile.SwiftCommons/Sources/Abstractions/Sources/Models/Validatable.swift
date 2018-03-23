@@ -8,7 +8,8 @@
 //
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "\n• Write a description.")
+/// Protocol for objects that can be validated. Defines methods to verify if
+/// the object's value is valid or not.
 public protocol Validatable
 {
 // MARK: - Properties
@@ -22,4 +23,3 @@ public protocol Validatable
 }
 
 // ----------------------------------------------------------------------------
-

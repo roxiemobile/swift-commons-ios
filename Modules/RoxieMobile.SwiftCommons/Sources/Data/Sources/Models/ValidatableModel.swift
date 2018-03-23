@@ -23,20 +23,16 @@ open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, 
 {
 // MARK: - Construction
 
-    /// Initializes a new instance of the class from data in a given unarchiver.
+    /// Initializes a new instance of the model from data in a given unarchiver.
     ///
     /// - Parameters:
     ///   - coder: An unarchiver object.
     ///
     /// - Returns:
     ///   `self`, initialized using the data in decoder.
+    ///
     public required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
-    }
-
-    @available(*, deprecated, message: "\n• Write a description.")
-    public required init(options: ValidatableOptions) {
-        super.init()
     }
 
 // MARK: - Methods: SerializableObject
@@ -98,7 +94,12 @@ open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, 
 
 // MARK: - Methods: ValidatableMappable
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Maps JSON to a model's properties values and back. It is executed by Mapper during
+    /// the mapping (serialization and deserialization) process.
+    ///
+    /// - Parameters:
+    ///   - map: An object used for holding mapping data.
+    ///
     public final func mapping(map: Map) {
 
         // Deserialize JSON to object
@@ -150,19 +151,28 @@ open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, 
         }
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Maps JSON to a model's properties values and back. This method is where all
+    /// variable mappings should occur.
+    ///
+    /// - Parameters:
+    ///   - map: An object used for holding mapping data.
+    ///
     open func map(with map: Map) {
         // Do nothing
     }
 
 // MARK: - Methods: Hashable
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// The model's hash value.
     open var hashValue: Int {
         return self.hash ?? rehash()
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Calculates the model's hash value.
+    ///
+    /// - Returns:
+    ///   A newly calculated model's hash value.
+    ///
     public final func rehash() -> Int
     {
         // Encode serializable object
@@ -179,7 +189,11 @@ open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, 
 
 // MARK: - Methods: Validatable
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Checks that a model is valid.
+    ///
+    /// - Returns:
+    ///   `true` if model is valid; otherwise, `false`.
+    ///
     open var isValid: Bool {
         var result = true
 
@@ -201,7 +215,11 @@ open class ValidatableModel: SerializableObject, ValidatableMappable, Hashable, 
 
 // MARK: - Methods: PostValidatable
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Checks if a model should be validated after construction.
+    ///
+    /// - Returns:
+    ///   `true` if a model should be validated after construction; otherwise, `false`.
+    ///
     open var isShouldPostValidate: Bool {
         return true
     }

@@ -13,60 +13,67 @@ extension Map
 // MARK: - Methods: Subscript
 
     public subscript(key: String, default default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key], `default`)
+        return replaceNilWithDefault(self[key], `default`)
     }
 
     public subscript(key: String, delimiter delimiter: String, default default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, delimiter: delimiter], `default`)
+        return replaceNilWithDefault(self[key, delimiter: delimiter], `default`)
     }
 
     public subscript(key: String, nested nested: Bool, default default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, nested: nested], `default`)
+        return replaceNilWithDefault(self[key, nested: nested], `default`)
     }
 
     public subscript(key: String, nested nested: Bool, delimiter delimiter: String, default default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, nested: nested, delimiter: delimiter], `default`)
+        return replaceNilWithDefault(self[key, nested: nested, delimiter: delimiter], `default`)
     }
 
     public subscript(key: String, ignoreNil ignoreNil: Bool, default default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, ignoreNil: ignoreNil], `default`)
+        return replaceNilWithDefault(self[key, ignoreNil: ignoreNil], `default`)
     }
 
     public subscript(key: String, delimiter delimiter: String, ignoreNil ignoreNil: Bool, default default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, delimiter: delimiter, ignoreNil: ignoreNil], `default`)
+        return replaceNilWithDefault(self[key, delimiter: delimiter, ignoreNil: ignoreNil], `default`)
     }
 
     public subscript(key: String, nested nested: Bool, ignoreNil ignoreNil: Bool, default default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, nested: nested, ignoreNil: ignoreNil], `default`)
+        return replaceNilWithDefault(self[key, nested: nested, ignoreNil: ignoreNil], `default`)
     }
 
     public subscript(key: String, nested nested: Bool?, delimiter delimiter: String, ignoreNil ignoreNil: Bool, default default: Any) -> Map {
-        return replaceNilWithDefault(map: self[key, nested: nested, delimiter: delimiter, ignoreNil: ignoreNil], `default`)
+        return replaceNilWithDefault(self[key, nested: nested, delimiter: delimiter, ignoreNil: ignoreNil], `default`)
     }
 
 // MARK: - Methods
 
     /// Checks if a current value is exists. Raises ObjC exception otherwise.
-    internal func roxie_checkState(
+    /// Checks if a current value is exists. Raises ObjC exception otherwise.
+    internal func roxie_checkInput(
             _ value: Any?,
+            check action: @autoclosure () -> Bool = false,
             file: StaticString = #file,
             line: UInt = #line
     ) -> Void {
 
         switch self.mappingType {
             case .fromJSON:
-                if let _ = self.currentValue {
+                if (self.currentValue != nil) || action() {
                     return
                 }
             case .toJSON:
-                if let _ = value {
+                if (value != nil) || action() {
                     return
                 }
         }
 
-        var logMessage = "Value not found."
+        var logMessage = "Value is not found."
         if let key = self.currentKey {
-            logMessage = "Value for key ‘\(key)’ not found."
+            if self.isKeyPresent {
+                logMessage = "Value for key ‘\(key)’ is not set."
+            }
+            else {
+                logMessage = "Key ‘\(key)’ is not found."
+            }
         }
         roxie_objectMapper_raiseException(message: logMessage, file: file, line: line)
     }
@@ -75,22 +82,28 @@ extension Map
     internal func roxie_checkValue(
             _ value: Any?,
             optional: Bool = false,
+            check action: @autoclosure () -> Bool = false,
             file: StaticString = #file,
             line: UInt = #line
     ) -> Void {
 
+        guard let key = self.currentKey else {
+            roxie_objectMapper_raiseException(message: "Current key is not set.")
+        }
+
+        var lhsValue: Any?, rhsValue: Any?
         switch self.mappingType {
+
             case .fromJSON:
-                roxie_checkValue(self.currentKey, self.currentValue, value, optional: optional, file: file, line: line)
+                lhsValue = self.currentValue
+                rhsValue = value
 
             case .toJSON:
-                if let key = self.currentKey {
-                    roxie_checkValue(self.currentKey, value, fetch(valueFor: key, ignoreNil: true).value, optional: optional, file: file, line: line)
-                }
-                else {
-                    roxie_objectMapper_raiseException(message: "Current key is not set.")
-                }
+                lhsValue = value
+                rhsValue = fetch(valueFor: key, ignoreNil: true).value
         }
+
+        roxie_checkValue(key, lhsValue, rhsValue, optional: optional, check: action, file: file, line: line)
     }
 
     /// Checks if a value is transformed successfully. Raises ObjC exception otherwise.
@@ -99,14 +112,18 @@ extension Map
             _ value: Any?,
             _ transformedValue: Any?,
             optional: Bool = false,
+            check action: @autoclosure () -> Bool = false,
             file: StaticString = #file,
             line: UInt = #line
     ) -> Void {
 
-        if let _ = value, let _ = transformedValue {
+        if (value != nil) && (transformedValue != nil) {
             return
         }
-        else if optional && (value == nil) && (transformedValue == nil) {
+        if (value == nil) && (transformedValue == nil) && optional {
+            return
+        }
+        if (value == nil) && (transformedValue != nil) && action() {
             return
         }
 
@@ -119,7 +136,7 @@ extension Map
 
 // MARK: - Private Methods
 
-    private func replaceNilWithDefault(map: Map, _ defaultValue: Any) -> Map {
+    private func replaceNilWithDefault(_ map: Map, _ defaultValue: Any) -> Map {
         switch map.mappingType {
             // Change internal state of a Map
             case .fromJSON where (map.currentValue == nil):
