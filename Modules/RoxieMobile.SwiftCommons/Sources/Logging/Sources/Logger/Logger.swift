@@ -18,21 +18,30 @@ import SwiftCommonsConcurrent
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "\n• Write a description.")
+/// A `Logger` object is used to perform logging.
 public final class Logger
 {
 // MARK: - Construction
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Shared `Logger` instance.
     public static let shared = Logger()
 
+    /// Initializes and returns a newly created logger object.
     private init() {
         // Do nothing
     }
 
 // MARK: - Properties
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Sets the logger used by the application. Early during the initialization process
+    /// of an application, a logger should be set.
+    ///
+    /// - Parameters:
+    ///   - logger: The new logger.
+    ///
+    /// - Returns:
+    ///   A reference to this object for method chaining.
+    ///
     @discardableResult
     public func logger(logger: LoggerContract?) -> Logger {
         synchronized(self.syncLock) {
@@ -41,6 +50,7 @@ public final class Logger
         return self;
     }
 
+    /// Returns the logger used by the application.
     internal func logger() -> LoggerContract? {
         var logger: LoggerContract? = nil
 
@@ -50,7 +60,14 @@ public final class Logger
         return logger
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Set the log level specifying which message levels will be logged by the `Logger`.
+    /// 
+    /// - Parameters:
+    ///   - level: The new value for the log level.
+    ///
+    /// - Returns:
+    ///   A reference to this object for method chaining.
+    ///
     @discardableResult
     public func logLevel(level: LogLevel) -> Logger {
         synchronized(self.syncLock) {
@@ -59,7 +76,11 @@ public final class Logger
         return self;
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Get the log Level that has been specified for the `Logger`.
+    ///
+    /// - Returns:
+    ///   The log level of the `Logger`.
+    ///
     public func logLevel() -> LogLevel {
         var level: LogLevel = .verbose
 
@@ -78,24 +99,31 @@ public final class Logger
 
 // MARK: - Inner Types
 
+    /// The LogLevel enum defines a set of standard logging levels that can be used
+    /// to control logging output.
     public enum LogLevel: Int
     {
-        // Use Logger.v()
+        /// Logs that contain the most detailed messages. These messages may contain
+        /// sensitive application data. Use Logger.v()
         case verbose = 0
 
-        // Use Logger.d()
+        /// Logs that are used for interactive investigation during development.
+        /// Use Logger.d()
         case debug
 
-        // Use Logger.i()
+        /// Logs that track the general flow of the application. Use Logger.i()
         case information
 
-        // Use Logger.w()
+        /// Logs that highlight an abnormal or unexpected event in the application
+        /// flow, but do not otherwise cause the application execution to stop.
+        /// Use Logger.w()
         case warning
 
-        // Use Logger.e()
+        /// Logs that highlight when the current flow of execution is stopped due
+        /// to a failure. Use Logger.e()
         case error
 
-        // Turn off all logging
+        // Turn off all logging. Specifies that a logger should not sends any messages.
         case suppress
     }
 
@@ -114,7 +142,16 @@ extension Logger
 {
 // MARK: - Methods
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Formats log message.
+    ///
+    /// - Parameters:
+    ///   - level: The log level value.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - message: The message you would like logged.
+    ///
+    /// - Returns:
+    ///   Formatted log message.
+    ///
     public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?) -> String {
         var logMessage = ""
 
@@ -142,7 +179,17 @@ extension Logger
         return logMessage
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Formats log message.
+    ///
+    /// - Parameters:
+    ///   - level: The log level.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - message: The message you would like logged.
+    ///   - error: An error to log.
+    ///
+    /// - Returns:
+    ///   Formatted log message.
+    ///
     public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ error: Error?) -> String {
         var logMessage = description(level, tag, message)
 
@@ -155,7 +202,17 @@ extension Logger
         return logMessage
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Formats log message.
+    ///
+    /// - Parameters:
+    ///   - level: The log level.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - message: The message you would like logged.
+    ///   - error: An error to log.
+    ///
+    /// - Returns:
+    ///   Formatted log message.
+    ///
     public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ error: NSError?) -> String {
         var logMessage = description(level, tag, message)
 
@@ -172,7 +229,17 @@ extension Logger
         return logMessage
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Formats log message.
+    ///
+    /// - Parameters:
+    ///   - level: The log level.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - message: The message you would like logged.
+    ///   - exception: An exception to log.
+    ///
+    /// - Returns:
+    ///   Formatted log message.
+    ///
     public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ exception: NSException?) -> String {
         var logMessage = description(level, tag, message)
 

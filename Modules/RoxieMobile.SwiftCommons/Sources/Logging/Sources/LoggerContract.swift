@@ -12,7 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "\n• Write a description.")
+/// Represents a type used to perform logging.
 public protocol LoggerContract
 {
 // MARK: - Methods: Verbose

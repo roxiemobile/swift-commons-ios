@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "\n• Write a description.")
+/// Protocol for objects that can be validated after construction.
 public protocol PostValidatable
 {
 // MARK: - Properties

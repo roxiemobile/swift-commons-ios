@@ -8,12 +8,12 @@
 //
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "\n• Write a description.")
+/// A logcat logger which logs to the Apple System Log facility.
 public final class LogcatLogger: LoggerContract
 {
 // MARK: - Construction
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Initializes and returns a newly created logger object.
     public init() {
         // Do nothing
     }

@@ -18,12 +18,21 @@ public final class ObjectMapperException: NSException
 {
 // MARK: - Construction
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Initializes and returns a newly created exception object.
+    ///
+    /// - Parameters:
+    ///   - reason: A human-readable message string summarizing the reason for the exception.
+    ///   - userInfo: A dictionary containing user-defined information relating to the exception.
+    ///
     public init(reason: String?, userInfo: [AnyHashable: Any]? = nil) {
         super.init(name: Inner.ExceptionName, reason: reason, userInfo: userInfo)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Returns an object initialized from data in a given unarchiver.
+    ///
+    /// - Parameters:
+    ///   - decoder: An unarchiver object.
+    ///
     public required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }

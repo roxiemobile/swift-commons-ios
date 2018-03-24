@@ -34,7 +34,7 @@ internal class ValidatableHelper: NonCreatable
 {
 // MARK: - Methods
 
-    /// Convert a JSON String into a Dictionary using NSJSONSerialization
+    /// Converts a JSON string into a dictionary using `NSJSONSerialization`.
     fileprivate static func parse(JSONString: String) throws -> JsonObject {
         var jsonObject: Any?
         var cause: Error?
@@ -60,14 +60,14 @@ internal class ValidatableHelper: NonCreatable
             if let err = cause {
                 logMessage += "\n\nCaused by error: " + String(describing: err).trim()
             }
-            throw JsonSyntaxError(message: logMessage)
+            throw JsonSyntaxError(reason: logMessage)
         }
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Creates new exception with specified JSON if existing did not contain it.
     internal static func exception(from exception: NSException, with JSON: JsonObject) -> NSException {
 
-        guard (exception.userInfo?[Inner.InvalidJson] == nil) else {
+        if let _ = exception.userInfo?[Inner.InvalidJson] {
             return exception
         }
 
@@ -75,11 +75,11 @@ internal class ValidatableHelper: NonCreatable
         var dict = exception.userInfo ?? [:]
         dict[Inner.InvalidJson] = JSON
 
-        // Create new exception with passed JSON
+        // Create new exception with specified JSON
         return NSException(name: exception.name, reason: exception.reason, userInfo: dict)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Extracts JSON from `userInfo` of specified exception.
     internal static func extractJson(from exception: NSException?) -> JsonObject? {
         return exception?.userInfo?[Inner.InvalidJson] as? JsonObject
     }
@@ -99,13 +99,13 @@ public extension SerializableMappable
 {
 // MARK: - Methods
 
-    /// Initializes object from a JSON String.
+    /// Initializes object from a JSON string.
     public init(from JSONString: String, with context: MapContext? = nil) throws {
         let JSON = try ValidatableHelper.parse(JSONString: JSONString)
         try self.init(from: JSON, with: context)
     }
 
-    /// Initializes object from a JSON Dictionary.
+    /// Initializes object from a JSON dictionary.
     public init(from JSON: JsonObject, with context: MapContext? = nil) throws {
         var object: Self?
 
@@ -122,11 +122,11 @@ public extension SerializableMappable
         }
         else if let cause = exception {
             let JSON = ValidatableHelper.extractJson(from: exception)
-            throw JsonSyntaxError(message: cause.reason, JSON: JSON, cause: exception)
+            throw JsonSyntaxError(reason: cause.reason, JSON: JSON, cause: exception)
         }
         else {
             let typeName = Roxie.typeName(of: Swift.type(of: object))
-            throw JsonSyntaxError(message: "Failed to convert JSON to object ‘\(typeName)’.", JSON: JSON)
+            throw JsonSyntaxError(reason: "Failed to convert JSON to object ‘\(typeName)’.", JSON: JSON)
         }
     }
 }

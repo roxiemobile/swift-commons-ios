@@ -12,7 +12,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-/// Thrown to indicate that an validation has failed.
+/// Represents an error which indicate that a validation has failed.
 public struct CheckError: Error, CustomStringConvertible
 {
 // MARK: - Construction
@@ -26,7 +26,7 @@ public struct CheckError: Error, CustomStringConvertible
     ///
     public init(_ message: String? = nil, file: StaticString = #file, line: UInt = #line)
     {
-        // Init instance variables
+        // Init instance
         self.message = message
         self.file = file
         self.line = line

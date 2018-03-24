@@ -12,24 +12,28 @@ public extension String
 {
 // MARK: - Methods
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Returns an index that is the specified distance from the start
+    /// index of the `String`.
     public func index(from: Int) -> Index {
         return self.index(self.startIndex, offsetBy: from)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public func substring(from: Int) -> String {
-        return substring(from: index(from: from))
+    /// Returns a slice of a string containing the characters of the `String`
+    /// from the one at a given index to the end.
+    public func substring(from: Int) -> Substring {
+        return self[index(from: from)...]
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public func substring(upto: Int) -> String {
-        return substring(to: index(from: upto))
+    /// Returns a slice of a string containing the characters of the `String`
+    /// up to, but not including, the one at a given index.
+    public func substring(upto: Int) -> Substring {
+        return self[..<index(from: upto)]
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public func substring(with range: Range<Int>) -> String {
-        return substring(with: index(from: range.lowerBound)..<index(from: range.upperBound))
+    /// Returns a slice of a string containing the characters of the `String`
+    /// that lie within a given range.
+    public func substring(with range: Range<Int>) -> Substring {
+        return self[index(from: range.lowerBound)..<index(from: range.upperBound)]
     }
 }
 

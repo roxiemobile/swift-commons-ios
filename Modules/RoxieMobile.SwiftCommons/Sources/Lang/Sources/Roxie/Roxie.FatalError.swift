@@ -16,14 +16,13 @@ public extension Roxie
 {
 // MARK: - Methods
 
-    /**
-     Unconditionally prints a given message and stops execution.
-    
-     - Parameters:
-       - message: The string to print. The default is an empty string.
-       - file: The file name to print with `message`. The default is the file where `fatalError(_:file:line:)` is called.
-       - line: The line number to print along with `message`. The default is the line number where `fatalError(_:file:line:)` is called.
-     */
+    /// Creates and raises a fatal error exception with the specified message.
+    ///
+    /// - Parameters:
+    ///   - message: The string containing a human-readable reason for the receiver. The default is an empty string.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
     public static func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
         let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
@@ -41,7 +40,14 @@ public extension Roxie
         Swift.fatalError(logMessage)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Creates and raises a fatal error exception with the specified message and the cause.
+    ///
+    /// - Parameters:
+    ///   - message: The string containing a human-readable reason for the receiver. The default is an empty string.
+    ///   - cause: The error that caused this exception to be raised. A `nil` value is permitted, and indicates that the cause is nonexistent or unknown.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
     public static func fatalError(_ message: @autoclosure () -> String = "", cause error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 
@@ -54,7 +60,14 @@ public extension Roxie
         Roxie.fatalError(logMessage, file: file, line: line)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Creates and raises a fatal error exception with the specified message and the cause.
+    ///
+    /// - Parameters:
+    ///   - message: The string containing a human-readable reason for the receiver. The default is an empty string.
+    ///   - cause: The error that caused this exception to be raised. A `nil` value is permitted, and indicates that the cause is nonexistent or unknown.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
     public static func fatalError(_ message: @autoclosure () -> String = "", cause error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 
@@ -75,7 +88,14 @@ public extension Roxie
         Roxie.fatalError(logMessage, file: file, line: line)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Creates and raises a fatal error exception with the specified message and the cause.
+    ///
+    /// - Parameters:
+    ///   - message: The string containing a human-readable reason for the receiver. The default is an empty string.
+    ///   - cause: The exception that caused this exception to be raised. A `nil` value is permitted, and indicates that the cause is nonexistent or unknown.
+    ///   - file: The file name. The default is the file where function is called.
+    ///   - line: The line number. The default is the line number where function is called.
+    ///
     public static func fatalError(_ message: @autoclosure () -> String = "", cause exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 

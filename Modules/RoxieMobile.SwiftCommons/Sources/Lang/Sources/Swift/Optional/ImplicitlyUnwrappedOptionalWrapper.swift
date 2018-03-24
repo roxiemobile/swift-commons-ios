@@ -8,6 +8,11 @@
 //
 // ----------------------------------------------------------------------------
 
+// Check if variable is an Optional, and what type it wraps
+// @link https://stackoverflow.com/a/32781143
+
+// ----------------------------------------------------------------------------
+
 public protocol ImplicitlyUnwrappedOptionalWrapper
 {
 // MARK: - Properties
@@ -26,7 +31,7 @@ extension ImplicitlyUnwrappedOptional: ImplicitlyUnwrappedOptionalWrapper
         return self == nil
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Returns type wrapped by an `ImplicitlyUnwrappedOptional`.
     public var wrappedType: Any.Type {
         return Wrapped.self
     }

@@ -18,13 +18,21 @@ public class RegexValidator: Validator
 {
 // MARK: - Construction
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Initializes and returns a newly created validator object.
+    ///
+    /// - Parameters:
+    ///   - pattern: The regular expression pattern to compile.
+    ///   - options: The regular expression options that are applied to the expression during matching.
+    ///
+    /// - Returns:
+    ///   `nil` if the regular expression pattern is invalid.
+    ///
     public init?(pattern: String, options: NSRegularExpression.Options = .caseInsensitive)
     {
-        // Init instance variables
+        // Init instance
         self.regex = try? NSRegularExpression(pattern: pattern, options: options)
 
-        // Validate instance
+        // Validate instance state
         guard let _ = self.regex, pattern.isNotBlank else {
             return nil
         }

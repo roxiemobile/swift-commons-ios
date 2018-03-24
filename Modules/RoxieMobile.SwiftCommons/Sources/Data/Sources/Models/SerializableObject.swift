@@ -85,31 +85,55 @@ extension SerializableObject
 {
 // MARK: - Methods: Archiving
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Overridden by subclasses to substitute a class other than its own during coding.
+    ///
+    /// - Returns:
+    ///   The receiver's class.
+    ///
     @objc
     public var classForCoder: AnyClass {
         return type(of: self)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Overridden by subclasses to substitute another object for itself during encoding.
+    ///
+    /// - Parameters
+    ///   - coder: The coder encoding the receiver.
+    ///
+    /// - Returns:
+    ///   The object encode instead of the receiver (if different).
+    ///
     @objc
-    public func replacementObjectForCoder(_ aCoder: NSCoder) -> AnyObject? {
+    public func replacementObjectForCoder(_ coder: NSCoder) -> AnyObject? {
         return self
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Overridden by subclasses to substitute another object in place of the object
+    /// that was decoded and subsequently received this message.
+    ///
+    /// - Parameters:
+    ///   - decoder: The decoder used to decode the receiver.
+    ///
+    /// - Returns:
+    ///   The receiver, or another object to take the place of the object that was decoded
+    ///   and subsequently received this message.
+    ///
     @objc
-    public func awakeAfterUsingCoder(_ aDecoder: NSCoder) -> AnyObject? {
+    public func awakeAfterUsingCoder(_ decoder: NSCoder) -> AnyObject? {
         return self
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Returns the version number assigned to the class.
     @objc
     public class func version() -> Int {
         return self.classVersion
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Sets the receiver's version number.
+    ///
+    /// - Parameters:
+    ///   - version: The version number for the receiver.
+    ///
     @objc
     public class func setVersion(version: Int) {
         self.classVersion = version
@@ -117,19 +141,35 @@ extension SerializableObject
 
 // --
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Subclasses to substitute a new class for instances during keyed archiving.
+    ///
+    /// - Returns:
+    ///   The receiver's class.
+    ///
     @objc
     public var classForKeyedArchiver: AnyClass {
         return type(of: self)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Overridden by subclasses to substitute another object for itself during keyed archiving.
+    ///
+    /// - Parameters:
+    ///   - archiver: A keyed archiver creating an archive.
+    ///
+    /// - Returns:
+    ///   The object encode instead of the receiver (if different).
+    ///
     @objc
     public func replacementObjectForKeyedArchiver(archiver: NSKeyedArchiver) -> AnyObject? {
         return self
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Overridden to return the names of classes that can be used to decode objects
+    /// if their class is unavailable.
+    ///
+    /// - Returns:
+    ///   An array of string objects that specify the names of classes in preferred order
+    ///   for unarchiving.
     @objc
     public class func classFallbacksForKeyedArchiver() -> [String] {
         return []
@@ -137,7 +177,11 @@ extension SerializableObject
 
 // --
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Overridden by subclasses to substitute a new class during keyed unarchiving.
+    ///
+    /// - Returns:
+    ///   The class to substitute for the receiver during keyed unarchiving.
+    ///
     @objc
     public class func classForKeyedUnarchiver() -> AnyClass {
         return self
@@ -149,4 +193,3 @@ extension SerializableObject
 }
 
 // ----------------------------------------------------------------------------
-

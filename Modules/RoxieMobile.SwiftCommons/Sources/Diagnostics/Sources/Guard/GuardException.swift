@@ -13,68 +13,40 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-/*
-public sealed class GuardException : Error
-{
-// MARK: - Construction
-
-    /// <summary>
-    /// Initializes a new instance of the `GuardException` class.
-    /// </summary>
-    public GuardError()
-    {}
-
-    /// <summary>
-    /// Initializes a new instance of the `GuardException` class with a specified error message.
-    /// </summary>
-    /// - message: The message that describes the error.
-    public GuardError(string message)
-        : base(message)
-    {}
-
-    /// <summary>
-    /// Initializes a new instance of the `GuardException` class with a specified error message and a reference to the inner exception that is the cause of this error.
-    /// </summary>
-    /// - message: The error message that explains the reason for the error.
-    /// - innerException: The exception that is the cause of the current error, or a `nil` reference if no inner exception is specified.
-    public GuardError(string message, Exception innerException)
-        : base(message, innerException)
-    {}
-
-    /// <summary>
-    /// Initializes a new instance of the `GuardException` class with a reference to the inner exception that is the cause of this error.
-    /// </summary>
-    /// - innerException: The exception that is the cause of the current error, or a `nil` reference if no inner exception is specified.
-    public GuardError(Exception innerException)
-        : base(null, innerException)
-    {}
-}
-*/
-
-/// Thrown to indicate that an validation has failed.
+/// Represents an exception which indicate that a validation has failed.
 public final class GuardException: NSException
 {
 // MARK: - Construction
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public init(reason aReason: String? = nil, cause innerError: Error? = nil, userInfo aUserInfo: [AnyHashable : Any]? = nil)
+    /// Initializes and returns a newly created exception object.
+    ///
+    /// - Parameters:
+    ///   - reason: A human-readable message string summarizing the reason for the exception.
+    ///   - cause: The error that is the cause of the current exception, or a `nil` reference if no cause is specified.
+    ///   - userInfo: A dictionary containing user-defined information relating to the exception.
+    ///
+    public init(reason: String? = nil, cause: Error? = nil, userInfo: [AnyHashable: Any]? = nil)
     {
         // Init instance
-        self.innerError = innerError
+        self.cause = cause
 
         // Parent processing
-        super.init(name: Inner.ExceptionName, reason: aReason, userInfo: aUserInfo)
+        super.init(name: Inner.ExceptionName, reason: reason, userInfo: userInfo)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public required init?(coder aDecoder: NSCoder) {
+    /// Returns an object initialized from data in a given unarchiver.
+    ///
+    /// - Parameters:
+    ///   - decoder: An unarchiver object.
+    ///
+    public required init?(coder decoder: NSCoder) {
         Roxie.fatalError("NSCoding not supported")
     }
 
 // MARK: - Properties
 
-    /// The error that is the cause of the current exception, or a `nil` reference if no inner error is specified.
-    public let innerError: Error?
+    /// The error that is the cause of the current exception, or a `nil` reference if no cause is specified.
+    public let cause: Error?
 
 // MARK: - Constants
 

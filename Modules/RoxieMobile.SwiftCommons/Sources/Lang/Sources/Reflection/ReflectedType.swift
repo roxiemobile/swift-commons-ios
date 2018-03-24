@@ -14,7 +14,7 @@ public struct ReflectedType
 
     internal init(name: String, fullName: String, isOptional: Bool, isImplicitlyUnwrappedOptional: Bool, isProtocol: Bool)
     {
-        // Init instance variables
+        // Init instance
         self.name = name
         self.fullName = fullName
         self.isOptional = isOptional

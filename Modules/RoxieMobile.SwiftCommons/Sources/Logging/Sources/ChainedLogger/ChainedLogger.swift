@@ -8,15 +8,17 @@
 //
 // ----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "\n• Write a description.")
+/// A logger which allows to chain multiple loggers together.
 public final class ChainedLogger: LoggerContract
 {
 // MARK: - Construction
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public init(loggers: LoggerContract...)
-    {
-        // Init instance variables
+    /// Initializes and returns a newly created logger object.
+    ///
+    /// - Parameters:
+    ///   - loggers: A loggers which must be chained together.
+    ///
+    public init(loggers: LoggerContract...) {
         self.loggers = loggers
     }
 

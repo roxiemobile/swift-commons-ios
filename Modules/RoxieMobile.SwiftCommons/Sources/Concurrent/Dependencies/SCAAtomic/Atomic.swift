@@ -53,7 +53,7 @@ public final class Atomic <T> {
     
     /// Atomically perform a closure with the current value of the atomic store
     /// - Parameter closure: the closure to perform
-    public func withValue(_ closure: (T) -> ()) {
+    public func withValue(_ closure: (T) -> Void) {
         self.lockable.performWhileLocked {
             closure(self._value)
         }

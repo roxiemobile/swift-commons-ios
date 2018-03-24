@@ -14,7 +14,7 @@ class MetatypeNode
 
     init(value: String, child: MetatypeNode? = nil)
     {
-        // Init instance variables
+        // Init instance
         self.value = value
         self.child = child
     }

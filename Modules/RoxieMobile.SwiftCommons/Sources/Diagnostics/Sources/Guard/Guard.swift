@@ -22,7 +22,7 @@ public final class Guard: NonCreatable
     ///
     /// - Parameters:
     ///   - message: The error message that explains the reason for the exception. The default is an empty string.
-    ///   - innerError: The error that is the cause of the current exception, or a `nil` reference if no inner error is specified.
+    ///   - error: The error that is the cause of the current exception, or a `nil` reference if no inner error is specified.
     ///   - file: The file name.
     ///   - line: The line number.
     ///
@@ -33,8 +33,15 @@ public final class Guard: NonCreatable
         return GuardException(reason: "Fatal error: \(message())\nFile: \(file)\nLine: \(line)", cause: error)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    internal static func tryIsFailure(_ action: @autoclosure () throws -> ()) -> Error? {
+    /// Calls the action and catches a `CheckError` if it will be thrown.
+    ///
+    /// - Parameters:
+    ///   - action: A delegate to the code that can throw a `CheckError` when executed.
+    ///
+    /// - Returns:
+    ///   `Error` if an error thrown; otherwise, `nil`.
+    ///
+    internal static func tryIsFailure(_ action: @autoclosure () throws -> Void) -> Error? {
         var cause: Error? = nil
 
         do {

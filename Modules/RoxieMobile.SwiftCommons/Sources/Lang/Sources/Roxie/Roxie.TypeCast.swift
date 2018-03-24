@@ -12,19 +12,19 @@ public extension Roxie
 {
 // MARK: - Methods
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public static func type<T>(of object: AnyObject?, is _: T.Type) -> Bool {
-        return (object is T)
+    /// Checks whether an instance is of a certain type.
+    public static func type<T, U>(of object: T?, is type: U.Type) -> Bool {
+        return (object is U)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public static func forceCast<T>(_ object: AnyObject?, to type: T.Type) -> T {
-        return (object as! T)
+    /// Force downcast of an object to a specified type.
+    public static func forceCast<T, U>(_ object: T?, to type: U.Type) -> U {
+        return (object as! U)
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
-    public static func conditionalCast<T>(_ object: AnyObject?, to type: T.Type) -> T? {
-        return (object as? T)
+    /// Conditional downcast of an object to a specified type.
+    public static func conditionalCast<T, U>(_ object: T?, to type: U.Type) -> U? {
+        return (object as? U)
     }
 }
 

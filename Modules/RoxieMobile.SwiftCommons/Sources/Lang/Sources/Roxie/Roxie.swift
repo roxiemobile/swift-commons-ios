@@ -21,7 +21,7 @@ public final class Roxie: NonCreatable
         return Reflection(of: subject).type.name
     }
 
-    @available(*, deprecated, message: "\n• Write a description.")
+    /// Checks if the application is running unit tests.
     public static var isRunningXCTest: Bool {
         // How to let the app know if its running Unit tests in a pure Swift project?
         // @link https://stackoverflow.com/a/29991529

@@ -23,7 +23,7 @@ final class GuardTests: XCTestCase
             exceptionType: NSException.Type = GuardException.self,
             file: StaticString = #file,
             line: UInt = #line,
-            action: @escaping () -> ()
+            action: @escaping () -> Void
     ) -> Void {
 
         XCTAssert(!method.isEmpty, "‘method’ is empty");
@@ -53,7 +53,7 @@ final class GuardTests: XCTestCase
             exceptionType: NSException.Type = GuardException.self,
             file: StaticString = #file,
             line: UInt = #line,
-            action: @escaping () -> ()
+            action: @escaping () -> Void
     ) -> Void {
 
         XCTAssert(!method.isEmpty, "‘method’ is empty");
