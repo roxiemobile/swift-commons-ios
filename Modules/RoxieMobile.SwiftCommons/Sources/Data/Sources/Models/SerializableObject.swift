@@ -38,6 +38,13 @@ open class SerializableObject: Serializable, NSCoding
         // Do nothing
     }
 
+// MARK: - Properties
+
+    /// Returns the version number assigned to the class.
+    public class var classVersion: Int {
+        return 1
+    }
+
 // MARK: - Methods
 
     /// Encodes the receiver using a given archiver.
@@ -126,7 +133,7 @@ extension SerializableObject
     /// Returns the version number assigned to the class.
     @objc
     public class func version() -> Int {
-        return self.classVersion
+        return self.serialVersionUID
     }
 
     /// Sets the receiver's version number.
@@ -136,7 +143,7 @@ extension SerializableObject
     ///
     @objc
     public class func setVersion(version: Int) {
-        self.classVersion = version
+        self.serialVersionUID = version
     }
 
 // --
@@ -189,7 +196,7 @@ extension SerializableObject
 
 // MARK: - Variables
 
-    private static var classVersion: Int = 1
+    private static var serialVersionUID: Int = classVersion
 }
 
 // ----------------------------------------------------------------------------
