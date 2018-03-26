@@ -42,7 +42,7 @@ public final class Assets: NonCreatable
         {
             if let resourcePath = assetBundle.resourcePath
             {
-                string = (resourcePath as NSString).appendingPathComponent(String(string.substring(from: Schema.Asset.count)))
+                string = (resourcePath as NSString).appendingPathComponent(string.substring(from: Schema.Asset.count))
                 result = FileManager.default.fileExists(atPath: string)
             }
         }
@@ -50,7 +50,7 @@ public final class Assets: NonCreatable
         else
         {
             if string.hasPrefix(Schema.File) {
-                string = String(string.substring(from: Schema.File.count))
+                string = string.substring(from: Schema.File.count)
             }
 
             if let resourcePath = assetBundle.resourcePath, string.hasPrefix(resourcePath) {
@@ -81,7 +81,7 @@ public final class Assets: NonCreatable
         {
             if let resourcePath = assetBundle.resourcePath
             {
-                string = (resourcePath as NSString).appendingPathComponent(String(string.substring(from: Schema.Asset.count)))
+                string = (resourcePath as NSString).appendingPathComponent(string.substring(from: Schema.Asset.count))
                 result = URL(fileURLWithPath: string)
             }
         }
