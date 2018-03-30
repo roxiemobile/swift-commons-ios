@@ -5,6 +5,9 @@ use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 
+
+# MARK: - Methods
+
 def pod_from(name, *args)
   name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF" }.reject(&:empty?).join('/')
   pod(name, *args)
@@ -18,6 +21,8 @@ def inject_shared_dependencies_2
   pod_from 'CryptoSwift', '~> 0.8.3'
 end
 
+
+# MARK: - Sources
 
 target 'SwiftCommons.Concurrent' do
   project '../RoxieMobile.SwiftCommons/Sources/Concurrent/SwiftCommons.Concurrent.xcodeproj'
@@ -35,10 +40,7 @@ target 'SwiftCommons.Data' do
 end
 
 
-target 'SwiftCommons.Data.UnitTests' do
-  project '../RoxieMobile.SwiftCommons/Tests/Data.UnitTests/SwiftCommons.Data.UnitTests.xcodeproj'
-end
-
+# MARK: - Tests
 
 target 'SwiftCommons.Diagnostics.UnitTests' do
   project '../RoxieMobile.SwiftCommons/Tests/Diagnostics.UnitTests/SwiftCommons.Diagnostics.UnitTests.xcodeproj'

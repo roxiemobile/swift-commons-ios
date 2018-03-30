@@ -23,6 +23,9 @@
       location = "group:Sources/Extensions/SwiftCommons.Extensions.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Tests/Extensions.UnitTests/SwiftCommons.Extensions.UnitTests.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Sources/Lang/SwiftCommons.Lang.xcodeproj">
    </FileRef>
    <FileRef
