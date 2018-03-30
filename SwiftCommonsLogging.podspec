@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsLogging'
   s.summary               = 'Provides simple abstraction layer over an existing logging frameworks.'
-  s.version               = '1.2.5'
+  s.version               = '1.2.6'
 
   s.platform              = :ios
   s.ios.deployment_target = '9.0'
