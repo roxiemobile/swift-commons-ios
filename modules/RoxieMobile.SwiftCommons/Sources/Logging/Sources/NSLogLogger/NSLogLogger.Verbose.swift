@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  LogcatLogger.Verbose.swift
+//  NSLogLogger.Verbose.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -13,7 +13,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension LogcatLogger
+extension NSLogLogger
 {
 // MARK: - Methods
 
@@ -28,7 +28,7 @@ extension LogcatLogger
     public func v(_ tag: String, _ message: String, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.verbose
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, message))
+            NSLog("%@", Logger.description(level, tag, message))
         }
     }
 

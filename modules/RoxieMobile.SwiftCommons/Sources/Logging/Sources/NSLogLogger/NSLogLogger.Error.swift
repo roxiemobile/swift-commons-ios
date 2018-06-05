@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  LogcatLogger.Error.swift
+//  NSLogLogger.Error.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -13,7 +13,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension LogcatLogger
+extension NSLogLogger
 {
 // MARK: - Methods
 
@@ -28,7 +28,7 @@ extension LogcatLogger
     public func e(_ tag: String, _ message: String, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, message))
+            NSLog("%@", Logger.description(level, tag, message))
         }
     }
 
@@ -58,7 +58,7 @@ extension LogcatLogger
     public func e(_ tag: String, _ message: String, _ error: Error?, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, message, error))
+            NSLog("%@", Logger.description(level, tag, message, error))
         }
     }
 
@@ -89,7 +89,7 @@ extension LogcatLogger
     public func e(_ tag: String, _ message: String, _ error: NSError?, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, message, error))
+            NSLog("%@", Logger.description(level, tag, message, error))
         }
     }
 
@@ -120,7 +120,7 @@ extension LogcatLogger
     public func e(_ tag: String, _ message: String, _ exception: NSException?, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, message, exception))
+            NSLog("%@", Logger.description(level, tag, message, exception))
         }
     }
 
@@ -150,7 +150,7 @@ extension LogcatLogger
     public func e(_ tag: String, _ error: Error, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, nil, error))
+            NSLog("%@", Logger.description(level, tag, nil, error))
         }
     }
 
@@ -179,7 +179,7 @@ extension LogcatLogger
     public func e(_ tag: String, _ error: NSError, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, nil, error))
+            NSLog("%@", Logger.description(level, tag, nil, error))
         }
     }
 
@@ -208,7 +208,7 @@ extension LogcatLogger
     public func e(_ tag: String, _ exception: NSException, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.error
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, nil, exception))
+            NSLog("%@", Logger.description(level, tag, nil, exception))
         }
     }
 

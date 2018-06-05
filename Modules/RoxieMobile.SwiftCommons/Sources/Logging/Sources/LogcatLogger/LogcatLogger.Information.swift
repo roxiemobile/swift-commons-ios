@@ -28,7 +28,7 @@ extension LogcatLogger
     public func i(_ tag: String, _ message: String, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.information
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, message))
+            print(Logger.description(level, tag, message))
         }
     }
 

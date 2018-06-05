@@ -320,7 +320,6 @@
 				19089ECB1FCCB68000316300 /* Frameworks */,
 				19089ECC1FCCB68000316300 /* Headers */,
 				19089ECD1FCCB68000316300 /* Resources */,
-				274BA6B56D858C6AFEBB88A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -375,21 +374,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		274BA6B56D858C6AFEBB88A5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B50C058BADFFA6ABA98C24EB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

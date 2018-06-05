@@ -30,6 +30,12 @@
 		19C9FDC01FCCADCD0069F3D1 /* LoggerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7691F8651890030F1D8 /* LoggerContract.swift */; };
 		19C9FDC11FCCADCD0069F3D1 /* SwiftCommonsLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19C9FDC31FCCAE0D0069F3D1 /* SwiftCommonsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FDC21FCCAE0D0069F3D1 /* SwiftCommonsLogging.m */; };
+		269FB64C20C6D7FF0091AC78 /* NSLogLogger.Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269FB64620C6D7FE0091AC78 /* NSLogLogger.Debug.swift */; };
+		269FB64D20C6D7FF0091AC78 /* NSLogLogger.Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269FB64720C6D7FE0091AC78 /* NSLogLogger.Error.swift */; };
+		269FB64E20C6D7FF0091AC78 /* NSLogLogger.Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269FB64820C6D7FE0091AC78 /* NSLogLogger.Information.swift */; };
+		269FB64F20C6D7FF0091AC78 /* NSLogLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269FB64920C6D7FE0091AC78 /* NSLogLogger.swift */; };
+		269FB65020C6D7FF0091AC78 /* NSLogLogger.Verbose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269FB64A20C6D7FE0091AC78 /* NSLogLogger.Verbose.swift */; };
+		269FB65120C6D7FF0091AC78 /* NSLogLogger.Warning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269FB64B20C6D7FE0091AC78 /* NSLogLogger.Warning.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +65,12 @@
 		19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsLogging.h; sourceTree = "<group>"; };
 		19C9FD961FCCAD3A0069F3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C9FDC21FCCAE0D0069F3D1 /* SwiftCommonsLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsLogging.m; sourceTree = "<group>"; };
+		269FB64620C6D7FE0091AC78 /* NSLogLogger.Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLogLogger.Debug.swift; sourceTree = "<group>"; };
+		269FB64720C6D7FE0091AC78 /* NSLogLogger.Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLogLogger.Error.swift; sourceTree = "<group>"; };
+		269FB64820C6D7FE0091AC78 /* NSLogLogger.Information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLogLogger.Information.swift; sourceTree = "<group>"; };
+		269FB64920C6D7FE0091AC78 /* NSLogLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLogLogger.swift; sourceTree = "<group>"; };
+		269FB64A20C6D7FE0091AC78 /* NSLogLogger.Verbose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLogLogger.Verbose.swift; sourceTree = "<group>"; };
+		269FB64B20C6D7FE0091AC78 /* NSLogLogger.Warning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLogLogger.Warning.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +176,7 @@
 				19C7B75C1F864EF60030F1D8 /* Logger */,
 				19C7B75D1F864F040030F1D8 /* ChainedLogger */,
 				19C7B75E1F864F0B0030F1D8 /* LogcatLogger */,
+				269FB64520C6D7FE0091AC78 /* NSLogLogger */,
 				19C7B7691F8651890030F1D8 /* LoggerContract.swift */,
 			);
 			path = Sources;
@@ -176,6 +189,19 @@
 				19C9FDC21FCCAE0D0069F3D1 /* SwiftCommonsLogging.m */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		269FB64520C6D7FE0091AC78 /* NSLogLogger */ = {
+			isa = PBXGroup;
+			children = (
+				269FB64920C6D7FE0091AC78 /* NSLogLogger.swift */,
+				269FB64620C6D7FE0091AC78 /* NSLogLogger.Debug.swift */,
+				269FB64720C6D7FE0091AC78 /* NSLogLogger.Error.swift */,
+				269FB64820C6D7FE0091AC78 /* NSLogLogger.Information.swift */,
+				269FB64A20C6D7FE0091AC78 /* NSLogLogger.Verbose.swift */,
+				269FB64B20C6D7FE0091AC78 /* NSLogLogger.Warning.swift */,
+			);
+			path = NSLogLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,9 +286,11 @@
 			files = (
 				19C9FDB71FCCADCD0069F3D1 /* ChainedLogger.Information.swift in Sources */,
 				19C9FDAE1FCCADCD0069F3D1 /* Logger.swift in Sources */,
+				269FB64E20C6D7FF0091AC78 /* NSLogLogger.Information.swift in Sources */,
 				19C9FDBC1FCCADCD0069F3D1 /* LogcatLogger.Debug.swift in Sources */,
 				19C9FDBF1FCCADCD0069F3D1 /* LogcatLogger.Error.swift in Sources */,
 				19C9FDB81FCCADCD0069F3D1 /* ChainedLogger.Warning.swift in Sources */,
+				269FB64D20C6D7FF0091AC78 /* NSLogLogger.Error.swift in Sources */,
 				19C9FDC31FCCAE0D0069F3D1 /* SwiftCommonsLogging.m in Sources */,
 				19C9FDBA1FCCADCD0069F3D1 /* LogcatLogger.swift in Sources */,
 				19C9FDB21FCCADCD0069F3D1 /* Logger.Warning.swift in Sources */,
@@ -271,11 +299,15 @@
 				19C9FDB61FCCADCD0069F3D1 /* ChainedLogger.Debug.swift in Sources */,
 				19C9FDC01FCCADCD0069F3D1 /* LoggerContract.swift in Sources */,
 				19C9FDB01FCCADCD0069F3D1 /* Logger.Debug.swift in Sources */,
+				269FB64F20C6D7FF0091AC78 /* NSLogLogger.swift in Sources */,
 				19C9FDBE1FCCADCD0069F3D1 /* LogcatLogger.Warning.swift in Sources */,
+				269FB65120C6D7FF0091AC78 /* NSLogLogger.Warning.swift in Sources */,
 				19C9FDB41FCCADCD0069F3D1 /* ChainedLogger.swift in Sources */,
 				19C9FDB31FCCADCD0069F3D1 /* Logger.Error.swift in Sources */,
 				19C9FDAF1FCCADCD0069F3D1 /* Logger.Verbose.swift in Sources */,
 				19C9FDBB1FCCADCD0069F3D1 /* LogcatLogger.Verbose.swift in Sources */,
+				269FB64C20C6D7FF0091AC78 /* NSLogLogger.Debug.swift in Sources */,
+				269FB65020C6D7FF0091AC78 /* NSLogLogger.Verbose.swift in Sources */,
 				19C9FDB51FCCADCD0069F3D1 /* ChainedLogger.Verbose.swift in Sources */,
 				19C9FDB11FCCADCD0069F3D1 /* Logger.Information.swift in Sources */,
 			);

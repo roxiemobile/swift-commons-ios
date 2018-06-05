@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  LogcatLogger.Verbose.swift
+//  NSLogLogger.Information.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
@@ -13,11 +13,11 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension LogcatLogger
+extension NSLogLogger
 {
 // MARK: - Methods
 
-    /// Formats and sends a verbose log message.
+    /// Formats and sends an informational log message.
     ///
     /// - Parameters:
     ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
@@ -25,14 +25,14 @@ extension LogcatLogger
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    public func v(_ tag: String, _ message: String, file: StaticString = #file, line: UInt = #line) {
-        let level = Logger.LogLevel.verbose
+    public func i(_ tag: String, _ message: String, file: StaticString = #file, line: UInt = #line) {
+        let level = Logger.LogLevel.information
         if Logger.isLoggable(level) {
-            print(Logger.description(level, tag, message))
+            NSLog("%@", Logger.description(level, tag, message))
         }
     }
 
-    /// Formats and sends a verbose log message.
+    /// Formats and sends an informational log message.
     ///
     /// - Parameters:
     ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
@@ -40,8 +40,8 @@ extension LogcatLogger
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    public func v(_ type: Any.Type, _ message: String, file: StaticString = #file, line: UInt = #line) {
-        v(Reflection(of: type).type.fullName, message, file: file, line: line)
+    public func i(_ type: Any.Type, _ message: String, file: StaticString = #file, line: UInt = #line) {
+        i(Reflection(of: type).type.fullName, message, file: file, line: line)
     }
 }
 
