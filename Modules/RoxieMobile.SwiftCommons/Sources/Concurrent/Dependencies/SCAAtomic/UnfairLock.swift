@@ -31,8 +31,8 @@ public final class UnfairLock
     }
 
     deinit {
-        _lock.deinitialize()
-        _lock.deallocate(capacity: 1)
+        _lock.deinitialize(count: 1)
+        _lock.deallocate()
     }
 }
 

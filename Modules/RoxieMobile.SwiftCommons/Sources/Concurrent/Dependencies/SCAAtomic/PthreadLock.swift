@@ -31,8 +31,8 @@ public final class PthreadLock
 
         defer {
             pthread_mutexattr_destroy(attr)
-            attr.deinitialize()
-            attr.deallocate(capacity: 1)
+            attr.deinitialize(count: 1)
+            attr.deallocate()
         }
 
         // Darwin pthread for 32-bit ARM somehow returns `EAGAIN` when
@@ -51,8 +51,8 @@ public final class PthreadLock
         let status = pthread_mutex_destroy(_lock)
         assert(status == 0, "Unexpected pthread mutex error code: \(status)")
 
-        _lock.deinitialize()
-        _lock.deallocate(capacity: 1)
+        _lock.deinitialize(count: 1)
+        _lock.deallocate()
     }
 }
 

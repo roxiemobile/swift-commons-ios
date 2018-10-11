@@ -13,15 +13,20 @@
 
 // ----------------------------------------------------------------------------
 
+// Code targeting the Swift 4.1 compiler and below.
+#if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
 public protocol ImplicitlyUnwrappedOptionalWrapper
 {
 // MARK: - Properties
 
     var wrappedType: Any.Type { get }
 }
+#endif
 
 // ----------------------------------------------------------------------------
 
+// Code targeting the Swift 4.1 compiler and below.
+#if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
 extension ImplicitlyUnwrappedOptional: ImplicitlyUnwrappedOptionalWrapper
 {
 // MARK: - Properties
@@ -36,5 +41,6 @@ extension ImplicitlyUnwrappedOptional: ImplicitlyUnwrappedOptionalWrapper
         return Wrapped.self
     }
 }
+#endif
 
 // ----------------------------------------------------------------------------

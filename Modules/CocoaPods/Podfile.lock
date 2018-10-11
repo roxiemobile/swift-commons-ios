@@ -1,19 +1,24 @@
 PODS:
-  - CryptoSwift-SCF (0.8.3):
-    - CryptoSwift-SCF/StaticCocoaFramework (= 0.8.3)
-  - CryptoSwift-SCF/StaticCocoaFramework (0.8.3)
-  - Dispatch-SCF (2.0.4):
-    - Dispatch-SCF/StaticCocoaFramework (= 2.0.4)
-  - Dispatch-SCF/StaticCocoaFramework (2.0.4)
+  - CryptoSwift-SCF42 (0.12.0):
+    - CryptoSwift-SCF42/StaticCocoaFramework (= 0.12.0)
+  - CryptoSwift-SCF42/StaticCocoaFramework (0.12.0)
+  - Dispatch-SCF42 (2.0.4):
+    - Dispatch-SCF42/StaticCocoaFramework (= 2.0.4)
+  - Dispatch-SCF42/StaticCocoaFramework (2.0.4)
 
 DEPENDENCIES:
-  - CryptoSwift-SCF (~> 0.8.3)
-  - Dispatch-SCF (~> 2.0.4)
+  - CryptoSwift-SCF42 (~> 0.12.0)
+  - Dispatch-SCF42 (~> 2.0.4)
+
+SPEC REPOS:
+  https://github.com/roxiemobile/static-cocoa-frameworks.ios.git:
+    - CryptoSwift-SCF42
+    - Dispatch-SCF42
 
 SPEC CHECKSUMS:
-  CryptoSwift-SCF: b50fb8c9bf3e28b27ed9c454b8e9f7102471b589
-  Dispatch-SCF: 260f244bfae3213f83e77cb99b275cefa4c3ba62
+  CryptoSwift-SCF42: 7286da9570797cde5c8f1f9f065e3d920ff97a8a
+  Dispatch-SCF42: 011000aa52bfd7b8e2e50a55f78dc1ff5c9cdd4b
 
-PODFILE CHECKSUM: 47b7ca391efff50f1362d29339d507b5ad3cdd52
+PODFILE CHECKSUM: 20d2cad506ec1ad2938789d76a528362f9112931
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
