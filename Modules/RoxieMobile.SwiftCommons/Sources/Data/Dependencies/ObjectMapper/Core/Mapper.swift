@@ -175,8 +175,14 @@ public final class Mapper<N: BaseMappable> {
 
     /// Maps an array of JSON dictionary to an array of Mappable objects
     public func mapArray(JSONArray: [[String: Any]]) -> [N] {
+// Code targeting the Swift 4.1 compiler and above.
+#if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
+        // map every element in JSON array to type N
+        let result = JSONArray.compactMap(map)
+#else
         // map every element in JSON array to type N
         let result = JSONArray.flatMap(map)
+#endif
         return result
     }
 
@@ -432,8 +438,14 @@ extension Mapper where N: Hashable {
 
     /// Maps an Set of JSON dictionary to an array of Mappable objects
     public func mapSet(JSONArray: [[String: Any]]) -> Set<N> {
+// Code targeting the Swift 4.1 compiler and above.
+#if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
+        // map every element in JSON array to type N
+        return Set(JSONArray.compactMap(self.map))
+#else
         // map every element in JSON array to type N
         return Set(JSONArray.flatMap(self.map))
+#endif
     }
 
     ///Maps a Set of Objects to a Set of JSON dictionaries [[String : Any]]

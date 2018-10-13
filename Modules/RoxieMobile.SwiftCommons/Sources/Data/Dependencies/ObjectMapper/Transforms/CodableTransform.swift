@@ -1,8 +1,8 @@
 //
-//  DateTransform.swift
+//  CodableTransform.swift
 //  ObjectMapper
 //
-//  Created by Tristan Himmelman on 2014-10-13.
+//  Created by Jari Kalinainen on 10/10/2018.
 //
 //  The MIT License (MIT)
 //
@@ -28,48 +28,38 @@
 
 import Foundation
 
-open class DateTransform: TransformType {
-    public typealias Object = Date
-    public typealias JSON = Double
+/// Transforms JSON dictionary to Codable type T and back
+open class CodableTransform<T: Codable>: TransformType {
 
-    public enum Unit: TimeInterval {
-        case seconds = 1
-        case milliseconds = 1_000
+    public typealias Object = T
+    public typealias JSON = Any
 
-        func addScale(to interval: TimeInterval) -> TimeInterval {
-            return interval * rawValue
+    public init() {}
+
+    open func transformFromJSON(_ value: Any?) -> Object? {
+        guard let dict = value as? [String: Any], let data = try? JSONSerialization.data(withJSONObject: dict, options: []) else {
+            return nil
         }
-
-        func removeScale(from interval: TimeInterval) -> TimeInterval {
-            return interval / rawValue
-        }
-    }
-
-    private let unit: Unit
-
-    public init(unit: Unit = .seconds) {
-        self.unit = unit
-    }
-
-    open func transformFromJSON(_ value: Any?) -> Date? {
-        var timeInterval: TimeInterval?
-        if let timeInt = value as? Double {
-            timeInterval = TimeInterval(timeInt)
-        }
-
-        if let timeStr = value as? String {
-            timeInterval = TimeInterval(atof(timeStr))
-        }
-
-        return timeInterval.flatMap {
-            return Date(timeIntervalSince1970: unit.removeScale(from: $0))
+        do {
+            let decoder = JSONDecoder()
+            let item = try decoder.decode(T.self, from: data)
+            return item
+        } catch {
+            return nil
         }
     }
 
-    open func transformToJSON(_ value: Date?) -> Double? {
-        if let date = value {
-            return Double(unit.addScale(to: date.timeIntervalSince1970))
+    open func transformToJSON(_ value: T?) -> JSON? {
+        guard let item = value else {
+            return nil
         }
-        return nil
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(item)
+            let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+            return dictionary
+        } catch {
+            return nil
+        }
     }
 }

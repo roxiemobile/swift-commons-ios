@@ -9,7 +9,7 @@ workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 # MARK: - Methods
 
 def pod_from(name, *args)
-  name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF" }.reject(&:empty?).join('/')
+  name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF42" }.reject(&:empty?).join('/')
   pod(name, *args)
 end
 
@@ -18,7 +18,7 @@ def inject_shared_dependencies_1
 end
 
 def inject_shared_dependencies_2
-  pod_from 'CryptoSwift', '~> 0.8.3'
+  pod_from 'CryptoSwift', '~> 0.12.0'
 end
 
 

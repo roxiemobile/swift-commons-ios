@@ -46,6 +46,7 @@
 		19A7065F1FCCB8EE001182AF /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5061F8A57C500A944A8 /* RegexValidator.swift */; };
 		19A706601FCCB8EE001182AF /* UrlValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5071F8A57C500A944A8 /* UrlValidator.swift */; };
 		19B0266B2040BBD000584342 /* Map.Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0266A2040BBD000584342 /* Map.Extensions.swift */; };
+		19BF605C21717026005E42E3 /* CodableTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BF605B21717026005E42E3 /* CodableTransform.swift */; };
 		E1878A32E761D1684863AAE0 /* Pods_SwiftCommons_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF42310CE1471D1E79A316DD /* Pods_SwiftCommons_Data.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		1990C5121F8A652400A944A8 /* SerializableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableObject.swift; sourceTree = "<group>"; };
 		199FFD941FCCBA27006969AF /* SwiftCommonsDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0266A2040BBD000584342 /* Map.Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.Extensions.swift; sourceTree = "<group>"; };
+		19BF605B21717026005E42E3 /* CodableTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableTransform.swift; sourceTree = "<group>"; };
 		19CAA9361FBF9A850034FD4E /* SerializableMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializableMappable.swift; sourceTree = "<group>"; };
 		6F5D3AA0E3EC989B4452A948 /* Pods-SwiftCommons.Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.release.xcconfig"; sourceTree = "<group>"; };
 		CF16D7706F5A8B6769B3594D /* Pods-SwiftCommons.Data.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				19574C9A1F8A6FB600A218E4 /* Date */,
+				19BF605B21717026005E42E3 /* CodableTransform.swift */,
 				19574C991F8A6FB600A218E4 /* DataTransform.swift */,
 				19574C9F1F8A6FB600A218E4 /* DictionaryTransform.swift */,
 				19574CA01F8A6FB600A218E4 /* EnumTransform.swift */,
@@ -337,7 +340,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Roxie Mobile Ltd.";
 				TargetAttributes = {
 					19089ECE1FCCB68000316300 = {
@@ -416,6 +419,7 @@
 				19A706601FCCB8EE001182AF /* UrlValidator.swift in Sources */,
 				194862401FCCB86C0058735E /* ImmutableMappable.swift in Sources */,
 				1948623E1FCCB86C0058735E /* TransformOperators.swift in Sources */,
+				19BF605C21717026005E42E3 /* CodableTransform.swift in Sources */,
 				194862531FCCB86C0058735E /* URLTransform.swift in Sources */,
 				19A7065C1FCCB8EE001182AF /* JsonTypes.swift in Sources */,
 				1948624E1FCCB86C0058735E /* EnumTransform.swift in Sources */,
@@ -498,6 +502,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -505,6 +510,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -554,6 +560,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -561,6 +568,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
