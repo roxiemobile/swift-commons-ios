@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		193BE3491FCCB52F00E35C0C /* SwiftCommonsConcurrent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193BE34B1FCCB52F00E35C0C /* SwiftCommonsConcurrent.framework */; };
 		193BE34A1FCCB52F00E35C0C /* SwiftCommonsLang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193BE34C1FCCB52F00E35C0C /* SwiftCommonsLang.framework */; };
+		197AE96F21729A940087B579 /* StdoutLogger.Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197AE96921729A940087B579 /* StdoutLogger.Debug.swift */; };
+		197AE97021729A940087B579 /* StdoutLogger.Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197AE96A21729A940087B579 /* StdoutLogger.Information.swift */; };
+		197AE97121729A940087B579 /* StdoutLogger.Warning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197AE96B21729A940087B579 /* StdoutLogger.Warning.swift */; };
+		197AE97221729A940087B579 /* StdoutLogger.Verbose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197AE96C21729A940087B579 /* StdoutLogger.Verbose.swift */; };
+		197AE97321729A940087B579 /* StdoutLogger.Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197AE96D21729A940087B579 /* StdoutLogger.Error.swift */; };
+		197AE97421729A940087B579 /* StdoutLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197AE96E21729A940087B579 /* StdoutLogger.swift */; };
 		19C9FDAE1FCCADCD0069F3D1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B75B1F864D870030F1D8 /* Logger.swift */; };
 		19C9FDAF1FCCADCD0069F3D1 /* Logger.Verbose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B75F1F864F3D0030F1D8 /* Logger.Verbose.swift */; };
 		19C9FDB01FCCADCD0069F3D1 /* Logger.Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7611F864F540030F1D8 /* Logger.Debug.swift */; };
@@ -46,6 +52,12 @@
 		193BE34B1FCCB52F00E35C0C /* SwiftCommonsConcurrent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsConcurrent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		193BE34C1FCCB52F00E35C0C /* SwiftCommonsLang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsLang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1976D4CC1FCB819C00C07C72 /* SwiftCommons.Logging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.Logging.xcconfig; sourceTree = "<group>"; };
+		197AE96921729A940087B579 /* StdoutLogger.Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StdoutLogger.Debug.swift; sourceTree = "<group>"; };
+		197AE96A21729A940087B579 /* StdoutLogger.Information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StdoutLogger.Information.swift; sourceTree = "<group>"; };
+		197AE96B21729A940087B579 /* StdoutLogger.Warning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StdoutLogger.Warning.swift; sourceTree = "<group>"; };
+		197AE96C21729A940087B579 /* StdoutLogger.Verbose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StdoutLogger.Verbose.swift; sourceTree = "<group>"; };
+		197AE96D21729A940087B579 /* StdoutLogger.Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StdoutLogger.Error.swift; sourceTree = "<group>"; };
+		197AE96E21729A940087B579 /* StdoutLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StdoutLogger.swift; sourceTree = "<group>"; };
 		19C7B7591F864D870030F1D8 /* ChainedLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedLogger.swift; sourceTree = "<group>"; };
 		19C7B75A1F864D870030F1D8 /* LogcatLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogcatLogger.swift; sourceTree = "<group>"; };
 		19C7B75B1F864D870030F1D8 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -90,6 +102,19 @@
 				193BE34C1FCCB52F00E35C0C /* SwiftCommonsLang.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		197AE96821729A940087B579 /* StdoutLogger */ = {
+			isa = PBXGroup;
+			children = (
+				197AE96E21729A940087B579 /* StdoutLogger.swift */,
+				197AE96C21729A940087B579 /* StdoutLogger.Verbose.swift */,
+				197AE96921729A940087B579 /* StdoutLogger.Debug.swift */,
+				197AE96A21729A940087B579 /* StdoutLogger.Information.swift */,
+				197AE96B21729A940087B579 /* StdoutLogger.Warning.swift */,
+				197AE96D21729A940087B579 /* StdoutLogger.Error.swift */,
+			);
+			path = StdoutLogger;
 			sourceTree = "<group>";
 		};
 		19C0171B1F72CC3A00D29F73 = {
@@ -164,6 +189,7 @@
 				19C7B75C1F864EF60030F1D8 /* Logger */,
 				19C7B75D1F864F040030F1D8 /* ChainedLogger */,
 				19C7B75E1F864F0B0030F1D8 /* LogcatLogger */,
+				197AE96821729A940087B579 /* StdoutLogger */,
 				19C7B7691F8651890030F1D8 /* LoggerContract.swift */,
 			);
 			path = Sources;
@@ -258,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197AE97421729A940087B579 /* StdoutLogger.swift in Sources */,
 				19C9FDB71FCCADCD0069F3D1 /* ChainedLogger.Information.swift in Sources */,
 				19C9FDAE1FCCADCD0069F3D1 /* Logger.swift in Sources */,
 				19C9FDBC1FCCADCD0069F3D1 /* LogcatLogger.Debug.swift in Sources */,
@@ -270,14 +297,19 @@
 				19C9FDBD1FCCADCD0069F3D1 /* LogcatLogger.Information.swift in Sources */,
 				19C9FDB61FCCADCD0069F3D1 /* ChainedLogger.Debug.swift in Sources */,
 				19C9FDC01FCCADCD0069F3D1 /* LoggerContract.swift in Sources */,
+				197AE97321729A940087B579 /* StdoutLogger.Error.swift in Sources */,
+				197AE97221729A940087B579 /* StdoutLogger.Verbose.swift in Sources */,
 				19C9FDB01FCCADCD0069F3D1 /* Logger.Debug.swift in Sources */,
 				19C9FDBE1FCCADCD0069F3D1 /* LogcatLogger.Warning.swift in Sources */,
 				19C9FDB41FCCADCD0069F3D1 /* ChainedLogger.swift in Sources */,
 				19C9FDB31FCCADCD0069F3D1 /* Logger.Error.swift in Sources */,
+				197AE97121729A940087B579 /* StdoutLogger.Warning.swift in Sources */,
 				19C9FDAF1FCCADCD0069F3D1 /* Logger.Verbose.swift in Sources */,
 				19C9FDBB1FCCADCD0069F3D1 /* LogcatLogger.Verbose.swift in Sources */,
+				197AE97021729A940087B579 /* StdoutLogger.Information.swift in Sources */,
 				19C9FDB51FCCADCD0069F3D1 /* ChainedLogger.Verbose.swift in Sources */,
 				19C9FDB11FCCADCD0069F3D1 /* Logger.Information.swift in Sources */,
+				197AE96F21729A940087B579 /* StdoutLogger.Debug.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
