@@ -214,7 +214,12 @@ public extension Mapper where N: ImmutableMappable {
     // MARK: Array mapping functions
 
     public func mapArray(JSONArray: [[String: Any]]) throws -> [N] {
+// Code targeting the Swift 4.1 compiler and above.
+#if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
+        return try JSONArray.compactMap(mapOrFail)
+#else
         return try JSONArray.flatMap(mapOrFail)
+#endif
     }
 
     public func mapArray(JSONString: String) throws -> [N] {
