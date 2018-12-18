@@ -18,7 +18,7 @@ def inject_shared_dependencies_1
 end
 
 def inject_shared_dependencies_2
-  pod_from 'CryptoSwift', '~> 0.12.0'
+  pod_from 'CryptoSwift', '~> 0.13.1'
 end
 
 
