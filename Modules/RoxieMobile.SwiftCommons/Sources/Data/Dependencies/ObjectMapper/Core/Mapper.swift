@@ -133,8 +133,6 @@ public final class Mapper<N: BaseMappable> {
                 } else {
                     NSException(name: .init(rawValue: "ImmutableMappableError"), reason: error.localizedDescription, userInfo: nil).raise()
                 }
-            #else
-                NSLog("\(error)")
             #endif
             }
         } else {
