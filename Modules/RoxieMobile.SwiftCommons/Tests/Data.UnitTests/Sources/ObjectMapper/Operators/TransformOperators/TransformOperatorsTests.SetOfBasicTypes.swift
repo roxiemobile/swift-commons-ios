@@ -23,39 +23,47 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfIntegerBasicTypes)
 
-        var set: Set<Int> = []
+        let _set: Set<Int> = []
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.array], StringToIntegerTransform.shared)
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first, Int(Int32.max))
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.emptyArray], StringToIntegerTransform.shared)
             XCTAssertEqual(set.count, 0)
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [Int(Int16.max)])
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first, Int(Int16.max))
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.nilArray], StringToIntegerTransform.shared, [])
             XCTAssertEqual(set.count, 0)
         }
 
         // Negative
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
         }
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.invalidArray], StringToIntegerTransform.shared)
         }
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.invalidArray], StringToIntegerTransform.shared, [])
         }
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.nilArray], StringToIntegerTransform.shared)
         }
     }
@@ -64,16 +72,18 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<Int> = [Int(Int16.max), Int(Int32.max)]
-        var emptySet: Set<Int> = []
+        let _set: Set<Int> = [Int(Int16.max), Int(Int32.max)]
+        let _emptySet: Set<Int> = []
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.set], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            emptySet <~ (map[JsonKeys.emptySet], StringToIntegerTransform.shared)
+            var set = _emptySet
+            set <~ (map[JsonKeys.emptySet], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
     }
@@ -91,41 +101,49 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfIntegerBasicTypes)
 
-        var set: Set<Int>? = nil
+        let _set: Set<Int>? = nil
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.array], StringToIntegerTransform.shared)
             XCTAssertEqual(set?.count ?? -1, 1)
             XCTAssertEqual(set?.first, Int(Int32.max))
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.emptyArray], StringToIntegerTransform.shared)
             XCTAssertEqual(set?.count ?? -1, 0)
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
             XCTAssertNil(set)
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [Int(Int16.max)])
             XCTAssertEqual(set?.count ?? -1, 1)
             XCTAssertEqual(set?.first, Int(Int16.max))
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.nilArray], StringToIntegerTransform.shared)
             XCTAssertNil(set)
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.nilArray], StringToIntegerTransform.shared, [])
             XCTAssertEqual(set?.count ?? -1, 0)
         }
 
         // Negative
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.invalidArray], StringToIntegerTransform.shared)
         }
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.invalidArray], StringToIntegerTransform.shared, [])
         }
     }
@@ -134,21 +152,24 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<Int>? = [Int(Int16.max), Int(Int32.max)]
-        var emptySet: Set<Int>? = []
-        var nilSet: Set<Int>? = nil
+        let _set: Set<Int>? = [Int(Int16.max), Int(Int32.max)]
+        let _emptySet: Set<Int>? = []
+        let _nilSet: Set<Int>? = nil
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.set], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            emptySet <~ (map[JsonKeys.emptySet], StringToIntegerTransform.shared)
+            var set = _emptySet
+            set <~ (map[JsonKeys.emptySet], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
         assertNoThrow {
-            nilSet <~ (map[JsonKeys.nilSet], StringToIntegerTransform.shared)
+            var set = _nilSet
+            set <~ (map[JsonKeys.nilSet], StringToIntegerTransform.shared)
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilSet).value)
         }
     }
@@ -166,40 +187,50 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfIntegerBasicTypes)
 
-        var set: Set<Int>! = []
+        let _set: Set<Int>! = []
 
         // Positive
         assertNoThrow {
+            var set: Set<Int>! = _set
             set <~ (map[JsonKeys.array], StringToIntegerTransform.shared)
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first, Int(Int32.max))
         }
         assertNoThrow {
+            var set: Set<Int>! = _set
             set <~ (map[JsonKeys.emptyArray], StringToIntegerTransform.shared)
             XCTAssertEqual(set.count, 0)
         }
         assertNoThrow {
+            var set: Set<Int>! = _set
+            set <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            XCTAssertNil(set)
+        }
+        assertNoThrow {
+            var set: Set<Int>! = _set
             set <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [Int(Int16.max)])
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first, Int(Int16.max))
         }
         assertNoThrow {
+            var set: Set<Int>! = _set
+            set <~ (map[JsonKeys.nilArray], StringToIntegerTransform.shared)
+            XCTAssertNil(set)
+        }
+        assertNoThrow {
+            var set: Set<Int>! = _set
             set <~ (map[JsonKeys.nilArray], StringToIntegerTransform.shared, [])
             XCTAssertEqual(set.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            set <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
-        }
-        assertThrowsException {
+            var set: Set<Int>! = _set
             set <~ (map[JsonKeys.invalidArray], StringToIntegerTransform.shared)
         }
         assertThrowsException {
+            var set: Set<Int>! = _set
             set <~ (map[JsonKeys.invalidArray], StringToIntegerTransform.shared, [])
-        }
-        assertThrowsException {
-            set <~ (map[JsonKeys.nilArray], StringToIntegerTransform.shared)
         }
     }
 
@@ -207,16 +238,18 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<Int>! = [Int(Int16.max), Int(Int32.max)]
-        var emptySet: Set<Int>! = []
+        let _set: Set<Int>! = [Int(Int16.max), Int(Int32.max)]
+        let _emptySet: Set<Int>! = []
 
         // Positive
         assertNoThrow {
+            var set: Set<Int>! = _set
             set <~ (map[JsonKeys.set], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            emptySet <~ (map[JsonKeys.emptySet], StringToIntegerTransform.shared)
+            var set: Set<Int>! = _emptySet
+            set <~ (map[JsonKeys.emptySet], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
     }

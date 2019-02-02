@@ -23,38 +23,46 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.integerBasicTypes)
 
-        var value: Int = 0
+        let _value: Int = 0
 
         // Positive
         assertNoThrow {
-            value <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
-            XCTAssertEqual(value, Int.max)
+            var val = _value
+            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            XCTAssertEqual(val, Int.max)
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.noSuchKey, default: "\(Int8.max)"], StringToIntegerTransform.shared)
-            XCTAssertEqual(value, Int(Int8.max))
+            var val = _value
+            val <~ (map[JsonKeys.noSuchKey, default: "\(Int8.max)"], StringToIntegerTransform.shared)
+            XCTAssertEqual(val, Int(Int8.max))
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, Int(Int16.max))
-            XCTAssertEqual(value, Int(Int16.max))
+            var val = _value
+            val <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, Int(Int16.max))
+            XCTAssertEqual(val, Int(Int16.max))
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared, Int(Int32.max))
-            XCTAssertEqual(value, Int(Int32.max))
+            var val = _value
+            val <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared, Int(Int32.max))
+            XCTAssertEqual(val, Int(Int32.max))
         }
 
         // Negative
         assertThrowsException {
-            value <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            var val = _value
+            val <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
         }
         assertThrowsException {
-            value <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared)
+            var val = _value
+            val <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared)
         }
         assertThrowsException {
-            value <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared, Int.max)
+            var val = _value
+            val <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared, Int.max)
         }
         assertThrowsException {
-            value <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared)
+            var val = _value
+            val <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared)
         }
     }
 
@@ -62,16 +70,18 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value = Int(Int16.max)
-        var otherValue = Int(Int32.max)
+        let _value = Int(Int16.max)
+        let _otherValue = Int(Int32.max)
 
         // Positive
         assertNoThrow {
-            value <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            var val = _value
+            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
         assertNoThrow {
-            otherValue <~ (map[JsonKeys.otherValue, default: Constants.invalidValue], StringToIntegerTransform.shared, Int.max)
+            var val = _otherValue
+            val <~ (map[JsonKeys.otherValue, default: Constants.invalidValue], StringToIntegerTransform.shared, Int.max)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherValue).value)
         }
     }
@@ -89,40 +99,48 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.integerBasicTypes)
 
-        var value: Int? = nil
+        let _value: Int? = nil
 
         // Positive
         assertNoThrow {
-            value <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
-            XCTAssertEqual(value, Int.max)
+            var val = _value
+            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            XCTAssertEqual(val, Int.max)
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
-            XCTAssertNil(value)
+            var val = _value
+            val <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.noSuchKey, default: "\(Int8.max)"], StringToIntegerTransform.shared)
-            XCTAssertEqual(value, Int(Int8.max))
+            var val = _value
+            val <~ (map[JsonKeys.noSuchKey, default: "\(Int8.max)"], StringToIntegerTransform.shared)
+            XCTAssertEqual(val, Int(Int8.max))
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, Int(Int16.max))
-            XCTAssertEqual(value, Int(Int16.max))
+            var val = _value
+            val <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, Int(Int16.max))
+            XCTAssertEqual(val, Int(Int16.max))
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared)
-            XCTAssertNil(value)
+            var val = _value
+            val <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared)
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared, Int(Int32.max))
-            XCTAssertEqual(value, Int(Int32.max))
+            var val = _value
+            val <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared, Int(Int32.max))
+            XCTAssertEqual(val, Int(Int32.max))
         }
 
         // Negative
         assertThrowsException {
-            value <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared)
+            var val = _value
+            val <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared)
         }
         assertThrowsException {
-            value <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared, Int.max)
+            var val = _value
+            val <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared, Int.max)
         }
     }
 
@@ -130,21 +148,24 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value: Int? = Int(Int16.max)
-        var otherValue: Int? = Int(Int32.max)
-        var nilValue: Int? = nil
+        let _value: Int? = Int(Int16.max)
+        let _otherValue: Int? = Int(Int32.max)
+        let _nilValue: Int? = nil
 
         // Positive
         assertNoThrow {
-            value <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            var val = _value
+            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
         assertNoThrow {
-            otherValue <~ (map[JsonKeys.otherValue, default: Constants.invalidValue], StringToIntegerTransform.shared, Int.max)
+            var val = _otherValue
+            val <~ (map[JsonKeys.otherValue, default: Constants.invalidValue], StringToIntegerTransform.shared, Int.max)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherValue).value)
         }
         assertNoThrow {
-            nilValue <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared)
+            var val = _nilValue
+            val <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared)
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilValue).value)
         }
     }
@@ -162,38 +183,48 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.integerBasicTypes)
 
-        var value: Int! = 0
+        let _value: Int! = 0
 
         // Positive
         assertNoThrow {
-            value <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
-            XCTAssertEqual(value, Int.max)
+            var val: Int! = _value
+            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            XCTAssertEqual(val, Int.max)
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.noSuchKey, default: "\(Int8.max)"], StringToIntegerTransform.shared)
-            XCTAssertEqual(value, Int(Int8.max))
+            var val: Int! = _value
+            val <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, Int(Int16.max))
-            XCTAssertEqual(value, Int(Int16.max))
+            var val: Int! = _value
+            val <~ (map[JsonKeys.noSuchKey, default: "\(Int8.max)"], StringToIntegerTransform.shared)
+            XCTAssertEqual(val, Int(Int8.max))
         }
         assertNoThrow {
-            value <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared, Int(Int32.max))
-            XCTAssertEqual(value, Int(Int32.max))
+            var val: Int! = _value
+            val <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, Int(Int16.max))
+            XCTAssertEqual(val, Int(Int16.max))
+        }
+        assertNoThrow {
+            var val: Int! = _value
+            val <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared)
+            XCTAssertNil(val)
+        }
+        assertNoThrow {
+            var val: Int! = _value
+            val <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared, Int(Int32.max))
+            XCTAssertEqual(val, Int(Int32.max))
         }
 
         // Negative
         assertThrowsException {
-            value <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            var val: Int! = _value
+            val <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared)
         }
         assertThrowsException {
-            value <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared)
-        }
-        assertThrowsException {
-            value <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared, Int.max)
-        }
-        assertThrowsException {
-            value <~ (map[JsonKeys.nilValue], StringToIntegerTransform.shared)
+            var val: Int! = _value
+            val <~ (map[JsonKeys.invalidValue], StringToIntegerTransform.shared, Int.max)
         }
     }
 
@@ -201,16 +232,18 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value: Int! = Int(Int16.max)
-        var otherValue: Int! = Int(Int32.max)
+        let _value: Int! = Int(Int16.max)
+        let _otherValue: Int! = Int(Int32.max)
 
         // Positive
         assertNoThrow {
-            value <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            var val: Int! = _value
+            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
         assertNoThrow {
-            otherValue <~ (map[JsonKeys.otherValue, default: Constants.invalidValue], StringToIntegerTransform.shared, Int.max)
+            var val: Int! = _otherValue
+            val <~ (map[JsonKeys.otherValue, default: Constants.invalidValue], StringToIntegerTransform.shared, Int.max)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherValue).value)
         }
     }

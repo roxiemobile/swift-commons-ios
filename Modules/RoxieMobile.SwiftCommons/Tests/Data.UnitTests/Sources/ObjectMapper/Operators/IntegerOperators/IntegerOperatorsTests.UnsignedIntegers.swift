@@ -25,107 +25,127 @@ extension IntegerOperatorsTests
 
         // --
 
-        var uint8Value: UInt8 = 0
+        let _uint8Value: UInt8 = 0
 
         // Positive
         assertNoThrow {
-            uint8Value <~ map[JsonKeys.uint8]
-            XCTAssertEqual(uint8Value, UInt8(Int8.max))
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.uint8]
+            XCTAssertEqual(ui8v, UInt8(Int8.max))
         }
 
         // Negative
         assertThrowsException {
-            uint8Value <~ map[JsonKeys.noSuchKey]
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            uint8Value <~ map[JsonKeys.invalidValue]
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            uint8Value <~ map[JsonKeys.nilValue]
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.nilValue]
         }
 
         // --
 
-        var uint16Value: UInt16 = 0
+        let _uint16Value: UInt16 = 0
 
         // Positive
         assertNoThrow {
-            uint16Value <~ map[JsonKeys.uint16]
-            XCTAssertEqual(uint16Value, UInt16(Int16.max))
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.uint16]
+            XCTAssertEqual(ui16v, UInt16(Int16.max))
         }
 
         // Negative
         assertThrowsException {
-            uint16Value <~ map[JsonKeys.noSuchKey]
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            uint16Value <~ map[JsonKeys.invalidValue]
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            uint16Value <~ map[JsonKeys.nilValue]
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.nilValue]
         }
 
         // --
 
-        var uint32Value: UInt32 = 0
+        let _uint32Value: UInt32 = 0
 
         // Positive
         assertNoThrow {
-            uint32Value <~ map[JsonKeys.uint32]
-            XCTAssertEqual(uint32Value, UInt32(Int32.max))
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.uint32]
+            XCTAssertEqual(ui32v, UInt32(Int32.max))
         }
 
         // Negative
         assertThrowsException {
-            uint32Value <~ map[JsonKeys.noSuchKey]
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            uint32Value <~ map[JsonKeys.invalidValue]
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            uint32Value <~ map[JsonKeys.nilValue]
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.nilValue]
         }
 
         // --
 
-        var uint64Value: UInt64 = 0
+        let _uint64Value: UInt64 = 0
 
         // Positive
         assertNoThrow {
-            uint64Value <~ map[JsonKeys.uint64]
-            XCTAssertEqual(uint64Value, UInt64(Int64.max))
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.uint64]
+            XCTAssertEqual(ui64v, UInt64(Int64.max))
         }
 
         // Negative
         assertThrowsException {
-            uint64Value <~ map[JsonKeys.noSuchKey]
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            uint64Value <~ map[JsonKeys.invalidValue]
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            uint64Value <~ map[JsonKeys.nilValue]
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.nilValue]
         }
 
         // --
 
-        var uintValue: UInt = 0
+        let _uintValue: UInt = 0
 
         // Positive
         assertNoThrow {
-            uintValue <~ map[JsonKeys.uint]
-            XCTAssertEqual(uintValue, UInt(Int.max))
+            var uival = _uintValue
+            uival <~ map[JsonKeys.uint]
+            XCTAssertEqual(uival, UInt(Int.max))
         }
 
         // Negative
         assertThrowsException {
-            uintValue <~ map[JsonKeys.noSuchKey]
+            var uival = _uintValue
+            uival <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            uintValue <~ map[JsonKeys.invalidValue]
+            var uival = _uintValue
+            uival <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            uintValue <~ map[JsonKeys.nilValue]
+            var uival = _uintValue
+            uival <~ map[JsonKeys.nilValue]
         }
     }
 
@@ -133,31 +153,36 @@ extension IntegerOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var uint8Value = UInt8(Int8.max)
-        var uint16Value = UInt16(Int16.max)
-        var uint32Value = UInt32(Int32.max)
-        var uint64Value = UInt64(Int64.max)
-        var uintValue = UInt(Int.max)
+        let _uint8Value = UInt8(Int8.max)
+        let _uint16Value = UInt16(Int16.max)
+        let _uint32Value = UInt32(Int32.max)
+        let _uint64Value = UInt64(Int64.max)
+        let _uintValue = UInt(Int.max)
 
         // Positive
         assertNoThrow {
-            uint8Value <~ map[JsonKeys.uint8]
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.uint8]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint8).value)
         }
         assertNoThrow {
-            uint16Value <~ map[JsonKeys.uint16]
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.uint16]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint16).value)
         }
         assertNoThrow {
-            uint32Value <~ map[JsonKeys.uint32]
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.uint32]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint32).value)
         }
         assertNoThrow {
-            uint64Value <~ map[JsonKeys.uint64]
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.uint64]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint64).value)
         }
         assertNoThrow {
-            uintValue <~ map[JsonKeys.uint]
+            var uival = _uintValue
+            uival <~ map[JsonKeys.uint]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint).value)
         }
     }
@@ -177,94 +202,110 @@ extension IntegerOperatorsTests
 
         // --
 
-        var uint8Value: UInt8? = nil
+        let _uint8Value: UInt8? = nil
 
         // Positive
         assertNoThrow {
-            uint8Value <~ map[JsonKeys.uint8]
-            XCTAssertEqual(uint8Value, UInt8(Int8.max))
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.uint8]
+            XCTAssertEqual(ui8v, UInt8(Int8.max))
         }
         assertNoThrow {
-            uint8Value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(uint8Value)
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ui8v)
         }
         assertNoThrow {
-            uint8Value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(uint8Value)
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ui8v)
         }
 
         // Negative
         assertThrowsException {
-            uint8Value <~ map[JsonKeys.invalidValue]
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var uint16Value: UInt16? = nil
+        let _uint16Value: UInt16? = nil
 
         // Positive
         assertNoThrow {
-            uint16Value <~ map[JsonKeys.uint16]
-            XCTAssertEqual(uint16Value, UInt16(Int16.max))
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.uint16]
+            XCTAssertEqual(ui16v, UInt16(Int16.max))
         }
         assertNoThrow {
-            uint16Value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(uint16Value)
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ui16v)
         }
         assertNoThrow {
-            uint16Value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(uint16Value)
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ui16v)
         }
 
         // Negative
         assertThrowsException {
-            uint16Value <~ map[JsonKeys.invalidValue]
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var uint32Value: UInt32? = nil
+        let _uint32Value: UInt32? = nil
 
         // Positive
         assertNoThrow {
-            uint32Value <~ map[JsonKeys.uint32]
-            XCTAssertEqual(uint32Value, UInt32(Int32.max))
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.uint32]
+            XCTAssertEqual(ui32v, UInt32(Int32.max))
         }
         assertNoThrow {
-            uint32Value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(uint32Value)
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ui32v)
         }
         assertNoThrow {
-            uint32Value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(uint32Value)
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ui32v)
         }
 
         // Negative
         assertThrowsException {
-            uint32Value <~ map[JsonKeys.invalidValue]
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var uint64Value: UInt64? = nil
+        let _uint64Value: UInt64? = nil
 
         // Positive
         assertNoThrow {
-            uint64Value <~ map[JsonKeys.uint64]
-            XCTAssertEqual(uint64Value, UInt64(Int64.max))
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.uint64]
+            XCTAssertEqual(ui64v, UInt64(Int64.max))
         }
         assertNoThrow {
-            uint64Value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(uint64Value)
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ui64v)
         }
         assertNoThrow {
-            uint64Value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(uint64Value)
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ui64v)
         }
 
         // Negative
         assertThrowsException {
-            uint64Value <~ map[JsonKeys.invalidValue]
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.invalidValue]
         }
 
 // FIXME: Error in ObjectMapper
@@ -274,25 +315,29 @@ extension IntegerOperatorsTests
 
         // --
 
-        var uintValue: UInt? = nil
+        let _uintValue: UInt? = nil
 
         // Positive
         assertNoThrow {
-            uintValue <~ map[JsonKeys.uint]
-            XCTAssertEqual(uintValue, UInt(Int.max))
+            var uival = _uintValue
+            uival <~ map[JsonKeys.uint]
+            XCTAssertEqual(uival, UInt(Int.max))
         }
         assertNoThrow {
-            uintValue <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(uintValue)
+            var uival = _uintValue
+            uival <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(uival)
         }
         assertNoThrow {
-            uintValue <~ map[JsonKeys.nilValue]
-            XCTAssertNil(uintValue)
+            var uival = _uintValue
+            uival <~ map[JsonKeys.nilValue]
+            XCTAssertNil(uival)
         }
 
         // Negative
         assertThrowsException {
-            uintValue <~ map[JsonKeys.invalidValue]
+            var uival = _uintValue
+            uival <~ map[JsonKeys.invalidValue]
         }
     }
 
@@ -300,36 +345,42 @@ extension IntegerOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var uint8Value: UInt8? = UInt8(Int8.max)
-        var uint16Value: UInt16? = UInt16(Int16.max)
-        var uint32Value: UInt32? = UInt32(Int32.max)
-        var uint64Value: UInt64? = UInt64(Int64.max)
-        var uintValue: UInt? = UInt(Int.max)
-        var nilValue: UInt? = nil
+        let _uint8Value: UInt8? = UInt8(Int8.max)
+        let _uint16Value: UInt16? = UInt16(Int16.max)
+        let _uint32Value: UInt32? = UInt32(Int32.max)
+        let _uint64Value: UInt64? = UInt64(Int64.max)
+        let _uintValue: UInt? = UInt(Int.max)
+        let _nilValue: UInt? = nil
 
         // Positive
         assertNoThrow {
-            uint8Value <~ map[JsonKeys.uint8]
+            var ui8v = _uint8Value
+            ui8v <~ map[JsonKeys.uint8]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint8).value)
         }
         assertNoThrow {
-            uint16Value <~ map[JsonKeys.uint16]
+            var ui16v = _uint16Value
+            ui16v <~ map[JsonKeys.uint16]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint16).value)
         }
         assertNoThrow {
-            uint32Value <~ map[JsonKeys.uint32]
+            var ui32v = _uint32Value
+            ui32v <~ map[JsonKeys.uint32]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint32).value)
         }
         assertNoThrow {
-            uint64Value <~ map[JsonKeys.uint64]
+            var ui64v = _uint64Value
+            ui64v <~ map[JsonKeys.uint64]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint64).value)
         }
         assertNoThrow {
-            uintValue <~ map[JsonKeys.uint]
+            var uival = _uintValue
+            uival <~ map[JsonKeys.uint]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint).value)
         }
         assertNoThrow {
-            nilValue <~ map[JsonKeys.nilValue]
+            var uival = _nilValue
+            uival <~ map[JsonKeys.nilValue]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilValue).value)
         }
     }
@@ -349,107 +400,142 @@ extension IntegerOperatorsTests
 
         // --
 
-        var uint8Value: UInt8! = 0
+        let _uint8Value: UInt8! = 0
 
         // Positive
         assertNoThrow {
-            uint8Value <~ map[JsonKeys.uint8]
-            XCTAssertEqual(uint8Value, UInt8(Int8.max))
+            var ui8v: UInt8! = _uint8Value
+            ui8v <~ map[JsonKeys.uint8]
+            XCTAssertEqual(ui8v, UInt8(Int8.max))
+        }
+        assertNoThrow {
+            var ui8v: UInt8! = _uint8Value
+            ui8v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ui8v)
+        }
+        assertNoThrow {
+            var ui8v: UInt8! = _uint8Value
+            ui8v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ui8v)
         }
 
         // Negative
         assertThrowsException {
-            uint8Value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            uint8Value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            uint8Value <~ map[JsonKeys.nilValue]
+            var ui8v: UInt8! = _uint8Value
+            ui8v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var uint16Value: UInt16! = 0
+        let _uint16Value: UInt16! = 0
 
         // Positive
         assertNoThrow {
-            uint16Value <~ map[JsonKeys.uint16]
-            XCTAssertEqual(uint16Value, UInt16(Int16.max))
+            var ui16v: UInt16! = _uint16Value
+            ui16v <~ map[JsonKeys.uint16]
+            XCTAssertEqual(ui16v, UInt16(Int16.max))
+        }
+        assertNoThrow {
+            var ui16v: UInt16! = _uint16Value
+            ui16v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ui16v)
+        }
+        assertNoThrow {
+            var ui16v: UInt16! = _uint16Value
+            ui16v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ui16v)
         }
 
         // Negative
         assertThrowsException {
-            uint16Value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            uint16Value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            uint16Value <~ map[JsonKeys.nilValue]
+            var ui16v: UInt16! = _uint16Value
+            ui16v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var uint32Value: UInt32! = 0
+        let _uint32Value: UInt32! = 0
 
         // Positive
         assertNoThrow {
-            uint32Value <~ map[JsonKeys.uint32]
-            XCTAssertEqual(uint32Value, UInt32(Int32.max))
+            var ui32v: UInt32! = _uint32Value
+            ui32v <~ map[JsonKeys.uint32]
+            XCTAssertEqual(ui32v, UInt32(Int32.max))
+        }
+        assertNoThrow {
+            var ui32v: UInt32! = _uint32Value
+            ui32v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ui32v)
+        }
+        assertNoThrow {
+            var ui32v: UInt32! = _uint32Value
+            ui32v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ui32v)
         }
 
         // Negative
         assertThrowsException {
-            uint32Value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            uint32Value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            uint32Value <~ map[JsonKeys.nilValue]
+            var ui32v: UInt32! = _uint32Value
+            ui32v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var uint64Value: UInt64! = 0
+        let _uint64Value: UInt64! = 0
 
         // Positive
         assertNoThrow {
-            uint64Value <~ map[JsonKeys.uint64]
-            XCTAssertEqual(uint64Value, UInt64(Int64.max))
+            var ui64v: UInt64! = _uint64Value
+            ui64v <~ map[JsonKeys.uint64]
+            XCTAssertEqual(ui64v, UInt64(Int64.max))
+        }
+        assertNoThrow {
+            var ui64v: UInt64! = _uint64Value
+            ui64v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ui64v)
+        }
+        assertNoThrow {
+            var ui64v: UInt64! = _uint64Value
+            ui64v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ui64v)
         }
 
         // Negative
         assertThrowsException {
-            uint64Value <~ map[JsonKeys.noSuchKey]
+            var ui64v: UInt64! = _uint64Value
+            ui64v <~ map[JsonKeys.invalidValue]
         }
-        assertThrowsException {
-            uint64Value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            uint64Value <~ map[JsonKeys.nilValue]
-        }
+
+// FIXME: Error in ObjectMapper
+//        guardNegativeException {
+//            uInt64Value <~ map["negUInt"]
+//        }
 
         // --
 
-        var uintValue: UInt! = 0
+        let _uintValue: UInt! = 0
 
         // Positive
         assertNoThrow {
-            uintValue <~ map[JsonKeys.uint]
-            XCTAssertEqual(uintValue, UInt(Int.max))
+            var uival: UInt! = _uintValue
+            uival <~ map[JsonKeys.uint]
+            XCTAssertEqual(uival, UInt(Int.max))
+        }
+        assertNoThrow {
+            var uival: UInt! = _uintValue
+            uival <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(uival)
+        }
+        assertNoThrow {
+            var uival: UInt! = _uintValue
+            uival <~ map[JsonKeys.nilValue]
+            XCTAssertNil(uival)
         }
 
         // Negative
         assertThrowsException {
-            uintValue <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            uintValue <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            uintValue <~ map[JsonKeys.nilValue]
+            var uival: UInt! = _uintValue
+            uival <~ map[JsonKeys.invalidValue]
         }
     }
 
@@ -457,31 +543,36 @@ extension IntegerOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var uint8Value: UInt8! = UInt8(Int8.max)
-        var uint16Value: UInt16! = UInt16(Int16.max)
-        var uint32Value: UInt32! = UInt32(Int32.max)
-        var uint64Value: UInt64! = UInt64(Int64.max)
-        var uintValue: UInt! = UInt(Int.max)
+        let _uint8Value: UInt8! = UInt8(Int8.max)
+        let _uint16Value: UInt16! = UInt16(Int16.max)
+        let _uint32Value: UInt32! = UInt32(Int32.max)
+        let _uint64Value: UInt64! = UInt64(Int64.max)
+        let _uintValue: UInt! = UInt(Int.max)
 
         // Positive
         assertNoThrow {
-            uint8Value <~ map[JsonKeys.uint8]
+            var ui8v: UInt8! = _uint8Value
+            ui8v <~ map[JsonKeys.uint8]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint8).value)
         }
         assertNoThrow {
-            uint16Value <~ map[JsonKeys.uint16]
+            var ui16v: UInt16! = _uint16Value
+            ui16v <~ map[JsonKeys.uint16]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint16).value)
         }
         assertNoThrow {
-            uint32Value <~ map[JsonKeys.uint32]
+            var ui32v: UInt32! = _uint32Value
+            ui32v <~ map[JsonKeys.uint32]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint32).value)
         }
         assertNoThrow {
-            uint64Value <~ map[JsonKeys.uint64]
+            var ui64v: UInt64! = _uint64Value
+            ui64v <~ map[JsonKeys.uint64]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint64).value)
         }
         assertNoThrow {
-            uintValue <~ map[JsonKeys.uint]
+            var uival: UInt! = _uintValue
+            uival <~ map[JsonKeys.uint]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.uint).value)
         }
     }

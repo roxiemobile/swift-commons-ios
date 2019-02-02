@@ -23,37 +23,44 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfMappableObjects)
 
-        var dictionary: [String: Vector3DModel] = [:]
+        let _dictionary: [String: Vector3DModel] = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.object]?.x, Int(Int8.max))
+            var dict = _dictionary
+            dict <~ map[JsonKeys.dictionary]
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.emptyDictionary]
-            XCTAssertEqual(dictionary.count, 0)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.emptyDictionary]
+            XCTAssertEqual(dict.count, 0)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.object]?.x, Int(Int8.max))
+            var dict = _dictionary
+            dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.nilDictionary, default: [:]]
-            XCTAssertEqual(dictionary.count, 0)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.nilDictionary, default: [:]]
+            XCTAssertEqual(dict.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ map[JsonKeys.noSuchKey]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            dictionary <~ map[JsonKeys.invalidDictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.invalidDictionary]
         }
         assertThrowsException {
-            dictionary <~ map[JsonKeys.nilDictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.nilDictionary]
         }
     }
 
@@ -61,16 +68,18 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary = [JsonKeys.object: Vector3DModel.shared]
-        var emptyDictionary: [String: Vector3DModel] = [:]
+        let _dictionary = [JsonKeys.object: Vector3DModel.shared]
+        let _emptyDictionary: [String: Vector3DModel] = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.dictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ map[JsonKeys.emptyDictionary]
+            var dict = _emptyDictionary
+            dict <~ map[JsonKeys.emptyDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
     }
@@ -88,39 +97,46 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfMappableObjects)
 
-        var dictionary: [String: Vector3DModel]? = [:]
+        let _dictionary: [String: Vector3DModel]? = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
-            XCTAssertEqual(dictionary?.count ?? -1, 1)
-            XCTAssertEqual(dictionary?[JsonKeys.object]?.x, Int(Int8.max))
+            var dict = _dictionary
+            dict <~ map[JsonKeys.dictionary]
+            XCTAssertEqual(dict?.count ?? -1, 1)
+            XCTAssertEqual(dict?[JsonKeys.object]?.x, Int(Int8.max))
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.emptyDictionary]
-            XCTAssertEqual(dictionary?.count ?? -1, 0)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.emptyDictionary]
+            XCTAssertEqual(dict?.count ?? -1, 0)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(dictionary)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
-            XCTAssertEqual(dictionary?.count ?? -1, 1)
-            XCTAssertEqual(dictionary?[JsonKeys.object]?.x, Int(Int8.max))
+            var dict = _dictionary
+            dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
+            XCTAssertEqual(dict?.count ?? -1, 1)
+            XCTAssertEqual(dict?[JsonKeys.object]?.x, Int(Int8.max))
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.nilDictionary]
-            XCTAssertNil(dictionary)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.nilDictionary]
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.nilDictionary, default: [:]]
-            XCTAssertEqual(dictionary?.count, 0)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.nilDictionary, default: [:]]
+            XCTAssertEqual(dict?.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ map[JsonKeys.invalidDictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.invalidDictionary]
         }
     }
 
@@ -128,21 +144,24 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary: [String: Vector3DModel]? = [JsonKeys.object: Vector3DModel.shared]
-        var emptyDictionary: [String: Vector3DModel]? = [:]
-        var nilDictionary: [String: Vector3DModel]? = nil
+        let _dictionary: [String: Vector3DModel]? = [JsonKeys.object: Vector3DModel.shared]
+        let _emptyDictionary: [String: Vector3DModel]? = [:]
+        let _nilDictionary: [String: Vector3DModel]? = nil
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.dictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ map[JsonKeys.emptyDictionary]
+            var dict = _emptyDictionary
+            dict <~ map[JsonKeys.emptyDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
         assertNoThrow {
-            nilDictionary <~ map[JsonKeys.nilDictionary]
+            var dict = _nilDictionary
+            dict <~ map[JsonKeys.nilDictionary]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilDictionary).value)
         }
     }
@@ -160,37 +179,46 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfMappableObjects)
 
-        var dictionary: [String: Vector3DModel]! = [:]
+        let _dictionary: [String: Vector3DModel]! = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.object]?.x, Int(Int8.max))
+            var dict: [String: Vector3DModel]! = _dictionary
+            dict <~ map[JsonKeys.dictionary]
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.emptyDictionary]
-            XCTAssertEqual(dictionary.count, 0)
+            var dict: [String: Vector3DModel]! = _dictionary
+            dict <~ map[JsonKeys.emptyDictionary]
+            XCTAssertEqual(dict.count, 0)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.object]?.x, Int(Int8.max))
+            var dict: [String: Vector3DModel]! = _dictionary
+            dict <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.nilDictionary, default: [:]]
-            XCTAssertEqual(dictionary.count, 0)
+            var dict: [String: Vector3DModel]! = _dictionary
+            dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
+        }
+        assertNoThrow {
+            var dict: [String: Vector3DModel]! = _dictionary
+            dict <~ map[JsonKeys.nilDictionary]
+            XCTAssertNil(dict)
+        }
+        assertNoThrow {
+            var dict: [String: Vector3DModel]! = _dictionary
+            dict <~ map[JsonKeys.nilDictionary, default: [:]]
+            XCTAssertEqual(dict.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            dictionary <~ map[JsonKeys.invalidDictionary]
-        }
-        assertThrowsException {
-            dictionary <~ map[JsonKeys.nilDictionary]
+            var dict: [String: Vector3DModel]! = _dictionary
+            dict <~ map[JsonKeys.invalidDictionary]
         }
     }
 
@@ -198,16 +226,18 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary: [String: Vector3DModel]! = [JsonKeys.object: Vector3DModel.shared]
-        var emptyDictionary: [String: Vector3DModel]! = [:]
+        let _dictionary: [String: Vector3DModel]! = [JsonKeys.object: Vector3DModel.shared]
+        let _emptyDictionary: [String: Vector3DModel]! = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
+            var dict: [String: Vector3DModel]! = _dictionary
+            dict <~ map[JsonKeys.dictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ map[JsonKeys.emptyDictionary]
+            var dict: [String: Vector3DModel]! = _emptyDictionary
+            dict <~ map[JsonKeys.emptyDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
     }

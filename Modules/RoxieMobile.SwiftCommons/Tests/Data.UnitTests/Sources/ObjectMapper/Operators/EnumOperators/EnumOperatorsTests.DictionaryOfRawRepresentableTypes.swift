@@ -23,37 +23,44 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfStringRawValues)
 
-        var dictionary: [String: StringRawType] = [:]
+        let _dictionary: [String: StringRawType] = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.value], StringRawType.value)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.dictionary]
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.value], StringRawType.value)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.emptyDictionary]
-            XCTAssertEqual(dictionary.count, 0)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.emptyDictionary]
+            XCTAssertEqual(dict.count, 0)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.noSuchKey, default: [JsonKeys.otherValue: StringRawType.otherValue.rawValue]]
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.otherValue], StringRawType.otherValue)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.otherValue: StringRawType.otherValue.rawValue]]
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.otherValue], StringRawType.otherValue)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.nilDictionary, default: [:]]
-            XCTAssertEqual(dictionary.count, 0)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.nilDictionary, default: [:]]
+            XCTAssertEqual(dict.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ map[JsonKeys.noSuchKey]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            dictionary <~ map[JsonKeys.invalidDictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.invalidDictionary]
         }
         assertThrowsException {
-            dictionary <~ map[JsonKeys.nilDictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.nilDictionary]
         }
     }
 
@@ -61,21 +68,24 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary = [JsonKeys.value: StringRawType.value]
-        let otherDictionary = [JsonKeys.otherValue: StringRawType.otherValue]
-        var emptyDictionary: [String: StringRawType] = [:]
+        let _dictionary = [JsonKeys.value: StringRawType.value]
+        let _otherDictionary = [JsonKeys.otherValue: StringRawType.otherValue]
+        let _emptyDictionary: [String: StringRawType] = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.dictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            otherDictionary >>> map[JsonKeys.otherDictionary]
+            let dict = _otherDictionary
+            dict >>> map[JsonKeys.otherDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherDictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ map[JsonKeys.emptyDictionary]
+            var dict = _emptyDictionary
+            dict <~ map[JsonKeys.emptyDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
     }
@@ -93,39 +103,46 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfStringRawValues)
 
-        var dictionary: [String: StringRawType]? = [:]
+        let _dictionary: [String: StringRawType]? = nil
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
-            XCTAssertEqual(dictionary?.count ?? -1, 1)
-            XCTAssertEqual(dictionary?[JsonKeys.value], StringRawType.value)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.dictionary]
+            XCTAssertEqual(dict?.count ?? -1, 1)
+            XCTAssertEqual(dict?[JsonKeys.value], StringRawType.value)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.emptyDictionary]
-            XCTAssertEqual(dictionary?.count ?? -1, 0)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.emptyDictionary]
+            XCTAssertEqual(dict?.count ?? -1, 0)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(dictionary)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.noSuchKey, default: [JsonKeys.otherValue: StringRawType.otherValue.rawValue]]
-            XCTAssertEqual(dictionary?.count ?? -1, 1)
-            XCTAssertEqual(dictionary?[JsonKeys.otherValue], StringRawType.otherValue)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.otherValue: StringRawType.otherValue.rawValue]]
+            XCTAssertEqual(dict?.count ?? -1, 1)
+            XCTAssertEqual(dict?[JsonKeys.otherValue], StringRawType.otherValue)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.nilDictionary]
-            XCTAssertNil(dictionary)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.nilDictionary]
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.nilDictionary, default: [:]]
-            XCTAssertEqual(dictionary?.count, 0)
+            var dict = _dictionary
+            dict <~ map[JsonKeys.nilDictionary, default: [:]]
+            XCTAssertEqual(dict?.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ map[JsonKeys.invalidDictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.invalidDictionary]
         }
     }
 
@@ -133,26 +150,30 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary: [String: StringRawType]? = [JsonKeys.value: StringRawType.value]
-        let otherDictionary: [String: StringRawType]? = [JsonKeys.otherValue: StringRawType.otherValue]
-        var emptyDictionary: [String: StringRawType]? = [:]
-        var nilDictionary: [String: StringRawType]? = nil
+        let _dictionary: [String: StringRawType]? = [JsonKeys.value: StringRawType.value]
+        let _otherDictionary: [String: StringRawType]? = [JsonKeys.otherValue: StringRawType.otherValue]
+        let _emptyDictionary: [String: StringRawType]? = [:]
+        let _nilDictionary: [String: StringRawType]? = nil
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
+            var dict = _dictionary
+            dict <~ map[JsonKeys.dictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            otherDictionary >>> map[JsonKeys.otherDictionary]
+            let dict = _otherDictionary
+            dict >>> map[JsonKeys.otherDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherDictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ map[JsonKeys.emptyDictionary]
+            var dict = _emptyDictionary
+            dict <~ map[JsonKeys.emptyDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
         assertNoThrow {
-            nilDictionary <~ map[JsonKeys.nilDictionary]
+            var dict = _nilDictionary
+            dict <~ map[JsonKeys.nilDictionary]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilDictionary).value)
         }
     }
@@ -170,37 +191,46 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfStringRawValues)
 
-        var dictionary: [String: StringRawType]! = [:]
+        let _dictionary: [String: StringRawType]! = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.value], StringRawType.value)
+            var dict: [String: StringRawType]! = _dictionary
+            dict <~ map[JsonKeys.dictionary]
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.value], StringRawType.value)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.emptyDictionary]
-            XCTAssertEqual(dictionary.count, 0)
+            var dict: [String: StringRawType]! = _dictionary
+            dict <~ map[JsonKeys.emptyDictionary]
+            XCTAssertEqual(dict.count, 0)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.noSuchKey, default: [JsonKeys.otherValue: StringRawType.otherValue.rawValue]]
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.otherValue], StringRawType.otherValue)
+            var dict: [String: StringRawType]! = _dictionary
+            dict <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ map[JsonKeys.nilDictionary, default: [:]]
-            XCTAssertEqual(dictionary.count, 0)
+            var dict: [String: StringRawType]! = _dictionary
+            dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.otherValue: StringRawType.otherValue.rawValue]]
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.otherValue], StringRawType.otherValue)
+        }
+        assertNoThrow {
+            var dict: [String: StringRawType]! = _dictionary
+            dict <~ map[JsonKeys.nilDictionary]
+            XCTAssertNil(dict)
+        }
+        assertNoThrow {
+            var dict: [String: StringRawType]! = _dictionary
+            dict <~ map[JsonKeys.nilDictionary, default: [:]]
+            XCTAssertEqual(dict.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            dictionary <~ map[JsonKeys.invalidDictionary]
-        }
-        assertThrowsException {
-            dictionary <~ map[JsonKeys.nilDictionary]
+            var dict: [String: StringRawType]! = _dictionary
+            dict <~ map[JsonKeys.invalidDictionary]
         }
     }
 
@@ -208,21 +238,24 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary: [String: StringRawType]! = [JsonKeys.value: StringRawType.value]
-        let otherDictionary: [String: StringRawType]! = [JsonKeys.otherValue: StringRawType.otherValue]
-        var emptyDictionary: [String: StringRawType]! = [:]
+        let _dictionary: [String: StringRawType]! = [JsonKeys.value: StringRawType.value]
+        let _otherDictionary: [String: StringRawType]! = [JsonKeys.otherValue: StringRawType.otherValue]
+        let _emptyDictionary: [String: StringRawType]! = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ map[JsonKeys.dictionary]
+            var dict: [String: StringRawType]! = _dictionary
+            dict <~ map[JsonKeys.dictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            otherDictionary >>> map[JsonKeys.otherDictionary]
+            let dict: [String: StringRawType]! = _otherDictionary
+            dict >>> map[JsonKeys.otherDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherDictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ map[JsonKeys.emptyDictionary]
+            var dict: [String: StringRawType]! = _emptyDictionary
+            dict <~ map[JsonKeys.emptyDictionary]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
     }

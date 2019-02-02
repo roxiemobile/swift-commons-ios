@@ -25,107 +25,127 @@ extension IntegerOperatorsTests
 
         // --
 
-        var int8Value: Int8 = 0
+        let _int8Value: Int8 = 0
 
         // Positive
         assertNoThrow {
-            int8Value <~ map[JsonKeys.int8]
-            XCTAssertEqual(int8Value, Int8.max)
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.int8]
+            XCTAssertEqual(i8v, Int8.max)
         }
 
         // Negative
         assertThrowsException {
-            int8Value <~ map[JsonKeys.noSuchKey]
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            int8Value <~ map[JsonKeys.invalidValue]
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            int8Value <~ map[JsonKeys.nilValue]
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.nilValue]
         }
 
         // --
 
-        var int16Value: Int16 = 0
+        let _int16Value: Int16 = 0
 
         // Positive
         assertNoThrow {
-            int16Value <~ map[JsonKeys.int16]
-            XCTAssertEqual(int16Value, Int16.max)
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.int16]
+            XCTAssertEqual(i16v, Int16.max)
         }
 
         // Negative
         assertThrowsException {
-            int16Value <~ map[JsonKeys.noSuchKey]
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            int16Value <~ map[JsonKeys.invalidValue]
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            int16Value <~ map[JsonKeys.nilValue]
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.nilValue]
         }
 
         // --
 
-        var int32Value: Int32 = 0
+        let _int32Value: Int32 = 0
 
         // Positive
         assertNoThrow {
-            int32Value <~ map[JsonKeys.int32]
-            XCTAssertEqual(int32Value, Int32.max)
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.int32]
+            XCTAssertEqual(i32v, Int32.max)
         }
 
         // Negative
         assertThrowsException {
-            int32Value <~ map[JsonKeys.noSuchKey]
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            int32Value <~ map[JsonKeys.invalidValue]
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            int32Value <~ map[JsonKeys.nilValue]
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.nilValue]
         }
 
         // --
 
-        var int64Value: Int64 = 0
+        let _int64Value: Int64 = 0
 
         // Positive
         assertNoThrow {
-            int64Value <~ map[JsonKeys.int64]
-            XCTAssertEqual(int64Value, Int64.max)
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.int64]
+            XCTAssertEqual(i64v, Int64.max)
         }
 
         // Negative
         assertThrowsException {
-            int64Value <~ map[JsonKeys.noSuchKey]
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            int64Value <~ map[JsonKeys.invalidValue]
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            int64Value <~ map[JsonKeys.nilValue]
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.nilValue]
         }
 
         // --
 
-        var intValue: Int = 0
+        let _intValue: Int = 0
 
         // Positive
         assertNoThrow {
-            intValue <~ map[JsonKeys.int]
-            XCTAssertEqual(intValue, Int.max)
+            var ival = _intValue
+            ival <~ map[JsonKeys.int]
+            XCTAssertEqual(ival, Int.max)
         }
 
         // Negative
         assertThrowsException {
-            intValue <~ map[JsonKeys.noSuchKey]
+            var ival = _intValue
+            ival <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            intValue <~ map[JsonKeys.invalidValue]
+            var ival = _intValue
+            ival <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            intValue <~ map[JsonKeys.nilValue]
+            var ival = _intValue
+            ival <~ map[JsonKeys.nilValue]
         }
     }
 
@@ -133,31 +153,36 @@ extension IntegerOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var int8Value = Int8.max
-        var int16Value = Int16.max
-        var int32Value = Int32.max
-        var int64Value = Int64.max
-        var intValue = Int.max
+        let _int8Value = Int8.max
+        let _int16Value = Int16.max
+        let _int32Value = Int32.max
+        let _int64Value = Int64.max
+        let _intValue = Int.max
 
         // Positive
         assertNoThrow {
-            int8Value <~ map[JsonKeys.int8]
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.int8]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int8).value)
         }
         assertNoThrow {
-            int16Value <~ map[JsonKeys.int16]
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.int16]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int16).value)
         }
         assertNoThrow {
-            int32Value <~ map[JsonKeys.int32]
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.int32]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int32).value)
         }
         assertNoThrow {
-            int64Value <~ map[JsonKeys.int64]
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.int64]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int64).value)
         }
         assertNoThrow {
-            intValue <~ map[JsonKeys.int]
+            var ival = _intValue
+            ival <~ map[JsonKeys.int]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int).value)
         }
     }
@@ -177,117 +202,137 @@ extension IntegerOperatorsTests
 
         // --
 
-        var int8Value: Int8? = nil
+        let _int8Value: Int8? = nil
 
         // Positive
         assertNoThrow {
-            int8Value <~ map[JsonKeys.int8]
-            XCTAssertEqual(int8Value, Int8.max)
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.int8]
+            XCTAssertEqual(i8v, Int8.max)
         }
         assertNoThrow {
-            int8Value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(int8Value)
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(i8v)
         }
         assertNoThrow {
-            int8Value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(int8Value)
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(i8v)
         }
 
         // Negative
         assertThrowsException {
-            int8Value <~ map[JsonKeys.invalidValue]
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var int16Value: Int16? = nil
+        let _int16Value: Int16? = nil
 
         // Positive
         assertNoThrow {
-            int16Value <~ map[JsonKeys.int16]
-            XCTAssertEqual(int16Value, Int16.max)
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.int16]
+            XCTAssertEqual(i16v, Int16.max)
         }
         assertNoThrow {
-            int16Value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(int8Value)
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(i16v)
         }
         assertNoThrow {
-            int16Value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(int16Value)
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(i16v)
         }
 
         // Negative
         assertThrowsException {
-            int16Value <~ map[JsonKeys.invalidValue]
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var int32Value: Int32? = nil
+        let _int32Value: Int32? = nil
 
         // Positive
         assertNoThrow {
-            int32Value <~ map[JsonKeys.int32]
-            XCTAssertEqual(int32Value, Int32.max)
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.int32]
+            XCTAssertEqual(i32v, Int32.max)
         }
         assertNoThrow {
-            int32Value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(int32Value)
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(i32v)
         }
         assertNoThrow {
-            int32Value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(int32Value)
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(i32v)
         }
 
         // Negative
         assertThrowsException {
-            int32Value <~ map[JsonKeys.invalidValue]
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var int64Value: Int64? = nil
+        let _int64Value: Int64? = nil
 
         // Positive
         assertNoThrow {
-            int64Value <~ map[JsonKeys.int64]
-            XCTAssertEqual(int64Value, Int64.max)
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.int64]
+            XCTAssertEqual(i64v, Int64.max)
         }
         assertNoThrow {
-            int64Value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(int64Value)
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(i64v)
         }
         assertNoThrow {
-            int64Value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(int64Value)
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(i64v)
         }
 
         // Negative
         assertThrowsException {
-            int64Value <~ map[JsonKeys.invalidValue]
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var intValue: Int? = nil
+        let _intValue: Int? = nil
 
         // Positive
         assertNoThrow {
-            intValue <~ map[JsonKeys.int]
-            XCTAssertEqual(intValue, Int.max)
+            var ival = _intValue
+            ival <~ map[JsonKeys.int]
+            XCTAssertEqual(ival, Int.max)
         }
         assertNoThrow {
-            intValue <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(intValue)
+            var ival = _intValue
+            ival <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ival)
         }
         assertNoThrow {
-            intValue <~ map[JsonKeys.nilValue]
-            XCTAssertNil(intValue)
+            var ival = _intValue
+            ival <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ival)
         }
 
         // Negative
         assertThrowsException {
-            intValue <~ map[JsonKeys.invalidValue]
+            var ival = _intValue
+            ival <~ map[JsonKeys.invalidValue]
         }
     }
 
@@ -295,36 +340,42 @@ extension IntegerOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var int8Value: Int8? = Int8.max
-        var int16Value: Int16? = Int16.max
-        var int32Value: Int32? = Int32.max
-        var int64Value: Int64? = Int64.max
-        var intValue: Int? = Int.max
-        var nilValue: Int? = nil
+        let _int8Value: Int8? = Int8.max
+        let _int16Value: Int16? = Int16.max
+        let _int32Value: Int32? = Int32.max
+        let _int64Value: Int64? = Int64.max
+        let _intValue: Int? = Int.max
+        let _nilValue: Int? = nil
 
         // Positive
         assertNoThrow {
-            int8Value <~ map[JsonKeys.int8]
+            var i8v = _int8Value
+            i8v <~ map[JsonKeys.int8]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int8).value)
         }
         assertNoThrow {
-            int16Value <~ map[JsonKeys.int16]
+            var i16v = _int16Value
+            i16v <~ map[JsonKeys.int16]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int16).value)
         }
         assertNoThrow {
-            int32Value <~ map[JsonKeys.int32]
+            var i32v = _int32Value
+            i32v <~ map[JsonKeys.int32]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int32).value)
         }
         assertNoThrow {
-            int64Value <~ map[JsonKeys.int64]
+            var i64v = _int64Value
+            i64v <~ map[JsonKeys.int64]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int64).value)
         }
         assertNoThrow {
-            intValue <~ map[JsonKeys.int]
+            var ival = _intValue
+            ival <~ map[JsonKeys.int]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int).value)
         }
         assertNoThrow {
-            nilValue <~ map[JsonKeys.nilValue]
+            var ival = _nilValue
+            ival <~ map[JsonKeys.nilValue]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilValue).value)
         }
     }
@@ -344,107 +395,137 @@ extension IntegerOperatorsTests
 
         // --
 
-        var int8Value: Int8! = 0
+        let _int8Value: Int8! = 0
 
         // Positive
         assertNoThrow {
-            int8Value <~ map[JsonKeys.int8]
-            XCTAssertEqual(int8Value, Int8.max)
+            var i8v: Int8! = _int8Value
+            i8v <~ map[JsonKeys.int8]
+            XCTAssertEqual(i8v, Int8.max)
+        }
+        assertNoThrow {
+            var i8v: Int8! = _int8Value
+            i8v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(i8v)
+        }
+        assertNoThrow {
+            var i8v: Int8! = _int8Value
+            i8v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(i8v)
         }
 
         // Negative
         assertThrowsException {
-            int8Value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            int8Value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            int8Value <~ map[JsonKeys.nilValue]
+            var i8v: Int8! = _int8Value
+            i8v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var int16Value: Int16! = 0
+        let _int16Value: Int16! = 0
 
         // Positive
         assertNoThrow {
-            int16Value <~ map[JsonKeys.int16]
-            XCTAssertEqual(int16Value, Int16.max)
+            var i16v: Int16! = _int16Value
+            i16v <~ map[JsonKeys.int16]
+            XCTAssertEqual(i16v, Int16.max)
+        }
+        assertNoThrow {
+            var i16v: Int16! = _int16Value
+            i16v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(i16v)
+        }
+        assertNoThrow {
+            var i16v: Int16! = _int16Value
+            i16v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(i16v)
         }
 
         // Negative
         assertThrowsException {
-            int16Value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            int16Value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            int16Value <~ map[JsonKeys.nilValue]
+            var i16v: Int16! = _int16Value
+            i16v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var int32Value: Int32! = 0
+        let _int32Value: Int32! = 0
 
         // Positive
         assertNoThrow {
-            int32Value <~ map[JsonKeys.int32]
-            XCTAssertEqual(int32Value, Int32.max)
+            var i32v: Int32! = _int32Value
+            i32v <~ map[JsonKeys.int32]
+            XCTAssertEqual(i32v, Int32.max)
+        }
+        assertNoThrow {
+            var i32v: Int32! = _int32Value
+            i32v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(i32v)
+        }
+        assertNoThrow {
+            var i32v: Int32! = _int32Value
+            i32v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(i32v)
         }
 
         // Negative
         assertThrowsException {
-            int32Value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            int32Value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            int32Value <~ map[JsonKeys.nilValue]
+            var i32v: Int32! = _int32Value
+            i32v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var int64Value: Int64! = 0
+        let _int64Value: Int64! = 0
 
         // Positive
         assertNoThrow {
-            int64Value <~ map[JsonKeys.int64]
-            XCTAssertEqual(int64Value, Int64.max)
+            var i64v: Int64! = _int64Value
+            i64v <~ map[JsonKeys.int64]
+            XCTAssertEqual(i64v, Int64.max)
+        }
+        assertNoThrow {
+            var i64v: Int64! = _int64Value
+            i64v <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(i64v)
+        }
+        assertNoThrow {
+            var i64v: Int64! = _int64Value
+            i64v <~ map[JsonKeys.nilValue]
+            XCTAssertNil(i64v)
         }
 
         // Negative
         assertThrowsException {
-            int64Value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            int64Value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            int64Value <~ map[JsonKeys.nilValue]
+            var i64v: Int64! = _int64Value
+            i64v <~ map[JsonKeys.invalidValue]
         }
 
         // --
 
-        var intValue: Int! = 0
+        let _intValue: Int! = 0
 
         // Positive
         assertNoThrow {
-            intValue <~ map[JsonKeys.int]
-            XCTAssertEqual(intValue, Int.max)
+            var ival: Int! = _intValue
+            ival <~ map[JsonKeys.int]
+            XCTAssertEqual(ival, Int.max)
+        }
+        assertNoThrow {
+            var ival: Int! = _intValue
+            ival <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(ival)
+        }
+        assertNoThrow {
+            var ival: Int! = _intValue
+            ival <~ map[JsonKeys.nilValue]
+            XCTAssertNil(ival)
         }
 
         // Negative
         assertThrowsException {
-            intValue <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            intValue <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            intValue <~ map[JsonKeys.nilValue]
+            var ival: Int! = _intValue
+            ival <~ map[JsonKeys.invalidValue]
         }
     }
 
@@ -452,31 +533,36 @@ extension IntegerOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var int8Value: Int8! = Int8.max
-        var int16Value: Int16! = Int16.max
-        var int32Value: Int32! = Int32.max
-        var int64Value: Int64! = Int64.max
-        var intValue: Int! = Int.max
+        let _int8Value: Int8! = Int8.max
+        let _int16Value: Int16! = Int16.max
+        let _int32Value: Int32! = Int32.max
+        let _int64Value: Int64! = Int64.max
+        let _intValue: Int! = Int.max
 
         // Positive
         assertNoThrow {
-            int8Value <~ map[JsonKeys.int8]
+            var i8v: Int8! = _int8Value
+            i8v <~ map[JsonKeys.int8]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int8).value)
         }
         assertNoThrow {
-            int16Value <~ map[JsonKeys.int16]
+            var i16v: Int16! = _int16Value
+            i16v <~ map[JsonKeys.int16]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int16).value)
         }
         assertNoThrow {
-            int32Value <~ map[JsonKeys.int32]
+            var i32v: Int32! = _int32Value
+            i32v <~ map[JsonKeys.int32]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int32).value)
         }
         assertNoThrow {
-            int64Value <~ map[JsonKeys.int64]
+            var i64v: Int64! = _int64Value
+            i64v <~ map[JsonKeys.int64]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int64).value)
         }
         assertNoThrow {
-            intValue <~ map[JsonKeys.int]
+            var ival: Int! = _intValue
+            ival <~ map[JsonKeys.int]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.int).value)
         }
     }

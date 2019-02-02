@@ -23,36 +23,43 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfStringRawValues)
 
-        var set: Set<StringRawType> = []
+        let _set: Set<StringRawType> = []
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.array]
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first, StringRawType.value)
         }
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.emptyArray]
             XCTAssertEqual(set.count, 0)
         }
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.noSuchKey, default: [StringRawType.otherValue.rawValue]]
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first, StringRawType.otherValue)
         }
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.nilArray, default: []]
             XCTAssertEqual(set.count, 0)
         }
 
         // Negative
         assertThrowsException {
+            var set = _set
             set <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
+            var set = _set
             set <~ map[JsonKeys.invalidArray]
         }
         assertThrowsException {
+            var set = _set
             set <~ map[JsonKeys.nilArray]
         }
     }
@@ -61,21 +68,24 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<StringRawType> = [StringRawType.value]
-        let otherSet: Set<StringRawType> = [StringRawType.otherValue]
-        var emptySet: Set<StringRawType> = []
+        let _set: Set<StringRawType> = [StringRawType.value]
+        let _otherSet: Set<StringRawType> = [StringRawType.otherValue]
+        let _emptySet: Set<StringRawType> = []
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.set]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            otherSet >>> map[JsonKeys.otherSet]
+            let set = _otherSet
+            set >>> map[JsonKeys.otherSet]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherSet).value)
         }
         assertNoThrow {
-            emptySet <~ map[JsonKeys.emptySet]
+            var set = _emptySet
+            set <~ map[JsonKeys.emptySet]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
     }
@@ -93,38 +103,45 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfStringRawValues)
 
-        var set: Set<StringRawType>? = nil
+        let _set: Set<StringRawType>? = nil
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.array]
             XCTAssertEqual(set?.count ?? -1, 1)
             XCTAssertEqual(set?.first, StringRawType.value)
         }
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.emptyArray]
             XCTAssertEqual(set?.count ?? -1, 0)
         }
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.noSuchKey]
             XCTAssertNil(set)
         }
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.noSuchKey, default: [StringRawType.otherValue.rawValue]]
             XCTAssertEqual(set?.count ?? -1, 1)
             XCTAssertEqual(set?.first, StringRawType.otherValue)
         }
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.nilArray]
             XCTAssertNil(set)
         }
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.nilArray, default: []]
             XCTAssertEqual(set?.count ?? -1, 0)
         }
 
         // Negative
         assertThrowsException {
+            var set = _set
             set <~ map[JsonKeys.invalidArray]
         }
     }
@@ -133,26 +150,30 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<StringRawType>? = [StringRawType.value]
-        let otherSet: Set<StringRawType>? = [StringRawType.otherValue]
-        var emptySet: Set<StringRawType>? = []
-        var nilSet: Set<StringRawType>? = nil
+        let _set: Set<StringRawType>? = [StringRawType.value]
+        let _otherSet: Set<StringRawType>? = [StringRawType.otherValue]
+        let _emptySet: Set<StringRawType>? = []
+        let _nilSet: Set<StringRawType>? = nil
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ map[JsonKeys.set]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            otherSet >>> map[JsonKeys.otherSet]
+            let set = _otherSet
+            set >>> map[JsonKeys.otherSet]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherSet).value)
         }
         assertNoThrow {
-            emptySet <~ map[JsonKeys.emptySet]
+            var set = _emptySet
+            set <~ map[JsonKeys.emptySet]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
         assertNoThrow {
-            nilSet <~ map[JsonKeys.nilSet]
+            var set = _nilSet
+            set <~ map[JsonKeys.nilSet]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilSet).value)
         }
     }
@@ -170,37 +191,46 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfStringRawValues)
 
-        var set: Set<StringRawType>! = []
+        let _set: Set<StringRawType>! = []
 
         // Positive
         assertNoThrow {
+            var set: Set<StringRawType>! = _set
             set <~ map[JsonKeys.array]
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first, StringRawType.value)
         }
         assertNoThrow {
+            var set: Set<StringRawType>! = _set
             set <~ map[JsonKeys.emptyArray]
             XCTAssertEqual(set.count, 0)
         }
         assertNoThrow {
+            var set: Set<StringRawType>! = _set
+            set <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(set)
+        }
+        assertNoThrow {
+            var set: Set<StringRawType>! = _set
             set <~ map[JsonKeys.noSuchKey, default: [StringRawType.otherValue.rawValue]]
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first, StringRawType.otherValue)
         }
         assertNoThrow {
+            var set: Set<StringRawType>! = _set
+            set <~ map[JsonKeys.nilArray]
+            XCTAssertNil(set)
+        }
+        assertNoThrow {
+            var set: Set<StringRawType>! = _set
             set <~ map[JsonKeys.nilArray, default: []]
             XCTAssertEqual(set.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            set <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
+            var set: Set<StringRawType>! = _set
             set <~ map[JsonKeys.invalidArray]
-        }
-        assertThrowsException {
-            set <~ map[JsonKeys.nilArray]
         }
     }
 
@@ -208,21 +238,24 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<StringRawType>! = [StringRawType.value]
-        let otherSet: Set<StringRawType>! = [StringRawType.otherValue]
-        var emptySet: Set<StringRawType>! = []
+        let _set: Set<StringRawType>! = [StringRawType.value]
+        let _otherSet: Set<StringRawType>! = [StringRawType.otherValue]
+        let _emptySet: Set<StringRawType>! = []
 
         // Positive
         assertNoThrow {
+            var set: Set<StringRawType>! = _set
             set <~ map[JsonKeys.set]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            otherSet >>> map[JsonKeys.otherSet]
+            let set: Set<StringRawType>! = _otherSet
+            set >>> map[JsonKeys.otherSet]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherSet).value)
         }
         assertNoThrow {
-            emptySet <~ map[JsonKeys.emptySet]
+            var set: Set<StringRawType>! = _emptySet
+            set <~ map[JsonKeys.emptySet]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
     }

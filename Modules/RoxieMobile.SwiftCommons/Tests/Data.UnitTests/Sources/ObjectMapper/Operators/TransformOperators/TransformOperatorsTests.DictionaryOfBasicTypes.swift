@@ -23,40 +23,48 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfIntegerBasicTypes)
 
-        var dictionary: [String: Int] = [:]
+        let _dictionary: [String: Int] = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.value], Int(Int16.max))
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.value], Int(Int16.max))
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
-            XCTAssertEqual(dictionary.count, 0)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
+            XCTAssertEqual(dict.count, 0)
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [JsonKeys.value: Int(Int16.max)])
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.value], Int(Int16.max))
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [JsonKeys.value: Int(Int16.max)])
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.value], Int(Int16.max))
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared, [:])
-            XCTAssertEqual(dictionary.count, 0)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared, [:])
+            XCTAssertEqual(dict.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
         }
         assertThrowsException {
-            dictionary <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared)
         }
         assertThrowsException {
-            dictionary <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared, [:])
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared, [:])
         }
         assertThrowsException {
-            dictionary <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared)
         }
     }
 
@@ -64,16 +72,18 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary = [JsonKeys.value: Int(Int16.max)]
-        var emptyDictionary: [String: Int] = [:]
+        let _dictionary = [JsonKeys.value: Int(Int16.max)]
+        let _emptyDictionary: [String: Int] = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
+            var dict = _emptyDictionary
+            dict <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
     }
@@ -91,42 +101,50 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfIntegerBasicTypes)
 
-        var dictionary: [String: Int]? = [:]
+        let _dictionary: [String: Int]? = nil
 
         // Positive
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
-            XCTAssertEqual(dictionary?.count ?? -1, 1)
-            XCTAssertEqual(dictionary?[JsonKeys.value], Int(Int16.max))
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
+            XCTAssertEqual(dict?.count ?? -1, 1)
+            XCTAssertEqual(dict?[JsonKeys.value], Int(Int16.max))
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
-            XCTAssertEqual(dictionary?.count ?? -1, 0)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
+            XCTAssertEqual(dict?.count ?? -1, 0)
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
-            XCTAssertNil(dictionary)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [JsonKeys.value: Int(Int16.max)])
-            XCTAssertEqual(dictionary?.count ?? -1, 1)
-            XCTAssertEqual(dictionary?[JsonKeys.value], Int(Int16.max))
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [JsonKeys.value: Int(Int16.max)])
+            XCTAssertEqual(dict?.count ?? -1, 1)
+            XCTAssertEqual(dict?[JsonKeys.value], Int(Int16.max))
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared)
-            XCTAssertNil(dictionary)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared)
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared, [:])
-            XCTAssertEqual(dictionary?.count, 0)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared, [:])
+            XCTAssertEqual(dict?.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared)
         }
         assertThrowsException {
-            dictionary <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared, [:])
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared, [:])
         }
     }
 
@@ -134,21 +152,24 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary: [String: Int]? = [JsonKeys.value: Int(Int16.max)]
-        var emptyDictionary: [String: Int]? = [:]
-        var nilDictionary: [String: Int]? = nil
+        let _dictionary: [String: Int]? = [JsonKeys.value: Int(Int16.max)]
+        let _emptyDictionary: [String: Int]? = [:]
+        let _nilDictionary: [String: Int]? = nil
 
         // Positive
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
+            var dict = _dictionary
+            dict <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
+            var dict = _emptyDictionary
+            dict <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
         assertNoThrow {
-            nilDictionary <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared)
+            var dict = _nilDictionary
+            dict <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared)
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilDictionary).value)
         }
     }
@@ -166,40 +187,50 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.dictionaryOfIntegerBasicTypes)
 
-        var dictionary: [String: Int]! = [:]
+        let _dictionary: [String: Int]! = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.value], Int(Int16.max))
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.value], Int(Int16.max))
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
-            XCTAssertEqual(dictionary.count, 0)
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
+            XCTAssertEqual(dict.count, 0)
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [JsonKeys.value: Int(Int16.max)])
-            XCTAssertEqual(dictionary.count, 1)
-            XCTAssertEqual(dictionary[JsonKeys.value], Int(Int16.max))
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            XCTAssertNil(dict)
         }
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared, [:])
-            XCTAssertEqual(dictionary.count, 0)
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared, [JsonKeys.value: Int(Int16.max)])
+            XCTAssertEqual(dict.count, 1)
+            XCTAssertEqual(dict[JsonKeys.value], Int(Int16.max))
+        }
+        assertNoThrow {
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared)
+            XCTAssertNil(dict)
+        }
+        assertNoThrow {
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared, [:])
+            XCTAssertEqual(dict.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            dictionary <~ (map[JsonKeys.noSuchKey], StringToIntegerTransform.shared)
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared)
         }
         assertThrowsException {
-            dictionary <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared)
-        }
-        assertThrowsException {
-            dictionary <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared, [:])
-        }
-        assertThrowsException {
-            dictionary <~ (map[JsonKeys.nilDictionary], StringToIntegerTransform.shared)
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.invalidDictionary], StringToIntegerTransform.shared, [:])
         }
     }
 
@@ -207,16 +238,18 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var dictionary: [String: Int]! = [JsonKeys.value: Int(Int16.max)]
-        var emptyDictionary: [String: Int]! = [:]
+        let _dictionary: [String: Int]! = [JsonKeys.value: Int(Int16.max)]
+        let _emptyDictionary: [String: Int]! = [:]
 
         // Positive
         assertNoThrow {
-            dictionary <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
+            var dict: [String: Int]! = _dictionary
+            dict <~ (map[JsonKeys.dictionary], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.dictionary).value)
         }
         assertNoThrow {
-            emptyDictionary <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
+            var dict: [String: Int]! = _emptyDictionary
+            dict <~ (map[JsonKeys.emptyDictionary], StringToIntegerTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyDictionary).value)
         }
     }

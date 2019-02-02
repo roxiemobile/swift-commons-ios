@@ -23,34 +23,37 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.mappableObjects)
 
-        var object = Vector3DModel.shared
+        let _object = Vector3DModel.shared
 
         // Positive
         assertNoThrow {
-            object = Vector3DModel.shared
-            object <~ map[JsonKeys.object]
-            XCTAssertEqual(object.x, Int(Int8.max))
+            var obj = _object
+            obj <~ map[JsonKeys.object]
+            XCTAssertEqual(obj.x, Int(Int8.max))
         }
         assertNoThrow {
-            object = Vector3DModel.shared
-            object <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(object.x, Int(Int8.max))
+            var obj = _object
+            obj <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
+            XCTAssertEqual(obj.x, Int(Int8.max))
         }
         assertNoThrow {
-            object = Vector3DModel.shared
-            object <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(object.x, Int(Int8.max))
+            var obj = _object
+            obj <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
+            XCTAssertEqual(obj.x, Int(Int8.max))
         }
 
         // Negative
         assertThrowsException {
-            object <~ map[JsonKeys.noSuchKey]
+            var obj = _object
+            obj <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            object <~ map[JsonKeys.invalidObject]
+            var obj = _object
+            obj <~ map[JsonKeys.invalidObject]
         }
         assertThrowsException {
-            object <~ map[JsonKeys.nilObject]
+            var obj = _object
+            obj <~ map[JsonKeys.nilObject]
         }
     }
 
@@ -58,16 +61,18 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var object = Vector3DModel.shared16
-        var otherObject = Vector3DModel.shared32
+        let _object = Vector3DModel.shared16
+        let _otherObject = Vector3DModel.shared32
 
         // Positive
         assertNoThrow {
-            object <~ map[JsonKeys.object]
+            var obj = _object
+            obj <~ map[JsonKeys.object]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.object).value)
         }
         assertNoThrow {
-            otherObject <~ map[JsonKeys.otherObject, default: Constants.invalidValue]
+            var obj = _otherObject
+            obj <~ map[JsonKeys.otherObject, default: Constants.invalidValue]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherObject).value)
         }
     }
@@ -85,38 +90,39 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.mappableObjects)
 
-        var object: Vector3DModel? = nil
+        let _object: Vector3DModel? = nil
 
         // Positive
         assertNoThrow {
-            object = nil
-            object <~ map[JsonKeys.object]
-            XCTAssertEqual(object?.x, Int(Int8.max))
+            var obj = _object
+            obj <~ map[JsonKeys.object]
+            XCTAssertEqual(obj?.x, Int(Int8.max))
         }
         assertNoThrow {
-            object = Vector3DModel.shared
-            object <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(object)
+            var obj: Vector3DModel? = Vector3DModel.shared
+            obj <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(obj)
         }
         assertNoThrow {
-            object = nil
-            object <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(object?.x, Int(Int8.max))
+            var obj = _object
+            obj <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
+            XCTAssertEqual(obj?.x, Int(Int8.max))
         }
         assertNoThrow {
-            object = Vector3DModel.shared
-            object <~ map[JsonKeys.nilObject]
-            XCTAssertNil(object)
+            var obj: Vector3DModel? = Vector3DModel.shared
+            obj <~ map[JsonKeys.nilObject]
+            XCTAssertNil(obj)
         }
         assertNoThrow {
-            object = nil
-            object <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(object?.x, Int(Int8.max))
+            var obj = _object
+            obj <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
+            XCTAssertEqual(obj?.x, Int(Int8.max))
         }
 
         // Negative
         assertThrowsException {
-            object <~ map[JsonKeys.invalidObject]
+            var obj = _object
+            obj <~ map[JsonKeys.invalidObject]
         }
     }
 
@@ -124,21 +130,24 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var object: Vector3DModel? = Vector3DModel.shared16
-        var otherObject: Vector3DModel? = Vector3DModel.shared32
-        var nilObject: Vector3DModel? = nil
+        let _object: Vector3DModel? = Vector3DModel.shared16
+        let _otherObject: Vector3DModel? = Vector3DModel.shared32
+        let _nilObject: Vector3DModel? = nil
 
         // Positive
         assertNoThrow {
-            object <~ map[JsonKeys.object]
+            var obj = _object
+            obj <~ map[JsonKeys.object]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.object).value)
         }
         assertNoThrow {
-            otherObject <~ map[JsonKeys.otherObject, default: Constants.invalidValue]
+            var obj = _otherObject
+            obj <~ map[JsonKeys.otherObject, default: Constants.invalidValue]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherObject).value)
         }
         assertNoThrow {
-            nilObject <~ map[JsonKeys.nilObject]
+            var obj = _nilObject
+            obj <~ map[JsonKeys.nilObject]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilObject).value)
         }
     }
@@ -156,34 +165,39 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.mappableObjects)
 
-        var object: Vector3DModel! = Vector3DModel.shared
+        let _object: Vector3DModel! = Vector3DModel.shared
 
         // Positive
         assertNoThrow {
-            object = Vector3DModel.shared
-            object <~ map[JsonKeys.object]
-            XCTAssertEqual(object?.x, Int(Int8.max))
+            var obj: Vector3DModel! = _object
+            obj <~ map[JsonKeys.object]
+            XCTAssertEqual(obj?.x, Int(Int8.max))
         }
         assertNoThrow {
-            object = Vector3DModel.shared
-            object <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(object?.x, Int(Int8.max))
+            var obj: Vector3DModel! = _object
+            obj <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(obj)
         }
         assertNoThrow {
-            object = Vector3DModel.shared
-            object <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(object?.x, Int(Int8.max))
+            var obj: Vector3DModel! = _object
+            obj <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
+            XCTAssertEqual(obj?.x, Int(Int8.max))
+        }
+        assertNoThrow {
+            var obj: Vector3DModel! = _object
+            obj <~ map[JsonKeys.nilObject]
+            XCTAssertNil(obj)
+        }
+        assertNoThrow {
+            var obj: Vector3DModel! = _object
+            obj <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
+            XCTAssertEqual(obj?.x, Int(Int8.max))
         }
 
         // Negative
         assertThrowsException {
-            object <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            object <~ map[JsonKeys.invalidObject]
-        }
-        assertThrowsException {
-            object <~ map[JsonKeys.nilObject]
+            var obj: Vector3DModel! = _object
+            obj <~ map[JsonKeys.invalidObject]
         }
     }
 
@@ -191,16 +205,18 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var object: Vector3DModel! = Vector3DModel.shared16
-        var otherObject: Vector3DModel! = Vector3DModel.shared32
+        let _object: Vector3DModel! = Vector3DModel.shared16
+        let _otherObject: Vector3DModel! = Vector3DModel.shared32
 
         // Positive
         assertNoThrow {
-            object <~ map[JsonKeys.object]
+            var obj = _object
+            obj <~ map[JsonKeys.object]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.object).value)
         }
         assertNoThrow {
-            otherObject <~ map[JsonKeys.otherObject, default: Constants.invalidValue]
+            var obj = _otherObject
+            obj <~ map[JsonKeys.otherObject, default: Constants.invalidValue]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherObject).value)
         }
     }

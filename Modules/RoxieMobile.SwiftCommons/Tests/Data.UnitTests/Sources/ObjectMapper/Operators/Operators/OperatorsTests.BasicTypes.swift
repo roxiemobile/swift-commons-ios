@@ -23,34 +23,37 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.booleanBasicTypes)
 
-        var value = false
+        let _value = false
 
         // Positive
         assertNoThrow {
-            value = false
-            value <~ map[JsonKeys.value]
-            XCTAssertEqual(value, true)
+            var val = _value
+            val <~ map[JsonKeys.value]
+            XCTAssertEqual(val, true)
         }
         assertNoThrow {
-            value = false
-            value <~ map[JsonKeys.noSuchKey, default: true]
-            XCTAssertEqual(value, true)
+            var val = _value
+            val <~ map[JsonKeys.noSuchKey, default: true]
+            XCTAssertEqual(val, true)
         }
         assertNoThrow {
-            value = false
-            value <~ map[JsonKeys.nilValue, default: true]
-            XCTAssertEqual(value, true)
+            var val = _value
+            val <~ map[JsonKeys.nilValue, default: true]
+            XCTAssertEqual(val, true)
         }
 
         // Negative
         assertThrowsException {
-            value <~ map[JsonKeys.noSuchKey]
+            var val = _value
+            val <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            value <~ map[JsonKeys.invalidValue]
+            var val = _value
+            val <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            value <~ map[JsonKeys.nilValue]
+            var val = _value
+            val <~ map[JsonKeys.nilValue]
         }
     }
 
@@ -58,11 +61,12 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value = true
+        let _value = true
 
         // Positive
         assertNoThrow {
-            value <~ map[JsonKeys.value]
+            var val = _value
+            val <~ map[JsonKeys.value]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
     }
@@ -80,38 +84,39 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.booleanBasicTypes)
 
-        var value: Bool? = nil
+        let _value: Bool? = nil
 
         // Positive
         assertNoThrow {
-            value = nil
-            value <~ map[JsonKeys.value]
-            XCTAssertEqual(value, true)
+            var val = _value
+            val <~ map[JsonKeys.value]
+            XCTAssertEqual(val, true)
         }
         assertNoThrow {
-            value = false
-            value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(value)
+            var val = _value
+            val <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value = nil
-            value <~ map[JsonKeys.noSuchKey, default: true]
-            XCTAssertEqual(value, true)
+            var val = _value
+            val <~ map[JsonKeys.noSuchKey, default: true]
+            XCTAssertEqual(val, true)
         }
         assertNoThrow {
-            value = false
-            value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(value)
+            var val = _value
+            val <~ map[JsonKeys.nilValue]
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value = nil
-            value <~ map[JsonKeys.nilValue, default: true]
-            XCTAssertEqual(value, true)
+            var val = _value
+            val <~ map[JsonKeys.nilValue, default: true]
+            XCTAssertEqual(val, true)
         }
 
         // Negative
         assertThrowsException {
-            value <~ map[JsonKeys.invalidValue]
+            var val = _value
+            val <~ map[JsonKeys.invalidValue]
         }
     }
 
@@ -119,16 +124,18 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value: Bool? = true
-        var nilValue: Bool? = nil
+        let _value: Bool? = true
+        let _nilValue: Bool? = nil
 
         // Positive
         assertNoThrow {
-            value <~ map[JsonKeys.value]
+            var val = _value
+            val <~ map[JsonKeys.value]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
         assertNoThrow {
-            nilValue <~ map[JsonKeys.nilValue]
+            var val = _nilValue
+            val <~ map[JsonKeys.nilValue]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilValue).value)
         }
     }
@@ -146,34 +153,39 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.booleanBasicTypes)
 
-        var value: Bool! = true
+        let _value: Bool! = true
 
         // Positive
         assertNoThrow {
-            value = false
-            value <~ map[JsonKeys.value]
-            XCTAssertEqual(value, true)
+            var val: Bool! = _value
+            val <~ map[JsonKeys.value]
+            XCTAssertEqual(val, true)
         }
         assertNoThrow {
-            value = false
-            value <~ map[JsonKeys.noSuchKey, default: true]
-            XCTAssertEqual(value, true)
+            var val: Bool! = _value
+            val <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value = false
-            value <~ map[JsonKeys.nilValue, default: true]
-            XCTAssertEqual(value, true)
+            var val: Bool! = _value
+            val <~ map[JsonKeys.noSuchKey, default: true]
+            XCTAssertEqual(val, true)
+        }
+        assertNoThrow {
+            var val: Bool! = _value
+            val <~ map[JsonKeys.nilValue]
+            XCTAssertNil(val)
+        }
+        assertNoThrow {
+            var val: Bool! = _value
+            val <~ map[JsonKeys.nilValue, default: true]
+            XCTAssertEqual(val, true)
         }
 
         // Negative
         assertThrowsException {
-            value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            value <~ map[JsonKeys.nilValue]
+            var val: Bool! = _value
+            val <~ map[JsonKeys.invalidValue]
         }
     }
 
@@ -181,11 +193,12 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value: Bool! = true
+        let _value: Bool! = true
 
         // Positive
         assertNoThrow {
-            value <~ map[JsonKeys.value]
+            var val = _value
+            val <~ map[JsonKeys.value]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
     }

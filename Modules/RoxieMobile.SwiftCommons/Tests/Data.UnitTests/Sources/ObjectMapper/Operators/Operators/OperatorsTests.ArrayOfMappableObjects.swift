@@ -23,37 +23,44 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfMappableObjects)
 
-        var array: [Vector3DModel] = []
+        let _array: [Vector3DModel] = []
 
         // Positive
         assertNoThrow {
-            array <~ map[JsonKeys.array]
-            XCTAssertEqual(array.count, 1)
-            XCTAssertEqual(array[0].x, Int(Int8.max))
+            var arr = _array
+            arr <~ map[JsonKeys.array]
+            XCTAssertEqual(arr.count, 1)
+            XCTAssertEqual(arr[0].x, Int(Int8.max))
         }
         assertNoThrow {
-            array <~ map[JsonKeys.emptyArray]
-            XCTAssertEqual(array.count, 0)
+            var arr = _array
+            arr <~ map[JsonKeys.emptyArray]
+            XCTAssertEqual(arr.count, 0)
         }
         assertNoThrow {
-            array <~ map[JsonKeys.noSuchKey, default: [Constants.dictionaryOfInt8]]
-            XCTAssertEqual(array.count, 1)
-            XCTAssertEqual(array[0].x, Int(Int8.max))
+            var arr = _array
+            arr <~ map[JsonKeys.noSuchKey, default: [Constants.dictionaryOfInt8]]
+            XCTAssertEqual(arr.count, 1)
+            XCTAssertEqual(arr[0].x, Int(Int8.max))
         }
         assertNoThrow {
-            array <~ map[JsonKeys.nilArray, default: []]
-            XCTAssertEqual(array.count, 0)
+            var arr = _array
+            arr <~ map[JsonKeys.nilArray, default: []]
+            XCTAssertEqual(arr.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            array <~ map[JsonKeys.noSuchKey]
+            var arr = _array
+            arr <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            array <~ map[JsonKeys.invalidArray]
+            var arr = _array
+            arr <~ map[JsonKeys.invalidArray]
         }
         assertThrowsException {
-            array <~ map[JsonKeys.nilArray]
+            var arr = _array
+            arr <~ map[JsonKeys.nilArray]
         }
     }
 
@@ -61,16 +68,18 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var array = [Vector3DModel.shared]
-        var emptyArray: [Vector3DModel] = []
+        let _array = [Vector3DModel.shared]
+        let _emptyArray: [Vector3DModel] = []
 
         // Positive
         assertNoThrow {
-            array <~ map[JsonKeys.array]
+            var arr = _array
+            arr <~ map[JsonKeys.array]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.array).value)
         }
         assertNoThrow {
-            emptyArray <~ map[JsonKeys.emptyArray]
+            var arr = _emptyArray
+            arr <~ map[JsonKeys.emptyArray]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyArray).value)
         }
     }
@@ -88,39 +97,46 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfMappableObjects)
 
-        var array: [Vector3DModel]? = nil
+        let _array: [Vector3DModel]? = nil
 
         // Positive
         assertNoThrow {
-            array <~ map[JsonKeys.array]
-            XCTAssertEqual(array?.count ?? -1, 1)
-            XCTAssertEqual(array?[0].x, Int(Int8.max))
+            var arr = _array
+            arr <~ map[JsonKeys.array]
+            XCTAssertEqual(arr?.count ?? -1, 1)
+            XCTAssertEqual(arr?[0].x, Int(Int8.max))
         }
         assertNoThrow {
-            array <~ map[JsonKeys.emptyArray]
-            XCTAssertEqual(array?.count ?? -1, 0)
+            var arr = _array
+            arr <~ map[JsonKeys.emptyArray]
+            XCTAssertEqual(arr?.count ?? -1, 0)
         }
         assertNoThrow {
-            array <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(array)
+            var arr = _array
+            arr <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(arr)
         }
         assertNoThrow {
-            array <~ map[JsonKeys.noSuchKey, default: [Constants.dictionaryOfInt8]]
-            XCTAssertEqual(array?.count ?? -1, 1)
-            XCTAssertEqual(array?[0].x, Int(Int8.max))
+            var arr = _array
+            arr <~ map[JsonKeys.noSuchKey, default: [Constants.dictionaryOfInt8]]
+            XCTAssertEqual(arr?.count ?? -1, 1)
+            XCTAssertEqual(arr?[0].x, Int(Int8.max))
         }
         assertNoThrow {
-            array <~ map[JsonKeys.nilArray]
-            XCTAssertNil(array)
+            var arr = _array
+            arr <~ map[JsonKeys.nilArray]
+            XCTAssertNil(arr)
         }
         assertNoThrow {
-            array <~ map[JsonKeys.nilArray, default: []]
-            XCTAssertEqual(array?.count ?? -1, 0)
+            var arr = _array
+            arr <~ map[JsonKeys.nilArray, default: []]
+            XCTAssertEqual(arr?.count ?? -1, 0)
         }
 
         // Negative
         assertThrowsException {
-            array <~ map[JsonKeys.invalidArray]
+            var arr = _array
+            arr <~ map[JsonKeys.invalidArray]
         }
     }
 
@@ -128,21 +144,24 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var array: [Vector3DModel]? = [Vector3DModel.shared]
-        var emptyArray: [Vector3DModel]? = []
-        var nilArray: [Vector3DModel]? = nil
+        let _array: [Vector3DModel]? = [Vector3DModel.shared]
+        let _emptyArray: [Vector3DModel]? = []
+        let _nilArray: [Vector3DModel]? = nil
 
         // Positive
         assertNoThrow {
-            array <~ map[JsonKeys.array]
+            var arr = _array
+            arr <~ map[JsonKeys.array]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.array).value)
         }
         assertNoThrow {
-            emptyArray <~ map[JsonKeys.emptyArray]
+            var arr = _emptyArray
+            arr <~ map[JsonKeys.emptyArray]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyArray).value)
         }
         assertNoThrow {
-            nilArray <~ map[JsonKeys.nilArray]
+            var arr = _nilArray
+            arr <~ map[JsonKeys.nilArray]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilArray).value)
         }
     }
@@ -160,37 +179,46 @@ extension OperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfMappableObjects)
 
-        var array: [Vector3DModel]! = []
+        let _array: [Vector3DModel]! = []
 
         // Positive
         assertNoThrow {
-            array <~ map[JsonKeys.array]
-            XCTAssertEqual(array.count, 1)
-            XCTAssertEqual(array[0].x, Int(Int8.max))
+            var arr: [Vector3DModel]! = _array
+            arr <~ map[JsonKeys.array]
+            XCTAssertEqual(arr.count, 1)
+            XCTAssertEqual(arr[0].x, Int(Int8.max))
         }
         assertNoThrow {
-            array <~ map[JsonKeys.emptyArray]
-            XCTAssertEqual(array.count, 0)
+            var arr: [Vector3DModel]! = _array
+            arr <~ map[JsonKeys.emptyArray]
+            XCTAssertEqual(arr.count, 0)
         }
         assertNoThrow {
-            array <~ map[JsonKeys.noSuchKey, default: [Constants.dictionaryOfInt8]]
-            XCTAssertEqual(array.count, 1)
-            XCTAssertEqual(array[0].x, Int(Int8.max))
+            var arr: [Vector3DModel]! = _array
+            arr <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(arr)
         }
         assertNoThrow {
-            array <~ map[JsonKeys.nilArray, default: []]
-            XCTAssertEqual(array.count, 0)
+            var arr: [Vector3DModel]! = _array
+            arr <~ map[JsonKeys.noSuchKey, default: [Constants.dictionaryOfInt8]]
+            XCTAssertEqual(arr?.count ?? -1, 1)
+            XCTAssertEqual(arr?[0].x, Int(Int8.max))
+        }
+        assertNoThrow {
+            var arr: [Vector3DModel]! = _array
+            arr <~ map[JsonKeys.nilArray]
+            XCTAssertNil(arr)
+        }
+        assertNoThrow {
+            var arr: [Vector3DModel]! = _array
+            arr <~ map[JsonKeys.nilArray, default: []]
+            XCTAssertEqual(arr?.count ?? -1, 0)
         }
 
         // Negative
         assertThrowsException {
-            array <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            array <~ map[JsonKeys.invalidArray]
-        }
-        assertThrowsException {
-            array <~ map[JsonKeys.nilArray]
+            var arr: [Vector3DModel]! = _array
+            arr <~ map[JsonKeys.invalidArray]
         }
     }
 
@@ -198,16 +226,18 @@ extension OperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var array: [Vector3DModel]! = [Vector3DModel.shared]
-        var emptyArray: [Vector3DModel]! = []
+        let _array: [Vector3DModel]! = [Vector3DModel.shared]
+        let _emptyArray: [Vector3DModel]! = []
 
         // Positive
         assertNoThrow {
-            array <~ map[JsonKeys.array]
+            var arr: [Vector3DModel]! = _array
+            arr <~ map[JsonKeys.array]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.array).value)
         }
         assertNoThrow {
-            emptyArray <~ map[JsonKeys.emptyArray]
+            var arr: [Vector3DModel]! = _emptyArray
+            arr <~ map[JsonKeys.emptyArray]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptyArray).value)
         }
     }

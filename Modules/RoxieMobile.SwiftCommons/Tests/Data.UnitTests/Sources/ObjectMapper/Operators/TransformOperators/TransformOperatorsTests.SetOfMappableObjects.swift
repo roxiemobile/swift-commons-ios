@@ -23,39 +23,47 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfMappableObjects)
 
-        var set: Set<Vector3DModel> = []
+        let _set: Set<Vector3DModel> = []
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first?.x, Int(Int8.max))
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.emptyArray], Vector3DTransform.shared)
             XCTAssertEqual(set.count, 0)
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Set([Vector3DModel.shared]))
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first?.x, Int(Int16.max))
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.nilArray], Vector3DTransform.shared, Set())
             XCTAssertEqual(set.count, 0)
         }
 
         // Negative
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared)
         }
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.invalidArray], Vector3DTransform.shared)
         }
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.invalidArray], Vector3DTransform.shared, Set())
         }
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.nilArray], Vector3DTransform.shared)
         }
     }
@@ -64,16 +72,18 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<Vector3DModel> = [Vector3DModel.shared]
-        var emptySet: Set<Vector3DModel> = []
+        let _set: Set<Vector3DModel> = [Vector3DModel.shared]
+        let _emptySet: Set<Vector3DModel> = []
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.set], Vector3DTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            emptySet <~ (map[JsonKeys.emptySet], Vector3DTransform.shared)
+            var set = _emptySet
+            set <~ (map[JsonKeys.emptySet], Vector3DTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
     }
@@ -91,41 +101,49 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfMappableObjects)
 
-        var set: Set<Vector3DModel>? = nil
+        let _set: Set<Vector3DModel>? = nil
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(set?.count ?? -1, 1)
             XCTAssertEqual(set?.first?.x, Int(Int8.max))
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.emptyArray], Vector3DTransform.shared)
             XCTAssertEqual(set?.count ?? -1, 0)
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared)
             XCTAssertNil(set)
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Set([Vector3DModel.shared]))
             XCTAssertEqual(set?.count ?? -1, 1)
             XCTAssertEqual(set?.first?.x, Int(Int16.max))
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.nilArray], Vector3DTransform.shared)
             XCTAssertNil(set)
         }
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.nilArray], Vector3DTransform.shared, Set())
             XCTAssertEqual(set?.count ?? -1, 0)
         }
 
         // Negative
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.invalidArray], Vector3DTransform.shared)
         }
         assertThrowsException {
+            var set = _set
             set <~ (map[JsonKeys.invalidArray], Vector3DTransform.shared, Set())
         }
     }
@@ -134,21 +152,24 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<Vector3DModel>? = [Vector3DModel.shared]
-        var emptySet: Set<Vector3DModel>? = []
-        var nilSet: Set<Vector3DModel>? = nil
+        let _set: Set<Vector3DModel>? = [Vector3DModel.shared]
+        let _emptySet: Set<Vector3DModel>? = []
+        let _nilSet: Set<Vector3DModel>? = nil
 
         // Positive
         assertNoThrow {
+            var set = _set
             set <~ (map[JsonKeys.set], Vector3DTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            emptySet <~ (map[JsonKeys.emptySet], Vector3DTransform.shared)
+            var set = _emptySet
+            set <~ (map[JsonKeys.emptySet], Vector3DTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
         assertNoThrow {
-            nilSet <~ (map[JsonKeys.nilSet], Vector3DTransform.shared)
+            var set = _nilSet
+            set <~ (map[JsonKeys.nilSet], Vector3DTransform.shared)
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilSet).value)
         }
     }
@@ -166,40 +187,50 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.arrayOfMappableObjects)
 
-        var set: Set<Vector3DModel>! = []
+        let _set: Set<Vector3DModel>! = []
 
         // Positive
         assertNoThrow {
+            var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first?.x, Int(Int8.max))
         }
         assertNoThrow {
+            var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.emptyArray], Vector3DTransform.shared)
             XCTAssertEqual(set.count, 0)
         }
         assertNoThrow {
+            var set: Set<Vector3DModel>! = _set
+            set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared)
+            XCTAssertNil(set)
+        }
+        assertNoThrow {
+            var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Set([Vector3DModel.shared]))
             XCTAssertEqual(set.count, 1)
             XCTAssertEqual(set.first?.x, Int(Int16.max))
         }
         assertNoThrow {
+            var set: Set<Vector3DModel>! = _set
+            set <~ (map[JsonKeys.nilArray], Vector3DTransform.shared)
+            XCTAssertNil(set)
+        }
+        assertNoThrow {
+            var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.nilArray], Vector3DTransform.shared, Set())
             XCTAssertEqual(set.count, 0)
         }
 
         // Negative
         assertThrowsException {
-            set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared)
-        }
-        assertThrowsException {
+            var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.invalidArray], Vector3DTransform.shared)
         }
         assertThrowsException {
+            var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.invalidArray], Vector3DTransform.shared, Set())
-        }
-        assertThrowsException {
-            set <~ (map[JsonKeys.nilArray], Vector3DTransform.shared)
         }
     }
 
@@ -207,16 +238,18 @@ extension TransformOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var set: Set<Vector3DModel>! = [Vector3DModel.shared]
-        var emptySet: Set<Vector3DModel>! = []
+        let _set: Set<Vector3DModel>! = [Vector3DModel.shared]
+        let _emptySet: Set<Vector3DModel>! = []
 
         // Positive
         assertNoThrow {
+            var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.set], Vector3DTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.set).value)
         }
         assertNoThrow {
-            emptySet <~ (map[JsonKeys.emptySet], Vector3DTransform.shared)
+            var set: Set<Vector3DModel>! = _emptySet
+            set <~ (map[JsonKeys.emptySet], Vector3DTransform.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.emptySet).value)
         }
     }

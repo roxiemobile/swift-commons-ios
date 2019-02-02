@@ -23,34 +23,37 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.stringRawValues)
 
-        var value = StringRawType.undefined
+        let _value = StringRawType.undefined
 
         // Positive
         assertNoThrow {
-            value = StringRawType.undefined
-            value <~ map[JsonKeys.value]
-            XCTAssertEqual(value, StringRawType.value)
+            var val = _value
+            val <~ map[JsonKeys.value]
+            XCTAssertEqual(val, StringRawType.value)
         }
         assertNoThrow {
-            value = StringRawType.undefined
-            value <~ map[JsonKeys.noSuchKey, default: StringRawType.otherValue.rawValue]
-            XCTAssertEqual(value, StringRawType.otherValue)
+            var val = _value
+            val <~ map[JsonKeys.noSuchKey, default: StringRawType.otherValue.rawValue]
+            XCTAssertEqual(val, StringRawType.otherValue)
         }
         assertNoThrow {
-            value = StringRawType.undefined
-            value <~ map[JsonKeys.nilValue, default: StringRawType.otherValue.rawValue]
-            XCTAssertEqual(value, StringRawType.otherValue)
+            var val = _value
+            val <~ map[JsonKeys.nilValue, default: StringRawType.otherValue.rawValue]
+            XCTAssertEqual(val, StringRawType.otherValue)
         }
 
         // Negative
         assertThrowsException {
-            value <~ map[JsonKeys.noSuchKey]
+            var val = _value
+            val <~ map[JsonKeys.noSuchKey]
         }
         assertThrowsException {
-            value <~ map[JsonKeys.invalidValue]
+            var val = _value
+            val <~ map[JsonKeys.invalidValue]
         }
         assertThrowsException {
-            value <~ map[JsonKeys.nilValue]
+            var val = _value
+            val <~ map[JsonKeys.nilValue]
         }
     }
 
@@ -58,16 +61,18 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value = StringRawType.value
-        let otherValue = StringRawType.otherValue
+        let _value = StringRawType.value
+        let _otherValue = StringRawType.otherValue
 
         // Positive
         assertNoThrow {
-            value <~ map[JsonKeys.value]
+            var val = _value
+            val <~ map[JsonKeys.value]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
         assertNoThrow {
-            otherValue >>> map[JsonKeys.otherValue]
+            let val = _otherValue
+            val >>> map[JsonKeys.otherValue]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherValue).value)
         }
     }
@@ -85,38 +90,39 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.stringRawValues)
 
-        var value: StringRawType? = nil
+        let _value: StringRawType? = nil
 
         // Positive
         assertNoThrow {
-            value = nil
-            value <~ map[JsonKeys.value]
-            XCTAssertEqual(value, StringRawType.value)
+            var val = _value
+            val <~ map[JsonKeys.value]
+            XCTAssertEqual(val, StringRawType.value)
         }
         assertNoThrow {
-            value = StringRawType.undefined
-            value <~ map[JsonKeys.noSuchKey]
-            XCTAssertNil(value)
+            var val: StringRawType? = StringRawType.undefined
+            val <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value = nil
-            value <~ map[JsonKeys.noSuchKey, default: StringRawType.otherValue.rawValue]
-            XCTAssertEqual(value, StringRawType.otherValue)
+            var val = _value
+            val <~ map[JsonKeys.noSuchKey, default: StringRawType.otherValue.rawValue]
+            XCTAssertEqual(val, StringRawType.otherValue)
         }
         assertNoThrow {
-            value = StringRawType.undefined
-            value <~ map[JsonKeys.nilValue]
-            XCTAssertNil(value)
+            var val: StringRawType? = StringRawType.undefined
+            val <~ map[JsonKeys.nilValue]
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value = nil
-            value <~ map[JsonKeys.nilValue, default: StringRawType.otherValue.rawValue]
-            XCTAssertEqual(value, StringRawType.otherValue)
+            var val = _value
+            val <~ map[JsonKeys.nilValue, default: StringRawType.otherValue.rawValue]
+            XCTAssertEqual(val, StringRawType.otherValue)
         }
 
         // Negative
         assertThrowsException {
-            value <~ map[JsonKeys.invalidValue]
+            var val = _value
+            val <~ map[JsonKeys.invalidValue]
         }
     }
 
@@ -124,21 +130,24 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value: StringRawType? = StringRawType.value
-        let otherValue: StringRawType? = StringRawType.otherValue
-        var nilValue: StringRawType? = nil
+        let _value: StringRawType? = StringRawType.value
+        let _otherValue: StringRawType? = StringRawType.otherValue
+        let _nilValue: StringRawType? = nil
 
         // Positive
         assertNoThrow {
-            value <~ map[JsonKeys.value]
+            var val = _value
+            val <~ map[JsonKeys.value]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
         assertNoThrow {
-            otherValue >>> map[JsonKeys.otherValue]
+            let val = _otherValue
+            val >>> map[JsonKeys.otherValue]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherValue).value)
         }
         assertNoThrow {
-            nilValue <~ map[JsonKeys.nilValue]
+            var val = _nilValue
+            val <~ map[JsonKeys.nilValue]
             XCTAssertNil(map.fetch(valueFor: JsonKeys.nilValue).value)
         }
     }
@@ -156,34 +165,39 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.stringRawValues)
 
-        var value: StringRawType! = StringRawType.undefined
+        let _value: StringRawType! = StringRawType.undefined
 
         // Positive
         assertNoThrow {
-            value = StringRawType.undefined
-            value <~ map[JsonKeys.value]
-            XCTAssertEqual(value, StringRawType.value)
+            var val: StringRawType! = _value
+            val <~ map[JsonKeys.value]
+            XCTAssertEqual(val, StringRawType.value)
         }
         assertNoThrow {
-            value = StringRawType.undefined
-            value <~ map[JsonKeys.noSuchKey, default: StringRawType.otherValue.rawValue]
-            XCTAssertEqual(value, StringRawType.otherValue)
+            var val: StringRawType! = _value
+            val <~ map[JsonKeys.noSuchKey]
+            XCTAssertNil(val)
         }
         assertNoThrow {
-            value = StringRawType.undefined
-            value <~ map[JsonKeys.nilValue, default: StringRawType.otherValue.rawValue]
-            XCTAssertEqual(value, StringRawType.otherValue)
+            var val: StringRawType! = _value
+            val <~ map[JsonKeys.noSuchKey, default: StringRawType.otherValue.rawValue]
+            XCTAssertEqual(val, StringRawType.otherValue)
+        }
+        assertNoThrow {
+            var val: StringRawType! = _value
+            val <~ map[JsonKeys.nilValue]
+            XCTAssertNil(val)
+        }
+        assertNoThrow {
+            var val: StringRawType! = _value
+            val <~ map[JsonKeys.nilValue, default: StringRawType.otherValue.rawValue]
+            XCTAssertEqual(val, StringRawType.otherValue)
         }
 
         // Negative
         assertThrowsException {
-            value <~ map[JsonKeys.noSuchKey]
-        }
-        assertThrowsException {
-            value <~ map[JsonKeys.invalidValue]
-        }
-        assertThrowsException {
-            value <~ map[JsonKeys.nilValue]
+            var val: StringRawType! = _value
+            val <~ map[JsonKeys.invalidValue]
         }
     }
 
@@ -191,16 +205,18 @@ extension EnumOperatorsTests
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
-        var value: StringRawType! = StringRawType.value
-        let otherValue: StringRawType! = StringRawType.otherValue
+        let _value: StringRawType! = StringRawType.value
+        let _otherValue: StringRawType! = StringRawType.otherValue
 
         // Positive
         assertNoThrow {
-            value <~ map[JsonKeys.value]
+            var val: StringRawType! = _value
+            val <~ map[JsonKeys.value]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.value).value)
         }
         assertNoThrow {
-            otherValue >>> map[JsonKeys.otherValue]
+            let val: StringRawType! = _otherValue
+            val >>> map[JsonKeys.otherValue]
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherValue).value)
         }
     }

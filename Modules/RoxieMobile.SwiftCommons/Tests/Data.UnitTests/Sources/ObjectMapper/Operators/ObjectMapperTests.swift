@@ -18,7 +18,7 @@ class ObjectMapperTests: XCTestCase
 {
 // MARK: - Methods
 
-    func assertNoThrow(action: @escaping () -> Void) -> Void {
+    internal func assertNoThrow(action: @escaping () -> Void) -> Void {
         var exception: NSException? = nil
 
         objcTry {
@@ -30,7 +30,7 @@ class ObjectMapperTests: XCTestCase
         }
     }
 
-    func assertThrowsException(action: @escaping () -> Void) -> Void {
+    internal func assertThrowsException(action: @escaping () -> Void) -> Void {
         var exception: NSException? = nil
 
         objcTry {
