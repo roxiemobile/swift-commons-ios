@@ -28,6 +28,7 @@
 
 
 import Foundation
+import SwiftCommonsLang
 
 /// MapContext is available for developers who wish to pass information around during the mapping process.
 public protocol MapContext {
@@ -133,25 +134,25 @@ public final class Map {
     }
 
     public func value<T>() -> T? {
-        let value = self.currentValue as? T
+        let value = Roxie.conditionalCast(self.currentValue, to: T.self)
 
         // Swift 4.1 breaks Float casting from `NSNumber`. So Added extra checks for `Float` `[Float]` and `[String:Float]`
         if value == nil && T.self == Float.self {
             if let v = self.currentValue as? NSNumber {
-                return v.floatValue as? T
+                return Roxie.conditionalCast(v.floatValue, to: T.self)
             }
         } else if value == nil && T.self == [Float].self {
             if let v = self.currentValue as? [Double] {
 // Code targeting the Swift 4.1 compiler and above.
 #if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
-                return v.compactMap{ Float($0) } as? T
+                return Roxie.conditionalCast(v.compactMap{ Float($0) }, to: T.self)
 #else
-                return v.flatMap{ Float($0) } as? T
+                return Roxie.conditionalCast(v.flatMap{ Float($0) }, to: T.self)
 #endif
             }
         } else if value == nil && T.self == [String:Float].self {
             if let v = self.currentValue as? [String:Double] {
-                return v.mapValues{ Float($0) } as? T
+                return Roxie.conditionalCast(v.mapValues{ Float($0) }, to: T.self)
             }
         }
         return value

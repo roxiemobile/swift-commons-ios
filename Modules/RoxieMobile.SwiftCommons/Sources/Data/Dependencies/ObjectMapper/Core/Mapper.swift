@@ -27,6 +27,7 @@
 //  THE SOFTWARE.
 
 import Foundation
+import SwiftCommonsLang
 
 public enum MappingType {
     case fromJSON
@@ -109,23 +110,23 @@ public final class Mapper<N: BaseMappable> {
         let map = Map(mappingType: .fromJSON, JSON: JSON, context: context, shouldIncludeNilValues: shouldIncludeNilValues)
 
         if let klass = N.self as? SerializableMappable.Type { // Check if object is SerializableMappable
-            if var object = klass.init(coder: JSONHolderDecoder(map: map)) as? N {
+            if var object = Roxie.conditionalCast(klass.init(coder: JSONHolderDecoder(map: map)), to: N.self) {
                 object.mapping(map: map)
                 return object
             }
         } else if let klass = N.self as? StaticMappable.Type { // Check if object is StaticMappable
-            if var object = klass.objectForMapping(map: map) as? N {
+            if var object = Roxie.conditionalCast(klass.objectForMapping(map: map), to: N.self) {
                 object.mapping(map: map)
                 return object
             }
         } else if let klass = N.self as? Mappable.Type { // Check if object is Mappable
-            if var object = klass.init(map: map) as? N {
+            if var object = Roxie.conditionalCast(klass.init(map: map), to: N.self) {
                 object.mapping(map: map)
                 return object
             }
         } else if let klass = N.self as? ImmutableMappable.Type { // Check if object is ImmutableMappable
             do {
-                return try klass.init(map: map) as? N
+                return Roxie.conditionalCast(try klass.init(map: map), to: N.self)
             } catch let error {
             #if DEBUG
                 if let mapError = error as? MapError {

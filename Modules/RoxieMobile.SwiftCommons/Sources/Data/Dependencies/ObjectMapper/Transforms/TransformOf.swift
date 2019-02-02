@@ -26,6 +26,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+import SwiftCommonsLang
+
 open class TransformOf<ObjectType, JSONType>: TransformType {
     public typealias Object = ObjectType
     public typealias JSON = JSONType
@@ -39,7 +41,7 @@ open class TransformOf<ObjectType, JSONType>: TransformType {
     }
 
     open func transformFromJSON(_ value: Any?) -> ObjectType? {
-        return fromJSON(value as? JSONType)
+        return fromJSON(Roxie.conditionalCast(value, to: JSONType.self))
     }
 
     open func transformToJSON(_ value: ObjectType?) -> JSONType? {

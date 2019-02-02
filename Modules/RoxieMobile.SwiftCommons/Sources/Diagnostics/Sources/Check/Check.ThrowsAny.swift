@@ -52,7 +52,7 @@ extension Check
                             "Expected \(Roxie.typeName(of: errorType)) to be thrown, but nothing was thrown.",
                     file, line);
         }
-        else if let error = cause, ((error as? T) == nil) {
+        else if let error = cause, (Roxie.conditionalCast(error, to: T.self) == nil) {
             let text = message()
 
             throw newCheckError(

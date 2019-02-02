@@ -26,6 +26,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+import SwiftCommonsLang
+
 public protocol ImmutableMappable: CreationalMappable {
     init(map: Map) throws
 }
@@ -64,7 +66,7 @@ public extension Map {
     /// Returns a value or throws an error.
     public func value<T>(_ key: String, nested: Bool? = nil, delimiter: String = ".", file: StaticString = #file, function: StaticString = #function, line: UInt = #line) throws -> T {
         let currentValue = self.currentValue(for: key, nested: nested, delimiter: delimiter)
-        guard let value = currentValue as? T else {
+        guard let value = Roxie.conditionalCast(currentValue, to: T.self) else {
             throw MapError(key: key, currentValue: currentValue, reason: "Cannot cast to '\(T.self)'", file: file, function: function, line: line)
         }
         return value
@@ -293,7 +295,7 @@ internal extension Mapper {
 
         // Check if object is ImmutableMappable, if so use ImmutableMappable protocol for mapping
         if let klass = N.self as? ImmutableMappable.Type,
-            var object = try klass.init(map: map) as? N {
+            var object = Roxie.conditionalCast(try klass.init(map: map), to: N.self) {
             object.mapping(map: map)
             return object
         }

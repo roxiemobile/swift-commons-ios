@@ -24,7 +24,7 @@ public extension Roxie
 
     /// Conditional downcast of an object to a specified type.
     public static func conditionalCast<T, U>(_ object: T?, to type: U.Type) -> U? {
-        return (object as? U)
+        return (object == nil) ? nil : (object as? U)
     }
 }
 
