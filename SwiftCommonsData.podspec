@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsData'
   s.summary               = 'A collection of reusable components used to simplify serialization, deserialization and validation operations on data objects.'
-  s.version               = '1.3.1'
+  s.version               = '1.3.2'
 
   s.platform              = :ios
   s.ios.deployment_target = '9.0'
