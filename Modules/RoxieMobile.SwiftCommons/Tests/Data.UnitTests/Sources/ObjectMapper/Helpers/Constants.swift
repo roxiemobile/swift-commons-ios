@@ -107,7 +107,7 @@ final class Constants: NonCreatable
         JsonKeys.nilDictionary: Constants.nilValue
     ]
 
-// MARK: - Integers
+// MARK: - Numbers
 
     static let integerValues: [String: Any] = [
         JsonKeys.int8: Int(Int8.max),
@@ -125,6 +125,12 @@ final class Constants: NonCreatable
         JsonKeys.uint32: UInt(Int32.max),
         JsonKeys.uint64: UInt(Int64.max),
         JsonKeys.uint: UInt(Int.max),
+        JsonKeys.invalidValue: Constants.invalidValue,
+        JsonKeys.nilValue: Constants.nilValue
+    ]
+
+    static let floatValues: [String: Any] = [
+        JsonKeys.value: Float.pi,
         JsonKeys.invalidValue: Constants.invalidValue,
         JsonKeys.nilValue: Constants.nilValue
     ]

@@ -22,7 +22,7 @@ final class CheckTests: XCTestCase
             errorType: Error.Type = CheckError.self,
             file: StaticString = #file,
             line: UInt = #line,
-            action: () throws -> Void
+            action: @escaping () throws -> Void
     ) -> Void {
 
         XCTAssert(!method.isEmpty, "‘method’ is empty");
@@ -54,7 +54,7 @@ final class CheckTests: XCTestCase
             errorType: Error.Type = CheckError.self,
             file: StaticString = #file,
             line: UInt = #line,
-            action: () throws -> Void
+            action: @escaping () throws -> Void
     ) -> Void {
 
         XCTAssert(!method.isEmpty, "‘method’ is empty");

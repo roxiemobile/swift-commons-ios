@@ -16,7 +16,7 @@ import XCTest
 
 final class GuardTests: XCTestCase
 {
-// MARK: - Private Methods
+// MARK: - Methods
 
     internal func guardThrowsException(
             _ method: String,
