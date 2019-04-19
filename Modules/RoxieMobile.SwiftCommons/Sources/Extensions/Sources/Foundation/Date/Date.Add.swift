@@ -38,17 +38,17 @@ public extension Date
     ) -> Date {
 
         let calendar = Calendar.current
-        var components = calendar.dateComponents(Set([.second, .minute, .hour, .day, .weekOfMonth, .month, .year]), from: self)
+        var result = self
 
-        components.second! += seconds
-        components.minute! += minutes
-        components.hour! += hours
-        components.day! += days
-        components.weekOfMonth! += weeks
-        components.month! += months
-        components.year! += years
+        result = calendar.date(byAdding: .second, value: seconds, to: result)!
+        result = calendar.date(byAdding: .minute, value: minutes, to: result)!
+        result = calendar.date(byAdding: .hour, value: hours, to: result)!
+        result = calendar.date(byAdding: .day, value: days, to: result)!
+        result = calendar.date(byAdding: .weekOfMonth, value: weeks, to: result)!
+        result = calendar.date(byAdding: .month, value: months, to: result)!
+        result = calendar.date(byAdding: .year, value: years, to: result)!
 
-        return calendar.date(from: components)!
+        return result
     }
 }
 
