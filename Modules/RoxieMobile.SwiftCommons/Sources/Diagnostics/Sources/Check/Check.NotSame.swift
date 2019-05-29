@@ -26,7 +26,7 @@ extension Check
     ///
     public static func notSame<T:AnyObject>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard (unexpected !== actual) else {
-            throw newCheckError(message, file, line)
+            throw newCheckError(message(), file, line)
         }
     }
 }

@@ -18,7 +18,7 @@ public extension Roxie
 // MARK: - Properties
 
     /// Returns the caches directory for the current user.
-    public static var cachesDirectory: URL? {
+    static var cachesDirectory: URL? {
         return Directories.Caches
     }
 

@@ -27,7 +27,7 @@ public extension Date
     ///   - months: Number of months to add.
     ///   - years: Number of years to add.
     ///
-    public func add(
+    func add(
             seconds: Int = 0,
             minutes: Int = 0,
             hours: Int = 0,

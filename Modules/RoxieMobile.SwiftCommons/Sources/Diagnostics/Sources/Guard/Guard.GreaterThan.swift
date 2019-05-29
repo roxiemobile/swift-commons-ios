@@ -26,7 +26,7 @@ extension Guard
     ///
     public static func greaterThan<T:Comparable>(_ value: T, _ min: T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
         if let error = tryIsFailure(try Check.greaterThan(value, min)) {
-            newGuardException(message, error, file, line).raise()
+            newGuardException(message(), error, file, line).raise()
         }
     }
 }

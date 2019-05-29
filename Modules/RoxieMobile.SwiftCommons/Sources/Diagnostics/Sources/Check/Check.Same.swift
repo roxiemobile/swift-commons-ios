@@ -26,7 +26,7 @@ extension Check
     ///
     public static func same<T:AnyObject>(_ expected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard (expected === actual) else {
-            throw newCheckError(message, file, line)
+            throw newCheckError(message(), file, line)
         }
     }
 }
