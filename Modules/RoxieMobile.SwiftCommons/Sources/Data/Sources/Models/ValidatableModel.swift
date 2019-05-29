@@ -276,7 +276,7 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
             let typeOfT = type(of: self)
 
             // Clone object
-            object = try? typeOfT.init(from: Mapper().toJSON(self)) // .init(from: Mapper().toJSON(self))
+            object = try? typeOfT.init(from: Mapper().toJSON(self))
 
         }.objcCatch { e in
             exception = e
