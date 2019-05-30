@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.source = {
     git: 'https://github.com/MamuninaNV/swift-commons.ios.git',
-    tag: s.version.to_s
+    # tag: s.version.to_s
   }
 
 # MARK: - Modules
