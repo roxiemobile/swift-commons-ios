@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
 # MARK: - Configuration
 
   s.source = {
-    git: 'https://github.com/MamuninaNV/swift-commons.ios.git',
-    tag: s.version.to_s
+    git: 'https://github.com/MamuninaNV/swift-commons.ios.git', branch: 'feature/RMCMT-102'
+    # tag: s.version.to_s
   }
 
   base_dir = 'Modules/RoxieMobile.SwiftCommons/Sources/Data/'
