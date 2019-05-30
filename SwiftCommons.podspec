@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.cocoapods_version     = '>= 1.4.0'
   s.static_framework      = true
 
-  s.homepage              = 'https://github.com/roxiemobile/swift-commons.ios'
+  s.homepage              = 'https://github.com/MamuninaNV/swift-commons.ios.git'
   s.authors               = { 'Roxie Mobile Ltd.' => 'sales@roxiemobile.com', 'Alexander Bragin' => 'bragin-av@roxiemobile.com' }
   s.license               = 'BSD-4-Clause'
 
@@ -54,7 +54,7 @@ Pod::Spec.new do |s|
 
   # A collection of useful classes and Swift language extensions.
   s.subspec 'Lang' do |sp|
-    sp.dependency 'SwiftCommonsLang', s.version.to_s
+    sp.dependency 'SwiftCommonsLang' #, s.version.to_s
   end
 
   # Provides simple abstraction layer over an existing logging frameworks.
