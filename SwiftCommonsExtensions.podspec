@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 # MARK: - Configuration
 
   s.source = {
-    git: 'https://github.com/roxiemobile/swift-commons.ios.git',
+    git: 'https://github.com/MamuninaNV/swift-commons.ios.gitt',
     tag: s.version.to_s
   }
 
