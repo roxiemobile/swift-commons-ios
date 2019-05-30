@@ -34,6 +34,6 @@ Pod::Spec.new do |s|
 
 # MARK: - Dependencies
 
-  s.dependency 'CryptoSwift', '~> 0.13.1'
+  s.dependency 'CryptoSwift', '~> 1.0.0'
   s.dependency 'SwiftCommonsDiagnostics', s.version.to_s
 end
