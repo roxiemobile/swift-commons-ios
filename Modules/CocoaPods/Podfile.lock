@@ -3,27 +3,29 @@ PODS:
   - Dispatch (2.0.4)
 
 DEPENDENCIES:
-  - CryptoSwift (~> 1.0.0)
+  - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift.git`, tag `1.0.0`)
   - Dispatch (from `https://github.com/MamuninaNV/Dispatch.git`, branch `hotfix/2.0.4-patch.1`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - CryptoSwift
-
 EXTERNAL SOURCES:
+  CryptoSwift:
+    :git: https://github.com/krzyzanowskim/CryptoSwift.git
+    :tag: 1.0.0
   Dispatch:
     :branch: hotfix/2.0.4-patch.1
     :git: https://github.com/MamuninaNV/Dispatch.git
 
 CHECKOUT OPTIONS:
+  CryptoSwift:
+    :git: https://github.com/krzyzanowskim/CryptoSwift.git
+    :tag: 1.0.0
   Dispatch:
     :commit: d3c87e65f3c661dd142666b17249852f153f14b5
     :git: https://github.com/MamuninaNV/Dispatch.git
 
 SPEC CHECKSUMS:
-  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  CryptoSwift: b91cc3e6902875f4baa91fdf1042c1344108a53b
   Dispatch: ad154514db1b6100a4cb752d8566acc846adf614
 
-PODFILE CHECKSUM: 23b5f84da928500959dc536048b4ad67ed81bda4
+PODFILE CHECKSUM: ff443c22af2b68df5d8b748fbbef00386d0daadb
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.1
