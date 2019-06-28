@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Bundle
-{
+public extension Bundle {
 // MARK: - Properties
 
     /// Returns the release version number of the bundle, which identifies a released iteration of the app.

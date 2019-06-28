@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods
 
     /// Checks that all a string objects in collection is empty.
@@ -23,7 +22,7 @@ extension Guard
     /// - Throws:
     ///   GuardException
     ///
-    public static func allEmpty<T:Collection>(
+    public static func allEmpty<T: Collection>(
             _ values: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
     ) where T.Element == String {
         // objects: Collection<String>?
@@ -44,9 +43,9 @@ extension Guard
     /// - Throws:
     ///   GuardException
     ///
-    public static func allEmpty<T:Collection>(
+    public static func allEmpty<T: Collection>(
             _ values: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) where T.Element == Optional<String> {
+    ) where T.Element == String? {
         // objects: Collection<String?>?
 
         if let error = tryIsFailure(try Check.allEmpty(values)) {

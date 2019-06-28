@@ -13,8 +13,7 @@
 
 // ----------------------------------------------------------------------------
 
-public extension Dictionary
-{
+public extension Dictionary {
 // MARK: - Methods
 
     /// Union of `self` and the input dictionaries.
@@ -48,8 +47,7 @@ public func +<K, V>(first: [K: V], second: [K: V]) -> [K: V] {
 
 /// Union with assignment operator.
 @discardableResult
-public func +=<K, V>(left: inout [K: V], right: [K: V]) -> [K: V]
-{
+public func +=<K, V>(left: inout [K: V], right: [K: V]) -> [K: V] {
     right.forEach { pair in
         left.updateValue(pair.value, forKey: pair.key)
     }

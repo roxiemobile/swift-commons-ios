@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
 // MARK: - Methods
 
     /// Creates and raises a fatal error exception with the specified message.

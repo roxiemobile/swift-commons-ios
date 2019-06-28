@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Logger
-{
+extension Logger {
 // MARK: - Methods
 
     /// Formats and sends a verbose log message.

@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
 // MARK: - Methods
 
     /// Returns an index that is the specified distance from the start

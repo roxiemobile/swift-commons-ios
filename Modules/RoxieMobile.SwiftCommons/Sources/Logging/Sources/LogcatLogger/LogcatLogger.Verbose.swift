@@ -13,8 +13,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension LogcatLogger
-{
+extension LogcatLogger {
 // MARK: - Methods
 
     /// Formats and sends a verbose log message.

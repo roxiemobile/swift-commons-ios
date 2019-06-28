@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Checks that two objects are *not* equals. If `unexpected` and `actual` are `nil`, they are considered equal.
@@ -24,7 +23,7 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func notEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
+    public static func notEqual<T: Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard !safeEqual(unexpected, actual) else {
             throw newCheckError(message, file, line)
         }

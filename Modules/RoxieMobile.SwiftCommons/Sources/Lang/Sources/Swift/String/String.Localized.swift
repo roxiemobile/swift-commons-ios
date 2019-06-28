@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
 // MARK: - Properties
 
     /// Returns a localized string, using the main bundle.

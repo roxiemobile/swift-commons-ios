@@ -14,8 +14,7 @@ import SwiftCommonsAbstractions
 // ----------------------------------------------------------------------------
 
 /// Validates whether a value match or not given regexp pattern.
-public class RegexValidator: Validator
-{
+public class RegexValidator: Validator {
 // MARK: - Construction
 
     /// Initializes and returns a newly created validator object.
@@ -27,13 +26,12 @@ public class RegexValidator: Validator
     /// - Returns:
     ///   `nil` if the regular expression pattern is invalid.
     ///
-    public init?(pattern: String, options: NSRegularExpression.Options = .caseInsensitive)
-    {
+    public init?(pattern: String, options: NSRegularExpression.Options = .caseInsensitive) {
         // Init instance
         self.regex = try? NSRegularExpression(pattern: pattern, options: options)
 
         // Validate instance state
-        guard let _ = self.regex, pattern.isNotBlank else {
+        guard self.regex != nil, pattern.isNotBlank else {
             return nil
         }
     }
@@ -53,8 +51,8 @@ public class RegexValidator: Validator
 
         // Validate incoming value
         if let str = (value as? String) {
-            let matches = self.regex.matches(in: str, options: [], range: NSMakeRange(0, str.count))
-            result = (matches.count > 0)
+            let matches = self.regex.matches(in: str, options: [], range: NSRange(location: 0, length: str.count))
+            result = matches.isNotEmpty
         }
 
         // Done

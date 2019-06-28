@@ -13,8 +13,7 @@ import Foundation
 // ----------------------------------------------------------------------------
 
 /// An exception which raises when attempting to call an abstract method.
-public final class AbstractMethodException: FatalErrorException
-{
+public final class AbstractMethodException: FatalErrorException {
 // MARK: - Construction
 
     /// Initializes and returns a newly created exception object.

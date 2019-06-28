@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Date
-{
+public extension Date {
 // MARK: - Methods
 
     /// Returns a new `Date` object representing the date calculated by adding the amount specified to self date.

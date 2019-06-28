@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods
 
     /// Checks that a condition is `true`.

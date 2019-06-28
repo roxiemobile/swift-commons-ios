@@ -9,8 +9,7 @@
 // ----------------------------------------------------------------------------
 
 /// A logcat logger which logs to the Apple System Log facility.
-public final class LogcatLogger: LoggerContract
-{
+public final class LogcatLogger: LoggerContract {
 // MARK: - Construction
 
     /// Initializes and returns a newly created logger object.

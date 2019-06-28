@@ -13,8 +13,7 @@ import SwiftCommonsLogging
 
 // ----------------------------------------------------------------------------
 
-public extension FileManager
-{
+public extension FileManager {
 // MARK: - Methods
 
     /// Removes the file or directory at the specified URL.
@@ -35,12 +34,10 @@ public extension FileManager
                 do {
                     try fm.removeItem(at: srcURL)
                     result = true
-                }
-                catch {
+                } catch {
                     Logger.e(Inner.TAG, "Can't remove item at URL ‘\(srcURL)’.", error)
                 }
-            }
-            else {
+            } else {
                 Logger.w(Inner.TAG, "Item at URL ‘\(srcURL)’ doesn't exists.")
             }
         }

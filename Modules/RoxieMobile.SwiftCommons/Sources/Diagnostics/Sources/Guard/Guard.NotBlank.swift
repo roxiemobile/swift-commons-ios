@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods
 
     /// Checks that a string is not `nil`, not empty and contains not only whitespace characters.

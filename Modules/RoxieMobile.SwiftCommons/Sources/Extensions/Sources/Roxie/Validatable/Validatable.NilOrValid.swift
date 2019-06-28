@@ -12,8 +12,7 @@ import SwiftCommonsAbstractions
 
 // ----------------------------------------------------------------------------
 
-public extension Optional where Wrapped == Validatable
-{
+public extension Optional where Wrapped == Validatable {
 // MARK: - Properties
 
     /// Checks that an object is `nil` or valid.

@@ -13,8 +13,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension StdoutLogger
-{
+extension StdoutLogger {
 // MARK: - Methods
 
     /// Formats and writes a warning log message into the standard output.

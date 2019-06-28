@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Date
-{
+public extension Date {
 // MARK: - Properties
 
     /// Date year.

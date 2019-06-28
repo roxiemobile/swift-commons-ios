@@ -8,12 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
-public struct ReflectedType
-{
+public struct ReflectedType {
 // MARK: - Construction
 
-    internal init(name: String, fullName: String, isOptional: Bool, isImplicitlyUnwrappedOptional: Bool, isProtocol: Bool)
-    {
+    internal init(name: String, fullName: String, isOptional: Bool, isImplicitlyUnwrappedOptional: Bool, isProtocol: Bool) {
         // Init instance
         self.name = name
         self.fullName = fullName

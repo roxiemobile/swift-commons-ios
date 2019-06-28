@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Bundle
-{
+public extension Bundle {
 // MARK: - Properties
 
     /// Returns the name of the bundle’s main executable file. For an app, this is the app executable.

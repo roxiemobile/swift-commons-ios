@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-open class RawRepresentableOption<T: Hashable & Hashable>: RawRepresentable
-{
+open class RawRepresentableOption<T: Hashable & Hashable>: RawRepresentable {
 // MARK: - Construction
 
     /// Creates a new instance with the specified raw value.
@@ -64,8 +63,7 @@ open class RawRepresentableOption<T: Hashable & Hashable>: RawRepresentable
 
 // ----------------------------------------------------------------------------
 
-extension RawRepresentableOption: Equatable
-{
+extension RawRepresentableOption: Equatable {
 // MARK: - Methods
 
     /// Returns a Boolean value indicating whether two instances wrap the same raw value.
@@ -76,13 +74,12 @@ extension RawRepresentableOption: Equatable
 
 // ----------------------------------------------------------------------------
 
-extension RawRepresentableOption: Hashable
-{
+extension RawRepresentableOption: Hashable {
 // MARK: - Methods
 
     /// The hash value.
-    public var hashValue: Int {
-        return self.rawValue.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.rawValue)
     }
 }
 

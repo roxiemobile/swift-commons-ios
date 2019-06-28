@@ -13,8 +13,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension ChainedLogger
-{
+extension ChainedLogger {
 // MARK: - Methods
 
     /// Formats and sends an error log message.

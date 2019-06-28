@@ -14,8 +14,7 @@ import SwiftCommonsLang
 
 /// A set of methods useful for validating objects states. Only failed checks are raises exceptions.
 /// These methods can be used directly: `Guard.isTrue(...)`.
-public final class Guard: NonCreatable
-{
+public final class Guard: NonCreatable {
 // MARK: - Internal Methods
 
     /// Initializes a new instance of the `GuardException` class with a specified error message and a reference to the inner error that is the cause of this exception.
@@ -42,15 +41,13 @@ public final class Guard: NonCreatable
     ///   `Error` if an error thrown; otherwise, `nil`.
     ///
     internal static func tryIsFailure(_ action: @autoclosure () throws -> Void) -> Error? {
-        var cause: Error? = nil
+        var cause: Error?
 
         do {
             try action()
-        }
-        catch let error as CheckError {
+        } catch let error as CheckError {
             cause = error
-        }
-        catch {
+        } catch {
             Roxie.fatalError("Unexpected error is thrown", cause: error)
         }
         return cause

@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public extension Collection
-{
+public extension Collection {
 // MARK: - Properties
 
     /// Checks if collection has elements.
@@ -20,8 +19,7 @@ public extension Collection
 
 // ----------------------------------------------------------------------------
 
-public extension Optional where Wrapped: Collection
-{
+public extension Optional where Wrapped: Collection {
 // MARK: - Properties
 
     /// Checks if collection has no elements or nil.

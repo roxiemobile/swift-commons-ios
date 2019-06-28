@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods
 
     /// Checks that the parameter value is less than or equal to the maximum value.
@@ -24,7 +23,7 @@ extension Guard
     /// - Throws:
     ///   GuardException
     ///
-    public static func lessThanOrEqualTo<T:Comparable>(_ value: T, _ max: T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
+    public static func lessThanOrEqualTo<T: Comparable>(_ value: T, _ max: T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
         if let error = tryIsFailure(try Check.lessThanOrEqualTo(value, max)) {
             newGuardException(message, error, file, line).raise()
         }

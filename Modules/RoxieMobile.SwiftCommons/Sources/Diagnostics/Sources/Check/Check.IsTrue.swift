@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Checks that a condition is `true`.

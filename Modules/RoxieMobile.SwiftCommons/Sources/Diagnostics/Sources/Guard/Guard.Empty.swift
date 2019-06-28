@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods: String
 
     /// Checks that a string is `nil` or empty.
@@ -42,7 +41,7 @@ extension Guard
     /// - Throws:
     ///   GuardException
     ///
-    public static func empty<T:Collection>(_ collection: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
+    public static func empty<T: Collection>(_ collection: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
         if let error = tryIsFailure(try Check.empty(collection)) {
             newGuardException(message, error, file, line).raise()
         }

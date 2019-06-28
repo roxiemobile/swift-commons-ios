@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods
 
     /// Checks that two objects are *not* equals. If `unexpected` and `actual` are `nil`, they are considered equal.
@@ -24,7 +23,7 @@ extension Guard
     /// - Throws:
     ///   GuardException
     ///
-    public static func notEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
+    public static func notEqual<T: Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
         if let error = tryIsFailure(try Check.notEqual(unexpected, actual)) {
             newGuardException(message, error, file, line).raise()
         }

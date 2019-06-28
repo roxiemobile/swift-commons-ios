@@ -13,8 +13,7 @@ import Foundation
 // ----------------------------------------------------------------------------
 
 /// Represents an error encountered while parsing JSON data.
-public struct JsonSyntaxError: Error
-{
+public struct JsonSyntaxError: Error {
 // MARK: - Construction
 
     /// Initializes and returns a newly created error object.

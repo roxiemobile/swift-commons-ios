@@ -12,16 +12,14 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-public final class CommonKeys: NonCreatable
-{
+public final class CommonKeys: NonCreatable {
 // MARK: - Constants
 
     private struct Inner {
         static let URN = "urn:roxiemobile:shared"
     }
 
-    public struct Prefix
-    {
+    public struct Prefix {
         public static let Action = Inner.URN + ":action."
         public static let Extra  = Inner.URN + ":extra."
         public static let Option = Inner.URN + ":option."
@@ -34,11 +32,11 @@ public final class CommonKeys: NonCreatable
     }
 
     public struct Option {
-        public static let Invalid = Prefix.Option + "INVALID";
+        public static let Invalid = Prefix.Option + "INVALID"
     }
 
     public struct State {
-        public static let Undefined = Prefix.State + "UNDEFINED";
+        public static let Undefined = Prefix.State + "UNDEFINED"
     }
 }
 

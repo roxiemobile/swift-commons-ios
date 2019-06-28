@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
 // MARK: - Methods
 
     /// Trims whitespaces from the beginning of self.

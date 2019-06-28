@@ -19,8 +19,7 @@ import SwiftCommonsConcurrent
 // ----------------------------------------------------------------------------
 
 /// A `Logger` object is used to perform logging.
-public final class Logger
-{
+public final class Logger {
 // MARK: - Construction
 
     /// Shared `Logger` instance.
@@ -47,12 +46,12 @@ public final class Logger
         synchronized(self.syncLock) {
             self.innerLogger = logger
         }
-        return self;
+        return self
     }
 
     /// Returns the logger used by the application.
     internal func logger() -> LoggerContract? {
-        var logger: LoggerContract? = nil
+        var logger: LoggerContract?
 
         synchronized(self.syncLock) {
             logger = self.innerLogger
@@ -73,7 +72,7 @@ public final class Logger
         synchronized(self.syncLock) {
             self.innerLogLevel = level
         }
-        return self;
+        return self
     }
 
     /// Get the log Level that has been specified for the `Logger`.
@@ -101,8 +100,7 @@ public final class Logger
 
     /// The LogLevel enum defines a set of standard logging levels that can be used
     /// to control logging output.
-    public enum LogLevel: Int
-    {
+    public enum LogLevel: Int {
         /// Logs that contain the most detailed messages. These messages may contain
         /// sensitive application data. Use Logger.v()
         case verbose = 0
@@ -138,8 +136,7 @@ public final class Logger
 
 // ----------------------------------------------------------------------------
 
-extension Logger
-{
+extension Logger {
 // MARK: - Methods
 
     /// Formats log message.
@@ -157,12 +154,12 @@ extension Logger
 
         // Add log level
         switch level {
-            case .verbose:     logMessage += "[VRB]"
-            case .debug:       logMessage += "[DBG]"
-            case .information: logMessage += "[INF]"
-            case .warning:     logMessage += "[WRN]"
-            case .error:       logMessage += "[ERR]"
-            case .suppress:    logMessage += "[SPR]"
+        case .verbose:     logMessage += "[VRB]"
+        case .debug:       logMessage += "[DBG]"
+        case .information: logMessage += "[INF]"
+        case .warning:     logMessage += "[WRN]"
+        case .error:       logMessage += "[ERR]"
+        case .suppress:    logMessage += "[SPR]"
         }
 
         // Add tag

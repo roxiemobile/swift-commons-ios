@@ -9,8 +9,7 @@
 // ----------------------------------------------------------------------------
 
 /// A logger which writes a log messages into the standard output.
-public final class StdoutLogger: LoggerContract
-{
+public final class StdoutLogger: LoggerContract {
 // MARK: - Construction
 
     /// Initializes and returns a newly created logger object.

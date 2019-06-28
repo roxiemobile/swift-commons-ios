@@ -13,8 +13,7 @@ import Foundation
 // ----------------------------------------------------------------------------
 
 /// Represents a type used to perform logging.
-public protocol LoggerContract
-{
+public protocol LoggerContract {
 // MARK: - Methods: Verbose
 
     func v(_ tag: String, _ message: String, file: StaticString, line: UInt)

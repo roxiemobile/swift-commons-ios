@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Date
-{
+public extension Date {
 // MARK: - Methods
 
     /// Returns the time interval between the receiver and another given date in seconds.

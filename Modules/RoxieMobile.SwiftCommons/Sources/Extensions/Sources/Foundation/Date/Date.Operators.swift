@@ -11,14 +11,15 @@
 import Foundation
 
 // ----------------------------------------------------------------------------
+// swiftlint:disable shorthand_operator
 
 /// Returns a `Date` with a specified amount of time added to it.
-public func +(date: Date, timeInterval: Int) -> Date {
+public func + (date: Date, timeInterval: Int) -> Date {
     return date + TimeInterval(timeInterval)
 }
 
 /// Returns a `Date` with a specified amount of time subtracted from it.
-public func -(date: Date, timeInterval: Int) -> Date {
+public func - (date: Date, timeInterval: Int) -> Date {
     return date - TimeInterval(timeInterval)
 }
 
@@ -29,7 +30,7 @@ public func -(date: Date, timeInterval: Int) -> Date {
 ///   days, months then you must use a `Calendar`. That will take into account complexities like
 ///   daylight saving time, months with different numbers of days, and more.
 ///
-public func +=(date: inout Date, timeInterval: Int) {
+public func += (date: inout Date, timeInterval: Int) {
     date = date + TimeInterval(timeInterval)
 }
 
@@ -40,7 +41,7 @@ public func +=(date: inout Date, timeInterval: Int) {
 ///   days, months then you must use a `Calendar`. That will take into account complexities like
 ///   daylight saving time, months with different numbers of days, and more.
 ///
-public func -=(date: inout Date, timeInterval: Int) {
+public func -= (date: inout Date, timeInterval: Int) {
     date = date - TimeInterval(timeInterval)
 }
 
@@ -51,7 +52,7 @@ public func -=(date: inout Date, timeInterval: Int) {
 ///   days, months then you must use a `Calendar`. That will take into account complexities like
 ///   daylight saving time, months with different numbers of days, and more.
 ///
-public func +=(date: inout Date, timeInterval: Double) {
+public func += (date: inout Date, timeInterval: Double) {
     date = date + TimeInterval(timeInterval)
 }
 
@@ -62,7 +63,7 @@ public func +=(date: inout Date, timeInterval: Double) {
 ///   days, months then you must use a `Calendar`. That will take into account complexities like
 ///   daylight saving time, months with different numbers of days, and more.
 ///
-public func -=(date: inout Date, timeInterval: Double) {
+public func -= (date: inout Date, timeInterval: Double) {
     date = date - TimeInterval(timeInterval)
 }
 
@@ -77,8 +78,9 @@ public func -=(date: inout Date, timeInterval: Double) {
 ///   earlier than `anotherDate`, the return value is negative. If `anotherDate` is `nil`,
 ///   the results are undefined.
 ///
-public func -(date: Date, otherDate: Date) -> TimeInterval {
+public func - (date: Date, otherDate: Date) -> TimeInterval {
     return date.timeIntervalSince(otherDate)
 }
 
+// swiftlint:enable shorthand_operator
 // ----------------------------------------------------------------------------

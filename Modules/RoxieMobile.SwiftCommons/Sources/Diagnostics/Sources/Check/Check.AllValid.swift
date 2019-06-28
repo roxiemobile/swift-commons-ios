@@ -12,8 +12,7 @@ import SwiftCommonsAbstractions
 
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Checks that all an objects in collection is valid.
@@ -27,7 +26,7 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allValid<T:Collection>(
+    public static func allValid<T: Collection>(
             _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
     ) throws where T.Element == Validatable {
         // objects: Collection<Validatable>?
@@ -50,7 +49,7 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allValid<T:Collection>(
+    public static func allValid<T: Collection>(
             _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
     ) throws where T.Element: Validatable {
         // objects: Collection<Subtype: Validatable>?
@@ -75,9 +74,9 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allValid<T:Collection>(
+    public static func allValid<T: Collection>(
             _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) throws where T.Element == Optional<Validatable> {
+    ) throws where T.Element == Validatable? {
         // objects: Collection<Validatable?>?
 
         if let collection = objects, collection.isNotEmpty {
@@ -98,9 +97,9 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allValid<T:Collection, V:Validatable>(
+    public static func allValid<T: Collection, V: Validatable>(
             _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) throws where T.Element == Optional<V> {
+    ) throws where T.Element == V? {
         // objects: Collection<Subtype: Validatable?>?
 
         if let collection = objects, collection.isNotEmpty {

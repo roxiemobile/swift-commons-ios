@@ -15,8 +15,7 @@ import SwiftCommonsLang
 // ----------------------------------------------------------------------------
 
 /// Validates that a given object is a valid URL address.
-public final class UrlValidator: NonCreatable, StaticValidator
-{
+public final class UrlValidator: NonCreatable, StaticValidator {
 // MARK: - Methods
 
     /// Validates that a given object is a valid URL address.
@@ -31,12 +30,10 @@ public final class UrlValidator: NonCreatable, StaticValidator
         var result = false
 
         // Validate incoming value
-        if let validator = Inner.Validator
-        {
+        if let validator = Inner.Validator {
             if let value = object as? String {
                 result = validator.isValid(value)
-            }
-            else if let value = object as? URL {
+            } else if let value = object as? URL {
                 result = validator.isValid(value.absoluteString)
             }
         }
@@ -47,16 +44,14 @@ public final class UrlValidator: NonCreatable, StaticValidator
 
 // MARK: - Constants
 
-    private struct Inner
-    {
+    private struct Inner {
         // Regular Expression for URL validation
         // @link https://gist.github.com/dperini/729294
 
         // In search of the perfect URL validation regex
         // @link https://mathiasbynens.be/demo/url-regex
 
-        struct Pattern
-        {
+        struct Pattern {
             /// Regular expression strings for URLs.
             // @formatter:off
             static let WebUrl = ""

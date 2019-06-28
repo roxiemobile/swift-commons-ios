@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension FileManager
-{
+public extension FileManager {
 // MARK: - Methods
 
     /// Excludes files and directories from iCloud backups.

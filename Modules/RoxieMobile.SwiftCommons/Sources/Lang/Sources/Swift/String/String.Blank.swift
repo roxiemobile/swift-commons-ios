@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
 // MARK: - Properties
 
     /// Checks if a String is empty ("") or whitespace only.
@@ -25,8 +24,7 @@ public extension String
 
 // ----------------------------------------------------------------------------
 
-public extension Optional where Wrapped == String
-{
+public extension Optional where Wrapped == String {
 // MARK: - Properties
 
     /// Checks if a String is empty (""), nil or whitespace only.

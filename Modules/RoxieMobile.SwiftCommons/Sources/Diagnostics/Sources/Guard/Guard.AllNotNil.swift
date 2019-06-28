@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods
 
     /// Checks that all an objects in collection is not `nil`.
@@ -23,9 +22,9 @@ extension Guard
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotNil<T:Collection, V>(
+    public static func allNotNil<T: Collection, V>(
             _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) where T.Element == Optional<V> {
+    ) where T.Element == V? {
         // objects: Collection<Any?>?
 
         if let error = tryIsFailure(try Check.allNotNil(objects)) {

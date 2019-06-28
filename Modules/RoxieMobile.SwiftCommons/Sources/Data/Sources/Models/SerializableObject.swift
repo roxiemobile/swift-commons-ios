@@ -14,8 +14,7 @@ import SwiftCommonsAbstractions
 // ----------------------------------------------------------------------------
 
 /// The abstract base class for all types that can be serialized with the NSCoder.
-open class SerializableObject: Serializable, NSCoding
-{
+open class SerializableObject: Serializable, NSCoding {
 // MARK: - Construction
 
     /// Initializes a new instance of the class from data in a given unarchiver.
@@ -88,8 +87,7 @@ open class SerializableObject: Serializable, NSCoding
 // MARK: - @interface NSObject
 // ----------------------------------------------------------------------------
 
-extension SerializableObject
-{
+extension SerializableObject {
 // MARK: - Methods: Archiving
 
     /// Overridden by subclasses to substitute a class other than its own during coding.

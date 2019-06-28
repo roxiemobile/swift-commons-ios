@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods: String
 
     /// Checks that a string is `nil` or empty.
@@ -42,7 +41,7 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func empty<T:Collection>(_ collection: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
+    public static func empty<T: Collection>(_ collection: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard collection.isEmpty else {
             throw newCheckError(message, file, line)
         }

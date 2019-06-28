@@ -21,8 +21,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
 // MARK: - Construction
 
     /// Creates and returns a new `Timer` object initialized with the specified block object
@@ -44,8 +43,7 @@ public extension Roxie
 
         if #available(*, iOS 10.0) {
             return Timer.scheduledTimer(withTimeInterval: interval, repeats: repeats, block: block)
-        }
-        else {
+        } else {
             let blockHolder = TimerBlockHolder(block: block)
             return Timer.scheduledTimer(timeInterval: interval, target: self, selector: Inner.ExecuteTimerBlock, userInfo: blockHolder, repeats: repeats)
         }
@@ -67,8 +65,7 @@ public extension Roxie
 
         if #available(*, iOS 10.0) {
             return Timer(timeInterval: interval, repeats: repeats, block: block)
-        }
-        else {
+        } else {
             let blockHolder = TimerBlockHolder(block: block)
             return Timer(timeInterval: interval, target: self, selector: Inner.ExecuteTimerBlock, userInfo: blockHolder, repeats: repeats)
         }
@@ -77,7 +74,7 @@ public extension Roxie
 // MARK: - Private Methods
 
     @objc
-    private static func executeTimerBlock(_ timer: Timer) -> Void {
+    private static func executeTimerBlock(_ timer: Timer) {
         if let holder = (timer.userInfo as? TimerBlockHolder) {
             holder.block(timer)
         }

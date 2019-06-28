@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
 // MARK: - Methods
 
     /// Strips any of a set of characters from the start of a String.

@@ -13,8 +13,7 @@ import Foundation
 // ----------------------------------------------------------------------------
 
 /// A fatal error exception which should completely halt the application execution.
-open class FatalErrorException: NSException
-{
+open class FatalErrorException: NSException {
 // MARK: - Construction
 
     /// Initializes and returns a newly created exception object.

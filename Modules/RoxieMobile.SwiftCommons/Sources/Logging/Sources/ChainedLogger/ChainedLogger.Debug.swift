@@ -12,8 +12,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension ChainedLogger
-{
+extension ChainedLogger {
 // MARK: - Methods
 
     /// Formats and sends a debug log message.

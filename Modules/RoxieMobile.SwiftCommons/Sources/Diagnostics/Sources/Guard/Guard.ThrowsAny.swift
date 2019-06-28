@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods
 
     /// Verifies that the exact error or a derived error type is thrown.
@@ -24,7 +23,7 @@ extension Guard
     /// - Throws:
     ///   GuardException
     ///
-    public static func throwsAny<T:Error>(
+    public static func throwsAny<T: Error>(
             _ action: () throws -> Void,
             _ errorType: T.Type,
             _ message: @autoclosure () -> String = "",

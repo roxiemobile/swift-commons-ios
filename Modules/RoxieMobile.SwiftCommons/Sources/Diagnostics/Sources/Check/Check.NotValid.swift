@@ -12,8 +12,7 @@ import SwiftCommonsAbstractions
 
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Checks that an object is not `nil` and not valid.

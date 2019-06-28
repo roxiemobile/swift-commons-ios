@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Checks that an object isn't `nil`.
@@ -24,7 +23,7 @@ extension Check
     ///   CheckError
     ///
     public static func notNil(_ reference: Any?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
-        guard let _ = reference else {
+        guard reference != nil else {
             throw newCheckError(message, file, line)
         }
     }

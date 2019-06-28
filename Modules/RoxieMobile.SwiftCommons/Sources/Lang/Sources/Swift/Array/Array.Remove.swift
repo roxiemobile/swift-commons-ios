@@ -13,8 +13,7 @@
 
 // ----------------------------------------------------------------------------
 
-public extension Array
-{
+public extension Array {
 // MARK: - Methods
 
     /// Deletes all the items in self that are equal to element.
@@ -22,13 +21,13 @@ public extension Array
     /// - Parameters:
     ///   - element: Element to remove.
     ///
-    mutating func remove<U:Equatable>(element: U) {
+    mutating func remove<U: Equatable>(element: U) {
         let anotherSelf = self // copy
 
         removeAll(keepingCapacity: true)
 
         for item in anotherSelf {
-            if (item as! U) != element {
+            if let anotherItem = (item as? U), anotherItem != element {
                 self.append(item)
             }
         }

@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Checks that two objects refer to the same object.
@@ -24,8 +23,8 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func same<T:AnyObject>(_ expected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
-        guard (expected === actual) else {
+    public static func same<T: AnyObject>(_ expected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
+        guard expected === actual else {
             throw newCheckError(message, file, line)
         }
     }

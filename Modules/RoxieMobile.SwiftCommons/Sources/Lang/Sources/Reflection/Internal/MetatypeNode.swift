@@ -8,12 +8,10 @@
 //
 // ----------------------------------------------------------------------------
 
-class MetatypeNode
-{
+class MetatypeNode {
 // MARK: - Construction
 
-    init(value: String, child: MetatypeNode? = nil)
-    {
+    init(value: String, child: MetatypeNode? = nil) {
         // Init instance
         self.value = value
         self.child = child

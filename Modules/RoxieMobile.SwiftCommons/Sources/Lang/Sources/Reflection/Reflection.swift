@@ -8,18 +8,21 @@
 //
 // ----------------------------------------------------------------------------
 
-public struct Reflection
-{
+public struct Reflection {
 // MARK: - Construction
 
-    public init(of subject: Any)
-    {
+    public init(of subject: Any) {
         // Get type of subject
         let type = (subject is Any.Type) ? subject : Swift.type(of: subject)
 
         // Init instance
         self.subject = subject
-        self.type = Reflection.metatypeNameParser.reflect(type as! Any.Type)
+
+        if let anyType = type as? Any.Type {
+            self.type = Reflection.metatypeNameParser.reflect(anyType)
+        } else {
+            Roxie.fatalError("Unable to cast \(type)")
+        }
     }
 
 // MARK: - Properties
@@ -31,6 +34,7 @@ public struct Reflection
 // MARK: - Constants
 
     private static let metatypeNameParser: MetatypeNameParser = MetatypeNameParser()
+
 }
 
 // ----------------------------------------------------------------------------

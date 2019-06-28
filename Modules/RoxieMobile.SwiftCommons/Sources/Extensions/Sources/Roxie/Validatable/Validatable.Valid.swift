@@ -12,8 +12,7 @@ import SwiftCommonsAbstractions
 
 // ----------------------------------------------------------------------------
 
-public extension Validatable
-{
+public extension Validatable {
 // MARK: - Properties
 
     /// Checks that an object is not valid.

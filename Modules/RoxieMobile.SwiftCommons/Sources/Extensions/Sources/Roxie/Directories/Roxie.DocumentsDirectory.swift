@@ -13,8 +13,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
 // MARK: - Properties
 
     /// Returns the documents directory for the current user.
@@ -24,8 +23,7 @@ public extension Roxie
 
 // MARK: - Constants
 
-    private struct Directories
-    {
+    private struct Directories {
         /// The documents directory for the current user.
         static let Documents: URL? = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
     }

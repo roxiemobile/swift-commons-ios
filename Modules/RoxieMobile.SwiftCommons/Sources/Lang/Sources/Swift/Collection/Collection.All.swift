@@ -13,8 +13,7 @@
 
 // ----------------------------------------------------------------------------
 
-public extension Collection
-{
+public extension Collection {
 // MARK: - Methods
 
     /// Checks if test returns `true` for any element of `self`.

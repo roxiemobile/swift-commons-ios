@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Checks that all a string objects in collection is not empty and contains not only whitespace characters.
@@ -23,7 +22,7 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotBlank<T:Collection>(
+    public static func allNotBlank<T: Collection>(
             _ values: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
     ) throws where T.Element == String {
         // objects: Collection<String>?
@@ -46,9 +45,9 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotBlank<T:Collection>(
+    public static func allNotBlank<T: Collection>(
             _ values: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) throws where T.Element == Optional<String> {
+    ) throws where T.Element == String? {
         // objects: Collection<String?>?
 
         if let collection = values, collection.isNotEmpty {

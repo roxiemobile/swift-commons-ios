@@ -13,8 +13,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-private final class DateFormatterProvider
-{
+private final class DateFormatterProvider {
 // MARK: - Construction
 
     fileprivate static let shared = DateFormatterProvider()
@@ -51,8 +50,7 @@ private final class DateFormatterProvider
 
 // MARK: - Constants
 
-    private struct Inner
-    {
+    private struct Inner {
         static let DefaultDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         static let DefaultLocale = Locale.autoupdatingCurrent
         static let DefaultTimeZone = NSTimeZone.system
@@ -65,8 +63,7 @@ private final class DateFormatterProvider
 
 // ----------------------------------------------------------------------------
 
-public extension Date
-{
+public extension Date {
 // MARK: - Methods
 
     /// Returns a string representation of date formatted using the given date format string.

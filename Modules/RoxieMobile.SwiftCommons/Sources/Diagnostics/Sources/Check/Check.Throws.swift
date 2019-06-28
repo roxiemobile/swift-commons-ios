@@ -12,8 +12,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Verifies that the exact error is thrown (and not a derived error type).
@@ -28,7 +27,7 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func isThrows<T:Error>(
+    public static func isThrows<T: Error>(
             _ action: () throws -> Void,
             _ errorType: T.Type,
             _ message: @autoclosure () -> String = "",
@@ -36,29 +35,27 @@ extension Check
             line: UInt = #line
     ) throws {
 
-        var cause: Error? = nil
+        var cause: Error?
         do {
             try action()
-        }
-        catch {
+        } catch {
             cause = error
         }
 
-        if (cause == nil) {
+        if cause == nil {
             let text = message()
 
             throw newCheckError(
                     text.isNotBlank ? text :
                             "Expected \(Roxie.typeName(of: errorType)) to be thrown, but nothing was thrown.",
-                    file, line);
-        }
-        else if let error = cause, (type(of: error) != errorType) {
+                    file, line)
+        } else if let error = cause, (type(of: error) != errorType) {
             let text = message()
 
             throw newCheckError(
                     text.isNotBlank ? text :
                             "Unexpected error type thrown. Expected: \(Roxie.typeName(of: errorType)) but was: \(Roxie.typeName(of: error))",
-                    file, line);
+                    file, line)
         }
     }
 }

@@ -13,8 +13,7 @@
 
 // ----------------------------------------------------------------------------
 
-public protocol OptionalWrapper
-{
+public protocol OptionalWrapper {
 // MARK: - Properties
 
     var wrappedType: Any.Type { get }
@@ -22,8 +21,7 @@ public protocol OptionalWrapper
 
 // ----------------------------------------------------------------------------
 
-extension Optional: OptionalWrapper
-{
+extension Optional: OptionalWrapper {
 // MARK: - Properties
 
     /// Checks if an object is `nil`.

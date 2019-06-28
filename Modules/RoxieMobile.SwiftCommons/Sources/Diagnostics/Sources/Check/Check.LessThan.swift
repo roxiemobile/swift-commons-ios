@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
 // MARK: - Methods
 
     /// Checks that the parameter value is less than the maximum value.
@@ -24,7 +23,7 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func lessThan<T:Comparable>(_ value: T, _ max: T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
+    public static func lessThan<T: Comparable>(_ value: T, _ max: T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard max > value else {
             throw newCheckError(message, file, line)
         }

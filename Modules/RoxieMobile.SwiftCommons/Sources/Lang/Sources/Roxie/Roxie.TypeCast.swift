@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
 // MARK: - Methods
 
     /// Checks whether an instance is of a certain type.
@@ -19,7 +18,8 @@ public extension Roxie
 
     /// Force downcast of an object to a specified type.
     public static func forceCast<T, U>(_ object: T?, to type: U.Type) -> U {
-        return (object as! U)
+        guard let result = object as? U else { Roxie.fatalError("Unable to cast \(String(describing: object)) to type \(type)") }
+        return result
     }
 
     /// Conditional downcast of an object to a specified type.

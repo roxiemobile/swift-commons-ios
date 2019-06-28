@@ -13,8 +13,7 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
 // MARK: - Properties
 
     /// Returns the temporary directory for the current user.
@@ -24,10 +23,9 @@ public extension Roxie
 
 // MARK: - Constants
 
-    private struct Directories
-    {
+    private struct Directories {
         /// The temporary directory for the current user.
-        static let Temporary: URL? = URL.init(fileURLWithPath: NSTemporaryDirectory())
+        static let Temporary: URL? = URL(fileURLWithPath: NSTemporaryDirectory())
     }
 }
 

@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-extension Logger
-{
+extension Logger {
 // MARK: - Methods
 
     /// Formats and sends an error log message.

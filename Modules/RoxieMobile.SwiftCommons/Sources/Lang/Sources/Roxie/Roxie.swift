@@ -12,8 +12,7 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public final class Roxie: NonCreatable
-{
+public final class Roxie: NonCreatable {
 // MARK: - Methods
 
     /// Returns the name of static type of the subject being reflected.

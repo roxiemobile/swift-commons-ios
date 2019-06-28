@@ -12,8 +12,7 @@ import SwiftCommonsAbstractions
 
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
 // MARK: - Methods
 
     /// Checks that all an objects in collection is `nil` or not valid.
@@ -27,9 +26,9 @@ extension Guard
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNilOrNotValid<T:Collection>(
+    public static func allNilOrNotValid<T: Collection>(
             _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) where T.Element == Optional<Validatable> {
+    ) where T.Element == Validatable? {
         // objects: Collection<Validatable?>?
 
         if let error = tryIsFailure(try Check.allNilOrNotValid(objects)) {
@@ -48,9 +47,9 @@ extension Guard
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNilOrNotValid<T:Collection, V:Validatable>(
+    public static func allNilOrNotValid<T: Collection, V: Validatable>(
             _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) where T.Element == Optional<V> {
+    ) where T.Element == V? {
         // objects: Collection<Subtype: Validatable?>?
 
         if let error = tryIsFailure(try Check.allNilOrNotValid(objects)) {

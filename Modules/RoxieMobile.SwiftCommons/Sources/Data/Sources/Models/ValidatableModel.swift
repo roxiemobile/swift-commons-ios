@@ -19,8 +19,7 @@ import SwiftCommonsObjC
 // ----------------------------------------------------------------------------
 
 /// The abstract base class for data models.
-open class ValidatableModel: SerializableObject, SerializableMappable, Hashable, Validatable, PostValidatable, NSCopying
-{
+open class ValidatableModel: SerializableObject, SerializableMappable, Hashable, Validatable, PostValidatable, NSCopying {
 // MARK: - Construction
 
     /// Initializes a new instance of the model from data in a given unarchiver.
@@ -78,15 +77,14 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
         // Deserialize JSON to object
         if decoder is JSONHolderDecoder {
             result = true
-        }
-        else if let JSON = decoder.decodeObject() as? JsonObject {
+        } else if let JSON = decoder.decodeObject() as? JsonObject {
             objcTry {
 
                 // Map object
                 self.mapping(map: Map(mappingType: .fromJSON, JSON: JSON, toObject: true))
                 result = true
 
-            }.objcCatch { e in
+            }.objcCatch { _ in
                 // Do nothing
             }
         }
@@ -106,7 +104,7 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
     public final func mapping(map: Map) {
 
         // Deserialize JSON to object
-        if (map.mappingType == .fromJSON) {
+        if map.mappingType == .fromJSON {
 
             var exception: NSException?
             objcTry {
@@ -126,12 +124,10 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
                 if self.isShouldPostValidate {
                     do {
                         try self.validate()
-                    }
-                    catch let error as CheckError {
+                    } catch let error as CheckError {
                         let logMessage = error.message ?? "\(className) is invalid."
                         roxie_objectMapper_raiseException(message: logMessage, file: error.file, line: error.line)
-                    }
-                    catch {
+                    } catch {
                         let logMessage = "Unexpected error is thrown: " + String(describing: error).trim()
                         roxie_objectMapper_raiseException(message: logMessage)
                     }
@@ -145,9 +141,8 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
             if let cause = exception {
                 ValidatableHelper.exception(from: cause, with: map.JSON).raise()
             }
-        }
-        // Serialize object to JSON
-        else if (map.mappingType == .toJSON) {
+            // Serialize object to JSON
+        } else if map.mappingType == .toJSON {
 
             // Map object
             self.map(with: map)
@@ -167,8 +162,8 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
 // MARK: - Methods: Hashable
 
     /// The model's hash value.
-    open var hashValue: Int {
-        return self.hash ?? rehash()
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.hash ?? rehash())
     }
 
     /// Calculates the model's hash value.
@@ -176,8 +171,7 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
     /// - Returns:
     ///   A newly calculated model's hash value.
     ///
-    public final func rehash() -> Int
-    {
+    public final func rehash() -> Int {
         // Encode serializable object
         let data = NSMutableData()
         StreamTypedEncoder(forWritingWith: data).encodeRootObject(self)
@@ -203,8 +197,7 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
         do {
             // Check object's state
             try validate()
-        }
-        catch {
+        } catch {
             let className = Reflection(of: self).type.fullName
             result = false
 
@@ -280,8 +273,7 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
         // Check result of the cloning
         if let copy = object {
             return Roxie.forceCast(copy, to: typeOfT)
-        }
-        else {
+        } else {
             let className = Reflection(of: self).type.fullName
             Roxie.fatalError("Couldn't clone object ‘\(className)’.", cause: exception)
         }
@@ -298,15 +290,12 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
 // MARK: - @protocol Equatable
 // ----------------------------------------------------------------------------
 
-public func == (lhs: ValidatableModel, rhs: ValidatableModel) -> Bool
-{
-    if (lhs === rhs) {
+public func == (lhs: ValidatableModel, rhs: ValidatableModel) -> Bool {
+    if lhs === rhs {
         return true
-    }
-    else if (type(of: lhs) !== type(of: rhs)) {
+    } else if type(of: lhs) !== type(of: rhs) {
         return false
-    }
-    else {
+    } else {
         return (lhs.hashValue == rhs.hashValue)
     }
 }

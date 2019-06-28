@@ -13,8 +13,7 @@ import SwiftCommonsLogging
 
 // ----------------------------------------------------------------------------
 
-public extension FileManager
-{
+public extension FileManager {
 // MARK: - Methods
 
     /// Copies the file at the specified URL to a new location synchronously.
@@ -36,12 +35,10 @@ public extension FileManager
                 do {
                     try fm.copyItem(at: srcURL, to: dstURL)
                     result = true
-                }
-                catch {
+                } catch {
                     Logger.e(Inner.TAG, "Can't copy item from URL ‘\(srcURL)’ to URL ‘\(dstURL)’.", error)
                 }
-            }
-            else {
+            } else {
                 Logger.w(Inner.TAG, "Item at URL ‘\(srcURL)’ doesn't exists.")
             }
         }
