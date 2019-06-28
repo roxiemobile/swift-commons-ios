@@ -8,8 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-public protocol Validator
-{
+public protocol Validator {
 // MARK: - Methods
 
     /// Validates the current state of the object.

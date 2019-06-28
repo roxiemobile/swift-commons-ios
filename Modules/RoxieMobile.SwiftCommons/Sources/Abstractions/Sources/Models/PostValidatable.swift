@@ -9,8 +9,7 @@
 // ----------------------------------------------------------------------------
 
 /// Protocol for objects that can be validated after construction.
-public protocol PostValidatable
-{
+public protocol PostValidatable {
 // MARK: - Properties
 
     /// Checks if object should be validated after construction.
@@ -27,4 +26,3 @@ public protocol PostValidatable
 }
 
 // ----------------------------------------------------------------------------
-
