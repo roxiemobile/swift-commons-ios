@@ -36,9 +36,11 @@
 		19C9FDC01FCCADCD0069F3D1 /* LoggerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7691F8651890030F1D8 /* LoggerContract.swift */; };
 		19C9FDC11FCCADCD0069F3D1 /* SwiftCommonsLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19C9FDC31FCCAE0D0069F3D1 /* SwiftCommonsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FDC21FCCAE0D0069F3D1 /* SwiftCommonsLogging.m */; };
+		FBE9EC682BB8334D786943D2 /* Pods_SwiftCommons_Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A1A4F9B49DF5A4B3AD9ED0 /* Pods_SwiftCommons_Logging.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00A1A4F9B49DF5A4B3AD9ED0 /* Pods_SwiftCommons_Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1925928D1F86613E0012B12C /* ChainedLogger.Verbose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedLogger.Verbose.swift; sourceTree = "<group>"; };
 		1925928E1F86613E0012B12C /* ChainedLogger.Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedLogger.Error.swift; sourceTree = "<group>"; };
 		1925928F1F86613E0012B12C /* ChainedLogger.Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedLogger.Debug.swift; sourceTree = "<group>"; };
@@ -71,6 +73,8 @@
 		19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsLogging.h; sourceTree = "<group>"; };
 		19C9FD961FCCAD3A0069F3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C9FDC21FCCAE0D0069F3D1 /* SwiftCommonsLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsLogging.m; sourceTree = "<group>"; };
+		2A0B56D18788B9D9B132E072 /* Pods-SwiftCommons.Logging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Logging.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Logging/Pods-SwiftCommons.Logging.debug.xcconfig"; sourceTree = "<group>"; };
+		780EC7ED9C498AD18129FF40 /* Pods-SwiftCommons.Logging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Logging.release.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Logging/Pods-SwiftCommons.Logging.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			files = (
 				193BE3491FCCB52F00E35C0C /* SwiftCommonsConcurrent.framework in Frameworks */,
 				193BE34A1FCCB52F00E35C0C /* SwiftCommonsLang.framework in Frameworks */,
+				FBE9EC682BB8334D786943D2 /* Pods_SwiftCommons_Logging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +105,7 @@
 			children = (
 				193BE34B1FCCB52F00E35C0C /* SwiftCommonsConcurrent.framework */,
 				193BE34C1FCCB52F00E35C0C /* SwiftCommonsLang.framework */,
+				00A1A4F9B49DF5A4B3AD9ED0 /* Pods_SwiftCommons_Logging.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 				19EB0CA21F72DF0D0029F302 /* Dependencies */,
 				19C017251F72CC3A00D29F73 /* Products */,
 				1976D4E31FCB8D8A00C07C72 /* Frameworks */,
+				500F7DD03011AFB6A643242E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +211,16 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
+		500F7DD03011AFB6A643242E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A0B56D18788B9D9B132E072 /* Pods-SwiftCommons.Logging.debug.xcconfig */,
+				780EC7ED9C498AD18129FF40 /* Pods-SwiftCommons.Logging.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../../CocoaPods/Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -222,10 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19C9FD981FCCAD3A0069F3D1 /* Build configuration list for PBXNativeTarget "SwiftCommons.Logging" */;
 			buildPhases = (
+				6ECFEEB7D29BAA2D8A1832CE /* [CP] Check Pods Manifest.lock */,
 				19C9FD8E1FCCAD3A0069F3D1 /* Sources */,
 				19C9FD8F1FCCAD3A0069F3D1 /* Frameworks */,
 				19C9FD901FCCAD3A0069F3D1 /* Headers */,
 				19C9FD911FCCAD3A0069F3D1 /* Resources */,
+				868F226122C628A00071C9C4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -278,6 +297,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6ECFEEB7D29BAA2D8A1832CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftCommons.Logging-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		868F226122C628A00071C9C4 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/../../Resources/Scripts/SwiftLint.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		19C9FD8E1FCCAD3A0069F3D1 /* Sources */ = {
@@ -428,6 +490,7 @@
 		};
 		19C9FD991FCCAD3A0069F3D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A0B56D18788B9D9B132E072 /* Pods-SwiftCommons.Logging.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -450,6 +513,7 @@
 		};
 		19C9FD9A1FCCAD3A0069F3D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 780EC7ED9C498AD18129FF40 /* Pods-SwiftCommons.Logging.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

@@ -1,10 +1,10 @@
 source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '9.0'
 use_frameworks!
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
-
 
 # MARK: - Methods
 
@@ -21,14 +21,27 @@ def inject_shared_dependencies_2
   pod_from 'CryptoSwift', '~> 0.13.1'
 end
 
+def inject_shared_dependencies_3
+  pod 'SwiftLint', '~> 0.33.0'
+end
 
 # MARK: - Sources
+
+
+target 'SwiftCommons.Abstractions' do
+  project '../RoxieMobile.SwiftCommons/Sources/Abstractions/SwiftCommons.Abstractions.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_3
+end
+
 
 target 'SwiftCommons.Concurrent' do
   project '../RoxieMobile.SwiftCommons/Sources/Concurrent/SwiftCommons.Concurrent.xcodeproj'
 
   # Dependencies
   inject_shared_dependencies_1
+  inject_shared_dependencies_3
 end
 
 
@@ -37,6 +50,39 @@ target 'SwiftCommons.Data' do
 
   # Dependencies
   inject_shared_dependencies_2
+  inject_shared_dependencies_3
+end
+
+
+target 'SwiftCommons.Diagnostics' do
+  project '../RoxieMobile.SwiftCommons/Sources/Diagnostics/SwiftCommons.Diagnostics.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_3
+end
+
+
+target 'SwiftCommons.Extensions' do
+  project '../RoxieMobile.SwiftCommons/Sources/Extensions/SwiftCommons.Extensions.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_3
+end
+
+
+target 'SwiftCommons.Lang' do
+  project '../RoxieMobile.SwiftCommons/Sources/Lang/SwiftCommons.Lang.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_3
+end
+
+
+target 'SwiftCommons.Logging' do
+  project '../RoxieMobile.SwiftCommons/Sources/Logging/SwiftCommons.Logging.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_3
 end
 
 
