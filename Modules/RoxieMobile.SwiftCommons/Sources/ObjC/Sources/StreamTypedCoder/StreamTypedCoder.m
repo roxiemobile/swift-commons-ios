@@ -9,10 +9,13 @@
 // ----------------------------------------------------------------------------
 
 #import "StreamTypedCoder.h"
-#import "LFEncoding.h"
+//#import "LFEncoding.h"
 
-#import "LFArchiver.h"
-#import "LFUnarchiver.h"
+//#import "LFArchiver.h"
+//#import "LFUnarchiver.h"
+
+#import "encoding.h"
+#import "OSArchiver.h"
 
 // ----------------------------------------------------------------------------
 
@@ -20,7 +23,7 @@
 
 // -- properties
 
-@property(nonatomic, strong) LFArchiver *archiver;
+@property(nonatomic, strong) OSArchiver *archiver;
 
 // --
 
@@ -34,7 +37,7 @@
 
 // -- properties
 
-@property(nonatomic, strong) LFUnarchiver *unarchiver;
+@property(nonatomic, strong) OSUnarchiver *unarchiver;
 
 // --
 
@@ -68,7 +71,7 @@
     if (self = [self init])
     {
         // Init instance variables
-        self.archiver = [[LFArchiver alloc] initForWritingWithMutableData:data];
+        self.archiver = [[OSArchiver alloc] initForWritingWithMutableData:data];
     }
 
     // Done
@@ -86,13 +89,13 @@
 // ----------------------------------------------------------------------------
 
 + (NSData *)archivedDataWithRootObject:(id)rootObject {
-    return [LFArchiver archivedDataWithRootObject:rootObject];
+    return [OSArchiver archivedDataWithRootObject:rootObject];
 }
 
 // ----------------------------------------------------------------------------
 
 + (BOOL)archiveRootObject:(id)rootObject toFile:(NSString *)path {
-    return [LFArchiver archiveRootObject:rootObject toFile:path];
+    return [OSArchiver archiveRootObject:rootObject toFile:path];
 }
 
 // ----------------------------------------------------------------------------
@@ -122,7 +125,8 @@
 // ----------------------------------------------------------------------------
 
 - (void)replaceObject:(id)object withObject:(id)newObject {
-    [self.archiver replaceObject:object withObject:newObject];
+//    [self.archiver replaceObject:object withObject:newObject];
+    NSLog(@"-[%@ %s] unimplemented in %s at %d", [self class], sel_getName(_cmd), __FILE__, __LINE__);
 }
 
 // ----------------------------------------------------------------------------
@@ -228,7 +232,7 @@
     if (self = [self init])
     {
         // Init instance variables
-        self.unarchiver = [[LFUnarchiver alloc] initForReadingWithData:data];
+        self.unarchiver = [[OSUnarchiver alloc] initForReadingWithData:data];
     }
 
     // Done
@@ -246,25 +250,25 @@
 // ----------------------------------------------------------------------------
 
 + (id)unarchiveObjectWithData:(NSData *)data {
-    return [LFUnarchiver unarchiveObjectWithData:data];
+    return [OSUnarchiver unarchiveObjectWithData:data];
 }
 
 // ----------------------------------------------------------------------------
 
 + (id)unarchiveObjectWithFile:(NSString *)path {
-    return [LFUnarchiver unarchiveObjectWithFile:path];
+    return [OSUnarchiver unarchiveObjectWithFile:path];
 }
 
 // ----------------------------------------------------------------------------
 
 + (NSString *)classNameDecodedForArchiveClassName:(NSString *)nameInArchive {
-    return [LFUnarchiver classNameDecodedForArchiveClassName:nameInArchive];
+    return [OSUnarchiver classNameDecodedForArchiveClassName:nameInArchive];
 }
 
 // ----------------------------------------------------------------------------
 
 + (void)decodeClassName:(NSString *)nameInArchive asClassName:(NSString *)trueName {
-    [LFUnarchiver decodeClassName:nameInArchive asClassName:trueName];
+    [OSUnarchiver decodeClassName:nameInArchive asClassName:trueName];
 }
 
 // ----------------------------------------------------------------------------
@@ -282,7 +286,8 @@
 // ----------------------------------------------------------------------------
 
 - (void)replaceObject:(id)object withObject:(id)newObject {
-    [self.unarchiver replaceObject:object withObject:newObject];
+//    [self.unarchiver replaceObject:object withObject:newObject];
+    NSLog(@"-[%@ %s] unimplemented in %s at %d", [self class], sel_getName(_cmd), __FILE__, __LINE__);
 }
 
 // ----------------------------------------------------------------------------
