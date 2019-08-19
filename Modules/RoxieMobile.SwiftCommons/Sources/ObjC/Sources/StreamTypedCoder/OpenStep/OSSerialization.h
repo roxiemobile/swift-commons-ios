@@ -1,5 +1,5 @@
 /* 
-   NSSerialization.h
+   OSSerialization.h
 
    Copyright (C) 1995, 1996 Ovidiu Predescu and Mircea Oancea.
    All rights reserved.
@@ -22,8 +22,8 @@
    or in connection with the use or performance of this software.
 */
 
-#ifndef __NSSerialization_h__
-#define __NSSerialization_h__
+#ifndef __OSSerialization_h__
+#define __OSSerialization_h__
 
 #include <objc/objc.h>
 #include <Foundation/NSObject.h>
@@ -31,7 +31,7 @@
 @class NSData;
 @class NSMutableData;
 
-@protocol NSObjCTypeSerializationCallBack
+@protocol OSObjCTypeSerializationCallBack
 
 - (void)deserializeObjectAt:(id *)object
   ofObjCType:(const char *)type
@@ -44,14 +44,14 @@
 
 @end
 
-@interface NSSerializer : NSObject
+@interface OSSerializer : NSObject
 
 + (void)serializePropertyList:(id)_plist intoData:(NSMutableData *)_data;
 + (NSData *)serializePropertyList:(id)_plist;
 
 @end
 
-@interface NSDeserializer : NSObject
+@interface OSDeserializer : NSObject
 
 + (id)deserializePropertyListFromData:(NSData *)_data
   atCursor:(unsigned *)_cursor
@@ -67,7 +67,7 @@
 
 @end
 
-#endif /* __NSSerialization_h__ */
+#endif /* __OSSerialization_h__ */
 
 /*
   Local Variables:

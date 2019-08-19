@@ -1,5 +1,5 @@
 /* 
-   NSArchiver.m
+   OSArchiver.m
 
    Copyright (C) 1998 MDlink online service center, Helge Hess
    All rights reserved.
@@ -21,13 +21,13 @@
    an action of contract, negligence or other tortious action, arising out of
    or in connection with the use or performance of this software.
 
-   The code is based on the NSArchiver class done by Ovidiu Predescu which has
+   The code is based on the OSArchiver class done by Ovidiu Predescu which has
    the following Copyright/permission:
    ---
-   The basic archiving algorithm is based on libFoundation's NSArchiver by
+   The basic archiving algorithm is based on libFoundation's OSArchiver by
    Ovidiu Predescu:
    
-   NSArchiver.h
+   OSArchiver.h
 
    Copyright (C) 1995, 1996 Ovidiu Predescu and Mircea Oancea.
    All rights reserved.
@@ -57,7 +57,7 @@
 #include <Foundation/NSException.h>
 #include <Foundation/NSUtilities.h>
 #include <extensions/objc-runtime.h>
-#include "NSArchiver.h"
+#include "OSArchiver.h"
 #include "common.h" // for Free
 
 #define ENCODE_AUTORELEASEPOOL 0
@@ -103,10 +103,10 @@ FINAL NSTagType tagValue(NSTagType _tag) {
     return _tag & VALUE; // mask out bit 8
 }
 
-static const char *NSCoderSignature = "libFoundation NSArchiver";
+static const char *NSCoderSignature = "libFoundation OSArchiver";
 static int        NSCoderVersion    = 1100;
 
-@implementation NSArchiver
+@implementation OSArchiver
 
 - (id)initForWritingWithMutableData:(NSMutableData *)_data
 {
@@ -145,7 +145,7 @@ static int        NSCoderVersion    = 1100;
 
 + (NSData *)archivedDataWithRootObject:(id)_root
 {
-    NSArchiver *archiver = AUTORELEASE([self new]);
+    OSArchiver *archiver = AUTORELEASE([self new]);
     NSData     *rdata    = nil;
     
     [archiver encodeRootObject:_root];
@@ -174,7 +174,7 @@ static int        NSCoderVersion    = 1100;
 }
 #endif
 
-// ******************** Getting Data from the NSArchiver ******
+// ******************** Getting Data from the OSArchiver ******
 
 - (NSMutableData *)archiverData
 {
@@ -183,7 +183,7 @@ static int        NSCoderVersion    = 1100;
 
 // ******************** archive id's **************************
 
-FINAL int _archiveIdOfObject(NSArchiver *self, id _object)
+FINAL int _archiveIdOfObject(OSArchiver *self, id _object)
 {
     if (_object == nil)
         return 0;
@@ -208,25 +208,25 @@ FINAL int _archiveIdOfObject(NSArchiver *self, id _object)
     }
 #endif
 }
-FINAL int _archiveIdOfClass(NSArchiver *self, Class _class)
+FINAL int _archiveIdOfClass(OSArchiver *self, Class _class)
 {
     return _archiveIdOfObject(self, _class);
 }
 
 // ******************** primitive encoding ********************
 
-FINAL void _writeBytes(NSArchiver *self, const void *_bytes, unsigned _len);
+FINAL void _writeBytes(OSArchiver *self, const void *_bytes, unsigned _len);
 
-FINAL void _writeTag  (NSArchiver *self, NSTagType _tag);
+FINAL void _writeTag  (OSArchiver *self, NSTagType _tag);
 
-FINAL void _writeChar (NSArchiver *self, char _value);
-FINAL void _writeShort(NSArchiver *self, short _value);
-FINAL void _writeInt  (NSArchiver *self, int _value);
-FINAL void _writeLong (NSArchiver *self, long _value);
-FINAL void _writeFloat(NSArchiver *self, float _value);
+FINAL void _writeChar (OSArchiver *self, char _value);
+FINAL void _writeShort(OSArchiver *self, short _value);
+FINAL void _writeInt  (OSArchiver *self, int _value);
+FINAL void _writeLong (OSArchiver *self, long _value);
+FINAL void _writeFloat(OSArchiver *self, float _value);
 
-FINAL void _writeCString(NSArchiver *self, const char *_value);
-FINAL void _writeObjC(NSArchiver *self, const void *_value, const char *_type);
+FINAL void _writeCString(OSArchiver *self, const char *_value);
+FINAL void _writeObjC(OSArchiver *self, const void *_value, const char *_type);
 
 // ******************** complex encoding **********************
 
@@ -716,50 +716,50 @@ FINAL void _writeObjC(NSArchiver *self, const void *_value, const char *_type);
 
 // ******************** primitive encoding ********************
 
-FINAL void _writeBytes(NSArchiver *self, const void *_bytes, unsigned _len)
+FINAL void _writeBytes(OSArchiver *self, const void *_bytes, unsigned _len)
 {
     NSCAssert(self->traceMode == NO, @"nothing can be written during trace-mode ..");
     self->addData(self->data, @selector(appendBytes:length:), _bytes, _len);
 }
-FINAL void _writeTag(NSArchiver *self, NSTagType _tag)
+FINAL void _writeTag(OSArchiver *self, NSTagType _tag)
 {
     unsigned char t = _tag;
     NSCAssert(self, @"invalid self ..");
     _writeBytes(self, &t, sizeof(t));
 }
-FINAL void _writeChar(NSArchiver *self, char _value)
+FINAL void _writeChar(OSArchiver *self, char _value)
 {
     _writeBytes(self, &_value, sizeof(_value));
 }
 
-FINAL void _writeShort(NSArchiver *self, short _value)
+FINAL void _writeShort(OSArchiver *self, short _value)
 {
     self->serData(self->data, @selector(serializeDataAt:ofObjCType:context:),
                   &_value, @encode(short), self);
 }
-FINAL void _writeInt(NSArchiver *self, int _value)
+FINAL void _writeInt(OSArchiver *self, int _value)
 {
     self->serData(self->data, @selector(serializeDataAt:ofObjCType:context:),
                   &_value, @encode(int), self);
 }
-FINAL void _writeLong(NSArchiver *self, long _value)
+FINAL void _writeLong(OSArchiver *self, long _value)
 {
     self->serData(self->data, @selector(serializeDataAt:ofObjCType:context:),
                   &_value, @encode(long), self);
 }
-FINAL void _writeFloat(NSArchiver *self, float _value)
+FINAL void _writeFloat(OSArchiver *self, float _value)
 {
     self->serData(self->data, @selector(serializeDataAt:ofObjCType:context:),
                   &_value, @encode(float), self);
 }
 
-FINAL void _writeCString(NSArchiver *self, const char *_value)
+FINAL void _writeCString(OSArchiver *self, const char *_value)
 {
     self->serData(self->data, @selector(serializeDataAt:ofObjCType:context:),
                   &_value, @encode(char *), self);
 }
 
-FINAL void _writeObjC(NSArchiver *self, const void *_value, const char *_type)
+FINAL void _writeObjC(OSArchiver *self, const void *_value, const char *_type)
 {
     if ((_value == NULL) || (_type == NULL))
         return;
@@ -788,7 +788,7 @@ FINAL void _writeObjC(NSArchiver *self, const void *_value, const char *_type)
     }
 }
 
-// NSObjCTypeSerializationCallBack
+// OSObjCTypeSerializationCallBack
 
 - (void)serializeObjectAt:(id *)_object
                ofObjCType:(const char *)_type
@@ -809,9 +809,9 @@ FINAL void _writeObjC(NSArchiver *self, const void *_value, const char *_type)
     [self doesNotRecognizeSelector:_cmd];
 }
 
-@end /* NSArchiver */
+@end /* OSArchiver */
 
-@implementation NSUnarchiver
+@implementation OSUnarchiver
 
 static NSMapTable *classToAliasMappings = NULL; // archive name => decoded name
 
@@ -859,7 +859,7 @@ static NSMapTable *classToAliasMappings = NULL; // archive name => decoded name
 
 + (id)unarchiveObjectWithData:(NSData*)_data
 {
-    NSUnarchiver *unarchiver = [[self alloc] initForReadingWithData:_data];
+    OSUnarchiver *unarchiver = [[self alloc] initForReadingWithData:_data];
     id           object      = [unarchiver decodeObject];
 
     RELEASE(unarchiver); unarchiver = nil;
@@ -894,7 +894,7 @@ static NSMapTable *classToAliasMappings = NULL; // archive name => decoded name
 }
 #endif
 
-/* Managing an NSUnarchiver */
+/* Managing an OSUnarchiver */
 
 - (BOOL)isAtEnd
 {
@@ -917,18 +917,18 @@ static NSMapTable *classToAliasMappings = NULL; // archive name => decoded name
 
 // ******************** primitive decoding ********************
 
-FINAL void _readBytes(NSUnarchiver *self, void *_bytes, unsigned _len);
+FINAL void _readBytes(OSUnarchiver *self, void *_bytes, unsigned _len);
 
-FINAL NSTagType _readTag(NSUnarchiver *self);
+FINAL NSTagType _readTag(OSUnarchiver *self);
 
-FINAL char  _readChar (NSUnarchiver *self);
-FINAL short _readShort(NSUnarchiver *self);
-FINAL int   _readInt  (NSUnarchiver *self);
-FINAL long  _readLong (NSUnarchiver *self);
-FINAL float _readFloat(NSUnarchiver *self);
+FINAL char  _readChar (OSUnarchiver *self);
+FINAL short _readShort(OSUnarchiver *self);
+FINAL int   _readInt  (OSUnarchiver *self);
+FINAL long  _readLong (OSUnarchiver *self);
+FINAL float _readFloat(OSUnarchiver *self);
 
-FINAL char *_readCString(NSUnarchiver *self);
-FINAL void _readObjC(NSUnarchiver *self, void *_value, const char *_type);
+FINAL char *_readCString(OSUnarchiver *self);
+FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
 
 // ******************** complex decoding **********************
 
@@ -1367,13 +1367,13 @@ FINAL void _checkType2(char _code, char _reqCode1, char _reqCode2)
 
 // ******************** primitive decoding ********************
 
-FINAL void _readBytes(NSUnarchiver *self, void *_bytes, unsigned _len)
+FINAL void _readBytes(OSUnarchiver *self, void *_bytes, unsigned _len)
 {
     self->getData(self->data, @selector(deserializeBytes:length:atCursor:),
                   _bytes, _len, &(self->cursor));
 }
 
-FINAL NSTagType _readTag(NSUnarchiver *self)
+FINAL NSTagType _readTag(OSUnarchiver *self)
 {
     unsigned char c;
     NSCAssert(self, @"invalid self ..");
@@ -1385,14 +1385,14 @@ FINAL NSTagType _readTag(NSUnarchiver *self)
     }
     return (NSTagType)c;
 }
-FINAL char _readChar(NSUnarchiver *self)
+FINAL char _readChar(OSUnarchiver *self)
 {
     char c;
     _readBytes(self, &c, sizeof(c));
     return c;
 }
 
-FINAL short _readShort(NSUnarchiver *self)
+FINAL short _readShort(OSUnarchiver *self)
 {
     short value;
     self->deserData(self->data,
@@ -1400,7 +1400,7 @@ FINAL short _readShort(NSUnarchiver *self)
                     &value, @encode(short), &(self->cursor), self);
     return value;
 }
-FINAL int _readInt(NSUnarchiver *self)
+FINAL int _readInt(OSUnarchiver *self)
 {
     int value;
     self->deserData(self->data,
@@ -1408,7 +1408,7 @@ FINAL int _readInt(NSUnarchiver *self)
                     &value, @encode(int), &(self->cursor), self);
     return value;
 }
-FINAL long _readLong (NSUnarchiver *self)
+FINAL long _readLong (OSUnarchiver *self)
 {
     long value;
     self->deserData(self->data,
@@ -1416,7 +1416,7 @@ FINAL long _readLong (NSUnarchiver *self)
                     &value, @encode(long), &(self->cursor), self);
     return value;
 }
-FINAL float _readFloat(NSUnarchiver *self)
+FINAL float _readFloat(OSUnarchiver *self)
 {
     float value;
     self->deserData(self->data,
@@ -1425,7 +1425,7 @@ FINAL float _readFloat(NSUnarchiver *self)
     return value;
 }
 
-FINAL char *_readCString(NSUnarchiver *self)
+FINAL char *_readCString(OSUnarchiver *self)
 {
     char *value = NULL;
     self->deserData(self->data,
@@ -1434,7 +1434,7 @@ FINAL char *_readCString(NSUnarchiver *self)
     return value;
 }
 
-FINAL void _readObjC(NSUnarchiver *self, void *_value, const char *_type)
+FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type)
 {
     self->deserData(self->data,
                     @selector(deserializeDataAt:ofObjCType:atCursor:context:),
@@ -1443,7 +1443,7 @@ FINAL void _readObjC(NSUnarchiver *self, void *_value, const char *_type)
                     self);
 }
 
-// NSObjCTypeSerializationCallBack
+// OSObjCTypeSerializationCallBack
 
 - (void)serializeObjectAt:(id *)_object
   ofObjCType:(const char *)_type
@@ -1486,7 +1486,7 @@ FINAL void _readObjC(NSUnarchiver *self, void *_value, const char *_type)
     }
 }
 
-@end /* NSUnarchiver */
+@end /* OSUnarchiver */
 
 /*
   Local Variables:

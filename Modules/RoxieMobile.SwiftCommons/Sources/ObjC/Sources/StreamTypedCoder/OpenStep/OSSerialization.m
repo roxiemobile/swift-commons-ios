@@ -1,5 +1,5 @@
 /* 
-   NSSerialization.h
+   OSSerialization.h
 
    Copyright (C) 2000 MDlink online service center, Helge Hess
    All rights reserved.
@@ -22,10 +22,13 @@
    or in connection with the use or performance of this software.
 */
 
-#include <Foundation/NSSerialization.h>
+//#include <Foundation/NSSerialization.h>
 #include <Foundation/NSData.h>
 
-@implementation NSSerializer
+#include "common.h"
+#include "OSSerialization.h"
+
+@implementation OSSerializer
 
 + (void)serializePropertyList:(id)_plist intoData:(NSMutableData *)_data
 {
@@ -44,9 +47,15 @@
     return AUTORELEASE(d);
 }
 
-@end /* NSSerializer */
++ (id)notImplemented:(SEL)aSel
+{
+    // @link https://github.com/AlwaysRightInstitute/libFoundation/blob/master/Foundation/NSObject.m#L983
+    return self;
+}
 
-@implementation NSDeserializer
+@end /* OSSerializer */
+
+@implementation OSDeserializer
 
 
 + (id)deserializePropertyListFromData:(NSData *)_data
@@ -74,7 +83,7 @@
                  mutableContainers:_flag];
 }
 
-@end /* NSDeserializer */
+@end /* OSDeserializer */
 
 /*
   Local Variables:

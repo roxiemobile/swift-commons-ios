@@ -1,5 +1,5 @@
 /* 
-   NSArchiver.h
+   OSArchiver.h
 
    Copyright (C) 1998 MDlink online service center, Helge Hess
    All rights reserved.
@@ -21,13 +21,13 @@
    an action of contract, negligence or other tortious action, arising out of
    or in connection with the use or performance of this software.
 
-   The code is based on the NSArchiver class done by Ovidiu Predescu which has
+   The code is based on the OSArchiver class done by Ovidiu Predescu which has
    the following Copyright/permission:
    ---
-   The basic archiving algorithm is based on libFoundation's NSArchiver by
+   The basic archiving algorithm is based on libFoundation's OSArchiver by
    Ovidiu Predescu:
    
-   NSArchiver.h
+   OSArchiver.h
 
    Copyright (C) 1995, 1996 Ovidiu Predescu and Mircea Oancea.
    All rights reserved.
@@ -52,15 +52,17 @@
 */
 // $Id$
 
-#ifndef __NSArchiver_H__
-#define __NSArchiver_H__
+#ifndef __OSArchiver_H__
+#define __OSArchiver_H__
 
 #include <Foundation/NSCoder.h>
-#include <Foundation/NSSerialization.h>
+//#include <Foundation/NSSerialization.h>
 #include <Foundation/NSMapTable.h>
 #include <Foundation/NSHashTable.h>
 
-@interface NSArchiver : NSCoder < NSObjCTypeSerializationCallBack >
+#include "OSSerialization.h"
+
+@interface OSArchiver : NSCoder < OSObjCTypeSerializationCallBack >
 {
     NSHashTable *outObjects;          // objects written so far
     NSHashTable *outConditionals;     // conditional objects
@@ -87,7 +89,7 @@
 + (NSData*)archivedDataWithRootObject:(id)rootObject;
 + (BOOL)archiveRootObject:(id)rootObject toFile:(NSString*)path;
 
-/* Getting Data from the NSArchiver */
+/* Getting Data from the OSArchiver */
 - (NSMutableData *)archiverData;
 
 /* encoding */
@@ -103,7 +105,7 @@
 
 @end
 
-@interface NSUnarchiver : NSCoder < NSObjCTypeSerializationCallBack >
+@interface OSUnarchiver : NSCoder < OSObjCTypeSerializationCallBack >
 {
     unsigned    inArchiverVersion;    // archiver's version that wrote the data
     NSMapTable  *inObjects;           // decoded objects: key -> object
@@ -128,7 +130,7 @@
 + (id)unarchiveObjectWithData:(NSData*)data;
 + (id)unarchiveObjectWithFile:(NSString*)path;
 
-/* Managing an NSUnarchiver */
+/* Managing an OSUnarchiver */
 
 - (BOOL)isAtEnd;
 - (NSZone *)objectZone;
@@ -149,7 +151,7 @@
 
 @end
 
-#endif /* __NSArchiver_H__ */
+#endif /* __OSArchiver_H__ */
 /*
   Local Variables:
   c-basic-offset: 4
