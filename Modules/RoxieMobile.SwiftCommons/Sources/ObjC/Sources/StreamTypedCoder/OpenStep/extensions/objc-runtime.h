@@ -25,63 +25,65 @@
 #ifndef __objc_runtime_h__
 #define __objc_runtime_h__
 
-//#include <objc/objc.h>
-//#include <objc/objc-api.h>
+#include <objc/runtime.h>
+
+#include <objc/objc.h>
+#include <objc/objc-api.h>
 //#include <objc/Protocol.h>
-//
-//
-///* If neither GNU nor NeXT runtimes are defined,
-//   make GNU the default runtime
-// */
+
+
+/* If neither GNU nor NeXT runtimes are defined,
+   make GNU the default runtime
+ */
 //#if !(GNU_RUNTIME || NeXT_RUNTIME)
 //# define GNU_RUNTIME 1
 //#endif
-//
-//
+
+
 //#if defined(NX_CURRENT_COMPILER_RELEASE) || defined(__APPLE_CC__)
-//
-///* From objc/objc.h */
+
+/* From objc/objc.h */
 //typedef void* retval_t;		/* return value */
 //typedef void(*apply_t)(void);	/* function pointer */
-//typedef union {
-//  char *arg_ptr;
-//  char arg_regs[sizeof (char*)];
-//} *arglist_t;			/* argument frame */
-//
+typedef union {
+ char *arg_ptr;
+ char arg_regs[sizeof (char*)];
+} *arglist_t;			/* argument frame */
+
 //# define class_pointer isa
-//
+
 //#  if defined(__APPLE_CC__)
 //#    define _C_ATOM '%'
 //#  else
 //#    define _C_ATOM _C_STR
 //#  endif
-//
+
 //#  if defined(__APPLE_CC__)
-//extern void objc_error(id object, int code, const char* fmt, ...);
-//extern void objc_verror(id object, int code, const char* fmt, va_list ap);
-//typedef BOOL (*objc_error_handler)(id, int code, const char *fmt, va_list ap);
-//
-///*
-//** Error codes
-//** These are used by the runtime library, and your
-//** error handling may use them to determine if the error is
-//** hard or soft thus whether execution can continue or abort.
-//*/
+extern void objc_error(id object, int code, const char* fmt, ...);
+extern void objc_verror(id object, int code, const char* fmt, va_list ap);
+typedef BOOL (*objc_error_handler)(id, int code, const char *fmt, va_list ap);
+
+/*
+** Error codes
+** These are used by the runtime library, and your
+** error handling may use them to determine if the error is
+** hard or soft thus whether execution can continue or abort.
+*/
 //#define OBJC_ERR_UNKNOWN 0             /* Generic error */
 //
 //#define OBJC_ERR_OBJC_VERSION 1        /* Incorrect runtime version */
 //#define OBJC_ERR_GCC_VERSION 2         /* Incorrect compiler version */
 //#define OBJC_ERR_MODULE_SIZE 3         /* Bad module size */
 //#define OBJC_ERR_PROTOCOL_VERSION 4    /* Incorrect protocol version */
-//
-//#define OBJC_ERR_MEMORY 10             /* Out of memory */
-//
+
+#define OBJC_ERR_MEMORY 10             /* Out of memory */
+
 //#define OBJC_ERR_RECURSE_ROOT 20       /* Attempt to archive the root
 //					  object more than once. */
 //#define OBJC_ERR_BAD_DATA 21           /* Didn't read expected data */
 //#define OBJC_ERR_BAD_KEY 22            /* Bad key for object */
 //#define OBJC_ERR_BAD_CLASS 23          /* Unknown class */
-//#define OBJC_ERR_BAD_TYPE 24           /* Bad type specification */
+#define OBJC_ERR_BAD_TYPE 24           /* Bad type specification */
 //#define OBJC_ERR_NO_READ 25            /* Cannot read stream */
 //#define OBJC_ERR_NO_WRITE 26           /* Cannot write stream */
 //#define OBJC_ERR_STREAM_VERSION 27     /* Incorrect stream version */
@@ -91,12 +93,13 @@
 //
 //#define OBJC_ERR_BAD_STATE 40          /* Bad thread state */
 //#  endif
-//
+
 //# include <extensions/encoding.h>
+#include "encoding.h"
 //#else
 //# include <objc/encoding.h>
 //#endif /* !NX_CURRENT_COMPILER_RELEASE */
-//
+
 //#if (__GNUC__ == 2) && (__GNUC_MINOR__ <= 6) && !defined(__attribute__)
 //#  define __attribute__(x)
 //#endif
@@ -153,9 +156,9 @@
 //#define class_pose_as			class_poseAs
 //#define objc_get_class			objc_getClass
 //#define objc_lookup_class		objc_lookUpClass
-//#define sel_get_name			sel_getName
+#define sel_get_name			sel_getName
 //#define sel_get_uid			sel_getUid
-//#define sel_get_any_uid			sel_getUid
+#define sel_get_any_uid			sel_getUid
 //#define sel_register_name		sel_registerName
 //#define sel_is_mapped			sel_isMapped
 //#define class_create_instance(CLASS) \
@@ -202,10 +205,22 @@
 //}
 //
 //#endif /* NeXT_RUNTIME */
-//
-//
+
+
 //extern void class_addMethods(Class, struct objc_method_list*);
 //void class_add_behavior(Class class, Class behavior);
+
+/* In objective-c, how can I tell the difference between a Class and an instance of a class? */
+// @link https://opensource.apple.com/source/gcc/gcc-1765/libobjc/objc/objc-api.h.auto.html
+// @link http://web.mit.edu/kolya/sipb/afs/root.afs/sipb.mit.edu/project/bounds/src/gcc-2.7.2/objc/objc-api.h
+// @link https://stackoverflow.com/a/6537756
+
+static inline BOOL
+object_is_instance(id object)
+{
+  return (object != nil) && !class_isMetaClass(object_getClass(object));
+}
+
 
 #endif /* __objc_runtime_h__ */
 

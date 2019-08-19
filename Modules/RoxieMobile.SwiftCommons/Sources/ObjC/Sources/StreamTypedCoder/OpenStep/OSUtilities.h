@@ -33,84 +33,95 @@
 //#include <Foundation/NSHashTable.h>
 //#include <Foundation/NSMapTable.h>
 //#include <Foundation/NSEnumerator.h>
-//
+
 //#include <objc/objc.h>
 //#include <stdarg.h>
-//
+
 //@class NSObject;
 //@class NSString;
 //@class NSZone;
 //@class NSArray;
-//
-///*
-// * Virtual Memory Management 
-// */
-//
-///* Get the Virtual Memory Page Size */
+
+#if BUILD_libFoundation_DLL
+#  define LF_EXPORT  __declspec(dllexport)
+#  define LF_DECLARE __declspec(dllexport)
+#elif libFoundation_ISDLL
+#  define LF_EXPORT  extern __declspec(dllimport)
+#  define LF_DECLARE extern __declspec(dllimport)
+#else
+#  define LF_EXPORT  extern
+#  define LF_DECLARE
+#endif
+
+/*
+ * Virtual Memory Management
+ */
+
+/* Get the Virtual Memory Page Size */
 //LF_EXPORT unsigned NSPageSize(void);
 //LF_EXPORT unsigned NSLogPageSize(void);
 //LF_EXPORT unsigned NSRoundDownToMultipleOfPageSize(unsigned byteCount);
 //LF_EXPORT unsigned NSRoundUpToMultipleOfPageSize(unsigned byteCount);
-//
-///* Allocate or Free Virtual Memory */
+
+/* Allocate or Free Virtual Memory */
 //LF_EXPORT void* NSAllocateMemoryPages(unsigned byteCount);
 //LF_EXPORT void NSDeallocateMemoryPages(void* pointer, unsigned byteCount);
 //LF_EXPORT void NSCopyMemoryPages(const void* source, void* destination, unsigned byteCount);
-//
-///*
-// * Allocate or Free an Object
-// */
-//
+
+/*
+ * Allocate or Free an Object
+ */
+
 //LF_EXPORT NSObject* NSAllocateObject(Class aClass, unsigned extraBytes, NSZone* zone);
 //LF_EXPORT NSObject* NSCopyObject(NSObject* anObject, unsigned extraBytes, NSZone* zone);
 //LF_EXPORT void NSDeallocateObject(NSObject* anObject);
 //LF_EXPORT NSZone* NSZoneFromObject(NSObject* anObject);
 //LF_EXPORT BOOL NSShouldRetainWithZone(NSObject* anObject, NSZone* requestedZone);
-//
-///*
-// * Message log on console/stderr
-// */
-//
+
+/*
+ * Message log on console/stderr
+ */
+
 //LF_EXPORT void NSLog(NSString* format, ...);
 //LF_EXPORT void NSLogv(NSString* format, va_list args);
-//
-///*
-// * Manipulate the Number of References to an Object
-// */
-//
+
+/*
+ * Manipulate the Number of References to an Object
+ */
+
 //LF_EXPORT BOOL NSDecrementExtraRefCountWasZero(id anObject);
 //LF_EXPORT void NSIncrementExtraRefCount(id anObject);
 //LF_EXPORT unsigned NSExtraRefCount(id anObject);
-//
-///*
-// * Convenience functions to deal with Hash and Map Table
-// */
-//
-//LF_EXPORT unsigned __NSHashObject(void* table, const void* anObject);
-//LF_EXPORT unsigned __NSHashPointer(void* table, const void* anObject);
+
+/*
+ * Convenience functions to deal with Hash and Map Table
+ */
+
+LF_EXPORT unsigned __NSHashObject(void* table, const void* anObject);
+LF_EXPORT unsigned __NSHashPointer(void* table, const void* anObject);
 //LF_EXPORT unsigned __NSHashInteger(void* table, const void* anObject);
 //LF_EXPORT unsigned __NSHashCString(void* table, const void* anObject);
 //LF_EXPORT BOOL __NSCompareObjects(void* table, 
 //	const void* anObject1, const void* anObject2);
-//LF_EXPORT BOOL __NSComparePointers(void* table, 
-//	const void* anObject1, const void* anObject2);
+LF_EXPORT BOOL __NSComparePointers(void* table, 
+  const void* anObject1, const void* anObject2);
 //LF_EXPORT BOOL __NSCompareInts(void* table, 
 //	const void* anObject1, const void* anObject2);
 //LF_EXPORT BOOL __NSCompareCString(void* table, 
 //	const void* anObject1, const void* anObject2);
 //LF_EXPORT void __NSRetainNothing(void* table, const void* anObject);
-//LF_EXPORT void __NSRetainObjects(void* table, const void* anObject);
+LF_EXPORT void __NSRetainObjects(void* table, const void* anObject);
 //LF_EXPORT void __NSReleaseNothing(void* table, void* anObject);
-//LF_EXPORT void __NSReleaseObjects(void* table, void* anObject);
+LF_EXPORT void __NSReleaseObjects(void* table, void* anObject);
 //LF_EXPORT void __NSReleasePointers(void* table, void* anObject);
 //LF_EXPORT NSString* __NSDescribeObjects(void* table, const void* anObject);
-//LF_EXPORT NSString* __NSDescribePointers(void* table, const void* anObject);
+LF_EXPORT NSString* __NSDescribePointers(void* table, const void* anObject);
 //LF_EXPORT NSString* __NSDescribeInts(void* table, const void* anObject);
-//
-///* Some allocation macros */
+
+/* Some allocation macros */
 //#define OBJC_MALLOC(pointer, type, elements) \
 //	(pointer = calloc (sizeof(type), elements))
-//
+
 //#define OBJC_FREE(pointer) \
 //	if (pointer) free(pointer)
 

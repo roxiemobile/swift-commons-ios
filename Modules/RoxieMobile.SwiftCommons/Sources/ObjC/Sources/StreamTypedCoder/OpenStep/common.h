@@ -35,6 +35,8 @@
 //# include <string.h>
 //#endif
 
+#include <string.h>
+
 //#if HAVE_STRINGS_H
 //# include <strings.h>
 //#endif
@@ -48,7 +50,7 @@
 //# define memmove(d, s, n)      bcopy((s), (d), (n))
 //#endif
 
-//#include <ctype.h>
+#include <ctype.h>
 
 //#if HAVE_STDLIB_H
 //# include <stdlib.h>
@@ -60,6 +62,8 @@
 //extern atoi();
 //extern atol();
 //#endif
+
+#include <stdlib.h>
 
 //#if HAVE_LIBC_H
 //# define NSObject AppleNSObject
@@ -102,7 +106,7 @@
 
 //static inline void *Malloc(int) __attribute__((unused));
 //static inline void *MallocAtomic(int) __attribute__((unused));
-//static inline void lfFree(void*) __attribute__((unused));
+static inline void lfFree(void*) __attribute__((unused));
 //static inline void *Calloc(int, int) __attribute__((unused));
 //static inline void *CallocAtomic(int, int) __attribute__((unused));
 //static inline void *Realloc(void*, int) __attribute__((unused));
@@ -248,12 +252,13 @@
 //{
 //    return objc_malloc(size);
 //}
-//
-//static inline void lfFree(void* p)
-//{
+
+static inline void lfFree(void* p)
+{
 //    if (p) objc_free(p);
-//}
-//
+    if (p) free(p);
+}
+
 //static inline void *Calloc(int elem, int size)
 //{
 //    return objc_calloc(elem, size);

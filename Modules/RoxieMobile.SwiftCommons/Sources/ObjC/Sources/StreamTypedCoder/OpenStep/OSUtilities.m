@@ -24,7 +24,7 @@
 */
 
 //#include <Foundation/common.h>
-//#include <Foundation/NSString.h>
+#include <Foundation/NSString.h>
 //#include <Foundation/NSUtilities.h>
 //#include <Foundation/NSDate.h>
 //#include <Foundation/NSProcessInfo.h>
@@ -32,7 +32,10 @@
 //#include <Foundation/NSLock.h>
 //#include <Foundation/NSByteOrder.h>
 //#include <config.h>
-//
+
+#include "common.h"
+#include "OSUtilities.h"
+
 //#if defined(HAVE_WINDOWS_H)
 //#  include <windows.h>
 //#endif
@@ -107,6 +110,42 @@
 //    return NS_LittleEndian;
 //#endif
 //}
+
+/*
+ * Convenience functions
+ */
+
+LF_DECLARE unsigned __NSHashObject(void *table, const void *anObject)
+{
+    return (unsigned)[(id)anObject hash];
+}
+
+LF_DECLARE unsigned __NSHashPointer(void *table, const void *anObject)
+{
+    return (unsigned)((long)anObject / 4);
+}
+
+LF_DECLARE BOOL __NSComparePointers(void *table,
+                    const void *anObject1,
+                    const void *anObject2)
+{
+    return anObject1 == anObject2;
+}
+
+LF_DECLARE void __NSRetainObjects(void *table, const void *anObject)
+{
+    (void)RETAIN((NSObject*)anObject);
+}
+
+LF_DECLARE void __NSReleaseObjects(void *table, void *anObject)
+{
+    RELEASE((NSObject*)anObject);
+}
+
+LF_DECLARE NSString* __NSDescribePointers(void *table, const void *anObject)
+{
+    return [NSString stringWithFormat:@"%p", anObject];
+}
 
 /*
   Local Variables:

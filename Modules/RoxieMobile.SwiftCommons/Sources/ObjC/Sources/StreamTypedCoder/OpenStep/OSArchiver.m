@@ -55,8 +55,12 @@
 #include <Foundation/NSData.h>
 #include <Foundation/NSAutoreleasePool.h>
 #include <Foundation/NSException.h>
-#include <Foundation/NSUtilities.h>
-#include <extensions/objc-runtime.h>
+//#include <Foundation/NSUtilities.h>
+//#include <extensions/objc-runtime.h>
+
+#include "OSUtilities.h"
+#include "objc-runtime.h"
+
 #include "OSArchiver.h"
 #include "common.h" // for Free
 
@@ -69,6 +73,8 @@ typedef unsigned char NSTagType;
 
 #define REFERENCE 128
 #define VALUE     127
+
+LF_DECLARE NSString *NSInconsistentArchiveException = @"Archive is inconsistent";
 
 static NSMapTableKeyCallBacks NSIdentityObjectMapKeyCallbacks = {
   (unsigned(*)(NSMapTable *, const void *))          __NSHashPointer,
@@ -696,8 +702,9 @@ FINAL void _writeObjC(OSArchiver *self, const void *_value, const char *_type);
         encodeValue = [self methodForSelector:@selector(encodeValueOfObjCType:at:)];
 
         for (i = offset = 0; i < _count; i++, offset += itemSize) {
-            encodeValue(self, @selector(encodeValueOfObjCType:at:),
-                        (char *)_array + offset, _type);
+//            encodeValue(self, @selector(encodeValueOfObjCType:at:),
+//                        (char *)_array + offset, _type);
+            [self encodeValueOfObjCType:_type at:(char *)_array + offset];
         }
     }
 }
@@ -1330,8 +1337,9 @@ FINAL void _checkType2(char _code, char _reqCode1, char _reqCode2)
         decodeValue = [self methodForSelector:@selector(decodeValueOfObjCType:at:)];
     
         for (i = offset = 0; i < count; i++, offset += itemSize) {
-            decodeValue(self, @selector(decodeValueOfObjCType:at:),
-                        (char *)_array + offset, _type);
+//            decodeValue(self, @selector(decodeValueOfObjCType:at:),
+//                        (char *)_array + offset, _type);
+            [self encodeValueOfObjCType:_type at:(char *)_array + offset];
         }
     }
 

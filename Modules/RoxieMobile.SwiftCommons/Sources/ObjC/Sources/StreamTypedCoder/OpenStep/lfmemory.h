@@ -32,10 +32,10 @@
 #ifndef __libFoundation_lfmemory_H__
 #define __libFoundation_lfmemory_H__
 
-//#include <stdio.h>
-//#include <objc/objc.h>
-//#include <objc/objc-api.h>
-//#include <Foundation/NSObject.h>
+#include <stdio.h>
+#include <objc/objc.h>
+#include <objc/objc-api.h>
+#include <Foundation/NSObject.h>
 
 //@class NSAutoreleasePool;
 
