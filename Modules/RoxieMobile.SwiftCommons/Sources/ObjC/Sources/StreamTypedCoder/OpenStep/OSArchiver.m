@@ -1485,7 +1485,6 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type)
     switch (*_type) {
         case _C_ID:
             NSAssert((*_type == _C_ID) || (*_type == _C_CLASS), @"invalid type ..");
-            break;
             *_object = [self _decodeObject:isReference];
             break;
         case _C_CLASS:
