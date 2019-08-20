@@ -22,6 +22,7 @@
 		1A2B5D6F204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D6E204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegers.swift */; };
 		1A2B5D88204ED91800E165AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B5D87204ED91800E165AD /* Constants.swift */; };
 		1A3807872056765300605CA6 /* EnumOperatorsTests.ArrayOfRawRepresentableTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3807862056765300605CA6 /* EnumOperatorsTests.ArrayOfRawRepresentableTypes.swift */; };
+		1A7B8316230C57C100755FC9 /* StreamTypeCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7B8315230C57C100755FC9 /* StreamTypeCoder.swift */; };
 		1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetOfMappableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetOfMappableObjects.swift */; };
 		1A9D106B2056672100049F39 /* EnumOperatorsTests.DictionaryOfRawRepresentableTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D106A2056672100049F39 /* EnumOperatorsTests.DictionaryOfRawRepresentableTypes.swift */; };
 		1A9D106D2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D106C2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift */; };
@@ -61,6 +62,7 @@
 		1A2B5D6E204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerOperatorsTests.UnsignedIntegers.swift; sourceTree = "<group>"; };
 		1A2B5D87204ED91800E165AD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1A3807862056765300605CA6 /* EnumOperatorsTests.ArrayOfRawRepresentableTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.ArrayOfRawRepresentableTypes.swift; sourceTree = "<group>"; };
+		1A7B8315230C57C100755FC9 /* StreamTypeCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamTypeCoder.swift; sourceTree = "<group>"; };
 		1A7FDBE0205048BA00F62996 /* TransformOperatorsTests.SetOfMappableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.SetOfMappableObjects.swift; sourceTree = "<group>"; };
 		1A9D106A2056672100049F39 /* EnumOperatorsTests.DictionaryOfRawRepresentableTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.DictionaryOfRawRepresentableTypes.swift; sourceTree = "<group>"; };
 		1A9D106C2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.RawRepresentableTypes.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				19AACEDA20596F6500BAE27B /* ObjectMapper */,
+				1A7B8314230C579900755FC9 /* SwiftCommonsObjC */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -193,6 +196,14 @@
 				19136E71205DD82100280456 /* ObjectMapperTests.swift */,
 			);
 			path = Operators;
+			sourceTree = "<group>";
+		};
+		1A7B8314230C579900755FC9 /* SwiftCommonsObjC */ = {
+			isa = PBXGroup;
+			children = (
+				1A7B8315230C57C100755FC9 /* StreamTypeCoder.swift */,
+			);
+			path = SwiftCommonsObjC;
 			sourceTree = "<group>";
 		};
 		1A9D10662056666800049F39 /* EnumOperators */ = {
@@ -324,6 +335,7 @@
 				1A9D106B2056672100049F39 /* EnumOperatorsTests.DictionaryOfRawRepresentableTypes.swift in Sources */,
 				1A2B5D6D204D88AE00E165AD /* IntegerOperatorsTests.SignedIntegers.swift in Sources */,
 				198758032207673B00A61E89 /* OperatorsTests.AnyObjects.swift in Sources */,
+				1A7B8316230C57C100755FC9 /* StreamTypeCoder.swift in Sources */,
 				19136E76205EB2BB00280456 /* Vector3DTransform.swift in Sources */,
 				19D02ECF2060064B006FB892 /* TransformOperatorsTests.SetOfBasicTypes.swift in Sources */,
 				1A9D106F2056689500049F39 /* EnumOperatorsTests.swift in Sources */,

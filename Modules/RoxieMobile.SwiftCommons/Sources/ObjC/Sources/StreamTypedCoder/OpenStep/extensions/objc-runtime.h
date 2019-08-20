@@ -31,6 +31,24 @@
 #include <objc/objc-api.h>
 //#include <objc/Protocol.h>
 
+#include <Foundation/NSException.h>
+#include <OSUtilities.h>
+
+#include <setjmp.h>
+#include <stdarg.h>
+
+typedef void (*THandlerFunction)(id);
+
+typedef struct _NSHandler
+{
+    struct _NSHandler *previousHandler;
+    jmp_buf          jmpState;
+    THandlerFunction  handler;
+} NSHandler;
+
+LF_EXPORT void _NSAddHandler(NSHandler *handler);
+LF_EXPORT void _NSRemoveHandler(NSHandler *handler);
+
 
 /* If neither GNU nor NeXT runtimes are defined,
    make GNU the default runtime
@@ -220,6 +238,88 @@ object_is_instance(id object)
 {
   return (object != nil) && !class_isMetaClass(object_getClass(object));
 }
+
+/*
+ * The new macros for handling exceptions.
+ */
+
+#define TRY \
+{ \
+    auto void handler(); \
+    NSHandler exceptionHandler; \
+\
+    int _dummy = \
+    ({ \
+  __label__ _quit; \
+  if(!setjmp(exceptionHandler.jmpState)) { \
+      exceptionHandler.handler = handler; \
+      _NSAddHandler(&exceptionHandler);
+
+#define END_TRY \
+      _NSRemoveHandler(&exceptionHandler); \
+      handler(nil); \
+      goto _quit; /* to remove compiler warning about unused label*/ \
+  }; \
+  _quit: 0; \
+    }); \
+    void handler(NSException *localException) \
+    { \
+  BOOL _caught = NO; \
+        RETAIN(localException);\
+  if (localException != nil) \
+      _NSRemoveHandler(&exceptionHandler); \
+  if (localException == nil) { _dummy++;
+
+#define CATCH(exception_class) \
+  } else if([localException exceptionIsKindOfClass:[exception_class class]]) { \
+      _caught = YES;
+
+#ifndef PRECOMP
+# define MULTICATCH(exception_classes...) \
+  } else if ([localException exceptionIsIn: \
+        [NSArray arrayWithObjects:##exception_classes, nil]]) { \
+      _caught = YES;
+#endif /* PRECOMP */
+
+#define OTHERWISE \
+  } else { \
+      _caught = YES;
+
+#define CLEANUP \
+  } \
+  if(localException && !_caught) {
+
+#define FINALLY \
+  } \
+  if(1) {
+
+#define END_CATCH \
+  } \
+  if (localException==nil) return; \
+  if (!_caught) \
+      [localException raise]; \
+  else {\
+      RELEASE(localException); \
+      longjmp(exceptionHandler.jmpState, 1); \
+  }\
+    } \
+}
+
+/*  Use BREAK inside a TRY block to get out of it */
+#define BREAK ({_NSRemoveHandler(&exceptionHandler); goto _quit;})
+
+#ifndef PRECOMP
+/*  If you want to generate an exception issue a THROW with the exception
+    an object derived from the NSException class. */
+# define THROW(exception...)  [##exception raise]
+#else
+# define THROW(exception) [exception raise]
+#endif /* PRECOMP */
+
+/*  If you want to reraise an exception inside an exception handler
+    just say RERAISE. */
+#define RERAISE                 [localException raise]
+
 
 
 #endif /* __objc_runtime_h__ */

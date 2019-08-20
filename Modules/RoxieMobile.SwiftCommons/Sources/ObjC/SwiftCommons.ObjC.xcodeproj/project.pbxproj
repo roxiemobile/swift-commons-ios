@@ -38,6 +38,10 @@
 		19CCD10C1FCD0191008CEA38 /* SSZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD1001FCD0190008CEA38 /* SSZipArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19CCD10D1FCD0191008CEA38 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD1011FCD0190008CEA38 /* SSZipArchive.m */; };
 		19CCD10E1FCD0191008CEA38 /* SSZipArchiveDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD1021FCD0190008CEA38 /* SSZipArchiveDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A7B8310230C572600755FC9 /* NSData+OSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7B830C230C572600755FC9 /* NSData+OSData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1A7B8311230C572600755FC9 /* NSMutableData+OSMutableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7B830D230C572600755FC9 /* NSMutableData+OSMutableData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1A7B8312230C572600755FC9 /* NSData+OSData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A7B830E230C572600755FC9 /* NSData+OSData.h */; };
+		1A7B8313230C572600755FC9 /* NSMutableData+OSMutableData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A7B830F230C572600755FC9 /* NSMutableData+OSMutableData.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +79,10 @@
 		19CCD1001FCD0190008CEA38 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		19CCD1011FCD0190008CEA38 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		19CCD1021FCD0190008CEA38 /* SSZipArchiveDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchiveDelegate.h; sourceTree = "<group>"; };
+		1A7B830C230C572600755FC9 /* NSData+OSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+OSData.m"; sourceTree = "<group>"; };
+		1A7B830D230C572600755FC9 /* NSMutableData+OSMutableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+OSMutableData.m"; sourceTree = "<group>"; };
+		1A7B830E230C572600755FC9 /* NSData+OSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+OSData.h"; sourceTree = "<group>"; };
+		1A7B830F230C572600755FC9 /* NSMutableData+OSMutableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+OSMutableData.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 				195F931E230B3CAE00D0DCF2 /* encoding.m */,
 				195F9307230B2B5200D0DCF2 /* lfmemory.h */,
 				195F931F230B3CAE00D0DCF2 /* misc.m */,
+				1A7B830E230C572600755FC9 /* NSData+OSData.h */,
+				1A7B830C230C572600755FC9 /* NSData+OSData.m */,
+				1A7B830F230C572600755FC9 /* NSMutableData+OSMutableData.h */,
+				1A7B830D230C572600755FC9 /* NSMutableData+OSMutableData.m */,
 				195F92FE230B28C900D0DCF2 /* OSArchiver.h */,
 				195F9315230B30D800D0DCF2 /* OSArchiver.m */,
 				195F92FF230B28C900D0DCF2 /* OSSerialization.h */,
@@ -224,7 +236,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19CCD10C1FCD0191008CEA38 /* SSZipArchive.h in Headers */,
+				1A7B8312230C572600755FC9 /* NSData+OSData.h in Headers */,
 				195F9303230B28C900D0DCF2 /* OSSerialization.h in Headers */,
+				1A7B8313230C572600755FC9 /* NSMutableData+OSMutableData.h in Headers */,
 				19CCD0F31FCD0144008CEA38 /* StreamTypedCoder.h in Headers */,
 				19CCD10E1FCD0191008CEA38 /* SSZipArchiveDelegate.h in Headers */,
 				19CCD1031FCD0191008CEA38 /* crypt.h in Headers */,
@@ -313,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C9FD871FCCAAD30069F3D1 /* TryCatchFinally.m in Sources */,
+				1A7B8310230C572600755FC9 /* NSData+OSData.m in Sources */,
 				19CCD1061FCD0191008CEA38 /* mztools.c in Sources */,
 				19CCD1081FCD0191008CEA38 /* unzip.c in Sources */,
 				195F9314230B30AC00D0DCF2 /* OSUtilities.m in Sources */,
@@ -325,6 +340,7 @@
 				195F9320230B3CAE00D0DCF2 /* encoding.m in Sources */,
 				19C9FD8D1FCCABBB0069F3D1 /* SwiftCommonsObjC.m in Sources */,
 				195F9312230B2D7700D0DCF2 /* OSSerialization.m in Sources */,
+				1A7B8311230C572600755FC9 /* NSMutableData+OSMutableData.m in Sources */,
 				195F9321230B3CAE00D0DCF2 /* misc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

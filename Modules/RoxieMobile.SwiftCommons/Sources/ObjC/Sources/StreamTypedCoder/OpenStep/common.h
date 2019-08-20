@@ -104,8 +104,8 @@
 
 //#define MAYBE_UNUSED __attribute__((unused))
 
-//static inline void *Malloc(int) __attribute__((unused));
-//static inline void *MallocAtomic(int) __attribute__((unused));
+static inline void *Malloc(int) __attribute__((unused));
+static inline void *MallocAtomic(int) __attribute__((unused));
 static inline void lfFree(void*) __attribute__((unused));
 //static inline void *Calloc(int, int) __attribute__((unused));
 //static inline void *CallocAtomic(int, int) __attribute__((unused));
@@ -330,12 +330,12 @@ static inline void lfFree(void* p)
 //    
 //    return [NSString stringWithCString:(char *)buf length:j];
 //}
-//
-//static inline int Strlen(const char* s)
-//{
-//    return s ? strlen(s) : 0;
-//}
-//
+
+static inline int Strlen(const char* s)
+{
+    return s ? strlen(s) : 0;
+}
+
 //static inline char* Strdup(const char* s)
 //{
 //    return s ? strcpy(MallocAtomic(strlen(s) + 1), s) : NULL;
@@ -388,12 +388,12 @@ static inline void lfFree(void* p)
 //        else return strncmp(p, q, size);
 //    }
 //}
-//
-//static inline int Atoi(const char* str)
-//{
-//    return str ? atoi(str) : 0;
-//}
-//
+
+static inline int Atoi(const char* str)
+{
+    return str ? atoi(str) : 0;
+}
+
 //static inline long Atol(const char *str)
 //{
 //    return str ? atol(str) : 0;
