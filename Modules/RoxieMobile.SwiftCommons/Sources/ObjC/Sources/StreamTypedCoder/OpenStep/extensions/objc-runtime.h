@@ -210,7 +210,7 @@ typedef BOOL (*objc_error_handler)(id, int code, const char *fmt, va_list ap);
 //extern void class_addMethods(Class, struct objc_method_list*);
 //void class_add_behavior(Class class, Class behavior);
 
-/* In objective-c, how can I tell the difference between a Class and an instance of a class? */
+/** In objective-c, how can I tell the difference between a Class and an instance of a class? */
 // @link https://opensource.apple.com/source/gcc/gcc-1765/libobjc/objc/objc-api.h.auto.html
 // @link http://web.mit.edu/kolya/sipb/afs/root.afs/sipb.mit.edu/project/bounds/src/gcc-2.7.2/objc/objc-api.h
 // @link https://stackoverflow.com/a/6537756
@@ -220,6 +220,24 @@ object_is_instance(id object)
 {
   return (object != nil) && !class_isMetaClass(object_getClass(object));
 }
+
+/** The new macros for handling exceptions. */
+// @link https://github.com/AlwaysRightInstitute/libFoundation/blob/master/Foundation/NSExceptionWithoutNested.h#L148
+
+#define TRY \
+  @try {
+
+#define END_TRY \
+  }
+
+#define OTHERWISE \
+  @catch (NSException *exception) {
+
+#define END_CATCH \
+  }
+
+#define RERAISE \
+  [exception raise];
 
 
 #endif /* __objc_runtime_h__ */

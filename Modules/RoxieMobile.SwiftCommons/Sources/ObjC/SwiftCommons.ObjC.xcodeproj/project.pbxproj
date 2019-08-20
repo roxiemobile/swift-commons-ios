@@ -20,6 +20,11 @@
 		195F931C230B3AFB00D0DCF2 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F931A230B3AFB00D0DCF2 /* encoding.h */; };
 		195F9320230B3CAE00D0DCF2 /* encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F931E230B3CAE00D0DCF2 /* encoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		195F9321230B3CAE00D0DCF2 /* misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F931F230B3CAE00D0DCF2 /* misc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		195F9324230C9C5200D0DCF2 /* NSData+OpenStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F9322230C9C5200D0DCF2 /* NSData+OpenStep.h */; };
+		195F9325230C9C5200D0DCF2 /* NSData+OpenStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F9323230C9C5200D0DCF2 /* NSData+OpenStep.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		195F9327230C9F2600D0DCF2 /* byte_order.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F9326230C9F2600D0DCF2 /* byte_order.h */; };
+		195F932B230CA33600D0DCF2 /* GeneralExceptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F9329230CA33600D0DCF2 /* GeneralExceptions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		195F932C230CA33600D0DCF2 /* GeneralExceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F932A230CA33600D0DCF2 /* GeneralExceptions.h */; };
 		19C9FD861FCCAAD30069F3D1 /* TryCatchFinally.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19C9FD871FCCAAD30069F3D1 /* TryCatchFinally.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */; };
 		19C9FD8C1FCCABBB0069F3D1 /* SwiftCommonsObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +59,11 @@
 		195F931A230B3AFB00D0DCF2 /* encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encoding.h; sourceTree = "<group>"; };
 		195F931E230B3CAE00D0DCF2 /* encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = encoding.m; sourceTree = "<group>"; };
 		195F931F230B3CAE00D0DCF2 /* misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = misc.m; sourceTree = "<group>"; };
+		195F9322230C9C5200D0DCF2 /* NSData+OpenStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+OpenStep.h"; sourceTree = "<group>"; };
+		195F9323230C9C5200D0DCF2 /* NSData+OpenStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+OpenStep.m"; sourceTree = "<group>"; };
+		195F9326230C9F2600D0DCF2 /* byte_order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = byte_order.h; sourceTree = "<group>"; };
+		195F9329230CA33600D0DCF2 /* GeneralExceptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralExceptions.m; sourceTree = "<group>"; };
+		195F932A230CA33600D0DCF2 /* GeneralExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralExceptions.h; sourceTree = "<group>"; };
 		1976D4E11FCB821000C07C72 /* SwiftCommons.ObjC.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.ObjC.xcconfig; sourceTree = "<group>"; };
 		19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TryCatchFinally.h; sourceTree = "<group>"; };
 		19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryCatchFinally.m; sourceTree = "<group>"; };
@@ -91,12 +101,16 @@
 		195F92FC230B28C900D0DCF2 /* OpenStep */ = {
 			isa = PBXGroup;
 			children = (
+				195F9328230CA33600D0DCF2 /* exceptions */,
 				195F9317230B312F00D0DCF2 /* extensions */,
+				195F9326230C9F2600D0DCF2 /* byte_order.h */,
 				195F9309230B2B9200D0DCF2 /* common.h */,
 				195F930A230B2B9200D0DCF2 /* common.m */,
 				195F931E230B3CAE00D0DCF2 /* encoding.m */,
 				195F9307230B2B5200D0DCF2 /* lfmemory.h */,
 				195F931F230B3CAE00D0DCF2 /* misc.m */,
+				195F9322230C9C5200D0DCF2 /* NSData+OpenStep.h */,
+				195F9323230C9C5200D0DCF2 /* NSData+OpenStep.m */,
 				195F92FE230B28C900D0DCF2 /* OSArchiver.h */,
 				195F9315230B30D800D0DCF2 /* OSArchiver.m */,
 				195F92FF230B28C900D0DCF2 /* OSSerialization.h */,
@@ -114,6 +128,15 @@
 				195F9318230B312F00D0DCF2 /* objc-runtime.h */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		195F9328230CA33600D0DCF2 /* exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				195F932A230CA33600D0DCF2 /* GeneralExceptions.h */,
+				195F9329230CA33600D0DCF2 /* GeneralExceptions.m */,
+			);
+			path = exceptions;
 			sourceTree = "<group>";
 		};
 		1976D4DF1FCB821000C07C72 /* Configuration */ = {
@@ -228,16 +251,19 @@
 				19CCD0F31FCD0144008CEA38 /* StreamTypedCoder.h in Headers */,
 				19CCD10E1FCD0191008CEA38 /* SSZipArchiveDelegate.h in Headers */,
 				19CCD1031FCD0191008CEA38 /* crypt.h in Headers */,
+				195F9324230C9C5200D0DCF2 /* NSData+OpenStep.h in Headers */,
 				19C9FD861FCCAAD30069F3D1 /* TryCatchFinally.h in Headers */,
 				19CCD1091FCD0191008CEA38 /* unzip.h in Headers */,
 				195F930B230B2B9200D0DCF2 /* common.h in Headers */,
 				195F9302230B28C900D0DCF2 /* OSArchiver.h in Headers */,
+				195F9327230C9F2600D0DCF2 /* byte_order.h in Headers */,
 				19CCD1071FCD0191008CEA38 /* mztools.h in Headers */,
 				19CCD1051FCD0191008CEA38 /* ioapi.h in Headers */,
 				195F9310230B2D2B00D0DCF2 /* OSUtilities.h in Headers */,
 				195F9319230B312F00D0DCF2 /* objc-runtime.h in Headers */,
 				195F9308230B2B5200D0DCF2 /* lfmemory.h in Headers */,
 				195F931C230B3AFB00D0DCF2 /* encoding.h in Headers */,
+				195F932C230CA33600D0DCF2 /* GeneralExceptions.h in Headers */,
 				19CCD10B1FCD0191008CEA38 /* zip.h in Headers */,
 				19C9FD8C1FCCABBB0069F3D1 /* SwiftCommonsObjC.h in Headers */,
 			);
@@ -320,11 +346,13 @@
 				19CCD1041FCD0191008CEA38 /* ioapi.c in Sources */,
 				19CCD10D1FCD0191008CEA38 /* SSZipArchive.m in Sources */,
 				195F9316230B30D800D0DCF2 /* OSArchiver.m in Sources */,
+				195F9325230C9C5200D0DCF2 /* NSData+OpenStep.m in Sources */,
 				195F930C230B2B9200D0DCF2 /* common.m in Sources */,
 				19CCD10A1FCD0191008CEA38 /* zip.c in Sources */,
 				195F9320230B3CAE00D0DCF2 /* encoding.m in Sources */,
 				19C9FD8D1FCCABBB0069F3D1 /* SwiftCommonsObjC.m in Sources */,
 				195F9312230B2D7700D0DCF2 /* OSSerialization.m in Sources */,
+				195F932B230CA33600D0DCF2 /* GeneralExceptions.m in Sources */,
 				195F9321230B3CAE00D0DCF2 /* misc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

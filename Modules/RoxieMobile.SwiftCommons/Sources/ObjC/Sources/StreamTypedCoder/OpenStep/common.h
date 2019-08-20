@@ -104,13 +104,13 @@
 
 //#define MAYBE_UNUSED __attribute__((unused))
 
-//static inline void *Malloc(int) __attribute__((unused));
-//static inline void *MallocAtomic(int) __attribute__((unused));
+static inline void *Malloc(int) __attribute__((unused));
+static inline void *MallocAtomic(int) __attribute__((unused));
 static inline void lfFree(void*) __attribute__((unused));
 //static inline void *Calloc(int, int) __attribute__((unused));
 //static inline void *CallocAtomic(int, int) __attribute__((unused));
 //static inline void *Realloc(void*, int) __attribute__((unused));
-//static inline int Strlen(const char*) __attribute__((unused));
+static inline int Strlen(const char*) __attribute__((unused));
 //static inline char* Strdup(const char*) __attribute__((unused));
 //static inline char* Strcpy (char*, const char*) __attribute__((unused));
 //static inline char* Strncpy (char*, const char*, unsigned)
@@ -121,7 +121,7 @@ static inline void lfFree(void*) __attribute__((unused));
 //static inline int Strcmp(const char*, const char*) __attribute__((unused));
 //static inline int Strncmp(const char*, const char*, unsigned)
 //     MAYBE_UNUSED;
-//static inline int Atoi(const char*) __attribute__((unused));
+static inline int Atoi(const char*) __attribute__((unused));
 //static inline long Atol(const char*) __attribute__((unused));
 
 //static inline BOOL lf_isPlistBreakChar(unsigned char c) MAYBE_UNUSED;
@@ -243,15 +243,17 @@ static inline void lfFree(void*) __attribute__((unused));
 //}
 //
 //#else
-//
-//static inline void *Malloc(int size)
-//{
+
+static inline void *Malloc(int size)
+{
 //    return objc_malloc(size);
-//}
-//static inline void *MallocAtomic(int size)
-//{
+    return malloc(size);
+}
+static inline void *MallocAtomic(int size)
+{
 //    return objc_malloc(size);
-//}
+    return malloc(size);
+}
 
 static inline void lfFree(void* p)
 {
@@ -330,12 +332,12 @@ static inline void lfFree(void* p)
 //    
 //    return [NSString stringWithCString:(char *)buf length:j];
 //}
-//
-//static inline int Strlen(const char* s)
-//{
-//    return s ? strlen(s) : 0;
-//}
-//
+
+static inline int Strlen(const char* s)
+{
+    return s ? strlen(s) : 0;
+}
+
 //static inline char* Strdup(const char* s)
 //{
 //    return s ? strcpy(MallocAtomic(strlen(s) + 1), s) : NULL;
@@ -388,12 +390,12 @@ static inline void lfFree(void* p)
 //        else return strncmp(p, q, size);
 //    }
 //}
-//
-//static inline int Atoi(const char* str)
-//{
-//    return str ? atoi(str) : 0;
-//}
-//
+
+static inline int Atoi(const char* str)
+{
+    return str ? atoi(str) : 0;
+}
+
 //static inline long Atol(const char *str)
 //{
 //    return str ? atol(str) : 0;
