@@ -64,6 +64,8 @@
 #include "OSArchiver.h"
 #include "common.h" // for Free
 
+#import "NSData+OpenStep.h"
+
 #define ENCODE_AUTORELEASEPOOL 0
 #define ARCHIVE_DEBUGGING      0
 
@@ -1023,6 +1025,11 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
                          format:@"could not allocate memory for class name."];
         }
 
+        NSMapInsert(self->inClassVersions, name, @(version));
+#if ARCHIVE_DEBUGGING
+        NSLog(@"read class version %@ => %i", name, version);
+#endif
+
         { // check whether the class is to be replaced
             NSString *newName = NSMapGet(self->inClassAlias, name);
       
@@ -1492,6 +1499,12 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type)
                            _type];
             break;
     }
+}
+
+- (NSInteger) versionForClassName: (NSString*)className
+{
+    id version = NSMapGet(self->inClassVersions, className);
+    return version ? [version integerValue] : (NSInteger)NSNotFound;
 }
 
 @end /* OSUnarchiver */

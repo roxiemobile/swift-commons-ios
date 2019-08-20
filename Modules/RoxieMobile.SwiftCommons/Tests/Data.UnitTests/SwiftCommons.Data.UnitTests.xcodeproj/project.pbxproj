@@ -11,6 +11,7 @@
 		19136E74205EB03900280456 /* Vector3DModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19136E73205EB03900280456 /* Vector3DModel.swift */; };
 		19136E76205EB2BB00280456 /* Vector3DTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19136E75205EB2BB00280456 /* Vector3DTransform.swift */; };
 		193AC5281FCCCDFE00017493 /* SwiftCommonsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193AC5291FCCCDFE00017493 /* SwiftCommonsData.framework */; };
+		195F932F230CADB100D0DCF2 /* StreamTypedCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F932E230CADB000D0DCF2 /* StreamTypedCoderTests.swift */; };
 		198758032207673B00A61E89 /* OperatorsTests.AnyObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198758022207673B00A61E89 /* OperatorsTests.AnyObjects.swift */; };
 		198758052207777300A61E89 /* OperatorsTests.Floats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198758042207777300A61E89 /* OperatorsTests.Floats.swift */; };
 		19D02ECD205FEE78006FB892 /* EnumOperatorsTests.SetOfRawRepresentableTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D02ECC205FEE78006FB892 /* EnumOperatorsTests.SetOfRawRepresentableTypes.swift */; };
@@ -49,6 +50,7 @@
 		193AC5291FCCCDFE00017493 /* SwiftCommonsData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		193AC52D1FCCD23400017493 /* SwiftCommons.Data.UnitTests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.Data.UnitTests.xcconfig; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsData.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsData.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		195F932E230CADB000D0DCF2 /* StreamTypedCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamTypedCoderTests.swift; sourceTree = "<group>"; };
 		198758022207673B00A61E89 /* OperatorsTests.AnyObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsTests.AnyObjects.swift; sourceTree = "<group>"; };
 		198758042207777300A61E89 /* OperatorsTests.Floats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsTests.Floats.swift; sourceTree = "<group>"; };
 		19D02ECC205FEE78006FB892 /* EnumOperatorsTests.SetOfRawRepresentableTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.SetOfRawRepresentableTypes.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		195F932D230CADB000D0DCF2 /* StreamTypedCoder */ = {
+			isa = PBXGroup;
+			children = (
+				195F932E230CADB000D0DCF2 /* StreamTypedCoderTests.swift */,
+			);
+			path = StreamTypedCoder;
+			sourceTree = "<group>";
+		};
 		199603B020597C260070AAAB /* Transforms */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				19AACEDA20596F6500BAE27B /* ObjectMapper */,
+				195F932D230CADB000D0DCF2 /* StreamTypedCoder */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -336,6 +347,7 @@
 				1A9D107520566C9B00049F39 /* StringRawType.swift in Sources */,
 				198758052207777300A61E89 /* OperatorsTests.Floats.swift in Sources */,
 				19136E74205EB03900280456 /* Vector3DModel.swift in Sources */,
+				195F932F230CADB100D0DCF2 /* StreamTypedCoderTests.swift in Sources */,
 				1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetOfMappableObjects.swift in Sources */,
 				1AB4DDA4204FD5EB00DD1134 /* TransformOperatorsTests.swift in Sources */,
 				1A9D106D2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift in Sources */,
