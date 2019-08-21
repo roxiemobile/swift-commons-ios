@@ -76,7 +76,7 @@ typedef unsigned char NSTagType;
 #define REFERENCE 128
 #define VALUE     127
 
-LF_DECLARE NSString *NSInconsistentArchiveException = @"Archive is inconsistent";
+LF_DECLARE NSString *NSInconsistentArchiveException2 = @"Archive is inconsistent";
 
 static NSMapTableKeyCallBacks NSIdentityObjectMapKeyCallbacks = {
   (unsigned(*)(NSMapTable *, const void *))          __NSHashPointer,
@@ -1002,7 +1002,7 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
         if (result == nil)
             result = (id)NSMapGet(self->inObjects, (void *)(long)archiveId);
         if (result == nil) {
-            [NSException raise:NSInconsistentArchiveException
+            [NSException raise:NSInconsistentArchiveException2
                          format:@"did not find referenced class %i.", archiveId];
         }
     }
@@ -1012,7 +1012,7 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
         char     *cname  = _readCString(self);
 
         if (cname == NULL) {
-            [NSException raise:NSInconsistentArchiveException
+            [NSException raise:NSInconsistentArchiveException2
                          format:@"could not decode class name."];
         }
         
@@ -1021,7 +1021,7 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
         lfFree(cname); cname = NULL;
         
         if ([name cStringLength] == 0) {
-            [NSException raise:NSInconsistentArchiveException
+            [NSException raise:NSInconsistentArchiveException2
                          format:@"could not allocate memory for class name."];
         }
 
@@ -1045,13 +1045,13 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
         result = NSClassFromString(name);
 
         if (result == Nil) {
-            [NSException raise:NSInconsistentArchiveException
+            [NSException raise:NSInconsistentArchiveException2
                          format:@"class doesn't exist in this runtime."];
         }
         name = nil;
 
         if ([result version] != version) {
-            [NSException raise:NSInconsistentArchiveException
+            [NSException raise:NSInconsistentArchiveException2
                          format:@"class versions do not match."];
         }
 
@@ -1083,7 +1083,7 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
             result = (id)NSMapGet(self->inClasses, (void *)(long)archiveId);
         
         if (result == nil) {
-            [NSException raise:NSInconsistentArchiveException
+            [NSException raise:NSInconsistentArchiveException2
                          format:@"did not find referenced object %i.",
 			 archiveId];
         }
@@ -1163,14 +1163,14 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
 FINAL void _checkType(char _code, char _reqCode)
 {
     if (_code != _reqCode) {
-        [NSException raise:NSInconsistentArchiveException
+        [NSException raise:NSInconsistentArchiveException2
                      format:@"expected different typecode"];
     }
 }
 FINAL void _checkType2(char _code, char _reqCode1, char _reqCode2)
 {
     if ((_code != _reqCode1) && (_code != _reqCode2)) {
-        [NSException raise:NSInconsistentArchiveException
+        [NSException raise:NSInconsistentArchiveException2
                      format:@"expected different typecode"];
     }
 }
@@ -1272,7 +1272,7 @@ FINAL void _checkType2(char _code, char _reqCode1, char _reqCode2)
             break;
       
         default:
-            [NSException raise:NSInconsistentArchiveException
+            [NSException raise:NSInconsistentArchiveException2
                          format:@"unsupported typecode %i found.", tag];
             break;
     }
@@ -1395,7 +1395,7 @@ FINAL NSTagType _readTag(OSUnarchiver *self)
 
     _readBytes(self, &c, sizeof(c));
     if (c == 0) {
-        [NSException raise:NSInconsistentArchiveException
+        [NSException raise:NSInconsistentArchiveException2
                      format:@"found invalid type tag (0)"];
     }
     return (NSTagType)c;
@@ -1493,7 +1493,7 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type)
             break;
       
         default:
-            [NSException raise:NSInconsistentArchiveException
+            [NSException raise:NSInconsistentArchiveException2
                          format:@"encountered type '%s' in object context",
                            _type];
             break;
