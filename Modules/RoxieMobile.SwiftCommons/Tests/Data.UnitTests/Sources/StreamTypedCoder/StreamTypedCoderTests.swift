@@ -9,6 +9,7 @@
 // ----------------------------------------------------------------------------
 
 @testable import SwiftCommonsObjC
+import SwiftCommonsConcurrent
 import XCTest
 
 // ----------------------------------------------------------------------------
@@ -17,29 +18,28 @@ class StreamTypeCoderTests: XCTestCase
 {
 // MARK: - Tests
 
-    func testStreamType_Encoder()
-    {
-        let _object = ["Object": [MixedModel.shared]]
+    internal func assertNoThrow(action: @escaping () -> Void) -> Void {
+        var exception: NSException? = nil
 
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
-
-        XCTAssertNotEqual(data, NSMutableData())
+        objcTry {
+            action()
+        }.objcCatch { e in
+            exception = e
+        }.objcFinally {
+            XCTAssertNil(exception)
+        }
     }
 
-    func testStreamType_Decoder()
-    {
-        let _object = ["Object": [MixedModel.shared]]
+    internal func assertThrowsException(action: @escaping () -> Void) -> Void {
+        var exception: NSException? = nil
 
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
-
-        var _object2:[String: [MixedModel]]?
-        if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: [MixedModel]] {
-            _object2 = value
+        objcTry {
+            action()
+        }.objcCatch { e in
+            exception = e
+        }.objcFinally {
+            XCTAssertNotNil(exception)
         }
-
-        XCTAssertNotNil(_object2)
     }
 }
 
