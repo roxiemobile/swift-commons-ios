@@ -129,7 +129,6 @@
 				195D394B1F72CE4900118D17 /* Sources */,
 				195D394C1F72CE4900118D17 /* Frameworks */,
 				195D394D1F72CE4900118D17 /* Resources */,
-				3EA751EC08A55F5E89D49568 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,26 +183,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3EA751EC08A55F5E89D49568 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftCommons.Extensions.UnitTests/Pods-SwiftCommons.Extensions.UnitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Dispatch/DispatchFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DispatchFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftCommons.Extensions.UnitTests/Pods-SwiftCommons.Extensions.UnitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		410D89170B134F5AB3D22C7C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
