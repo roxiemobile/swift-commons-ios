@@ -50,3 +50,19 @@ target 'SwiftCommons.Diagnostics.UnitTests' do
   inject_shared_dependencies_1
   inject_shared_dependencies_2
 end
+
+target 'SwiftCommons.Data.UnitTests' do
+  project '../RoxieMobile.SwiftCommons/Tests/Data.UnitTests/SwiftCommons.Data.UnitTests.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_1
+  inject_shared_dependencies_2
+end
+
+target 'SwiftCommons.Extensions.UnitTests' do
+  project '../RoxieMobile.SwiftCommons/Tests/Extensions.UnitTests/SwiftCommons.Extensions.UnitTests.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_1
+  inject_shared_dependencies_2
+end
