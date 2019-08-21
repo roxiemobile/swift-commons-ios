@@ -74,6 +74,10 @@ final class JsonKeys: NonCreatable
     static let y = "y"
     static let z = "z"
 
+
+    static let number = "number"
+    static let string = "string"
+
 // MARK: - Other Keys
 
     static let noSuchKey = "no_such_key"

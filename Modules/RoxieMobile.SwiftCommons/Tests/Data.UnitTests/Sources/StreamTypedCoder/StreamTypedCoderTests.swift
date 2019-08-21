@@ -19,7 +19,7 @@ class StreamTypeCoderTests: XCTestCase
 
     func testStreamType_Encoder()
     {
-        let _object = Vector3DModel.shared
+        let _object = ["Object": [MixedModel.shared]]
 
         let data = NSMutableData()
         StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
@@ -29,13 +29,13 @@ class StreamTypeCoderTests: XCTestCase
 
     func testStreamType_Decoder()
     {
-        let _object = Vector3DModel.shared
+        let _object = ["Object": [MixedModel.shared]]
 
         let data = NSMutableData()
         StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
 
-        var _object2: Vector3DModel?
-        if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Vector3DModel {
+        var _object2:[String: [MixedModel]]?
+        if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: [MixedModel]] {
             _object2 = value
         }
 
