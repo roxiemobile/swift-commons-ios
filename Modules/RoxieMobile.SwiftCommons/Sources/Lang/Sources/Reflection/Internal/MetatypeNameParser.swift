@@ -45,7 +45,7 @@ class MetatypeNameParser
 
         // Split names of Types
         for _ in 0..<maxDepth {
-            if let from = wrappedName.index(of: "<"), let upto = wrappedName.index(of: ">") {
+            if let from = wrappedName.firstIndex(of: "<"), let upto = wrappedName.firstIndex(of: ">") {
 
                 // Extract name of wrapped type
                 names.append("\(wrappedName[...from])T\(wrappedName[upto...])")

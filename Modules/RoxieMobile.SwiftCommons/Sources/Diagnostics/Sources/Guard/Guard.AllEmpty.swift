@@ -29,7 +29,7 @@ extension Guard
         // objects: Collection<String>?
 
         if let error = tryIsFailure(try Check.allEmpty(values)) {
-            newGuardException(message, error, file, line).raise()
+            newGuardException(message(), error, file, line).raise()
         }
     }
 
@@ -50,7 +50,7 @@ extension Guard
         // objects: Collection<String?>?
 
         if let error = tryIsFailure(try Check.allEmpty(values)) {
-            newGuardException(message, error, file, line).raise()
+            newGuardException(message(), error, file, line).raise()
         }
     }
 }

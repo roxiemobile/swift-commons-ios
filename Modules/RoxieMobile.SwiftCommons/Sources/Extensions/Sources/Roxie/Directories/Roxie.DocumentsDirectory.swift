@@ -18,7 +18,7 @@ public extension Roxie
 // MARK: - Properties
 
     /// Returns the documents directory for the current user.
-    public static var documentsDirectory: URL? {
+    static var documentsDirectory: URL? {
         return Directories.Documents
     }
 

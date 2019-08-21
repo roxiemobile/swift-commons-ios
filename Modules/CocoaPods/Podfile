@@ -1,4 +1,5 @@
-source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
+#source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
+#source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '9.0'
 use_frameworks!
@@ -14,11 +15,11 @@ def pod_from(name, *args)
 end
 
 def inject_shared_dependencies_1
-  pod_from 'Dispatch', '~> 2.0.4'
+  pod 'Dispatch', :git => 'https://github.com/MamuninaNV/Dispatch.git', :branch => 'hotfix/2.0.4-patch.1'
 end
 
 def inject_shared_dependencies_2
-  pod_from 'CryptoSwift', '~> 0.13.1'
+  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git', :tag => '1.0.0'
 end
 
 
