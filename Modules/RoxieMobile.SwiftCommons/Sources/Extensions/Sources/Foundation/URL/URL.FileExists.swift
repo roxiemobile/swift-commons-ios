@@ -17,7 +17,7 @@ public extension URL
 // MARK: - Properties
 
     /// Returns a Boolean value that indicates whether a file or directory exists at a specified path.
-    var roxie_fileExists: Bool {
+    public var roxie_fileExists: Bool {
         return self.isFileURL && ((try? checkResourceIsReachable()) ?? false)
     }
 }

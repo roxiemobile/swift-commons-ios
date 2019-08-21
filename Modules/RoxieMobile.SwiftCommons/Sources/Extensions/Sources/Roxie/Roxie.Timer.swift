@@ -36,7 +36,7 @@ public extension Roxie
     /// - Returns:
     ///   A new `Timer` object, configured according to the specified parameters.
     ///
-    static func scheduledTimer(
+    public static func scheduledTimer(
             withTimeInterval interval: TimeInterval,
             repeats: Bool,
             block: @escaping TimerBlock
@@ -59,7 +59,7 @@ public extension Roxie
     ///   - repeats: If `true`, the timer will repeatedly reschedule itself until invalidated. If `false`, the timer will be invalidated after it fires.
     ///   - block: The execution body of the timer; the timer itself is passed as the parameter to this block when executed to aid in avoiding cyclical references.
     ///
-    static func timer(
+    public static func timer(
             timeInterval interval: TimeInterval,
             repeats: Bool,
             block: @escaping TimerBlock
@@ -85,7 +85,7 @@ public extension Roxie
 
 // MARK: - Inner Types
 
-    typealias TimerBlock = (@convention(block) (_ timer: Timer) -> Void)
+    public typealias TimerBlock = (@convention(block) (_ timer: Timer) -> Void)
 
     private struct TimerBlockHolder {
         let block: TimerBlock

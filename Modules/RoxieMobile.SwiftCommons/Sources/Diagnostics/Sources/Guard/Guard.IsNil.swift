@@ -25,7 +25,7 @@ extension Guard
     ///
     public static func isNil(_ reference: Any?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
         if let error = tryIsFailure(try Check.isNil(reference)) {
-            newGuardException(message(), error, file, line).raise()
+            newGuardException(message, error, file, line).raise()
         }
     }
 }

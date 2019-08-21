@@ -25,7 +25,7 @@ extension Guard
     ///
     public static func isFalse(_ condition: Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
         if let error = tryIsFailure(try Check.isFalse(condition)) {
-            newGuardException(message(), error, file, line).raise()
+            newGuardException(message, error, file, line).raise()
         }
     }
 }

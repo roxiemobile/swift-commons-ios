@@ -103,7 +103,7 @@ extension Map
                 rhsValue = fetch(valueFor: key, ignoreNil: true).value
         }
 
-        roxie_checkValue(key, lhsValue, rhsValue, optional: optional, check: action(), file: file, line: line)
+        roxie_checkValue(key, lhsValue, rhsValue, optional: optional, check: action, file: file, line: line)
     }
 
     /// Checks if a value is transformed successfully. Raises ObjC exception otherwise.

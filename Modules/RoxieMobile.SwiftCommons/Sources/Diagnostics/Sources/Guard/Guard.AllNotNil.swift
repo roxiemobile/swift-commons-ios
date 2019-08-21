@@ -29,7 +29,7 @@ extension Guard
         // objects: Collection<Any?>?
 
         if let error = tryIsFailure(try Check.allNotNil(objects)) {
-            newGuardException(message(), error, file, line).raise()
+            newGuardException(message, error, file, line).raise()
         }
     }
 }

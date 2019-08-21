@@ -25,7 +25,7 @@ extension Check
     ///
     public static func notNil(_ reference: Any?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard let _ = reference else {
-            throw newCheckError(message(), file, line)
+            throw newCheckError(message, file, line)
         }
     }
 }

@@ -25,7 +25,7 @@ extension Guard
     ///
     public static func notBlank(_ value: String?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
         if let error = tryIsFailure(try Check.notBlank(value)) {
-            newGuardException(message(), error, file, line).raise()
+            newGuardException(message, error, file, line).raise()
         }
     }
 }

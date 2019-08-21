@@ -30,7 +30,7 @@ extension Check
 
         if let collection = values, collection.isNotEmpty {
             guard collection.all({ $0.isEmpty }) else {
-                throw newCheckError(message(), file, line)
+                throw newCheckError(message, file, line)
             }
         }
     }
@@ -53,7 +53,7 @@ extension Check
 
         if let collection = values, collection.isNotEmpty {
             guard collection.all({ $0.isEmpty }) else {
-                throw newCheckError(message(), file, line)
+                throw newCheckError(message, file, line)
             }
         }
     }

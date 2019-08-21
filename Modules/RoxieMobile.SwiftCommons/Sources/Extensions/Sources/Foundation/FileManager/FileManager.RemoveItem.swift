@@ -26,7 +26,7 @@ public extension FileManager
     ///   `true` if the item was removed successfully. Returns `false` if an error occurred.
     ///
     @discardableResult
-    static func roxie_removeItem(at URL: URL?) -> Bool {
+    public static func roxie_removeItem(at URL: URL?) -> Bool {
         let fm = FileManager.default
         var result = false
 

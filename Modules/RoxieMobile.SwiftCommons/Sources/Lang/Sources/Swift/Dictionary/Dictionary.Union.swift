@@ -25,7 +25,7 @@ public extension Dictionary
     /// - Returns:
     ///   Union of `self` and the input dictionaries.
     ///
-    func union(_ dictionaries: Dictionary...) -> Dictionary {
+    public func union(_ dictionaries: Dictionary...) -> Dictionary {
         var anotherSelf = self // copy
 
         dictionaries.forEach { dictionary in

@@ -27,7 +27,7 @@ public extension FileManager
     ///   `true` if the item was copied successfully. Returns `false` if an error occurred.
     ///
     @discardableResult
-    static func roxie_copyItem(at srcURL: URL?, to dstURL: URL?) -> Bool {
+    public static func roxie_copyItem(at srcURL: URL?, to dstURL: URL?) -> Bool {
         let fm = FileManager.default
         var result = false
 

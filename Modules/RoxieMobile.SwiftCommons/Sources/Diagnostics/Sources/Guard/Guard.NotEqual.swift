@@ -26,7 +26,7 @@ extension Guard
     ///
     public static func notEqual<T:Equatable>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
         if let error = tryIsFailure(try Check.notEqual(unexpected, actual)) {
-            newGuardException(message(), error, file, line).raise()
+            newGuardException(message, error, file, line).raise()
         }
     }
 }

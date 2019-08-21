@@ -25,7 +25,7 @@ extension Check
     ///
     public static func isFalse(_ condition: Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard !condition else {
-            throw newCheckError(message(), file, line)
+            throw newCheckError(message, file, line)
         }
     }
 }

@@ -18,7 +18,7 @@ public extension Roxie
 // MARK: - Properties
 
     /// Returns the temporary directory for the current user.
-    static var temporaryDirectory: URL? {
+    public static var temporaryDirectory: URL? {
         return Directories.Temporary
     }
 

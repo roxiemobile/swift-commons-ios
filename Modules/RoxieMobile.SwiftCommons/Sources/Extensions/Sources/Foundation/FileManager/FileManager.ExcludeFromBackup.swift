@@ -25,7 +25,7 @@ public extension FileManager
     ///   `true` if resource successfully excluded from backups, `false` otherwise.
     ///
     @discardableResult
-    static func roxie_excludeFromBackup(at URL: URL?) -> Bool {
+    public static func roxie_excludeFromBackup(at URL: URL?) -> Bool {
         let fm = FileManager.default
 
         guard let path = URL?.path, fm.fileExists(atPath: path) else {

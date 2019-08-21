@@ -25,7 +25,7 @@ extension Check
     ///
     public static func empty(_ value: String?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard value.isEmpty else {
-            throw newCheckError(message(), file, line)
+            throw newCheckError(message, file, line)
         }
     }
 
@@ -44,7 +44,7 @@ extension Check
     ///
     public static func empty<T:Collection>(_ collection: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard collection.isEmpty else {
-            throw newCheckError(message(), file, line)
+            throw newCheckError(message, file, line)
         }
     }
 }

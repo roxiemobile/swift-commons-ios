@@ -17,7 +17,7 @@ public extension Bundle
 // MARK: - Properties
 
     /// Returns the release version number of the bundle, which identifies a released iteration of the app.
-    var shortVersion: String? {
+    public var shortVersion: String? {
         return self.infoDictionary?[Inner.ShortVersionKey] as? String
     }
 

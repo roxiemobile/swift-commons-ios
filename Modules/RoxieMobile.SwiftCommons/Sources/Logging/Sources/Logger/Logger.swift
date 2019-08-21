@@ -191,7 +191,7 @@ extension Logger
     ///   Formatted log message.
     ///
     public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ error: Error?) -> String {
-        var logMessage = description(level, tag, message())
+        var logMessage = description(level, tag, message)
 
         // Add error description
         if let err = error {
@@ -214,7 +214,7 @@ extension Logger
     ///   Formatted log message.
     ///
     public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ error: NSError?) -> String {
-        var logMessage = description(level, tag, message())
+        var logMessage = description(level, tag, message)
 
         // Add error description
         if let err = error {
@@ -241,7 +241,7 @@ extension Logger
     ///   Formatted log message.
     ///
     public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ exception: NSException?) -> String {
-        var logMessage = description(level, tag, message())
+        var logMessage = description(level, tag, message)
 
         // Add exception description
         if let exc = exception {

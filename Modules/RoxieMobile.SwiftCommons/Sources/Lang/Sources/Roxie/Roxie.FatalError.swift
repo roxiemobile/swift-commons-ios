@@ -23,7 +23,7 @@ public extension Roxie
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    static func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
         let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
     #if DEBUG
@@ -48,7 +48,7 @@ public extension Roxie
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    static func fatalError(_ message: @autoclosure () -> String = "", cause error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: @autoclosure () -> String = "", cause error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 
         // Add error description
@@ -68,7 +68,7 @@ public extension Roxie
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    static func fatalError(_ message: @autoclosure () -> String = "", cause error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: @autoclosure () -> String = "", cause error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 
         // Add error description
@@ -96,7 +96,7 @@ public extension Roxie
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    static func fatalError(_ message: @autoclosure () -> String = "", cause exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
+    public static func fatalError(_ message: @autoclosure () -> String = "", cause exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
         var logMessage = message()
 
         // Add exception description

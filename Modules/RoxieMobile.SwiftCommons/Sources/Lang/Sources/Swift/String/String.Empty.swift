@@ -13,7 +13,7 @@ public extension String
 // MARK: - Properties
 
     /// Checks if a String is not empty ("").
-    var isNotEmpty: Bool {
+    public var isNotEmpty: Bool {
         return !self.isEmpty
     }
 }
@@ -25,12 +25,12 @@ public extension Optional where Wrapped == String
 // MARK: - Properties
 
     /// Checks if a String is empty ("") or nil.
-    var isEmpty: Bool {
+    public var isEmpty: Bool {
         return (self == nil) || self!.isEmpty
     }
 
     /// Checks if a String is not empty ("") and not nil.
-    var isNotEmpty: Bool {
+    public var isNotEmpty: Bool {
         return !self.isEmpty
     }
 }

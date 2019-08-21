@@ -17,7 +17,7 @@ public extension Bundle
 // MARK: - Properties
 
     /// Returns the name of the bundle’s main executable file. For an app, this is the app executable.
-    var executableName: String? {
+    public var executableName: String? {
         return self.infoDictionary?[Inner.ExecutableNameKey] as? String
     }
 

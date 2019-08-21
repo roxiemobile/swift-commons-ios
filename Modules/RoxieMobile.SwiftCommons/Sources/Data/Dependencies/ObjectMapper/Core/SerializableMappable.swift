@@ -100,13 +100,13 @@ public extension SerializableMappable
 // MARK: - Methods
 
     /// Initializes object from a JSON string.
-    init(from JSONString: String, with context: MapContext? = nil) throws {
+    public init(from JSONString: String, with context: MapContext? = nil) throws {
         let JSON = try ValidatableHelper.parse(JSONString: JSONString)
         try self.init(from: JSON, with: context)
     }
 
     /// Initializes object from a JSON dictionary.
-    init(from JSON: JsonObject, with context: MapContext? = nil) throws {
+    public init(from JSON: JsonObject, with context: MapContext? = nil) throws {
         var object: Self?
 
         var exception: NSException?

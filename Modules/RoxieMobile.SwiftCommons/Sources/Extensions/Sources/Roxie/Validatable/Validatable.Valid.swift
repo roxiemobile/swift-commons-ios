@@ -21,7 +21,7 @@ public extension Validatable
     /// - Returns:
     ///   `true` if object is not valid; otherwise, `false`.
     ///
-    var isNotValid: Bool {
+    public var isNotValid: Bool {
         return !self.isValid
     }
 }

@@ -17,14 +17,14 @@ public extension String
 // MARK: - Properties
 
     /// Returns a localized string, using the main bundle.
-    var localized: String {
+    public var localized: String {
         return localized()
     }
 
 // MARK: - Methods
 
     /// Returns a localized string, using the main bundle if one is not specified.
-    func localized(tableName: String? = nil, bundle: Bundle? = nil, value: String? = nil, comment: String? = nil) -> String {
+    public func localized(tableName: String? = nil, bundle: Bundle? = nil, value: String? = nil, comment: String? = nil) -> String {
         return NSLocalizedString(self, tableName: tableName, bundle: bundle ?? Bundle.main, value: value ?? "", comment: comment ?? "")
     }
 }

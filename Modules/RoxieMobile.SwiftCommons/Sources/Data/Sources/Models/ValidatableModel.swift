@@ -171,10 +171,6 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
         return self.hash ?? rehash()
     }
 
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(self.hash ?? rehash())
-    }
-
     /// Calculates the model's hash value.
     ///
     /// - Returns:
@@ -273,7 +269,6 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
 
         var exception: NSException?
         objcTry {
-            let typeOfT = type(of: self)
 
             // Clone object
             object = try? typeOfT.init(from: Mapper().toJSON(self))

@@ -13,17 +13,17 @@ public extension String
 // MARK: - Methods
 
     /// Trims whitespaces from the beginning of self.
-    func trimStart() -> String {
+    public func trimStart() -> String {
         return stripStart()
     }
 
     /// Trims whitespaces from the end of self.
-    func trimEnd() -> String {
+    public func trimEnd() -> String {
         return stripEnd()
     }
 
     /// Trims whitespaces from both the beginning and the end of self.
-    func trim() -> String {
+    public func trim() -> String {
         return strip()
     }
 }

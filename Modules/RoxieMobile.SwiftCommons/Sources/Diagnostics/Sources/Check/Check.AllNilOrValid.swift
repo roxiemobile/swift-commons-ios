@@ -34,7 +34,7 @@ extension Check
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ $0.isNilOrValid }) else {
-                throw newCheckError(message(), file, line)
+                throw newCheckError(message, file, line)
             }
         }
     }
@@ -57,7 +57,7 @@ extension Check
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ ($0 as Validatable?).isNilOrValid }) else {
-                throw newCheckError(message(), file, line)
+                throw newCheckError(message, file, line)
             }
         }
     }
