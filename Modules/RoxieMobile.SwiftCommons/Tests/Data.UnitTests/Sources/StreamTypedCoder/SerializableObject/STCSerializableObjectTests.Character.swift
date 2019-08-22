@@ -13,27 +13,27 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension STCBasicTypeTests
+extension STCSerializableObjectTests
 {
 // MARK: - Tests
 
-    func testCharacter() {
-        
-        let _cValue: Character = "q"
+    func testSerializableModel_Character() {
+
+        let _cObject = STCCharacterModel.shared
 
         // Positive
         assertNoThrow {
             // Encode
             let data = NSMutableData()
-            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_cValue)
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_cObject)
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _cResult: Character?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Character {
+            var _cResult: STCCharacterModel?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? STCCharacterModel {
                 _cResult = value
             }
-            XCTAssertEqual(_cValue, (_cResult)!)
+            XCTAssertEqual(_cObject, (_cResult)!)
         }
     }
 }

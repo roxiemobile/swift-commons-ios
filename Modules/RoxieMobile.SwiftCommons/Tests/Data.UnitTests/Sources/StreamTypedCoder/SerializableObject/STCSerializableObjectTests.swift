@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  STCMappableObjectTests.swift
+//  STCSerializableObjectTests.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-class STCMappableObjectTests: StreamTypeCoderTests
+class STCSerializableObjectTests: StreamTypeCoderTests
 {
     // Do nothing
 }

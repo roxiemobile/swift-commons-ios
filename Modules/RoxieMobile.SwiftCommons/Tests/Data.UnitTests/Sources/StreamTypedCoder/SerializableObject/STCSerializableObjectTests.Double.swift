@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  STCCharacter.swift
+//  STCDouble.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -13,27 +13,27 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension STCBasicTypeTests
+extension STCSerializableObjectTests
 {
 // MARK: - Tests
 
-    func testCharacter() {
-        
-        let _cValue: Character = "q"
+    func testSerializableModel_Double() {
+
+        let _dObject = STCDoubleModel.shared
 
         // Positive
         assertNoThrow {
             // Encode
             let data = NSMutableData()
-            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_cValue)
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_dObject)
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _cResult: Character?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Character {
-                _cResult = value
+            var _dResult: STCDoubleModel?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? STCDoubleModel {
+                _dResult = value
             }
-            XCTAssertEqual(_cValue, (_cResult)!)
+            XCTAssertEqual(_dObject, (_dResult)!)
         }
     }
 }

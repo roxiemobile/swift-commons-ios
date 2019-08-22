@@ -155,6 +155,76 @@ final class Constants: NonCreatable
         JsonKeys.z: "\(Int32.max)"
     ]
 
+// MARK: - StreamTypedCoder Models
+
+    static let dictionaryForSTCBool: [String: Any] = [
+        JsonKeys.bool: false
+    ]
+
+    static let dictionaryForSTCCharacter: [String: Character] = [
+        JsonKeys.character: "p"
+    ]
+
+    static let dictionaryForSTCDouble: [String: Double] = [
+        JsonKeys.double: 0.75
+    ]
+
+    static let dictionaryOfSTCFloat32: [String: Float32] = [
+        JsonKeys.float32: 0.75
+    ]
+
+    static let dictionaryOfSTCFloat64: [String: Float64] = [
+        JsonKeys.float64: 0.75
+    ]
+
+    static let dictionaryOfSTCFloat: [String: Float] = [
+        JsonKeys.float: 0.75
+    ]
+
+    static let dictionaryOfSTCUnsignedInteger8: [String: UInt8] = [
+        JsonKeys.uint8: 5
+    ]
+
+    static let dictionaryOfSTCUnsignedInteger16: [String: UInt16] = [
+        JsonKeys.uint16: 10
+    ]
+
+    static let dictionaryOfSTCUnsignedInteger32: [String: UInt32] = [
+        JsonKeys.uint32: 10
+    ]
+
+    static let dictionaryOfSTCUnsignedInteger64: [String: UInt64] = [
+        JsonKeys.uint64: 10
+    ]
+
+    static let dictionaryOfSTCUnsignedInteger: [String: UInt] = [
+        JsonKeys.uint: 10
+    ]
+
+    static let dictionaryOfSTCSignedInteger8: [String: Int8] = [
+        JsonKeys.int8: 5
+    ]
+
+    static let dictionaryOfSTCSignedInteger16: [String: Int16] = [
+        JsonKeys.int16: -10
+    ]
+
+    static let dictionaryOfSTCSignedInteger32: [String: Int32] = [
+        JsonKeys.int32: -10
+    ]
+
+    static let dictionaryOfSTCSignedInteger64: [String: Int64] = [
+        JsonKeys.int64: -10
+    ]
+
+    static let dictionaryOfSTCSignedInteger: [String: Int] = [
+        JsonKeys.int: -10
+    ]
+
+    static let dictionaryForSTCString: [String: String] = [
+        JsonKeys.string: "not quality"
+    ]
+
     static let dictionaryMixed: [String: Any] = [
         JsonKeys.number: 25,
         JsonKeys.string: "Some string",

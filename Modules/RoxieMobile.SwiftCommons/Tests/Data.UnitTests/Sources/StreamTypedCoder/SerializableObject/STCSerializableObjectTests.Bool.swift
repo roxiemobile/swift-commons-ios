@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  STCCharacter.swift
+//  STCBool.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -13,27 +13,27 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension STCBasicTypeTests
+extension STCSerializableObjectTests
 {
 // MARK: - Tests
 
-    func testCharacter() {
-        
-        let _cValue: Character = "q"
+    func testSerializableModel_Bool() {
+
+        let _bObject = STCBoolModel.shared
 
         // Positive
         assertNoThrow {
             // Encode
             let data = NSMutableData()
-            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_cValue)
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_bObject)
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _cResult: Character?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Character {
-                _cResult = value
+            var _bResult: STCBoolModel?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? STCBoolModel {
+                _bResult = value
             }
-            XCTAssertEqual(_cValue, (_cResult)!)
+            XCTAssertEqual(_bObject, (_bResult)!)
         }
     }
 }

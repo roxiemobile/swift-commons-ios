@@ -74,7 +74,14 @@ final class JsonKeys: NonCreatable
     static let y = "y"
     static let z = "z"
 
+// MARK: - StreamTypedCoder models
 
+    static let bool = "bool"
+    static let character = "character"
+    static let double = "double"
+    static let float32 = "float32"
+    static let float64 = "float64"
+    static let float = "float"
     static let number = "number"
     static let string = "string"
 
