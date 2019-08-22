@@ -17,27 +17,62 @@ extension STCBasicTypeTests
 {
 // MARK: - Tests
 
-    func testFloat_Encoder() {
-        let _object: Float = 0.4
+    func testFloat() {
 
-        
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
-        XCTAssertNotEqual(data, NSMutableData())
-    }
+        let _fValue: Float = 0.4
 
-    func testFloat_Decoder() {
-        let _object: Float = 0.4
+        // Positive
+        assertNoThrow {
+            // Encode
+            let data = NSMutableData()
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_fValue)
+            XCTAssertNotEqual(data, NSMutableData())
 
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
-
-        var _object2: Float?
-        if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Float {
-            _object2 = value
+            // Decode
+            var _fResult: Float?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Float {
+                _fResult = value
+            }
+            XCTAssertEqual(_fValue, (_fResult)!)
         }
 
-        XCTAssertNotNil(_object2)
+        // --
+
+        let _f32Value: Float32 = 0.4
+
+        // Positive
+        assertNoThrow {
+            // Encode
+            let data = NSMutableData()
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_f32Value)
+            XCTAssertNotEqual(data, NSMutableData())
+
+            // Decode
+            var _f32Result: Float32?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Float32 {
+                _f32Result = value
+            }
+            XCTAssertEqual(_f32Value, (_f32Result)!)
+        }
+
+        // --
+
+        let _f64Value: Float64 = 0.4
+
+        // Positive
+        assertNoThrow {
+            // Encode
+            let data = NSMutableData()
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_f64Value)
+            XCTAssertNotEqual(data, NSMutableData())
+
+            // Decode
+            var _f64Result: Float64?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Float64 {
+                _f64Result = value
+            }
+            XCTAssertEqual(_f64Value, (_f64Result)!)
+        }
     }
 }
 

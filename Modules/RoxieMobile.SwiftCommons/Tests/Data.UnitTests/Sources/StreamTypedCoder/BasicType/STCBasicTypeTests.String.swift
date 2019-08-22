@@ -17,27 +17,24 @@ extension STCBasicTypeTests
 {
 // MARK: - Tests
 
-    func testString_Encoder() {
-        let _object: String = "quality"
+    func testString() {
 
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
+        let _sValue: String = "quality"
 
-        XCTAssertNotEqual(data, NSMutableData())
-    }
+        // Positive
+        assertNoThrow {
+            // Encode
+            let data = NSMutableData()
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_sValue)
+            XCTAssertNotEqual(data, NSMutableData())
 
-    func testString_Decoder() {
-        let _object: String = "quality" // ["Object": [MixedModel.shared]]
-
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
-
-        var _object2: String?
-        if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? String {
-            _object2 = value
+            // Decode
+            var _sResult: String?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? String {
+                _sResult = value
+            }
+            XCTAssertEqual(_sValue, (_sResult)!)
         }
-
-        XCTAssertNotNil(_object2)
     }
 }
 

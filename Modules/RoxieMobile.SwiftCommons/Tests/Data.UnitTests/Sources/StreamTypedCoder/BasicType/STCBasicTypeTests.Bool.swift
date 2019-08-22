@@ -17,29 +17,23 @@ extension STCBasicTypeTests
 {
 // MARK: - Tests
 
-    func testBoolean_Encoder() {
-        let _object: Bool? = true
+    func testBoolean() {
+
+        let _bValue = true
 
         // Positive
         assertNoThrow {
+            // Encode
             let data = NSMutableData()
-            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_bValue)
             XCTAssertNotEqual(data, NSMutableData())
-        }
-    }
 
-    func testBoolean_Decoder() {
-        let _object = true
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
-
-        // Positive
-        assertNoThrow {
-            var _object2:Bool?
+            // Decode
+            var _bResult: Bool?
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Bool {
-                _object2 = value
+                _bResult = value
             }
-            XCTAssertNotNil(_object2)
+            XCTAssertEqual(_bValue, (_bResult)!)
         }
     }
 }

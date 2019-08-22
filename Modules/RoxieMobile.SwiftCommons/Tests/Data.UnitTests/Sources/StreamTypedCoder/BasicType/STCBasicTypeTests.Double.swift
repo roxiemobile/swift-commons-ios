@@ -17,28 +17,24 @@ extension STCBasicTypeTests
 {
 // MARK: - Tests
 
-    func testDouble_Encoder() {
-        let _object: Double = 0.4
+    func testDouble() {
 
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
+        let _dValue: Double = 0.4
 
-        XCTAssertNotEqual(data, NSMutableData())
-    }
+        // Positive
+        assertNoThrow {
+            // Encode
+            let data = NSMutableData()
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_dValue)
+            XCTAssertNotEqual(data, NSMutableData())
 
-    func testDouble_Decoder() {
-        let _object: Double = 0.4
-
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(_object)
-
-        var _object2: Double?
-        if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Double {
-            _object2 = value
+            // Decode
+            var _dResult: Double?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Double {
+                _dResult = value
+            }
+            XCTAssertEqual(_dValue, (_dResult)!)
         }
-
-        XCTAssertNotNil(_object2)
     }
 }
-
 // ----------------------------------------------------------------------------
