@@ -19,7 +19,7 @@ extension STCArrayTests
 
     func testDouble() {
 
-        let _dValue: [Double] = [0.4]
+        let _dValue: [Double] = [Constants.doubleValue]
 
         // Positive
         assertNoThrow {

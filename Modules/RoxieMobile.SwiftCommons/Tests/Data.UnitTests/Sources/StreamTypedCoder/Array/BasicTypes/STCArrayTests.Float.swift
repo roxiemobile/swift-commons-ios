@@ -19,7 +19,7 @@ extension STCArrayTests
 
     func testFloat() {
 
-        let _fValue: [Float] = [0.4]
+        let _fValue: [Float] = [Constants.floatValue]
 
         // Positive
         assertNoThrow {
@@ -38,7 +38,7 @@ extension STCArrayTests
 
         // --
 
-        let _f32Value: [Float32] = [0.4]
+        let _f32Value: [Float32] = [Constants.float32Value]
 
         // Positive
         assertNoThrow {
@@ -57,7 +57,7 @@ extension STCArrayTests
 
         // --
 
-        let _f64Value: [Float64] = [0.4]
+        let _f64Value: [Float64] = [Constants.float64Value]
 
         // Positive
         assertNoThrow {

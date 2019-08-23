@@ -19,7 +19,7 @@ extension STCSetTests
 
     func testCharacter() {
         
-        let _cValue: Set<Character> = ["q"]
+        let _cValue: Set<Character> = [Constants.characterValue]
 
         // Positive
         assertNoThrow { [weak self] in

@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testString() {
 
-        let _sValue: [String: String] = [JsonKeys.value: "quality"]
+        let _sValue: [String: String] = [JsonKeys.value: Constants.stringValue]
 
         // Positive
         assertNoThrow {

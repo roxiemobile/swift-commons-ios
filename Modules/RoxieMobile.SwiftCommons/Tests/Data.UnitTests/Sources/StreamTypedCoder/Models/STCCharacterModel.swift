@@ -20,7 +20,7 @@ class STCCharacterModel: ValidatableModel
 
 // MARK: - Properties
 
-    fileprivate(set) var character: Character = "q"
+    fileprivate(set) var character: Character = " "
 
 // MARK: - Methods
 

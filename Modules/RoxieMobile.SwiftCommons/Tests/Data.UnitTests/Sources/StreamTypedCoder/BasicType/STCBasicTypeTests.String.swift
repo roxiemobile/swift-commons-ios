@@ -19,7 +19,7 @@ extension STCBasicTypeTests
 
     func testString() {
 
-        let _sValue: String = "quality"
+        let _sValue: String = Constants.stringValue
 
         // Positive
         assertNoThrow {

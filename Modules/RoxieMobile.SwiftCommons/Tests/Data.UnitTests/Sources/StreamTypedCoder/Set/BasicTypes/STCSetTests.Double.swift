@@ -19,7 +19,7 @@ extension STCSetTests
 
     func testDouble() {
 
-        let _dValue: Set<Double> = [0.4]
+        let _dValue: Set<Double> = [Constants.doubleValue]
 
         // Positive
         assertNoThrow { [weak self] in

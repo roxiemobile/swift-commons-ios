@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testCharacter() {
         
-        let _cValue: [String: Character] = [JsonKeys.value: "q"]
+        let _cValue: [String: Character] = [JsonKeys.value: Constants.characterValue]
 
         // Positive
         assertNoThrow {

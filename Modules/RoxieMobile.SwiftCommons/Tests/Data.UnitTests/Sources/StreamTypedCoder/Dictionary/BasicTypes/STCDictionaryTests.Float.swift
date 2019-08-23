@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testFloat() {
 
-        let _fValue: [String: Float] = [JsonKeys.value: 0.4]
+        let _fValue: [String: Float] = [JsonKeys.value: Constants.floatValue]
 
         // Positive
         assertNoThrow {
@@ -38,7 +38,7 @@ extension STCDictionaryTests
 
         // --
 
-        let _f32Value: [String: Float32] = [JsonKeys.value: 0.4]
+        let _f32Value: [String: Float32] = [JsonKeys.value: Constants.float32Value]
 
         // Positive
         assertNoThrow {
@@ -57,7 +57,7 @@ extension STCDictionaryTests
 
         // --
 
-        let _f64Value: [String: Float64] = [JsonKeys.value: 0.4]
+        let _f64Value: [String: Float64] = [JsonKeys.value: Constants.float64Value]
 
         // Positive
         assertNoThrow {

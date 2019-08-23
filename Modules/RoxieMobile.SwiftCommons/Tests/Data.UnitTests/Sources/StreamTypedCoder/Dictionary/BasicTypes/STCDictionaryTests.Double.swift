@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testDouble() {
 
-        let _dValue: [String: Double] = [JsonKeys.value: 0.4]
+        let _dValue: [String: Double] = [JsonKeys.value: Constants.doubleValue]
 
         // Positive
         assertNoThrow {

@@ -20,7 +20,7 @@ class STCDoubleModel: ValidatableModel
 
 // MARK: - Properties
 
-    fileprivate(set) var double: Double = 0.25
+    fileprivate(set) var double: Double = 0.0
 
 // MARK: - Methods
 

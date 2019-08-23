@@ -21,7 +21,7 @@ extension STCSetTests
 
         weak var weakSelf = self
 
-        let _fValue: Set<Float> = [0.4]
+        let _fValue: Set<Float> = [Constants.floatValue]
 
         // Positive
         assertNoThrow {
@@ -40,7 +40,7 @@ extension STCSetTests
 
         // --
 
-        let _f32Value: Set<Float32> = [0.4]
+        let _f32Value: Set<Float32> = [Constants.float32Value]
 
         // Positive
         assertNoThrow {
@@ -59,7 +59,7 @@ extension STCSetTests
 
         // --
 
-        let _f64Value: Set<Float64> = [0.4]
+        let _f64Value: Set<Float64> = [Constants.float64Value]
 
         // Positive
         assertNoThrow {

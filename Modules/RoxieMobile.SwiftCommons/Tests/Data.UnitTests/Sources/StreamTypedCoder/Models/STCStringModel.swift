@@ -20,7 +20,7 @@ class STCStringModel: ValidatableModel
 
     // MARK: - Properties
 
-    fileprivate(set) var string: String = "quality"
+    fileprivate(set) var string: String = ""
 
     // MARK: - Methods
 

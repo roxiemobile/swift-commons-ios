@@ -19,7 +19,7 @@ extension STCArrayTests
 
     func testCharacter() {
         
-        let _cValue: [Character] = ["q"]
+        let _cValue: [Character] = [Constants.characterValue]
 
         // Positive
         assertNoThrow {

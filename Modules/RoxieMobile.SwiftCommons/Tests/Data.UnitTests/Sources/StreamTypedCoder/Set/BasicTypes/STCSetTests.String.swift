@@ -19,7 +19,7 @@ extension STCSetTests
 
     func testString() {
 
-        let _sValue: Set<String> = ["quality"]
+        let _sValue: Set<String> = [Constants.stringValue]
 
         // Positive
         assertNoThrow { [weak self] in

@@ -162,73 +162,76 @@ final class Constants: NonCreatable
     ]
 
     static let dictionaryForSTCCharacter: [String: Character] = [
-        JsonKeys.character: "p"
+        JsonKeys.character: Constants.characterValue
     ]
 
     static let dictionaryForSTCDouble: [String: Double] = [
-        JsonKeys.double: 0.75
+        JsonKeys.double: Constants.doubleValue
     ]
 
     static let dictionaryOfSTCFloat32: [String: Float32] = [
-        JsonKeys.float32: 0.75
+        JsonKeys.float32: Constants.float32Value
     ]
 
     static let dictionaryOfSTCFloat64: [String: Float64] = [
-        JsonKeys.float64: 0.75
+        JsonKeys.float64: Constants.float64Value
     ]
 
     static let dictionaryOfSTCFloat: [String: Float] = [
-        JsonKeys.float: 0.75
+        JsonKeys.float: Constants.floatValue
     ]
 
     static let dictionaryOfSTCUnsignedInteger8: [String: UInt8] = [
-        JsonKeys.uint8: 5
+        JsonKeys.uint8: UInt8.max
     ]
 
     static let dictionaryOfSTCUnsignedInteger16: [String: UInt16] = [
-        JsonKeys.uint16: 10
+        JsonKeys.uint16: UInt16.max
     ]
 
     static let dictionaryOfSTCUnsignedInteger32: [String: UInt32] = [
-        JsonKeys.uint32: 10
+        JsonKeys.uint32: UInt32.max
     ]
 
     static let dictionaryOfSTCUnsignedInteger64: [String: UInt64] = [
-        JsonKeys.uint64: 10
+        JsonKeys.uint64: UInt64.max
     ]
 
     static let dictionaryOfSTCUnsignedInteger: [String: UInt] = [
-        JsonKeys.uint: 10
+        JsonKeys.uint: UInt.max
     ]
 
     static let dictionaryOfSTCSignedInteger8: [String: Int8] = [
-        JsonKeys.int8: 5
+        JsonKeys.int8: Int8.max
     ]
 
     static let dictionaryOfSTCSignedInteger16: [String: Int16] = [
-        JsonKeys.int16: -10
+        JsonKeys.int16: Int16.max
     ]
 
     static let dictionaryOfSTCSignedInteger32: [String: Int32] = [
-        JsonKeys.int32: -10
+        JsonKeys.int32: Int32.max
     ]
 
     static let dictionaryOfSTCSignedInteger64: [String: Int64] = [
-        JsonKeys.int64: -10
+        JsonKeys.int64: Int64.max
     ]
 
     static let dictionaryOfSTCSignedInteger: [String: Int] = [
-        JsonKeys.int: -10
+        JsonKeys.int: Int.max
     ]
 
     static let dictionaryForSTCString: [String: String] = [
-        JsonKeys.string: "not quality"
+        JsonKeys.string: Constants.stringValue
     ]
 
     static let dictionaryMixed: [String: Any] = [
-        JsonKeys.number: 25,
-        JsonKeys.string: "Some string",
-        JsonKeys.array: ["\(Int32.max)", 25]
+        JsonKeys.bool: false,
+        JsonKeys.character: Constants.characterValue,
+        JsonKeys.double: Constants.doubleValue,
+        JsonKeys.int: UInt.max,
+        JsonKeys.string: Constants.stringValue,
+        JsonKeys.array: ["\(Int32.max)", UInt.max]
     ]
 
 // MARK: - RawRepresentable types
@@ -251,6 +254,18 @@ final class Constants: NonCreatable
     static let invalidValue = UUID()
 
     static let nilValue = NSNull()
+
+    static let doubleValue = 0.25
+
+    static let stringValue = "quality"
+
+    static let float32Value: Float32 = 0.25
+
+    static let float64Value: Float64 = 0.25
+
+    static let floatValue: Float = 0.25
+
+    static let characterValue: Character = "q"
 }
 
 // ----------------------------------------------------------------------------
