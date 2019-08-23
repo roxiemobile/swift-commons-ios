@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testSerializableModel_Float() {
 
-        let _f32Object = [JsonKeys.object: STCFloat32Model.shared]
+        let _f32Object: [String: STCFloat32Model]? = [JsonKeys.object: STCFloat32Model.shared]
 
         // Positive
         assertNoThrow {
@@ -33,12 +33,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCFloat32Model] {
                 _f32Result = value
             }
-            XCTAssertEqual(_f32Object, (_f32Result)!)
+            XCTAssertEqual(_f32Object, _f32Result)
         }
 
         // --
 
-        let _f64Object = [JsonKeys.object: STCFloat64Model.shared]
+        let _f64Object: [String: STCFloat64Model]? = [JsonKeys.object: STCFloat64Model.shared]
 
         // Positive
         assertNoThrow {
@@ -52,12 +52,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCFloat64Model] {
                 _f64Result = value
             }
-            XCTAssertEqual(_f64Object, (_f64Result)!)
+            XCTAssertEqual(_f64Object, _f64Result)
         }
 
         // --
 
-        let _fObject = [JsonKeys.object: STCFloatModel.shared]
+        let _fObject: [String: STCFloatModel]? = [JsonKeys.object: STCFloatModel.shared]
 
         // Positive
         assertNoThrow {
@@ -71,7 +71,7 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCFloatModel] {
                 _fResult = value
             }
-            XCTAssertEqual(_fObject, (_fResult)!)
+            XCTAssertEqual(_fObject, _fResult)
         }
     }
 }

@@ -19,7 +19,7 @@ extension STCSerializableObjectTests
 
     func testSerializableModel_Character() {
 
-        let _cObject = STCCharacterModel.shared
+        let _cObject: STCCharacterModel? = STCCharacterModel.shared
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCSerializableObjectTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? STCCharacterModel {
                 _cResult = value
             }
-            XCTAssertEqual(_cObject, (_cResult)!)
+            XCTAssertEqual(_cObject, _cResult)
         }
     }
 }

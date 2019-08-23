@@ -19,7 +19,7 @@ extension STCArrayTests
 
     func testSerializableModel_UnsignetIntegers() {
 
-        let _uI8Object = [STCUnsignedInteger8Model.shared]
+        let _uI8Object: [STCUnsignedInteger8Model]? = [STCUnsignedInteger8Model.shared]
 
         // Positive
         assertNoThrow {
@@ -33,12 +33,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCUnsignedInteger8Model] {
                 _uI8Result = value
             }
-            XCTAssertEqual(_uI8Object, (_uI8Result)!)
+            XCTAssertEqual(_uI8Object, _uI8Result)
         }
 
         // --
 
-        let _uI16Object = [STCUnsignedInteger16Model.shared]
+        let _uI16Object: [STCUnsignedInteger16Model]? = [STCUnsignedInteger16Model.shared]
 
         // Positive
         assertNoThrow {
@@ -52,12 +52,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCUnsignedInteger16Model] {
                 _uI16Result = value
             }
-            XCTAssertEqual(_uI16Object, (_uI16Result)!)
+            XCTAssertEqual(_uI16Object, _uI16Result)
         }
 
         // --
 
-        let _uI32Object = [STCUnsignedInteger32Model.shared]
+        let _uI32Object: [STCUnsignedInteger32Model]? = [STCUnsignedInteger32Model.shared]
 
         // Positive
         assertNoThrow {
@@ -71,12 +71,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCUnsignedInteger32Model] {
                 _uI32Result = value
             }
-            XCTAssertEqual(_uI32Object, (_uI32Result)!)
+            XCTAssertEqual(_uI32Object, _uI32Result)
         }
 
         // --
 
-        let _uI64Object = [STCUnsignedInteger64Model.shared]
+        let _uI64Object: [STCUnsignedInteger64Model]? = [STCUnsignedInteger64Model.shared]
 
         // Positive
         assertNoThrow {
@@ -90,12 +90,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCUnsignedInteger64Model] {
                 _uI64Result = value
             }
-            XCTAssertEqual(_uI64Object, (_uI64Result)!)
+            XCTAssertEqual(_uI64Object, _uI64Result)
         }
 
         // --
 
-        let _uIObject = [STCUnsignedIntegerModel.shared]
+        let _uIObject: [STCUnsignedIntegerModel]? = [STCUnsignedIntegerModel.shared]
 
         // Positive
         assertNoThrow {
@@ -109,13 +109,13 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCUnsignedIntegerModel] {
                 _uIResult = value
             }
-            XCTAssertEqual(_uIObject, (_uIResult)!)
+            XCTAssertEqual(_uIObject, _uIResult)
         }
     }
 
     func testSerializableModel_SignetIntegers() {
 
-        let _i8Object = [STCSignedInteger8Model.shared]
+        let _i8Object: [STCSignedInteger8Model]? = [STCSignedInteger8Model.shared]
 
         // Positive
         assertNoThrow {
@@ -129,12 +129,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCSignedInteger8Model] {
                 _i8Result = value
             }
-            XCTAssertEqual(_i8Object, (_i8Result)!)
+            XCTAssertEqual(_i8Object, _i8Result)
         }
 
         // --
 
-        let _i16Object = [STCSignedInteger16Model.shared]
+        let _i16Object: [STCSignedInteger16Model]? = [STCSignedInteger16Model.shared]
 
         // Positive
         assertNoThrow {
@@ -148,12 +148,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCSignedInteger16Model] {
                 _i16Result = value
             }
-            XCTAssertEqual(_i16Object, (_i16Result)!)
+            XCTAssertEqual(_i16Object, _i16Result)
         }
 
         // --
 
-        let _i32Object = [STCSignedInteger32Model.shared]
+        let _i32Object: [STCSignedInteger32Model]? = [STCSignedInteger32Model.shared]
 
         // Positive
         assertNoThrow {
@@ -167,12 +167,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCSignedInteger32Model] {
                 _i32Result = value
             }
-            XCTAssertEqual(_i32Object, (_i32Result)!)
+            XCTAssertEqual(_i32Object, _i32Result)
         }
 
         // --
 
-        let _i64Object = [STCSignedInteger64Model.shared]
+        let _i64Object: [STCSignedInteger64Model]? = [STCSignedInteger64Model.shared]
 
         // Positive
         assertNoThrow {
@@ -186,12 +186,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCSignedInteger64Model] {
                 _i64Result = value
             }
-            XCTAssertEqual(_i64Object, (_i64Result)!)
+            XCTAssertEqual(_i64Object, _i64Result)
         }
 
         // --
 
-        let _iObject = [STCSignedIntegerModel.shared]
+        let _iObject: [STCSignedIntegerModel]? = [STCSignedIntegerModel.shared]
 
         // Positive
         assertNoThrow {
@@ -205,7 +205,7 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCSignedIntegerModel] {
                 _iResult = value
             }
-            XCTAssertEqual(_iObject, (_iResult)!)
+            XCTAssertEqual(_iObject, _iResult)
         }
     }
 }

@@ -19,7 +19,7 @@ extension STCSerializableObjectTests
 
     func testSerializableModel_Bool() {
 
-        let _bObject = STCBoolModel.shared
+        let _bObject: STCBoolModel? = STCBoolModel.shared
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCSerializableObjectTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? STCBoolModel {
                 _bResult = value
             }
-            XCTAssertEqual(_bObject, (_bResult)!)
+            XCTAssertEqual(_bObject, _bResult)
         }
     }
 }

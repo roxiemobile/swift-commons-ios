@@ -19,7 +19,7 @@ extension STCBasicTypeTests
 
     func testString() {
 
-        let _sValue: String = Constants.stringValue
+        let _sValue: String? = Constants.stringValue
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCBasicTypeTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? String {
                 _sResult = value
             }
-            XCTAssertEqual(_sValue, (_sResult)!)
+            XCTAssertEqual(_sValue, _sResult)
         }
     }
 }

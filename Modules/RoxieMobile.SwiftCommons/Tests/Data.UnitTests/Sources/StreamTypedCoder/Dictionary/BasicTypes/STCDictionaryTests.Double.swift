@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testDouble() {
 
-        let _dValue: [String: Double] = [JsonKeys.value: Constants.doubleValue]
+        let _dValue: [String: Double]? = [JsonKeys.value: Constants.doubleValue]
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Double] {
                 _dResult = value
             }
-            XCTAssertEqual(_dValue, (_dResult)!)
+            XCTAssertEqual(_dValue, _dResult)
         }
     }
 }

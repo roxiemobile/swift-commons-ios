@@ -19,7 +19,7 @@ extension STCBasicTypeTests
 
     func testFloat() {
 
-        let _fValue: Float = Constants.floatValue
+        let _fValue: Float? = Constants.floatValue
 
         // Positive
         assertNoThrow {
@@ -33,12 +33,12 @@ extension STCBasicTypeTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Float {
                 _fResult = value
             }
-            XCTAssertEqual(_fValue, (_fResult)!)
+            XCTAssertEqual(_fValue, _fResult)
         }
 
         // --
 
-        let _f32Value: Float32 = Constants.float32Value
+        let _f32Value: Float32? = Constants.float32Value
 
         // Positive
         assertNoThrow {
@@ -52,12 +52,12 @@ extension STCBasicTypeTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Float32 {
                 _f32Result = value
             }
-            XCTAssertEqual(_f32Value, (_f32Result)!)
+            XCTAssertEqual(_f32Value, _f32Result)
         }
 
         // --
 
-        let _f64Value: Float64 = Constants.float64Value
+        let _f64Value: Float64? = Constants.float64Value
 
         // Positive
         assertNoThrow {
@@ -71,7 +71,7 @@ extension STCBasicTypeTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Float64 {
                 _f64Result = value
             }
-            XCTAssertEqual(_f64Value, (_f64Result)!)
+            XCTAssertEqual(_f64Value, _f64Result)
         }
     }
 }

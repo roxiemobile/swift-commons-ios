@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testSerializableModel_UnsignetIntegers() {
 
-        let _uI8Object = [JsonKeys.object: STCUnsignedInteger8Model.shared]
+        let _uI8Object: [String: STCUnsignedInteger8Model]? = [JsonKeys.object: STCUnsignedInteger8Model.shared]
 
         // Positive
         assertNoThrow {
@@ -33,12 +33,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCUnsignedInteger8Model] {
                 _uI8Result = value
             }
-            XCTAssertEqual(_uI8Object, (_uI8Result)!)
+            XCTAssertEqual(_uI8Object, _uI8Result)
         }
 
         // --
 
-        let _uI16Object = [JsonKeys.object: STCUnsignedInteger16Model.shared]
+        let _uI16Object: [String: STCUnsignedInteger16Model]? = [JsonKeys.object: STCUnsignedInteger16Model.shared]
 
         // Positive
         assertNoThrow {
@@ -52,12 +52,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCUnsignedInteger16Model] {
                 _uI16Result = value
             }
-            XCTAssertEqual(_uI16Object, (_uI16Result)!)
+            XCTAssertEqual(_uI16Object, _uI16Result)
         }
 
         // --
 
-        let _uI32Object = [JsonKeys.object: STCUnsignedInteger32Model.shared]
+        let _uI32Object: [String: STCUnsignedInteger32Model]? = [JsonKeys.object: STCUnsignedInteger32Model.shared]
 
         // Positive
         assertNoThrow {
@@ -71,12 +71,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCUnsignedInteger32Model] {
                 _uI32Result = value
             }
-            XCTAssertEqual(_uI32Object, (_uI32Result)!)
+            XCTAssertEqual(_uI32Object, _uI32Result)
         }
 
         // --
 
-        let _uI64Object = [JsonKeys.object: STCUnsignedInteger64Model.shared]
+        let _uI64Object: [String: STCUnsignedInteger64Model]? = [JsonKeys.object: STCUnsignedInteger64Model.shared]
 
         // Positive
         assertNoThrow {
@@ -90,12 +90,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCUnsignedInteger64Model] {
                 _uI64Result = value
             }
-            XCTAssertEqual(_uI64Object, (_uI64Result)!)
+            XCTAssertEqual(_uI64Object, _uI64Result)
         }
 
         // --
 
-        let _uIObject = [JsonKeys.object: STCUnsignedIntegerModel.shared]
+        let _uIObject: [String: STCUnsignedIntegerModel]? = [JsonKeys.object: STCUnsignedIntegerModel.shared]
 
         // Positive
         assertNoThrow {
@@ -109,13 +109,13 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCUnsignedIntegerModel] {
                 _uIResult = value
             }
-            XCTAssertEqual(_uIObject, (_uIResult)!)
+            XCTAssertEqual(_uIObject, _uIResult)
         }
     }
 
     func testSerializableModel_SignetIntegers() {
 
-        let _i8Object = [JsonKeys.object: STCSignedInteger8Model.shared]
+        let _i8Object: [String: STCSignedInteger8Model]? = [JsonKeys.object: STCSignedInteger8Model.shared]
 
         // Positive
         assertNoThrow {
@@ -129,12 +129,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCSignedInteger8Model] {
                 _i8Result = value
             }
-            XCTAssertEqual(_i8Object, (_i8Result)!)
+            XCTAssertEqual(_i8Object, _i8Result)
         }
 
         // --
 
-        let _i16Object = [JsonKeys.object: STCSignedInteger16Model.shared]
+        let _i16Object: [String: STCSignedInteger16Model]? = [JsonKeys.object: STCSignedInteger16Model.shared]
 
         // Positive
         assertNoThrow {
@@ -148,12 +148,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCSignedInteger16Model] {
                 _i16Result = value
             }
-            XCTAssertEqual(_i16Object, (_i16Result)!)
+            XCTAssertEqual(_i16Object, _i16Result)
         }
 
         // --
 
-        let _i32Object = [JsonKeys.object: STCSignedInteger32Model.shared]
+        let _i32Object: [String: STCSignedInteger32Model]? = [JsonKeys.object: STCSignedInteger32Model.shared]
 
         // Positive
         assertNoThrow {
@@ -167,12 +167,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCSignedInteger32Model] {
                 _i32Result = value
             }
-            XCTAssertEqual(_i32Object, (_i32Result)!)
+            XCTAssertEqual(_i32Object, _i32Result)
         }
 
         // --
 
-        let _i64Object = [JsonKeys.object: STCSignedInteger64Model.shared]
+        let _i64Object: [String: STCSignedInteger64Model]? = [JsonKeys.object: STCSignedInteger64Model.shared]
 
         // Positive
         assertNoThrow {
@@ -186,12 +186,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCSignedInteger64Model] {
                 _i64Result = value
             }
-            XCTAssertEqual(_i64Object, (_i64Result)!)
+            XCTAssertEqual(_i64Object, _i64Result)
         }
 
         // --
 
-        let _iObject = [JsonKeys.object: STCSignedIntegerModel.shared]
+        let _iObject: [String: STCSignedIntegerModel]? = [JsonKeys.object: STCSignedIntegerModel.shared]
 
         // Positive
         assertNoThrow {
@@ -205,7 +205,7 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCSignedIntegerModel] {
                 _iResult = value
             }
-            XCTAssertEqual(_iObject, (_iResult)!)
+            XCTAssertEqual(_iObject, _iResult)
         }
     }
 }

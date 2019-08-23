@@ -19,7 +19,7 @@ extension STCArrayTests
 
     func testDouble() {
 
-        let _dValue: [Double] = [Constants.doubleValue]
+        let _dValue: [Double]? = [Constants.doubleValue]
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [Double] {
                 _dResult = value
             }
-            XCTAssertEqual(_dValue, (_dResult)!)
+            XCTAssertEqual(_dValue, _dResult)
         }
     }
 }

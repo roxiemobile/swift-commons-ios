@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  STCDouble.swift
+//  STCBool.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -17,23 +17,23 @@ extension STCDictionaryTests
 {
 // MARK: - Tests
 
-    func testSerializableModel_Double() {
+    func testSerializableModel_Bool() {
 
-        let _dObject = [JsonKeys.object: STCDoubleModel.shared]
+        let _bObject: [String: STCBoolModel]? = [JsonKeys.object: STCBoolModel.shared]
 
         // Positive
         assertNoThrow {
             // Encode
             let data = NSMutableData()
-            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_dObject)
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_bObject)
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _dResult: [String: STCDoubleModel]?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCDoubleModel] {
-                _dResult = value
+            var _bResult: [String: STCBoolModel]?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCBoolModel] {
+                _bResult = value
             }
-            XCTAssertEqual(_dObject, (_dResult)!)
+            XCTAssertEqual(_bObject, _bResult)
         }
     }
 }

@@ -397,7 +397,7 @@
 			path = SerializableObjects;
 			sourceTree = "<group>";
 		};
-		1A1F120F230ED2A900B8E7B7 /* SerizlizableObjects */ = {
+		1A1F120F230ED2A900B8E7B7 /* SerializableObjects */ = {
 			isa = PBXGroup;
 			children = (
 				1A1F121D230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelBool.swift */,
@@ -407,7 +407,7 @@
 				1A1F121E230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelInteger.swift */,
 				1A1F1220230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelString.swift */,
 			);
-			path = SerizlizableObjects;
+			path = SerializableObjects;
 			sourceTree = "<group>";
 		};
 		1A1F1210230ED2AB00B8E7B7 /* BasicTypes */ = {
@@ -465,7 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				1A1F1210230ED2AB00B8E7B7 /* BasicTypes */,
-				1A1F120F230ED2A900B8E7B7 /* SerizlizableObjects */,
+				1A1F120F230ED2A900B8E7B7 /* SerializableObjects */,
 				1A26A431230D6A7800D91822 /* STCDictionaryTests.swift */,
 			);
 			path = Dictionary;

@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testCharacter() {
         
-        let _cValue: [String: Character] = [JsonKeys.value: Constants.characterValue]
+        let _cValue: [String: Character]? = [JsonKeys.value: Constants.characterValue]
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Character] {
                 _cResult = value
             }
-            XCTAssertEqual(_cValue, (_cResult)!)
+            XCTAssertEqual(_cValue, _cResult)
         }
     }
 }

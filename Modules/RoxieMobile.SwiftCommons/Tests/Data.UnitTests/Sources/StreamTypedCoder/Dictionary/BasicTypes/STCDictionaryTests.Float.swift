@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testFloat() {
 
-        let _fValue: [String: Float] = [JsonKeys.value: Constants.floatValue]
+        let _fValue: [String: Float]? = [JsonKeys.value: Constants.floatValue]
 
         // Positive
         assertNoThrow {
@@ -33,12 +33,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Float] {
                 _fResult = value
             }
-            XCTAssertEqual(_fValue, (_fResult)!)
+            XCTAssertEqual(_fValue, _fResult)
         }
 
         // --
 
-        let _f32Value: [String: Float32] = [JsonKeys.value: Constants.float32Value]
+        let _f32Value: [String: Float32]? = [JsonKeys.value: Constants.float32Value]
 
         // Positive
         assertNoThrow {
@@ -52,12 +52,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Float32] {
                 _f32Result = value
             }
-            XCTAssertEqual(_f32Value, (_f32Result)!)
+            XCTAssertEqual(_f32Value, _f32Result)
         }
 
         // --
 
-        let _f64Value: [String: Float64] = [JsonKeys.value: Constants.float64Value]
+        let _f64Value: [String: Float64]? = [JsonKeys.value: Constants.float64Value]
 
         // Positive
         assertNoThrow {
@@ -71,7 +71,7 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Float64] {
                 _f64Result = value
             }
-            XCTAssertEqual(_f64Value, (_f64Result)!)
+            XCTAssertEqual(_f64Value, _f64Result)
         }
     }
 }

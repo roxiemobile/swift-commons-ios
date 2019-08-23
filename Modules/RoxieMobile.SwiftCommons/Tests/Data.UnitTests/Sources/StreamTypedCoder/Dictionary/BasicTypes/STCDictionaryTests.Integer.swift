@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testUnsignedIntegers() {
 
-        let _uI8Value: [String: UInt8] = [JsonKeys.value: UInt8.max]
+        let _uI8Value: [String: UInt8]? = [JsonKeys.value: UInt8.max]
 
         // Positive
         assertNoThrow {
@@ -33,12 +33,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: UInt8] {
                 _uI8Result = value
             }
-            XCTAssertEqual(_uI8Value, (_uI8Result)!)
+            XCTAssertEqual(_uI8Value, _uI8Result)
         }
 
         // --
 
-        let _uI16Value: [String: UInt16] = [JsonKeys.value: UInt16.max]
+        let _uI16Value: [String: UInt16]? = [JsonKeys.value: UInt16.max]
 
         // Positive
         assertNoThrow {
@@ -52,12 +52,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: UInt16] {
                 _uI16Result = value
             }
-            XCTAssertEqual(_uI16Value, (_uI16Result)!)
+            XCTAssertEqual(_uI16Value, _uI16Result)
         }
 
         // --
 
-        let _uI32Value: [String: UInt32] = [JsonKeys.value: UInt32.max]
+        let _uI32Value: [String: UInt32]? = [JsonKeys.value: UInt32.max]
 
         // Positive
         assertNoThrow {
@@ -71,12 +71,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: UInt32] {
                 _uI32Result = value
             }
-            XCTAssertEqual(_uI32Value, (_uI32Result)!)
+            XCTAssertEqual(_uI32Value, _uI32Result)
         }
 
         // --
 
-        let _uI64Value: [String: UInt64] = [JsonKeys.value: UInt64.max]
+        let _uI64Value: [String: UInt64]? = [JsonKeys.value: UInt64.max]
 
         // Positive
         assertNoThrow {
@@ -90,12 +90,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: UInt64] {
                 _uI64Result = value
             }
-            XCTAssertEqual(_uI64Value, (_uI64Result)!)
+            XCTAssertEqual(_uI64Value, _uI64Result)
         }
 
         // --
 
-        let _uIValue: [String: UInt] = [JsonKeys.value: UInt.max]
+        let _uIValue: [String: UInt]? = [JsonKeys.value: UInt.max]
 
         // Positive
         assertNoThrow {
@@ -109,13 +109,13 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: UInt] {
                 _uIResult = value
             }
-            XCTAssertEqual(_uIValue, (_uIResult)!)
+            XCTAssertEqual(_uIValue, _uIResult)
         }
     }
 
     func testSignedIntegers() {
 
-        let _i8Value: [String: Int8] = [JsonKeys.value: Int8.max]
+        let _i8Value: [String: Int8]? = [JsonKeys.value: Int8.max]
 
         // Positive
         assertNoThrow {
@@ -129,12 +129,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Int8] {
                 _i8Result = value
             }
-            XCTAssertEqual(_i8Value, (_i8Result)!)
+            XCTAssertEqual(_i8Value, _i8Result)
         }
 
         // --
 
-        let _i16Value: [String: Int16] = [JsonKeys.value: Int16.max]
+        let _i16Value: [String: Int16]? = [JsonKeys.value: Int16.max]
 
         // Positive
         assertNoThrow {
@@ -148,12 +148,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Int16] {
                 _i16Result = value
             }
-            XCTAssertEqual(_i16Value, (_i16Result)!)
+            XCTAssertEqual(_i16Value, _i16Result)
         }
 
         // --
 
-        let _i32Value: [String: Int32] = [JsonKeys.value: Int32.max]
+        let _i32Value: [String: Int32]? = [JsonKeys.value: Int32.max]
 
         // Positive
         assertNoThrow {
@@ -167,12 +167,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Int32] {
                 _i32Result = value
             }
-            XCTAssertEqual(_i32Value, (_i32Result)!)
+            XCTAssertEqual(_i32Value, _i32Result)
         }
 
         // --
 
-        let _i64Value: [String: Int64] = [JsonKeys.value: Int64.max]
+        let _i64Value: [String: Int64]? = [JsonKeys.value: Int64.max]
 
         // Positive
         assertNoThrow {
@@ -186,12 +186,12 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Int64] {
                 _i64Result = value
             }
-            XCTAssertEqual(_i64Value, (_i64Result)!)
+            XCTAssertEqual(_i64Value, _i64Result)
         }
 
         // --
 
-        let _iValue: [String: Int] = [JsonKeys.value: Int.max]
+        let _iValue: [String: Int]? = [JsonKeys.value: Int.max]
 
         // Positive
         assertNoThrow {
@@ -205,7 +205,7 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Int] {
                 _iResult = value
             }
-            XCTAssertEqual(_iValue, (_iResult)!)
+            XCTAssertEqual(_iValue, _iResult)
         }
     }
 }

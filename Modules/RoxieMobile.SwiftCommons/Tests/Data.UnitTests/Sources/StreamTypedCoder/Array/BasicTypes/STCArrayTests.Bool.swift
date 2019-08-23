@@ -19,7 +19,7 @@ extension STCArrayTests
 
     func testBoolean() {
 
-        let _bValue: [Bool] = [true]
+        let _bValue: [Bool]? = [true]
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [Bool] {
                 _bResult = value
             }
-            XCTAssertEqual(_bValue, (_bResult)!)
+            XCTAssertEqual(_bValue, _bResult)
         }
     }
 }

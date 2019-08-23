@@ -19,7 +19,7 @@ extension STCSerializableObjectTests
 
     func testSerializableModel_Float() {
 
-        let _f32Object = STCFloat32Model.shared
+        let _f32Object: STCFloat32Model? = STCFloat32Model.shared
 
         // Positive
         assertNoThrow {
@@ -33,12 +33,12 @@ extension STCSerializableObjectTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? STCFloat32Model {
                 _f32Result = value
             }
-            XCTAssertEqual(_f32Object, (_f32Result)!)
+            XCTAssertEqual(_f32Object, _f32Result)
         }
 
         // --
 
-        let _f64Object = STCFloat64Model.shared
+        let _f64Object: STCFloat64Model? = STCFloat64Model.shared
 
         // Positive
         assertNoThrow {
@@ -52,12 +52,12 @@ extension STCSerializableObjectTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? STCFloat64Model {
                 _f64Result = value
             }
-            XCTAssertEqual(_f64Object, (_f64Result)!)
+            XCTAssertEqual(_f64Object, _f64Result)
         }
 
         // --
 
-        let _fObject = STCFloatModel.shared
+        let _fObject: STCFloatModel? = STCFloatModel.shared
 
         // Positive
         assertNoThrow {
@@ -71,7 +71,7 @@ extension STCSerializableObjectTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? STCFloatModel {
                 _fResult = value
             }
-            XCTAssertEqual(_fObject, (_fResult)!)
+            XCTAssertEqual(_fObject, _fResult)
         }
     }
 }

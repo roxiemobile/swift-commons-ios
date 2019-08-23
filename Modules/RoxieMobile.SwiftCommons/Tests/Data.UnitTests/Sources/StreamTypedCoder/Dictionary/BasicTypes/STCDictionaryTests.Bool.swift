@@ -19,7 +19,7 @@ extension STCDictionaryTests
 
     func testBoolean() {
 
-        let _bValue: [String: Bool] = [JsonKeys.value: true]
+        let _bValue: [String: Bool]? = [JsonKeys.value: true]
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCDictionaryTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: Bool] {
                 _bResult = value
             }
-            XCTAssertEqual(_bValue, (_bResult)!)
+            XCTAssertEqual(_bValue, _bResult)
         }
     }
 }

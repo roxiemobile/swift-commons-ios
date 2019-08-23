@@ -19,7 +19,7 @@ extension STCBasicTypeTests
 
     func testCharacter() {
         
-        let _cValue: Character = Constants.characterValue
+        let _cValue: Character? = Constants.characterValue
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCBasicTypeTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Character {
                 _cResult = value
             }
-            XCTAssertEqual(_cValue, (_cResult)!)
+            XCTAssertEqual(_cValue, _cResult)
         }
     }
 }

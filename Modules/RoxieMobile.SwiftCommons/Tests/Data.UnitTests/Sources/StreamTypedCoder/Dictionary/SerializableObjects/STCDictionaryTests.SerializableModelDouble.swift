@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  STCCharacter.swift
+//  STCDouble.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -17,23 +17,23 @@ extension STCDictionaryTests
 {
 // MARK: - Tests
 
-    func testSerializableModel_Character() {
+    func testSerializableModel_Double() {
 
-        let _cObject = [JsonKeys.object: STCCharacterModel.shared]
+        let _dObject: [String: STCDoubleModel]? = [JsonKeys.object: STCDoubleModel.shared]
 
         // Positive
         assertNoThrow {
             // Encode
             let data = NSMutableData()
-            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_cObject)
+            StreamTypedEncoder(forWritingWith: data).encodeRootObject(_dObject)
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _cResult: [String: STCCharacterModel]?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCCharacterModel] {
-                _cResult = value
+            var _dResult: [String: STCDoubleModel]?
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [String: STCDoubleModel] {
+                _dResult = value
             }
-            XCTAssertEqual(_cObject, (_cResult)!)
+            XCTAssertEqual(_dObject, _dResult)
         }
     }
 }

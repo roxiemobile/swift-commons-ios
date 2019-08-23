@@ -19,7 +19,7 @@ extension STCArrayTests
 
     func testSerializableModel_String() {
 
-        let _sObject = [STCStringModel.shared]
+        let _sObject: [STCStringModel]? = [STCStringModel.shared]
 
         // Positive
         assertNoThrow {
@@ -33,7 +33,7 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCStringModel] {
                 _sResult = value
             }
-            XCTAssertEqual(_sObject, (_sResult)!)
+            XCTAssertEqual(_sObject, _sResult)
         }
     }
 }

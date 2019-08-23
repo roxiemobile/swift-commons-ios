@@ -19,7 +19,7 @@ extension STCArrayTests
 
     func testUnsignedIntegers() {
 
-        let _uI8Value: [UInt8] = [UInt8.max]
+        let _uI8Value: [UInt8]? = [UInt8.max]
 
         // Positive
         assertNoThrow {
@@ -33,12 +33,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [UInt8] {
                 _uI8Result = value
             }
-            XCTAssertEqual(_uI8Value, (_uI8Result)!)
+            XCTAssertEqual(_uI8Value, _uI8Result)
         }
 
         // --
 
-        let _uI16Value: [UInt16] = [UInt16.max]
+        let _uI16Value: [UInt16]? = [UInt16.max]
 
         // Positive
         assertNoThrow {
@@ -52,12 +52,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [UInt16] {
                 _uI16Result = value
             }
-            XCTAssertEqual(_uI16Value, (_uI16Result)!)
+            XCTAssertEqual(_uI16Value, _uI16Result)
         }
 
         // --
 
-        let _uI32Value: [UInt32] = [UInt32.max]
+        let _uI32Value: [UInt32]? = [UInt32.max]
 
         // Positive
         assertNoThrow {
@@ -71,12 +71,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [UInt32] {
                 _uI32Result = value
             }
-            XCTAssertEqual(_uI32Value, (_uI32Result)!)
+            XCTAssertEqual(_uI32Value, _uI32Result)
         }
 
         // --
 
-        let _uI64Value: [UInt64] = [UInt64.max]
+        let _uI64Value: [UInt64]? = [UInt64.max]
 
         // Positive
         assertNoThrow {
@@ -90,12 +90,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [UInt64] {
                 _uI64Result = value
             }
-            XCTAssertEqual(_uI64Value, (_uI64Result)!)
+            XCTAssertEqual(_uI64Value, _uI64Result)
         }
 
         // --
 
-        let _uIValue: [UInt] = [UInt.max]
+        let _uIValue: [UInt]? = [UInt.max]
 
         // Positive
         assertNoThrow {
@@ -109,13 +109,13 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [UInt] {
                 _uIResult = value
             }
-            XCTAssertEqual(_uIValue, (_uIResult)!)
+            XCTAssertEqual(_uIValue, _uIResult)
         }
     }
 
     func testSignedIntegers() {
 
-        let _i8Value: [Int8] = [Int8.max]
+        let _i8Value: [Int8]? = [Int8.max]
 
         // Positive
         assertNoThrow {
@@ -129,12 +129,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [Int8] {
                 _i8Result = value
             }
-            XCTAssertEqual(_i8Value, (_i8Result)!)
+            XCTAssertEqual(_i8Value, _i8Result)
         }
 
         // --
 
-        let _i16Value: [Int16] = [Int16.max]
+        let _i16Value: [Int16]? = [Int16.max]
 
         // Positive
         assertNoThrow {
@@ -148,12 +148,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [Int16] {
                 _i16Result = value
             }
-            XCTAssertEqual(_i16Value, (_i16Result)!)
+            XCTAssertEqual(_i16Value, _i16Result)
         }
 
         // --
 
-        let _i32Value: [Int32] = [Int32.max]
+        let _i32Value: [Int32]? = [Int32.max]
 
         // Positive
         assertNoThrow {
@@ -167,12 +167,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [Int32] {
                 _i32Result = value
             }
-            XCTAssertEqual(_i32Value, (_i32Result)!)
+            XCTAssertEqual(_i32Value, _i32Result)
         }
 
         // --
 
-        let _i64Value: [Int64] = [Int64.max]
+        let _i64Value: [Int64]? = [Int64.max]
 
         // Positive
         assertNoThrow {
@@ -186,12 +186,12 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [Int64] {
                 _i64Result = value
             }
-            XCTAssertEqual(_i64Value, (_i64Result)!)
+            XCTAssertEqual(_i64Value, _i64Result)
         }
 
         // --
 
-        let _iValue: [Int] = [Int.max]
+        let _iValue: [Int]? = [Int.max]
 
         // Positive
         assertNoThrow {
@@ -205,7 +205,7 @@ extension STCArrayTests
             if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [Int] {
                 _iResult = value
             }
-            XCTAssertEqual(_iValue, (_iResult)!)
+            XCTAssertEqual(_iValue, _iResult)
         }
     }
 }
