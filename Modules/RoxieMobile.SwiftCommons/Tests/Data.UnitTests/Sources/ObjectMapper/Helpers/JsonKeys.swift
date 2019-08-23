@@ -82,7 +82,6 @@ final class JsonKeys: NonCreatable
     static let float32 = "float32"
     static let float64 = "float64"
     static let float = "float"
-    static let number = "number"
     static let string = "string"
 
 // MARK: - Other Keys

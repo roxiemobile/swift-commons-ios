@@ -225,13 +225,24 @@ final class Constants: NonCreatable
         JsonKeys.string: Constants.stringValue
     ]
 
-    static let dictionaryMixed: [String: Any] = [
+    static let dictionarySTCMixed: [String: Any] = [
         JsonKeys.bool: false,
         JsonKeys.character: Constants.characterValue,
         JsonKeys.double: Constants.doubleValue,
-        JsonKeys.int: UInt.max,
-        JsonKeys.string: Constants.stringValue,
-        JsonKeys.array: ["\(Int32.max)", UInt.max]
+        JsonKeys.float: Constants.floatValue,
+        JsonKeys.float32: Constants.float32Value,
+        JsonKeys.float64: Constants.float64Value,
+        JsonKeys.uint8: UInt8.max,
+        JsonKeys.uint16: UInt16.max,
+        JsonKeys.uint32: UInt32.max,
+        JsonKeys.uint64: UInt64.max,
+        JsonKeys.uint: UInt.max,
+        JsonKeys.int8: Int8.max,
+        JsonKeys.int16: Int16.max,
+        JsonKeys.int32: Int32.max,
+        JsonKeys.int64: Int64.max,
+        JsonKeys.int: Int.max,
+        JsonKeys.string: Constants.stringValue
     ]
 
 // MARK: - RawRepresentable types
