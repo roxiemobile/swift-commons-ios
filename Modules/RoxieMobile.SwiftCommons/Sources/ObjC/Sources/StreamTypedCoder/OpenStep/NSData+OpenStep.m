@@ -639,6 +639,13 @@
 		  atCursor:cursor];
 	    break;
 	}
+        case _C_LNG_LNG:
+	case _C_ULNG_LNG: {
+	    [self deserializeBytes:data
+		  length:sizeof(unsigned long long)
+		  atCursor:cursor];
+	    break;
+	}
         case _C_FLT: {
 	    [self deserializeBytes:data
 		  length:sizeof(float)
@@ -1003,6 +1010,11 @@
 	case _C_LNG:
 	case _C_ULNG: {
 	    [self appendBytes:data length:sizeof(unsigned long)];
+	    break;
+	}
+	case _C_LNG_LNG:
+	case _C_ULNG_LNG: {
+	    [self appendBytes:data length:sizeof(unsigned long long)];
 	    break;
 	}
 	case _C_FLT: {

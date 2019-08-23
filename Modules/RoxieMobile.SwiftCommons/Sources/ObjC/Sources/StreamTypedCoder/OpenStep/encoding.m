@@ -99,11 +99,11 @@ objc_sizeof_type(const char* type)
     return sizeof(unsigned long);
     break;
 
-  case 'q':
+  case _C_LNG_LNG:
     return sizeof(long long);
     break;
 
-  case 'Q':
+  case _C_ULNG_LNG:
     return sizeof(unsigned long long);
     break;
 
@@ -216,11 +216,11 @@ objc_alignof_type(const char* type)
     return __alignof__(unsigned long);
     break;
 
-  case 'q':
+  case _C_LNG_LNG:
     return __alignof__(long long);
     break;
 
-  case 'Q':
+  case _C_ULNG_LNG:
     return __alignof__(unsigned long long);
     break;
 
@@ -355,8 +355,8 @@ objc_skip_typespec (const char* type)
   case _C_UINT:
   case _C_LNG:
   case _C_ULNG:
-  case 'q':
-  case 'Q':
+  case _C_LNG_LNG:
+  case _C_ULNG_LNG:
   case _C_FLT:
   case _C_DBL:
   case _C_VOID:

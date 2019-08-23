@@ -90,11 +90,12 @@ static NSMapTableKeyCallBacks NSIdentityObjectMapKeyCallbacks = {
 FINAL BOOL isBaseType(const char *_type)
 {
     switch (*_type) {
-        case _C_CHR: case _C_UCHR:
-        case _C_SHT: case _C_USHT:
-        case _C_INT: case _C_UINT:
-        case _C_LNG: case _C_ULNG:
-        case _C_FLT: case _C_DBL:
+        case _C_CHR:     case _C_UCHR:
+        case _C_SHT:     case _C_USHT:
+        case _C_INT:     case _C_UINT:
+        case _C_LNG:     case _C_ULNG:
+        case _C_LNG_LNG: case _C_ULNG_LNG:
+        case _C_FLT:     case _C_DBL:
             return YES;
 
         default:
@@ -602,16 +603,14 @@ FINAL void _writeObjC(OSArchiver *self, const void *_value, const char *_type);
             _writeTag(self, *_type);
             _writeObjC(self, *(char **)_value, _type + 1);
             break;
+
         case _C_CHARPTR:
-            _writeTag(self, *_type);
-            _writeObjC(self, _value, _type);
-            break;
-      
-        case _C_CHR:    case _C_UCHR:
-        case _C_SHT:    case _C_USHT:
-        case _C_INT:    case _C_UINT:
-        case _C_LNG:    case _C_ULNG:
-        case _C_FLT:    case _C_DBL:
+        case _C_CHR:     case _C_UCHR:
+        case _C_SHT:     case _C_USHT:
+        case _C_INT:     case _C_UINT:
+        case _C_LNG:     case _C_ULNG:
+        case _C_LNG_LNG: case _C_ULNG_LNG:
+        case _C_FLT:     case _C_DBL:
             _writeTag(self, *_type);
             _writeObjC(self, _value, _type);
             break;
@@ -1262,11 +1261,12 @@ FINAL void _checkType2(char _code, char _reqCode1, char _reqCode2)
             break;
       
         case _C_CHARPTR:
-        case _C_CHR:    case _C_UCHR:
-        case _C_SHT:    case _C_USHT:
-        case _C_INT:    case _C_UINT:
-        case _C_LNG:    case _C_ULNG:
-        case _C_FLT:    case _C_DBL:
+        case _C_CHR:     case _C_UCHR:
+        case _C_SHT:     case _C_USHT:
+        case _C_INT:     case _C_UINT:
+        case _C_LNG:     case _C_ULNG:
+        case _C_LNG_LNG: case _C_ULNG_LNG:
+        case _C_FLT:     case _C_DBL:
             _checkType(*_type, tag);
             _readObjC(self, _value, _type);
             break;
