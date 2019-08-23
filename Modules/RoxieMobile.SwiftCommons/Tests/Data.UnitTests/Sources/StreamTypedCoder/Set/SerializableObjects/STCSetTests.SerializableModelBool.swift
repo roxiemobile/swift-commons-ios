@@ -22,18 +22,18 @@ extension STCSetTests
         let _bObject: Set<STCBoolModel> = [STCBoolModel.shared]
 
         // Positive
-        assertNoThrow {
+        assertNoThrow { [weak self] in
             // Encode
             let data = NSMutableData()
             StreamTypedEncoder(forWritingWith: data).encodeRootObject(_bObject)
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _bResult: Set<STCBoolModel>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCBoolModel> {
-                _bResult = value
+            var _bResult = Set<STCBoolModel>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                self?.transform(set: &_bResult, from: value)
             }
-            XCTAssertEqual(_bObject, (_bResult)!)
+            XCTAssertEqual(_bObject, _bResult)
         }
     }
 }

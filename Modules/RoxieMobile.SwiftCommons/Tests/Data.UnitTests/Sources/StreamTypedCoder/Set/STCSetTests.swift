@@ -8,9 +8,17 @@
 //
 // ----------------------------------------------------------------------------
 
+import Foundation
+
+// ----------------------------------------------------------------------------
+
 class STCSetTests: StreamTypeCoderTests
 {
-    // Do nothing
+    internal func transform<T>(set: inout Set<T>, from nsset: NSSet) {
+        set = Set<T>(nsset.allObjects.map({ (item) -> T in
+            return item as! T
+        }))
+    }
 }
 
 // ----------------------------------------------------------------------------

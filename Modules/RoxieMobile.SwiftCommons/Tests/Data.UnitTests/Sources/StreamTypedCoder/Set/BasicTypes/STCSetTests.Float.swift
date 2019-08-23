@@ -19,6 +19,8 @@ extension STCSetTests
 
     func testFloat() {
 
+        weak var weakSelf = self
+
         let _fValue: Set<Float> = [0.4]
 
         // Positive
@@ -29,11 +31,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _fResult: Set<Float>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<Float> {
-                _fResult = value
+            var _fResult = Set<Float>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_fResult, from: value)
             }
-            XCTAssertEqual(_fValue, (_fResult)!)
+            XCTAssertEqual(_fValue, _fResult)
         }
 
         // --
@@ -48,11 +50,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _f32Result: Set<Float32>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<Float32> {
-                _f32Result = value
+            var _f32Result = Set<Float32>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_f32Result, from: value)
             }
-            XCTAssertEqual(_f32Value, (_f32Result)!)
+            XCTAssertEqual(_f32Value, _f32Result)
         }
 
         // --
@@ -67,11 +69,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _f64Result: Set<Float64>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<Float64> {
-                _f64Result = value
+            var _f64Result = Set<Float64>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_f64Result, from: value)
             }
-            XCTAssertEqual(_f64Value, (_f64Result)!)
+            XCTAssertEqual(_f64Value, _f64Result)
         }
     }
 }

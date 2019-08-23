@@ -19,6 +19,8 @@ extension STCSetTests
 
     func testSerializableModel_Float() {
 
+        weak var weakSelf = self
+
         let _f32Object: Set<STCFloat32Model> = [STCFloat32Model.shared]
 
         // Positive
@@ -29,11 +31,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _f32Result: Set<STCFloat32Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCFloat32Model> {
-                _f32Result = value
+            var _f32Result = Set<STCFloat32Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_f32Result, from: value)
             }
-            XCTAssertEqual(_f32Object, (_f32Result)!)
+            XCTAssertEqual(_f32Object, _f32Result)
         }
 
         // --
@@ -48,11 +50,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _f64Result: Set<STCFloat64Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCFloat64Model> {
-                _f64Result = value
+            var _f64Result = Set<STCFloat64Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_f64Result, from: value)
             }
-            XCTAssertEqual(_f64Object, (_f64Result)!)
+            XCTAssertEqual(_f64Object, _f64Result)
         }
 
         // --
@@ -67,11 +69,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _fResult: Set<STCFloatModel>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCFloatModel> {
-                _fResult = value
+            var _fResult = Set<STCFloatModel>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_fResult, from: value)
             }
-            XCTAssertEqual(_fObject, (_fResult)!)
+            XCTAssertEqual(_fObject, _fResult)
         }
     }
 }

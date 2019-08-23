@@ -19,21 +19,21 @@ extension STCSetTests
 
     func testSerializableModel_String() {
 
-        let _sObject = [STCStringModel.shared]
+        let _sObject: Set<STCStringModel> = [STCStringModel.shared]
 
         // Positive
-        assertNoThrow {
+        assertNoThrow { [weak self] in
             // Encode
             let data = NSMutableData()
             StreamTypedEncoder(forWritingWith: data).encodeRootObject(_sObject)
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _sResult: [STCStringModel]?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? [STCStringModel] {
-                _sResult = value
+            var _sResult = Set<STCStringModel>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                self?.transform(set: &_sResult, from: value)
             }
-            XCTAssertEqual(_sObject, (_sResult)!)
+            XCTAssertEqual(_sObject, _sResult)
         }
     }
 }

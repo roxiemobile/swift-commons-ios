@@ -19,6 +19,8 @@ extension STCSetTests
 
     func testSerializableModel_UnsignetIntegers() {
 
+         weak var weakSelf = self
+
         let _uI8Object: Set<STCUnsignedInteger8Model> = [STCUnsignedInteger8Model.shared]
 
         // Positive
@@ -29,11 +31,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _uI8Result: Set<STCUnsignedInteger8Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCUnsignedInteger8Model> {
-                _uI8Result = value
+            var _uI8Result = Set<STCUnsignedInteger8Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_uI8Result, from: value)
             }
-            XCTAssertEqual(_uI8Object, (_uI8Result)!)
+            XCTAssertEqual(_uI8Object, _uI8Result)
         }
 
         // --
@@ -48,11 +50,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _uI16Result: Set<STCUnsignedInteger16Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCUnsignedInteger16Model> {
-                _uI16Result = value
+            var _uI16Result = Set<STCUnsignedInteger16Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_uI16Result, from: value)
             }
-            XCTAssertEqual(_uI16Object, (_uI16Result)!)
+            XCTAssertEqual(_uI16Object, _uI16Result)
         }
 
         // --
@@ -67,11 +69,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _uI32Result: Set<STCUnsignedInteger32Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCUnsignedInteger32Model> {
-                _uI32Result = value
+            var _uI32Result = Set<STCUnsignedInteger32Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_uI32Result, from: value)
             }
-            XCTAssertEqual(_uI32Object, (_uI32Result)!)
+            XCTAssertEqual(_uI32Object, _uI32Result)
         }
 
         // --
@@ -86,11 +88,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _uI64Result: Set<STCUnsignedInteger64Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCUnsignedInteger64Model> {
-                _uI64Result = value
+            var _uI64Result = Set<STCUnsignedInteger64Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_uI64Result, from: value)
             }
-            XCTAssertEqual(_uI64Object, (_uI64Result)!)
+            XCTAssertEqual(_uI64Object, _uI64Result)
         }
 
         // --
@@ -105,15 +107,17 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _uIResult: Set<STCUnsignedIntegerModel>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCUnsignedIntegerModel> {
-                _uIResult = value
+            var _uIResult = Set<STCUnsignedIntegerModel>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_uIResult, from: value)
             }
-            XCTAssertEqual(_uIObject, (_uIResult)!)
+            XCTAssertEqual(_uIObject, _uIResult)
         }
     }
 
     func testSerializableModel_SignetIntegers() {
+
+         weak var weakSelf = self
 
         let _i8Object: Set<STCSignedInteger8Model> = [STCSignedInteger8Model.shared]
 
@@ -125,11 +129,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _i8Result: Set<STCSignedInteger8Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCSignedInteger8Model> {
-                _i8Result = value
+            var _i8Result = Set<STCSignedInteger8Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_i8Result, from: value)
             }
-            XCTAssertEqual(_i8Object, (_i8Result)!)
+            XCTAssertEqual(_i8Object, _i8Result)
         }
 
         // --
@@ -144,11 +148,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _i16Result: Set<STCSignedInteger16Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCSignedInteger16Model> {
-                _i16Result = value
+            var _i16Result = Set<STCSignedInteger16Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_i16Result, from: value)
             }
-            XCTAssertEqual(_i16Object, (_i16Result)!)
+            XCTAssertEqual(_i16Object, _i16Result)
         }
 
         // --
@@ -163,11 +167,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _i32Result: Set<STCSignedInteger32Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCSignedInteger32Model> {
-                _i32Result = value
+            var _i32Result = Set<STCSignedInteger32Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_i32Result, from: value)
             }
-            XCTAssertEqual(_i32Object, (_i32Result)!)
+            XCTAssertEqual(_i32Object, _i32Result)
         }
 
         // --
@@ -182,11 +186,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _i64Result: Set<STCSignedInteger64Model>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCSignedInteger64Model> {
-                _i64Result = value
+            var _i64Result = Set<STCSignedInteger64Model>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_i64Result, from: value)
             }
-            XCTAssertEqual(_i64Object, (_i64Result)!)
+            XCTAssertEqual(_i64Object, _i64Result)
         }
 
         // --
@@ -201,11 +205,11 @@ extension STCSetTests
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _iResult: Set<STCSignedIntegerModel>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<STCSignedIntegerModel> {
-                _iResult = value
+            var _iResult = Set<STCSignedIntegerModel>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                weakSelf?.transform(set: &_iResult, from: value)
             }
-            XCTAssertEqual(_iObject, (_iResult)!)
+            XCTAssertEqual(_iObject, _iResult)
         }
     }
 }

@@ -22,18 +22,18 @@ extension STCSetTests
         let _cValue: Set<Character> = ["q"]
 
         // Positive
-        assertNoThrow {
+        assertNoThrow { [weak self] in
             // Encode
             let data = NSMutableData()
             StreamTypedEncoder(forWritingWith: data).encodeRootObject(_cValue)
             XCTAssertNotEqual(data, NSMutableData())
 
             // Decode
-            var _cResult: Set<Character>?
-            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? Set<Character> {
-                _cResult = value
+            var _cResult = Set<Character>()
+            if let value = StreamTypedDecoder(forReadingWith: data as Data)?.decodeObject() as? NSSet {
+                self?.transform(set: &_cResult, from: value)
             }
-            XCTAssertEqual(_cValue, (_cResult)!)
+            XCTAssertEqual(_cValue, _cResult)
         }
     }
 }
