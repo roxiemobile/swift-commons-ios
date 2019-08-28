@@ -16,7 +16,7 @@ class STCStringModel: ValidatableModel
 {
     // MARK: - Construction
 
-    static let shared = try! STCStringModel(from: Constants.dictionaryForSTCString)
+    static let shared = try! STCStringModel(from: Constants.dictionaryOfSTCString)
 
     // MARK: - Properties
 

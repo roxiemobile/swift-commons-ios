@@ -16,7 +16,7 @@ class STCDoubleModel: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! STCDoubleModel(from: Constants.dictionaryForSTCDouble)
+    static let shared = try! STCDoubleModel(from: Constants.dictionaryOfSTCDouble)
 
 // MARK: - Properties
 

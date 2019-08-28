@@ -16,7 +16,7 @@ class STCCharacterModel: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! STCCharacterModel(from: Constants.dictionaryForSTCCharacter)
+    static let shared = try! STCCharacterModel(from: Constants.dictionaryOfSTCCharacter)
 
 // MARK: - Properties
 

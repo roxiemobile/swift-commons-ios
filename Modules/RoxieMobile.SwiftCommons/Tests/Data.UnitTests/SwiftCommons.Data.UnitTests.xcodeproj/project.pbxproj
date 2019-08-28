@@ -65,6 +65,7 @@
 		1A1F1226230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F1220230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelString.swift */; };
 		1A1F1227230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F1221230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelFloat.swift */; };
 		1A1F1228230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F1222230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelCharacter.swift */; };
+		1A25B3072316D28A00754AFE /* StreamTypedCoderTests.MixedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25B3062316D28A00754AFE /* StreamTypedCoderTests.MixedModelTests.swift */; };
 		1A26A42C230D69C800D91822 /* STCBasicTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26A42B230D69C800D91822 /* STCBasicTypeTests.swift */; };
 		1A26A42E230D6A2500D91822 /* STCSerializableObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26A42D230D6A2500D91822 /* STCSerializableObjectTests.swift */; };
 		1A26A430230D6A5100D91822 /* STCArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26A42F230D6A5100D91822 /* STCArrayTests.swift */; };
@@ -177,6 +178,7 @@
 		1A1F1220230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.SerializableModelString.swift; sourceTree = "<group>"; };
 		1A1F1221230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.SerializableModelFloat.swift; sourceTree = "<group>"; };
 		1A1F1222230ED33C00B8E7B7 /* STCDictionaryTests.SerializableModelCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.SerializableModelCharacter.swift; sourceTree = "<group>"; };
+		1A25B3062316D28A00754AFE /* StreamTypedCoderTests.MixedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamTypedCoderTests.MixedModelTests.swift; sourceTree = "<group>"; };
 		1A26A42B230D69C800D91822 /* STCBasicTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCBasicTypeTests.swift; sourceTree = "<group>"; };
 		1A26A42D230D6A2500D91822 /* STCSerializableObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCSerializableObjectTests.swift; sourceTree = "<group>"; };
 		1A26A42F230D6A5100D91822 /* STCArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCArrayTests.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				1A26A427230D676D00D91822 /* Array */,
 				1A26A428230D677B00D91822 /* Dictionary */,
 				1A26A429230D678200D91822 /* Set */,
+				1A25B3062316D28A00754AFE /* StreamTypedCoderTests.MixedModelTests.swift */,
 				195F932E230CADB000D0DCF2 /* StreamTypedCoderTests.swift */,
 			);
 			path = StreamTypedCoder;
@@ -798,6 +801,7 @@
 				1A2B5D88204ED91800E165AD /* Constants.swift in Sources */,
 				1A1F120A230ECF9800B8E7B7 /* STCArrayTests.SerializableModelCharacter.swift in Sources */,
 				1A1F11C9230EA41300B8E7B7 /* STCSerializableObjectTests.Double.swift in Sources */,
+				1A25B3072316D28A00754AFE /* StreamTypedCoderTests.MixedModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

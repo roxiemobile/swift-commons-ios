@@ -16,7 +16,7 @@ class STCBoolModel: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! STCBoolModel(from: Constants.dictionaryForSTCBool)
+    static let shared = try! STCBoolModel(from: Constants.dictionaryOfSTCBool)
 
 // MARK: - Properties
 
