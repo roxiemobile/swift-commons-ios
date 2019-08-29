@@ -1346,7 +1346,7 @@ FINAL void _checkType2(char _code, char _reqCode1, char _reqCode2)
         for (i = offset = 0; i < count; i++, offset += itemSize) {
 //            decodeValue(self, @selector(decodeValueOfObjCType:at:),
 //                        (char *)_array + offset, _type);
-            [self encodeValueOfObjCType:_type at:(char *)_array + offset];
+            [self decodeValueOfObjCType:_type at:(char *)_array + offset];
         }
     }
 
