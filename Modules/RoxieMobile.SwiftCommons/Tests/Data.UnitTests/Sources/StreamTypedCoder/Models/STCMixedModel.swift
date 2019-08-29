@@ -22,291 +22,291 @@ class STCMixedModel: ValidatableModel
 
     // Basic Types
 
-    fileprivate(set) var bool: Bool = true
+    fileprivate(set) var bool: Bool?
 
-//    fileprivate(set) var character: Character = " "
+//    fileprivate(set) var character: Character?
 
-    fileprivate(set) var double: Double = 0.0
+    fileprivate(set) var double: Double?
 
-    fileprivate(set) var float: Float = 0.0
+    fileprivate(set) var float: Float?
 
-    fileprivate(set) var float32: Float32 = 0.0
+    fileprivate(set) var float32: Float32?
 
-    fileprivate(set) var float64: Float64 = 0.0
+    fileprivate(set) var float64: Float64?
 
-    fileprivate(set) var uinteger8: UInt8 = 0
+    fileprivate(set) var uinteger8: UInt8?
 
-    fileprivate(set) var uinteger16: UInt16 = 0
+    fileprivate(set) var uinteger16: UInt16?
 
-    fileprivate(set) var uinteger32: UInt32 = 0
+    fileprivate(set) var uinteger32: UInt32?
 
-    fileprivate(set) var uinteger64: UInt64 = 0
+    fileprivate(set) var uinteger64: UInt64?
 
-    fileprivate(set) var uinteger: UInt = 0
+    fileprivate(set) var uinteger: UInt?
 
-    fileprivate(set) var integer8: Int8 = 0
+    fileprivate(set) var integer8: Int8?
 
-    fileprivate(set) var integer16: Int16 = 0
+    fileprivate(set) var integer16: Int16?
 
-    fileprivate(set) var integer32: Int32 = 0
+    fileprivate(set) var integer32: Int32?
 
-    fileprivate(set) var integer64: Int64 = 0
+    fileprivate(set) var integer64: Int64?
 
-    fileprivate(set) var integer: Int = 0
+    fileprivate(set) var integer: Int?
 
-    fileprivate(set) var string: String = ""
+    fileprivate(set) var string: String?
 
     // Serializable Objects
 
-    fileprivate(set) var serializableBool: STCBoolModel = STCBoolModel.shared
+    fileprivate(set) var serializableBool: STCBoolModel?
 
-//    fileprivate(set) var serializableCharacter: STCCharacterModel = STCCharacterModel.shared
+//    fileprivate(set) var serializableCharacter: STCCharacterModel?
 
-    fileprivate(set) var serializableDouble: STCDoubleModel = STCDoubleModel.shared
+    fileprivate(set) var serializableDouble: STCDoubleModel?
 
-    fileprivate(set) var serializableFloat: STCFloatModel = STCFloatModel.shared
+    fileprivate(set) var serializableFloat: STCFloatModel?
 
-    fileprivate(set) var serializableFloat32: STCFloat32Model = STCFloat32Model.shared
+    fileprivate(set) var serializableFloat32: STCFloat32Model?
 
-    fileprivate(set) var serializableFloat64: STCFloat64Model = STCFloat64Model.shared
+    fileprivate(set) var serializableFloat64: STCFloat64Model?
 
-    fileprivate(set) var serializableUInt8: STCUnsignedInteger8Model = STCUnsignedInteger8Model.shared
+    fileprivate(set) var serializableUInt8: STCUnsignedInteger8Model?
 
-    fileprivate(set) var serializableUInt16: STCUnsignedInteger16Model = STCUnsignedInteger16Model.shared
+    fileprivate(set) var serializableUInt16: STCUnsignedInteger16Model?
 
-    fileprivate(set) var serializableUInt32: STCUnsignedInteger32Model = STCUnsignedInteger32Model.shared
+    fileprivate(set) var serializableUInt32: STCUnsignedInteger32Model?
 
-    fileprivate(set) var serializableUInt64: STCUnsignedInteger64Model = STCUnsignedInteger64Model.shared
+    fileprivate(set) var serializableUInt64: STCUnsignedInteger64Model?
 
-    fileprivate(set) var serializableUInt: STCUnsignedIntegerModel = STCUnsignedIntegerModel.shared
+    fileprivate(set) var serializableUInt: STCUnsignedIntegerModel?
 
-    fileprivate(set) var serializableInt8: STCSignedInteger8Model = STCSignedInteger8Model.shared
+    fileprivate(set) var serializableInt8: STCSignedInteger8Model?
 
-    fileprivate(set) var serializableInt16: STCSignedInteger16Model = STCSignedInteger16Model.shared
+    fileprivate(set) var serializableInt16: STCSignedInteger16Model?
 
-    fileprivate(set) var serializableInt32: STCSignedInteger32Model = STCSignedInteger32Model.shared
+    fileprivate(set) var serializableInt32: STCSignedInteger32Model?
 
-    fileprivate(set) var serializableInt64: STCSignedInteger64Model = STCSignedInteger64Model.shared
+    fileprivate(set) var serializableInt64: STCSignedInteger64Model?
 
-    fileprivate(set) var serializableInt: STCSignedIntegerModel = STCSignedIntegerModel.shared
+    fileprivate(set) var serializableInt: STCSignedIntegerModel?
 
-    fileprivate(set) var serializableString: STCStringModel = STCStringModel.shared
+    fileprivate(set) var serializableString: STCStringModel?
 
     // Array of Basic Types
 
-    fileprivate(set) var boolArray: [Bool] = []
+    fileprivate(set) var boolArray: [Bool]?
 
-//    fileprivate(set) var characterArray: [Character] = []
+//    fileprivate(set) var characterArray: [Character]?
 
-    fileprivate(set) var doubleArray: [Double] = []
+    fileprivate(set) var doubleArray: [Double]?
 
-    fileprivate(set) var floatArray: [Float] = []
+    fileprivate(set) var floatArray: [Float]?
 
-    fileprivate(set) var float32Array: [Float32] = []
+    fileprivate(set) var float32Array: [Float32]?
 
-    fileprivate(set) var float64Array: [Float64] = []
+    fileprivate(set) var float64Array: [Float64]?
 
-    fileprivate(set) var uinteger8Array: [UInt8] = []
+    fileprivate(set) var uinteger8Array: [UInt8]?
 
-    fileprivate(set) var uinteger16Array: [UInt16] = []
+    fileprivate(set) var uinteger16Array: [UInt16]?
 
-    fileprivate(set) var uinteger32Array: [UInt32] = []
+    fileprivate(set) var uinteger32Array: [UInt32]?
 
-    fileprivate(set) var uinteger64Array: [UInt64] = []
+    fileprivate(set) var uinteger64Array: [UInt64]?
 
-    fileprivate(set) var uintegerArray: [UInt] = []
+    fileprivate(set) var uintegerArray: [UInt]?
 
-    fileprivate(set) var integer8Array: [Int8] = []
+    fileprivate(set) var integer8Array: [Int8]?
 
-    fileprivate(set) var integer16Array: [Int16] = []
+    fileprivate(set) var integer16Array: [Int16]?
 
-    fileprivate(set) var integer32Array: [Int32] = []
+    fileprivate(set) var integer32Array: [Int32]?
 
-    fileprivate(set) var integer64Array: [Int64] = []
+    fileprivate(set) var integer64Array: [Int64]?
 
-    fileprivate(set) var integerArray: [Int] = []
+    fileprivate(set) var integerArray: [Int]?
 
-    fileprivate(set) var stringArray: [String] = []
+    fileprivate(set) var stringArray: [String]?
 
     // Array of Serializable Objects
 
-    fileprivate(set) var serializableBoolArray: [STCBoolModel] = []
+    fileprivate(set) var serializableBoolArray: [STCBoolModel]?
 
-//    fileprivate(set) var serializableCharacterArray: [STCCharacterModel] = []
+//    fileprivate(set) var serializableCharacterArray: [STCCharacterModel]?
 
-    fileprivate(set) var serializableDoubleArray: [STCDoubleModel] = []
+    fileprivate(set) var serializableDoubleArray: [STCDoubleModel]?
 
-    fileprivate(set) var serializableFloatArray: [STCFloatModel] = []
+    fileprivate(set) var serializableFloatArray: [STCFloatModel]?
 
-    fileprivate(set) var serializableFloat32Array: [STCFloat32Model] = []
+    fileprivate(set) var serializableFloat32Array: [STCFloat32Model]?
 
-    fileprivate(set) var serializableFloat64Array: [STCFloat64Model] = []
+    fileprivate(set) var serializableFloat64Array: [STCFloat64Model]?
 
-    fileprivate(set) var serializableUInt8Array: [STCUnsignedInteger8Model] = []
+    fileprivate(set) var serializableUInt8Array: [STCUnsignedInteger8Model]?
 
-    fileprivate(set) var serializableUInt16Array: [STCUnsignedInteger16Model] = []
+    fileprivate(set) var serializableUInt16Array: [STCUnsignedInteger16Model]?
 
-    fileprivate(set) var serializableUInt32Array: [STCUnsignedInteger32Model] = []
+    fileprivate(set) var serializableUInt32Array: [STCUnsignedInteger32Model]?
 
-    fileprivate(set) var serializableUInt64Array: [STCUnsignedInteger64Model] = []
+    fileprivate(set) var serializableUInt64Array: [STCUnsignedInteger64Model]?
 
-    fileprivate(set) var serializableUIntArray: [STCUnsignedIntegerModel] = []
+    fileprivate(set) var serializableUIntArray: [STCUnsignedIntegerModel]?
 
-    fileprivate(set) var serializableInt8Array: [STCSignedInteger8Model] = []
+    fileprivate(set) var serializableInt8Array: [STCSignedInteger8Model]?
 
-    fileprivate(set) var serializableInt16Array: [STCSignedInteger16Model] = []
+    fileprivate(set) var serializableInt16Array: [STCSignedInteger16Model]?
 
-    fileprivate(set) var serializableInt32Array: [STCSignedInteger32Model] = []
+    fileprivate(set) var serializableInt32Array: [STCSignedInteger32Model]?
 
-    fileprivate(set) var serializableInt64Array: [STCSignedInteger64Model] = []
+    fileprivate(set) var serializableInt64Array: [STCSignedInteger64Model]?
 
-    fileprivate(set) var serializableIntArray: [STCSignedIntegerModel] = []
+    fileprivate(set) var serializableIntArray: [STCSignedIntegerModel]?
 
-    fileprivate(set) var serializableStringArray: [STCStringModel] = []
+    fileprivate(set) var serializableStringArray: [STCStringModel]?
 
     // Dictionary of Basic Types
 
-    fileprivate(set) var boolDictionary: [String: Bool] = [:]
+    fileprivate(set) var boolDictionary: [String: Bool]?
 
-//    fileprivate(set) var characterDictionary: [String: Character] = [:]
+//    fileprivate(set) var characterDictionary: [String: Character]?
 
-    fileprivate(set) var doubleDictionary: [String: Double] = [:]
+    fileprivate(set) var doubleDictionary: [String: Double]?
 
-    fileprivate(set) var floatDictionary: [String: Float] = [:]
+    fileprivate(set) var floatDictionary: [String: Float]?
 
-    fileprivate(set) var float32Dictionary: [String: Float32] = [:]
+    fileprivate(set) var float32Dictionary: [String: Float32]?
 
-    fileprivate(set) var float64Dictionary: [String: Float64] = [:]
+    fileprivate(set) var float64Dictionary: [String: Float64]?
 
-    fileprivate(set) var uinteger8Dictionary: [String: UInt8] = [:]
+    fileprivate(set) var uinteger8Dictionary: [String: UInt8]?
 
-    fileprivate(set) var uinteger16Dictionary: [String: UInt16] = [:]
+    fileprivate(set) var uinteger16Dictionary: [String: UInt16]?
 
-    fileprivate(set) var uinteger32Dictionary: [String: UInt32] = [:]
+    fileprivate(set) var uinteger32Dictionary: [String: UInt32]?
 
-    fileprivate(set) var uinteger64Dictionary: [String: UInt64] = [:]
+    fileprivate(set) var uinteger64Dictionary: [String: UInt64]?
 
-    fileprivate(set) var uintegerDictionary: [String: UInt] = [:]
+    fileprivate(set) var uintegerDictionary: [String: UInt]?
 
-    fileprivate(set) var integer8Dictionary: [String: Int8] = [:]
+    fileprivate(set) var integer8Dictionary: [String: Int8]?
 
-    fileprivate(set) var integer16Dictionary: [String: Int16] = [:]
+    fileprivate(set) var integer16Dictionary: [String: Int16]?
 
-    fileprivate(set) var integer32Dictionary: [String: Int32] = [:]
+    fileprivate(set) var integer32Dictionary: [String: Int32]?
 
-    fileprivate(set) var integer64Dictionary: [String: Int64] = [:]
+    fileprivate(set) var integer64Dictionary: [String: Int64]?
 
-    fileprivate(set) var integerDictionary: [String: Int] = [:]
+    fileprivate(set) var integerDictionary: [String: Int]?
 
-    fileprivate(set) var stringDictionary: [String: String] = [:]
+    fileprivate(set) var stringDictionary: [String: String]?
 
     // Dictionary of Serializable Objects
 
-    fileprivate(set) var serializableBoolDictionary: [String: STCBoolModel] = [:]
+    fileprivate(set) var serializableBoolDictionary: [String: STCBoolModel]?
 
-//    fileprivate(set) var serializableCharacterDictionary: [String: STCCharacterModel] = [:]
+//    fileprivate(set) var serializableCharacterDictionary: [String: STCCharacterModel]?
 
-    fileprivate(set) var serializableDoubleDictionary: [String: STCDoubleModel] = [:]
+    fileprivate(set) var serializableDoubleDictionary: [String: STCDoubleModel]?
 
-    fileprivate(set) var serializableFloatDictionary: [String: STCFloatModel] = [:]
+    fileprivate(set) var serializableFloatDictionary: [String: STCFloatModel]?
 
-    fileprivate(set) var serializableFloat32Dictionary: [String: STCFloat32Model] = [:]
+    fileprivate(set) var serializableFloat32Dictionary: [String: STCFloat32Model]?
 
-    fileprivate(set) var serializableFloat64Dictionary: [String: STCFloat64Model] = [:]
+    fileprivate(set) var serializableFloat64Dictionary: [String: STCFloat64Model]?
 
-    fileprivate(set) var serializableUInt8Dictionary: [String: STCUnsignedInteger8Model] = [:]
+    fileprivate(set) var serializableUInt8Dictionary: [String: STCUnsignedInteger8Model]?
 
-    fileprivate(set) var serializableUInt16Dictionary: [String: STCUnsignedInteger16Model] = [:]
+    fileprivate(set) var serializableUInt16Dictionary: [String: STCUnsignedInteger16Model]?
 
-    fileprivate(set) var serializableUInt32Dictionary: [String: STCUnsignedInteger32Model] = [:]
+    fileprivate(set) var serializableUInt32Dictionary: [String: STCUnsignedInteger32Model]?
 
-    fileprivate(set) var serializableUInt64Dictionary: [String: STCUnsignedInteger64Model] = [:]
+    fileprivate(set) var serializableUInt64Dictionary: [String: STCUnsignedInteger64Model]?
 
-    fileprivate(set) var serializableUIntDictionary: [String: STCUnsignedIntegerModel] = [:]
+    fileprivate(set) var serializableUIntDictionary: [String: STCUnsignedIntegerModel]?
 
-    fileprivate(set) var serializableInt8Dictionary: [String: STCSignedInteger8Model] = [:]
+    fileprivate(set) var serializableInt8Dictionary: [String: STCSignedInteger8Model]?
 
-    fileprivate(set) var serializableInt16Dictionary: [String: STCSignedInteger16Model] = [:]
+    fileprivate(set) var serializableInt16Dictionary: [String: STCSignedInteger16Model]?
 
-    fileprivate(set) var serializableInt32Dictionary: [String: STCSignedInteger32Model] = [:]
+    fileprivate(set) var serializableInt32Dictionary: [String: STCSignedInteger32Model]?
 
-    fileprivate(set) var serializableInt64Dictionary: [String: STCSignedInteger64Model] = [:]
+    fileprivate(set) var serializableInt64Dictionary: [String: STCSignedInteger64Model]?
 
-    fileprivate(set) var serializableIntDictionary: [String: STCSignedIntegerModel] = [:]
+    fileprivate(set) var serializableIntDictionary: [String: STCSignedIntegerModel]?
 
-    fileprivate(set) var serializableStringDictionary: [String: STCStringModel] = [:]
+    fileprivate(set) var serializableStringDictionary: [String: STCStringModel]?
 
 //    // Set of Basic Types
 //
-//    fileprivate(set) var boolSet: Set<Bool> = []
+//    fileprivate(set) var boolSet: Set<Bool>?
 //
-//    fileprivate(set) var characterSet: Set<Character> = []
+//    fileprivate(set) var characterSet: Set<Character>?
 //
-//    fileprivate(set) var doubleSet: Set<Double> = []
+//    fileprivate(set) var doubleSet: Set<Double>?
 //
-//    fileprivate(set) var floatSet: Set<Float> = []
+//    fileprivate(set) var floatSet: Set<Float>?
 //
-//    fileprivate(set) var float32Set: Set<Float32> = []
+//    fileprivate(set) var float32Set: Set<Float32>?
 //
-//    fileprivate(set) var float64Set: Set<Float64> = []
+//    fileprivate(set) var float64Set: Set<Float64>?
 //
-//    fileprivate(set) var uinteger8Set: Set<UInt8> = []
+//    fileprivate(set) var uinteger8Set: Set<UInt8>?
 //
-//    fileprivate(set) var uinteger16Set: Set<UInt16> = []
+//    fileprivate(set) var uinteger16Set: Set<UInt16>?
 //
-//    fileprivate(set) var uinteger32Set: Set<UInt32> = []
+//    fileprivate(set) var uinteger32Set: Set<UInt32>?
 //
-//    fileprivate(set) var uinteger64Set: Set<UInt64> = []
+//    fileprivate(set) var uinteger64Set: Set<UInt64>?
 //
-//    fileprivate(set) var uintegerSet: Set<UInt> = []
+//    fileprivate(set) var uintegerSet: Set<UInt>?
 //
-//    fileprivate(set) var integer8Set: Set<Int8> = []
+//    fileprivate(set) var integer8Set: Set<Int8>?
 //
-//    fileprivate(set) var integer16Set: Set<Int16> = []
+//    fileprivate(set) var integer16Set: Set<Int16>?
 //
-//    fileprivate(set) var integer32Set: Set<Int32> = []
+//    fileprivate(set) var integer32Set: Set<Int32>?
 //
-//    fileprivate(set) var integer64Set: Set<Int64> = []
+//    fileprivate(set) var integer64Set: Set<Int64>?
 //
-//    fileprivate(set) var integerSet: Set<Int> = []
+//    fileprivate(set) var integerSet: Set<Int>?
 //
-//    fileprivate(set) var stringSet: Set<String> = []
+//    fileprivate(set) var stringSet: Set<String>?
 //
 //    // Set of Serializable Objects
 //
-//    fileprivate(set) var serializableBoolSet: Set<STCBoolModel> = []
+//    fileprivate(set) var serializableBoolSet: Set<STCBoolModel>?
 //
-//    fileprivate(set) var serializableCharacterSet: Set<STCCharacterModel> = []
+//    fileprivate(set) var serializableCharacterSet: Set<STCCharacterModel>?
 //
-//    fileprivate(set) var serializableDoubleSet: Set<STCDoubleModel> = []
+//    fileprivate(set) var serializableDoubleSet: Set<STCDoubleModel>?
 //
-//    fileprivate(set) var serializableFloatSet: Set<STCFloatModel> = []
+//    fileprivate(set) var serializableFloatSet: Set<STCFloatModel>?
 //
-//    fileprivate(set) var serializableFloat32Set: Set<STCFloat32Model> = []
+//    fileprivate(set) var serializableFloat32Set: Set<STCFloat32Model>?
 //
-//    fileprivate(set) var serializableFloat64Set: Set<STCFloat64Model> = []
+//    fileprivate(set) var serializableFloat64Set: Set<STCFloat64Model>?
 //
-//    fileprivate(set) var serializableUInt8Set: Set<STCUnsignedInteger8Model> = []
+//    fileprivate(set) var serializableUInt8Set: Set<STCUnsignedInteger8Model>?
 //
-//    fileprivate(set) var serializableUInt16Set: Set<STCUnsignedInteger16Model> = []
+//    fileprivate(set) var serializableUInt16Set: Set<STCUnsignedInteger16Model>?
 //
-//    fileprivate(set) var serializableUInt32Set: Set<STCUnsignedInteger32Model> = []
+//    fileprivate(set) var serializableUInt32Set: Set<STCUnsignedInteger32Model>?
 //
-//    fileprivate(set) var serializableUInt64Set: Set<STCUnsignedInteger64Model> = []
+//    fileprivate(set) var serializableUInt64Set: Set<STCUnsignedInteger64Model>?
 //
-//    fileprivate(set) var serializableUIntSet: Set<STCUnsignedIntegerModel> = []
+//    fileprivate(set) var serializableUIntSet: Set<STCUnsignedIntegerModel>?
 //
-//    fileprivate(set) var serializableInt8Set: Set<STCSignedInteger8Model> = []
+//    fileprivate(set) var serializableInt8Set: Set<STCSignedInteger8Model>?
 //
-//    fileprivate(set) var serializableInt16Set: Set<STCSignedInteger16Model> = []
+//    fileprivate(set) var serializableInt16Set: Set<STCSignedInteger16Model>?
 //
-//    fileprivate(set) var serializableInt32Set: Set<STCSignedInteger32Model> = []
+//    fileprivate(set) var serializableInt32Set: Set<STCSignedInteger32Model>?
 //
-//    fileprivate(set) var serializableInt64Set: Set<STCSignedInteger64Model> = []
+//    fileprivate(set) var serializableInt64Set: Set<STCSignedInteger64Model>?
 //
-//    fileprivate(set) var serializableIntSet: Set<STCSignedIntegerModel> = []
+//    fileprivate(set) var serializableIntSet: Set<STCSignedIntegerModel>?
 //
-//    fileprivate(set) var serializableStringSet: Set<STCStringModel> = []
+//    fileprivate(set) var serializableStringSet: Set<STCStringModel>?
 
 // MARK: - Methods
 
