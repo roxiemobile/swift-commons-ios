@@ -222,19 +222,6 @@ object_is_instance(id object)
   return (object != nil) && !class_isMetaClass(object_getClass(object));
 }
 
-/** OpenStep macros for exception handling. */
-// @link https://github.com/AlwaysRightInstitute/libFoundation/blob/master/Foundation/NSExceptionWithoutNested.h#L117
-
-#define NS_DURING \
-  @try {
-
-#define NS_HANDLER \
-  } \
-  @catch (NSException *localException) {
-
-#define NS_ENDHANDLER \
-  }
-
 /** The new macros for handling exceptions. */
 // @link https://github.com/AlwaysRightInstitute/libFoundation/blob/master/Foundation/NSExceptionWithoutNested.h#L148
 
