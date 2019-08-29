@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		195A95F7231882D300BEF12C /* objc-config.h in Headers */ = {isa = PBXBuildFile; fileRef = 195A95F6231882D300BEF12C /* objc-config.h */; };
 		195A95F92318895500BEF12C /* support.h in Headers */ = {isa = PBXBuildFile; fileRef = 195A95F82318895500BEF12C /* support.h */; };
-		195A95FC231889B500BEF12C /* FoundationException.m in Sources */ = {isa = PBXBuildFile; fileRef = 195A95FA231889B500BEF12C /* FoundationException.m */; };
+		195A95FC231889B500BEF12C /* FoundationException.m in Sources */ = {isa = PBXBuildFile; fileRef = 195A95FA231889B500BEF12C /* FoundationException.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		195A95FD231889B500BEF12C /* FoundationException.h in Headers */ = {isa = PBXBuildFile; fileRef = 195A95FB231889B500BEF12C /* FoundationException.h */; };
+		195A95FF23189D9E00BEF12C /* NSHashMap+OpenStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 195A95FE23189D9E00BEF12C /* NSHashMap+OpenStep.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		195F9302230B28C900D0DCF2 /* OSArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F92FE230B28C900D0DCF2 /* OSArchiver.h */; };
 		195F9303230B28C900D0DCF2 /* OSSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F92FF230B28C900D0DCF2 /* OSSerialization.h */; };
 		195F9308230B2B5200D0DCF2 /* lfmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F9307230B2B5200D0DCF2 /* lfmemory.h */; };
@@ -55,6 +56,7 @@
 		195A95F82318895500BEF12C /* support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = support.h; sourceTree = "<group>"; };
 		195A95FA231889B500BEF12C /* FoundationException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundationException.m; sourceTree = "<group>"; };
 		195A95FB231889B500BEF12C /* FoundationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundationException.h; sourceTree = "<group>"; };
+		195A95FE23189D9E00BEF12C /* NSHashMap+OpenStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHashMap+OpenStep.m"; sourceTree = "<group>"; };
 		195F92FE230B28C900D0DCF2 /* OSArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSArchiver.h; sourceTree = "<group>"; };
 		195F92FF230B28C900D0DCF2 /* OSSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSerialization.h; sourceTree = "<group>"; };
 		195F9307230B2B5200D0DCF2 /* lfmemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lfmemory.h; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				195F931F230B3CAE00D0DCF2 /* misc.m */,
 				195F9322230C9C5200D0DCF2 /* NSData+OpenStep.h */,
 				195F9323230C9C5200D0DCF2 /* NSData+OpenStep.m */,
+				195A95FE23189D9E00BEF12C /* NSHashMap+OpenStep.m */,
 				195F92FE230B28C900D0DCF2 /* OSArchiver.h */,
 				195F9315230B30D800D0DCF2 /* OSArchiver.m */,
 				195F92FF230B28C900D0DCF2 /* OSSerialization.h */,
@@ -368,6 +371,7 @@
 				195F9316230B30D800D0DCF2 /* OSArchiver.m in Sources */,
 				195F9325230C9C5200D0DCF2 /* NSData+OpenStep.m in Sources */,
 				195F930C230B2B9200D0DCF2 /* common.m in Sources */,
+				195A95FF23189D9E00BEF12C /* NSHashMap+OpenStep.m in Sources */,
 				19CCD10A1FCD0191008CEA38 /* zip.c in Sources */,
 				195F9320230B3CAE00D0DCF2 /* encoding.m in Sources */,
 				19C9FD8D1FCCABBB0069F3D1 /* SwiftCommonsObjC.m in Sources */,
