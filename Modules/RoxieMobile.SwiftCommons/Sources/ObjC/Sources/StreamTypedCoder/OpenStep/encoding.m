@@ -39,13 +39,13 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #include "common.h"
-//#include <extensions/objc-runtime.h>
+// #include <extensions/objc-runtime.h>
 #include "objc-runtime.h"
 
-#if !defined(OBJC_FORWARDING_STACK_OFFSET) && defined(NeXT) \
-	&& (defined(i386) || defined(m68k))
-# define OBJC_FORWARDING_STACK_OFFSET 8
-#endif
+// #if !defined(OBJC_FORWARDING_STACK_OFFSET) && defined(NeXT) \
+// 	&& (defined(i386) || defined(m68k))
+// # define OBJC_FORWARDING_STACK_OFFSET 8
+// #endif
 
 /*
   return the size of an object specified by type 
@@ -423,36 +423,36 @@ objc_skip_argspec (const char* type)
   return type;
 }
 
-/*
-  Return the number of arguments that the method MTH expects.
-  Note that all methods need two implicit arguments `self' and
-  `_cmd'. 
-*/
-//int
-//method_get_number_of_arguments (struct objc_method* mth)
-//{
-//  int i = 0;
-//  const char* type = mth->method_types;
-//  while (*type)
-//    {
-//      type = objc_skip_argspec (type);
-//      i += 1;
-//    }
-//  return i - 1;
-//}
+// /*
+//   Return the number of arguments that the method MTH expects.
+//   Note that all methods need two implicit arguments `self' and
+//   `_cmd'. 
+// */
+// int
+// method_get_number_of_arguments (struct objc_method* mth)
+// {
+//   int i = 0;
+//   const char* type = mth->method_types;
+//   while (*type)
+//     {
+//       type = objc_skip_argspec (type);
+//       i += 1;
+//     }
+//   return i - 1;
+// }
 
-/*
-  Return the size of the argument block needed on the stack to invoke
-  the method MTH.  This may be zero, if all arguments are passed in
-  registers.
-*/
-
-//int
-//method_get_sizeof_arguments (struct objc_method* mth)
-//{
-//  const char* type = objc_skip_typespec (mth->method_types);
-//  return atoi (type);
-//}
+// /*
+//   Return the size of the argument block needed on the stack to invoke
+//   the method MTH.  This may be zero, if all arguments are passed in
+//   registers.
+// */
+// 
+// int
+// method_get_sizeof_arguments (struct objc_method* mth)
+// {
+//   const char* type = objc_skip_typespec (mth->method_types);
+//   return atoi (type);
+// }
 
 /*
   Return a pointer to the next argument of ARGFRAME.  type points to
@@ -476,66 +476,66 @@ objc_skip_argspec (const char* type)
   }
 */  
 
-//char*
-//method_get_next_argument (arglist_t argframe,
-//			  const char **type)
-//{
-//  const char *t = objc_skip_argspec (*type);
-//
-//  if (*t == '\0')
-//    return 0;
-//
-//  *type = t;
-//  t = objc_skip_typespec (t);
-//
-//  if (*t == '+')
-//    return argframe->arg_regs + atoi (++t) - OBJC_FORWARDING_STACK_OFFSET;
-//  else
-//    return argframe->arg_ptr + atoi (t) - OBJC_FORWARDING_STACK_OFFSET;
-//}
+// char*
+// method_get_next_argument (arglist_t argframe,
+// 			  const char **type)
+// {
+//   const char *t = objc_skip_argspec (*type);
+// 
+//   if (*t == '\0')
+//     return 0;
+// 
+//   *type = t;
+//   t = objc_skip_typespec (t);
+// 
+//   if (*t == '+')
+//     return argframe->arg_regs + atoi (++t) - OBJC_FORWARDING_STACK_OFFSET;
+//   else
+//     return argframe->arg_ptr + atoi (t) - OBJC_FORWARDING_STACK_OFFSET;
+// }
 
-/*
-  Return a pointer to the value of the first argument of the method 
-  described in M with the given argumentframe ARGFRAME.  The type
-  is returned in TYPE.  type must be passed to successive calls of 
-  method_get_next_argument.
-*/
-//char*
-//method_get_first_argument (struct objc_method* m,
-//			   arglist_t argframe, 
-//			   const char** type)
-//{
-//  *type = m->method_types;
-//  return method_get_next_argument (argframe, type);
-//}
+// /*
+//   Return a pointer to the value of the first argument of the method 
+//   described in M with the given argumentframe ARGFRAME.  The type
+//   is returned in TYPE.  type must be passed to successive calls of 
+//   method_get_next_argument.
+// */
+// char*
+// method_get_first_argument (struct objc_method* m,
+// 			   arglist_t argframe, 
+// 			   const char** type)
+// {
+//   *type = m->method_types;
+//   return method_get_next_argument (argframe, type);
+// }
 
-/*
-   Return a pointer to the ARGth argument of the method
-   M from the frame ARGFRAME.  The type of the argument
-   is returned in the value-result argument TYPE 
-*/
-
-//char*
-//method_get_nth_argument (struct objc_method* m,
-//			 arglist_t argframe, int arg, 
-//			 const char **type)
-//{
-//  const char* t = objc_skip_argspec (m->method_types);
-//
-//  if (arg > method_get_number_of_arguments (m))
-//    return 0;
-//
-//  while (arg--)
-//    t = objc_skip_argspec (t);
-//  
-//  *type = t;
-//  t = objc_skip_typespec (t);
-//
-//  if (*t == '+')
-//    return argframe->arg_regs + atoi (++t) - OBJC_FORWARDING_STACK_OFFSET;
-//  else
-//    return argframe->arg_ptr + atoi (t) - OBJC_FORWARDING_STACK_OFFSET;
-//}
+// /*
+//    Return a pointer to the ARGth argument of the method
+//    M from the frame ARGFRAME.  The type of the argument
+//    is returned in the value-result argument TYPE 
+// */
+// 
+// char*
+// method_get_nth_argument (struct objc_method* m,
+// 			 arglist_t argframe, int arg, 
+// 			 const char **type)
+// {
+//   const char* t = objc_skip_argspec (m->method_types);
+// 
+//   if (arg > method_get_number_of_arguments (m))
+//     return 0;
+// 
+//   while (arg--)
+//     t = objc_skip_argspec (t);
+//   
+//   *type = t;
+//   t = objc_skip_typespec (t);
+// 
+//   if (*t == '+')
+//     return argframe->arg_regs + atoi (++t) - OBJC_FORWARDING_STACK_OFFSET;
+//   else
+//     return argframe->arg_ptr + atoi (t) - OBJC_FORWARDING_STACK_OFFSET;
+// }
 
 unsigned
 objc_get_type_qualifiers (const char* type)

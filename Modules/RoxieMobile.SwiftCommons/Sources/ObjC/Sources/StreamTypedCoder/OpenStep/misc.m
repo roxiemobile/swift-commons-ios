@@ -27,9 +27,9 @@ Boston, MA 02111-1307, USA.  */
    covered by the GNU General Public License.  */
 
 #include <stdlib.h>
-//#include <Foundation/common.h>
-//#include <extensions/objc-runtime.h>
+// #include <Foundation/common.h>
 #include "common.h"
+// #include <extensions/objc-runtime.h>
 #include "objc-runtime.h"
 
 /*

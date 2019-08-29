@@ -30,8 +30,8 @@ Boston, MA 02111-1307, USA.  */
 #define __encoding_INCLUDE_GNU
 
 #include <ctype.h>
-//#include "objc/objc-api.h"
-#include <objc/objc-api.h>
+// #include "objc/objc-api.h"
+#include "objc-runtime.h"
 
 #define _C_CONST    'r'
 #define _C_IN       'n'
@@ -57,18 +57,18 @@ const char* objc_skip_type_qualifiers (const char* type);
 const char* objc_skip_typespec (const char* type);
 const char* objc_skip_offset (const char* type);
 const char* objc_skip_argspec (const char* type);
-//int method_get_number_of_arguments (struct objc_method*);
-//int method_get_sizeof_arguments (struct objc_method*);
+// int method_get_number_of_arguments (struct objc_method*);
+// int method_get_sizeof_arguments (struct objc_method*);
 
-//char* method_get_first_argument (struct objc_method*,
-//				 arglist_t argframe, 
-//				 const char** type);
-//char* method_get_next_argument (arglist_t argframe, 
-//				const char **type);
-//char* method_get_nth_argument (struct objc_method* m, 
-//			       arglist_t argframe,
-//			       int arg, 
-//			       const char **type);
+// char* method_get_first_argument (struct objc_method*,
+// 				 arglist_t argframe, 
+// 				 const char** type);
+// char* method_get_next_argument (arglist_t argframe, 
+// 				const char **type);
+// char* method_get_nth_argument (struct objc_method* m, 
+// 			       arglist_t argframe,
+// 			       int arg, 
+// 			       const char **type);
 
 unsigned objc_get_type_qualifiers (const char* type);
 
