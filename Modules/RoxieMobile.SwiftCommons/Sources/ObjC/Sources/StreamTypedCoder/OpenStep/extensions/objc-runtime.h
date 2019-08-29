@@ -28,9 +28,10 @@
 #include <objc/runtime.h>
 
 #include <objc/objc.h>
-#include <objc/objc-api.h>
+//#include <objc/objc-api.h>
 //#include <objc/Protocol.h>
 
+#include "objc-api.h"
 
 /* If neither GNU nor NeXT runtimes are defined,
    make GNU the default runtime
@@ -211,7 +212,7 @@ typedef BOOL (*objc_error_handler)(id, int code, const char *fmt, va_list ap);
 //void class_add_behavior(Class class, Class behavior);
 
 /** In objective-c, how can I tell the difference between a Class and an instance of a class? */
-// @link https://opensource.apple.com/source/gcc/gcc-1765/libobjc/objc/objc-api.h.auto.html
+// @link https://opensource.apple.com/source/gcc/gcc-5493/libobjc/objc/objc-api.h.auto.html
 // @link http://web.mit.edu/kolya/sipb/afs/root.afs/sipb.mit.edu/project/bounds/src/gcc-2.7.2/objc/objc-api.h
 // @link https://stackoverflow.com/a/6537756
 

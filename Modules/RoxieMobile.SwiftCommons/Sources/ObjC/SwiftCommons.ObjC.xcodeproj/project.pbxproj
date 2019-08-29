@@ -25,6 +25,7 @@
 		195F9327230C9F2600D0DCF2 /* byte_order.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F9326230C9F2600D0DCF2 /* byte_order.h */; };
 		195F932B230CA33600D0DCF2 /* GeneralExceptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F9329230CA33600D0DCF2 /* GeneralExceptions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		195F932C230CA33600D0DCF2 /* GeneralExceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F932A230CA33600D0DCF2 /* GeneralExceptions.h */; };
+		19847993231842FA00FE310A /* objc-api.h in Headers */ = {isa = PBXBuildFile; fileRef = 19847992231842FA00FE310A /* objc-api.h */; };
 		19C9FD861FCCAAD30069F3D1 /* TryCatchFinally.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19C9FD871FCCAAD30069F3D1 /* TryCatchFinally.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */; };
 		19C9FD8C1FCCABBB0069F3D1 /* SwiftCommonsObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,6 +66,7 @@
 		195F9329230CA33600D0DCF2 /* GeneralExceptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralExceptions.m; sourceTree = "<group>"; };
 		195F932A230CA33600D0DCF2 /* GeneralExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralExceptions.h; sourceTree = "<group>"; };
 		1976D4E11FCB821000C07C72 /* SwiftCommons.ObjC.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.ObjC.xcconfig; sourceTree = "<group>"; };
+		19847992231842FA00FE310A /* objc-api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objc-api.h"; sourceTree = "<group>"; };
 		19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TryCatchFinally.h; sourceTree = "<group>"; };
 		19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryCatchFinally.m; sourceTree = "<group>"; };
 		19C9FD6B1FCCA85D0069F3D1 /* SwiftCommonsObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCommonsObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				195F931A230B3AFB00D0DCF2 /* encoding.h */,
+				19847992231842FA00FE310A /* objc-api.h */,
 				195F9318230B312F00D0DCF2 /* objc-runtime.h */,
 			);
 			path = extensions;
@@ -262,6 +265,7 @@
 				195F9310230B2D2B00D0DCF2 /* OSUtilities.h in Headers */,
 				195F9319230B312F00D0DCF2 /* objc-runtime.h in Headers */,
 				195F9308230B2B5200D0DCF2 /* lfmemory.h in Headers */,
+				19847993231842FA00FE310A /* objc-api.h in Headers */,
 				195F931C230B3AFB00D0DCF2 /* encoding.h in Headers */,
 				195F932C230CA33600D0DCF2 /* GeneralExceptions.h in Headers */,
 				19CCD10B1FCD0191008CEA38 /* zip.h in Headers */,

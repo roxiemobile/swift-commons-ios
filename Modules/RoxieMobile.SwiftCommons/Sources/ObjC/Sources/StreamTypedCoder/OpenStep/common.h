@@ -92,6 +92,7 @@
 //#define sleep(x) Sleep(x*1000)
 //#endif
 
+#include "objc-api.h"
 #include "lfmemory.h"
 
 //#if (__GNUC__ == 2) && (__GNUC_MINOR__ <= 6) && !defined(__attribute__)
@@ -246,19 +247,16 @@ static inline int Atoi(const char*) __attribute__((unused));
 
 static inline void *Malloc(int size)
 {
-//    return objc_malloc(size);
-    return malloc(size);
+    return objc_malloc(size);
 }
 static inline void *MallocAtomic(int size)
 {
-//    return objc_malloc(size);
-    return malloc(size);
+    return objc_malloc(size);
 }
 
 static inline void lfFree(void* p)
 {
-//    if (p) objc_free(p);
-    if (p) free(p);
+    if (p) objc_free(p);
 }
 
 //static inline void *Calloc(int elem, int size)
