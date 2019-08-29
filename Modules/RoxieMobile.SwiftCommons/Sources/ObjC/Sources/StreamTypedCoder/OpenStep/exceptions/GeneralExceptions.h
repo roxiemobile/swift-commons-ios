@@ -25,50 +25,50 @@
 #ifndef __GeneralExceptions_h__
 #define __GeneralExceptions_h__
 
-//#include <extensions/support.h>
-//#include <extensions/exceptions/FoundationException.h>
+// #include <extensions/support.h>
+#include "support.h"
+// #include <extensions/exceptions/FoundationException.h>
+#include "FoundationException.h"
 
-#import <Foundation/NSException.h>
+@class NSString;
 
-//@class NSString;
-//
-//#if LIB_FOUNDATION_LIBRARY
-//
-//@class MemoryExhaustedException;
-//
-//extern MemoryExhaustedException* memoryExhaustedException;
-//
-//@interface MemoryExhaustedException : FoundationException
-//{
-//    void** pointer;
-//    unsigned size;
-//}
-//- setPointer:(void**)pointer memorySize:(unsigned)size;
-//@end
-//
-//
-//@interface MemoryDeallocationException : FoundationException
-//{
-//    void** pointer;
-//    unsigned size;
-//}
-//- setPointer:(void**)pointer memorySize:(unsigned)size;
-//@end
-//
-//
-//@interface MemoryCopyException : FoundationException
-//@end
-//
-//#endif /* LIB_FOUNDATION_LIBRARY */
-//
-//@interface FileNotFoundException : FoundationException
-//- initWithFilename:(NSString*)f;
-//- (NSString*)filename;
-//@end
-//
-//
-//@interface SyntaxErrorException : FoundationException
-//@end
+#if LIB_FOUNDATION_LIBRARY
+
+@class MemoryExhaustedException;
+
+extern MemoryExhaustedException* memoryExhaustedException;
+
+@interface MemoryExhaustedException : FoundationException
+{
+    void** pointer;
+    unsigned size;
+}
+- setPointer:(void**)pointer memorySize:(unsigned)size;
+@end
+
+
+@interface MemoryDeallocationException : FoundationException
+{
+    void** pointer;
+    unsigned size;
+}
+- setPointer:(void**)pointer memorySize:(unsigned)size;
+@end
+
+
+@interface MemoryCopyException : FoundationException
+@end
+
+#endif /* LIB_FOUNDATION_LIBRARY */
+
+@interface FileNotFoundException : FoundationException
+- initWithFilename:(NSString*)f;
+- (NSString*)filename;
+@end
+
+
+@interface SyntaxErrorException : FoundationException
+@end
 
 
 @interface UnknownTypeException : NSException
@@ -76,39 +76,39 @@
 @end
 
 
-//@interface UnknownClassException : NSException
-//- setClassName:(NSString*)className;
-//@end
-//
-//
-//@interface ObjcRuntimeException : FoundationException
-//@end
-//
-//
-//@interface InternalInconsistencyException : NSException
-//@end
-//
-//
-//@interface InvalidArgumentException : NSException
-//- initWithReason:(NSString*)aReason;
-//@end
-//
-//
-//@interface IndexOutOfRangeException : FoundationException
-//- initForSize:(int)size index:(int)pos;
-//@end
-//
-//
-//@interface RangeException : IndexOutOfRangeException
-//- initWithReason:(NSString*)aReason size:(int)size index:(int)index;
-//@end
-//
-//
-//@interface InvalidUseOfMethodException : NSException
-//@end
-//
-//@interface PosixFileOperationException : NSException
-//@end
+@interface UnknownClassException : NSException
+- setClassName:(NSString*)className;
+@end
+
+
+@interface ObjcRuntimeException : FoundationException
+@end
+
+
+@interface InternalInconsistencyException : NSException
+@end
+
+
+@interface InvalidArgumentException : NSException
+- initWithReason:(NSString*)aReason;
+@end
+
+
+@interface IndexOutOfRangeException : FoundationException
+- initForSize:(int)size index:(int)pos;
+@end
+
+
+@interface RangeException : IndexOutOfRangeException
+- initWithReason:(NSString*)aReason size:(int)size index:(int)index;
+@end
+
+
+@interface InvalidUseOfMethodException : NSException
+@end
+
+@interface PosixFileOperationException : NSException
+@end
 
 
 #endif /* __GeneralExceptions_h__ */

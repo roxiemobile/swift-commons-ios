@@ -40,6 +40,17 @@ Boston, MA 02111-1307, USA.  */
 extern "C" {
 #endif /* __cplusplus */
 
+#if BUILD_libFoundation_DLL
+#  define LF_EXPORT  __declspec(dllexport)
+#  define LF_DECLARE __declspec(dllexport)
+#elif libFoundation_ISDLL
+#  define LF_EXPORT  extern __declspec(dllimport)
+#  define LF_DECLARE extern __declspec(dllimport)
+#else
+#  define LF_EXPORT  extern
+#  define LF_DECLARE
+#endif
+
 ///* For functions which return Method_t */
 //#define METHOD_NULL	(Method_t)0
 //                                                /* Boolean typedefs */

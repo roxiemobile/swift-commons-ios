@@ -37,28 +37,28 @@
 #include <objc/objc-api.h>
 #include <Foundation/NSObject.h>
 
-//@class NSAutoreleasePool;
+@class NSAutoreleasePool;
 
 /* Define it if we use the Boehm's garbage collector */
-//#undef WITH_GC
+// #undef WITH_GC
 
-//extern void NSIncrementExtraRefCount(id anObject);
-//extern BOOL NSDecrementExtraRefCountWasZero(id anObject);
-//extern unsigned NSExtraRefCount(id anObject);
-//extern unsigned NSAutoreleaseCountForObject(id object);
+// extern void NSIncrementExtraRefCount(id anObject);
+// extern BOOL NSDecrementExtraRefCountWasZero(id anObject);
+// extern unsigned NSExtraRefCount(id anObject);
+// extern unsigned NSAutoreleaseCountForObject(id object);
 
 /*
  * When an object is deallocated, its class pointer points to the FREED_OBJECT
  * class.
  */
 
-//@interface FREED_OBJECT
-//{
-//@public
-//  Class isa;
-//  Class oldIsa;
-//}
-//@end
+@interface FREED_OBJECT
+{
+@public
+  Class isa;
+  Class oldIsa;
+}
+@end
 
 /*
  * Reference counting can be done in two ways:
@@ -69,7 +69,7 @@
  *  (2) keeping a global hash with object pointers as keys and reference
  *      counts as values.
  *
- * This mecanisms are controlled by one compile time defines and one
+ * This mecanisms are controlled by one compile time defines and one 
  * environment variable as follows:
  *  OBJECT_REFCOUNT	(define)
  *	1			=> mecanism is controlled by hash
@@ -86,24 +86,24 @@
  * PTR2HSH(p) : id object --> pointer kept as key in hashtable
  */
 
-//#define OBJ2PTR(p) ((struct RefObjectLayout*)((char*)p - @STRUCT_ALIGNMENT@))
-//#define PTR2HSH(p) ((void*)((char*)p - @STRUCT_ALIGNMENT@))
+#define OBJ2PTR(p) ((struct RefObjectLayout*)((char*)p - 8))
+#define PTR2HSH(p) ((void*)((char*)p - 8))
 
-//struct RefObjectLayout {
-//    unsigned	ref_count;	/*  <---- Malloc/Free pointer */
-//    Class	class_pointer __attribute__ ((aligned (@STRUCT_ALIGNMENT@)));
-//				/*  <---- id pointer  */
-//    char	extra[0];
-//};
+struct RefObjectLayout {
+    unsigned	ref_count;	/*  <---- Malloc/Free pointer */
+    Class	class_pointer __attribute__ ((aligned (8)));
+				/*  <---- id pointer  */
+    char	extra[0];
+};
 
-//struct HashObjectLayout {
-//    Class	class_pointer;	/*  <---- id pointer == Malloc/Free pointer */
-//    char	extra[0];
-//};
+struct HashObjectLayout {
+    Class	class_pointer;	/*  <---- id pointer == Malloc/Free pointer */
+    char	extra[0];
+};
 
 #if LIB_FOUNDATION_BOEHM_GC
-#  include <@GC_INCLUDE_DIR@gc.h>
-#  include <@GC_INCLUDE_DIR@gc_typed.h>
+#  include <gc.h>
+#  include <gc_typed.h>
 
 #  ifndef ASSIGN
 #    define ASSIGN(object, value) (object = value)

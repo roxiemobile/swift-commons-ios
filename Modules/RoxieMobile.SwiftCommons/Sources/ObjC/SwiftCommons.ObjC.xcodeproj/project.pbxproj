@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		195A95F7231882D300BEF12C /* objc-config.h in Headers */ = {isa = PBXBuildFile; fileRef = 195A95F6231882D300BEF12C /* objc-config.h */; };
+		195A95F92318895500BEF12C /* support.h in Headers */ = {isa = PBXBuildFile; fileRef = 195A95F82318895500BEF12C /* support.h */; };
+		195A95FC231889B500BEF12C /* FoundationException.m in Sources */ = {isa = PBXBuildFile; fileRef = 195A95FA231889B500BEF12C /* FoundationException.m */; };
+		195A95FD231889B500BEF12C /* FoundationException.h in Headers */ = {isa = PBXBuildFile; fileRef = 195A95FB231889B500BEF12C /* FoundationException.h */; };
 		195F9302230B28C900D0DCF2 /* OSArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F92FE230B28C900D0DCF2 /* OSArchiver.h */; };
 		195F9303230B28C900D0DCF2 /* OSSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F92FF230B28C900D0DCF2 /* OSSerialization.h */; };
 		195F9308230B2B5200D0DCF2 /* lfmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F9307230B2B5200D0DCF2 /* lfmemory.h */; };
@@ -47,6 +51,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		195A95F6231882D300BEF12C /* objc-config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objc-config.h"; sourceTree = "<group>"; };
+		195A95F82318895500BEF12C /* support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = support.h; sourceTree = "<group>"; };
+		195A95FA231889B500BEF12C /* FoundationException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundationException.m; sourceTree = "<group>"; };
+		195A95FB231889B500BEF12C /* FoundationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundationException.h; sourceTree = "<group>"; };
 		195F92FE230B28C900D0DCF2 /* OSArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSArchiver.h; sourceTree = "<group>"; };
 		195F92FF230B28C900D0DCF2 /* OSSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSerialization.h; sourceTree = "<group>"; };
 		195F9307230B2B5200D0DCF2 /* lfmemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lfmemory.h; sourceTree = "<group>"; };
@@ -128,7 +136,9 @@
 			children = (
 				195F931A230B3AFB00D0DCF2 /* encoding.h */,
 				19847992231842FA00FE310A /* objc-api.h */,
+				195A95F6231882D300BEF12C /* objc-config.h */,
 				195F9318230B312F00D0DCF2 /* objc-runtime.h */,
+				195A95F82318895500BEF12C /* support.h */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -136,6 +146,8 @@
 		195F9328230CA33600D0DCF2 /* exceptions */ = {
 			isa = PBXGroup;
 			children = (
+				195A95FB231889B500BEF12C /* FoundationException.h */,
+				195A95FA231889B500BEF12C /* FoundationException.m */,
 				195F932A230CA33600D0DCF2 /* GeneralExceptions.h */,
 				195F9329230CA33600D0DCF2 /* GeneralExceptions.m */,
 			);
@@ -249,6 +261,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				195A95F7231882D300BEF12C /* objc-config.h in Headers */,
 				19CCD10C1FCD0191008CEA38 /* SSZipArchive.h in Headers */,
 				195F9303230B28C900D0DCF2 /* OSSerialization.h in Headers */,
 				19CCD0F31FCD0144008CEA38 /* StreamTypedCoder.h in Headers */,
@@ -263,7 +276,9 @@
 				19CCD1071FCD0191008CEA38 /* mztools.h in Headers */,
 				19CCD1051FCD0191008CEA38 /* ioapi.h in Headers */,
 				195F9310230B2D2B00D0DCF2 /* OSUtilities.h in Headers */,
+				195A95F92318895500BEF12C /* support.h in Headers */,
 				195F9319230B312F00D0DCF2 /* objc-runtime.h in Headers */,
+				195A95FD231889B500BEF12C /* FoundationException.h in Headers */,
 				195F9308230B2B5200D0DCF2 /* lfmemory.h in Headers */,
 				19847993231842FA00FE310A /* objc-api.h in Headers */,
 				195F931C230B3AFB00D0DCF2 /* encoding.h in Headers */,
@@ -347,6 +362,7 @@
 				19CCD1081FCD0191008CEA38 /* unzip.c in Sources */,
 				195F9314230B30AC00D0DCF2 /* OSUtilities.m in Sources */,
 				19CCD0F41FCD0144008CEA38 /* StreamTypedCoder.m in Sources */,
+				195A95FC231889B500BEF12C /* FoundationException.m in Sources */,
 				19CCD1041FCD0191008CEA38 /* ioapi.c in Sources */,
 				19CCD10D1FCD0191008CEA38 /* SSZipArchive.m in Sources */,
 				195F9316230B30D800D0DCF2 /* OSArchiver.m in Sources */,
