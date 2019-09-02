@@ -26,7 +26,6 @@
 */
 
 // #include <Foundation/common.h>
-#include "common.h"
 #include <Foundation/NSString.h>
 #include <Foundation/NSData.h>
 // #include <Foundation/NSPosixFileDescriptor.h>
@@ -40,12 +39,14 @@
 // #include "NSCalendarDateScanf.h"
 
 // #include <Foundation/exceptions/GeneralExceptions.h>
-#include "GeneralExceptions.h"
 // #include <extensions/PrintfFormatScanner.h>
 // #include <extensions/PrintfScannerHandler.h>
 
 // #include "config.h"
+
 #include "objc-config.h"
+#include "common.h"
+#include "GeneralExceptions.h"
 
 #if HAVE_WINDOWS_H
 #  include <windows.h>
@@ -117,8 +118,8 @@ LPWSTR NSStringToWindowsWideString(NSString *_str)
 
 #endif
 
-/* File reading */
-
+// /* File reading */
+//
 // void *NSReadContentsOfFile(NSString *_path, unsigned _extraCapacity,
 //                            unsigned *len)
 // {

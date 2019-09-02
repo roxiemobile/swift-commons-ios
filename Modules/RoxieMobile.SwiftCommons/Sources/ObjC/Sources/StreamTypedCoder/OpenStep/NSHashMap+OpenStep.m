@@ -1,5 +1,5 @@
 /* 
-   NSHashMap.m
+   NSHashMap+OpenStep.m
 
    Copyright (C) 1995, 1996 Ovidiu Predescu and Mircea Oancea.
    All rights reserved.
@@ -26,14 +26,15 @@
 // #include <math.h>
 // 
 // #include <Foundation/common.h>
-#include "common.h"
 // #include <Foundation/NSString.h>
 // #include <Foundation/NSException.h>
 // #include <Foundation/NSArray.h>
 // #include <Foundation/NSUtilities.h>
-#include "OSUtilities.h"
 // #include <Foundation/exceptions/GeneralExceptions.h>
 // #include "lfmemory.h"
+
+#include "common.h"
+#include "OSUtilities.h"
 
 // static void __NSHashGrow(NSHashTable *table, unsigned newSize);
 // static void __NSMapGrow(NSMapTable *table, unsigned newSize);

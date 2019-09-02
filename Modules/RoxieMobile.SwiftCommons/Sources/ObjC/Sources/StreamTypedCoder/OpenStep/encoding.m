@@ -40,6 +40,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "common.h"
 // #include <extensions/objc-runtime.h>
+
 #include "objc-runtime.h"
 
 // #if !defined(OBJC_FORWARDING_STACK_OFFSET) && defined(NeXT) \

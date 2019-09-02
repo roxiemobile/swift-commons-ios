@@ -22,10 +22,11 @@
    or in connection with the use or performance of this software.
 */
 
-//#include <Foundation/NSSerialization.h>
+// #include <Foundation/NSSerialization.h>
 #include <Foundation/NSData.h>
 
 #include "common.h"
+#include "GeneralExceptions.h"
 #include "OSSerialization.h"
 
 @implementation OSSerializer
@@ -47,11 +48,20 @@
     return AUTORELEASE(d);
 }
 
+/** Roxie: Begin */
+
 + (id)notImplemented:(SEL)aSel
 {
     // @link https://github.com/AlwaysRightInstitute/libFoundation/blob/master/Foundation/NSObject.m#L983
+
+    id exception = [[ObjcRuntimeException alloc]
+          initWithFormat:@"%s does not implement %s",
+          object_getClassName(self), sel_getName(aSel)];
+    [exception raise];
     return self;
 }
+
+/** Roxie: End */
 
 @end /* OSSerializer */
 

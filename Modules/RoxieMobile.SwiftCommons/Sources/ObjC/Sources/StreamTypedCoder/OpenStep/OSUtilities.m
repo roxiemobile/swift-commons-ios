@@ -24,17 +24,18 @@
 */
 
 // #include <Foundation/common.h>
-#include "common.h"
 #include <Foundation/NSString.h>
 // #include <Foundation/NSUtilities.h>
-#include "OSUtilities.h"
 #include <Foundation/NSDate.h>
 #include <Foundation/NSProcessInfo.h>
 // #include <Foundation/NSPosixFileDescriptor.h>
 #include <Foundation/NSLock.h>
 #include <Foundation/NSByteOrder.h>
 // #include <config.h>
+
 #include "objc-config.h"
+#include "common.h"
+#include "OSUtilities.h"
 
 #if defined(HAVE_WINDOWS_H)
 #  include <windows.h>
@@ -42,14 +43,14 @@
 
 // extern NSRecursiveLock *libFoundationLock;
 
-/* 
- * Log a Message 
- */
-
+// /* 
+//  * Log a Message 
+//  */
+//
 // static Class NSStringClass              = Nil;
 // static Class NSCalendarDateClass        = Nil;
 // static Class NSProcessInfoClass         = Nil;
-
+//
 // void NSLog(NSString *format, ...)
 // {
 //     va_list ap;
@@ -58,7 +59,7 @@
 //     NSLogv(format, ap);
 //     va_end(ap);
 // }
-
+//
 // void NSLogv(NSString *format, va_list args)
 // {
 //     NSString       *message;

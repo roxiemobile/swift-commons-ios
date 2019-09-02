@@ -25,12 +25,11 @@
 #ifndef __objc_runtime_h__
 #define __objc_runtime_h__
 
-#include <objc/runtime.h>
-
 #include <objc/objc.h>
 // #include <objc/objc-api.h>
 // #include <objc/Protocol.h>
 
+#include <objc/runtime.h>
 #include "objc-config.h"
 #include "objc-api.h"
 
@@ -212,6 +211,9 @@ extern id next_objc_msg_sendv(id self, SEL op, void* arg_frame);
 extern void class_addMethods(Class, struct objc_method_list*);
 void class_add_behavior(Class class, Class behavior);
 
+
+/** Roxie: Begin */
+
 /** In objective-c, how can I tell the difference between a Class and an instance of a class? */
 // @link https://opensource.apple.com/source/gcc/gcc-5493/libobjc/objc/objc-api.h.auto.html
 // @link http://web.mit.edu/kolya/sipb/afs/root.afs/sipb.mit.edu/project/bounds/src/gcc-2.7.2/objc/objc-api.h
@@ -241,6 +243,7 @@ object_is_instance(id object)
 #define RERAISE \
   [localException raise];
 
+/** Roxie: End */
 
 #endif /* __objc_runtime_h__ */
 

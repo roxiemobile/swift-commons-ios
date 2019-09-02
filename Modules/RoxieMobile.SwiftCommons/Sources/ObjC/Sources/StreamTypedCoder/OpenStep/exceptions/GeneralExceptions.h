@@ -26,8 +26,9 @@
 #define __GeneralExceptions_h__
 
 // #include <extensions/support.h>
-#include "support.h"
 // #include <extensions/exceptions/FoundationException.h>
+
+#include "support.h"
 #include "FoundationException.h"
 
 @class NSString;

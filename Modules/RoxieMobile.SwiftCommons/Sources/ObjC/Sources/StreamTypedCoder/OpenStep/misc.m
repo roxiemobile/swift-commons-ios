@@ -28,9 +28,10 @@ Boston, MA 02111-1307, USA.  */
 
 #include <stdlib.h>
 // #include <Foundation/common.h>
-#include "common.h"
 // #include <extensions/objc-runtime.h>
+
 #include "objc-runtime.h"
+#include "common.h"
 
 /*
 ** Hook functions for memory allocation and disposal.

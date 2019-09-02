@@ -51,6 +51,7 @@
 #endif
 
 // #include <config.h>
+
 #include "objc-config.h"
 
 /* BUGS: Assumes the endianism of target machine is either big or little

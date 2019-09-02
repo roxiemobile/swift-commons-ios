@@ -29,8 +29,10 @@
 #define __common_h__
 
 // #include <config.h>
-#include "objc-config.h"
 #include <Foundation/NSString.h>
+
+#include "objc-config.h"
+#include "objc-api.h"
 
 #if HAVE_STRING_H
 # include <string.h>
@@ -89,7 +91,6 @@ extern atol();
 #define sleep(x) Sleep(x*1000)
 #endif
 
-#include "objc-api.h"
 #include "lfmemory.h"
 
 #if (__GNUC__ == 2) && (__GNUC_MINOR__ <= 6) && !defined(__attribute__)
