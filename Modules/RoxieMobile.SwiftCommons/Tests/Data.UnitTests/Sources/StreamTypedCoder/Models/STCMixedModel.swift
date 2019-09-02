@@ -24,8 +24,6 @@ class STCMixedModel: ValidatableModel
 
     fileprivate(set) var bool: Bool?
 
-//    fileprivate(set) var character: Character?
-
     fileprivate(set) var double: Double?
 
     fileprivate(set) var float: Float?
@@ -59,8 +57,6 @@ class STCMixedModel: ValidatableModel
     // Serializable Objects
 
     fileprivate(set) var serializableBool: STCBoolModel?
-
-//    fileprivate(set) var serializableCharacter: STCCharacterModel?
 
     fileprivate(set) var serializableDouble: STCDoubleModel?
 
@@ -96,8 +92,6 @@ class STCMixedModel: ValidatableModel
 
     fileprivate(set) var boolArray: [Bool]?
 
-//    fileprivate(set) var characterArray: [Character]?
-
     fileprivate(set) var doubleArray: [Double]?
 
     fileprivate(set) var floatArray: [Float]?
@@ -131,8 +125,6 @@ class STCMixedModel: ValidatableModel
     // Array of Serializable Objects
 
     fileprivate(set) var serializableBoolArray: [STCBoolModel]?
-
-//    fileprivate(set) var serializableCharacterArray: [STCCharacterModel]?
 
     fileprivate(set) var serializableDoubleArray: [STCDoubleModel]?
 
@@ -168,8 +160,6 @@ class STCMixedModel: ValidatableModel
 
     fileprivate(set) var boolDictionary: [String: Bool]?
 
-//    fileprivate(set) var characterDictionary: [String: Character]?
-
     fileprivate(set) var doubleDictionary: [String: Double]?
 
     fileprivate(set) var floatDictionary: [String: Float]?
@@ -204,8 +194,6 @@ class STCMixedModel: ValidatableModel
 
     fileprivate(set) var serializableBoolDictionary: [String: STCBoolModel]?
 
-//    fileprivate(set) var serializableCharacterDictionary: [String: STCCharacterModel]?
-
     fileprivate(set) var serializableDoubleDictionary: [String: STCDoubleModel]?
 
     fileprivate(set) var serializableFloatDictionary: [String: STCFloatModel]?
@@ -236,78 +224,6 @@ class STCMixedModel: ValidatableModel
 
     fileprivate(set) var serializableStringDictionary: [String: STCStringModel]?
 
-//    // Set of Basic Types
-//
-//    fileprivate(set) var boolSet: Set<Bool>?
-//
-//    fileprivate(set) var characterSet: Set<Character>?
-//
-//    fileprivate(set) var doubleSet: Set<Double>?
-//
-//    fileprivate(set) var floatSet: Set<Float>?
-//
-//    fileprivate(set) var float32Set: Set<Float32>?
-//
-//    fileprivate(set) var float64Set: Set<Float64>?
-//
-//    fileprivate(set) var uinteger8Set: Set<UInt8>?
-//
-//    fileprivate(set) var uinteger16Set: Set<UInt16>?
-//
-//    fileprivate(set) var uinteger32Set: Set<UInt32>?
-//
-//    fileprivate(set) var uinteger64Set: Set<UInt64>?
-//
-//    fileprivate(set) var uintegerSet: Set<UInt>?
-//
-//    fileprivate(set) var integer8Set: Set<Int8>?
-//
-//    fileprivate(set) var integer16Set: Set<Int16>?
-//
-//    fileprivate(set) var integer32Set: Set<Int32>?
-//
-//    fileprivate(set) var integer64Set: Set<Int64>?
-//
-//    fileprivate(set) var integerSet: Set<Int>?
-//
-//    fileprivate(set) var stringSet: Set<String>?
-//
-//    // Set of Serializable Objects
-//
-//    fileprivate(set) var serializableBoolSet: Set<STCBoolModel>?
-//
-//    fileprivate(set) var serializableCharacterSet: Set<STCCharacterModel>?
-//
-//    fileprivate(set) var serializableDoubleSet: Set<STCDoubleModel>?
-//
-//    fileprivate(set) var serializableFloatSet: Set<STCFloatModel>?
-//
-//    fileprivate(set) var serializableFloat32Set: Set<STCFloat32Model>?
-//
-//    fileprivate(set) var serializableFloat64Set: Set<STCFloat64Model>?
-//
-//    fileprivate(set) var serializableUInt8Set: Set<STCUnsignedInteger8Model>?
-//
-//    fileprivate(set) var serializableUInt16Set: Set<STCUnsignedInteger16Model>?
-//
-//    fileprivate(set) var serializableUInt32Set: Set<STCUnsignedInteger32Model>?
-//
-//    fileprivate(set) var serializableUInt64Set: Set<STCUnsignedInteger64Model>?
-//
-//    fileprivate(set) var serializableUIntSet: Set<STCUnsignedIntegerModel>?
-//
-//    fileprivate(set) var serializableInt8Set: Set<STCSignedInteger8Model>?
-//
-//    fileprivate(set) var serializableInt16Set: Set<STCSignedInteger16Model>?
-//
-//    fileprivate(set) var serializableInt32Set: Set<STCSignedInteger32Model>?
-//
-//    fileprivate(set) var serializableInt64Set: Set<STCSignedInteger64Model>?
-//
-//    fileprivate(set) var serializableIntSet: Set<STCSignedIntegerModel>?
-//
-//    fileprivate(set) var serializableStringSet: Set<STCStringModel>?
-
 // MARK: - Methods
 
     open override func map(with map: Map) {
@@ -315,7 +231,6 @@ class STCMixedModel: ValidatableModel
 
         // (De)serialize to/from json
         self.bool                            <~ map[JsonKeys.bool]
-//        self.character                       <~ map[JsonKeys.character]
         self.double                          <~ map[JsonKeys.double]
         self.float                           <~ map[JsonKeys.float]
         self.float32                         <~ map[JsonKeys.float32]
@@ -334,7 +249,6 @@ class STCMixedModel: ValidatableModel
 
         // Serializable Objects
         self.serializableBool                <~ map[JsonKeys.serializableBool]
-//        self.serializableCharacter           <~ map[JsonKeys.serializableCharacter]
         self.serializableDouble              <~ map[JsonKeys.serializableDouble]
         self.serializableFloat               <~ map[JsonKeys.serializableFloat]
         self.serializableFloat32             <~ map[JsonKeys.serializableFloat32]
@@ -353,7 +267,6 @@ class STCMixedModel: ValidatableModel
 
         // Array of Basic Types
         self.boolArray                       <~ map[JsonKeys.boolArray]
-//        self.characterArray                  <~ map[JsonKeys.characterArray]
         self.doubleArray                     <~ map[JsonKeys.doubleArray]
         self.floatArray                      <~ map[JsonKeys.floatArray]
         self.float32Array                    <~ map[JsonKeys.float32Array]
@@ -372,7 +285,6 @@ class STCMixedModel: ValidatableModel
 
         // Array of Serializable Objects
         self.serializableBoolArray           <~ map[JsonKeys.serializableBoolArray]
-//        self.serializableCharacterArray      <~ map[JsonKeys.serializableCharacterArray]
         self.serializableDoubleArray         <~ map[JsonKeys.serializableDoubleArray]
         self.serializableFloatArray          <~ map[JsonKeys.serializableFloatArray]
         self.serializableFloat32Array        <~ map[JsonKeys.serializableFloat32Array]
@@ -391,7 +303,6 @@ class STCMixedModel: ValidatableModel
 
         // Dictionary of Basic Types
         self.boolDictionary                  <~ map[JsonKeys.boolDictionary]
-//        self.characterDictionary             <~ map[JsonKeys.characterDictionary]
         self.doubleDictionary                <~ map[JsonKeys.doubleDictionary]
         self.floatDictionary                 <~ map[JsonKeys.floatDictionary]
         self.float32Dictionary               <~ map[JsonKeys.float32Dictionary]
@@ -410,7 +321,6 @@ class STCMixedModel: ValidatableModel
 
         // Dictionary of Serializable Objects
         self.serializableBoolDictionary      <~ map[JsonKeys.serializableBoolDictionary]
-//        self.serializableCharacterDictionary <~ map[JsonKeys.serializableCharacterDictionary]
         self.serializableDoubleDictionary    <~ map[JsonKeys.serializableDoubleDictionary]
         self.serializableFloatDictionary     <~ map[JsonKeys.serializableFloatDictionary]
         self.serializableFloat32Dictionary   <~ map[JsonKeys.serializableFloat32Dictionary]
@@ -426,44 +336,6 @@ class STCMixedModel: ValidatableModel
         self.serializableInt64Dictionary     <~ map[JsonKeys.serializableInt64Dictionary]
         self.serializableIntDictionary       <~ map[JsonKeys.serializableIntDictionary]
         self.serializableStringDictionary    <~ map[JsonKeys.serializableStringDictionary]
-
-//        // Set of Basic Types
-//        self.boolSet                         <~ map[JsonKeys.boolSet]
-//        self.characterSet                    <~ map[JsonKeys.characterSet]
-//        self.doubleSet                       <~ map[JsonKeys.doubleSet]
-//        self.floatSet                        <~ map[JsonKeys.floatSet]
-//        self.float32Set                      <~ map[JsonKeys.float32Set]
-//        self.float64Set                      <~ map[JsonKeys.float64Set]
-//        self.uinteger8Set                    <~ map[JsonKeys.uinteger8Set]
-//        self.uinteger16Set                   <~ map[JsonKeys.uinteger16Set]
-//        self.uinteger32Set                   <~ map[JsonKeys.uinteger32Set]
-//        self.uinteger64Set                   <~ map[JsonKeys.uinteger64Set]
-//        self.uintegerSet                     <~ map[JsonKeys.uintegerSet]
-//        self.integer8Set                     <~ map[JsonKeys.integer8Set]
-//        self.integer16Set                    <~ map[JsonKeys.integer16Set]
-//        self.integer32Set                    <~ map[JsonKeys.integer32Set]
-//        self.integer64Set                    <~ map[JsonKeys.integer64Set]
-//        self.integerSet                      <~ map[JsonKeys.integerSet]
-//        self.stringSet                       <~ map[JsonKeys.stringSet]
-//
-//        // Set of Serializable Objects
-//        self.serializableBoolSet             <~ map[JsonKeys.serializableBoolSet]
-//        self.serializableCharacterSet        <~ map[JsonKeys.serializableCharacterSet]
-//        self.serializableDoubleSet           <~ map[JsonKeys.serializableDoubleSet]
-//        self.serializableFloatSet            <~ map[JsonKeys.serializableFloatSet]
-//        self.serializableFloat32Set          <~ map[JsonKeys.serializableFloat32Set]
-//        self.serializableFloat64Set          <~ map[JsonKeys.serializableFloat64Set]
-//        self.serializableUInt8Set            <~ map[JsonKeys.serializableUInt8Set]
-//        self.serializableUInt16Set           <~ map[JsonKeys.serializableUInt16Set]
-//        self.serializableUInt32Set           <~ map[JsonKeys.serializableUInt32Set]
-//        self.serializableUInt64Set           <~ map[JsonKeys.serializableUInt64Set]
-//        self.serializableUIntSet             <~ map[JsonKeys.serializableUIntSet]
-//        self.serializableInt8Set             <~ map[JsonKeys.serializableInt8Set]
-//        self.serializableInt16Set            <~ map[JsonKeys.serializableInt16Set]
-//        self.serializableInt32Set            <~ map[JsonKeys.serializableInt32Set]
-//        self.serializableInt64Set            <~ map[JsonKeys.serializableInt64Set]
-//        self.serializableIntSet              <~ map[JsonKeys.serializableIntSet]
-//        self.serializableStringSet           <~ map[JsonKeys.serializableStringSet]
     }
 }
 
