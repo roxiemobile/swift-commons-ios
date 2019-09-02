@@ -449,17 +449,17 @@ FINAL void _writeObjC(OSArchiver *self, const void *_value, const char *_type);
 
         if (tag == _C_CLASS) { // a class object
             NSString *className;
-            unsigned len;
+            NSUInteger len;
             char *buf;
             
             className = NSStringFromClass(_object);
             className = [self classNameEncodedForTrueClassName:className];
-            len = [className cStringLength];
+            len = [className lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
             buf = malloc(len + 4);
-            [className getCString:buf]; buf[len] = '\0';
+            [className getCString:buf maxLength:len + 4 encoding:NSUTF8StringEncoding]; buf[len] = '\0';
             
             _writeCString(self, buf);
-            _writeInt(self, [_object version]);
+            _writeLong(self, [_object version]);
             if (buf) free(buf);
         }
         else {
@@ -1005,20 +1005,20 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
         }
     }
     else {
-        NSString *name   = NULL;
-        int      version = 0;
-        char     *cname  = _readCString(self);
+        NSString  *name   = NULL;
+        NSInteger version = 0;
+        char      *cname  = _readCString(self);
 
         if (cname == NULL) {
             [NSException raise:NSInconsistentArchiveException
                          format:@"could not decode class name."];
         }
         
-        name    = [NSString stringWithCString:cname];
-        version = _readInt(self);
+        name    = [NSString stringWithCString:cname encoding:NSUTF8StringEncoding];
+        version = _readLong(self);
         lfFree(cname); cname = NULL;
         
-        if ([name cStringLength] == 0) {
+        if ([name lengthOfBytesUsingEncoding:NSUTF8StringEncoding] == 0) {
             [NSException raise:NSInconsistentArchiveException
                          format:@"could not allocate memory for class name."];
         }
@@ -1141,7 +1141,7 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
     if (object_is_instance(result)) {
         NSAssert3([result retainCount] > 0,
                   @"invalid retain count %i for id=%i (%@) ..",
-                  [result retainCount],
+                  (unsigned) [result retainCount],
                   archiveId,
                   NSStringFromClass([result class]));
     }
