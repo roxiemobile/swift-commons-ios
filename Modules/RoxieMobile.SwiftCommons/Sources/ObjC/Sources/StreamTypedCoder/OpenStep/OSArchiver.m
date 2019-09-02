@@ -111,8 +111,8 @@ FINAL NSTagType tagValue(NSTagType _tag) {
     return _tag & VALUE; // mask out bit 8
 }
 
-static const char *NSCoderSignature = "libFoundation OSArchiver";
-static int        NSCoderVersion    = 1100;
+static const char *OSCoderSignature = "roxie:stc";  // Stream Typed Coder
+static int         OSCoderVersion   = 1909;         // 2019-09
 
 @implementation OSArchiver
 
@@ -261,8 +261,8 @@ FINAL void _writeObjC(OSArchiver *self, const void *_value, const char *_type);
 - (void)writeArchiveHeader
 {
     if (self->didWriteHeader == NO) {
-        _writeCString(self, NSCoderSignature);
-        _writeInt(self, NSCoderVersion);
+        _writeCString(self, OSCoderSignature);
+        _writeInt(self, OSCoderVersion);
         self->didWriteHeader = YES;
     }
 }
@@ -949,14 +949,14 @@ FINAL void _readObjC(OSUnarchiver *self, void *_value, const char *_type);
         //NGLogT(@"decoder", @"decoding archive archived using '%s':%i ..",
         //       archiver, archiverVersion);
 
-        if (strcmp(archiver, NSCoderSignature)) {
+        if (strcmp(archiver, OSCoderSignature)) {
             NSLog(@"WARNING: used a different archiver (signature %s:%i)",
                   archiver, [self systemVersion]);
         }
-        else if ([self systemVersion] != NSCoderVersion) {
+        else if ([self systemVersion] != OSCoderVersion) {
             NSLog(@"WARNING: used a different archiver version "
                   @"(archiver=%i, unarchiver=%i)",
-                  [self systemVersion], NSCoderVersion);
+                  [self systemVersion], OSCoderVersion);
         }
 
         if (archiver) {
