@@ -161,10 +161,6 @@ final class Constants: NonCreatable
         JsonKeys.bool: false
     ]
 
-    static let dictionaryOfSTCCharacter: [String: Character] = [
-        JsonKeys.character: Constants.characterValue
-    ]
-
     static let dictionaryOfSTCDouble: [String: Double] = [
         JsonKeys.double: Constants.doubleValue
     ]
@@ -227,7 +223,6 @@ final class Constants: NonCreatable
 
     static let dictionarySTCMixed: [String: Any] = [
         JsonKeys.bool: false,
-//        JsonKeys.character: Constants.characterValue,
         JsonKeys.double: Constants.doubleValue,
         JsonKeys.float: Constants.floatValue,
         JsonKeys.float32: Constants.float32Value,
@@ -244,7 +239,6 @@ final class Constants: NonCreatable
         JsonKeys.int: Int.max,
         JsonKeys.string: Constants.stringValue,
         JsonKeys.serializableBool: Constants.dictionaryOfSTCBool,
-//        JsonKeys.serializableCharacter: Constants.dictionaryForSTCCharacter,
         JsonKeys.serializableDouble: Constants.dictionaryOfSTCDouble,
         JsonKeys.serializableFloat: Constants.dictionaryOfSTCFloat,
         JsonKeys.serializableFloat32: Constants.dictionaryOfSTCFloat32,
@@ -261,7 +255,6 @@ final class Constants: NonCreatable
         JsonKeys.serializableInt: Constants.dictionaryOfSTCSignedInteger,
         JsonKeys.serializableString: Constants.dictionaryOfSTCString,
         JsonKeys.boolArray: [true],
-//        JsonKeys.characterArray: [Constants.characterValue],
         JsonKeys.doubleArray: [Constants.doubleValue],
         JsonKeys.floatArray: [Constants.floatValue],
         JsonKeys.float32Array: [Constants.float32Value],
@@ -278,7 +271,6 @@ final class Constants: NonCreatable
         JsonKeys.integerArray: [Int.max],
         JsonKeys.stringArray: [Constants.stringValue],
         JsonKeys.serializableBoolArray: [Constants.dictionaryOfSTCBool],
-//        JsonKeys.serializableCharacterArray: [Constants.dictionaryOfSTCCharacter],
         JsonKeys.serializableDoubleArray: [Constants.dictionaryOfSTCDouble],
         JsonKeys.serializableFloatArray: [Constants.dictionaryOfSTCFloat],
         JsonKeys.serializableFloat32Array: [Constants.dictionaryOfSTCFloat32],
@@ -295,7 +287,6 @@ final class Constants: NonCreatable
         JsonKeys.serializableIntArray: [Constants.dictionaryOfSTCSignedInteger],
         JsonKeys.serializableStringArray: [Constants.dictionaryOfSTCString],
         JsonKeys.boolDictionary: [JsonKeys.value: true],
-//        JsonKeys.characterDictionary: [JsonKeys.value: Constants.characterValue],
         JsonKeys.doubleDictionary: [JsonKeys.value: Constants.doubleValue],
         JsonKeys.floatDictionary: [JsonKeys.value: Constants.floatValue],
         JsonKeys.float32Dictionary: [JsonKeys.value: Constants.float32Value],
@@ -312,7 +303,6 @@ final class Constants: NonCreatable
         JsonKeys.integerDictionary: [JsonKeys.value: Int.max],
         JsonKeys.stringDictionary: [JsonKeys.value: Constants.stringValue],
         JsonKeys.serializableBoolDictionary: [JsonKeys.object: Constants.dictionaryOfSTCBool],
-//        JsonKeys.serializableCharacterDictionary: [JsonKeys.object: STCCharacterModel.shared],
         JsonKeys.serializableDoubleDictionary: [JsonKeys.object: Constants.dictionaryOfSTCDouble],
         JsonKeys.serializableFloatDictionary: [JsonKeys.object: Constants.dictionaryOfSTCFloat],
         JsonKeys.serializableFloat32Dictionary: [JsonKeys.object: Constants.dictionaryOfSTCFloat32],
@@ -327,41 +317,7 @@ final class Constants: NonCreatable
         JsonKeys.serializableInt32Dictionary: [JsonKeys.object: Constants.dictionaryOfSTCSignedInteger32],
         JsonKeys.serializableInt64Dictionary: [JsonKeys.object: Constants.dictionaryOfSTCSignedInteger64],
         JsonKeys.serializableIntDictionary: [JsonKeys.object: Constants.dictionaryOfSTCSignedInteger],
-        JsonKeys.serializableStringDictionary: [JsonKeys.object: Constants.dictionaryOfSTCString],
-//        JsonKeys.boolSet: Set([true]),
-//        JsonKeys.characterSet: Set([Constants.characterValue]),
-//        JsonKeys.doubleSet: Set([Constants.doubleValue]),
-//        JsonKeys.floatSet: Set([Constants.floatValue]),
-//        JsonKeys.float32Set: Set([Constants.float32Value]),
-//        JsonKeys.float64Set: Set([Constants.doubleValue]),
-//        JsonKeys.uinteger8Set: Set([UInt8.max]),
-//        JsonKeys.uinteger16Set: Set([UInt16.max]),
-//        JsonKeys.uinteger32Set: Set([UInt32.max]),
-//        JsonKeys.uinteger64Set: Set([UInt64.max]),
-//        JsonKeys.uintegerSet: Set([UInt.max]),
-//        JsonKeys.integer8Set: Set([Int8.max]),
-//        JsonKeys.integer16Set: Set([Int16.max]),
-//        JsonKeys.integer32Set: Set([Int32.max]),
-//        JsonKeys.integer64Set: Set([Int64.max]),
-//        JsonKeys.integerSet: Set([Int.max]),
-//        JsonKeys.stringSet: Set([Constants.stringValue]),
-//        JsonKeys.serializableBoolSet: Set([Constants.dictionaryOfSTCBool]),
-//        JsonKeys.serializableCharacterSet: Set([Constants.dictionaryOfSTCCharacter]),
-//        JsonKeys.serializableDoubleSet: Set([Constants.dictionaryOfSTCDouble]),
-//        JsonKeys.serializableFloatSet: Set([Constants.dictionaryOfSTCFloat]),
-//        JsonKeys.serializableFloat32Set: Set([Constants.dictionaryOfSTCFloat32]),
-//        JsonKeys.serializableFloat64Set: Set([Constants.dictionaryOfSTCFloat64]),
-//        JsonKeys.serializableUInt8Set: Set([Constants.dictionaryOfSTCUnsignedInteger8]),
-//        JsonKeys.serializableUInt16Set: Set([Constants.dictionaryOfSTCUnsignedInteger16]),
-//        JsonKeys.serializableUInt32Set: Set([Constants.dictionaryOfSTCUnsignedInteger32]),
-//        JsonKeys.serializableUInt64Set: Set([Constants.dictionaryOfSTCUnsignedInteger64]),
-//        JsonKeys.serializableUIntSet: Set([Constants.dictionaryOfSTCUnsignedInteger]),
-//        JsonKeys.serializableInt8Set: Set([Constants.dictionaryOfSTCSignedInteger8]),
-//        JsonKeys.serializableInt16Set: Set([Constants.dictionaryOfSTCSignedInteger16]),
-//        JsonKeys.serializableInt32Set: Set([Constants.dictionaryOfSTCSignedInteger32]),
-//        JsonKeys.serializableInt64Set: Set([Constants.dictionaryOfSTCSignedInteger64]),
-//        JsonKeys.serializableIntSet: Set([Constants.dictionaryOfSTCSignedInteger]),
-//        JsonKeys.serializableStringSet: Set([Constants.dictionaryOfSTCString])
+        JsonKeys.serializableStringDictionary: [JsonKeys.object: Constants.dictionaryOfSTCString]
     ]
 
 // MARK: - RawRepresentable types
@@ -394,8 +350,6 @@ final class Constants: NonCreatable
     static let float64Value: Float64 = 0.25
 
     static let floatValue: Float = 0.25
-
-    static let characterValue: Character = "q"
 }
 
 // ----------------------------------------------------------------------------

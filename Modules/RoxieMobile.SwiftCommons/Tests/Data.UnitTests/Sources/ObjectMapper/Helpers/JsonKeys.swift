@@ -78,7 +78,6 @@ final class JsonKeys: NonCreatable
 
     //Basic Types
     static let bool = "bool"
-    static let character = "character"
     static let double = "double"
     static let float32 = "float32"
     static let float64 = "float64"
@@ -87,7 +86,6 @@ final class JsonKeys: NonCreatable
 
     // Serializable Objects
     static let serializableBool = "serializableBool"
-    static let serializableCharacter = "serializableCharacter"
     static let serializableDouble = "serializableDouble"
     static let serializableFloat = "serializableFloat"
     static let serializableFloat32 = "serializableFloat32"
@@ -106,7 +104,6 @@ final class JsonKeys: NonCreatable
 
     // Array of Basic Types
     static let boolArray = "boolArray"
-    static let characterArray = "characterArray"
     static let doubleArray = "doubleArray"
     static let floatArray = "floatArray"
     static let float32Array = "float32Array"
@@ -125,7 +122,6 @@ final class JsonKeys: NonCreatable
 
     // Array of Serializable Objects
     static let serializableBoolArray = "serializableBoolArray"
-    static let serializableCharacterArray = "serializableCharacterArray"
     static let serializableDoubleArray = "serializableDoubleArray"
     static let serializableFloatArray = "serializableFloatArray"
     static let serializableFloat32Array = "serializableFloat32Array"
@@ -144,7 +140,6 @@ final class JsonKeys: NonCreatable
 
     // Dictionary of Basic Types
     static let boolDictionary = "boolDictionary"
-    static let characterDictionary = "characterDictionary"
     static let doubleDictionary = "doubleDictionary"
     static let floatDictionary = "floatDictionary"
     static let float32Dictionary = "float32Dictionary"
@@ -163,7 +158,6 @@ final class JsonKeys: NonCreatable
 
     // Dictionary of Serializable Objects
     static let serializableBoolDictionary = "serializableBoolDictionary"
-    static let serializableCharacterDictionary = "serializableCharacterDictionary"
     static let serializableDoubleDictionary = "serializableDoubleDictionary"
     static let serializableFloatDictionary = "serializableFloatDictionary"
     static let serializableFloat32Dictionary = "serializableFloat32Dictionary"
@@ -179,44 +173,6 @@ final class JsonKeys: NonCreatable
     static let serializableInt64Dictionary = "serializableInt64Dictionary"
     static let serializableIntDictionary = "serializableIntDictionary"
     static let serializableStringDictionary = "serializableStringDictionary"
-
-    // Set of Basic Types
-    static let boolSet = "boolSet"
-    static let characterSet = "characterSet"
-    static let doubleSet = "doubleSet"
-    static let floatSet = "floatSet"
-    static let float32Set = "float32Set"
-    static let float64Set = "float64Set"
-    static let uinteger8Set = "uinteger8Set"
-    static let uinteger16Set = "uinteger16Set"
-    static let uinteger32Set = "uinteger32Set"
-    static let uinteger64Set = "uinteger64Set"
-    static let uintegerSet = "uintegerSet"
-    static let integer8Set = "integer8Set"
-    static let integer16Set = "integer16Set"
-    static let integer32Set = "integer32Set"
-    static let integer64Set = "integer64Set"
-    static let integerSet = "integerSet"
-    static let stringSet = "stringSet"
-
-    // Set of Serializable Objects
-    static let serializableBoolSet = "serializableBoolSet"
-    static let serializableCharacterSet = "serializableCharacterSet"
-    static let serializableDoubleSet = "serializableDoubleSet"
-    static let serializableFloatSet = "serializableFloatSet"
-    static let serializableFloat32Set = "serializableFloat32Set"
-    static let serializableFloat64Set = "serializableFloat64Set"
-    static let serializableUInt8Set = "serializableUInt8Set"
-    static let serializableUInt16Set = "serializableUInt16Set"
-    static let serializableUInt32Set = "serializableUInt32Set"
-    static let serializableUInt64Set = "serializableUInt64Set"
-    static let serializableUIntSet = "serializableUIntSet"
-    static let serializableInt8Set = "serializableInt8Set"
-    static let serializableInt16Set = "serializableInt16Set"
-    static let serializableInt32Set = "serializableInt32Set"
-    static let serializableInt64Set = "serializableInt64Set"
-    static let serializableIntSet = "serializableIntSet"
-    static let serializableStringSet = "serializableStringSet"
 
 // MARK: - Other Keys
 
