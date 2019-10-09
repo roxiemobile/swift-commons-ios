@@ -28,12 +28,12 @@ public extension Roxie
 
     #if DEBUG
         if Roxie.isRunningXCTest {
-            FatalErrorException(reason: logMessage, userInfo: nil).raise()
+            FatalErrorException(reason: logMessage).raise()
         } else {
             preconditionFailure(logMessage)
         }
     #else
-        FatalErrorException(reason: logMessage, userInfo: nil).raise()
+        FatalErrorException(reason: logMessage).raise()
     #endif
 
         // Suppress error "Return from a ‘noreturn’ function"

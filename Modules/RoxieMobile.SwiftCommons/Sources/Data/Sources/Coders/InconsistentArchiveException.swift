@@ -1,19 +1,19 @@
 // ----------------------------------------------------------------------------
 //
-//  FatalErrorException.swift
+//  InconsistentArchiveException.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
-//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
+//  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
+import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-/// A fatal error exception which should completely halt the application execution.
-open class FatalErrorException: NSException
+/// TODO
+public final class InconsistentArchiveException: FatalErrorException
 {
 // MARK: - Construction
 
@@ -23,7 +23,7 @@ open class FatalErrorException: NSException
     ///   - reason: A human-readable message string summarizing the reason for the exception.
     ///   - userInfo: A dictionary containing user-defined information relating to the exception.
     ///
-    public init(reason: String?, userInfo: [AnyHashable: Any]? = nil) {
+    public override init(reason: String?, userInfo: [AnyHashable: Any]? = nil) {
         super.init(name: Inner.ExceptionName, reason: reason, userInfo: userInfo)
     }
 
@@ -32,26 +32,22 @@ open class FatalErrorException: NSException
     /// - Parameters:
     ///   - decoder: An unarchiver object.
     ///
-    public required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
-    /// Initializes and returns a newly created exception object.
-    ///
-    /// - Parameters:
-    ///   - name: The name of the exception.
-    ///   - reason: A human-readable message string summarizing the reason for the exception.
-    ///   - userInfo: A dictionary containing user-defined information relating to the exception.
-    ///
-    public override init(name: NSExceptionName, reason: String?, userInfo: [AnyHashable: Any]? = nil) {
-        super.init(name: name, reason: reason, userInfo: userInfo)
+// MARK: - Methods
+
+    /// TODO
+    public class func raise(reason: String, userInfo: [AnyHashable: Any]? = nil) {
+        self.init(reason: reason, userInfo: userInfo).raise()
     }
 
 // MARK: - Constants
 
     private struct Inner
     {
-        static let ExceptionName = NSExceptionName(rawValue: Roxie.typeName(of: FatalErrorException.self))
+        static let ExceptionName = NSExceptionName(rawValue: Roxie.typeName(of: InconsistentArchiveException.self))
     }
 }
 

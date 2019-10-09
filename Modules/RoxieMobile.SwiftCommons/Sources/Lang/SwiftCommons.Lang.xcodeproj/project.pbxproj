@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		196885861FCCA28000576A9E /* SwiftCommonsLang.h in Headers */ = {isa = PBXBuildFile; fileRef = 196885841FCCA28000576A9E /* SwiftCommonsLang.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		198B9BBB23460D37008B783D /* Roxie.ByteOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9BBA23460D36008B783D /* Roxie.ByteOrder.swift */; };
 		19BAC0AF1FCCA44C00DDEA92 /* SwiftCommonsLang.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC0AE1FCCA44C00DDEA92 /* SwiftCommonsLang.m */; };
 		19BAC0B51FCCA6CC00DDEA92 /* MetatypeNameParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DE61F85922A00090515 /* MetatypeNameParser.swift */; };
 		19BAC0B61FCCA6CC00DDEA92 /* MetatypeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DE71F85922A00090515 /* MetatypeNode.swift */; };
@@ -34,6 +35,7 @@
 		19BAC0CB1FCCA6D100DDEA92 /* AbstractMethodException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC51F85914100090515 /* AbstractMethodException.swift */; };
 		19BAC0CC1FCCA6D100DDEA92 /* FatalErrorException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC91F85914200090515 /* FatalErrorException.swift */; };
 		19BAC0CD1FCCA6D100DDEA92 /* NonCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC71F85914100090515 /* NonCreatable.swift */; };
+		19E3B582234E301C0054C611 /* InvalidArgumentException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E3B581234E301C0054C611 /* InvalidArgumentException.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,12 +59,14 @@
 		196885851FCCA28000576A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1976D4CF1FCB81AF00C07C72 /* SwiftCommons.Lang.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.Lang.xcconfig; sourceTree = "<group>"; };
 		1986B9731F8E32DF004F6F8B /* Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift.swift; sourceTree = "<group>"; };
+		198B9BBA23460D36008B783D /* Roxie.ByteOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roxie.ByteOrder.swift; sourceTree = "<group>"; };
 		19BAC0AE1FCCA44C00DDEA92 /* SwiftCommonsLang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsLang.m; sourceTree = "<group>"; };
 		19C135DD1F8E437600B27112 /* String.Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.Localized.swift; sourceTree = "<group>"; };
 		19C135DF1F8E44B400B27112 /* String.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.Empty.swift; sourceTree = "<group>"; };
 		19C135E11F8E44C400B27112 /* String.Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.Blank.swift; sourceTree = "<group>"; };
 		19C135E31F8E457F00B27112 /* Collection.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Empty.swift; sourceTree = "<group>"; };
 		19C135E51F8E460400B27112 /* Collection.All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.All.swift; sourceTree = "<group>"; };
+		19E3B581234E301C0054C611 /* InvalidArgumentException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidArgumentException.swift; sourceTree = "<group>"; };
 		19ED8B561F9566DF004FD48B /* Array.Remove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.Remove.swift; sourceTree = "<group>"; };
 		19ED8B571F9568CA004FD48B /* Collection.Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Any.swift; sourceTree = "<group>"; };
 		19ED8B5A1F956D4C004FD48B /* Dictionary.Union.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.Union.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				19044DD61F85922A00090515 /* Roxie.swift */,
+				198B9BBA23460D36008B783D /* Roxie.ByteOrder.swift */,
 				19044DD51F85922A00090515 /* Roxie.FatalError.swift */,
 				8EE86835A2A0BB546044DA9F /* Roxie.TypeCast.swift */,
 			);
@@ -197,6 +202,7 @@
 				19044DD71F85922A00090515 /* Swift */,
 				19044DC61F85914100090515 /* AbstractClass.swift */,
 				19044DC51F85914100090515 /* AbstractMethodException.swift */,
+				19E3B581234E301C0054C611 /* InvalidArgumentException.swift */,
 				19044DC91F85914200090515 /* FatalErrorException.swift */,
 				19044DC71F85914100090515 /* NonCreatable.swift */,
 			);
@@ -310,6 +316,7 @@
 			files = (
 				19BAC0BA1FCCA6CC00DDEA92 /* Roxie.FatalError.swift in Sources */,
 				19BAC0C01FCCA6CC00DDEA92 /* Dictionary.Union.swift in Sources */,
+				19E3B582234E301C0054C611 /* InvalidArgumentException.swift in Sources */,
 				19BAC0C11FCCA6CC00DDEA92 /* ImplicitlyUnwrappedOptionalWrapper.swift in Sources */,
 				19BAC0BE1FCCA6CC00DDEA92 /* Collection.Any.swift in Sources */,
 				19BAC0CB1FCCA6D100DDEA92 /* AbstractMethodException.swift in Sources */,
@@ -321,6 +328,7 @@
 				19BAC0B61FCCA6CC00DDEA92 /* MetatypeNode.swift in Sources */,
 				19BAC0C91FCCA6D100DDEA92 /* Swift.swift in Sources */,
 				19BAC0BC1FCCA6CC00DDEA92 /* Array.Remove.swift in Sources */,
+				198B9BBB23460D37008B783D /* Roxie.ByteOrder.swift in Sources */,
 				19BAC0BF1FCCA6CC00DDEA92 /* Collection.Empty.swift in Sources */,
 				19BAC0C31FCCA6D100DDEA92 /* String.Blank.swift in Sources */,
 				19BAC0B71FCCA6CC00DDEA92 /* ReflectedType.swift in Sources */,
