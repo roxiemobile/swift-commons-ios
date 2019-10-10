@@ -34,8 +34,6 @@ Pod::Spec.new do |s|
     base_dir + 'Sources/SSZipArchive/SSZipArchiveDelegate.h',
     base_dir + 'Sources/SSZipArchive/minizip/unzip.h',
     base_dir + 'Sources/SSZipArchive/minizip/ioapi.h',
-    # StreamTypedCoder
-    base_dir + 'Sources/StreamTypedCoder/StreamTypedCoder.h',
     # TryCatchFinally
     base_dir + 'Sources/TryCatchFinally/TryCatchFinally.h'
   ]

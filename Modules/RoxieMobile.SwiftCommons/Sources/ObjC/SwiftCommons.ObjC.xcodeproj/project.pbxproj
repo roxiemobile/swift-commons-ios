@@ -11,23 +11,6 @@
 		19C9FD871FCCAAD30069F3D1 /* TryCatchFinally.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */; };
 		19C9FD8C1FCCABBB0069F3D1 /* SwiftCommonsObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19C9FD8D1FCCABBB0069F3D1 /* SwiftCommonsObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FD8B1FCCABBB0069F3D1 /* SwiftCommonsObjC.m */; };
-		19CCD0E41FCD0144008CEA38 /* LFArchiver+Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0D31FCD0144008CEA38 /* LFArchiver+Encoding.h */; };
-		19CCD0E51FCD0144008CEA38 /* LFArchiver+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0D41FCD0144008CEA38 /* LFArchiver+Encoding.m */; };
-		19CCD0E61FCD0144008CEA38 /* LFArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0D51FCD0144008CEA38 /* LFArchiver.h */; };
-		19CCD0E71FCD0144008CEA38 /* LFArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0D61FCD0144008CEA38 /* LFArchiver.m */; };
-		19CCD0E81FCD0144008CEA38 /* LFEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0D71FCD0144008CEA38 /* LFEncoding.h */; };
-		19CCD0E91FCD0144008CEA38 /* LFEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0D81FCD0144008CEA38 /* LFEncoding.m */; };
-		19CCD0EA1FCD0144008CEA38 /* LFMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0D91FCD0144008CEA38 /* LFMemory.h */; };
-		19CCD0EB1FCD0144008CEA38 /* LFMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0DA1FCD0144008CEA38 /* LFMemory.m */; };
-		19CCD0EC1FCD0144008CEA38 /* LFObjCRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0DB1FCD0144008CEA38 /* LFObjCRuntime.h */; };
-		19CCD0ED1FCD0144008CEA38 /* LFUnarchiver+Decoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0DC1FCD0144008CEA38 /* LFUnarchiver+Decoding.h */; };
-		19CCD0EE1FCD0144008CEA38 /* LFUnarchiver+Decoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0DD1FCD0144008CEA38 /* LFUnarchiver+Decoding.m */; };
-		19CCD0EF1FCD0144008CEA38 /* LFUnarchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0DE1FCD0144008CEA38 /* LFUnarchiver.h */; };
-		19CCD0F01FCD0144008CEA38 /* LFUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0DF1FCD0144008CEA38 /* LFUnarchiver.m */; };
-		19CCD0F11FCD0144008CEA38 /* LFUnknownTypeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0E01FCD0144008CEA38 /* LFUnknownTypeException.h */; };
-		19CCD0F21FCD0144008CEA38 /* LFUnknownTypeException.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0E11FCD0144008CEA38 /* LFUnknownTypeException.m */; };
-		19CCD0F31FCD0144008CEA38 /* StreamTypedCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0E21FCD0144008CEA38 /* StreamTypedCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19CCD0F41FCD0144008CEA38 /* StreamTypedCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0E31FCD0144008CEA38 /* StreamTypedCoder.m */; };
 		19CCD1031FCD0191008CEA38 /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0F71FCD0190008CEA38 /* crypt.h */; };
 		19CCD1041FCD0191008CEA38 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0F81FCD0190008CEA38 /* ioapi.c */; };
 		19CCD1051FCD0191008CEA38 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0F91FCD0190008CEA38 /* ioapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,23 +33,6 @@
 		19C9FD6E1FCCA85D0069F3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsObjC.h; sourceTree = "<group>"; };
 		19C9FD8B1FCCABBB0069F3D1 /* SwiftCommonsObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsObjC.m; sourceTree = "<group>"; };
-		19CCD0D31FCD0144008CEA38 /* LFArchiver+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFArchiver+Encoding.h"; sourceTree = "<group>"; };
-		19CCD0D41FCD0144008CEA38 /* LFArchiver+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFArchiver+Encoding.m"; sourceTree = "<group>"; };
-		19CCD0D51FCD0144008CEA38 /* LFArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFArchiver.h; sourceTree = "<group>"; };
-		19CCD0D61FCD0144008CEA38 /* LFArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFArchiver.m; sourceTree = "<group>"; };
-		19CCD0D71FCD0144008CEA38 /* LFEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFEncoding.h; sourceTree = "<group>"; };
-		19CCD0D81FCD0144008CEA38 /* LFEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFEncoding.m; sourceTree = "<group>"; };
-		19CCD0D91FCD0144008CEA38 /* LFMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMemory.h; sourceTree = "<group>"; };
-		19CCD0DA1FCD0144008CEA38 /* LFMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFMemory.m; sourceTree = "<group>"; };
-		19CCD0DB1FCD0144008CEA38 /* LFObjCRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFObjCRuntime.h; sourceTree = "<group>"; };
-		19CCD0DC1FCD0144008CEA38 /* LFUnarchiver+Decoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUnarchiver+Decoding.h"; sourceTree = "<group>"; };
-		19CCD0DD1FCD0144008CEA38 /* LFUnarchiver+Decoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUnarchiver+Decoding.m"; sourceTree = "<group>"; };
-		19CCD0DE1FCD0144008CEA38 /* LFUnarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFUnarchiver.h; sourceTree = "<group>"; };
-		19CCD0DF1FCD0144008CEA38 /* LFUnarchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFUnarchiver.m; sourceTree = "<group>"; };
-		19CCD0E01FCD0144008CEA38 /* LFUnknownTypeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFUnknownTypeException.h; sourceTree = "<group>"; };
-		19CCD0E11FCD0144008CEA38 /* LFUnknownTypeException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFUnknownTypeException.m; sourceTree = "<group>"; };
-		19CCD0E21FCD0144008CEA38 /* StreamTypedCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamTypedCoder.h; sourceTree = "<group>"; };
-		19CCD0E31FCD0144008CEA38 /* StreamTypedCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamTypedCoder.m; sourceTree = "<group>"; };
 		19CCD0F71FCD0190008CEA38 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		19CCD0F81FCD0190008CEA38 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
 		19CCD0F91FCD0190008CEA38 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
@@ -129,38 +95,6 @@
 			path = TryCatchFinally;
 			sourceTree = "<group>";
 		};
-		19CCD0D11FCD0144008CEA38 /* StreamTypedCoder */ = {
-			isa = PBXGroup;
-			children = (
-				19CCD0D21FCD0144008CEA38 /* libFoundation */,
-				19CCD0E21FCD0144008CEA38 /* StreamTypedCoder.h */,
-				19CCD0E31FCD0144008CEA38 /* StreamTypedCoder.m */,
-			);
-			path = StreamTypedCoder;
-			sourceTree = "<group>";
-		};
-		19CCD0D21FCD0144008CEA38 /* libFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				19CCD0D31FCD0144008CEA38 /* LFArchiver+Encoding.h */,
-				19CCD0D41FCD0144008CEA38 /* LFArchiver+Encoding.m */,
-				19CCD0D51FCD0144008CEA38 /* LFArchiver.h */,
-				19CCD0D61FCD0144008CEA38 /* LFArchiver.m */,
-				19CCD0D71FCD0144008CEA38 /* LFEncoding.h */,
-				19CCD0D81FCD0144008CEA38 /* LFEncoding.m */,
-				19CCD0D91FCD0144008CEA38 /* LFMemory.h */,
-				19CCD0DA1FCD0144008CEA38 /* LFMemory.m */,
-				19CCD0DB1FCD0144008CEA38 /* LFObjCRuntime.h */,
-				19CCD0DC1FCD0144008CEA38 /* LFUnarchiver+Decoding.h */,
-				19CCD0DD1FCD0144008CEA38 /* LFUnarchiver+Decoding.m */,
-				19CCD0DE1FCD0144008CEA38 /* LFUnarchiver.h */,
-				19CCD0DF1FCD0144008CEA38 /* LFUnarchiver.m */,
-				19CCD0E01FCD0144008CEA38 /* LFUnknownTypeException.h */,
-				19CCD0E11FCD0144008CEA38 /* LFUnknownTypeException.m */,
-			);
-			path = libFoundation;
-			sourceTree = "<group>";
-		};
 		19CCD0F51FCD0190008CEA38 /* SSZipArchive */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				19CCD0F51FCD0190008CEA38 /* SSZipArchive */,
-				19CCD0D11FCD0144008CEA38 /* StreamTypedCoder */,
 				19C7B74E1F8648EB0030F1D8 /* TryCatchFinally */,
 			);
 			path = Sources;
@@ -221,22 +154,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19CCD0E61FCD0144008CEA38 /* LFArchiver.h in Headers */,
 				19CCD10C1FCD0191008CEA38 /* SSZipArchive.h in Headers */,
-				19CCD0F11FCD0144008CEA38 /* LFUnknownTypeException.h in Headers */,
-				19CCD0F31FCD0144008CEA38 /* StreamTypedCoder.h in Headers */,
 				19CCD10E1FCD0191008CEA38 /* SSZipArchiveDelegate.h in Headers */,
 				19CCD1031FCD0191008CEA38 /* crypt.h in Headers */,
 				19C9FD861FCCAAD30069F3D1 /* TryCatchFinally.h in Headers */,
-				19CCD0E81FCD0144008CEA38 /* LFEncoding.h in Headers */,
 				19CCD1091FCD0191008CEA38 /* unzip.h in Headers */,
-				19CCD0EA1FCD0144008CEA38 /* LFMemory.h in Headers */,
 				19CCD1071FCD0191008CEA38 /* mztools.h in Headers */,
-				19CCD0E41FCD0144008CEA38 /* LFArchiver+Encoding.h in Headers */,
-				19CCD0EC1FCD0144008CEA38 /* LFObjCRuntime.h in Headers */,
 				19CCD1051FCD0191008CEA38 /* ioapi.h in Headers */,
-				19CCD0ED1FCD0144008CEA38 /* LFUnarchiver+Decoding.h in Headers */,
-				19CCD0EF1FCD0144008CEA38 /* LFUnarchiver.h in Headers */,
 				19CCD10B1FCD0191008CEA38 /* zip.h in Headers */,
 				19C9FD8C1FCCABBB0069F3D1 /* SwiftCommonsObjC.h in Headers */,
 			);
@@ -312,20 +236,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C9FD871FCCAAD30069F3D1 /* TryCatchFinally.m in Sources */,
-				19CCD0E71FCD0144008CEA38 /* LFArchiver.m in Sources */,
 				19CCD1061FCD0191008CEA38 /* mztools.c in Sources */,
-				19CCD0F01FCD0144008CEA38 /* LFUnarchiver.m in Sources */,
 				19CCD1081FCD0191008CEA38 /* unzip.c in Sources */,
-				19CCD0EE1FCD0144008CEA38 /* LFUnarchiver+Decoding.m in Sources */,
-				19CCD0E91FCD0144008CEA38 /* LFEncoding.m in Sources */,
-				19CCD0E51FCD0144008CEA38 /* LFArchiver+Encoding.m in Sources */,
-				19CCD0F41FCD0144008CEA38 /* StreamTypedCoder.m in Sources */,
-				19CCD0EB1FCD0144008CEA38 /* LFMemory.m in Sources */,
 				19CCD1041FCD0191008CEA38 /* ioapi.c in Sources */,
 				19CCD10D1FCD0191008CEA38 /* SSZipArchive.m in Sources */,
 				19CCD10A1FCD0191008CEA38 /* zip.c in Sources */,
 				19C9FD8D1FCCABBB0069F3D1 /* SwiftCommonsObjC.m in Sources */,
-				19CCD0F21FCD0144008CEA38 /* LFUnknownTypeException.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

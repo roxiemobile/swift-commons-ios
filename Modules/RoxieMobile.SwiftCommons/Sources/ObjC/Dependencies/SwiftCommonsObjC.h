@@ -28,8 +28,6 @@ FOUNDATION_EXPORT const unsigned char SwiftCommonsObjCVersionString[];
 #import <SwiftCommonsObjC/unzip.h>
 #import <SwiftCommonsObjC/ioapi.h>
 
-#import <SwiftCommonsObjC/StreamTypedCoder.h>
-
 #import <SwiftCommonsObjC/TryCatchFinally.h>
 
 // ----------------------------------------------------------------------------
