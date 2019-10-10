@@ -37,6 +37,8 @@
 		1960D521234776650078CB02 /* MessagePackDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960D51F234776650078CB02 /* MessagePackDecoder.swift */; };
 		1960D522234776650078CB02 /* MessagePackEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960D520234776650078CB02 /* MessagePackEncoder.swift */; };
 		1960D52623478A8D0078CB02 /* CodingFailurePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960D52523478A8D0078CB02 /* CodingFailurePolicy.swift */; };
+		198B9BB82345F742008B783D /* TypedStreamEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9BB62345F742008B783D /* TypedStreamEncoder.swift */; };
+		198B9BB92345F742008B783D /* TypedStreamDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9BB72345F742008B783D /* TypedStreamDecoder.swift */; };
 		198B9BBE23460E4E008B783D /* InconsistentArchiveException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9BBC23460E4D008B783D /* InconsistentArchiveException.swift */; };
 		198B9BBF23460E4E008B783D /* UnsupportedTypeException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9BBD23460E4E008B783D /* UnsupportedTypeException.swift */; };
 		198EBE1C234A81D6006B14BC /* AbstractEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198EBE1A234A81D6006B14BC /* AbstractEncoder.swift */; };
@@ -56,6 +58,7 @@
 		19A706601FCCB8EE001182AF /* UrlValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990C5071F8A57C500A944A8 /* UrlValidator.swift */; };
 		19B0266B2040BBD000584342 /* Map.Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0266A2040BBD000584342 /* Map.Extensions.swift */; };
 		19BF605C21717026005E42E3 /* CodableTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BF605B21717026005E42E3 /* CodableTransform.swift */; };
+		19E3B580234CE3190054C611 /* TypedStreamCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E3B57F234CE3190054C611 /* TypedStreamCoder.swift */; };
 		E1878A32E761D1684863AAE0 /* Pods_SwiftCommons_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF42310CE1471D1E79A316DD /* Pods_SwiftCommons_Data.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,8 @@
 		1960D52523478A8D0078CB02 /* CodingFailurePolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodingFailurePolicy.swift; sourceTree = "<group>"; };
 		1976D4DD1FCB81FF00C07C72 /* SwiftCommons.Data.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.Data.xcconfig; sourceTree = "<group>"; };
 		198081FF1F94CA630077E58F /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		198B9BB62345F742008B783D /* TypedStreamEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamEncoder.swift; sourceTree = "<group>"; };
+		198B9BB72345F742008B783D /* TypedStreamDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamDecoder.swift; sourceTree = "<group>"; };
 		198B9BBC23460E4D008B783D /* InconsistentArchiveException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InconsistentArchiveException.swift; sourceTree = "<group>"; };
 		198B9BBD23460E4E008B783D /* UnsupportedTypeException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsupportedTypeException.swift; sourceTree = "<group>"; };
 		198EBE1A234A81D6006B14BC /* AbstractEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractEncoder.swift; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 		19B0266A2040BBD000584342 /* Map.Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.Extensions.swift; sourceTree = "<group>"; };
 		19BF605B21717026005E42E3 /* CodableTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableTransform.swift; sourceTree = "<group>"; };
 		19CAA9361FBF9A850034FD4E /* SerializableMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializableMappable.swift; sourceTree = "<group>"; };
+		19E3B57F234CE3190054C611 /* TypedStreamCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoder.swift; sourceTree = "<group>"; };
 		6F5D3AA0E3EC989B4452A948 /* Pods-SwiftCommons.Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.release.xcconfig"; sourceTree = "<group>"; };
 		CF16D7706F5A8B6769B3594D /* Pods-SwiftCommons.Data.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.debug.xcconfig"; sourceTree = "<group>"; };
 		FF42310CE1471D1E79A316DD /* Pods_SwiftCommons_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,11 +261,22 @@
 			children = (
 				198EBE19234A81D6006B14BC /* Abstractions */,
 				1960D51E234776650078CB02 /* MessagePackCoder */,
+				198B9BB52345F742008B783D /* TypedStreamCoder */,
 				1960D52523478A8D0078CB02 /* CodingFailurePolicy.swift */,
 				198B9BBC23460E4D008B783D /* InconsistentArchiveException.swift */,
 				198B9BBD23460E4E008B783D /* UnsupportedTypeException.swift */,
 			);
 			path = Coders;
+			sourceTree = "<group>";
+		};
+		198B9BB52345F742008B783D /* TypedStreamCoder */ = {
+			isa = PBXGroup;
+			children = (
+				19E3B57F234CE3190054C611 /* TypedStreamCoder.swift */,
+				198B9BB62345F742008B783D /* TypedStreamEncoder.swift */,
+				198B9BB72345F742008B783D /* TypedStreamDecoder.swift */,
+			);
+			path = TypedStreamCoder;
 			sourceTree = "<group>";
 		};
 		198EBE19234A81D6006B14BC /* Abstractions */ = {
@@ -454,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				194862481FCCB86C0058735E /* CustomDateFormatTransform.swift in Sources */,
+				198B9BB82345F742008B783D /* TypedStreamEncoder.swift in Sources */,
 				1948624A1FCCB86C0058735E /* DateTransform.swift in Sources */,
 				19A706591FCCB8EE001182AF /* SerializableObject.swift in Sources */,
 				1948623B1FCCB86C0058735E /* EnumOperators.swift in Sources */,
@@ -465,6 +483,7 @@
 				198EBE1C234A81D6006B14BC /* AbstractEncoder.swift in Sources */,
 				198EBE1D234A81D6006B14BC /* AbstractDecoder.swift in Sources */,
 				19A706571FCCB8EE001182AF /* Assets.swift in Sources */,
+				198B9BB92345F742008B783D /* TypedStreamDecoder.swift in Sources */,
 				194862461FCCB86C0058735E /* ToJSON.swift in Sources */,
 				19B0266B2040BBD000584342 /* Map.Extensions.swift in Sources */,
 				194862411FCCB86C0058735E /* Map.swift in Sources */,
@@ -477,6 +496,7 @@
 				194862531FCCB86C0058735E /* URLTransform.swift in Sources */,
 				19A7065C1FCCB8EE001182AF /* JsonTypes.swift in Sources */,
 				198B9BBF23460E4E008B783D /* UnsupportedTypeException.swift in Sources */,
+				19E3B580234CE3190054C611 /* TypedStreamCoder.swift in Sources */,
 				1960D52623478A8D0078CB02 /* CodingFailurePolicy.swift in Sources */,
 				1948624E1FCCB86C0058735E /* EnumTransform.swift in Sources */,
 				1948623C1FCCB86C0058735E /* IntegerOperators.swift in Sources */,
