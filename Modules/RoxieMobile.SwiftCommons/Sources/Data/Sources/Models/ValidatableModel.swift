@@ -54,8 +54,19 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
         }
 
         // Serialize object
-        encoder.encode(Mapper().toJSON(self))
-        return true
+        let mpe = MessagePackEncoder(failurePolicy: .setErrorAndReturn)
+        mpe.encode(Mapper().toJSON(self))
+
+        if let error = mpe.error {
+            encoder.failWithError(error)
+        }
+        else {
+            // Encode serialized object
+            encoder.encode(mpe.encodedData)
+        }
+
+        // Done
+        return (encoder.error == nil)
     }
 
     /// Decodes the receiver using a given unarchiver.
@@ -79,7 +90,8 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
         if decoder is JSONHolderDecoder {
             result = true
         }
-        else if let JSON = decoder.decodeObject() as? JsonObject {
+        else if let data = decoder.decodeData(),
+                let JSON = MessagePackDecoder(forReadingFrom: data).decodeObject() as? JsonObject {
             objcTry {
 
                 // Map object
@@ -179,14 +191,14 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
     public final func rehash() -> Int
     {
         // Encode serializable object
-        let data = NSMutableData()
-        StreamTypedEncoder(forWritingWith: data).encodeRootObject(self)
+        let mpe = MessagePackEncoder(failurePolicy: .raiseException, sortDictionaryKeys: true)
+        mpe.encode(Mapper().toJSON(self))
 
         // Writing a good Hashable implementation in Swift
         // @link http://stackoverflow.com/a/24240011
 
         let className = Reflection(of: self).type.fullName
-        self.hash = (31 &* className.hashValue) &+ (data as Data).md5().hashValue
+        self.hash = (31 &* className.hashValue) &+ mpe.encodedData.hashValue
         return self.hash
     }
 

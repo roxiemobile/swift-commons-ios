@@ -19,7 +19,7 @@ public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder
 
     /// TODO
     public override init(
-            forReadingFrom data: NSData,
+            forReadingFrom data: Data,
             failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Parent processing
@@ -143,31 +143,30 @@ extension TypedStreamDecoder
 
     private func _decodeValue(ofObjCType typep: UnsafePointer<Int8>, at addr: UnsafeMutableRawPointer) {
 
-        let value = _readType()
-        let isReference = _isReference(value)
-        let itemType = _valueOfType(value)
+        var isReference = false
+        let decodedType = _readType(isReference: &isReference)
 
-        let type = typep.pointee
+        let type = ObjCType(typep.pointee)
         switch (type) {
 
-            case Types.C_ID:
-                _checkType(type: itemType, reqType: Types.C_ID)
+            case .ID:
+                _checkType(type: decodedType, reqType: .ID)
                 let ptr = addr.initializeMemory(as: AnyObject?.self, repeating: nil, count: 1)
 
                 if let object = _decodeObject(isReference) as AnyObject? {
                     ptr.pointee = object
                 }
 
-            case Types.C_CLASS:
-                _checkType(type: itemType, reqType: Types.C_CLASS)
+            case .Class:
+                _checkType(type: decodedType, reqType: .Class)
                 let ptr = addr.initializeMemory(as: AnyClass?.self, repeating: nil, count: 1)
 
                 if let clazz = _decodeClass(isReference) {
                     ptr.pointee = clazz
                 }
 
-            case Types.C_ATOM, Types.C_CHARPTR:
-                _checkTypePair(type: itemType, reqType1: Types.C_ATOM, reqType2: Types.C_CHARPTR)
+            case .Atom, .CharPtr:
+                _checkTypePair(type: decodedType, reqType1: .Atom, reqType2: .CharPtr)
                 let ptr = addr.initializeMemory(as: UnsafePointer<CChar>?.self, repeating: nil, count: 1)
 
                 let length = _readInteger()
@@ -179,60 +178,60 @@ extension TypedStreamDecoder
                     }
                 }
 
-            case Types.C_CHR:
-                _checkType(type: itemType, reqType: Types.C_CHR)
+            case .Char:
+                _checkType(type: decodedType, reqType: .Char)
                 addr.assumingMemoryBound(to: CChar.self).pointee = _readChar()
 
-            case Types.C_UCHR:
-                _checkType(type: itemType, reqType: Types.C_UCHR)
+            case .UChar:
+                _checkType(type: decodedType, reqType: .UChar)
                 addr.assumingMemoryBound(to: CUnsignedChar.self).pointee = _readUnsignedChar()
 
-            case Types.C_SHT:
-                _checkType(type: itemType, reqType: Types.C_SHT)
+            case .Short:
+                _checkType(type: decodedType, reqType: .Short)
                 addr.assumingMemoryBound(to: CShort.self).pointee = _readShort()
 
-            case Types.C_USHT:
-                _checkType(type: itemType, reqType: Types.C_USHT)
+            case .UShort:
+                _checkType(type: decodedType, reqType: .UShort)
                 addr.assumingMemoryBound(to: CUnsignedShort.self).pointee = _readUnsignedShort()
 
-            case Types.C_INT:
-                _checkType(type: itemType, reqType: Types.C_INT)
+            case .Int:
+                _checkType(type: decodedType, reqType: .Int)
                 addr.assumingMemoryBound(to: CInt.self).pointee = _readInt()
 
-            case Types.C_UINT:
-                _checkType(type: itemType, reqType: Types.C_UINT)
+            case .UInt:
+                _checkType(type: decodedType, reqType: .UInt)
                 addr.assumingMemoryBound(to: CUnsignedInt.self).pointee = _readUnsignedInt()
 
-            case Types.C_LNG:
-                _checkType(type: itemType, reqType: Types.C_LNG)
+            case .Long:
+                _checkType(type: decodedType, reqType: .Long)
                 addr.assumingMemoryBound(to: CLong.self).pointee = _readLong()
 
-            case Types.C_ULNG:
-                _checkType(type: itemType, reqType: Types.C_ULNG)
+            case .ULong:
+                _checkType(type: decodedType, reqType: .ULong)
                 addr.assumingMemoryBound(to: CUnsignedLong.self).pointee = _readUnsignedLong()
 
-            case Types.C_LNG_LNG:
-                _checkType(type: itemType, reqType: Types.C_LNG_LNG)
+            case .LongLong:
+                _checkType(type: decodedType, reqType: .LongLong)
                 addr.assumingMemoryBound(to: CLongLong.self).pointee = _readLongLong()
 
-            case Types.C_ULNG_LNG:
-                _checkType(type: itemType, reqType: Types.C_ULNG_LNG)
+            case .ULongLong:
+                _checkType(type: decodedType, reqType: .ULongLong)
                 addr.assumingMemoryBound(to: CUnsignedLongLong.self).pointee = _readUnsignedLongLong()
 
-            case Types.C_FLT:
-                _checkType(type: itemType, reqType: Types.C_FLT)
+            case .Float:
+                _checkType(type: decodedType, reqType: .Float)
                 addr.assumingMemoryBound(to: CFloat.self).pointee = _readFloat()
 
-            case Types.C_DBL:
-                _checkType(type: itemType, reqType: Types.C_DBL)
+            case .Double:
+                _checkType(type: decodedType, reqType: .Double)
                 addr.assumingMemoryBound(to: CDouble.self).pointee = _readDouble()
 
-            case Types.C_BOOL:
-                _checkType(type: itemType, reqType: Types.C_BOOL)
+            case .Bool:
+                _checkType(type: decodedType, reqType: .Bool)
                 addr.assumingMemoryBound(to: CBool.self).pointee = _readBool()
 
             default:
-                UnsupportedTypeException.raise(withType: itemType)
+                UnsupportedTypeException.raise(withType: type)
         }
     }
 
@@ -240,8 +239,8 @@ extension TypedStreamDecoder
         var object: AnyObject? = nil
 
         withUnsafeMutablePointer(to: &object) { (ptr: UnsafeMutablePointer<AnyObject?>) -> Void in
-            var itemType = Types.C_ID
-            _decodeValue(ofObjCType: &itemType, at: UnsafeMutableRawPointer(ptr))
+            var type = ObjCType.ID.rawValue
+            _decodeValue(ofObjCType: &type, at: UnsafeMutableRawPointer(ptr))
         }
         return object
     }
@@ -265,20 +264,18 @@ extension TypedStreamDecoder
         else {
 
             var clazz: AnyClass? = nil
-            var itemType = Types.C_CLASS
 
             // Decode class info
-            _decodeValue(ofObjCType: &itemType, at: &clazz)
+            var type = ObjCType.Class.rawValue
+            _decodeValue(ofObjCType: &type, at: &clazz)
 
             guard let decodedClass = (clazz as? NSCoding.Type) else {
                 InconsistentArchiveException.raise(reason: "Could not decode class for object.")
-                return nil
             }
 
             // Decode an object
             guard let decodedObject = decodedClass.init(coder: self) else {
                 InconsistentArchiveException.raise(reason: "Could not decode object of class ‘\(NSStringFromClass(decodedClass))’.")
-                return nil
             }
 
             // Store a decoded object
@@ -315,7 +312,6 @@ extension TypedStreamDecoder
             // Decode a class
             guard let decodedClass = NSClassFromString(className) else {
                 InconsistentArchiveException.raise(reason: "Class ‘\(className)’ doesn't exist in this runtime.")
-                return nil
             }
 
             let runtimeClassVersion = decodedClass.version()

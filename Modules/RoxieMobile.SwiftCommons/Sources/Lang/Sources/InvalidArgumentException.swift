@@ -39,8 +39,11 @@ public final class InvalidArgumentException: FatalErrorException
 // MARK: - Methods
 
     /// TODO
-    public class func raise(reason: String, userInfo: [AnyHashable: Any]? = nil) {
+    public class func raise(reason: String, userInfo: [AnyHashable: Any]? = nil) -> Never {
         self.init(reason: reason, userInfo: userInfo).raise()
+
+        // SUPPRESS: Function with uninhabited return type 'Never' is missing call to another never-returning function on all paths
+        Swift.fatalError(reason)
     }
 
 // MARK: - Constants

@@ -20,7 +20,7 @@ public final class MessagePackDecoder: AbstractDecoder, MessagePackCoder
 
     /// TODO
     public override init(
-            forReadingFrom data: NSData,
+            forReadingFrom data: Data,
             failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Parent processing
@@ -101,15 +101,14 @@ extension MessagePackDecoder
 
     private func _decodeValue(ofObjCType typep: UnsafePointer<Int8>, at addr: UnsafeMutableRawPointer) {
 
-        let value = _readType()
-        let isReference = _isReference(value)
-        let itemType = _valueOfType(value)
+        var isReference = false
+        let decodedType = _readType(isReference: &isReference)
 
-        let type = typep.pointee
+        let type = ObjCType(typep.pointee)
         switch (type) {
 
-            case Types.C_ID:
-                _checkType(type: itemType, reqType: Types.C_ID)
+            case .ID:
+                _checkType(type: decodedType, reqType: .ID)
                 let ptr = addr.initializeMemory(as: AnyObject?.self, repeating: nil, count: 1)
 
                 if let object = _decodeObject(isReference) as AnyObject? {
@@ -125,8 +124,8 @@ extension MessagePackDecoder
         var object: AnyObject? = nil
 
         withUnsafeMutablePointer(to: &object) { (ptr: UnsafeMutablePointer<AnyObject?>) -> Void in
-            var itemType = Types.C_ID
-            _decodeValue(ofObjCType: &itemType, at: UnsafeMutableRawPointer(ptr))
+            var type = ObjCType.ID.rawValue
+            _decodeValue(ofObjCType: &type, at: UnsafeMutableRawPointer(ptr))
         }
         return object
     }

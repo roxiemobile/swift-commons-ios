@@ -18,7 +18,7 @@ open class AbstractDecoder: AbstractCoder
 
     /// TODO
     public init(
-            forReadingFrom data: NSData,
+            forReadingFrom data: Data,
             failurePolicy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Init instance
@@ -41,7 +41,7 @@ open class AbstractDecoder: AbstractCoder
 
 // MARK: - Variables
 
-    private let buffer: NSData
+    private let buffer: Data
 
     private var cursor: Int = 0
 
@@ -75,11 +75,10 @@ extension AbstractDecoder
     }
 
     internal func _decodeArray(ofObjCType typep: UnsafePointer<CChar>, count: Int, at array: UnsafeMutableRawPointer) {
-        let itemType = typep.pointee
+        let itemType = ObjCType(typep.pointee)
 
-        guard (itemType == Types.C_CHR) || (itemType == Types.C_UCHR) else {
+        guard (itemType == .Char) || (itemType == .UChar) else {
             UnsupportedTypeException.raise(withType: itemType)
-            return
         }
 
         // Read a bytes
@@ -122,24 +121,16 @@ extension AbstractDecoder
 {
 // MARK: - Protected Methods
 
-    internal func _checkType(type: Int8, reqType: Int8) {
+    internal func _checkType(type: ObjCType, reqType: ObjCType) {
         if (type != reqType) {
             InconsistentArchiveException.raise(reason: "Expected different typecode.")
         }
     }
 
-    internal func _checkTypePair(type: Int8, reqType1: Int8, reqType2: Int8) {
+    internal func _checkTypePair(type: ObjCType, reqType1: ObjCType, reqType2: ObjCType) {
         if (type != reqType1) && (type != reqType2) {
             InconsistentArchiveException.raise(reason: "Expected different typecode.")
         }
-    }
-
-    internal func _isReference(_ itemType: Int8) -> Bool {
-        return (UInt8(bitPattern: itemType) & Flags.Reference) != 0
-    }
-
-    internal func _valueOfType(_ itemType: Int8) -> Int8 {
-        return Int8(bitPattern: UInt8(bitPattern: itemType) & Flags.Value)
     }
 }
 
@@ -151,29 +142,37 @@ extension AbstractDecoder
 {
 // MARK: - Protected Methods
 
-    internal func _readBytes(_ bytes: UnsafeMutableRawPointer, length: Int) {
+    internal func _readBytes(_ addr: UnsafeMutableRawPointer, length: Int) {
 
         if (length > 0) {
-            self.buffer.getBytes(bytes, range: NSMakeRange(self.cursor, length))
+            let bytes = addr.bindMemory(to: UInt8.self, capacity: length)
+
+            self.buffer.copyBytes(to: bytes, from: self.cursor..<(self.cursor + length))
             self.cursor += length
         }
     }
 
-    internal func _readType() -> CChar {
+    internal func _readType(isReference: inout Bool) -> ObjCType {
+        let itemType = ObjCType(_readChar())
 
-        let value = _readChar(withType: false)
-        if (value == 0) {
-            InconsistentArchiveException.raise(reason: "Found invalid type tag ‘0’.")
+        guard itemType.isValidType else {
+            let typeHex = String(format:"0x%02X", itemType.rawValue)
+            InconsistentArchiveException.raise(reason: "Found invalid type tag ‘\(typeHex)’.")
         }
 
-        // Done
-        return value
+        isReference = itemType.isReference
+        return itemType.asValue
+    }
+
+    internal func _readType() -> ObjCType {
+        var flag = false
+        return _readType(isReference: &flag)
     }
 
     internal func _readArrayType(withReturnedLength lengthp: UnsafeMutablePointer<Int>) -> CChar {
 
         var itemType: CChar = 0
-        _checkType(type: _readType(), reqType: Types.C_ARY_B)
+        _checkType(type: _readType(), reqType: .ArrayBegin)
 
         lengthp.pointee = 0
         (self.buffer as Data).withUnsafeBytes { (buff: UnsafePointer<Int8>) -> Void in
@@ -190,10 +189,10 @@ extension AbstractDecoder
                     break
                 }
             }
-            while (self.cursor < self.buffer.length)
+            while (self.cursor < self.buffer.count)
         }
 
-        _checkType(type: _readType(), reqType: Types.C_ARY_E)
+        _checkType(type: _readType(), reqType: .ArrayEnd)
 
         // Done
         return itemType
@@ -202,7 +201,7 @@ extension AbstractDecoder
     internal func _readString(withType: Bool = false) -> String {
 
         if (withType) {
-            _checkTypePair(type: _readType(), reqType1: Types.C_ATOM, reqType2: Types.C_CHARPTR)
+            _checkTypePair(type: _readType(), reqType1: .Atom, reqType2: .CharPtr)
         }
 
         var value = String()
@@ -227,7 +226,7 @@ extension AbstractDecoder
     internal func _readLongLong(withType: Bool = false) -> CLongLong {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_LNG_LNG)
+            _checkType(type: _readType(), reqType: .LongLong)
         }
 
         var value: CLongLong = 0
@@ -243,7 +242,7 @@ extension AbstractDecoder
     internal func _readUnsignedLongLong(withType: Bool = false) -> CUnsignedLongLong {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_ULNG_LNG)
+            _checkType(type: _readType(), reqType: .ULongLong)
         }
 
         var value: CUnsignedLongLong = 0
@@ -259,7 +258,7 @@ extension AbstractDecoder
     internal func _readLong(withType: Bool = false) -> CLong {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_LNG)
+            _checkType(type: _readType(), reqType: .Long)
         }
 
         // On 64-bit platforms, `CLong` is the same size as `CLongLong`
@@ -280,7 +279,7 @@ extension AbstractDecoder
     internal func _readUnsignedLong(withType: Bool = false) -> CUnsignedLong {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_ULNG)
+            _checkType(type: _readType(), reqType: .ULong)
         }
 
         // On 64-bit platforms, `CUnsignedLong` is the same size as `CUnsignedLongLong`
@@ -301,7 +300,7 @@ extension AbstractDecoder
     internal func _readInt(withType: Bool = false) -> CInt {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_INT)
+            _checkType(type: _readType(), reqType: .Int)
         }
 
         var value: CInt = 0
@@ -317,7 +316,7 @@ extension AbstractDecoder
     internal func _readUnsignedInt(withType: Bool = false) -> CUnsignedInt {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_UINT)
+            _checkType(type: _readType(), reqType: .UInt)
         }
 
         var value: CUnsignedInt = 0
@@ -333,7 +332,7 @@ extension AbstractDecoder
     internal func _readShort(withType: Bool = false) -> CShort {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_SHT)
+            _checkType(type: _readType(), reqType: .Short)
         }
 
         var value: CShort = 0
@@ -349,7 +348,7 @@ extension AbstractDecoder
     internal func _readUnsignedShort(withType: Bool = false) -> CUnsignedShort {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_USHT)
+            _checkType(type: _readType(), reqType: .UShort)
         }
 
         var value: CUnsignedShort = 0
@@ -365,7 +364,7 @@ extension AbstractDecoder
     internal func _readChar(withType: Bool = false) -> CChar {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_CHR)
+            _checkType(type: _readType(), reqType: .Char)
         }
 
         var value: CChar = 0
@@ -380,7 +379,7 @@ extension AbstractDecoder
     internal func _readUnsignedChar(withType: Bool = false) -> CUnsignedChar {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_UCHR)
+            _checkType(type: _readType(), reqType: .UChar)
         }
 
         var value: CUnsignedChar = 0
@@ -396,26 +395,26 @@ extension AbstractDecoder
         var value: CLong = 0
 
         // Read signed int
-        let itemType = _readType()
-        switch (itemType) {
+        let decodedType = _readType()
+        switch (decodedType) {
 
-            case Types.C_CHR:
+            case .Char:
                 value = CLong(_readChar())
 
-            case Types.C_SHT:
+            case .Short:
                 value = CLong(_readShort())
 
-            case Types.C_INT:
+            case .Int:
                 value = CLong(_readInt())
 
-            case Types.C_LNG:
+            case .Long:
                 value = _readLong()
 
-            case Types.C_LNG_LNG:
+            case .LongLong:
                 value = CLong(_readLongLong())
 
             default:
-                UnsupportedTypeException.raise(withType: itemType)
+                UnsupportedTypeException.raise(withType: decodedType)
         }
 
         // Done
@@ -426,26 +425,26 @@ extension AbstractDecoder
         var value: CUnsignedLong = 0
 
         // Read unsigned int
-        let itemType = _readType()
-        switch (itemType) {
+        let decodedType = _readType()
+        switch (decodedType) {
 
-            case Types.C_UCHR:
+            case .UChar:
                 value = CUnsignedLong(_readUnsignedChar())
 
-            case Types.C_USHT:
+            case .UShort:
                 value = CUnsignedLong(_readUnsignedShort())
 
-            case Types.C_UINT:
+            case .UInt:
                 value = CUnsignedLong(_readUnsignedInt())
 
-            case Types.C_ULNG:
+            case .ULong:
                 value = _readUnsignedLong()
 
-            case Types.C_ULNG_LNG:
+            case .ULongLong:
                 value = CUnsignedLong(_readUnsignedLongLong())
 
             default:
-                UnsupportedTypeException.raise(withType: itemType)
+                UnsupportedTypeException.raise(withType: decodedType)
         }
 
         // Done
@@ -455,7 +454,7 @@ extension AbstractDecoder
     internal func _readFloat(withType: Bool = false) -> CFloat {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_FLT)
+            _checkType(type: _readType(), reqType: .Float)
         }
 
         var buffer: CFSwappedFloat32 = CFSwappedFloat32(v: 0)
@@ -471,7 +470,7 @@ extension AbstractDecoder
     internal func _readDouble(withType: Bool = false) -> CDouble {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_DBL)
+            _checkType(type: _readType(), reqType: .Double)
         }
 
         var buffer: CFSwappedFloat64 = CFSwappedFloat64(v: 0)
@@ -487,7 +486,7 @@ extension AbstractDecoder
     internal func _readBool(withType: Bool = false) -> CBool {
 
         if (withType) {
-            _checkType(type: _readType(), reqType: Types.C_BOOL)
+            _checkType(type: _readType(), reqType: .Bool)
         }
 
         var value: CUnsignedChar = 0

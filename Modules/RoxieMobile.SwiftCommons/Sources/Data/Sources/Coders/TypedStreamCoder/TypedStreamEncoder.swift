@@ -98,73 +98,73 @@ extension TypedStreamEncoder
 
     private func _encodeValue(ofObjCType typep: UnsafePointer<Int8>, at addr: UnsafeRawPointer) {
 
-        let type = typep.pointee
+        let type = ObjCType(typep.pointee)
         switch (type) {
 
-            case Types.C_ID:
+            case .ID:
                 let ptr = addr.assumingMemoryBound(to: Any.self)
                 _encodeObject(ptr.pointee as AnyObject?)
 
-            case Types.C_CLASS:
+            case .Class:
                 let ptr = addr.assumingMemoryBound(to: Any.self)
                 _encodeClass(ptr.pointee as? AnyClass)
 
-            case Types.C_ATOM, Types.C_CHARPTR:
+            case .Atom, .CharPtr:
                 let ptr = addr.assumingMemoryBound(to: UnsafePointer<CChar>.self)
                 let length = strlen(ptr.pointee)
 
                 _writeType(type)
                 _encodeBytes(ptr.pointee, length: length)
 
-            case Types.C_CHR:
+            case .Char:
                 let ptr = addr.assumingMemoryBound(to: CChar.self)
                 _writeChar(ptr.pointee, withType: true)
 
-            case Types.C_UCHR:
+            case .UChar:
                 let ptr = addr.assumingMemoryBound(to: CUnsignedChar.self)
                 _writeUnsignedChar(ptr.pointee, withType: true)
 
-            case Types.C_SHT:
+            case .Short:
                 let ptr = addr.assumingMemoryBound(to: CShort.self)
                 _writeShort(ptr.pointee, withType: true)
 
-            case Types.C_USHT:
+            case .UShort:
                 let ptr = addr.assumingMemoryBound(to: CUnsignedShort.self)
                 _writeUnsignedShort(ptr.pointee, withType: true)
 
-            case Types.C_INT:
+            case .Int:
                 let ptr = addr.assumingMemoryBound(to: CInt.self)
                 _writeInt(ptr.pointee, withType: true)
 
-            case Types.C_UINT:
+            case .UInt:
                 let ptr = addr.assumingMemoryBound(to: CUnsignedInt.self)
                 _writeUnsignedInt(ptr.pointee, withType: true)
 
-            case Types.C_LNG:
+            case .Long:
                 let ptr = addr.assumingMemoryBound(to: CLong.self)
                 _writeLong(ptr.pointee, withType: true)
 
-            case Types.C_ULNG:
+            case .ULong:
                 let ptr = addr.assumingMemoryBound(to: CUnsignedLong.self)
                 _writeUnsignedLong(ptr.pointee, withType: true)
 
-            case Types.C_LNG_LNG:
+            case .LongLong:
                 let ptr = addr.assumingMemoryBound(to: CLongLong.self)
                 _writeLongLong(ptr.pointee, withType: true)
 
-            case Types.C_ULNG_LNG:
+            case .ULongLong:
                 let ptr = addr.assumingMemoryBound(to: CUnsignedLongLong.self)
                 _writeUnsignedLongLong(ptr.pointee, withType: true)
 
-            case Types.C_FLT:
+            case .Float:
                 let ptr = addr.assumingMemoryBound(to: CFloat.self)
                 _writeFloat(ptr.pointee, withType: true)
 
-            case Types.C_DBL:
+            case .Double:
                 let ptr = addr.assumingMemoryBound(to: CDouble.self)
                 _writeDouble(ptr.pointee, withType: true)
 
-            case Types.C_BOOL:
+            case .Bool:
                 let ptr = addr.assumingMemoryBound(to: Bool.self)
                 _writeBool(ptr.pointee, withType: true)
 
@@ -174,15 +174,16 @@ extension TypedStreamEncoder
     }
 
     private func _encode(_ object: Any?) {
-        var itemType = _isInstance(object) ? Types.C_ID : Types.C_CLASS
+        let itemType: ObjCType = _isInstance(object) ? .ID : .Class
 
         withUnsafePointer(to: object) { (ptr: UnsafePointer<Any?>) -> Void in
-            _encodeValue(ofObjCType: &itemType, at: UnsafeRawPointer(ptr))
+            var type = itemType.rawValue
+            _encodeValue(ofObjCType: &type, at: UnsafeRawPointer(ptr))
         }
     }
 
     private func _encodeObject(_ object: AnyObject?) {
-        let itemType = Types.C_ID
+        let itemType: ObjCType = .ID
 
         let replacement = object?.replacementObject(for: self) as AnyObject?
         guard let object = (replacement ?? object) else {
@@ -231,7 +232,7 @@ extension TypedStreamEncoder
     }
 
     private func _encodeClass(_ clazz: AnyClass?) {
-        let itemType = Types.C_CLASS
+        let itemType: ObjCType = .Class
 
         guard let clazz = clazz else {
 

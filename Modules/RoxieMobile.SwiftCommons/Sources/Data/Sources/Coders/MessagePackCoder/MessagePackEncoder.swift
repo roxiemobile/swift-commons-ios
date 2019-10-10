@@ -69,10 +69,10 @@ extension MessagePackEncoder
 
     private func _encodeValue(ofObjCType typep: UnsafePointer<Int8>, at addr: UnsafeRawPointer) {
 
-        let type = typep.pointee
+        let type = ObjCType(typep.pointee)
         switch (type) {
 
-            case Types.C_ID:
+            case .ID:
                 let ptr = addr.assumingMemoryBound(to: Any.self)
                 let object = ptr.pointee as AnyObject?
                 _encodeObject(object)
@@ -83,15 +83,16 @@ extension MessagePackEncoder
     }
 
     private func _encode(_ object: Any?) {
-        var itemType = _isInstance(object) ? Types.C_ID : Types.C_CLASS
+        let itemType: ObjCType = _isInstance(object) ? .ID : .Class
 
         withUnsafePointer(to: object) { (ptr: UnsafePointer<Any?>) -> Void in
-            _encodeValue(ofObjCType: &itemType, at: UnsafeRawPointer(ptr))
+            var type = itemType.rawValue
+            _encodeValue(ofObjCType: &type, at: UnsafeRawPointer(ptr))
         }
     }
 
     private func _encodeObject(_ object: AnyObject?) {
-        let itemType = Types.C_ID
+        let itemType: ObjCType = .ID
 
         let replacement = object?.replacementObject(for: self) as AnyObject?
         guard let object = (replacement ?? object) else {
