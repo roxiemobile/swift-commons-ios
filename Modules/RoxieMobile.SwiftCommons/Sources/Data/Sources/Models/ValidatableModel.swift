@@ -270,6 +270,9 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
         var exception: NSException?
         objcTry {
 
+            // NOTE: Bug fix for Swift 5+ and iOS 13+
+            let typeOfT = type(of: self)
+
             // Clone object
             object = try? typeOfT.init(from: Mapper().toJSON(self))
 
