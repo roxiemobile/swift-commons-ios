@@ -1,19 +1,19 @@
 // ----------------------------------------------------------------------------
 //
-//  AbstractMethodException.swift
+//  UnsupportedTypeException.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
-//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
+//  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
+import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-/// An exception which raises when attempting to call an abstract method.
-public final class AbstractMethodException: FatalErrorException
+/// TODO
+public final class UnsupportedTypeException: FatalErrorException
 {
 // MARK: - Construction
 
@@ -32,8 +32,8 @@ public final class AbstractMethodException: FatalErrorException
     /// - Parameters:
     ///   - decoder: An unarchiver object.
     ///
-    public required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
 // MARK: - Methods
@@ -46,11 +46,26 @@ public final class AbstractMethodException: FatalErrorException
         Swift.fatalError(reason)
     }
 
+    /// TODO
+    internal class func raise(withType itemType: AbstractCoder.ObjCType) -> Never {
+
+        let typeSpec = String(Character(itemType.toUnicodeScalar))
+        let reason = "Unsupported Objective-C type encoding ‘\(typeSpec)’."
+
+        // Raise an exception
+        self.raise(reason: reason, userInfo: [UserInfoKeys.ItemType: typeSpec])
+    }
+
 // MARK: - Constants
+
+    public struct UserInfoKeys
+    {
+        static let ItemType = CommonKeys.Prefix.Extra + "itemType"
+    }
 
     private struct Inner
     {
-        static let ExceptionName = NSExceptionName(rawValue: Roxie.typeName(of: AbstractMethodException.self))
+        static let ExceptionName = NSExceptionName(rawValue: Roxie.typeName(of: UnsupportedTypeException.self))
     }
 }
 

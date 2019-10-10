@@ -59,7 +59,7 @@ internal func roxie_objectMapper_raiseException(message: @autoclosure () -> Stri
     ObjectMapperException(reason: logMessage, userInfo: nil).raise()
 #endif
 
-    // Suppress error "Return from a ‘noreturn’ function"
+    // SUPPRESS: Return from a ‘noreturn’ function
     Swift.fatalError(logMessage)
 }
 

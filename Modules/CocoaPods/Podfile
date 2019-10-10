@@ -21,6 +21,10 @@ def inject_shared_dependencies_2
   pod_from 'CryptoSwift', '~> 0.13.1'
 end
 
+def inject_shared_dependencies_3
+  pod_from 'MPMessagePack', '~> 1.5.1'
+end
+
 
 # MARK: - Sources
 
@@ -37,10 +41,18 @@ target 'SwiftCommons.Data' do
 
   # Dependencies
   inject_shared_dependencies_2
+  inject_shared_dependencies_3
 end
 
 
 # MARK: - Tests
+
+target 'SwiftCommons.Data.UnitTests' do
+  project '../RoxieMobile.SwiftCommons/Tests/Data.UnitTests/SwiftCommons.Data.UnitTests.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_3
+end
 
 target 'SwiftCommons.Diagnostics.UnitTests' do
   project '../RoxieMobile.SwiftCommons/Tests/Diagnostics.UnitTests/SwiftCommons.Diagnostics.UnitTests.xcodeproj'

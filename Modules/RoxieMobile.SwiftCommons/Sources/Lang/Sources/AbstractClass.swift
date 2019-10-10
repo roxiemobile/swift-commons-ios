@@ -40,8 +40,8 @@ fileprivate func roxie_abstractMethod_raiseException(message: String, file: Stat
     AbstractMethodException(reason: logMessage, userInfo: nil).raise()
 #endif
 
-    // Suppress error "Return from a ‘noreturn’ function"
-    fatalError(logMessage)
+    // SUPPRESS: Return from a ‘noreturn’ function
+    Swift.fatalError(logMessage)
 }
 
 // ----------------------------------------------------------------------------
