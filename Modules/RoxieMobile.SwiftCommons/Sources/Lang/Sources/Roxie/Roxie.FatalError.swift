@@ -36,7 +36,7 @@ public extension Roxie
         FatalErrorException(reason: logMessage).raise()
     #endif
 
-        // Suppress error "Return from a ‘noreturn’ function"
+        // SUPPRESS: Return from a ‘noreturn’ function
         Swift.fatalError(logMessage)
     }
 

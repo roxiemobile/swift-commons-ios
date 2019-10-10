@@ -39,20 +39,28 @@ public final class UnsupportedTypeException: FatalErrorException
 // MARK: - Methods
 
     /// TODO
-    public class func raise(withType itemType: CChar) {
+    public class func raise(reason: String, userInfo: [AnyHashable: Any]? = nil) -> Never {
+        self.init(reason: reason, userInfo: userInfo).raise()
 
-        let type = Character(UnicodeScalar(UInt8(bitPattern: itemType)))
-        let reason = "Unsupported Objective-C type encoding ‘\(type)’."
+        // SUPPRESS: Function with uninhabited return type 'Never' is missing call to another never-returning function on all paths
+        Swift.fatalError(reason)
+    }
+
+    /// TODO
+    internal class func raise(withType itemType: AbstractCoder.ObjCType) -> Never {
+
+        let typeSpec = String(Character(itemType.toUnicodeScalar))
+        let reason = "Unsupported Objective-C type encoding ‘\(typeSpec)’."
 
         // Raise an exception
-        self.init(reason: reason, userInfo: [UserInfoKeys.ItemType: String(type)]).raise()
+        self.raise(reason: reason, userInfo: [UserInfoKeys.ItemType: typeSpec])
     }
 
 // MARK: - Constants
 
     public struct UserInfoKeys
     {
-        static let ItemType = CommonKeys.Prefix.Extra + "type"
+        static let ItemType = CommonKeys.Prefix.Extra + "itemType"
     }
 
     private struct Inner

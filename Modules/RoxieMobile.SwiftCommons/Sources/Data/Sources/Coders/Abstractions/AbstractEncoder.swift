@@ -18,11 +18,11 @@ open class AbstractEncoder: AbstractCoder
 
     /// TODO
     public init(
-            forWritingInto data: NSMutableData? = nil,
+            forWritingInto mdata: NSMutableData? = nil,
             failurePolicy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Init instance
-        self.buffer = data ?? NSMutableData()
+        self.buffer = mdata ?? NSMutableData()
 
         // Parent processing
         super.init(failurePolicy: failurePolicy)
@@ -55,25 +55,24 @@ extension AbstractEncoder
 // MARK: - Protected Methods
 
     internal func _encode(_ data: Data) {
-        let innerType = Types.C_CHR
+        let arrayType: ObjCType = .Char
 
         // Write an array type, eg '[15c]…'
-        _writeArrayType(ofObjCType: innerType, count: data.count)
+        _writeArrayType(ofObjCType: arrayType, count: data.count)
 
         // Write a bytes
         if (data.count > 0) {
-            withUnsafePointer(to: innerType) { (typep: UnsafePointer<CChar>) -> Void in
+            withUnsafePointer(to: arrayType.rawValue) { (typep: UnsafePointer<CChar>) -> Void in
                 _encodeArray(ofObjCType: typep, count: data.count, at: data.bytes)
             }
         }
     }
 
     internal func _encodeArray(ofObjCType typep: UnsafePointer<CChar>, count: Int, at array: UnsafeRawPointer) {
-        let itemType = typep.pointee
+        let itemType = ObjCType(typep.pointee)
 
-        guard (itemType == Types.C_CHR) || (itemType == Types.C_UCHR) else {
+        guard (itemType == .Char) || (itemType == .UChar) else {
             UnsupportedTypeException.raise(withType: itemType)
-            return
         }
 
         // Write a bytes
@@ -103,28 +102,28 @@ extension AbstractEncoder
         }
     }
 
-    internal func _writeType(_ itemType: CChar, asReference: Bool = false) {
+    internal func _writeType(_ itemType: ObjCType, asReference: Bool = false) {
 
-        let itemType = asReference
-                ? CChar(bitPattern: CUnsignedChar(itemType) | Flags.Reference)
-                : itemType
+        let type = asReference
+                ? itemType.asReference.rawValue
+                : itemType.asValue.rawValue
 
-        withUnsafePointer(to: itemType) { bytes in
-            _writeBytes(bytes, length: MemoryLayout.size(ofValue: itemType))
+        withUnsafePointer(to: type) { bytes in
+            _writeBytes(bytes, length: MemoryLayout.size(ofValue: type))
         }
     }
 
-    internal func _writeArrayType(ofObjCType itemType: CChar, count: Int) {
+    internal func _writeArrayType(ofObjCType itemType: ObjCType, count: Int) {
 
         // Write an array type, eg '[15c]'
-        _writeType(Types.C_ARY_B)
+        _writeType(.ArrayBegin)
 
         String(count).withCString {
             _writeBytes($0, length: strlen($0))
         }
 
         _writeType(itemType)
-        _writeType(Types.C_ARY_E)
+        _writeType(.ArrayEnd)
     }
 
     internal func _writeString(_ value: String, withType: Bool = false) {
@@ -133,7 +132,7 @@ extension AbstractEncoder
         let size = data?.count ?? 0
 
         if (withType) {
-            _writeType(size >= CUnsignedShort.max ? Types.C_CHARPTR : Types.C_ATOM)
+            _writeType(size >= CUnsignedShort.max ? .CharPtr : .Atom)
         }
 
         _encodeBytes(data?.bytes, length: size)
@@ -143,7 +142,7 @@ extension AbstractEncoder
         let value = Roxie.htonll(CUnsignedLongLong(bitPattern: value))
 
         if (withType) {
-            _writeType(Types.C_LNG_LNG)
+            _writeType(.LongLong)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -155,7 +154,7 @@ extension AbstractEncoder
         let value = Roxie.htonll(value)
 
         if (withType) {
-            _writeType(Types.C_ULNG_LNG)
+            _writeType(.ULongLong)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -166,7 +165,7 @@ extension AbstractEncoder
     internal func _writeLong(_ value: CLong, withType: Bool = false) {
 
         if (withType) {
-            _writeType(Types.C_LNG)
+            _writeType(.Long)
         }
 
         // On 64-bit platforms, `CLong` is the same size as `CLongLong`
@@ -183,7 +182,7 @@ extension AbstractEncoder
     internal func _writeUnsignedLong(_ value: CUnsignedLong, withType: Bool = false) {
 
         if (withType) {
-            _writeType(Types.C_ULNG)
+            _writeType(.ULong)
         }
 
         // On 64-bit platforms, `CUnsignedLong` is the same size as `CUnsignedLongLong`
@@ -201,7 +200,7 @@ extension AbstractEncoder
         let value = Roxie.htonl(CUnsignedInt(bitPattern: value))
 
         if (withType) {
-            _writeType(Types.C_INT)
+            _writeType(.Int)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -213,7 +212,7 @@ extension AbstractEncoder
         let value = Roxie.htonl(value)
 
         if (withType) {
-            _writeType(Types.C_UINT)
+            _writeType(.UInt)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -225,7 +224,7 @@ extension AbstractEncoder
         let value = Roxie.htons(CUnsignedShort(bitPattern: value))
 
         if (withType) {
-            _writeType(Types.C_SHT)
+            _writeType(.Short)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -237,7 +236,7 @@ extension AbstractEncoder
         let value = Roxie.htons(value)
 
         if (withType) {
-            _writeType(Types.C_USHT)
+            _writeType(.UShort)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -248,7 +247,7 @@ extension AbstractEncoder
     internal func _writeChar(_ value: CChar, withType: Bool = false) {
 
         if (withType) {
-            _writeType(Types.C_CHR)
+            _writeType(.Char)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -259,7 +258,7 @@ extension AbstractEncoder
     internal func _writeUnsignedChar(_ value: CUnsignedChar, withType: Bool = false) {
 
         if (withType) {
-            _writeType(Types.C_UCHR)
+            _writeType(.UChar)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -309,7 +308,7 @@ extension AbstractEncoder
         let value = Roxie.htonf(value)
 
         if (withType) {
-            _writeType(Types.C_FLT)
+            _writeType(.Float)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -321,7 +320,7 @@ extension AbstractEncoder
         let value = Roxie.htond(value)
 
         if (withType) {
-            _writeType(Types.C_DBL)
+            _writeType(.Double)
         }
 
         withUnsafePointer(to: value) { bytes in
@@ -333,7 +332,7 @@ extension AbstractEncoder
         let value = CUnsignedChar(value ? 1 : 0)
 
         if (withType) {
-            _writeType(Types.C_BOOL)
+            _writeType(.Bool)
         }
 
         withUnsafePointer(to: value) { bytes in
