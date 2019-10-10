@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsAbstractions'
   s.summary               = 'The core abstractions and public protocols used for iOS application development.'
-  s.version               = '1.3.2'
+  s.version               = '1.4.0'
 
   s.platform              = :ios
   s.ios.deployment_target = '9.0'
   s.swift_version         = '4.2'
 
-  s.cocoapods_version     = '>= 1.4.0'
+  s.cocoapods_version     = '>= 1.7.5'
   s.static_framework      = true
 
   s.homepage              = 'https://github.com/roxiemobile/swift-commons.ios'
