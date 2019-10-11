@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.swift_version         = '4.2'
 
-  s.cocoapods_version     = '>= 1.7.5'
+  s.cocoapods_version     = '~> 1.5.3'
   s.static_framework      = true
 
   s.homepage              = 'https://github.com/roxiemobile/swift-commons.ios'
