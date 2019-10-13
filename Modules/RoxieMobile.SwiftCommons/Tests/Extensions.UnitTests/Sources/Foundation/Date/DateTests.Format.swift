@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  DateTests.swift
+//  DateTests.Format.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -13,11 +13,11 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class DateTests: XCTestCase
+extension DateTests
 {
 // MARK: - Tests
 
-    func testFatalErrorException() {
+    func testDateFormatting() {
         let date = Date(timeIntervalSince1970: (1.hours + 1.minutes + 1.seconds).timeInterval)
 
         // List of NSTimeZone Abbreviations and Names (iOS 9.3.1)
