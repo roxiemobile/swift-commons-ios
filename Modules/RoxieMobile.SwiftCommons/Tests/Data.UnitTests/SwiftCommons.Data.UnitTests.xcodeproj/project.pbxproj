@@ -13,23 +13,6 @@
 		193AC5281FCCCDFE00017493 /* SwiftCommonsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193AC5291FCCCDFE00017493 /* SwiftCommonsData.framework */; };
 		198758032207673B00A61E89 /* OperatorsTests.AnyObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198758022207673B00A61E89 /* OperatorsTests.AnyObjects.swift */; };
 		198758052207777300A61E89 /* OperatorsTests.Floats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198758042207777300A61E89 /* OperatorsTests.Floats.swift */; };
-		198B9C7723464501008B783D /* STCBasicTypeTests.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C3823464501008B783D /* STCBasicTypeTests.String.swift */; };
-		198B9C7823464501008B783D /* STCBasicTypeTests.Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C3923464501008B783D /* STCBasicTypeTests.Integer.swift */; };
-		198B9C7923464501008B783D /* STCBasicTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C3A23464501008B783D /* STCBasicTypeTests.swift */; };
-		198B9C7A23464501008B783D /* STCBasicTypeTests.Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C3B23464501008B783D /* STCBasicTypeTests.Double.swift */; };
-		198B9C7B23464501008B783D /* STCBasicTypeTests.Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C3C23464501008B783D /* STCBasicTypeTests.Float.swift */; };
-		198B9C7C23464501008B783D /* STCBasicTypeTests.Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C3D23464501008B783D /* STCBasicTypeTests.Bool.swift */; };
-		198B9C7D23464501008B783D /* STCArrayTests.Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4023464501008B783D /* STCArrayTests.Integer.swift */; };
-		198B9C7E23464501008B783D /* STCArrayTests.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4123464501008B783D /* STCArrayTests.String.swift */; };
-		198B9C7F23464501008B783D /* STCArrayTests.Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4223464501008B783D /* STCArrayTests.Float.swift */; };
-		198B9C8023464501008B783D /* STCArrayTests.Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4323464501008B783D /* STCArrayTests.Double.swift */; };
-		198B9C8123464501008B783D /* STCArrayTests.Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4423464501008B783D /* STCArrayTests.Bool.swift */; };
-		198B9C8223464501008B783D /* STCArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4523464501008B783D /* STCArrayTests.swift */; };
-		198B9C8323464501008B783D /* STCArrayTests.SerializableModelFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4723464501008B783D /* STCArrayTests.SerializableModelFloat.swift */; };
-		198B9C8423464501008B783D /* STCArrayTests.SerializableModelDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4823464501008B783D /* STCArrayTests.SerializableModelDouble.swift */; };
-		198B9C8523464501008B783D /* STCArrayTests.SerializableModelBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4923464501008B783D /* STCArrayTests.SerializableModelBool.swift */; };
-		198B9C8623464501008B783D /* STCArrayTests.SerializableModelInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4A23464501008B783D /* STCArrayTests.SerializableModelInteger.swift */; };
-		198B9C8723464501008B783D /* STCArrayTests.SerializableModelString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4B23464501008B783D /* STCArrayTests.SerializableModelString.swift */; };
 		198B9C8823464501008B783D /* StreamTypedCoderTests.MixedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4C23464501008B783D /* StreamTypedCoderTests.MixedModelTests.swift */; };
 		198B9C8923464501008B783D /* StreamTypedCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C4D23464501008B783D /* StreamTypedCoderTests.swift */; };
 		198B9C8A23464501008B783D /* STCSignedInteger16Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C5023464501008B783D /* STCSignedInteger16Model.swift */; };
@@ -49,23 +32,13 @@
 		198B9C9823464501008B783D /* STCStringModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C5F23464501008B783D /* STCStringModel.swift */; };
 		198B9C9923464501008B783D /* STCMixedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6023464501008B783D /* STCMixedModel.swift */; };
 		198B9C9A23464501008B783D /* STCBoolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6123464501008B783D /* STCBoolModel.swift */; };
-		198B9C9B23464501008B783D /* STCDictionaryTests.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6423464501008B783D /* STCDictionaryTests.String.swift */; };
-		198B9C9C23464501008B783D /* STCDictionaryTests.Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6523464501008B783D /* STCDictionaryTests.Double.swift */; };
-		198B9C9D23464501008B783D /* STCDictionaryTests.Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6623464501008B783D /* STCDictionaryTests.Bool.swift */; };
-		198B9C9E23464501008B783D /* STCDictionaryTests.Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6723464501008B783D /* STCDictionaryTests.Float.swift */; };
-		198B9C9F23464501008B783D /* STCDictionaryTests.Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6823464501008B783D /* STCDictionaryTests.Integer.swift */; };
-		198B9CA023464501008B783D /* STCDictionaryTests.SerializableModelFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6A23464501008B783D /* STCDictionaryTests.SerializableModelFloat.swift */; };
-		198B9CA123464501008B783D /* STCDictionaryTests.SerializableModelBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6B23464501008B783D /* STCDictionaryTests.SerializableModelBool.swift */; };
-		198B9CA223464501008B783D /* STCDictionaryTests.SerializableModelDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6C23464501008B783D /* STCDictionaryTests.SerializableModelDouble.swift */; };
-		198B9CA323464501008B783D /* STCDictionaryTests.SerializableModelInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6D23464501008B783D /* STCDictionaryTests.SerializableModelInteger.swift */; };
-		198B9CA423464501008B783D /* STCDictionaryTests.SerializableModelString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6E23464501008B783D /* STCDictionaryTests.SerializableModelString.swift */; };
-		198B9CA523464501008B783D /* STCDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C6F23464501008B783D /* STCDictionaryTests.swift */; };
-		198B9CA623464501008B783D /* STCSerializableObjectTests.Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C7123464501008B783D /* STCSerializableObjectTests.Integer.swift */; };
-		198B9CA723464501008B783D /* STCSerializableObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C7223464501008B783D /* STCSerializableObjectTests.swift */; };
-		198B9CA823464501008B783D /* STCSerializableObjectTests.Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C7323464501008B783D /* STCSerializableObjectTests.Bool.swift */; };
-		198B9CA923464501008B783D /* STCSerializableObjectTests.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C7423464501008B783D /* STCSerializableObjectTests.String.swift */; };
-		198B9CAA23464501008B783D /* STCSerializableObjectTests.Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C7523464501008B783D /* STCSerializableObjectTests.Double.swift */; };
-		198B9CAB23464501008B783D /* STCSerializableObjectTests.Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B9C7623464501008B783D /* STCSerializableObjectTests.Float.swift */; };
+		19B350BE2353BE99009F5883 /* TypedStreamCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B350BD2353BE99009F5883 /* TypedStreamCoderTests.swift */; };
+		19B350C02353BF76009F5883 /* TypedStreamCoderTests.BasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B350BF2353BF76009F5883 /* TypedStreamCoderTests.BasicTypes.swift */; };
+		19B350C22353D32E009F5883 /* TypedStreamCoderTests.ArrayOfBasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B350C12353D32E009F5883 /* TypedStreamCoderTests.ArrayOfBasicTypes.swift */; };
+		19B350C42353D397009F5883 /* TypedStreamCoderTests.DictionaryOfBasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B350C32353D397009F5883 /* TypedStreamCoderTests.DictionaryOfBasicTypes.swift */; };
+		19B350CA2353D94A009F5883 /* TypedStreamCoderTests.DictionaryOfSerializableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B350C72353D94A009F5883 /* TypedStreamCoderTests.DictionaryOfSerializableObjects.swift */; };
+		19B350CB2353D94A009F5883 /* TypedStreamCoderTests.ArrayOfSerializableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B350C82353D94A009F5883 /* TypedStreamCoderTests.ArrayOfSerializableObjects.swift */; };
+		19B350CC2353D94A009F5883 /* TypedStreamCoderTests.SerializableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B350C92353D94A009F5883 /* TypedStreamCoderTests.SerializableObjects.swift */; };
 		19D02ECD205FEE78006FB892 /* EnumOperatorsTests.SetOfRawRepresentableTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D02ECC205FEE78006FB892 /* EnumOperatorsTests.SetOfRawRepresentableTypes.swift */; };
 		19D02ECF2060064B006FB892 /* TransformOperatorsTests.SetOfBasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D02ECE2060064A006FB892 /* TransformOperatorsTests.SetOfBasicTypes.swift */; };
 		1A176411205044180037F6FB /* TransformOperatorsTests.DictionaryOfMappableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A176410205044180037F6FB /* TransformOperatorsTests.DictionaryOfMappableObjects.swift */; };
@@ -105,23 +78,6 @@
 		195D394F1F72CE4900118D17 /* SwiftCommonsData.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsData.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		198758022207673B00A61E89 /* OperatorsTests.AnyObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsTests.AnyObjects.swift; sourceTree = "<group>"; };
 		198758042207777300A61E89 /* OperatorsTests.Floats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsTests.Floats.swift; sourceTree = "<group>"; };
-		198B9C3823464501008B783D /* STCBasicTypeTests.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCBasicTypeTests.String.swift; sourceTree = "<group>"; };
-		198B9C3923464501008B783D /* STCBasicTypeTests.Integer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCBasicTypeTests.Integer.swift; sourceTree = "<group>"; };
-		198B9C3A23464501008B783D /* STCBasicTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCBasicTypeTests.swift; sourceTree = "<group>"; };
-		198B9C3B23464501008B783D /* STCBasicTypeTests.Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCBasicTypeTests.Double.swift; sourceTree = "<group>"; };
-		198B9C3C23464501008B783D /* STCBasicTypeTests.Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCBasicTypeTests.Float.swift; sourceTree = "<group>"; };
-		198B9C3D23464501008B783D /* STCBasicTypeTests.Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCBasicTypeTests.Bool.swift; sourceTree = "<group>"; };
-		198B9C4023464501008B783D /* STCArrayTests.Integer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.Integer.swift; sourceTree = "<group>"; };
-		198B9C4123464501008B783D /* STCArrayTests.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.String.swift; sourceTree = "<group>"; };
-		198B9C4223464501008B783D /* STCArrayTests.Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.Float.swift; sourceTree = "<group>"; };
-		198B9C4323464501008B783D /* STCArrayTests.Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.Double.swift; sourceTree = "<group>"; };
-		198B9C4423464501008B783D /* STCArrayTests.Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.Bool.swift; sourceTree = "<group>"; };
-		198B9C4523464501008B783D /* STCArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.swift; sourceTree = "<group>"; };
-		198B9C4723464501008B783D /* STCArrayTests.SerializableModelFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.SerializableModelFloat.swift; sourceTree = "<group>"; };
-		198B9C4823464501008B783D /* STCArrayTests.SerializableModelDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.SerializableModelDouble.swift; sourceTree = "<group>"; };
-		198B9C4923464501008B783D /* STCArrayTests.SerializableModelBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.SerializableModelBool.swift; sourceTree = "<group>"; };
-		198B9C4A23464501008B783D /* STCArrayTests.SerializableModelInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.SerializableModelInteger.swift; sourceTree = "<group>"; };
-		198B9C4B23464501008B783D /* STCArrayTests.SerializableModelString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCArrayTests.SerializableModelString.swift; sourceTree = "<group>"; };
 		198B9C4C23464501008B783D /* StreamTypedCoderTests.MixedModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamTypedCoderTests.MixedModelTests.swift; sourceTree = "<group>"; };
 		198B9C4D23464501008B783D /* StreamTypedCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamTypedCoderTests.swift; sourceTree = "<group>"; };
 		198B9C5023464501008B783D /* STCSignedInteger16Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCSignedInteger16Model.swift; sourceTree = "<group>"; };
@@ -141,23 +97,13 @@
 		198B9C5F23464501008B783D /* STCStringModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCStringModel.swift; sourceTree = "<group>"; };
 		198B9C6023464501008B783D /* STCMixedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCMixedModel.swift; sourceTree = "<group>"; };
 		198B9C6123464501008B783D /* STCBoolModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCBoolModel.swift; sourceTree = "<group>"; };
-		198B9C6423464501008B783D /* STCDictionaryTests.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.String.swift; sourceTree = "<group>"; };
-		198B9C6523464501008B783D /* STCDictionaryTests.Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.Double.swift; sourceTree = "<group>"; };
-		198B9C6623464501008B783D /* STCDictionaryTests.Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.Bool.swift; sourceTree = "<group>"; };
-		198B9C6723464501008B783D /* STCDictionaryTests.Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.Float.swift; sourceTree = "<group>"; };
-		198B9C6823464501008B783D /* STCDictionaryTests.Integer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.Integer.swift; sourceTree = "<group>"; };
-		198B9C6A23464501008B783D /* STCDictionaryTests.SerializableModelFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.SerializableModelFloat.swift; sourceTree = "<group>"; };
-		198B9C6B23464501008B783D /* STCDictionaryTests.SerializableModelBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.SerializableModelBool.swift; sourceTree = "<group>"; };
-		198B9C6C23464501008B783D /* STCDictionaryTests.SerializableModelDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.SerializableModelDouble.swift; sourceTree = "<group>"; };
-		198B9C6D23464501008B783D /* STCDictionaryTests.SerializableModelInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.SerializableModelInteger.swift; sourceTree = "<group>"; };
-		198B9C6E23464501008B783D /* STCDictionaryTests.SerializableModelString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.SerializableModelString.swift; sourceTree = "<group>"; };
-		198B9C6F23464501008B783D /* STCDictionaryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCDictionaryTests.swift; sourceTree = "<group>"; };
-		198B9C7123464501008B783D /* STCSerializableObjectTests.Integer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCSerializableObjectTests.Integer.swift; sourceTree = "<group>"; };
-		198B9C7223464501008B783D /* STCSerializableObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCSerializableObjectTests.swift; sourceTree = "<group>"; };
-		198B9C7323464501008B783D /* STCSerializableObjectTests.Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCSerializableObjectTests.Bool.swift; sourceTree = "<group>"; };
-		198B9C7423464501008B783D /* STCSerializableObjectTests.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCSerializableObjectTests.String.swift; sourceTree = "<group>"; };
-		198B9C7523464501008B783D /* STCSerializableObjectTests.Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCSerializableObjectTests.Double.swift; sourceTree = "<group>"; };
-		198B9C7623464501008B783D /* STCSerializableObjectTests.Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCSerializableObjectTests.Float.swift; sourceTree = "<group>"; };
+		19B350BD2353BE99009F5883 /* TypedStreamCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoderTests.swift; sourceTree = "<group>"; };
+		19B350BF2353BF76009F5883 /* TypedStreamCoderTests.BasicTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoderTests.BasicTypes.swift; sourceTree = "<group>"; };
+		19B350C12353D32E009F5883 /* TypedStreamCoderTests.ArrayOfBasicTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoderTests.ArrayOfBasicTypes.swift; sourceTree = "<group>"; };
+		19B350C32353D397009F5883 /* TypedStreamCoderTests.DictionaryOfBasicTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoderTests.DictionaryOfBasicTypes.swift; sourceTree = "<group>"; };
+		19B350C72353D94A009F5883 /* TypedStreamCoderTests.DictionaryOfSerializableObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoderTests.DictionaryOfSerializableObjects.swift; sourceTree = "<group>"; };
+		19B350C82353D94A009F5883 /* TypedStreamCoderTests.ArrayOfSerializableObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoderTests.ArrayOfSerializableObjects.swift; sourceTree = "<group>"; };
+		19B350C92353D94A009F5883 /* TypedStreamCoderTests.SerializableObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoderTests.SerializableObjects.swift; sourceTree = "<group>"; };
 		19D02ECC205FEE78006FB892 /* EnumOperatorsTests.SetOfRawRepresentableTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumOperatorsTests.SetOfRawRepresentableTypes.swift; sourceTree = "<group>"; };
 		19D02ECE2060064A006FB892 /* TransformOperatorsTests.SetOfBasicTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformOperatorsTests.SetOfBasicTypes.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -186,9 +132,9 @@
 		1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetOfMappableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.SetOfMappableObjects.swift; sourceTree = "<group>"; };
 		1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryOfMappableObjects.swift; sourceTree = "<group>"; };
 		5AFC90A81397DEA3E86FF565 /* JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonKeys.swift; sourceTree = "<group>"; };
-		ABAFEDEDA7D336530459A361 /* Pods-SwiftCommons.Data.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		ABAFEDEDA7D336530459A361 /* Pods-SwiftCommons.Data.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		C8B62F219503D578FD7EE29B /* Pods_SwiftCommons_Data_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB297BA6FBB73765158A4644 /* Pods-SwiftCommons.Data.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB297BA6FBB73765158A4644 /* Pods-SwiftCommons.Data.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,62 +171,11 @@
 		198B9C3623464501008B783D /* StreamTypedCoder */ = {
 			isa = PBXGroup;
 			children = (
-				198B9C3723464501008B783D /* BasicType */,
-				198B9C3E23464501008B783D /* Array */,
 				198B9C4C23464501008B783D /* StreamTypedCoderTests.MixedModelTests.swift */,
 				198B9C4D23464501008B783D /* StreamTypedCoderTests.swift */,
 				198B9C4E23464501008B783D /* Models */,
-				198B9C6223464501008B783D /* Dictionary */,
-				198B9C7023464501008B783D /* SerializableObject */,
 			);
 			path = StreamTypedCoder;
-			sourceTree = "<group>";
-		};
-		198B9C3723464501008B783D /* BasicType */ = {
-			isa = PBXGroup;
-			children = (
-				198B9C3823464501008B783D /* STCBasicTypeTests.String.swift */,
-				198B9C3923464501008B783D /* STCBasicTypeTests.Integer.swift */,
-				198B9C3A23464501008B783D /* STCBasicTypeTests.swift */,
-				198B9C3B23464501008B783D /* STCBasicTypeTests.Double.swift */,
-				198B9C3C23464501008B783D /* STCBasicTypeTests.Float.swift */,
-				198B9C3D23464501008B783D /* STCBasicTypeTests.Bool.swift */,
-			);
-			path = BasicType;
-			sourceTree = "<group>";
-		};
-		198B9C3E23464501008B783D /* Array */ = {
-			isa = PBXGroup;
-			children = (
-				198B9C3F23464501008B783D /* BasicTypes */,
-				198B9C4523464501008B783D /* STCArrayTests.swift */,
-				198B9C4623464501008B783D /* SerializableObjects */,
-			);
-			path = Array;
-			sourceTree = "<group>";
-		};
-		198B9C3F23464501008B783D /* BasicTypes */ = {
-			isa = PBXGroup;
-			children = (
-				198B9C4023464501008B783D /* STCArrayTests.Integer.swift */,
-				198B9C4123464501008B783D /* STCArrayTests.String.swift */,
-				198B9C4223464501008B783D /* STCArrayTests.Float.swift */,
-				198B9C4323464501008B783D /* STCArrayTests.Double.swift */,
-				198B9C4423464501008B783D /* STCArrayTests.Bool.swift */,
-			);
-			path = BasicTypes;
-			sourceTree = "<group>";
-		};
-		198B9C4623464501008B783D /* SerializableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				198B9C4723464501008B783D /* STCArrayTests.SerializableModelFloat.swift */,
-				198B9C4823464501008B783D /* STCArrayTests.SerializableModelDouble.swift */,
-				198B9C4923464501008B783D /* STCArrayTests.SerializableModelBool.swift */,
-				198B9C4A23464501008B783D /* STCArrayTests.SerializableModelInteger.swift */,
-				198B9C4B23464501008B783D /* STCArrayTests.SerializableModelString.swift */,
-			);
-			path = SerializableObjects;
 			sourceTree = "<group>";
 		};
 		198B9C4E23464501008B783D /* Models */ = {
@@ -323,53 +218,6 @@
 			path = STCFloatModels;
 			sourceTree = "<group>";
 		};
-		198B9C6223464501008B783D /* Dictionary */ = {
-			isa = PBXGroup;
-			children = (
-				198B9C6323464501008B783D /* BasicTypes */,
-				198B9C6923464501008B783D /* SerializableObjects */,
-				198B9C6F23464501008B783D /* STCDictionaryTests.swift */,
-			);
-			path = Dictionary;
-			sourceTree = "<group>";
-		};
-		198B9C6323464501008B783D /* BasicTypes */ = {
-			isa = PBXGroup;
-			children = (
-				198B9C6423464501008B783D /* STCDictionaryTests.String.swift */,
-				198B9C6523464501008B783D /* STCDictionaryTests.Double.swift */,
-				198B9C6623464501008B783D /* STCDictionaryTests.Bool.swift */,
-				198B9C6723464501008B783D /* STCDictionaryTests.Float.swift */,
-				198B9C6823464501008B783D /* STCDictionaryTests.Integer.swift */,
-			);
-			path = BasicTypes;
-			sourceTree = "<group>";
-		};
-		198B9C6923464501008B783D /* SerializableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				198B9C6A23464501008B783D /* STCDictionaryTests.SerializableModelFloat.swift */,
-				198B9C6B23464501008B783D /* STCDictionaryTests.SerializableModelBool.swift */,
-				198B9C6C23464501008B783D /* STCDictionaryTests.SerializableModelDouble.swift */,
-				198B9C6D23464501008B783D /* STCDictionaryTests.SerializableModelInteger.swift */,
-				198B9C6E23464501008B783D /* STCDictionaryTests.SerializableModelString.swift */,
-			);
-			path = SerializableObjects;
-			sourceTree = "<group>";
-		};
-		198B9C7023464501008B783D /* SerializableObject */ = {
-			isa = PBXGroup;
-			children = (
-				198B9C7123464501008B783D /* STCSerializableObjectTests.Integer.swift */,
-				198B9C7223464501008B783D /* STCSerializableObjectTests.swift */,
-				198B9C7323464501008B783D /* STCSerializableObjectTests.Bool.swift */,
-				198B9C7423464501008B783D /* STCSerializableObjectTests.String.swift */,
-				198B9C7523464501008B783D /* STCSerializableObjectTests.Double.swift */,
-				198B9C7623464501008B783D /* STCSerializableObjectTests.Float.swift */,
-			);
-			path = SerializableObject;
-			sourceTree = "<group>";
-		};
 		199603B020597C260070AAAB /* Transforms */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +236,36 @@
 				5AFC98A0A7331D3805573AB0 /* Helpers */,
 			);
 			path = ObjectMapper;
+			sourceTree = "<group>";
+		};
+		19B350BC2353BE99009F5883 /* TypedStreamCoder */ = {
+			isa = PBXGroup;
+			children = (
+				19B350C52353D6CB009F5883 /* BasicTypes */,
+				19B350C62353D94A009F5883 /* SerializableObjects */,
+				19B350BD2353BE99009F5883 /* TypedStreamCoderTests.swift */,
+			);
+			path = TypedStreamCoder;
+			sourceTree = "<group>";
+		};
+		19B350C52353D6CB009F5883 /* BasicTypes */ = {
+			isa = PBXGroup;
+			children = (
+				19B350BF2353BF76009F5883 /* TypedStreamCoderTests.BasicTypes.swift */,
+				19B350C12353D32E009F5883 /* TypedStreamCoderTests.ArrayOfBasicTypes.swift */,
+				19B350C32353D397009F5883 /* TypedStreamCoderTests.DictionaryOfBasicTypes.swift */,
+			);
+			path = BasicTypes;
+			sourceTree = "<group>";
+		};
+		19B350C62353D94A009F5883 /* SerializableObjects */ = {
+			isa = PBXGroup;
+			children = (
+				19B350C92353D94A009F5883 /* TypedStreamCoderTests.SerializableObjects.swift */,
+				19B350C82353D94A009F5883 /* TypedStreamCoderTests.ArrayOfSerializableObjects.swift */,
+				19B350C72353D94A009F5883 /* TypedStreamCoderTests.DictionaryOfSerializableObjects.swift */,
+			);
+			path = SerializableObjects;
 			sourceTree = "<group>";
 		};
 		19C0171B1F72CC3A00D29F73 = {
@@ -420,8 +298,9 @@
 		19EB0CA81F72DF640029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				198B9C3623464501008B783D /* StreamTypedCoder */,
 				19AACEDA20596F6500BAE27B /* ObjectMapper */,
+				19B350BC2353BE99009F5883 /* TypedStreamCoder */,
+				198B9C3623464501008B783D /* StreamTypedCoder */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -507,7 +386,6 @@
 				ABAFEDEDA7D336530459A361 /* Pods-SwiftCommons.Data.UnitTests.release.xcconfig */,
 			);
 			name = Pods;
-			path = ../../../CocoaPods/Pods;
 			sourceTree = "<group>";
 		};
 		5AFC98A0A7331D3805573AB0 /* Helpers */ = {
@@ -614,90 +492,63 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A2B5D6B204D87A000E165AD /* IntegerOperatorsTests.swift in Sources */,
-				198B9C8323464501008B783D /* STCArrayTests.SerializableModelFloat.swift in Sources */,
 				1AB4DDAF204FE66A00DD1134 /* StringToIntegerTransform.swift in Sources */,
-				198B9C8423464501008B783D /* STCArrayTests.SerializableModelDouble.swift in Sources */,
-				198B9C7F23464501008B783D /* STCArrayTests.Float.swift in Sources */,
-				198B9CA723464501008B783D /* STCSerializableObjectTests.swift in Sources */,
+				19B350CB2353D94A009F5883 /* TypedStreamCoderTests.ArrayOfSerializableObjects.swift in Sources */,
 				198B9C8823464501008B783D /* StreamTypedCoderTests.MixedModelTests.swift in Sources */,
 				1AFA5DED2048160E00B2BB15 /* OperatorsTests.MappableObjects.swift in Sources */,
-				198B9C7A23464501008B783D /* STCBasicTypeTests.Double.swift in Sources */,
-				198B9C9F23464501008B783D /* STCDictionaryTests.Integer.swift in Sources */,
-				198B9C8623464501008B783D /* STCArrayTests.SerializableModelInteger.swift in Sources */,
+				19B350C02353BF76009F5883 /* TypedStreamCoderTests.BasicTypes.swift in Sources */,
 				1AD56543205011F20029C0B5 /* TransformOperatorsTests.ArrayOfBasicTypes.swift in Sources */,
-				198B9CA423464501008B783D /* STCDictionaryTests.SerializableModelString.swift in Sources */,
 				1AC0FC1320502930007F72FA /* TransformOperatorsTests.MappableObjects.swift in Sources */,
-				198B9C9D23464501008B783D /* STCDictionaryTests.Bool.swift in Sources */,
-				198B9C8123464501008B783D /* STCArrayTests.Bool.swift in Sources */,
 				1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.swift in Sources */,
 				198B9C9223464501008B783D /* STCSignedIntegerModel.swift in Sources */,
-				198B9CAB23464501008B783D /* STCSerializableObjectTests.Float.swift in Sources */,
 				1A9D106B2056672100049F39 /* EnumOperatorsTests.DictionaryOfRawRepresentableTypes.swift in Sources */,
 				1A2B5D6D204D88AE00E165AD /* IntegerOperatorsTests.SignedIntegers.swift in Sources */,
-				198B9C7D23464501008B783D /* STCArrayTests.Integer.swift in Sources */,
 				198758032207673B00A61E89 /* OperatorsTests.AnyObjects.swift in Sources */,
 				19136E76205EB2BB00280456 /* Vector3DTransform.swift in Sources */,
-				198B9C7B23464501008B783D /* STCBasicTypeTests.Float.swift in Sources */,
-				198B9CA923464501008B783D /* STCSerializableObjectTests.String.swift in Sources */,
 				19D02ECF2060064B006FB892 /* TransformOperatorsTests.SetOfBasicTypes.swift in Sources */,
-				198B9CA223464501008B783D /* STCDictionaryTests.SerializableModelDouble.swift in Sources */,
 				1A9D106F2056689500049F39 /* EnumOperatorsTests.swift in Sources */,
 				198B9C8923464501008B783D /* StreamTypedCoderTests.swift in Sources */,
 				198B9C8C23464501008B783D /* STCSignedInteger8Model.swift in Sources */,
 				1ABBD6C2205006D20049264C /* TransformOperatorsTests.BasicTypes.swift in Sources */,
 				198B9C9823464501008B783D /* STCStringModel.swift in Sources */,
 				1AFA5E092049653800B2BB15 /* OperatorsTests.ArrayOfMappableObjects.swift in Sources */,
-				198B9CA323464501008B783D /* STCDictionaryTests.SerializableModelInteger.swift in Sources */,
-				198B9C7923464501008B783D /* STCBasicTypeTests.swift in Sources */,
 				1A1E0CFF2050225E0062D5AC /* TransformOperatorsTests.DictionaryOfBasicTypes.swift in Sources */,
+				19B350CC2353D94A009F5883 /* TypedStreamCoderTests.SerializableObjects.swift in Sources */,
 				1AFA5DFA2048219600B2BB15 /* OperatorsTests.swift in Sources */,
 				1A176411205044180037F6FB /* TransformOperatorsTests.DictionaryOfMappableObjects.swift in Sources */,
-				198B9CA823464501008B783D /* STCSerializableObjectTests.Bool.swift in Sources */,
 				198B9C8F23464501008B783D /* STCUnsignedInteger16Model.swift in Sources */,
-				198B9C9B23464501008B783D /* STCDictionaryTests.String.swift in Sources */,
 				1AFA5E1520499ED000B2BB15 /* OperatorsTests.SetOfMappableObjects.swift in Sources */,
 				198B9C9323464501008B783D /* STCUnsignedInteger64Model.swift in Sources */,
 				198B9C9723464501008B783D /* STCFloatModel.swift in Sources */,
 				1A9D107520566C9B00049F39 /* StringRawType.swift in Sources */,
-				198B9CA623464501008B783D /* STCSerializableObjectTests.Integer.swift in Sources */,
 				198B9C9523464501008B783D /* STCFloat64Model.swift in Sources */,
 				198B9C8A23464501008B783D /* STCSignedInteger16Model.swift in Sources */,
-				198B9C9E23464501008B783D /* STCDictionaryTests.Float.swift in Sources */,
-				198B9C8023464501008B783D /* STCArrayTests.Double.swift in Sources */,
-				198B9CA523464501008B783D /* STCDictionaryTests.swift in Sources */,
-				198B9C9C23464501008B783D /* STCDictionaryTests.Double.swift in Sources */,
+				19B350C42353D397009F5883 /* TypedStreamCoderTests.DictionaryOfBasicTypes.swift in Sources */,
+				19B350BE2353BE99009F5883 /* TypedStreamCoderTests.swift in Sources */,
 				198758052207777300A61E89 /* OperatorsTests.Floats.swift in Sources */,
 				198B9C9623464501008B783D /* STCFloat32Model.swift in Sources */,
+				19B350CA2353D94A009F5883 /* TypedStreamCoderTests.DictionaryOfSerializableObjects.swift in Sources */,
 				19136E74205EB03900280456 /* Vector3DModel.swift in Sources */,
 				1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetOfMappableObjects.swift in Sources */,
 				1AB4DDA4204FD5EB00DD1134 /* TransformOperatorsTests.swift in Sources */,
-				198B9C7C23464501008B783D /* STCBasicTypeTests.Bool.swift in Sources */,
 				1A9D106D2056683000049F39 /* EnumOperatorsTests.RawRepresentableTypes.swift in Sources */,
 				1AC0FC1A20503C86007F72FA /* TransformOperatorsTests.ArrayOfMappableObjects.swift in Sources */,
-				198B9C7E23464501008B783D /* STCArrayTests.String.swift in Sources */,
-				198B9C8223464501008B783D /* STCArrayTests.swift in Sources */,
 				198B9C9423464501008B783D /* STCDoubleModel.swift in Sources */,
 				1A3807872056765300605CA6 /* EnumOperatorsTests.ArrayOfRawRepresentableTypes.swift in Sources */,
-				198B9C8723464501008B783D /* STCArrayTests.SerializableModelString.swift in Sources */,
 				198B9C9A23464501008B783D /* STCBoolModel.swift in Sources */,
 				198B9C9023464501008B783D /* STCUnsignedInteger8Model.swift in Sources */,
 				198B9C8D23464501008B783D /* STCSignedInteger32Model.swift in Sources */,
-				198B9C7723464501008B783D /* STCBasicTypeTests.String.swift in Sources */,
-				198B9CA023464501008B783D /* STCDictionaryTests.SerializableModelFloat.swift in Sources */,
 				198B9C8E23464501008B783D /* STCUnsignedIntegerModel.swift in Sources */,
 				198B9C8B23464501008B783D /* STCUnsignedInteger32Model.swift in Sources */,
-				198B9CA123464501008B783D /* STCDictionaryTests.SerializableModelBool.swift in Sources */,
 				1A2B5D6F204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegers.swift in Sources */,
 				1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift in Sources */,
 				198B9C9123464501008B783D /* STCSignedInteger64Model.swift in Sources */,
 				5AFC97997C417CB8182145EE /* JsonKeys.swift in Sources */,
+				19B350C22353D32E009F5883 /* TypedStreamCoderTests.ArrayOfBasicTypes.swift in Sources */,
 				19D02ECD205FEE78006FB892 /* EnumOperatorsTests.SetOfRawRepresentableTypes.swift in Sources */,
 				19136E72205DD82100280456 /* ObjectMapperTests.swift in Sources */,
 				1A2B5D88204ED91800E165AD /* Constants.swift in Sources */,
-				198B9C7823464501008B783D /* STCBasicTypeTests.Integer.swift in Sources */,
 				198B9C9923464501008B783D /* STCMixedModel.swift in Sources */,
-				198B9CAA23464501008B783D /* STCSerializableObjectTests.Double.swift in Sources */,
-				198B9C8523464501008B783D /* STCArrayTests.SerializableModelBool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

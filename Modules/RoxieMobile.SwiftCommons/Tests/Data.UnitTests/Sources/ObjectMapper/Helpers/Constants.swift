@@ -20,13 +20,13 @@ final class Constants: NonCreatable
     static let booleanBasicTypes: [String: Any] = [
         JsonKeys.value: true,
         JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilValue: Constants.nullValue
     ]
 
     static let integerBasicTypes: [String: Any] = [
         JsonKeys.value: "\(Int.max)",
         JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilValue: Constants.nullValue
     ]
 
 // MARK: - Mappable objects
@@ -34,7 +34,7 @@ final class Constants: NonCreatable
     static let mappableObjects: [String: Any] = [
         JsonKeys.object: Constants.dictionaryOfInt8,
         JsonKeys.invalidObject: Constants.invalidObject,
-        JsonKeys.nilObject: Constants.nilValue
+        JsonKeys.nilObject: Constants.nullValue
     ]
 
 // MARK: - Arrays of objects
@@ -47,7 +47,7 @@ final class Constants: NonCreatable
             Constants.invalidValue
         ],
         JsonKeys.emptyArray: [],
-        JsonKeys.nilArray: Constants.nilValue
+        JsonKeys.nilArray: Constants.nullValue
     ]
 
     static let arrayOfMappableObjects: [String: Any] = [
@@ -58,7 +58,7 @@ final class Constants: NonCreatable
             Constants.invalidObject
         ],
         JsonKeys.emptyArray: [],
-        JsonKeys.nilArray: Constants.nilValue
+        JsonKeys.nilArray: Constants.nullValue
     ]
 
     static let arrayOfStringRawValues: [String: Any] = [
@@ -69,7 +69,7 @@ final class Constants: NonCreatable
             Constants.invalidValue
         ],
         JsonKeys.emptyArray: [],
-        JsonKeys.nilArray: Constants.nilValue
+        JsonKeys.nilArray: Constants.nullValue
     ]
 
 // MARK: - Dictionaries of objects
@@ -82,7 +82,7 @@ final class Constants: NonCreatable
             JsonKeys.value: Constants.invalidValue
         ],
         JsonKeys.emptyDictionary: [:],
-        JsonKeys.nilDictionary: Constants.nilValue
+        JsonKeys.nilDictionary: Constants.nullValue
     ]
 
     static let dictionaryOfMappableObjects: [String: Any] = [
@@ -93,7 +93,7 @@ final class Constants: NonCreatable
             JsonKeys.object: Constants.invalidObject
         ],
         JsonKeys.emptyDictionary: [:],
-        JsonKeys.nilDictionary: Constants.nilValue
+        JsonKeys.nilDictionary: Constants.nullValue
     ]
 
     static let dictionaryOfStringRawValues: [String: Any] = [
@@ -104,7 +104,7 @@ final class Constants: NonCreatable
             JsonKeys.value: Constants.invalidValue
         ],
         JsonKeys.emptyDictionary: [:],
-        JsonKeys.nilDictionary: Constants.nilValue
+        JsonKeys.nilDictionary: Constants.nullValue
     ]
 
 // MARK: - Numbers
@@ -116,7 +116,7 @@ final class Constants: NonCreatable
         JsonKeys.int64: Int(Int64.max),
         JsonKeys.int: Int.max,
         JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilValue: Constants.nullValue
     ]
 
     static let unsignedIntegerValues: [String: Any] = [
@@ -126,13 +126,13 @@ final class Constants: NonCreatable
         JsonKeys.uint64: UInt(Int64.max),
         JsonKeys.uint: UInt(Int.max),
         JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilValue: Constants.nullValue
     ]
 
     static let floatValues: [String: Any] = [
         JsonKeys.value: Float.pi,
         JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilValue: Constants.nullValue
     ]
 
 // MARK: - Vector3D models
@@ -325,7 +325,7 @@ final class Constants: NonCreatable
     static let stringRawValues: [String: Any] = [
         JsonKeys.value: StringRawType.value.rawValue,
         JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilValue: Constants.nullValue
     ]
 
 // MARK: - Other Values
@@ -339,17 +339,17 @@ final class Constants: NonCreatable
 
     static let invalidValue = UUID()
 
-    static let nilValue = NSNull()
+    static let nullValue = NSNull()
 
-    static let doubleValue = 0.25
-
-    static let stringValue = "quality"
-
-    static let float32Value: Float32 = 0.25
+    static let float32Value: Float32 = 0.15
 
     static let float64Value: Float64 = 0.25
 
-    static let floatValue: Float = 0.25
+    static let floatValue: Float = 0.35
+
+    static let doubleValue = 0.45
+
+    static let stringValue = "value"
 }
 
 // ----------------------------------------------------------------------------
