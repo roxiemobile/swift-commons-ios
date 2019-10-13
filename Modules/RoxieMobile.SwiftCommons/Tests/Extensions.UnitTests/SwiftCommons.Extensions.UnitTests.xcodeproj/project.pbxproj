@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190934B5235351B100F02E11 /* DateTests.Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190934B4235351B100F02E11 /* DateTests.Add.swift */; };
+		190934B72353526D00F02E11 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190934B62353526D00F02E11 /* DateTests.swift */; };
 		194275A21F87AC0A00574076 /* SwiftCommons.Extensions.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Extensions.UnitTests.swift */; };
 		197B861E206E8C3300BFC285 /* SwiftCommonsExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197B861F206E8C3300BFC285 /* SwiftCommonsExtensions.framework */; };
 		197B8623206E902700BFC285 /* DateTests.Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197B8622206E902700BFC285 /* DateTests.Format.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190934B4235351B100F02E11 /* DateTests.Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.Add.swift; sourceTree = "<group>"; };
+		190934B62353526D00F02E11 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		193AC52D1FCCD23400017493 /* SwiftCommons.Extensions.UnitTests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.Extensions.UnitTests.xcconfig; sourceTree = "<group>"; };
 		195D394F1F72CE4900118D17 /* SwiftCommonsExtensions.UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCommonsExtensions.UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		197B861F206E8C3300BFC285 /* SwiftCommonsExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +65,8 @@
 		197B8621206E902700BFC285 /* Date */ = {
 			isa = PBXGroup;
 			children = (
+				190934B62353526D00F02E11 /* DateTests.swift */,
+				190934B4235351B100F02E11 /* DateTests.Add.swift */,
 				197B8622206E902700BFC285 /* DateTests.Format.swift */,
 			);
 			path = Date;
@@ -170,7 +176,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				194275A21F87AC0A00574076 /* SwiftCommons.Extensions.UnitTests.swift in Sources */,
+				190934B5235351B100F02E11 /* DateTests.Add.swift in Sources */,
 				197B8623206E902700BFC285 /* DateTests.Format.swift in Sources */,
+				190934B72353526D00F02E11 /* DateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
