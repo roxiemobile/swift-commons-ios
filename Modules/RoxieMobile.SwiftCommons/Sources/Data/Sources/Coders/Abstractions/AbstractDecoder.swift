@@ -169,12 +169,12 @@ extension AbstractDecoder
         return _readType(isReference: &flag)
     }
 
-    internal func _readArrayType(withReturnedLength lengthp: UnsafeMutablePointer<Int>) -> CChar {
+    internal func _readArrayType(withReturnedLength length: inout Int) -> CChar {
 
         var itemType: CChar = 0
         _checkType(type: _readType(), reqType: .ArrayBegin)
 
-        lengthp.pointee = 0
+        length = 0
         (self.buffer as Data).withUnsafeBytes { (buff: UnsafePointer<Int8>) -> Void in
             repeat {
 
@@ -182,7 +182,7 @@ extension AbstractDecoder
                 self.cursor += 1
 
                 if (byte >= 0x30) && (byte <= 0x39) {
-                    lengthp.pointee = (lengthp.pointee * 10) + Int(byte - 0x30)
+                    length = (length * 10) + Int(byte - 0x30)
                 }
                 else {
                     itemType = byte
