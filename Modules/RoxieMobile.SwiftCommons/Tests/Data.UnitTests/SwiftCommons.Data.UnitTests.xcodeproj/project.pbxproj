@@ -67,6 +67,9 @@
 		1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift */; };
 		2F56ED00EC77D788970FC48E /* Pods_SwiftCommons_Data_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B62F219503D578FD7EE29B /* Pods_SwiftCommons_Data_UnitTests.framework */; };
 		5AFC97997C417CB8182145EE /* JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC90A81397DEA3E86FF565 /* JsonKeys.swift */; };
+		81053C7625374BAE00563B18 /* MessagePackCoderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81053C7525374BAE00563B18 /* MessagePackCoderTest.swift */; };
+		81053C7B253752A500563B18 /* MessagePackCoderTest.BasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81053C7A253752A500563B18 /* MessagePackCoderTest.BasicTypes.swift */; };
+		81053C7D2537592000563B18 /* MessagePackCoderTest.ArrayOfBasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81053C7C2537592000563B18 /* MessagePackCoderTest.ArrayOfBasicTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +135,9 @@
 		1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetOfMappableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.SetOfMappableObjects.swift; sourceTree = "<group>"; };
 		1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryOfMappableObjects.swift; sourceTree = "<group>"; };
 		5AFC90A81397DEA3E86FF565 /* JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonKeys.swift; sourceTree = "<group>"; };
+		81053C7525374BAE00563B18 /* MessagePackCoderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePackCoderTest.swift; sourceTree = "<group>"; };
+		81053C7A253752A500563B18 /* MessagePackCoderTest.BasicTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePackCoderTest.BasicTypes.swift; sourceTree = "<group>"; };
+		81053C7C2537592000563B18 /* MessagePackCoderTest.ArrayOfBasicTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePackCoderTest.ArrayOfBasicTypes.swift; sourceTree = "<group>"; };
 		ABAFEDEDA7D336530459A361 /* Pods-SwiftCommons.Data.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		C8B62F219503D578FD7EE29B /* Pods_SwiftCommons_Data_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB297BA6FBB73765158A4644 /* Pods-SwiftCommons.Data.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -298,6 +304,7 @@
 		19EB0CA81F72DF640029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				81053C74253747C000563B18 /* MessagePackCoder */,
 				19AACEDA20596F6500BAE27B /* ObjectMapper */,
 				19B350BC2353BE99009F5883 /* TypedStreamCoder */,
 				198B9C3623464501008B783D /* StreamTypedCoder */,
@@ -395,6 +402,24 @@
 				5AFC90A81397DEA3E86FF565 /* JsonKeys.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		81053C74253747C000563B18 /* MessagePackCoder */ = {
+			isa = PBXGroup;
+			children = (
+				81053C772537519A00563B18 /* BasicTypes */,
+				81053C7525374BAE00563B18 /* MessagePackCoderTest.swift */,
+			);
+			path = MessagePackCoder;
+			sourceTree = "<group>";
+		};
+		81053C772537519A00563B18 /* BasicTypes */ = {
+			isa = PBXGroup;
+			children = (
+				81053C7A253752A500563B18 /* MessagePackCoderTest.BasicTypes.swift */,
+				81053C7C2537592000563B18 /* MessagePackCoderTest.ArrayOfBasicTypes.swift */,
+			);
+			path = BasicTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,9 +575,11 @@
 				198B9C8A23464501008B783D /* STCSignedInteger16Model.swift in Sources */,
 				19B350C42353D397009F5883 /* TypedStreamCoderTests.DictionaryOfBasicTypes.swift in Sources */,
 				19B350BE2353BE99009F5883 /* TypedStreamCoderTests.swift in Sources */,
+				81053C7B253752A500563B18 /* MessagePackCoderTest.BasicTypes.swift in Sources */,
 				198758052207777300A61E89 /* OperatorsTests.Floats.swift in Sources */,
 				198B9C9623464501008B783D /* STCFloat32Model.swift in Sources */,
 				19B350CA2353D94A009F5883 /* TypedStreamCoderTests.DictionaryOfSerializableObjects.swift in Sources */,
+				81053C7D2537592000563B18 /* MessagePackCoderTest.ArrayOfBasicTypes.swift in Sources */,
 				19136E74205EB03900280456 /* Vector3DModel.swift in Sources */,
 				1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetOfMappableObjects.swift in Sources */,
 				1AB4DDA4204FD5EB00DD1134 /* TransformOperatorsTests.swift in Sources */,
@@ -562,6 +589,7 @@
 				1A3807872056765300605CA6 /* EnumOperatorsTests.ArrayOfRawRepresentableTypes.swift in Sources */,
 				198B9C9A23464501008B783D /* STCBoolModel.swift in Sources */,
 				198B9C9023464501008B783D /* STCUnsignedInteger8Model.swift in Sources */,
+				81053C7625374BAE00563B18 /* MessagePackCoderTest.swift in Sources */,
 				198B9C8D23464501008B783D /* STCSignedInteger32Model.swift in Sources */,
 				198B9C8E23464501008B783D /* STCUnsignedIntegerModel.swift in Sources */,
 				198B9C8B23464501008B783D /* STCUnsignedInteger32Model.swift in Sources */,
