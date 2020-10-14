@@ -8,35 +8,59 @@
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
+@testable import SwiftCommonsData
+import SwiftCommonsConcurrent
 import XCTest
 
 // ----------------------------------------------------------------------------
 
 class MessagePackCoderTest: XCTestCase
 {
-// MARK: - Tests
-
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+// MARK: - Method
+    
+    func assertNoThrow(action: @escaping () -> Void) -> Void {
+        var exception: NSException? = nil
+        
+        objcTry {
+            action()
+        }.objcCatch { e in
+            exception = e
+        }.objcFinally {
+            XCTAssertNil(exception)
+        }
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    func assertThrowsExpection(action: @escaping () -> Void) -> Void {
+        var exception: NSException? = nil
+        
+        objcTry {
+            action()
+        }.objcCatch { e in
+            exception = e
+        }.objcFinally {
+            XCTAssertNotNil(exception)
         }
+    }
+    
+    func cloneSimpleObject<T: Equatable>(_ object: T) -> T? {
+        let policy: CodingFailurePolicy = .raiseException
+        
+        //Encode
+        let encoder = MessagePackEncoder(forWritingInto: nil, failurePolicy: policy, sortDictionaryKeys: false)
+        encoder.encode(object)
+        
+        XCTAssert(encoder.error == nil)
+        XCTAssert(encoder.encodedData.isNotEmpty)
+        
+        //Decode
+        let decoder = MessagePackDecoder(forReadingFrom: encoder.encodedData, failurePolicy: policy)
+        let decoderObject = decoder.decodeObject() as? T
+        
+        XCTAssert(decoder.error == nil)
+        XCTAssert(decoderObject != nil)
+        
+        //Done
+        return decoderObject
     }
 }
 
