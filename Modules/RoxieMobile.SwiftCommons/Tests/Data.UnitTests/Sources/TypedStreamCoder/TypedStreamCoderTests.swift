@@ -48,6 +48,7 @@ final class TypedStreamCoderTests: XCTestCase
         // Encode
         let encoder = TypedStreamEncoder(forWritingInto: nil, failurePolicy: policy)
         encoder.encode(object)
+        
 
         XCTAssert(encoder.error == nil)
         XCTAssert(encoder.encodedData.isNotEmpty)
