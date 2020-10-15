@@ -16,7 +16,7 @@ import XCTest
 
 extension TypedStreamCoderTests
 {
-// MARK: - Tests
+    // MARK: - Tests
 
     func testSerializableObject_Boolean() {
 
