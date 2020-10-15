@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  MwssagePackCoderTest.DictionaryOfBasicTypes.swift
+//  MessagePackCoderTest.DictionaryOfBasicTypes.swift
 //
 //  @author     Aleksandr Serov <serov-ae@roxiemobile.com>
 //  @copyright  Copyright (c) 2020, Roxie Mobile Ltd. All rights reserved.
