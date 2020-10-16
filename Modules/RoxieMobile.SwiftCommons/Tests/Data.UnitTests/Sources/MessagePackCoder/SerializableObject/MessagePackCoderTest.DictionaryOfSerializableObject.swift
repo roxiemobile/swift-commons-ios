@@ -16,7 +16,7 @@ import XCTest
 
 extension MessagePackCoderTest
 {
-// MARK: - Test
+// MARK: - Tests
     
     func testDictionaryOf_SerializableObject_Bolean() {
         
