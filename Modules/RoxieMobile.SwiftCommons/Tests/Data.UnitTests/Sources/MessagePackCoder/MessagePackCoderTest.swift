@@ -16,7 +16,7 @@ import XCTest
 
 final class MessagePackCoderTest: XCTestCase
 {
-// MARK: - Method
+// MARK: - Methods
     
     func assertNoThrow(action: @escaping () -> Void) -> Void {
         var exception: NSException? = nil
@@ -88,7 +88,7 @@ final class MessagePackCoderTest: XCTestCase
         return decodedJsonObject
     }
     
-    func cloneArrayOfSerializableObject<T: ValidatableModel>(_ objects: [T]) -> [T?] {
+    func cloneArrayOfSerializableObject<T: ValidatableModel>(_ objects: [T]) -> [T] {
         let policy: CodingFailurePolicy = .raiseException
         
         //Encode
@@ -101,11 +101,13 @@ final class MessagePackCoderTest: XCTestCase
         XCTAssert(encoder.encodedData.isNotEmpty)
         
         //Decode
-        var decodedJsonObjects: [T?] = []
+        var decodedJsonObjects: [T] = []
         let decoder = MessagePackDecoder(forReadingFrom: encoder.encodedData, failurePolicy: policy)
         if let decoderObjects = decoder.decodeObject() as? [JsonObject] {
             decoderObjects.forEach { decoderObject in
-                decodedJsonObjects.append(try? T(from: decoderObject))
+                if let model = try? T(from: decoderObject) {
+                decodedJsonObjects.append(model)
+                }
             }
         }
         
