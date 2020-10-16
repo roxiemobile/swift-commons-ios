@@ -12,7 +12,6 @@
 		194275A21F87AC0A00574076 /* SwiftCommons.Extensions.UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB0CCF1F72E1770029F302 /* SwiftCommons.Extensions.UnitTests.swift */; };
 		197B861E206E8C3300BFC285 /* SwiftCommonsExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197B861F206E8C3300BFC285 /* SwiftCommonsExtensions.framework */; };
 		197B8623206E902700BFC285 /* DateTests.Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197B8622206E902700BFC285 /* DateTests.Format.swift */; };
-		9F1CA89D1286D07A39F9A134 /* Pods_SwiftCommons_Extensions_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C722221F126DDECC3ED3AE07 /* Pods_SwiftCommons_Extensions_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,9 +23,6 @@
 		197B8622206E902700BFC285 /* DateTests.Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.Format.swift; sourceTree = "<group>"; };
 		19EB0CA71F72DF640029F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19EB0CCF1F72E1770029F302 /* SwiftCommons.Extensions.UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCommons.Extensions.UnitTests.swift; sourceTree = "<group>"; };
-		2104CC7B3EC0F5E0521B7490 /* Pods-SwiftCommons.Extensions.UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Extensions.UnitTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Extensions.UnitTests/Pods-SwiftCommons.Extensions.UnitTests.release.xcconfig"; sourceTree = "<group>"; };
-		9BB26BCA2FA2B83B46297F36 /* Pods-SwiftCommons.Extensions.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Extensions.UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Extensions.UnitTests/Pods-SwiftCommons.Extensions.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C722221F126DDECC3ED3AE07 /* Pods_SwiftCommons_Extensions_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Extensions_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +31,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				197B861E206E8C3300BFC285 /* SwiftCommonsExtensions.framework in Frameworks */,
-				9F1CA89D1286D07A39F9A134 /* Pods_SwiftCommons_Extensions_UnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				197B861F206E8C3300BFC285 /* SwiftCommonsExtensions.framework */,
-				C722221F126DDECC3ED3AE07 /* Pods_SwiftCommons_Extensions_UnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -86,7 +80,6 @@
 				19EB0CA41F72DF640029F302 /* Fixtures */,
 				19C017251F72CC3A00D29F73 /* Products */,
 				193AC5251FCCCCBD00017493 /* Frameworks */,
-				3C8369DE4793D4C543ACC28E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,16 +107,6 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		3C8369DE4793D4C543ACC28E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9BB26BCA2FA2B83B46297F36 /* Pods-SwiftCommons.Extensions.UnitTests.debug.xcconfig */,
-				2104CC7B3EC0F5E0521B7490 /* Pods-SwiftCommons.Extensions.UnitTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../../../CocoaPods/Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,7 +114,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 195D39571F72CE4900118D17 /* Build configuration list for PBXNativeTarget "SwiftCommons.Extensions.UnitTests" */;
 			buildPhases = (
-				823EC9192C3846751E95ABE5 /* [CP] Check Pods Manifest.lock */,
 				195D394B1F72CE4900118D17 /* Sources */,
 				195D394C1F72CE4900118D17 /* Frameworks */,
 				195D394D1F72CE4900118D17 /* Resources */,
@@ -230,7 +212,6 @@
 /* Begin XCBuildConfiguration section */
 		195D39581F72CE4900118D17 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BB26BCA2FA2B83B46297F36 /* Pods-SwiftCommons.Extensions.UnitTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -244,7 +225,6 @@
 		};
 		195D39591F72CE4900118D17 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2104CC7B3EC0F5E0521B7490 /* Pods-SwiftCommons.Extensions.UnitTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
