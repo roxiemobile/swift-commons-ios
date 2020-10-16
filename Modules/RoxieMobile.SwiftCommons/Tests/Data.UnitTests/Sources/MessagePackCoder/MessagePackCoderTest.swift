@@ -16,7 +16,7 @@ import XCTest
 
 final class MessagePackCoderTest: XCTestCase
 {
-    // MARK: - Method
+// MARK: - Method
     
     func assertNoThrow(action: @escaping () -> Void) -> Void {
         var exception: NSException? = nil
@@ -88,13 +88,11 @@ final class MessagePackCoderTest: XCTestCase
         return decodedJsonObject
     }
     
-    func cloneArrayOfSerializableObject<T: ValidatableModel>(_ objects: [T]) -> [T]? {
+    func cloneArrayOfSerializableObject<T: ValidatableModel>(_ objects: [T]) -> [T?] {
         let policy: CodingFailurePolicy = .raiseException
         
         //Encode
-        let jsonObjects = objects.compactMap {
-            Mapper().toJSON($0)
-        }
+        let jsonObjects = objects.compactMap { Mapper().toJSON($0) }
         
         let encoder = MessagePackEncoder(forWritingInto: nil, failurePolicy: policy, sortDictionaryKeys: false)
         encoder.encode(jsonObjects)
@@ -103,22 +101,22 @@ final class MessagePackCoderTest: XCTestCase
         XCTAssert(encoder.encodedData.isNotEmpty)
         
         //Decode
-        var decodedJsonObjects: Array<T>? = []
+        var decodedJsonObjects: [T?] = []
         let decoder = MessagePackDecoder(forReadingFrom: encoder.encodedData, failurePolicy: policy)
         if let decoderObjects = decoder.decodeObject() as? [JsonObject] {
             decoderObjects.forEach { decoderObject in
-                decodedJsonObjects?.append(try! T(from: decoderObject))
+                decodedJsonObjects.append(try? T(from: decoderObject))
             }
         }
         
         XCTAssert(decoder.error == nil)
-        XCTAssert(decodedJsonObjects != nil)
+        XCTAssert(decodedJsonObjects.isNotEmpty)
         
         //Done
         return decodedJsonObjects
     }
     
-    func cloneDictionaryOfSerializableObject<T: ValidatableModel>(_ objects: [String: T]) -> [String: T]? {
+    func cloneDictionaryOfSerializableObject<T: ValidatableModel>(_ objects: [String: T]) -> [String: T] {
         let policy: CodingFailurePolicy = .raiseException
         
         //Encode
@@ -134,21 +132,20 @@ final class MessagePackCoderTest: XCTestCase
         XCTAssert(encoder.encodedData.isNotEmpty)
         
         //Decode
-        var decodedJsonObject: [String: T]? = [:]
+        var decodedJsonObject: [String: T] = [:]
         let decoder = MessagePackDecoder(forReadingFrom: encoder.encodedData, failurePolicy: policy)
         if let decoderObject = decoder.decodeObject() as? [String: JsonObject] {
             for (key, object) in decoderObject {
-                decodedJsonObject?[key] = try? T(from: object)
+                decodedJsonObject[key] = try? T(from: object)
             }
         }
         
         XCTAssert(decoder.error == nil)
-        XCTAssert(decodedJsonObject != nil)
+        XCTAssert(decodedJsonObject.isNotEmpty)
         
         //Done
         return decodedJsonObject
     }
-    
 }
 
 // ----------------------------------------------------------------------------
