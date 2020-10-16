@@ -16,8 +16,7 @@ import XCTest
 
 extension MessagePackCoderTest
 {
-    //MARK:- Tests
-    
+// MARK: - Tests
     
     func testArrayOf_SerializableObject_Bolean() {
         
@@ -33,22 +32,18 @@ extension MessagePackCoderTest
             let object: [STCSignedInteger8Model] = [STCSignedInteger8Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCSignedInteger16Model] = [STCSignedInteger16Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCSignedInteger32Model] = [STCSignedInteger32Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCSignedInteger64Model] = [STCSignedInteger64Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCSignedIntegerModel] = [STCSignedIntegerModel.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
@@ -61,44 +56,38 @@ extension MessagePackCoderTest
             let object: [STCUnsignedInteger8Model] = [STCUnsignedInteger8Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCUnsignedInteger16Model] = [STCUnsignedInteger16Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCUnsignedInteger32Model] = [STCUnsignedInteger32Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCUnsignedInteger64Model] = [STCUnsignedInteger64Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCUnsignedIntegerModel] = [STCUnsignedIntegerModel.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
     }
+    
     func testArrayOf_SerializableObject_Float() {
         
         assertNoThrow {
             let object: [STCFloat32Model] = [STCFloat32Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCFloat64Model] = [STCFloat64Model.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
         assertNoThrow {
             let object: [STCFloatModel] = [STCFloatModel.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
     }
     
     func testArrayOf_SerializableObject_Double() {
@@ -107,7 +96,6 @@ extension MessagePackCoderTest
             let object: [STCDoubleModel] = [STCDoubleModel.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
     }
     
     func testArrayOf_SerializableObject_String() {
@@ -116,7 +104,7 @@ extension MessagePackCoderTest
             let object: [STCStringModel] = [STCStringModel.shared]
             XCTAssertEqual(object, self.cloneArrayOfSerializableObject(object))
         }
-        
     }
-    
 }
+
+// ----------------------------------------------------------------------------

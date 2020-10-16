@@ -16,7 +16,7 @@ import XCTest
 
 extension MessagePackCoderTest
 {
-    //MARK:- Tests
+// MARK: - Tests
     
     func testArrayOf_BasicType_Boolean() {
         
@@ -24,7 +24,6 @@ extension MessagePackCoderTest
             let object: [Bool] = [true]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
-        
     }
     
     func testArrayOf_BasicType_SignedInteger() {
@@ -49,7 +48,6 @@ extension MessagePackCoderTest
             let object: [Int] = [Int.min]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
-        
     }
     
     func testArrayOf_BasicType_UnsignedInteger() {
@@ -74,9 +72,7 @@ extension MessagePackCoderTest
             let object: [UInt] = [UInt.max]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
-        
     }
-    
     
     func testArrayOf_BasicType_Float() {
         
@@ -84,12 +80,10 @@ extension MessagePackCoderTest
             let object: [Float32] = [Constants.float32Value]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
-        
         assertNoThrow {
             let object: [Float64] = [Constants.float64Value]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
-        
         assertNoThrow {
             let object: [Float] = [Constants.floatValue]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
@@ -108,12 +102,8 @@ extension MessagePackCoderTest
         assertNoThrow {
             let object: [String] = [Constants.stringValue]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
-            
         }
     }
-    
-    
-    
-    
-    
 }
+
+// ----------------------------------------------------------------------------
