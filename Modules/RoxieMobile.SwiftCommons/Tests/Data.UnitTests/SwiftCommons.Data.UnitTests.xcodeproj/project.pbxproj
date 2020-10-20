@@ -40,6 +40,10 @@
 		1AFA5E1520499ED000B2BB15 /* OperatorsTests.SetOfMappableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E1420499ED000B2BB15 /* OperatorsTests.SetOfMappableObjects.swift */; };
 		1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift */; };
 		5AFC97997C417CB8182145EE /* JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC90A81397DEA3E86FF565 /* JsonKeys.swift */; };
+		812D20EC253F4CD6006052EC /* MessagePackCoderTests.DictionaryOfBasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812D20E8253F4CD6006052EC /* MessagePackCoderTests.DictionaryOfBasicTypes.swift */; };
+		812D20ED253F4CD6006052EC /* MessagePackCoderTests.ArrayOfBasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812D20E9253F4CD6006052EC /* MessagePackCoderTests.ArrayOfBasicTypes.swift */; };
+		812D20EE253F4CD6006052EC /* MessagePackCoderTests.BasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812D20EA253F4CD6006052EC /* MessagePackCoderTests.BasicTypes.swift */; };
+		812D20EF253F4CD6006052EC /* MessagePackCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812D20EB253F4CD6006052EC /* MessagePackCoderTests.swift */; };
 		CC70FB610279971F6BAABFDF /* Pods_SwiftCommons_Data_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4E1FF30D8D55A96E20CD75 /* Pods_SwiftCommons_Data_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +86,10 @@
 		1AFA5E1F204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.DictionaryOfMappableObjects.swift; sourceTree = "<group>"; };
 		250FC88357535D1E0B2D29B5 /* Pods-SwiftCommons.Data.UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data.UnitTests/Pods-SwiftCommons.Data.UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5AFC90A81397DEA3E86FF565 /* JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonKeys.swift; sourceTree = "<group>"; };
+		812D20E8253F4CD6006052EC /* MessagePackCoderTests.DictionaryOfBasicTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePackCoderTests.DictionaryOfBasicTypes.swift; sourceTree = "<group>"; };
+		812D20E9253F4CD6006052EC /* MessagePackCoderTests.ArrayOfBasicTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePackCoderTests.ArrayOfBasicTypes.swift; sourceTree = "<group>"; };
+		812D20EA253F4CD6006052EC /* MessagePackCoderTests.BasicTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePackCoderTests.BasicTypes.swift; sourceTree = "<group>"; };
+		812D20EB253F4CD6006052EC /* MessagePackCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePackCoderTests.swift; sourceTree = "<group>"; };
 		FC4E1FF30D8D55A96E20CD75 /* Pods_SwiftCommons_Data_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -166,6 +174,7 @@
 		19EB0CA81F72DF640029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				812D20E6253F4CD6006052EC /* MessagePackCoder */,
 				19AACEDA20596F6500BAE27B /* ObjectMapper */,
 			);
 			path = Sources;
@@ -252,6 +261,25 @@
 				5AFC90A81397DEA3E86FF565 /* JsonKeys.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		812D20E6253F4CD6006052EC /* MessagePackCoder */ = {
+			isa = PBXGroup;
+			children = (
+				812D20E7253F4CD6006052EC /* BasicTypes */,
+				812D20EB253F4CD6006052EC /* MessagePackCoderTests.swift */,
+			);
+			path = MessagePackCoder;
+			sourceTree = "<group>";
+		};
+		812D20E7253F4CD6006052EC /* BasicTypes */ = {
+			isa = PBXGroup;
+			children = (
+				812D20E8253F4CD6006052EC /* MessagePackCoderTests.DictionaryOfBasicTypes.swift */,
+				812D20E9253F4CD6006052EC /* MessagePackCoderTests.ArrayOfBasicTypes.swift */,
+				812D20EA253F4CD6006052EC /* MessagePackCoderTests.BasicTypes.swift */,
+			);
+			path = BasicTypes;
 			sourceTree = "<group>";
 		};
 		F36B8F6A1D5E674705A0377D /* Pods */ = {
@@ -362,6 +390,7 @@
 				1AFA5DED2048160E00B2BB15 /* OperatorsTests.MappableObjects.swift in Sources */,
 				1AD56543205011F20029C0B5 /* TransformOperatorsTests.ArrayOfBasicTypes.swift in Sources */,
 				1AC0FC1320502930007F72FA /* TransformOperatorsTests.MappableObjects.swift in Sources */,
+				812D20EC253F4CD6006052EC /* MessagePackCoderTests.DictionaryOfBasicTypes.swift in Sources */,
 				1AFA5DF2204816EC00B2BB15 /* OperatorsTests.BasicTypes.swift in Sources */,
 				1A9D106B2056672100049F39 /* EnumOperatorsTests.DictionaryOfRawRepresentableTypes.swift in Sources */,
 				1A2B5D6D204D88AE00E165AD /* IntegerOperatorsTests.SignedIntegers.swift in Sources */,
@@ -377,6 +406,7 @@
 				1AFA5E1520499ED000B2BB15 /* OperatorsTests.SetOfMappableObjects.swift in Sources */,
 				1A9D107520566C9B00049F39 /* StringRawType.swift in Sources */,
 				198758052207777300A61E89 /* OperatorsTests.Floats.swift in Sources */,
+				812D20ED253F4CD6006052EC /* MessagePackCoderTests.ArrayOfBasicTypes.swift in Sources */,
 				19136E74205EB03900280456 /* Vector3DModel.swift in Sources */,
 				1A7FDBE1205048BA00F62996 /* TransformOperatorsTests.SetOfMappableObjects.swift in Sources */,
 				1AB4DDA4204FD5EB00DD1134 /* TransformOperatorsTests.swift in Sources */,
@@ -385,10 +415,12 @@
 				1A3807872056765300605CA6 /* EnumOperatorsTests.ArrayOfRawRepresentableTypes.swift in Sources */,
 				1A2B5D6F204D8DB900E165AD /* IntegerOperatorsTests.UnsignedIntegers.swift in Sources */,
 				1AFA5E20204D390500B2BB15 /* OperatorsTests.DictionaryOfMappableObjects.swift in Sources */,
+				812D20EF253F4CD6006052EC /* MessagePackCoderTests.swift in Sources */,
 				5AFC97997C417CB8182145EE /* JsonKeys.swift in Sources */,
 				19D02ECD205FEE78006FB892 /* EnumOperatorsTests.SetOfRawRepresentableTypes.swift in Sources */,
 				19136E72205DD82100280456 /* ObjectMapperTests.swift in Sources */,
 				1A2B5D88204ED91800E165AD /* Constants.swift in Sources */,
+				812D20EE253F4CD6006052EC /* MessagePackCoderTests.BasicTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
