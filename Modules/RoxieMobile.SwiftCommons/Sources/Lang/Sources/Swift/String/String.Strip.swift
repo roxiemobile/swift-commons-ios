@@ -23,7 +23,7 @@ public extension String
     /// @param stripChars The characters to remove, {@code nil} treated as whitespace
     /// @return the stripped String
     ///
-     func stripStart(stripChars: CharacterSet? = nil) -> String {
+    func stripStart(stripChars: CharacterSet? = nil) -> String {
         let set = stripChars ?? CharacterSet.whitespacesAndNewlines
         var result = ""
 
@@ -40,7 +40,7 @@ public extension String
     /// @param stripChars The set of characters to remove, {@code nil} treated as whitespace
     /// @return the stripped String
     ///
-     func stripEnd(stripChars: CharacterSet? = nil) -> String {
+    func stripEnd(stripChars: CharacterSet? = nil) -> String {
         let set = stripChars ?? CharacterSet.whitespacesAndNewlines
         var result = ""
 
@@ -59,7 +59,7 @@ public extension String
     /// @param stripChars The characters to remove, {@code nil} treated as whitespace
     /// @return the stripped String
     ///
-     func strip(stripChars set: CharacterSet? = nil) -> String {
+    func strip(stripChars set: CharacterSet? = nil) -> String {
         return stripStart(stripChars: set).stripEnd(stripChars: set)
     }
 }
