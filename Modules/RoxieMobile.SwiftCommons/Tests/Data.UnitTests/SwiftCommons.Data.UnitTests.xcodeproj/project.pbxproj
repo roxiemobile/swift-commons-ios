@@ -275,9 +275,9 @@
 		812D20E7253F4CD6006052EC /* BasicTypes */ = {
 			isa = PBXGroup;
 			children = (
-				812D20E8253F4CD6006052EC /* MessagePackCoderTests.DictionaryOfBasicTypes.swift */,
-				812D20E9253F4CD6006052EC /* MessagePackCoderTests.ArrayOfBasicTypes.swift */,
 				812D20EA253F4CD6006052EC /* MessagePackCoderTests.BasicTypes.swift */,
+				812D20E9253F4CD6006052EC /* MessagePackCoderTests.ArrayOfBasicTypes.swift */,
+				812D20E8253F4CD6006052EC /* MessagePackCoderTests.DictionaryOfBasicTypes.swift */,
 			);
 			path = BasicTypes;
 			sourceTree = "<group>";
