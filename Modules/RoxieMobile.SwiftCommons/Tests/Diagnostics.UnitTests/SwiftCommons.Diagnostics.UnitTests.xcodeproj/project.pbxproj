@@ -357,6 +357,7 @@
 				195D394B1F72CE4900118D17 /* Sources */,
 				195D394C1F72CE4900118D17 /* Frameworks */,
 				195D394D1F72CE4900118D17 /* Resources */,
+				ABAE275FA07F4B53FC0D4388 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -413,6 +414,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		ABAE275FA07F4B53FC0D4388 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Diagnostics.UnitTests/Pods-SwiftCommons.Diagnostics.UnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Dispatch/DispatchFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/GHODictionary/GHODictionary.framework",
+				"${BUILT_PRODUCTS_DIR}/MPMessagePack/MPMessagePack.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DispatchFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GHODictionary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MPMessagePack.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Diagnostics.UnitTests/Pods-SwiftCommons.Diagnostics.UnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F5E59044F5872B026F96155D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
