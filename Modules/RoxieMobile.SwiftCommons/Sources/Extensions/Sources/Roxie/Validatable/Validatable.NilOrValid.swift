@@ -21,7 +21,7 @@ public extension Optional where Wrapped == Validatable
     /// - Returns:
     ///   `true` if object is `nil` or valid; otherwise, `false`.
     ///
-    public var isNilOrValid: Bool {
+     var isNilOrValid: Bool {
         return (self == nil) || self!.isValid
     }
 
@@ -30,7 +30,7 @@ public extension Optional where Wrapped == Validatable
     /// - Returns:
     ///   `true` if object is `nil` or not valid; otherwise, `false`.
     ///
-    public var isNilOrNotValid: Bool {
+     var isNilOrNotValid: Bool {
         return (self == nil) || self!.isNotValid
     }
 }

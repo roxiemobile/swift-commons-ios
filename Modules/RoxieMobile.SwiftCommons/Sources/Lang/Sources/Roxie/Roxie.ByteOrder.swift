@@ -17,7 +17,7 @@ public extension Roxie
 // MARK: - Methods: UInt64
 
     /// TODO
-    public static func htonll(_ value: UInt64) -> UInt64 {
+    static func htonll(_ value: UInt64) -> UInt64 {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -30,12 +30,12 @@ public extension Roxie
     }
 
     /// TODO
-    public static func htonll(_ value: Int64) -> Int64 {
+    static func htonll(_ value: Int64) -> Int64 {
         return Int64(bitPattern: Roxie.htonll(UInt64(bitPattern: value)))
     }
 
     /// TODO
-    public static func ntohll(_ value: UInt64) -> UInt64 {
+    static func ntohll(_ value: UInt64) -> UInt64 {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -48,14 +48,14 @@ public extension Roxie
     }
 
     /// TODO
-    public static func ntohll(_ value: Int64) -> Int64 {
+    static func ntohll(_ value: Int64) -> Int64 {
         return Int64(bitPattern: Roxie.ntohll(UInt64(bitPattern: value)))
     }
 
 // MARK: - Methods: UInt32
 
     /// TODO
-    public static func htonl(_ value: UInt32) -> UInt32 {
+    static func htonl(_ value: UInt32) -> UInt32 {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -68,12 +68,12 @@ public extension Roxie
     }
 
     /// TODO
-    public static func htonl(_ value: Int32) -> Int32 {
+    static func htonl(_ value: Int32) -> Int32 {
         return Int32(bitPattern: Roxie.htonl(UInt32(bitPattern: value)))
     }
 
     /// TODO
-    public static func ntohl(_ value: UInt32) -> UInt32 {
+    static func ntohl(_ value: UInt32) -> UInt32 {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -86,14 +86,14 @@ public extension Roxie
     }
 
     /// TODO
-    public static func ntohl(_ value: Int32) -> Int32 {
+    static func ntohl(_ value: Int32) -> Int32 {
         return Int32(bitPattern: Roxie.ntohl(UInt32(bitPattern: value)))
     }
 
 // MARK: - Methods: UInt16
 
     /// TODO
-    public static func htons(_ value: UInt16) -> UInt16 {
+    static func htons(_ value: UInt16) -> UInt16 {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -106,12 +106,12 @@ public extension Roxie
     }
 
     /// TODO
-    public static func htons(_ value: Int16) -> Int16 {
+    static func htons(_ value: Int16) -> Int16 {
         return Int16(bitPattern: Roxie.htons(UInt16(bitPattern: value)))
     }
 
     /// TODO
-    public static func ntohs(_ value: UInt16) -> UInt16 {
+    static func ntohs(_ value: UInt16) -> UInt16 {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -124,14 +124,14 @@ public extension Roxie
     }
 
     /// TODO
-    public static func ntohs(_ value: Int16) -> Int16 {
+    static func ntohs(_ value: Int16) -> Int16 {
         return Int16(bitPattern: Roxie.ntohs(UInt16(bitPattern: value)))
     }
 
 // MARK: - Methods: Float
 
     /// TODO
-    public static func htonf(_ value: Float) -> CFSwappedFloat32 {
+    static func htonf(_ value: Float) -> CFSwappedFloat32 {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -144,7 +144,7 @@ public extension Roxie
     }
 
     /// TODO
-    public static func ntohf(_ value: CFSwappedFloat32) -> Float {
+    static func ntohf(_ value: CFSwappedFloat32) -> Float {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -159,7 +159,7 @@ public extension Roxie
 // MARK: - Methods: Double
 
     /// TODO
-    public static func htond(_ value: Double) -> CFSwappedFloat64 {
+    static func htond(_ value: Double) -> CFSwappedFloat64 {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
@@ -172,7 +172,7 @@ public extension Roxie
     }
 
     /// TODO
-    public static func ntohd(_ value: CFSwappedFloat64) -> Double {
+    static func ntohd(_ value: CFSwappedFloat64) -> Double {
         let byteOrder = Int(OSHostByteOrder())
         switch (byteOrder) {
             case OSBigEndian:
