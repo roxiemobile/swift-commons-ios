@@ -63,4 +63,3 @@ final class MessagePackCoderTests: XCTestCase
         return decodedObject
     }
 }
-

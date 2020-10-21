@@ -186,5 +186,3 @@ final class Constants: NonCreatable
 
     static let stringValue = "value"
 }
-
-// ----------------------------------------------------------------------------
