@@ -29,7 +29,7 @@ extension Check
     ///
     public static func nilOrValid(_ object: Validatable?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard (object == nil) || object!.isValid else {
-            throw newCheckError(message, file, line)
+            throw newCheckError(message(), file, line)
         }
     }
 }

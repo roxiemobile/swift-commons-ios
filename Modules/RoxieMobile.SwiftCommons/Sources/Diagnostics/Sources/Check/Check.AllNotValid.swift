@@ -78,7 +78,7 @@ extension Check
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ $0.isNotValid }) else {
-                throw newCheckError(message, file, line)
+                throw newCheckError(message(), file, line)
             }
         }
     }
@@ -101,7 +101,7 @@ extension Check
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ $0.isNotValid }) else {
-                throw newCheckError(message, file, line)
+                throw newCheckError(message(), file, line)
             }
         }
     }
@@ -126,7 +126,7 @@ extension Check
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ ($0 != nil) && $0!.isNotValid }) else {
-                throw newCheckError(message, file, line)
+                throw newCheckError(message(), file, line)
             }
         }
     }
@@ -149,7 +149,7 @@ extension Check
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ ($0 != nil) && $0!.isNotValid }) else {
-                throw newCheckError(message, file, line)
+                throw newCheckError(message(), file, line)
             }
         }
     }

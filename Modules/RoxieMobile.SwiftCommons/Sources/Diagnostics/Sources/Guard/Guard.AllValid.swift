@@ -33,7 +33,7 @@ extension Guard
         // objects: Collection<Validatable>?
 
         if let error = tryIsFailure(try Check.allValid(objects)) {
-            newGuardException(message, error, file, line).raise()
+            newGuardException(message(), error, file, line).raise()
         }
     }
 
@@ -54,7 +54,7 @@ extension Guard
         // objects: Collection<Subtype: Validatable>?
 
         if let error = tryIsFailure(try Check.allValid(objects)) {
-            newGuardException(message, error, file, line).raise()
+            newGuardException(message(), error, file, line).raise()
         }
     }
 
@@ -77,7 +77,7 @@ extension Guard
         // objects: Collection<Validatable?>?
 
         if let error = tryIsFailure(try Check.allValid(objects)) {
-            newGuardException(message, error, file, line).raise()
+            newGuardException(message(), error, file, line).raise()
         }
     }
 
@@ -98,7 +98,7 @@ extension Guard
         // objects: Collection<Subtype: Validatable?>?
 
         if let error = tryIsFailure(try Check.allValid(objects)) {
-            newGuardException(message, error, file, line).raise()
+            newGuardException(message(), error, file, line).raise()
         }
     }
 }
