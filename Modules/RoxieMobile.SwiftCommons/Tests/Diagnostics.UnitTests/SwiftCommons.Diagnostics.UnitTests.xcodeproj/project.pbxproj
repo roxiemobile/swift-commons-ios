@@ -419,18 +419,14 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Diagnostics.UnitTests/Pods-SwiftCommons.Diagnostics.UnitTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftCommons.Diagnostics.UnitTests/Pods-SwiftCommons.Diagnostics.UnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Dispatch/DispatchFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/GHODictionary/GHODictionary.framework",
 				"${BUILT_PRODUCTS_DIR}/MPMessagePack/MPMessagePack.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DispatchFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
@@ -439,7 +435,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Diagnostics.UnitTests/Pods-SwiftCommons.Diagnostics.UnitTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftCommons.Diagnostics.UnitTests/Pods-SwiftCommons.Diagnostics.UnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F5E59044F5872B026F96155D /* [CP] Check Pods Manifest.lock */ = {

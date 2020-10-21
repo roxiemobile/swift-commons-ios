@@ -217,21 +217,17 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Extensions.UnitTests/Pods-SwiftCommons.Extensions.UnitTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftCommons.Extensions.UnitTests/Pods-SwiftCommons.Extensions.UnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Dispatch/DispatchFramework.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DispatchFramework.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Extensions.UnitTests/Pods-SwiftCommons.Extensions.UnitTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftCommons.Extensions.UnitTests/Pods-SwiftCommons.Extensions.UnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -262,7 +258,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.roxiemobile.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME).UnitTests";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -277,7 +272,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.roxiemobile.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(CUSTOM_PRODUCT_NAME).UnitTests";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
