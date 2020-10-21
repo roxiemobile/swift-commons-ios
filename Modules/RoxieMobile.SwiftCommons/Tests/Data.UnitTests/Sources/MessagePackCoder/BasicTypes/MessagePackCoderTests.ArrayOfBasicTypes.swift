@@ -2,7 +2,7 @@
 //
 //  MessagePackCoderTests.ArrayOfBasicTypes.swift
 //
-//  @author     Aleksandr Serov <serov-ae@roxiemobile.com> 
+//  @author     Aleksandr Serov <serov-ae@roxiemobile.com>
 //  @copyright  Copyright (c) 2020, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -107,4 +107,3 @@ extension MessagePackCoderTests
     }
 }
 
-// ----------------------------------------------------------------------------

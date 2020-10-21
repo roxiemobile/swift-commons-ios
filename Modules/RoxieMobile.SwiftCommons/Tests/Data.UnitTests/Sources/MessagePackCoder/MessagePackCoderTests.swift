@@ -2,7 +2,7 @@
 //
 //  MessagePackCoderTests.swift
 //
-//  @author     Aleksandr Serov <serov-ae@roxiemobile.com> 
+//  @author     Aleksandr Serov <serov-ae@roxiemobile.com>
 //  @copyright  Copyright (c) 2020, Roxie Mobile Ltd. All rights reserved.
 //  @link       http://www.roxiemobile.com/
 //
@@ -30,7 +30,7 @@ final class MessagePackCoderTests: XCTestCase
         }
     }
 
-    internal func assertThrowsExpection(action: @escaping () -> Void) -> Void {
+    internal func assertThrowsException(action: @escaping () -> Void) -> Void {
         var exception: NSException? = nil
 
         objcTry {
@@ -46,7 +46,7 @@ final class MessagePackCoderTests: XCTestCase
         let policy: CodingFailurePolicy = .raiseException
 
         // Encode
-        let encoder = MessagePackEncoder(forWritingInto: nil, failurePolicy: policy, sortDictionaryKeys: false)
+        let encoder = MessagePackEncoder(forWritingInto: nil, failurePolicy: policy, sortDictionaryKeys: true)
         encoder.encode(object)
 
         XCTAssert(encoder.error == nil)
@@ -54,14 +54,13 @@ final class MessagePackCoderTests: XCTestCase
 
         // Decode
         let decoder = MessagePackDecoder(forReadingFrom: encoder.encodedData, failurePolicy: policy)
-        let decoderObject = decoder.decodeObject() as? T
+        let decodedObject = decoder.decodeObject() as? T
 
         XCTAssert(decoder.error == nil)
-        XCTAssert(decoderObject != nil)
+        XCTAssert(decodedObject != nil)
 
         // Done
-        return decoderObject
+        return decodedObject
     }
 }
 
-// ----------------------------------------------------------------------------
