@@ -175,6 +175,14 @@ final class Constants: NonCreatable
     static let invalidValue = UUID()
 
     static let nilValue = NSNull()
-}
 
-// ----------------------------------------------------------------------------
+    static let float32Value: Float32 = 0.15
+
+    static let float64Value: Float64 = 0.25
+
+    static let floatValue: Float = 0.35
+
+    static let doubleValue = 0.45
+
+    static let stringValue = "value"
+}
