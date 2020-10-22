@@ -77,15 +77,15 @@ extension MessagePackCoderTests
     func testDictionaryOf_BasicType_Float() {
 
         assertNoThrow {
-            let object: [String: Float32] = [JsonKeys.value: Constants.float32Value]
+            let object: [String: Float32] = [JsonKeys.value: Float32.pi]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: Float64] = [JsonKeys.value: Constants.float64Value]
+            let object: [String: Float64] = [JsonKeys.value: Float64.pi]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: Float] = [JsonKeys.value: Constants.floatValue]
+            let object: [String: Float] = [JsonKeys.value: Float.pi]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
     }
@@ -93,7 +93,7 @@ extension MessagePackCoderTests
     func testDictionaryOf_BasicType_Double() {
 
         assertNoThrow {
-            let object: [String: Double] = [JsonKeys.value: Constants.doubleValue]
+            let object: [String: Double] = [JsonKeys.value: Double.pi]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
     }

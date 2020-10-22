@@ -13,8 +13,8 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-final class Constants: NonCreatable
-{
+final class Constants: NonCreatable {
+
 // MARK: - Basic types
 
     static let booleanBasicTypes: [String: Any] = [
@@ -162,19 +162,19 @@ final class Constants: NonCreatable
     ]
 
     static let dictionaryOfDouble: [String: Double] = [
-        JsonKeys.double: Constants.doubleValue
+        JsonKeys.double: Double.pi
     ]
 
     static let dictionaryOfFloat32: [String: Float32] = [
-        JsonKeys.float32: Constants.float32Value
+        JsonKeys.float32: Float32.pi
     ]
 
     static let dictionaryOfFloat64: [String: Float64] = [
-        JsonKeys.float64: Constants.float64Value
+        JsonKeys.float64: Float64.pi
     ]
 
     static let dictionaryOfFloat: [String: Float] = [
-        JsonKeys.float: Constants.floatValue
+        JsonKeys.float: Float.pi
     ]
 
     static let dictionaryOfUnsignedInteger8: [String: UInt8] = [
@@ -229,7 +229,7 @@ final class Constants: NonCreatable
         JsonKeys.nilValue: Constants.nilValue
     ]
 
-// MARK: - Other Values
+// MARK: - Other values
 
     static let invalidObject: [String: Any] = [
         JsonKeys.x: Constants.invalidValue,
@@ -241,14 +241,6 @@ final class Constants: NonCreatable
     static let invalidValue = UUID()
 
     static let nilValue = NSNull()
-
-    static let float32Value: Float32 = 0.15
-
-    static let float64Value: Float64 = 0.25
-
-    static let floatValue: Float = 0.35
-
-    static let doubleValue = 0.45
 
     static let stringValue = "value"
 }

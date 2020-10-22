@@ -12,8 +12,8 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-final class JsonKeys: NonCreatable
-{
+final class JsonKeys: NonCreatable {
+
 // MARK: - Values
 
     static let value = "value"
@@ -52,7 +52,7 @@ final class JsonKeys: NonCreatable
     static let emptySet = "empty_set"
     static let nilSet = "nil_set"
 
-// MARK: - Signed Integers
+// MARK: - Signed Integer types
 
     static let int = "int"
     static let int8 = "int8"
@@ -60,7 +60,7 @@ final class JsonKeys: NonCreatable
     static let int32 = "int32"
     static let int64 = "int64"
 
-// MARK: - Unsigned Integers
+// MARK: - Unsigned Integer types
 
     static let uint = "uint"
     static let uint8 = "uint8"
@@ -68,23 +68,25 @@ final class JsonKeys: NonCreatable
     static let uint32 = "uint32"
     static let uint64 = "uint64"
 
+// MARK: - Float types
+
+    static let float = "float"
+    static let float32 = "float32"
+    static let float64 = "float64"
+
+// MARK: - Other basic types
+
+    static let bool = "bool"
+    static let double = "double"
+    static let string = "string"
+
 // MARK: - Vector3D models
 
     static let x = "x"
     static let y = "y"
     static let z = "z"
 
-// MARK: - TypedStreamCoder models
-
-    // Basic Types
-    static let bool = "bool"
-    static let double = "double"
-    static let float32 = "float32"
-    static let float64 = "float64"
-    static let float = "float"
-    static let string = "string"
-
-// MARK: - Other Keys
+// MARK: - Other keys
 
     static let noSuchKey = "no_such_key"
 }
