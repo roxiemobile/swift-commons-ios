@@ -15,8 +15,8 @@ import XCTest
 // MARK: - Dictionary of Mappable objects
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
     func testDictionaryOfMappableObjects_fromJSON() {
@@ -89,8 +89,8 @@ extension OperatorsTests
 // MARK: - Optional dictionary of Mappable objects
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
     func testOptionalDictionaryOfMappableObjects_fromJSON() {
@@ -171,8 +171,8 @@ extension OperatorsTests
 // MARK: - Implicitly unwrapped optional dictionary of Mappable objects
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalDictionaryOfMappableObjects_fromJSON() {
@@ -242,5 +242,3 @@ extension OperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

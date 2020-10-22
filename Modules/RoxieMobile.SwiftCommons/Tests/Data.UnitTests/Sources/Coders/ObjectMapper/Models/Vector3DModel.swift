@@ -12,8 +12,8 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class Vector3DModel: ValidatableModel
-{
+class Vector3DModel: ValidatableModel {
+
 // MARK: - Construction
 
     static let shared16 = try! Vector3DModel(from: Constants.dictionaryOfInt16)
@@ -41,5 +41,3 @@ class Vector3DModel: ValidatableModel
         self.z <~ (map[JsonKeys.z], StringToIntegerTransform.shared)
     }
 }
-
-// ----------------------------------------------------------------------------

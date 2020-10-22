@@ -16,7 +16,7 @@ class Float64Model: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! Float64Model(from: Constants.dictionaryOfFloat64)
+    static let shared = try! Float64Model(from: Constants.floatValues)
 
 // MARK: - Properties
 

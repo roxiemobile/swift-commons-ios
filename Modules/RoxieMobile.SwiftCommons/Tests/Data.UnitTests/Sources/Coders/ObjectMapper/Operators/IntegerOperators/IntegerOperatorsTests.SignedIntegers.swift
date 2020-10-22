@@ -15,8 +15,8 @@ import XCTest
 // MARK: - Signed Integers
 // ----------------------------------------------------------------------------
 
-extension IntegerOperatorsTests
-{
+extension IntegerOperatorsTests {
+
 // MARK: - Tests
 
     func testSignedIntegers_fromJSON() {
@@ -192,8 +192,8 @@ extension IntegerOperatorsTests
 // MARK: - Optional signed Integers
 // ----------------------------------------------------------------------------
 
-extension IntegerOperatorsTests
-{
+extension IntegerOperatorsTests {
+
 // MARK: - Tests
 
     func testOptionalSignedIntegers_fromJSON() {
@@ -385,8 +385,8 @@ extension IntegerOperatorsTests
 // MARK: - Implicitly unwrapped optional signed Integers
 // ----------------------------------------------------------------------------
 
-extension IntegerOperatorsTests
-{
+extension IntegerOperatorsTests {
+
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalSignedIntegers_fromJSON() {
@@ -567,5 +567,3 @@ extension IntegerOperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

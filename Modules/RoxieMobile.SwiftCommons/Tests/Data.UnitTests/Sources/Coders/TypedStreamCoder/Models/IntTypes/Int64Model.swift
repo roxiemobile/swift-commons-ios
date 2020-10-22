@@ -16,7 +16,7 @@ class Int64Model: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! Int64Model(from: Constants.dictionaryOfSignedInteger64)
+    static let shared = try! Int64Model(from: Constants.integerValues)
 
 // MARK: - Properties
 

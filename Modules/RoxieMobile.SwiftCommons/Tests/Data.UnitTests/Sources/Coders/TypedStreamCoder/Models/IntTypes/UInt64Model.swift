@@ -16,7 +16,7 @@ class UInt64Model: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! UInt64Model(from: Constants.dictionaryOfUnsignedInteger64)
+    static let shared = try! UInt64Model(from: Constants.unsignedIntegerValues)
 
 // MARK: - Properties
 

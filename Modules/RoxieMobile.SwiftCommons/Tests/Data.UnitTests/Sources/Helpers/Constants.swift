@@ -17,16 +17,53 @@ final class Constants: NonCreatable {
 
 // MARK: - Basic types
 
-    static let booleanBasicTypes: [String: Any] = [
-        JsonKeys.value: true,
+    static let booleanValues: [String: Any] = [
+        JsonKeys.bool: true,
         JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilValue: Constants.nullValue
     ]
 
-    static let integerBasicTypes: [String: Any] = [
-        JsonKeys.value: "\(Int.max)",
+    // TODO
+    static let doubleValues: [String: Any] = [
+        JsonKeys.double: Double.pi,
         JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilValue: Constants.nullValue
+    ]
+
+    static let floatValues: [String: Any] = [
+        JsonKeys.float: Float.pi,
+        JsonKeys.float32: Float32.pi,
+        JsonKeys.float64: Float64.pi,
+        JsonKeys.invalidValue: Constants.invalidValue,
+        JsonKeys.nilValue: Constants.nullValue
+    ]
+
+    static let integerValues: [String: Any] = [
+        JsonKeys.int: Int.max,
+        JsonKeys.int8: Int8.max,
+        JsonKeys.int16: Int16.max,
+        JsonKeys.int32: Int32.max,
+        JsonKeys.int64: Int64.max,
+        JsonKeys.invalidValue: Constants.invalidValue,
+        JsonKeys.nilValue: Constants.nullValue,
+        JsonKeys.string: "\(Int.max)",
+    ]
+
+    static let unsignedIntegerValues: [String: Any] = [
+        JsonKeys.uint: UInt.max,
+        JsonKeys.uint8: Int8.max,
+        JsonKeys.uint16: Int16.max,
+        JsonKeys.uint32: Int32.max,
+        JsonKeys.uint64: Int64.max,
+        JsonKeys.invalidValue: Constants.invalidValue,
+        JsonKeys.nilValue: Constants.nullValue
+    ]
+
+    static let stringValues: [String: Any] = [
+        JsonKeys.string: Constants.stringValue,
+        JsonKeys.invalidValue: Constants.invalidValue,
+        JsonKeys.nilValue: Constants.nullValue,
+        JsonKeys.rawTypeValue: StringRawType.value.rawValue,
     ]
 
 // MARK: - Mappable objects
@@ -34,7 +71,7 @@ final class Constants: NonCreatable {
     static let mappableObjects: [String: Any] = [
         JsonKeys.object: Constants.dictionaryOfInt8,
         JsonKeys.invalidObject: Constants.invalidObject,
-        JsonKeys.nilObject: Constants.nilValue
+        JsonKeys.nilObject: Constants.nullValue
     ]
 
 // MARK: - Arrays of objects
@@ -47,7 +84,7 @@ final class Constants: NonCreatable {
             Constants.invalidValue
         ],
         JsonKeys.emptyArray: [],
-        JsonKeys.nilArray: Constants.nilValue
+        JsonKeys.nilArray: Constants.nullValue
     ]
 
     static let arrayOfMappableObjects: [String: Any] = [
@@ -58,7 +95,7 @@ final class Constants: NonCreatable {
             Constants.invalidObject
         ],
         JsonKeys.emptyArray: [],
-        JsonKeys.nilArray: Constants.nilValue
+        JsonKeys.nilArray: Constants.nullValue
     ]
 
     static let arrayOfStringRawValues: [String: Any] = [
@@ -69,7 +106,7 @@ final class Constants: NonCreatable {
             Constants.invalidValue
         ],
         JsonKeys.emptyArray: [],
-        JsonKeys.nilArray: Constants.nilValue
+        JsonKeys.nilArray: Constants.nullValue
     ]
 
 // MARK: - Dictionaries of objects
@@ -82,7 +119,7 @@ final class Constants: NonCreatable {
             JsonKeys.value: Constants.invalidValue
         ],
         JsonKeys.emptyDictionary: [:],
-        JsonKeys.nilDictionary: Constants.nilValue
+        JsonKeys.nilDictionary: Constants.nullValue
     ]
 
     static let dictionaryOfMappableObjects: [String: Any] = [
@@ -93,7 +130,7 @@ final class Constants: NonCreatable {
             JsonKeys.object: Constants.invalidObject
         ],
         JsonKeys.emptyDictionary: [:],
-        JsonKeys.nilDictionary: Constants.nilValue
+        JsonKeys.nilDictionary: Constants.nullValue
     ]
 
     static let dictionaryOfStringRawValues: [String: Any] = [
@@ -104,35 +141,7 @@ final class Constants: NonCreatable {
             JsonKeys.value: Constants.invalidValue
         ],
         JsonKeys.emptyDictionary: [:],
-        JsonKeys.nilDictionary: Constants.nilValue
-    ]
-
-// MARK: - Numbers
-
-    static let integerValues: [String: Any] = [
-        JsonKeys.int8: Int(Int8.max),
-        JsonKeys.int16: Int(Int16.max),
-        JsonKeys.int32: Int(Int32.max),
-        JsonKeys.int64: Int(Int64.max),
-        JsonKeys.int: Int.max,
-        JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
-    ]
-
-    static let unsignedIntegerValues: [String: Any] = [
-        JsonKeys.uint8: UInt(Int8.max),
-        JsonKeys.uint16: UInt(Int16.max),
-        JsonKeys.uint32: UInt(Int32.max),
-        JsonKeys.uint64: UInt(Int64.max),
-        JsonKeys.uint: UInt(Int.max),
-        JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
-    ]
-
-    static let floatValues: [String: Any] = [
-        JsonKeys.value: Float.pi,
-        JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
+        JsonKeys.nilDictionary: Constants.nullValue
     ]
 
 // MARK: - Vector3D models
@@ -155,80 +164,6 @@ final class Constants: NonCreatable {
         JsonKeys.z: "\(Int32.max)"
     ]
 
-// MARK: - TypedStreamCoder Models
-
-    static let dictionaryOfBool: [String: Any] = [
-        JsonKeys.bool: false
-    ]
-
-    static let dictionaryOfDouble: [String: Double] = [
-        JsonKeys.double: Double.pi
-    ]
-
-    static let dictionaryOfFloat32: [String: Float32] = [
-        JsonKeys.float32: Float32.pi
-    ]
-
-    static let dictionaryOfFloat64: [String: Float64] = [
-        JsonKeys.float64: Float64.pi
-    ]
-
-    static let dictionaryOfFloat: [String: Float] = [
-        JsonKeys.float: Float.pi
-    ]
-
-    static let dictionaryOfUnsignedInteger8: [String: UInt8] = [
-        JsonKeys.uint8: UInt8.max
-    ]
-
-    static let dictionaryOfUnsignedInteger16: [String: UInt16] = [
-        JsonKeys.uint16: UInt16.max
-    ]
-
-    static let dictionaryOfUnsignedInteger32: [String: UInt32] = [
-        JsonKeys.uint32: UInt32.max
-    ]
-
-    static let dictionaryOfUnsignedInteger64: [String: UInt64] = [
-        JsonKeys.uint64: UInt64.max
-    ]
-
-    static let dictionaryOfUnsignedInteger: [String: UInt] = [
-        JsonKeys.uint: UInt.max
-    ]
-
-    static let dictionaryOfSignedInteger8: [String: Int8] = [
-        JsonKeys.int8: Int8.max
-    ]
-
-    static let dictionaryOfSignedInteger16: [String: Int16] = [
-        JsonKeys.int16: Int16.max
-    ]
-
-    static let dictionaryOfSignedInteger32: [String: Int32] = [
-        JsonKeys.int32: Int32.max
-    ]
-
-    static let dictionaryOfSignedInteger64: [String: Int64] = [
-        JsonKeys.int64: Int64.max
-    ]
-
-    static let dictionaryOfSignedInteger: [String: Int] = [
-        JsonKeys.int: Int.max
-    ]
-
-    static let dictionaryOfString: [String: String] = [
-        JsonKeys.string: Constants.stringValue
-    ]
-
-// MARK: - RawRepresentable types
-
-    static let stringRawValues: [String: Any] = [
-        JsonKeys.value: StringRawType.value.rawValue,
-        JsonKeys.invalidValue: Constants.invalidValue,
-        JsonKeys.nilValue: Constants.nilValue
-    ]
-
 // MARK: - Other values
 
     static let invalidObject: [String: Any] = [
@@ -240,7 +175,7 @@ final class Constants: NonCreatable {
 
     static let invalidValue = UUID()
 
-    static let nilValue = NSNull()
+    static let nullValue = NSNull()
 
-    static let stringValue = "value"
+    static let stringValue = "string_value"
 }

@@ -16,7 +16,7 @@ class UInt16Model: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! UInt16Model(from: Constants.dictionaryOfUnsignedInteger16)
+    static let shared = try! UInt16Model(from: Constants.unsignedIntegerValues)
 
 // MARK: - Properties
 

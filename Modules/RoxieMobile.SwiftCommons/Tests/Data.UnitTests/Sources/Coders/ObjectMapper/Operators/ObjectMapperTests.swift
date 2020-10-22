@@ -14,8 +14,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class ObjectMapperTests: XCTestCase
-{
+class ObjectMapperTests: XCTestCase {
+
 // MARK: - Methods
 
     internal func assertNoThrow(action: @escaping () -> Void) -> Void {
@@ -42,5 +42,3 @@ class ObjectMapperTests: XCTestCase
         }
     }
 }
-
-// ----------------------------------------------------------------------------

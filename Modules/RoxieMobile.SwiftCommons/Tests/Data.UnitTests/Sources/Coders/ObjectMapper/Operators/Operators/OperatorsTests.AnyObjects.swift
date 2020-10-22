@@ -15,8 +15,8 @@ import XCTest
 // MARK: - Basic types
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
     func testAnyObjects_fromJSON() {
@@ -81,8 +81,8 @@ extension OperatorsTests
 // MARK: - Optional Basic types
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
     func testOptionalAnyObjects_fromJSON() {
@@ -147,8 +147,8 @@ extension OperatorsTests
 // MARK: - Implicitly unwrapped optional Basic types
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalAnyObjects_fromJSON() {
@@ -208,5 +208,3 @@ extension OperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

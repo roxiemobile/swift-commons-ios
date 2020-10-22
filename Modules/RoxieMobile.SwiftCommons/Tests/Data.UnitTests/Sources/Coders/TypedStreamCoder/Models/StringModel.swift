@@ -16,7 +16,7 @@ class StringModel: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! StringModel(from: Constants.dictionaryOfString)
+    static let shared = try! StringModel(from: Constants.stringValues)
 
 // MARK: - Properties
 

@@ -15,8 +15,8 @@ import XCTest
 // MARK: - Array of basic types with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testArrayOfBasicTypesWithTransform_fromJSON() {
@@ -93,8 +93,8 @@ extension TransformOperatorsTests
 // MARK: - Optional array of basic types with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testOptionalArrayOfBasicTypesWithTransform_fromJSON() {
@@ -179,8 +179,8 @@ extension TransformOperatorsTests
 // MARK: - Implicitly unwrapped optional array of basic types with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalArrayOfBasicTypesWithTransform_fromJSON() {
@@ -254,5 +254,3 @@ extension TransformOperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

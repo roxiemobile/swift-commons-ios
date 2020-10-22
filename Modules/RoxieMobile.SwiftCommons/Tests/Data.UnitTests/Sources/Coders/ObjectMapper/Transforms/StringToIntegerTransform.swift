@@ -12,8 +12,8 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-public final class StringToIntegerTransform: TransformType
-{
+public final class StringToIntegerTransform: TransformType {
+
 // MARK: - Construction
 
     public static let shared = StringToIntegerTransform()
@@ -43,5 +43,3 @@ public final class StringToIntegerTransform: TransformType
     public typealias Object = Int
     public typealias JSON = String
 }
-
-// ----------------------------------------------------------------------------

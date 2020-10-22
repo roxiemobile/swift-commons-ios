@@ -14,8 +14,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension MessagePackCoderTests
-{
+extension MessagePackCoderTests {
+
 // MARK: - Tests
 
     func testDictionaryOf_BasicType_Boolean() {

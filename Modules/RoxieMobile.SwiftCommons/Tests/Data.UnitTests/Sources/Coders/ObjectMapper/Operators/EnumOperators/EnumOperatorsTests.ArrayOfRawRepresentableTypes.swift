@@ -15,8 +15,8 @@ import XCTest
 //  MARK: - Array of RawRepresentable types
 // ----------------------------------------------------------------------------
 
-extension EnumOperatorsTests
-{
+extension EnumOperatorsTests {
+
 // MARK: - Tests
 
     func testArrayOfRawRepresentableTypes_fromJSON() {
@@ -95,8 +95,8 @@ extension EnumOperatorsTests
 //  MARK: - Optional array of RawRepresentable types
 // ----------------------------------------------------------------------------
 
-extension EnumOperatorsTests
-{
+extension EnumOperatorsTests {
+
 // MARK: - Tests
 
     func testOptionalArrayOfRawRepresentableTypes_fromJSON() {
@@ -183,8 +183,8 @@ extension EnumOperatorsTests
 //  MARK: - Implicitly unwrapped optional array of RawRepresentable types
 // ----------------------------------------------------------------------------
 
-extension EnumOperatorsTests
-{
+extension EnumOperatorsTests {
+
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalArrayOfRawRepresentableTypes_fromJSON() {
@@ -260,5 +260,3 @@ extension EnumOperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

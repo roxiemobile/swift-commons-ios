@@ -8,13 +8,11 @@
 //
 // ----------------------------------------------------------------------------
 
-enum StringRawType: String
-{
+enum StringRawType: String {
+
 // MARK: - Construction
 
     case value = "raw_value"
     case otherValue = "other_raw_value"
     case undefined
 }
-
-// ----------------------------------------------------------------------------

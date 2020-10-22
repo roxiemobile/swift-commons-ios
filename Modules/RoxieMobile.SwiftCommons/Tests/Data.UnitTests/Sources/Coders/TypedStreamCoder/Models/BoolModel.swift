@@ -16,7 +16,7 @@ class BoolModel: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! BoolModel(from: Constants.dictionaryOfBool)
+    static let shared = try! BoolModel(from: Constants.booleanValues)
 
 // MARK: - Properties
 

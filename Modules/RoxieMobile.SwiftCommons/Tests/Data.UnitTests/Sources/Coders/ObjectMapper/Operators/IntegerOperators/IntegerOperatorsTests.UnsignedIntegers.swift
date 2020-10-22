@@ -15,8 +15,8 @@ import XCTest
 // MARK: - Unsigned Integers
 // ----------------------------------------------------------------------------
 
-extension IntegerOperatorsTests
-{
+extension IntegerOperatorsTests {
+
 // MARK: - Tests
 
     func testUnsignedIntegers_fromJSON() {
@@ -131,7 +131,7 @@ extension IntegerOperatorsTests
         assertNoThrow {
             var uival = _uintValue
             uival <~ map[JsonKeys.uint]
-            XCTAssertEqual(uival, UInt(Int.max))
+            XCTAssertEqual(uival, UInt.max)
         }
 
         // Negative
@@ -192,9 +192,9 @@ extension IntegerOperatorsTests
 // MARK: - Optional unsigned Integers
 // ----------------------------------------------------------------------------
 
-extension IntegerOperatorsTests
-{
-    // MARK: - Tests
+extension IntegerOperatorsTests {
+
+// MARK: - Tests
 
     func testOptionalUnsignedIntegers_fromJSON() {
 
@@ -321,7 +321,7 @@ extension IntegerOperatorsTests
         assertNoThrow {
             var uival = _uintValue
             uival <~ map[JsonKeys.uint]
-            XCTAssertEqual(uival, UInt(Int.max))
+            XCTAssertEqual(uival, UInt.max)
         }
         assertNoThrow {
             var uival = _uintValue
@@ -390,9 +390,9 @@ extension IntegerOperatorsTests
 // MARK: - Implicitly unwrapped optional unsigned Integers
 // ----------------------------------------------------------------------------
 
-extension IntegerOperatorsTests
-{
-    // MARK: - Tests
+extension IntegerOperatorsTests {
+
+// MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalUnsignedIntegers_fromJSON() {
 
@@ -519,7 +519,7 @@ extension IntegerOperatorsTests
         assertNoThrow {
             var uival: UInt! = _uintValue
             uival <~ map[JsonKeys.uint]
-            XCTAssertEqual(uival, UInt(Int.max))
+            XCTAssertEqual(uival, UInt.max)
         }
         assertNoThrow {
             var uival: UInt! = _uintValue
@@ -577,5 +577,3 @@ extension IntegerOperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

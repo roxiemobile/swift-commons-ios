@@ -16,7 +16,7 @@ class DoubleModel: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! DoubleModel(from: Constants.dictionaryOfDouble)
+    static let shared = try! DoubleModel(from: Constants.doubleValues)
 
 // MARK: - Properties
 

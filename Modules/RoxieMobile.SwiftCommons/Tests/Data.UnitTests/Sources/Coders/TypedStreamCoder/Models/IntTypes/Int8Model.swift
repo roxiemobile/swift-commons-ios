@@ -16,7 +16,7 @@ class Int8Model: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! Int8Model(from: Constants.dictionaryOfSignedInteger8)
+    static let shared = try! Int8Model(from: Constants.integerValues)
 
 // MARK: - Properties
 

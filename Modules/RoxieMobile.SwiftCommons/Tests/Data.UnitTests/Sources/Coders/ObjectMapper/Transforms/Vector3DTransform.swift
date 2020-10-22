@@ -12,8 +12,8 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-final class Vector3DTransform: TransformType
-{
+final class Vector3DTransform: TransformType {
+
 // MARK: - Construction
 
     static let shared = Vector3DTransform()
@@ -40,13 +40,10 @@ final class Vector3DTransform: TransformType
 
 // MARK: - Inner Types
 
-    private struct Inner
-    {
+    private struct Inner {
         static let sharedMapper = Mapper<Object>()
     }
 
     typealias Object = Vector3DModel
     typealias JSON = [String: Any]
 }
-
-// ----------------------------------------------------------------------------

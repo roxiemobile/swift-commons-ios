@@ -15,20 +15,20 @@ import XCTest
 //  MARK: - RawRepresentable types
 // ----------------------------------------------------------------------------
 
-extension EnumOperatorsTests
-{
+extension EnumOperatorsTests {
+
 // MARK: - Tests
 
     func testRawRepresentableTypes_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.stringRawValues)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.stringValues)
 
         let _value = StringRawType.undefined
 
         // Positive
         assertNoThrow {
             var val = _value
-            val <~ map[JsonKeys.value]
+            val <~ map[JsonKeys.rawTypeValue]
             XCTAssertEqual(val, StringRawType.value)
         }
         assertNoThrow {
@@ -82,20 +82,20 @@ extension EnumOperatorsTests
 //  MARK: - Optional RawRepresentable types
 // ----------------------------------------------------------------------------
 
-extension EnumOperatorsTests
-{
+extension EnumOperatorsTests {
+
 // MARK: - Tests
 
     func testOptionalRawRepresentableTypes_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.stringRawValues)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.stringValues)
 
         let _value: StringRawType? = nil
 
         // Positive
         assertNoThrow {
             var val = _value
-            val <~ map[JsonKeys.value]
+            val <~ map[JsonKeys.rawTypeValue]
             XCTAssertEqual(val, StringRawType.value)
         }
         assertNoThrow {
@@ -157,20 +157,20 @@ extension EnumOperatorsTests
 //  MARK: - Implicitly unwrapped optional RawRepresentable types
 // ----------------------------------------------------------------------------
 
-extension EnumOperatorsTests
-{
+extension EnumOperatorsTests {
+
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalRawRepresentableTypes_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.stringRawValues)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.stringValues)
 
         let _value: StringRawType! = StringRawType.undefined
 
         // Positive
         assertNoThrow {
             var val: StringRawType! = _value
-            val <~ map[JsonKeys.value]
+            val <~ map[JsonKeys.rawTypeValue]
             XCTAssertEqual(val, StringRawType.value)
         }
         assertNoThrow {
@@ -221,5 +221,3 @@ extension EnumOperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

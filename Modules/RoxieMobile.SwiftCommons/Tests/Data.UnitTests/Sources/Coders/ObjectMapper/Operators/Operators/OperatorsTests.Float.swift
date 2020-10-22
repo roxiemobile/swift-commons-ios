@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  OperatorsTests.Floats.swift
+//  OperatorsTests.Float.swift
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -12,14 +12,14 @@
 import XCTest
 
 // ----------------------------------------------------------------------------
-// MARK: - Floats
+// MARK: - Float
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
-    func testNumbers_fromJSON() {
+    func testFloat_fromJSON() {
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.floatValues)
 
@@ -28,7 +28,7 @@ extension OperatorsTests
         // Positive
         assertNoThrow {
             var num = _float
-            num <~ map[JsonKeys.value]
+            num <~ map[JsonKeys.float]
             XCTAssertEqual(num, Float.pi)
         }
         assertNoThrow {
@@ -52,7 +52,7 @@ extension OperatorsTests
         }
     }
 
-    func testNumbers_toJSON() {
+    func testFloat_toJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
@@ -68,14 +68,14 @@ extension OperatorsTests
 }
 
 // ----------------------------------------------------------------------------
-// MARK: - Optional Floats
+// MARK: - Optional Float
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
-    func testOptionalNumbers_fromJSON() {
+    func testOptionalFloat_fromJSON() {
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.floatValues)
 
@@ -84,7 +84,7 @@ extension OperatorsTests
         // Positive
         assertNoThrow {
             var num = _float
-            num <~ map[JsonKeys.value]
+            num <~ map[JsonKeys.float]
             XCTAssertEqual(num, Float.pi)
         }
         assertNoThrow {
@@ -105,7 +105,7 @@ extension OperatorsTests
         }
     }
 
-    func testOptionalNumbers_toJSON() {
+    func testOptionalFloat_toJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
@@ -121,14 +121,14 @@ extension OperatorsTests
 }
 
 // ----------------------------------------------------------------------------
-// MARK: - Implicitly unwrapped optional Floats
+// MARK: - Implicitly unwrapped optional Float
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
-    func testImplicitlyUnwrappedOptionalNumbers_fromJSON() {
+    func testImplicitlyUnwrappedOptionalFloat_fromJSON() {
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.floatValues)
 
@@ -137,7 +137,7 @@ extension OperatorsTests
         // Positive
         assertNoThrow {
             var num: Float! = _float
-            num <~ map[JsonKeys.value]
+            num <~ map[JsonKeys.float]
             XCTAssertEqual(num, Float.pi)
         }
         assertNoThrow {
@@ -158,7 +158,7 @@ extension OperatorsTests
         }
     }
 
-    func testImplicitlyUnwrappedOptionalNumbers_toJSON() {
+    func testImplicitlyUnwrappedOptionalFloat_toJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
@@ -172,5 +172,3 @@ extension OperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

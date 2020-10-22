@@ -16,7 +16,7 @@ class Int32Model: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! Int32Model(from: Constants.dictionaryOfSignedInteger32)
+    static let shared = try! Int32Model(from: Constants.integerValues)
 
 // MARK: - Properties
 

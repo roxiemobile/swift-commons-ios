@@ -8,9 +8,6 @@
 //
 // ----------------------------------------------------------------------------
 
-class IntegerOperatorsTests: ObjectMapperTests
-{
+class IntegerOperatorsTests: ObjectMapperTests {
     // Do nothing
 }
-
-// ----------------------------------------------------------------------------

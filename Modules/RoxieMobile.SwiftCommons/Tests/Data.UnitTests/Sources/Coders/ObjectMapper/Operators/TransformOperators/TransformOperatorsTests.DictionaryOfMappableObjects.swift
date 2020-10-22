@@ -15,8 +15,8 @@ import XCTest
 // MARK: - Dictionary of Mappable objects with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testDictionaryOfMappableObjectsWithTransform_fromJSON() {
@@ -93,8 +93,8 @@ extension TransformOperatorsTests
 // MARK: - Optional dictionary of Mappable objects with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testOptionalDictionaryOfMappableObjectsWithTransform_fromJSON() {
@@ -179,8 +179,8 @@ extension TransformOperatorsTests
 // MARK: - Implicitly unwrapped optional dictionary of Mappable objects with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalDictionaryOfMappableObjectsWithTransform_fromJSON() {
@@ -254,5 +254,3 @@ extension TransformOperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

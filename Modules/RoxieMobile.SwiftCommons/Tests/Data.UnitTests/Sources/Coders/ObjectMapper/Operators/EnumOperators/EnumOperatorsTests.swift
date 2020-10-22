@@ -8,9 +8,6 @@
 //
 // ----------------------------------------------------------------------------
 
-class EnumOperatorsTests: ObjectMapperTests
-{
+class EnumOperatorsTests: ObjectMapperTests {
     // Do nothing
 }
-
-// ----------------------------------------------------------------------------

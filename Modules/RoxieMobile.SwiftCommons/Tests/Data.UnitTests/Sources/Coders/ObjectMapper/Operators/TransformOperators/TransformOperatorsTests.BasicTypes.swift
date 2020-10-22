@@ -15,20 +15,20 @@ import XCTest
 // MARK: - Basic types with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testBasicTypesWithTransform_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.integerBasicTypes)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.integerValues)
 
         let _value: Int = 0
 
         // Positive
         assertNoThrow {
             var val = _value
-            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            val <~ (map[JsonKeys.string], StringToIntegerTransform.shared)
             XCTAssertEqual(val, Int.max)
         }
         assertNoThrow {
@@ -91,20 +91,20 @@ extension TransformOperatorsTests
 // MARK: - Optional Basic types with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testOptionalBasicTypesWithTransform_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.integerBasicTypes)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.integerValues)
 
         let _value: Int? = nil
 
         // Positive
         assertNoThrow {
             var val = _value
-            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            val <~ (map[JsonKeys.string], StringToIntegerTransform.shared)
             XCTAssertEqual(val, Int.max)
         }
         assertNoThrow {
@@ -175,20 +175,20 @@ extension TransformOperatorsTests
 // MARK: - Implicitly unwrapped optional Basic types with Transform
 // ----------------------------------------------------------------------------
 
-extension TransformOperatorsTests
-{
+extension TransformOperatorsTests {
+
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalBasicTypesWithTransform_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.integerBasicTypes)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.integerValues)
 
         let _value: Int! = 0
 
         // Positive
         assertNoThrow {
             var val: Int! = _value
-            val <~ (map[JsonKeys.value], StringToIntegerTransform.shared)
+            val <~ (map[JsonKeys.string], StringToIntegerTransform.shared)
             XCTAssertEqual(val, Int.max)
         }
         assertNoThrow {
@@ -248,5 +248,3 @@ extension TransformOperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

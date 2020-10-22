@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  OperatorsTests.BasicTypes.swift
+//  OperatorsTests.Bool.swift
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
@@ -12,23 +12,23 @@
 import XCTest
 
 // ----------------------------------------------------------------------------
-// MARK: - Basic types
+// MARK: - Bool
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
-    func testBasicTypes_fromJSON() {
+    func testBool_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.booleanBasicTypes)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.booleanValues)
 
         let _value = false
 
         // Positive
         assertNoThrow {
             var val = _value
-            val <~ map[JsonKeys.value]
+            val <~ map[JsonKeys.bool]
             XCTAssertEqual(val, true)
         }
         assertNoThrow {
@@ -57,7 +57,7 @@ extension OperatorsTests
         }
     }
 
-    func testBasicTypes_toJSON() {
+    func testBool_toJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
@@ -73,23 +73,23 @@ extension OperatorsTests
 }
 
 // ----------------------------------------------------------------------------
-// MARK: - Optional Basic types
+// MARK: - Optional Bool
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
-    func testOptionalBasicTypes_fromJSON() {
+    func testOptionalBool_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.booleanBasicTypes)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.booleanValues)
 
         let _value: Bool? = nil
 
         // Positive
         assertNoThrow {
             var val = _value
-            val <~ map[JsonKeys.value]
+            val <~ map[JsonKeys.bool]
             XCTAssertEqual(val, true)
         }
         assertNoThrow {
@@ -120,7 +120,7 @@ extension OperatorsTests
         }
     }
 
-    func testOptionalBasicTypes_toJSON() {
+    func testOptionalBool_toJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
@@ -142,23 +142,23 @@ extension OperatorsTests
 }
 
 // ----------------------------------------------------------------------------
-// MARK: - Implicitly unwrapped optional Basic types
+// MARK: - Implicitly unwrapped optional Bool
 // ----------------------------------------------------------------------------
 
-extension OperatorsTests
-{
+extension OperatorsTests {
+
 // MARK: - Tests
 
-    func testImplicitlyUnwrappedOptionalBasicTypes_fromJSON() {
+    func testImplicitlyUnwrappedOptionalBool_fromJSON() {
 
-        let map = Map(mappingType: .fromJSON, JSON: Constants.booleanBasicTypes)
+        let map = Map(mappingType: .fromJSON, JSON: Constants.booleanValues)
 
         let _value: Bool! = true
 
         // Positive
         assertNoThrow {
             var val: Bool! = _value
-            val <~ map[JsonKeys.value]
+            val <~ map[JsonKeys.bool]
             XCTAssertEqual(val, true)
         }
         assertNoThrow {
@@ -189,7 +189,7 @@ extension OperatorsTests
         }
     }
 
-    func testImplicitlyUnwrappedOptionalBasicTypes_toJSON() {
+    func testImplicitlyUnwrappedOptionalBool_toJSON() {
 
         let map = Map(mappingType: .toJSON, JSON: [:])
 
@@ -203,5 +203,3 @@ extension OperatorsTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -16,7 +16,7 @@ class UInt8Model: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! UInt8Model(from: Constants.dictionaryOfUnsignedInteger8)
+    static let shared = try! UInt8Model(from: Constants.unsignedIntegerValues)
 
 // MARK: - Properties
 
