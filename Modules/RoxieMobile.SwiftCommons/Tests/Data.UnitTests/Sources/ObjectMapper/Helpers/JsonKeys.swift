@@ -76,8 +76,7 @@ final class JsonKeys: NonCreatable
 
 // MARK: - TypedStreamCoder models
 
-    //Basic Types
-    
+    // Basic Types
     static let bool = "bool"
     static let double = "double"
     static let float32 = "float32"
