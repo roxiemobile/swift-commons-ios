@@ -30,5 +30,3 @@ class DoubleModel: ValidatableModel {
         self.double <~ map[JsonKeys.double]
     }
 }
-
-// ----------------------------------------------------------------------------

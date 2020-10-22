@@ -30,5 +30,3 @@ class SignedInteger8Model: ValidatableModel {
         self.int8 <~ map[JsonKeys.int8]
     }
 }
-
-// ----------------------------------------------------------------------------

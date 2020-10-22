@@ -30,5 +30,3 @@ class BoolModel: ValidatableModel {
         self.bool <~ map[JsonKeys.bool]
     }
 }
-
-// ----------------------------------------------------------------------------

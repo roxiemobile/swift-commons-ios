@@ -30,5 +30,3 @@ class Float32Model: ValidatableModel {
         self.float32 <~ map[JsonKeys.float32]
     }
 }
-
-// ----------------------------------------------------------------------------

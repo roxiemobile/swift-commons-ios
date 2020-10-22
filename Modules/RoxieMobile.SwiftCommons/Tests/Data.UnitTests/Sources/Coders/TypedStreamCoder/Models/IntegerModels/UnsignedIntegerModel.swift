@@ -30,5 +30,3 @@ class UnsignedIntegerModel: ValidatableModel {
         self.uint <~ map[JsonKeys.uint]
     }
 }
-
-// ----------------------------------------------------------------------------

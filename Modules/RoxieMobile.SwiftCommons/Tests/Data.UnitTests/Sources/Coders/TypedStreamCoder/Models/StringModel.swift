@@ -30,5 +30,3 @@ class StringModel: ValidatableModel {
         self.string <~ map[JsonKeys.string]
     }
 }
-
-// ----------------------------------------------------------------------------

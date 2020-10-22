@@ -30,5 +30,3 @@ class SignedIntegerModel: ValidatableModel {
         self.int <~ map[JsonKeys.int]
     }
 }
-
-// ----------------------------------------------------------------------------
