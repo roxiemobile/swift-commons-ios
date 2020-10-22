@@ -16,11 +16,11 @@ class SignedInteger32Model: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! SignedInteger32Model(from: Constants.dictionaryOfSignedInteger32)
+    static let shared = try! SignedInteger32Model(from: Constants.signedInteger32ModelValue)
 
 // MARK: - Properties
 
-    fileprivate(set) var int32: Int32 = 0
+    private(set) var int32: Int32 = 0
 
 // MARK: - Methods
 

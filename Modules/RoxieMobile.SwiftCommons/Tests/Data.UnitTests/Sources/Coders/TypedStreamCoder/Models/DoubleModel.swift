@@ -16,11 +16,11 @@ class DoubleModel: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! DoubleModel(from: Constants.dictionaryOfDouble)
+    static let shared = try! DoubleModel(from: Constants.doubleModelValue)
 
 // MARK: - Properties
 
-    fileprivate(set) var double: Double = 0.0
+    private(set) var double: Double = 0.0
 
 // MARK: - Methods
 

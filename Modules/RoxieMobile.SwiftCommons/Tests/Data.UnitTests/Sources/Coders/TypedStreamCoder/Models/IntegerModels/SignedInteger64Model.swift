@@ -16,11 +16,11 @@ class SignedInteger64Model: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! SignedInteger64Model(from: Constants.dictionaryOfSignedInteger64)
+    static let shared = try! SignedInteger64Model(from: Constants.signedInteger64ModelValue)
 
 // MARK: - Properties
 
-    fileprivate(set) var int64: Int64 = 0
+    private(set) var int64: Int64 = 0
 
 // MARK: - Methods
 

@@ -16,11 +16,11 @@ class UnsignedInteger8Model: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! UnsignedInteger8Model(from: Constants.dictionaryOfUnsignedInteger8)
+    static let shared = try! UnsignedInteger8Model(from: Constants.unsignedInteger8ModelValue)
 
 // MARK: - Properties
 
-    fileprivate(set) var uint8: UInt8 = 0
+    private(set) var uint8: UInt8 = 0
 
 // MARK: - Methods
 

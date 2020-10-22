@@ -16,11 +16,11 @@ class Float32Model: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! Float32Model(from: Constants.dictionaryOfFloat32)
+    static let shared = try! Float32Model(from: Constants.float32ModelValue)
 
 // MARK: - Properties
 
-    fileprivate(set) var float32: Float32 = 0.0
+    private(set) var float32: Float32 = 0.0
 
 // MARK: - Methods
 

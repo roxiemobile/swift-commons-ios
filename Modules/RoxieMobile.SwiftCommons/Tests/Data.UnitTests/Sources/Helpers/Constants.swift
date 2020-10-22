@@ -157,67 +157,67 @@ final class Constants: NonCreatable
 
 // MARK: - TypedStreamCoder Models
 
-    static let dictionaryOfBool: [String: Any] = [
+    static let booleanModelValue: [String: Any] = [
         JsonKeys.bool: false
     ]
 
-    static let dictionaryOfDouble: [String: Double] = [
+    static let doubleModelValue: [String: Double] = [
         JsonKeys.double: Constants.doubleValue
     ]
 
-    static let dictionaryOfFloat32: [String: Float32] = [
+    static let float32ModelValue: [String: Float32] = [
         JsonKeys.float32: Constants.float32Value
     ]
 
-    static let dictionaryOfFloat64: [String: Float64] = [
+    static let float64ModelValue: [String: Float64] = [
         JsonKeys.float64: Constants.float64Value
     ]
 
-    static let dictionaryOfFloat: [String: Float] = [
+    static let floatModelValue: [String: Float] = [
         JsonKeys.float: Constants.floatValue
     ]
 
-    static let dictionaryOfUnsignedInteger8: [String: UInt8] = [
+    static let unsignedInteger8ModelValue: [String: UInt8] = [
         JsonKeys.uint8: UInt8.max
     ]
 
-    static let dictionaryOfUnsignedInteger16: [String: UInt16] = [
+    static let unsignedInteger16ModelValue: [String: UInt16] = [
         JsonKeys.uint16: UInt16.max
     ]
 
-    static let dictionaryOfUnsignedInteger32: [String: UInt32] = [
+    static let unsignedInteger32ModelValue: [String: UInt32] = [
         JsonKeys.uint32: UInt32.max
     ]
 
-    static let dictionaryOfUnsignedInteger64: [String: UInt64] = [
+    static let unsignedInteger64ModelValue: [String: UInt64] = [
         JsonKeys.uint64: UInt64.max
     ]
 
-    static let dictionaryOfUnsignedInteger: [String: UInt] = [
+    static let unsignedIntegerModelValue: [String: UInt] = [
         JsonKeys.uint: UInt.max
     ]
 
-    static let dictionaryOfSignedInteger8: [String: Int8] = [
+    static let signedInteger8ModelValue: [String: Int8] = [
         JsonKeys.int8: Int8.max
     ]
 
-    static let dictionaryOfSignedInteger16: [String: Int16] = [
+    static let signedInteger16ModelValue: [String: Int16] = [
         JsonKeys.int16: Int16.max
     ]
 
-    static let dictionaryOfSignedInteger32: [String: Int32] = [
+    static let signedInteger32ModelValue: [String: Int32] = [
         JsonKeys.int32: Int32.max
     ]
 
-    static let dictionaryOfSignedInteger64: [String: Int64] = [
+    static let signedInteger64ModelValue: [String: Int64] = [
         JsonKeys.int64: Int64.max
     ]
 
-    static let dictionaryOfSignedInteger: [String: Int] = [
+    static let signedIntegerModelValue: [String: Int] = [
         JsonKeys.int: Int.max
     ]
 
-    static let dictionaryOfString: [String: String] = [
+    static let stringModelValue: [String: String] = [
         JsonKeys.string: Constants.stringValue
     ]
 

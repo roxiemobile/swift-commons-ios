@@ -68,21 +68,23 @@ final class JsonKeys: NonCreatable
     static let uint32 = "uint32"
     static let uint64 = "uint64"
 
+// MARK: - Floats
+
+    static let float32 = "float32"
+    static let float64 = "float64"
+    static let float = "float"
+
+// MARK: - Basic Types
+
+    static let bool = "bool"
+    static let double = "double"
+    static let string = "string"
+
 // MARK: - Vector3D models
 
     static let x = "x"
     static let y = "y"
     static let z = "z"
-
-// MARK: - TypedStreamCoder models
-
-    // Basic Types
-    static let bool = "bool"
-    static let double = "double"
-    static let float32 = "float32"
-    static let float64 = "float64"
-    static let float = "float"
-    static let string = "string"
 
 // MARK: - Other Keys
 

@@ -16,11 +16,11 @@ class SignedInteger8Model: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! SignedInteger8Model(from: Constants.dictionaryOfSignedInteger8)
+    static let shared = try! SignedInteger8Model(from: Constants.signedInteger8ModelValue)
 
 // MARK: - Properties
 
-    fileprivate(set) var int8: Int8 = 0
+    private(set) var int8: Int8 = 0
 
 // MARK: - Methods
 

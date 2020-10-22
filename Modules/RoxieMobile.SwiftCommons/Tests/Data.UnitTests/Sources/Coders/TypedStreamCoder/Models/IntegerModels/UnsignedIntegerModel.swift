@@ -16,11 +16,11 @@ class UnsignedIntegerModel: ValidatableModel
 {
 // MARK: - Construction
 
-    static let shared = try! UnsignedIntegerModel(from: Constants.dictionaryOfUnsignedInteger)
+    static let shared = try! UnsignedIntegerModel(from: Constants.unsignedIntegerModelValue)
 
 // MARK: - Properties
 
-    fileprivate(set) var uint: UInt = 0
+    private(set) var uint: UInt = 0
 
 // MARK: - Methods
 
