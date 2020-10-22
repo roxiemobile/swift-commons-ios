@@ -14,8 +14,7 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-final class TypedStreamCoderTests: XCTestCase
-{
+final class TypedStreamCoderTests: XCTestCase {
 // MARK: - Methods
 
     internal func assertNoThrow(action: @escaping () -> Void) -> Void {

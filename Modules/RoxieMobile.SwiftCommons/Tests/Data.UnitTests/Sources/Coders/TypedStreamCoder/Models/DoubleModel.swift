@@ -12,8 +12,7 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class DoubleModel: ValidatableModel
-{
+class DoubleModel: ValidatableModel {
 // MARK: - Construction
 
     static let shared = try! DoubleModel(from: Constants.doubleModelValue)

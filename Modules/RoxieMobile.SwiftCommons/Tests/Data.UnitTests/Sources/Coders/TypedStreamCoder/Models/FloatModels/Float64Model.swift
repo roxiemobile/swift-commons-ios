@@ -12,8 +12,7 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class Float64Model: ValidatableModel
-{
+class Float64Model: ValidatableModel {
 // MARK: - Construction
 
     static let shared = try! Float64Model(from: Constants.float64ModelValue)

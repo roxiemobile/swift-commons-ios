@@ -12,8 +12,7 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class UnsignedInteger8Model: ValidatableModel
-{
+class UnsignedInteger8Model: ValidatableModel {
 // MARK: - Construction
 
     static let shared = try! UnsignedInteger8Model(from: Constants.unsignedInteger8ModelValue)

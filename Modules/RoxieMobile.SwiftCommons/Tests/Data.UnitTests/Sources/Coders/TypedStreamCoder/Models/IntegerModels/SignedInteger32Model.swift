@@ -12,8 +12,7 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class SignedInteger32Model: ValidatableModel
-{
+class SignedInteger32Model: ValidatableModel {
 // MARK: - Construction
 
     static let shared = try! SignedInteger32Model(from: Constants.signedInteger32ModelValue)
