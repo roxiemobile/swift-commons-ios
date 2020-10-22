@@ -12,8 +12,8 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class StringModel: ValidatableModel
-{
+class StringModel: ValidatableModel {
+
 // MARK: - Construction
 
     static let shared = try! StringModel(from: Constants.dictionaryOfString)
@@ -31,5 +31,3 @@ class StringModel: ValidatableModel
         self.string <~ map[JsonKeys.string]
     }
 }
-
-// ----------------------------------------------------------------------------

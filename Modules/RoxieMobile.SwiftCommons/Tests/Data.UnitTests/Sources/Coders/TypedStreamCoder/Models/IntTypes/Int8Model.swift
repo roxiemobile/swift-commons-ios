@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  SignedInteger16Model.swift
+//  Int8Model.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -12,15 +12,15 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class SignedInteger16Model: ValidatableModel
-{
+class Int8Model: ValidatableModel {
+
 // MARK: - Construction
 
-    static let shared = try! SignedInteger16Model(from: Constants.dictionaryOfSignedInteger16)
+    static let shared = try! Int8Model(from: Constants.dictionaryOfSignedInteger8)
 
 // MARK: - Properties
 
-    fileprivate(set) var int16: Int16 = 0
+    fileprivate(set) var int8: Int8 = 0
 
 // MARK: - Methods
 
@@ -28,8 +28,6 @@ class SignedInteger16Model: ValidatableModel
         super.map(with: map)
 
         // (De)serialize to/from json
-        self.int16 <~ map[JsonKeys.int16]
+        self.int8 <~ map[JsonKeys.int8]
     }
 }
-
-// ----------------------------------------------------------------------------

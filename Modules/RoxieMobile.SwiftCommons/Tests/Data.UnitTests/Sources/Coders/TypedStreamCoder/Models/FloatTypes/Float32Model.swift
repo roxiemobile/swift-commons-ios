@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  UnsignedInteger8Model.swift
+//  Float32Model.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -12,15 +12,15 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class UnsignedInteger8Model: ValidatableModel
-{
+class Float32Model: ValidatableModel {
+
 // MARK: - Construction
 
-    static let shared = try! UnsignedInteger8Model(from: Constants.dictionaryOfUnsignedInteger8)
+    static let shared = try! Float32Model(from: Constants.dictionaryOfFloat32)
 
 // MARK: - Properties
 
-    fileprivate(set) var uint8: UInt8 = 0
+    fileprivate(set) var float32: Float32 = 0.0
 
 // MARK: - Methods
 
@@ -28,8 +28,6 @@ class UnsignedInteger8Model: ValidatableModel
         super.map(with: map)
 
         // (De)serialize to/from json
-        self.uint8 <~ map[JsonKeys.uint8]
+        self.float32 <~ map[JsonKeys.float32]
     }
 }
-
-// ----------------------------------------------------------------------------

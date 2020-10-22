@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  UnsignedIntegerModel.swift
+//  FloatModel.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -12,15 +12,15 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class UnsignedIntegerModel: ValidatableModel
-{
+class FloatModel: ValidatableModel {
+
 // MARK: - Construction
 
-    static let shared = try! UnsignedIntegerModel(from: Constants.dictionaryOfUnsignedInteger)
+    static let shared = try! FloatModel(from: Constants.dictionaryOfFloat)
 
 // MARK: - Properties
 
-    fileprivate(set) var uint: UInt = 0
+    fileprivate(set) var float: Float = 0.0
 
 // MARK: - Methods
 
@@ -28,8 +28,6 @@ class UnsignedIntegerModel: ValidatableModel
         super.map(with: map)
 
         // (De)serialize to/from json
-        self.uint <~ map[JsonKeys.uint]
+        self.float <~ map[JsonKeys.float]
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -14,8 +14,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension TypedStreamCoderTests
-{
+extension TypedStreamCoderTests {
+
 // MARK: - Tests
 
     func testDictionaryOf_SerializableObject_Boolean() {
@@ -29,23 +29,23 @@ extension TypedStreamCoderTests
     func testDictionaryOf_SerializableObject_SignedInteger() {
 
         assertNoThrow {
-            let object: [String: SignedInteger8Model] = [JsonKeys.object: SignedInteger8Model.shared]
+            let object: [String: Int8Model] = [JsonKeys.object: Int8Model.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: SignedInteger16Model] = [JsonKeys.object: SignedInteger16Model.shared]
+            let object: [String: Int16Model] = [JsonKeys.object: Int16Model.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: SignedInteger32Model] = [JsonKeys.object: SignedInteger32Model.shared]
+            let object: [String: Int32Model] = [JsonKeys.object: Int32Model.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: SignedInteger64Model] = [JsonKeys.object: SignedInteger64Model.shared]
+            let object: [String: Int64Model] = [JsonKeys.object: Int64Model.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: SignedIntegerModel] = [JsonKeys.object: SignedIntegerModel.shared]
+            let object: [String: IntModel] = [JsonKeys.object: IntModel.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
     }
@@ -53,23 +53,23 @@ extension TypedStreamCoderTests
     func testDictionaryOf_SerializableObject_UnsignedInteger() {
 
         assertNoThrow {
-            let object: [String: UnsignedInteger8Model] = [JsonKeys.object: UnsignedInteger8Model.shared]
+            let object: [String: UInt8Model] = [JsonKeys.object: UInt8Model.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: UnsignedInteger16Model] = [JsonKeys.object: UnsignedInteger16Model.shared]
+            let object: [String: UInt16Model] = [JsonKeys.object: UInt16Model.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: UnsignedInteger32Model] = [JsonKeys.object: UnsignedInteger32Model.shared]
+            let object: [String: UInt32Model] = [JsonKeys.object: UInt32Model.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: UnsignedInteger64Model] = [JsonKeys.object: UnsignedInteger64Model.shared]
+            let object: [String: UInt64Model] = [JsonKeys.object: UInt64Model.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [String: UnsignedIntegerModel] = [JsonKeys.object: UnsignedIntegerModel.shared]
+            let object: [String: UIntModel] = [JsonKeys.object: UIntModel.shared]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
     }
@@ -106,5 +106,3 @@ extension TypedStreamCoderTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

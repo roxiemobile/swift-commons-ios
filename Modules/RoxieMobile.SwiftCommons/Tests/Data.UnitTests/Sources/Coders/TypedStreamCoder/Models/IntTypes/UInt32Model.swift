@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  SignedIntegerModel.swift
+//  UInt32Model.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -12,15 +12,15 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class SignedIntegerModel: ValidatableModel
-{
+class UInt32Model: ValidatableModel {
+
 // MARK: - Construction
 
-    static let shared = try! SignedIntegerModel(from: Constants.dictionaryOfSignedInteger)
+    static let shared = try! UInt32Model(from: Constants.dictionaryOfUnsignedInteger32)
 
 // MARK: - Properties
 
-    fileprivate(set) var int: Int = 0
+    fileprivate(set) var uint32: UInt32 = 0
 
 // MARK: - Methods
 
@@ -28,8 +28,6 @@ class SignedIntegerModel: ValidatableModel
         super.map(with: map)
 
         // (De)serialize to/from json
-        self.int <~ map[JsonKeys.int]
+        self.uint32 <~ map[JsonKeys.uint32]
     }
 }
-
-// ----------------------------------------------------------------------------

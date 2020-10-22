@@ -12,8 +12,8 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class BoolModel: ValidatableModel
-{
+class BoolModel: ValidatableModel {
+
 // MARK: - Construction
 
     static let shared = try! BoolModel(from: Constants.dictionaryOfBool)
@@ -31,5 +31,3 @@ class BoolModel: ValidatableModel
         self.bool <~ map[JsonKeys.bool]
     }
 }
-
-// ----------------------------------------------------------------------------

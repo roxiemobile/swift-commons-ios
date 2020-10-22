@@ -14,8 +14,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension TypedStreamCoderTests
-{
+extension TypedStreamCoderTests {
+
 // MARK: - Tests
 
     func testArrayOf_BasicType_Boolean() {
@@ -106,5 +106,3 @@ extension TypedStreamCoderTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

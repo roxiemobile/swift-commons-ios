@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  UnsignedInteger16Model.swift
+//  UInt16Model.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -12,11 +12,11 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class UnsignedInteger16Model: ValidatableModel
-{
+class UInt16Model: ValidatableModel {
+
 // MARK: - Construction
 
-    static let shared = try! UnsignedInteger16Model(from: Constants.dictionaryOfUnsignedInteger16)
+    static let shared = try! UInt16Model(from: Constants.dictionaryOfUnsignedInteger16)
 
 // MARK: - Properties
 
@@ -31,5 +31,3 @@ class UnsignedInteger16Model: ValidatableModel
         self.uint16 <~ map[JsonKeys.uint16]
     }
 }
-
-// ----------------------------------------------------------------------------

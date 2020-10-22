@@ -12,8 +12,8 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class DoubleModel: ValidatableModel
-{
+class DoubleModel: ValidatableModel {
+
 // MARK: - Construction
 
     static let shared = try! DoubleModel(from: Constants.dictionaryOfDouble)
@@ -31,5 +31,3 @@ class DoubleModel: ValidatableModel
         self.double <~ map[JsonKeys.double]
     }
 }
-
-// ----------------------------------------------------------------------------

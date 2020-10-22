@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  SignedInteger64Model.swift
+//  UInt64Model.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -12,15 +12,15 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class SignedInteger64Model: ValidatableModel
-{
+class UInt64Model: ValidatableModel {
+
 // MARK: - Construction
 
-    static let shared = try! SignedInteger64Model(from: Constants.dictionaryOfSignedInteger64)
+    static let shared = try! UInt64Model(from: Constants.dictionaryOfUnsignedInteger64)
 
 // MARK: - Properties
 
-    fileprivate(set) var int64: Int64 = 0
+    fileprivate(set) var uint64: UInt64 = 0
 
 // MARK: - Methods
 
@@ -28,8 +28,6 @@ class SignedInteger64Model: ValidatableModel
         super.map(with: map)
 
         // (De)serialize to/from json
-        self.int64 <~ map[JsonKeys.int64]
+        self.uint64 <~ map[JsonKeys.uint64]
     }
 }
-
-// ----------------------------------------------------------------------------
