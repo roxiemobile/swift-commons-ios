@@ -185,7 +185,6 @@
 				1A77CFF82056A346006174BB /* Operators */,
 				1A2B5D78204D9E2F00E165AD /* Models */,
 				199603B020597C260070AAAB /* Transforms */,
-				5AFC98A0A7331D3805573AB0 /* Helpers */,
 			);
 			path = ObjectMapper;
 			sourceTree = "<group>";
@@ -221,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				81F3EDBA2541A86600B3F610 /* Coders */,
-				19AACEDA20596F6500BAE27B /* ObjectMapper */,
+				5AFC98A0A7331D3805573AB0 /* Helpers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -402,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				812D20E6253F4CD6006052EC /* MessagePackCoder */,
+				19AACEDA20596F6500BAE27B /* ObjectMapper */,
 				81F3ED862541A74D00B3F610 /* TypedStreamCoder */,
 			);
 			path = Coders;
