@@ -20,7 +20,7 @@ class UInt32Model: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var uint32: UInt32 = 0
+    private(set) var uint32: UInt32 = 0
 
 // MARK: - Methods
 

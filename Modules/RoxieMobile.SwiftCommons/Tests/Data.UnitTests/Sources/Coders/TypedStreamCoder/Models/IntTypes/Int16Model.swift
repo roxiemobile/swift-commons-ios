@@ -20,7 +20,7 @@ class Int16Model: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var int16: Int16 = 0
+    private(set) var int16: Int16 = 0
 
 // MARK: - Methods
 

@@ -20,7 +20,7 @@ class FloatModel: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var float: Float = 0.0
+    private(set) var float: Float = 0.0
 
 // MARK: - Methods
 

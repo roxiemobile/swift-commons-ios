@@ -20,7 +20,7 @@ class DoubleModel: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var double: Double = 0.0
+    private(set) var double: Double = 0.0
 
 // MARK: - Methods
 

@@ -13,13 +13,13 @@ import SwiftCommonsDiagnostics
 
 // ----------------------------------------------------------------------------
 
-class VehicleModel: ValidatableModel
-{
+class VehicleModel: ValidatableModel {
+
 // MARK: - Properties
 
-    fileprivate(set) var model: String!
+    private(set) var model: String!
 
-    fileprivate(set) var color: String!
+    private(set) var color: String!
 
 // MARK: - Methods
 
@@ -38,5 +38,3 @@ class VehicleModel: ValidatableModel
         try Check.allNotBlank([self.model, self.color])
     }
 }
-
-// ----------------------------------------------------------------------------

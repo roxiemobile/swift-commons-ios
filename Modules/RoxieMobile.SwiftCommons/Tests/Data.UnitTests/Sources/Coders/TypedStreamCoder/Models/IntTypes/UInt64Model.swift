@@ -20,7 +20,7 @@ class UInt64Model: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var uint64: UInt64 = 0
+    private(set) var uint64: UInt64 = 0
 
 // MARK: - Methods
 

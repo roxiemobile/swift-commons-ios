@@ -20,7 +20,7 @@ class BoolModel: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var bool: Bool = true
+    private(set) var bool: Bool = true
 
 // MARK: - Methods
 

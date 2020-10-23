@@ -20,7 +20,7 @@ class Float64Model: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var float64: Float64 = 0.0
+    private(set) var float64: Float64 = 0.0
 
 // MARK: - Methods
 

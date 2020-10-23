@@ -24,11 +24,11 @@ class Vector3DModel: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var x = 0
+    private(set) var x = 0
 
-    fileprivate(set) var y: Int? = 0
+    private(set) var y: Int? = 0
 
-    fileprivate(set) var z: Int! = 0
+    private(set) var z: Int! = 0
 
 // MARK: - Methods
 

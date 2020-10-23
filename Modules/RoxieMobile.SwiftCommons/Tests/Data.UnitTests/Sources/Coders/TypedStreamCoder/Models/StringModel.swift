@@ -20,7 +20,7 @@ class StringModel: ValidatableModel {
 
 // MARK: - Properties
 
-    fileprivate(set) var string: String = ""
+    private(set) var string: String = ""
 
 // MARK: - Methods
 
