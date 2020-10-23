@@ -12,14 +12,39 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-final class JsonKeys: NonCreatable
-{
+final class JsonKeys: NonCreatable {
+
+// MARK: - Basic types
+
+    static let bool = "bool"
+
+    static let double = "double"
+
+    static let float = "float"
+    static let float32 = "float32"
+    static let float64 = "float64"
+
+    static let int = "int"
+    static let int8 = "int8"
+    static let int16 = "int16"
+    static let int32 = "int32"
+    static let int64 = "int64"
+
+    static let uint = "uint"
+    static let uint8 = "uint8"
+    static let uint16 = "uint16"
+    static let uint32 = "uint32"
+    static let uint64 = "uint64"
+
+    static let string = "string"
+
 // MARK: - Values
 
     static let value = "value"
     static let otherValue = "other_value"
     static let invalidValue = "invalid_value"
     static let nilValue = "nil_value"
+    static let rawTypeValue = "raw_type_value"
 
 // MARK: - Objects
 
@@ -52,43 +77,13 @@ final class JsonKeys: NonCreatable
     static let emptySet = "empty_set"
     static let nilSet = "nil_set"
 
-// MARK: - Signed Integers
-
-    static let int = "int"
-    static let int8 = "int8"
-    static let int16 = "int16"
-    static let int32 = "int32"
-    static let int64 = "int64"
-
-// MARK: - Unsigned Integers
-
-    static let uint = "uint"
-    static let uint8 = "uint8"
-    static let uint16 = "uint16"
-    static let uint32 = "uint32"
-    static let uint64 = "uint64"
-
-// MARK: - Floats
-
-    static let float32 = "float32"
-    static let float64 = "float64"
-    static let float = "float"
-
-// MARK: - Basic Types
-
-    static let bool = "bool"
-    static let double = "double"
-    static let string = "string"
-
 // MARK: - Vector3D models
 
     static let x = "x"
     static let y = "y"
     static let z = "z"
 
-// MARK: - Other Keys
+// MARK: - Other keys
 
     static let noSuchKey = "no_such_key"
 }
-
-// ----------------------------------------------------------------------------

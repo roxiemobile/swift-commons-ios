@@ -15,6 +15,7 @@ import XCTest
 // ----------------------------------------------------------------------------
 
 final class MessagePackCoderTests: XCTestCase {
+
 // MARK: - Methods
 
     internal func assertNoThrow(action: @escaping () -> Void) -> Void {

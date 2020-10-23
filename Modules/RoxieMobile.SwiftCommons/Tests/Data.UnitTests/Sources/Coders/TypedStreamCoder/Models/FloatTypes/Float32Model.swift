@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 //
-//  DoubleModel.swift
+//  Float32Model.swift
 //
 //  @author     Natalia Mamunina <mamunina-nv@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
@@ -12,15 +12,15 @@ import SwiftCommonsData
 
 // ----------------------------------------------------------------------------
 
-class DoubleModel: ValidatableModel {
+class Float32Model: ValidatableModel {
 
 // MARK: - Construction
 
-    static let shared = try! DoubleModel(from: Constants.doubleValues)
+    static let shared = try! Float32Model(from: Constants.floatValues)
 
 // MARK: - Properties
 
-    private(set) var double: Double = 0.0
+    private(set) var float32: Float32 = 0.0
 
 // MARK: - Methods
 
@@ -28,6 +28,6 @@ class DoubleModel: ValidatableModel {
         super.map(with: map)
 
         // (De)serialize to/from json
-        self.double <~ map[JsonKeys.double]
+        self.float32 <~ map[JsonKeys.float32]
     }
 }

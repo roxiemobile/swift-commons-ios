@@ -15,6 +15,7 @@ import XCTest
 // ----------------------------------------------------------------------------
 
 extension MessagePackCoderTests {
+
 // MARK: - Tests
 
     func testArrayOf_BasicType_Boolean() {
@@ -76,15 +77,15 @@ extension MessagePackCoderTests {
     func testArrayOf_BasicType_Float() {
 
         assertNoThrow {
-            let object: [Float32] = [Constants.float32Value]
+            let object: [Float32] = [Float32.pi]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [Float64] = [Constants.float64Value]
+            let object: [Float64] = [Float64.pi]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: [Float] = [Constants.floatValue]
+            let object: [Float] = [Float.pi]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
     }
@@ -92,7 +93,7 @@ extension MessagePackCoderTests {
     func testArrayOf_BasicType_Double() {
 
         assertNoThrow {
-            let object: [Double] = [Constants.doubleValue]
+            let object: [Double] = [Double.pi]
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
     }

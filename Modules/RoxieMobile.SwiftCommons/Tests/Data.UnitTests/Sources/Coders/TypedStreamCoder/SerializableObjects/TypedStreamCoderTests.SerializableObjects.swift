@@ -15,6 +15,7 @@ import XCTest
 // ----------------------------------------------------------------------------
 
 extension TypedStreamCoderTests {
+
 // MARK: - Tests
 
     func testSerializableObject_Boolean() {
@@ -28,23 +29,23 @@ extension TypedStreamCoderTests {
     func testSerializableObject_SignedInteger() {
 
         assertNoThrow {
-            let object: SignedInteger8Model = SignedInteger8Model.shared
+            let object: Int8Model = Int8Model.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: SignedInteger16Model = SignedInteger16Model.shared
+            let object: Int16Model = Int16Model.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: SignedInteger32Model = SignedInteger32Model.shared
+            let object: Int32Model = Int32Model.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: SignedInteger64Model = SignedInteger64Model.shared
+            let object: Int64Model = Int64Model.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: SignedIntegerModel = SignedIntegerModel.shared
+            let object: IntModel = IntModel.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
     }
@@ -52,23 +53,23 @@ extension TypedStreamCoderTests {
     func testSerializableObject_UnsignedInteger() {
 
         assertNoThrow {
-            let object: UnsignedInteger8Model = UnsignedInteger8Model.shared
+            let object: UInt8Model = UInt8Model.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: UnsignedInteger16Model = UnsignedInteger16Model.shared
+            let object: UInt16Model = UInt16Model.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: UnsignedInteger32Model = UnsignedInteger32Model.shared
+            let object: UInt32Model = UInt32Model.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: UnsignedInteger64Model = UnsignedInteger64Model.shared
+            let object: UInt64Model = UInt64Model.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
         assertNoThrow {
-            let object: UnsignedIntegerModel = UnsignedIntegerModel.shared
+            let object: UIntModel = UIntModel.shared
             XCTAssertEqual(object, self.cloneSimpleObject(object))
         }
     }

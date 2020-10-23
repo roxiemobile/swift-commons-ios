@@ -13,9 +13,10 @@ import SwiftCommonsData
 // ----------------------------------------------------------------------------
 
 class BoolModel: ValidatableModel {
+
 // MARK: - Construction
 
-    static let shared = try! BoolModel(from: Constants.booleanModelValue)
+    static let shared = try! BoolModel(from: Constants.booleanValues)
 
 // MARK: - Properties
 

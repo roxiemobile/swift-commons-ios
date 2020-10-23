@@ -15,6 +15,7 @@ import XCTest
 // ----------------------------------------------------------------------------
 
 extension TypedStreamCoderTests {
+
 // MARK: - Tests
 
     func testBasicType_Boolean() {
@@ -76,15 +77,15 @@ extension TypedStreamCoderTests {
     func testBasicType_Float() {
 
         assertNoThrow {
-            let value: Float32 = Constants.float32Value
+            let value: Float32 = Float32.pi
             XCTAssertEqual(value, self.cloneSimpleObject(value))
         }
         assertNoThrow {
-            let value: Float64 = Constants.float64Value
+            let value: Float64 = Float64.pi
             XCTAssertEqual(value, self.cloneSimpleObject(value))
         }
         assertNoThrow {
-            let value: Float = Constants.floatValue
+            let value: Float = Float.pi
             XCTAssertEqual(value, self.cloneSimpleObject(value))
         }
     }
@@ -92,7 +93,7 @@ extension TypedStreamCoderTests {
     func testBasicType_Double() {
 
         assertNoThrow {
-            let value: Double = Constants.doubleValue
+            let value: Double = Double.pi
             XCTAssertEqual(value, self.cloneSimpleObject(value))
         }
     }
