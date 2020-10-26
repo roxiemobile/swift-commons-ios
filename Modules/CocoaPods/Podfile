@@ -1,4 +1,4 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
 
 platform :ios, '9.0'
 use_frameworks!
@@ -9,20 +9,20 @@ workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 # MARK: - Methods
 
 def pod_from(name, *args)
-  name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF42" }.reject(&:empty?).join('/')
+  name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF53" }.reject(&:empty?).join('/')
   pod(name, *args)
 end
 
 def inject_shared_dependencies_1
-  pod 'Dispatch', '~> 2.0.4'
+  pod_from 'Dispatch', '~> 2.0.4'
 end
 
 def inject_shared_dependencies_2
-  pod 'CryptoSwift', '~> 1.3.2'
+  pod_from 'CryptoSwift', '~> 1.3.2'
 end
 
 def inject_shared_dependencies_3
-  pod 'MPMessagePack', '~> 1.5.1'
+  pod_from 'MPMessagePack', '~> 1.5.1'
 end
 
 
@@ -51,8 +51,6 @@ target 'SwiftCommons.Data.UnitTests' do
   project '../RoxieMobile.SwiftCommons/Tests/Data.UnitTests/SwiftCommons.Data.UnitTests.xcodeproj'
 
   # Dependencies
-  inject_shared_dependencies_1
-  inject_shared_dependencies_2
   inject_shared_dependencies_3
 end
 
@@ -62,7 +60,6 @@ target 'SwiftCommons.Diagnostics.UnitTests' do
   # Dependencies
   inject_shared_dependencies_1
   inject_shared_dependencies_2
-  inject_shared_dependencies_3
 end
 
 target 'SwiftCommons.Extensions.UnitTests' do

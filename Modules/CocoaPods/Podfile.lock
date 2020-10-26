@@ -1,28 +1,36 @@
 PODS:
-  - CryptoSwift (1.3.2)
-  - Dispatch (2.0.4)
-  - GHODictionary (1.1.0)
-  - MPMessagePack (1.5.1):
-    - GHODictionary
+  - CryptoSwift-SCF53 (1.3.2):
+    - CryptoSwift-SCF53/StaticCocoaFramework (= 1.3.2)
+  - CryptoSwift-SCF53/StaticCocoaFramework (1.3.2)
+  - Dispatch-SCF53 (2.0.4):
+    - Dispatch-SCF53/StaticCocoaFramework (= 2.0.4)
+  - Dispatch-SCF53/StaticCocoaFramework (2.0.4)
+  - GHODictionary-SCF53 (1.1.0):
+    - GHODictionary-SCF53/StaticCocoaFramework (= 1.1.0)
+  - GHODictionary-SCF53/StaticCocoaFramework (1.1.0)
+  - MPMessagePack-SCF53 (1.5.1):
+    - MPMessagePack-SCF53/StaticCocoaFramework (= 1.5.1)
+  - MPMessagePack-SCF53/StaticCocoaFramework (1.5.1):
+    - GHODictionary-SCF53 (~> 1.1.0)
 
 DEPENDENCIES:
-  - CryptoSwift (~> 1.3.2)
-  - Dispatch (~> 2.0.4)
-  - MPMessagePack (~> 1.5.1)
+  - CryptoSwift-SCF53 (~> 1.3.2)
+  - Dispatch-SCF53 (~> 2.0.4)
+  - MPMessagePack-SCF53 (~> 1.5.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - CryptoSwift
-    - Dispatch
-    - GHODictionary
-    - MPMessagePack
+  https://github.com/roxiemobile/static-cocoa-frameworks.ios.git:
+    - CryptoSwift-SCF53
+    - Dispatch-SCF53
+    - GHODictionary-SCF53
+    - MPMessagePack-SCF53
 
 SPEC CHECKSUMS:
-  CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
-  Dispatch: 7ed89f2845001c4161ad83f43988b584fae8fff4
-  GHODictionary: 225e042596a4b3d5b66b2b24250086b2f95514af
-  MPMessagePack: ee6b55fbec4e01a77e2bf631441d01f0b87b3cf5
+  CryptoSwift-SCF53: 381130a78a83b60dbcfa2cb576993eec051bcd12
+  Dispatch-SCF53: 40f13b882a78c8e567d3e581221f086537a5c172
+  GHODictionary-SCF53: bb1a0d02b6e4e241bb856ecafb148e7624950c01
+  MPMessagePack-SCF53: 2233a549c54fdce9e6bdc555090a78534d4d8f48
 
-PODFILE CHECKSUM: 49cb41189b1c4339f5f0759261c792b08562b85e
+PODFILE CHECKSUM: 02f83366513651fc4b9ef809976325b70b86d17a
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0
