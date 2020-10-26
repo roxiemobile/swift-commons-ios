@@ -180,7 +180,7 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
 
     /// The model's hash value.
     open func hash(into hasher: inout Hasher) {
-        hasher.combine(self.hash)
+        hasher.combine(self.hash ?? rehash())
     }
 
     /// Calculates the model's hash value.
