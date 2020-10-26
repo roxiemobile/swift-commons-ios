@@ -13,13 +13,13 @@ import SwiftCommonsDiagnostics
 
 // ----------------------------------------------------------------------------
 
-class ParkingModel: ValidatableModel
-{
+class ParkingModel: ValidatableModel {
+
 // MARK: - Properties
 
-    fileprivate(set) var watcher: String?
+    private(set) var watcher: String?
 
-    fileprivate(set) var vehicles: [VehicleModel]!
+    private(set) var vehicles: [VehicleModel]!
 
 // MARK: - Methods
 
@@ -40,5 +40,3 @@ class ParkingModel: ValidatableModel
         try Check.allValid(self.vehicles)
     }
 }
-
-// ----------------------------------------------------------------------------
