@@ -26,7 +26,7 @@ extension Check
     ///
     public static func lessThanOrEqualTo<T:Comparable>(_ value: T, _ max: T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
         guard max >= value else {
-            throw newCheckError(message, file, line)
+            throw newCheckError(message(), file, line)
         }
     }
 }

@@ -178,9 +178,13 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
 
 // MARK: - Methods: Hashable
 
-    /// The model's hash value.
-    open var hashValue: Int {
-        return self.hash ?? rehash()
+    /// Hashes the data of the model using the given hasher.
+    ///
+    /// - Parameters:
+    ///   - hasher: The hasher to use when combining the data of this instance.
+    ///
+    open func hash(into hasher: inout Hasher) {
+        hasher.combine(self.hash ?? rehash())
     }
 
     /// Calculates the model's hash value.

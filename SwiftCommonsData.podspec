@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
 
   s.platform              = :ios
   s.ios.deployment_target = '9.0'
-  s.swift_version         = '4.2'
+  s.swift_version         = '5.3'
 
-  s.cocoapods_version     = '~> 1.5.3'
+  s.cocoapods_version     = '~> 1.10.0'
   s.static_framework      = true
 
   s.homepage              = 'https://github.com/roxiemobile/swift-commons.ios'
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
 
 # MARK: - Dependencies
 
-  s.dependency 'CryptoSwift', '~> 0.13.1'
+  s.dependency 'CryptoSwift', '~> 1.3.2'
   s.dependency 'MPMessagePack', '~> 1.5.1'
   s.dependency 'SwiftCommonsDiagnostics', s.version.to_s
 end

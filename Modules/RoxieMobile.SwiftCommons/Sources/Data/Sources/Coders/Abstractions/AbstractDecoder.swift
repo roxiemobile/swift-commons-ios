@@ -175,7 +175,7 @@ extension AbstractDecoder
         _checkType(type: _readType(), reqType: .ArrayBegin)
 
         length = 0
-        (self.buffer as Data).withUnsafeBytes { (buff: UnsafePointer<Int8>) -> Void in
+        (self.buffer as Data).withUnsafeBytes { (buff: UnsafeRawBufferPointer) -> Void in
             repeat {
 
                 let byte = buff[self.cursor]
@@ -185,7 +185,7 @@ extension AbstractDecoder
                     length = (length * 10) + Int(byte - 0x30)
                 }
                 else {
-                    itemType = byte
+                    itemType = CChar(byte)
                     break
                 }
             }

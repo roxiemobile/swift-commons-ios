@@ -9,7 +9,7 @@ workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 # MARK: - Methods
 
 def pod_from(name, *args)
-  name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF42" }.reject(&:empty?).join('/')
+  name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF53" }.reject(&:empty?).join('/')
   pod(name, *args)
 end
 
@@ -18,7 +18,7 @@ def inject_shared_dependencies_1
 end
 
 def inject_shared_dependencies_2
-  pod_from 'CryptoSwift', '~> 0.13.1'
+  pod_from 'CryptoSwift', '~> 1.3.2'
 end
 
 def inject_shared_dependencies_3
@@ -60,4 +60,11 @@ target 'SwiftCommons.Diagnostics.UnitTests' do
   # Dependencies
   inject_shared_dependencies_1
   inject_shared_dependencies_2
+end
+
+target 'SwiftCommons.Extensions.UnitTests' do
+  project '../RoxieMobile.SwiftCommons/Tests/Extensions.UnitTests/SwiftCommons.Extensions.UnitTests.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_1
 end

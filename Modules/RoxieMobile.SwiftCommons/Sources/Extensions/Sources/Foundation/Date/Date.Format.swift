@@ -74,7 +74,7 @@ public extension Date
     /// - Parameters:
     ///   - string: The date format string.
     ///
-    public func format(with string: String? = nil, locale: Locale? = nil, timeZone: TimeZone? = nil) -> String {
+    func format(with string: String? = nil, locale: Locale? = nil, timeZone: TimeZone? = nil) -> String {
         return DateFormatterProvider.shared.formatter(with: string, locale: locale, timeZone: timeZone).string(from: self)
     }
 }
