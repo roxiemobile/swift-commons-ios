@@ -166,6 +166,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 19C0171B1F72CC3A00D29F73;
 			productRefGroup = 19C017251F72CC3A00D29F73 /* Products */;
