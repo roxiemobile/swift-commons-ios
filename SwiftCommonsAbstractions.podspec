@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsAbstractions'
   s.summary               = 'The core abstractions and public protocols used for iOS application development.'
-  s.version               = '1.4.1'
+  s.version               = '1.5.0'
 
   s.platform              = :ios
   s.ios.deployment_target = '9.0'
