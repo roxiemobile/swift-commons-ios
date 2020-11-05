@@ -32,6 +32,7 @@
 		19857C841FCCB03A00A970D1 /* Roxie.Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193F9A571F9F38D100094163 /* Roxie.Timer.swift */; };
 		19857C851FCCB0AA00A970D1 /* SwiftCommonsAbstractions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19857C871FCCB0AA00A970D1 /* SwiftCommonsAbstractions.framework */; };
 		19857C861FCCB0AA00A970D1 /* SwiftCommonsLogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19857C881FCCB0AA00A970D1 /* SwiftCommonsLogging.framework */; };
+		29D40A6F8ED10ADB8361FBB0 /* Pods_SwiftCommons_Extensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43197C8A3641F135ADDA246A /* Pods_SwiftCommons_Extensions.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,9 @@
 		19EC629F1F962AA400D94F04 /* Date.Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.Format.swift; sourceTree = "<group>"; };
 		19EC62A11F962BE300D94F04 /* Date.Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.Operators.swift; sourceTree = "<group>"; };
 		19ED8B5E1F95747C004FD48B /* Data.Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.Empty.swift; sourceTree = "<group>"; };
+		43197C8A3641F135ADDA246A /* Pods_SwiftCommons_Extensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Extensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB83BCFB142678DA614C43C0 /* Pods-SwiftCommons.Extensions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Extensions.release.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Extensions/Pods-SwiftCommons.Extensions.release.xcconfig"; sourceTree = "<group>"; };
+		BA84F0157E4F41AE212B16AC /* Pods-SwiftCommons.Extensions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Extensions.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Extensions/Pods-SwiftCommons.Extensions.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			files = (
 				19857C851FCCB0AA00A970D1 /* SwiftCommonsAbstractions.framework in Frameworks */,
 				19857C861FCCB0AA00A970D1 /* SwiftCommonsLogging.framework in Frameworks */,
+				29D40A6F8ED10ADB8361FBB0 /* Pods_SwiftCommons_Extensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +175,7 @@
 			children = (
 				19857C871FCCB0AA00A970D1 /* SwiftCommonsAbstractions.framework */,
 				19857C881FCCB0AA00A970D1 /* SwiftCommonsLogging.framework */,
+				43197C8A3641F135ADDA246A /* Pods_SwiftCommons_Extensions.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,6 +189,7 @@
 				19EB0CA21F72DF0D0029F302 /* Dependencies */,
 				19C017251F72CC3A00D29F73 /* Products */,
 				1976D4E81FCB93CD00C07C72 /* Frameworks */,
+				2204D684887F5A142D2341C4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,6 +247,16 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		2204D684887F5A142D2341C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA84F0157E4F41AE212B16AC /* Pods-SwiftCommons.Extensions.debug.xcconfig */,
+				AB83BCFB142678DA614C43C0 /* Pods-SwiftCommons.Extensions.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../../CocoaPods/Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -258,10 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19857C6C1FCCAFEE00A970D1 /* Build configuration list for PBXNativeTarget "SwiftCommons.Extensions" */;
 			buildPhases = (
+				D31154B00554C8F58BB92E61 /* [CP] Check Pods Manifest.lock */,
 				19857C621FCCAFEE00A970D1 /* Sources */,
 				19857C631FCCAFEE00A970D1 /* Frameworks */,
 				19857C641FCCAFEE00A970D1 /* Headers */,
 				19857C651FCCAFEE00A970D1 /* Resources */,
+				8115DD5E254C173100907528 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -316,6 +335,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8115DD5E254C173100907528 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		D31154B00554C8F58BB92E61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftCommons.Extensions-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		19857C621FCCAFEE00A970D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -351,6 +412,7 @@
 /* Begin XCBuildConfiguration section */
 		19857C6D1FCCAFEE00A970D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA84F0157E4F41AE212B16AC /* Pods-SwiftCommons.Extensions.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -371,6 +433,7 @@
 		};
 		19857C6E1FCCAFEE00A970D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB83BCFB142678DA614C43C0 /* Pods-SwiftCommons.Extensions.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

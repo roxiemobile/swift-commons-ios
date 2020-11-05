@@ -1,4 +1,5 @@
 source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '9.0'
 use_frameworks!
@@ -25,16 +26,27 @@ def inject_shared_dependencies_3
   pod_from 'MPMessagePack', '~> 1.5.1'
 end
 
+def inject_shared_dependencies_4 
+  pod 'SwiftLint', '~> 0.40.3'
+end  
+
 
 # MARK: - Sources
+
+target 'SwiftCommons.Abstractions' do
+  project '../RoxieMobile.SwiftCommons/Sources/Abstractions/SwiftCommons.Abstractions.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_4
+end
 
 target 'SwiftCommons.Concurrent' do
   project '../RoxieMobile.SwiftCommons/Sources/Concurrent/SwiftCommons.Concurrent.xcodeproj'
 
   # Dependencies
   inject_shared_dependencies_1
+  inject_shared_dependencies_4
 end
-
 
 target 'SwiftCommons.Data' do
   project '../RoxieMobile.SwiftCommons/Sources/Data/SwiftCommons.Data.xcodeproj'
@@ -42,6 +54,35 @@ target 'SwiftCommons.Data' do
   # Dependencies
   inject_shared_dependencies_2
   inject_shared_dependencies_3
+  inject_shared_dependencies_4
+end
+
+target 'SwiftCommons.Diagnostics' do
+  project '../RoxieMobile.SwiftCommons/Sources/Diagnostics/SwiftCommons.Diagnostics.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_4
+end
+
+target 'SwiftCommons.Extensions' do
+  project '../RoxieMobile.SwiftCommons/Sources/Extensions/SwiftCommons.Extensions.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_4
+end
+
+target 'SwiftCommons.Lang' do
+  project '../RoxieMobile.SwiftCommons/Sources/Lang/SwiftCommons.Lang.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_4
+end
+
+target 'SwiftCommons.Logging' do
+  project '../RoxieMobile.SwiftCommons/Sources/Logging/SwiftCommons.Logging.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_4
 end
 
 
@@ -52,6 +93,7 @@ target 'SwiftCommons.Data.UnitTests' do
 
   # Dependencies
   inject_shared_dependencies_3
+  inject_shared_dependencies_4
 end
 
 target 'SwiftCommons.Diagnostics.UnitTests' do
@@ -60,6 +102,7 @@ target 'SwiftCommons.Diagnostics.UnitTests' do
   # Dependencies
   inject_shared_dependencies_1
   inject_shared_dependencies_2
+  inject_shared_dependencies_4
 end
 
 target 'SwiftCommons.Extensions.UnitTests' do
@@ -67,4 +110,12 @@ target 'SwiftCommons.Extensions.UnitTests' do
 
   # Dependencies
   inject_shared_dependencies_1
+  inject_shared_dependencies_4
+end
+
+target 'SwiftCommons.Lang.UnitTests' do
+  project '../RoxieMobile.SwiftCommons/Tests/Lang.UnitTests/SwiftCommons.Lang.UnitTests.xcodeproj'
+
+  # Dependencies
+  inject_shared_dependencies_4
 end
