@@ -36,6 +36,7 @@
 		19BAC0CC1FCCA6D100DDEA92 /* FatalErrorException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC91F85914200090515 /* FatalErrorException.swift */; };
 		19BAC0CD1FCCA6D100DDEA92 /* NonCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044DC71F85914100090515 /* NonCreatable.swift */; };
 		19E3B582234E301C0054C611 /* InvalidArgumentException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E3B581234E301C0054C611 /* InvalidArgumentException.swift */; };
+		3D6912D1B0399E6930B10CD3 /* Pods_SwiftCommons_Lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FA92A48D7678A782590EFE /* Pods_SwiftCommons_Lang.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +71,10 @@
 		19ED8B561F9566DF004FD48B /* Array.Remove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.Remove.swift; sourceTree = "<group>"; };
 		19ED8B571F9568CA004FD48B /* Collection.Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.Any.swift; sourceTree = "<group>"; };
 		19ED8B5A1F956D4C004FD48B /* Dictionary.Union.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.Union.swift; sourceTree = "<group>"; };
+		37A9D6ED71060868F4DC8ECC /* Pods-SwiftCommons.Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Lang.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Lang/Pods-SwiftCommons.Lang.debug.xcconfig"; sourceTree = "<group>"; };
 		8EE86835A2A0BB546044DA9F /* Roxie.TypeCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roxie.TypeCast.swift; sourceTree = "<group>"; };
+		D97F2B21B3EF38E9835F7F7B /* Pods-SwiftCommons.Lang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Lang.release.xcconfig"; path = "Target Support Files/Pods-SwiftCommons.Lang/Pods-SwiftCommons.Lang.release.xcconfig"; sourceTree = "<group>"; };
+		E0FA92A48D7678A782590EFE /* Pods_SwiftCommons_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6912D1B0399E6930B10CD3 /* Pods_SwiftCommons_Lang.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +181,8 @@
 				19EB0C9E1F72DF0D0029F302 /* Resources */,
 				19EB0CA21F72DF0D0029F302 /* Dependencies */,
 				19C017251F72CC3A00D29F73 /* Products */,
+				F1C276D9A58EB10A1C9D4D7F /* Pods */,
+				4FBF9B1D7F03F63B750D5E0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +241,24 @@
 			path = Dictionary;
 			sourceTree = "<group>";
 		};
+		4FBF9B1D7F03F63B750D5E0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0FA92A48D7678A782590EFE /* Pods_SwiftCommons_Lang.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1C276D9A58EB10A1C9D4D7F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37A9D6ED71060868F4DC8ECC /* Pods-SwiftCommons.Lang.debug.xcconfig */,
+				D97F2B21B3EF38E9835F7F7B /* Pods-SwiftCommons.Lang.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../../CocoaPods/Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -252,10 +277,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 196885871FCCA28000576A9E /* Build configuration list for PBXNativeTarget "SwiftCommons.Lang" */;
 			buildPhases = (
+				0A8214D319A5331EF50F5F3C /* [CP] Check Pods Manifest.lock */,
 				1968857D1FCCA28000576A9E /* Sources */,
 				1968857E1FCCA28000576A9E /* Frameworks */,
 				1968857F1FCCA28000576A9E /* Headers */,
 				196885801FCCA28000576A9E /* Resources */,
+				8115DD91254C1B0E00907528 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -310,6 +337,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A8214D319A5331EF50F5F3C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftCommons.Lang-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8115DD91254C1B0E00907528 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1968857D1FCCA28000576A9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -351,6 +420,7 @@
 /* Begin XCBuildConfiguration section */
 		196885881FCCA28000576A9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37A9D6ED71060868F4DC8ECC /* Pods-SwiftCommons.Lang.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -371,6 +441,7 @@
 		};
 		196885891FCCA28000576A9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D97F2B21B3EF38E9835F7F7B /* Pods-SwiftCommons.Lang.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
