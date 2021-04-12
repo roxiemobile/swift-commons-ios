@@ -126,15 +126,22 @@ public final class Mapper<N: BaseMappable> {
             }
         } else if let klass = N.self as? ImmutableMappable.Type { // Check if object is ImmutableMappable
             do {
-                return Roxie.conditionalCast(try klass.init(map: map), to: N.self)
-            } catch let error {
-            #if DEBUG
-                if let mapError = error as? MapError {
-                    NSException(name: .init(rawValue: "MapError"), reason: mapError.description, userInfo: nil).raise()
-                } else {
-                    NSException(name: .init(rawValue: "ImmutableMappableError"), reason: error.localizedDescription, userInfo: nil).raise()
+                if var object = Roxie.conditionalCast(try klass.init(map: map), to: N.self) {
+                    object.mapping(map: map)
+                    return object
                 }
-            #endif
+            } catch let error {
+                #if DEBUG
+                #if !os(Linux)
+                let exception: NSException
+                if let mapError = error as? MapError {
+                    exception = NSException(name: .init(rawValue: "MapError"), reason: mapError.description, userInfo: nil)
+                } else {
+                    exception = NSException(name: .init(rawValue: "ImmutableMappableError"), reason: error.localizedDescription, userInfo: nil)
+                }
+                exception.raise()
+                #endif
+                #endif
             }
         } else {
             // Ensure BaseMappable is not implemented directly
@@ -174,14 +181,12 @@ public final class Mapper<N: BaseMappable> {
 
     /// Maps an array of JSON dictionary to an array of Mappable objects
     public func mapArray(JSONArray: [[String: Any]]) -> [N] {
-// Code targeting the Swift 4.1 compiler and above.
-#if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
         // map every element in JSON array to type N
+        #if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
         let result = JSONArray.compactMap(map)
-#else
-        // map every element in JSON array to type N
+        #else
         let result = JSONArray.flatMap(map)
-#endif
+        #endif
         return result
     }
 
@@ -251,15 +256,10 @@ public final class Mapper<N: BaseMappable> {
     /// Maps an 2 dimentional array of JSON dictionaries to a 2 dimentional array of Mappable objects
     public func mapArrayOfArrays(JSONObject: Any?) -> [[N]]? {
         if let JSONArray = JSONObject as? [[[String: Any]]] {
-            var objectArray = [[N]]()
-            for innerJSONArray in JSONArray {
-                let array = mapArray(JSONArray: innerJSONArray)
-                objectArray.append(array)
+            let objectArray = JSONArray.map { innerJSONArray in
+                return mapArray(JSONArray: innerJSONArray)
             }
-
-            if objectArray.isEmpty == false {
-                return objectArray
-            }
+            return objectArray
         }
 
         return nil
@@ -437,14 +437,12 @@ extension Mapper where N: Hashable {
 
     /// Maps an Set of JSON dictionary to an array of Mappable objects
     public func mapSet(JSONArray: [[String: Any]]) -> Set<N> {
-// Code targeting the Swift 4.1 compiler and above.
-#if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
         // map every element in JSON array to type N
-        return Set(JSONArray.compactMap(self.map))
-#else
-        // map every element in JSON array to type N
-        return Set(JSONArray.flatMap(self.map))
-#endif
+        #if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
+        return Set(JSONArray.compactMap(map))
+        #else
+        return Set(JSONArray.flatMap(map))
+        #endif
     }
 
     ///Maps a Set of Objects to a Set of JSON dictionaries [[String : Any]]

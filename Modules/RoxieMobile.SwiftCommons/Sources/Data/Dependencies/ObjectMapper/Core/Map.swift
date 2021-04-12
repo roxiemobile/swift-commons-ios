@@ -134,24 +134,24 @@ public final class Map {
     }
 
     public func value<T>() -> T? {
-        let value = Roxie.conditionalCast(self.currentValue, to: T.self)
+        let value = Roxie.conditionalCast(currentValue, to: T.self)
 
         // Swift 4.1 breaks Float casting from `NSNumber`. So Added extra checks for `Float` `[Float]` and `[String:Float]`
         if value == nil && T.self == Float.self {
-            if let v = self.currentValue as? NSNumber {
+            if let v = currentValue as? NSNumber {
                 return Roxie.conditionalCast(v.floatValue, to: T.self)
             }
         } else if value == nil && T.self == [Float].self {
-            if let v = self.currentValue as? [Double] {
-// Code targeting the Swift 4.1 compiler and above.
-#if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
+            if let v = currentValue as? [Double] {
+                // Code targeting the Swift 4.1 compiler and above.
+                #if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
                 return Roxie.conditionalCast(v.compactMap{ Float($0) }, to: T.self)
-#else
+                #else
                 return Roxie.conditionalCast(v.flatMap{ Float($0) }, to: T.self)
-#endif
+                #endif
             }
         } else if value == nil && T.self == [String:Float].self {
-            if let v = self.currentValue as? [String:Double] {
+            if let v = currentValue as? [String:Double] {
                 return Roxie.conditionalCast(v.mapValues{ Float($0) }, to: T.self)
             }
         }
@@ -214,4 +214,46 @@ private func valueFor(_ keyPathComponents: ArraySlice<String>, array: [Any]) -> 
     }
 
     return (false, nil)
+}
+
+// MARK: - Default Value
+
+public extension Map {
+
+    /// Returns `default` value if there is nothing to parse.
+  func value<T>(_ key: String, default: T.Object, using transform: T) throws -> T.Object where T: TransformType {
+    if let value: T.Object = try? self.value(key, using: transform) {
+      return value
+    } else {
+      return `default`
+    }
+  }
+
+    /// Returns `default` value if there is nothing to parse.
+  func value<T>(_ key: String, default: T) throws -> T {
+    if let value: T = try? self.value(key) {
+      return value
+    } else {
+      return `default`
+    }
+  }
+
+    /// Returns `default` value if there is nothing to parse.
+  func value<T: BaseMappable>(_ key: String, default: [T]) -> [T] {
+    do {
+      let value: [T] = try self.value(key)
+      return value
+    } catch {
+      return `default`
+    }
+  }
+
+    /// Returns `default` value if there is nothing to parse.
+  func value<T>(_ key: String, default: T) throws -> T where T: BaseMappable {
+    if let value: T = try? self.value(key) as T {
+      return value
+    } else {
+      return `default`
+    }
+  }
 }
