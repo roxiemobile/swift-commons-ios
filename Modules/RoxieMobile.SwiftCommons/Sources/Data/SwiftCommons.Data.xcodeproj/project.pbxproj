@@ -58,6 +58,7 @@
 		19B0266B2040BBD000584342 /* Map.Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0266A2040BBD000584342 /* Map.Extensions.swift */; };
 		19BF605C21717026005E42E3 /* CodableTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BF605B21717026005E42E3 /* CodableTransform.swift */; };
 		19E3B580234CE3190054C611 /* TypedStreamCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E3B57F234CE3190054C611 /* TypedStreamCoder.swift */; };
+		8EE8695B673A3A4624E74FF0 /* DecimalTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE8611A70A5FCB0748ECF09 /* DecimalTransform.swift */; };
 		E1878A32E761D1684863AAE0 /* Pods_SwiftCommons_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF42310CE1471D1E79A316DD /* Pods_SwiftCommons_Data.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		19CAA9361FBF9A850034FD4E /* SerializableMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializableMappable.swift; sourceTree = "<group>"; };
 		19E3B57F234CE3190054C611 /* TypedStreamCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedStreamCoder.swift; sourceTree = "<group>"; };
 		6F5D3AA0E3EC989B4452A948 /* Pods-SwiftCommons.Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.release.xcconfig"; sourceTree = "<group>"; };
+		8EE8611A70A5FCB0748ECF09 /* DecimalTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalTransform.swift; sourceTree = "<group>"; };
 		CF16D7706F5A8B6769B3594D /* Pods-SwiftCommons.Data.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Data.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Data/Pods-SwiftCommons.Data.debug.xcconfig"; sourceTree = "<group>"; };
 		FF42310CE1471D1E79A316DD /* Pods_SwiftCommons_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -194,6 +196,7 @@
 				19574CA31F8A6FB600A218E4 /* TransformOf.swift */,
 				19574CA41F8A6FB600A218E4 /* TransformType.swift */,
 				19574CA51F8A6FB600A218E4 /* URLTransform.swift */,
+				8EE8611A70A5FCB0748ECF09 /* DecimalTransform.swift */,
 			);
 			path = Transforms;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				194862421FCCB86C0058735E /* MapError.swift in Sources */,
 				194862501FCCB86C0058735E /* NSDecimalNumberTransform.swift in Sources */,
 				198EBE1F234A83EB006B14BC /* AbstractCoder.swift in Sources */,
+				8EE8695B673A3A4624E74FF0 /* DecimalTransform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
