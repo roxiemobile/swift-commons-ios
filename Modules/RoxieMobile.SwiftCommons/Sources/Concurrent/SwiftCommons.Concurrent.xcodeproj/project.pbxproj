@@ -17,7 +17,6 @@
 		19C9FD8C1FCCABBB0069F3D1 /* SwiftCommonsConcurrent.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsConcurrent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19C9FD8D1FCCABBB0069F3D1 /* SwiftCommonsConcurrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FD8B1FCCABBB0069F3D1 /* SwiftCommonsConcurrent.m */; };
 		19CCD10F1FCD01DF008CEA38 /* SwiftCommonsObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CCD1101FCD01DF008CEA38 /* SwiftCommonsObjC.framework */; };
-		9BF4D3EF94BFE04E4E7CF7E9 /* Pods_SwiftCommons_Concurrent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67E162CD5B790B37DEFF872 /* Pods_SwiftCommons_Concurrent.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +33,6 @@
 		19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsConcurrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsConcurrent.h; sourceTree = "<group>"; };
 		19C9FD8B1FCCABBB0069F3D1 /* SwiftCommonsConcurrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsConcurrent.m; sourceTree = "<group>"; };
 		19CCD1101FCD01DF008CEA38 /* SwiftCommonsObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A0CF71378EEFC977F565856 /* Pods-SwiftCommons.Concurrent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Concurrent.debug.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Concurrent/Pods-SwiftCommons.Concurrent.debug.xcconfig"; sourceTree = "<group>"; };
-		7F8FF9E8AEA7247542AF91FE /* Pods-SwiftCommons.Concurrent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCommons.Concurrent.release.xcconfig"; path = "../../../CocoaPods/Pods/Target Support Files/Pods-SwiftCommons.Concurrent/Pods-SwiftCommons.Concurrent.release.xcconfig"; sourceTree = "<group>"; };
-		C67E162CD5B790B37DEFF872 /* Pods_SwiftCommons_Concurrent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCommons_Concurrent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +41,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				19CCD10F1FCD01DF008CEA38 /* SwiftCommonsObjC.framework in Frameworks */,
-				9BF4D3EF94BFE04E4E7CF7E9 /* Pods_SwiftCommons_Concurrent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +77,6 @@
 				19EB0CA21F72DF0D0029F302 /* Dependencies */,
 				19C017251F72CC3A00D29F73 /* Products */,
 				5F7D6FF8B83162C3E90710CA /* Frameworks */,
-				DDC5C77BCBDF352DDA969D49 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,18 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				19CCD1101FCD01DF008CEA38 /* SwiftCommonsObjC.framework */,
-				C67E162CD5B790B37DEFF872 /* Pods_SwiftCommons_Concurrent.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DDC5C77BCBDF352DDA969D49 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5A0CF71378EEFC977F565856 /* Pods-SwiftCommons.Concurrent.debug.xcconfig */,
-				7F8FF9E8AEA7247542AF91FE /* Pods-SwiftCommons.Concurrent.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +156,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19C9FD701FCCA85D0069F3D1 /* Build configuration list for PBXNativeTarget "SwiftCommons.Concurrent" */;
 			buildPhases = (
-				B6FC7C1DA425DEA7885C177E /* [CP] Check Pods Manifest.lock */,
 				19C9FD661FCCA85D0069F3D1 /* Sources */,
 				19C9FD671FCCA85D0069F3D1 /* Frameworks */,
 				19C9FD681FCCA85D0069F3D1 /* Headers */,
@@ -230,27 +213,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		B6FC7C1DA425DEA7885C177E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwiftCommons.Concurrent-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		19C9FD661FCCA85D0069F3D1 /* Sources */ = {
@@ -383,7 +345,6 @@
 		};
 		19C9FD711FCCA85D0069F3D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A0CF71378EEFC977F565856 /* Pods-SwiftCommons.Concurrent.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -404,7 +365,6 @@
 		};
 		19C9FD721FCCA85D0069F3D1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F8FF9E8AEA7247542AF91FE /* Pods-SwiftCommons.Concurrent.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
