@@ -3,48 +3,60 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		195BCB2C261721F000A653B1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195BCB2B261721F000A653B1 /* Security.framework */; };
+		195BCB302617237C00A653B1 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 195BCB2F2617237C00A653B1 /* libiconv.tbd */; };
+		195BCB4E2617238500A653B1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 195BCB4D2617238400A653B1 /* libz.tbd */; };
 		19C9FD861FCCAAD30069F3D1 /* TryCatchFinally.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19C9FD871FCCAAD30069F3D1 /* TryCatchFinally.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */; };
 		19C9FD8C1FCCABBB0069F3D1 /* SwiftCommonsObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19C9FD8D1FCCABBB0069F3D1 /* SwiftCommonsObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FD8B1FCCABBB0069F3D1 /* SwiftCommonsObjC.m */; };
-		19CCD1031FCD0191008CEA38 /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0F71FCD0190008CEA38 /* crypt.h */; };
-		19CCD1041FCD0191008CEA38 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0F81FCD0190008CEA38 /* ioapi.c */; };
-		19CCD1051FCD0191008CEA38 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0F91FCD0190008CEA38 /* ioapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19CCD1061FCD0191008CEA38 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0FA1FCD0190008CEA38 /* mztools.c */; };
-		19CCD1071FCD0191008CEA38 /* mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0FB1FCD0190008CEA38 /* mztools.h */; };
-		19CCD1081FCD0191008CEA38 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0FC1FCD0190008CEA38 /* unzip.c */; };
-		19CCD1091FCD0191008CEA38 /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0FD1FCD0190008CEA38 /* unzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19CCD10A1FCD0191008CEA38 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD0FE1FCD0190008CEA38 /* zip.c */; };
-		19CCD10B1FCD0191008CEA38 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD0FF1FCD0190008CEA38 /* zip.h */; };
-		19CCD10C1FCD0191008CEA38 /* SSZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD1001FCD0190008CEA38 /* SSZipArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19CCD10D1FCD0191008CEA38 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CCD1011FCD0190008CEA38 /* SSZipArchive.m */; };
-		19CCD10E1FCD0191008CEA38 /* SSZipArchiveDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CCD1021FCD0190008CEA38 /* SSZipArchiveDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19FB18A5261749E5001EAE99 /* GHODict.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FB18A3261749E5001EAE99 /* GHODict.m */; };
+		19FB18A6261749E5001EAE99 /* GHODict.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB18A4261749E5001EAE99 /* GHODict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19FB192426174AFB001EAE99 /* NSArray+MPMessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB191526174AFB001EAE99 /* NSArray+MPMessagePack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19FB192526174AFB001EAE99 /* MPMessagePackWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB191626174AFB001EAE99 /* MPMessagePackWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19FB192626174AFB001EAE99 /* MPMessagePackReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FB191726174AFB001EAE99 /* MPMessagePackReader.m */; };
+		19FB192726174AFB001EAE99 /* NSData+MPMessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB191826174AFB001EAE99 /* NSData+MPMessagePack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19FB192826174AFB001EAE99 /* cmp.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB191926174AFB001EAE99 /* cmp.h */; };
+		19FB192926174AFB001EAE99 /* NSDictionary+MPMessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB191A26174AFB001EAE99 /* NSDictionary+MPMessagePack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19FB192A26174AFB001EAE99 /* MPMessagePackWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FB191B26174AFB001EAE99 /* MPMessagePackWriter.m */; };
+		19FB192B26174AFB001EAE99 /* NSArray+MPMessagePack.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FB191C26174AFB001EAE99 /* NSArray+MPMessagePack.m */; };
+		19FB192C26174AFB001EAE99 /* MPDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB191D26174AFB001EAE99 /* MPDefines.h */; };
+		19FB192D26174AFB001EAE99 /* MPMessagePackReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB191E26174AFB001EAE99 /* MPMessagePackReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19FB192E26174AFB001EAE99 /* MPLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FB191F26174AFB001EAE99 /* MPLog.h */; };
+		19FB193026174AFB001EAE99 /* cmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 19FB192126174AFB001EAE99 /* cmp.c */; };
+		19FB193126174AFB001EAE99 /* NSData+MPMessagePack.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FB192226174AFB001EAE99 /* NSData+MPMessagePack.m */; };
+		19FB193226174AFB001EAE99 /* NSDictionary+MPMessagePack.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FB192326174AFB001EAE99 /* NSDictionary+MPMessagePack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		195BCB2B261721F000A653B1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		195BCB2F2617237C00A653B1 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/lib/libiconv.tbd; sourceTree = DEVELOPER_DIR; };
+		195BCB4D2617238400A653B1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		1976D4E11FCB821000C07C72 /* SwiftCommons.ObjC.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftCommons.ObjC.xcconfig; sourceTree = "<group>"; };
 		19C7B7501F8648EB0030F1D8 /* TryCatchFinally.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TryCatchFinally.h; sourceTree = "<group>"; };
 		19C7B7511F8648EB0030F1D8 /* TryCatchFinally.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryCatchFinally.m; sourceTree = "<group>"; };
 		19C9FD6B1FCCA85D0069F3D1 /* SwiftCommonsObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCommonsObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C9FD6E1FCCA85D0069F3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsObjC.h; sourceTree = "<group>"; };
-		19C9FD8B1FCCABBB0069F3D1 /* SwiftCommonsObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsObjC.m; sourceTree = "<group>"; };
-		19CCD0F71FCD0190008CEA38 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		19CCD0F81FCD0190008CEA38 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		19CCD0F91FCD0190008CEA38 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		19CCD0FA1FCD0190008CEA38 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		19CCD0FB1FCD0190008CEA38 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		19CCD0FC1FCD0190008CEA38 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		19CCD0FD1FCD0190008CEA38 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		19CCD0FE1FCD0190008CEA38 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		19CCD0FF1FCD0190008CEA38 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		19CCD1001FCD0190008CEA38 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
-		19CCD1011FCD0190008CEA38 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
-		19CCD1021FCD0190008CEA38 /* SSZipArchiveDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchiveDelegate.h; sourceTree = "<group>"; };
+		19FB18A3261749E5001EAE99 /* GHODict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHODict.m; sourceTree = "<group>"; };
+		19FB18A4261749E5001EAE99 /* GHODict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHODict.h; sourceTree = "<group>"; };
+		19FB191526174AFB001EAE99 /* NSArray+MPMessagePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MPMessagePack.h"; sourceTree = "<group>"; };
+		19FB191626174AFB001EAE99 /* MPMessagePackWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMessagePackWriter.h; sourceTree = "<group>"; };
+		19FB191726174AFB001EAE99 /* MPMessagePackReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMessagePackReader.m; sourceTree = "<group>"; };
+		19FB191826174AFB001EAE99 /* NSData+MPMessagePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPMessagePack.h"; sourceTree = "<group>"; };
+		19FB191926174AFB001EAE99 /* cmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmp.h; sourceTree = "<group>"; };
+		19FB191A26174AFB001EAE99 /* NSDictionary+MPMessagePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MPMessagePack.h"; sourceTree = "<group>"; };
+		19FB191B26174AFB001EAE99 /* MPMessagePackWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMessagePackWriter.m; sourceTree = "<group>"; };
+		19FB191C26174AFB001EAE99 /* NSArray+MPMessagePack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MPMessagePack.m"; sourceTree = "<group>"; };
+		19FB191D26174AFB001EAE99 /* MPDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDefines.h; sourceTree = "<group>"; };
+		19FB191E26174AFB001EAE99 /* MPMessagePackReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMessagePackReader.h; sourceTree = "<group>"; };
+		19FB191F26174AFB001EAE99 /* MPLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLog.h; sourceTree = "<group>"; };
+		19FB192126174AFB001EAE99 /* cmp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmp.c; sourceTree = "<group>"; };
+		19FB192226174AFB001EAE99 /* NSData+MPMessagePack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPMessagePack.m"; sourceTree = "<group>"; };
+		19FB192326174AFB001EAE99 /* NSDictionary+MPMessagePack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MPMessagePack.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,12 +64,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				195BCB302617237C00A653B1 /* libiconv.tbd in Frameworks */,
+				195BCB4E2617238500A653B1 /* libz.tbd in Frameworks */,
+				195BCB2C261721F000A653B1 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		195BCB2A261721F000A653B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				195BCB4D2617238400A653B1 /* libz.tbd */,
+				195BCB2F2617237C00A653B1 /* libiconv.tbd */,
+				195BCB2B261721F000A653B1 /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1976D4DF1FCB821000C07C72 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +100,7 @@
 				19EB0C9E1F72DF0D0029F302 /* Resources */,
 				19EB0CA21F72DF0D0029F302 /* Dependencies */,
 				19C017251F72CC3A00D29F73 /* Products */,
+				195BCB2A261721F000A653B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,33 +121,6 @@
 			path = TryCatchFinally;
 			sourceTree = "<group>";
 		};
-		19CCD0F51FCD0190008CEA38 /* SSZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				19CCD0F61FCD0190008CEA38 /* minizip */,
-				19CCD1001FCD0190008CEA38 /* SSZipArchive.h */,
-				19CCD1011FCD0190008CEA38 /* SSZipArchive.m */,
-				19CCD1021FCD0190008CEA38 /* SSZipArchiveDelegate.h */,
-			);
-			path = SSZipArchive;
-			sourceTree = "<group>";
-		};
-		19CCD0F61FCD0190008CEA38 /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				19CCD0F71FCD0190008CEA38 /* crypt.h */,
-				19CCD0F81FCD0190008CEA38 /* ioapi.c */,
-				19CCD0F91FCD0190008CEA38 /* ioapi.h */,
-				19CCD0FA1FCD0190008CEA38 /* mztools.c */,
-				19CCD0FB1FCD0190008CEA38 /* mztools.h */,
-				19CCD0FC1FCD0190008CEA38 /* unzip.c */,
-				19CCD0FD1FCD0190008CEA38 /* unzip.h */,
-				19CCD0FE1FCD0190008CEA38 /* zip.c */,
-				19CCD0FF1FCD0190008CEA38 /* zip.h */,
-			);
-			path = minizip;
-			sourceTree = "<group>";
-		};
 		19EB0C9E1F72DF0D0029F302 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +131,8 @@
 		19EB0CA01F72DF0D0029F302 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				19CCD0F51FCD0190008CEA38 /* SSZipArchive */,
+				19FB18A2261749E5001EAE99 /* GHODictionary */,
+				19FB191426174AFB001EAE99 /* MPMessagePack */,
 				19C7B74E1F8648EB0030F1D8 /* TryCatchFinally */,
 			);
 			path = Sources;
@@ -142,9 +142,38 @@
 			isa = PBXGroup;
 			children = (
 				19C9FD8A1FCCABBB0069F3D1 /* SwiftCommonsObjC.h */,
-				19C9FD8B1FCCABBB0069F3D1 /* SwiftCommonsObjC.m */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		19FB18A2261749E5001EAE99 /* GHODictionary */ = {
+			isa = PBXGroup;
+			children = (
+				19FB18A4261749E5001EAE99 /* GHODict.h */,
+				19FB18A3261749E5001EAE99 /* GHODict.m */,
+			);
+			path = GHODictionary;
+			sourceTree = "<group>";
+		};
+		19FB191426174AFB001EAE99 /* MPMessagePack */ = {
+			isa = PBXGroup;
+			children = (
+				19FB191926174AFB001EAE99 /* cmp.h */,
+				19FB192126174AFB001EAE99 /* cmp.c */,
+				19FB191D26174AFB001EAE99 /* MPDefines.h */,
+				19FB191F26174AFB001EAE99 /* MPLog.h */,
+				19FB191E26174AFB001EAE99 /* MPMessagePackReader.h */,
+				19FB191726174AFB001EAE99 /* MPMessagePackReader.m */,
+				19FB191626174AFB001EAE99 /* MPMessagePackWriter.h */,
+				19FB191B26174AFB001EAE99 /* MPMessagePackWriter.m */,
+				19FB191526174AFB001EAE99 /* NSArray+MPMessagePack.h */,
+				19FB191C26174AFB001EAE99 /* NSArray+MPMessagePack.m */,
+				19FB191826174AFB001EAE99 /* NSData+MPMessagePack.h */,
+				19FB192226174AFB001EAE99 /* NSData+MPMessagePack.m */,
+				19FB191A26174AFB001EAE99 /* NSDictionary+MPMessagePack.h */,
+				19FB192326174AFB001EAE99 /* NSDictionary+MPMessagePack.m */,
+			);
+			path = MPMessagePack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,15 +183,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19CCD10C1FCD0191008CEA38 /* SSZipArchive.h in Headers */,
-				19CCD10E1FCD0191008CEA38 /* SSZipArchiveDelegate.h in Headers */,
-				19CCD1031FCD0191008CEA38 /* crypt.h in Headers */,
+				19FB192E26174AFB001EAE99 /* MPLog.h in Headers */,
+				19FB18A6261749E5001EAE99 /* GHODict.h in Headers */,
+				19FB192926174AFB001EAE99 /* NSDictionary+MPMessagePack.h in Headers */,
+				19FB192C26174AFB001EAE99 /* MPDefines.h in Headers */,
+				19FB192426174AFB001EAE99 /* NSArray+MPMessagePack.h in Headers */,
+				19FB192826174AFB001EAE99 /* cmp.h in Headers */,
 				19C9FD861FCCAAD30069F3D1 /* TryCatchFinally.h in Headers */,
-				19CCD1091FCD0191008CEA38 /* unzip.h in Headers */,
-				19CCD1071FCD0191008CEA38 /* mztools.h in Headers */,
-				19CCD1051FCD0191008CEA38 /* ioapi.h in Headers */,
-				19CCD10B1FCD0191008CEA38 /* zip.h in Headers */,
+				19FB192D26174AFB001EAE99 /* MPMessagePackReader.h in Headers */,
 				19C9FD8C1FCCABBB0069F3D1 /* SwiftCommonsObjC.h in Headers */,
+				19FB192726174AFB001EAE99 /* NSData+MPMessagePack.h in Headers */,
+				19FB192526174AFB001EAE99 /* MPMessagePackWriter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Roxie Mobile Ltd.";
 				TargetAttributes = {
 					19C9FD6A1FCCA85D0069F3D1 = {
@@ -204,7 +235,7 @@
 				};
 			};
 			buildConfigurationList = 19C0171F1F72CC3A00D29F73 /* Build configuration list for PBXProject "SwiftCommons.ObjC" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -236,13 +267,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19FB193226174AFB001EAE99 /* NSDictionary+MPMessagePack.m in Sources */,
+				19FB193026174AFB001EAE99 /* cmp.c in Sources */,
+				19FB18A5261749E5001EAE99 /* GHODict.m in Sources */,
 				19C9FD871FCCAAD30069F3D1 /* TryCatchFinally.m in Sources */,
-				19CCD1061FCD0191008CEA38 /* mztools.c in Sources */,
-				19CCD1081FCD0191008CEA38 /* unzip.c in Sources */,
-				19CCD1041FCD0191008CEA38 /* ioapi.c in Sources */,
-				19CCD10D1FCD0191008CEA38 /* SSZipArchive.m in Sources */,
-				19CCD10A1FCD0191008CEA38 /* zip.c in Sources */,
-				19C9FD8D1FCCABBB0069F3D1 /* SwiftCommonsObjC.m in Sources */,
+				19FB193126174AFB001EAE99 /* NSData+MPMessagePack.m in Sources */,
+				19FB192626174AFB001EAE99 /* MPMessagePackReader.m in Sources */,
+				19FB192B26174AFB001EAE99 /* NSArray+MPMessagePack.m in Sources */,
+				19FB192A26174AFB001EAE99 /* MPMessagePackWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +324,11 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					HAVE_INTTYPES_H,
+					HAVE_PKCRYPT,
+					HAVE_STDINT_H,
+					HAVE_WZAES,
+					HAVE_ZLIB,
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -346,6 +383,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_INTTYPES_H,
+					HAVE_PKCRYPT,
+					HAVE_STDINT_H,
+					HAVE_WZAES,
+					HAVE_ZLIB,
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -354,7 +399,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -371,7 +417,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configuration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -391,7 +441,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configuration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

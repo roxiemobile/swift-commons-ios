@@ -24,12 +24,17 @@ let package = Package(
             name: "SwiftCommons.Abstractions",
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Abstractions"
         ),
+        .package(
+            name: "SwiftCommons.ObjC",
+            path: "Modules/RoxieMobile.SwiftCommons/Sources/ObjC"
+        ),
     ],
     targets: [
         .target(
             name: "SwiftCommons",
             dependencies: [
                 .product(name: "SwiftCommonsAbstractions", package: "SwiftCommons.Abstractions"),
+                .product(name: "SwiftCommonsObjC", package: "SwiftCommons.ObjC"),
             ]
         ),
     ],
