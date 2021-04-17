@@ -6,31 +6,23 @@ import PackageDescription
 // @link https://docs.swift.org/package-manager/PackageDescription/PackageDescription.html
 
 let package = Package(
-    name: "SwiftCommons",
+    name: "SwiftCommons.Abstractions",
     platforms: [
         .iOS(.v12),
     ],
     products: [
         .library(
-            name: "SwiftCommons",
+            name: "SwiftCommonsAbstractions",
             type: .static,
             targets: [
-                "SwiftCommons",
+                "SwiftCommonsAbstractions",
             ]
-        ),
-    ],
-    dependencies: [
-        .package(
-            name: "SwiftCommons.Abstractions",
-            path: "Modules/RoxieMobile.SwiftCommons/Sources/Abstractions"
         ),
     ],
     targets: [
         .target(
-            name: "SwiftCommons",
-            dependencies: [
-                .product(name: "SwiftCommonsAbstractions", package: "SwiftCommons.Abstractions"),
-            ]
+            name: "SwiftCommonsAbstractions",
+            path: "Sources"
         ),
     ],
     swiftLanguageVersions: [.v5]
