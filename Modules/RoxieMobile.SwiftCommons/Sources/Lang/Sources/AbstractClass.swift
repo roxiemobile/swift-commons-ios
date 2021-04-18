@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,11 +14,16 @@ public protocol AbstractClass {
 
 // ----------------------------------------------------------------------------
 
-extension AbstractClass
-{
+extension AbstractClass {
+
 // MARK: - Methods
 
-    public func raiseAbstractMethodException(funcName: String = #function, _ file: StaticString = #file, _ line: UInt = #line) -> Never {
+    public func raiseAbstractMethodException(
+        funcName: String = #function,
+        _ file: StaticString = #file,
+        _ line: UInt = #line
+    ) -> Never {
+
         roxie_abstractMethod_raiseException(message: "Abstract method ‘\(funcName)’ must be overridden in a subclass.")
     }
 }
@@ -27,13 +32,19 @@ extension AbstractClass
 // MARK: - Global Functions
 // ----------------------------------------------------------------------------
 
-fileprivate func roxie_abstractMethod_raiseException(message: String, file: StaticString = #file, line: UInt = #line) -> Never {
+private func roxie_abstractMethod_raiseException(
+    message: String,
+    file: StaticString = #file,
+    line: UInt = #line
+) -> Never {
+
     let logMessage = "Fatal error: \(message)\nFile: \(file)\nLine: \(line)"
 
 #if DEBUG
     if Roxie.isRunningXCTest {
         AbstractMethodException(reason: logMessage, userInfo: nil).raise()
-    } else {
+    }
+    else {
         preconditionFailure(logMessage)
     }
 #else
@@ -43,5 +54,3 @@ fileprivate func roxie_abstractMethod_raiseException(message: String, file: Stat
     // SUPPRESS: Return from a ‘noreturn’ function
     Swift.fatalError(logMessage)
 }
-
-// ----------------------------------------------------------------------------

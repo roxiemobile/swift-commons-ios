@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
+
 // MARK: - Methods: UInt64
 
     /// TODO
@@ -184,5 +184,3 @@ public extension Roxie
         }
     }
 }
-
-// ----------------------------------------------------------------------------

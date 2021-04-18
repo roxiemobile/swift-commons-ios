@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
+
 // MARK: - Methods
 
     /// Strips any of a set of characters from the start of a String.
@@ -63,5 +63,3 @@ public extension String
         return stripStart(stripChars: set).stripEnd(stripChars: set)
     }
 }
-
-// ----------------------------------------------------------------------------

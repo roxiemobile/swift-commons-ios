@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
+
 // MARK: - Methods
 
     /// Creates and raises a fatal error exception with the specified message.
@@ -23,18 +23,24 @@ public extension Roxie
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    static func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
+    static func fatalError(
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) -> Never {
+
         let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
-    #if DEBUG
+#if DEBUG
         if Roxie.isRunningXCTest {
             FatalErrorException(reason: logMessage).raise()
-        } else {
+        }
+        else {
             preconditionFailure(logMessage)
         }
-    #else
+#else
         FatalErrorException(reason: logMessage).raise()
-    #endif
+#endif
 
         // SUPPRESS: Return from a ‘noreturn’ function
         Swift.fatalError(logMessage)
@@ -44,11 +50,18 @@ public extension Roxie
     ///
     /// - Parameters:
     ///   - message: The string containing a human-readable reason for the receiver. The default is an empty string.
-    ///   - cause: The error that caused this exception to be raised. A `nil` value is permitted, and indicates that the cause is nonexistent or unknown.
+    ///   - cause: The error that caused this exception to be raised. A `nil` value is permitted, and indicates
+    ///            that the cause is nonexistent or unknown.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    static func fatalError(_ message: @autoclosure () -> String = "", cause error: Error?, file: StaticString = #file, line: UInt = #line) -> Never {
+    static func fatalError(
+        _ message: @autoclosure () -> String = "",
+        cause error: Error?,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) -> Never {
+
         var logMessage = message()
 
         // Add error description
@@ -64,11 +77,18 @@ public extension Roxie
     ///
     /// - Parameters:
     ///   - message: The string containing a human-readable reason for the receiver. The default is an empty string.
-    ///   - cause: The error that caused this exception to be raised. A `nil` value is permitted, and indicates that the cause is nonexistent or unknown.
+    ///   - cause: The error that caused this exception to be raised. A `nil` value is permitted, and indicates
+    ///            that the cause is nonexistent or unknown.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    static func fatalError(_ message: @autoclosure () -> String = "", cause error: NSError?, file: StaticString = #file, line: UInt = #line) -> Never {
+    static func fatalError(
+        _ message: @autoclosure () -> String = "",
+        cause error: NSError?,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) -> Never {
+
         var logMessage = message()
 
         // Add error description
@@ -92,11 +112,18 @@ public extension Roxie
     ///
     /// - Parameters:
     ///   - message: The string containing a human-readable reason for the receiver. The default is an empty string.
-    ///   - cause: The exception that caused this exception to be raised. A `nil` value is permitted, and indicates that the cause is nonexistent or unknown.
+    ///   - cause: The exception that caused this exception to be raised. A `nil` value is permitted, and indicates
+    ///            that the cause is nonexistent or unknown.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    static func fatalError(_ message: @autoclosure () -> String = "", cause exception: NSException?, file: StaticString = #file, line: UInt = #line) -> Never {
+    static func fatalError(
+        _ message: @autoclosure () -> String = "",
+        cause exception: NSException?,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) -> Never {
+
         var logMessage = message()
 
         // Add exception description
@@ -124,5 +151,3 @@ public extension Roxie
         Roxie.fatalError(logMessage, file: file, line: line)
     }
 }
-
-// ----------------------------------------------------------------------------

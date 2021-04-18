@@ -4,22 +4,22 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public struct Reflection
-{
+public struct Reflection {
+
 // MARK: - Construction
 
-    public init(of subject: Any)
-    {
+    public init(of subject: Any) {
+
         // Get type of subject
-        let type = (subject is Any.Type) ? subject : Swift.type(of: subject)
+        let type = (subject as? Any.Type) ?? Swift.type(of: subject)
 
         // Init instance
         self.subject = subject
-        self.type = Reflection.metatypeNameParser.reflect(type as! Any.Type)
+        self.type = Reflection.metatypeNameParser.reflect(type)
     }
 
 // MARK: - Properties
@@ -30,7 +30,5 @@ public struct Reflection
 
 // MARK: - Constants
 
-    private static let metatypeNameParser: MetatypeNameParser = MetatypeNameParser()
+    private static let metatypeNameParser = MetatypeNameParser()
 }
-
-// ----------------------------------------------------------------------------

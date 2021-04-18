@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@
 
 // ----------------------------------------------------------------------------
 
-public extension Dictionary
-{
+public extension Dictionary {
+
 // MARK: - Methods
 
     /// Union of `self` and the input dictionaries.
@@ -42,18 +42,15 @@ public extension Dictionary
 // ----------------------------------------------------------------------------
 
 /// Union operator.
-public func +<K, V>(first: [K: V], second: [K: V]) -> [K: V] {
+public func + <K, V>(first: [K: V], second: [K: V]) -> [K: V] {
     return [K: V]().union(first, second)
 }
 
 /// Union with assignment operator.
 @discardableResult
-public func +=<K, V>(left: inout [K: V], right: [K: V]) -> [K: V]
-{
+public func += <K, V>(left: inout [K: V], right: [K: V]) -> [K: V] {
     right.forEach { pair in
         left.updateValue(pair.value, forKey: pair.key)
     }
     return left
 }
-
-// ----------------------------------------------------------------------------

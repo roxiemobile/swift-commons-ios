@@ -10,6 +10,7 @@
 
 import SwiftCommonsAbstractions
 import SwiftCommonsConcurrent
+import SwiftCommonsLang
 import SwiftCommonsObjC
 
 // ----------------------------------------------------------------------------

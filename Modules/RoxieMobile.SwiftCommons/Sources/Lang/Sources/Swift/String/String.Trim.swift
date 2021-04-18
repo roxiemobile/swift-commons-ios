@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
+
 // MARK: - Methods
 
     /// Trims whitespaces from the beginning of self.
@@ -27,5 +27,3 @@ public extension String
         return strip()
     }
 }
-
-// ----------------------------------------------------------------------------

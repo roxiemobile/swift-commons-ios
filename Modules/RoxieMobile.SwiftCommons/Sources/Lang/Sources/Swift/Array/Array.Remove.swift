@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@
 
 // ----------------------------------------------------------------------------
 
-public extension Array
-{
+public extension Array {
+
 // MARK: - Methods
 
     /// Deletes all the items in self that are equal to element.
@@ -22,15 +22,13 @@ public extension Array
     /// - Parameters:
     ///   - element: Element to remove.
     ///
-    mutating func remove<U:Equatable>(element: U) {
+    mutating func remove<U: Equatable>(element: U) {
         let anotherSelf = self // copy
 
         removeAll(keepingCapacity: true)
 
-        for item in anotherSelf {
-            if (item as! U) != element {
-                self.append(item)
-            }
+        for item in anotherSelf where Roxie.forceCast(item, to: U.self) != element {
+            self.append(item)
         }
     }
 
@@ -44,12 +42,8 @@ public extension Array
 
         removeAll(keepingCapacity: true)
 
-        for item in anotherSelf {
-            if !condition(item) {
-                self.append(item)
-            }
+        for item in anotherSelf where !condition(item) {
+            self.append(item)
         }
     }
 }
-
-// ----------------------------------------------------------------------------

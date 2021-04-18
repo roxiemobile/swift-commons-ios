@@ -4,17 +4,21 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public struct ReflectedType
-{
+public struct ReflectedType {
+
 // MARK: - Construction
 
-    internal init(name: String, fullName: String, isOptional: Bool, isImplicitlyUnwrappedOptional: Bool, isProtocol: Bool)
-    {
-        // Init instance
+    internal init(
+        name: String,
+        fullName: String,
+        isOptional: Bool,
+        isImplicitlyUnwrappedOptional: Bool,
+        isProtocol: Bool
+    ) {
         self.name = name
         self.fullName = fullName
         self.isOptional = isOptional
@@ -34,5 +38,3 @@ public struct ReflectedType
 
     public let isProtocol: Bool
 }
-
-// ----------------------------------------------------------------------------
