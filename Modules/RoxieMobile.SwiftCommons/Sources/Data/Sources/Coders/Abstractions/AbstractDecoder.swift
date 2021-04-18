@@ -4,22 +4,25 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
+// swiftlint:disable file_length
+// ----------------------------------------------------------------------------
 
+import Foundation
 import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-open class AbstractDecoder: AbstractCoder
-{
+open class AbstractDecoder: AbstractCoder {
+
 // MARK: - Construction
 
     /// TODO
     public init(
-            forReadingFrom data: Data,
-            failurePolicy: CodingFailurePolicy = .setErrorAndReturn
+        forReadingFrom data: Data,
+        failurePolicy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Init instance
         self.buffer = data
@@ -31,13 +34,13 @@ open class AbstractDecoder: AbstractCoder
 // MARK: - Properties
 
     // Archive-index -> Object
-    internal var collectedObjects = Dictionary<UInt, AnyObject>()
+    internal var collectedObjects = [UInt: AnyObject]()
 
     // Archive-index -> Class
-    internal var collectedClasses = Dictionary<UInt, AnyClass>()
+    internal var collectedClasses = [UInt: AnyClass]()
 
     // Class name -> Class version
-    internal var collectedVersionsOfClasses = Dictionary<String, Int>()
+    internal var collectedVersionsOfClasses = [String: Int]()
 
 // MARK: - Variables
 
@@ -45,19 +48,21 @@ open class AbstractDecoder: AbstractCoder
 
     private var cursor: Int = 0
 
-    private var pendingBuffers = Array<NSMutableData>()
+    private var pendingBuffers = [NSMutableData]()
 }
 
 // ----------------------------------------------------------------------------
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension AbstractDecoder
-{
+extension AbstractDecoder {
+
 // MARK: - Protected Methods
 
     internal func _decodeData() -> Data? {
-        var data: Data? = nil
+        // swiftlint:disable:previous identifier_name
+
+        var data: Data?
         var count = 0
 
         // Read an array type, eg '[15c]…' -> count = 15
@@ -75,6 +80,8 @@ extension AbstractDecoder
     }
 
     internal func _decodeArray(ofObjCType typep: UnsafePointer<CChar>, count: Int, at array: UnsafeMutableRawPointer) {
+        // swiftlint:disable:previous identifier_name
+
         let itemType = ObjCType(typep.pointee)
 
         guard (itemType == .Char) || (itemType == .UChar) else {
@@ -86,7 +93,9 @@ extension AbstractDecoder
     }
 
     internal func _decodeBytes(withReturnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutableRawPointer? {
-        var datap: UnsafeMutableRawPointer? = nil
+        // swiftlint:disable:previous identifier_name
+
+        var datap: UnsafeMutableRawPointer?
         lengthp.pointee = 0
 
         // Read a bytes
@@ -109,6 +118,8 @@ extension AbstractDecoder
     }
 
     internal func _version(forClassName className: String) -> Int {
+        // swiftlint:disable:previous identifier_name
+
         return self.collectedVersionsOfClasses[className] ?? NSNotFound
     }
 }
@@ -117,17 +128,21 @@ extension AbstractDecoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension AbstractDecoder
-{
+extension AbstractDecoder {
+
 // MARK: - Protected Methods
 
     internal func _checkType(type: ObjCType, reqType: ObjCType) {
+        // swiftlint:disable:previous identifier_name
+
         if (type != reqType) {
             InconsistentArchiveException.raise(reason: "Expected different typecode.")
         }
     }
 
     internal func _checkTypePair(type: ObjCType, reqType1: ObjCType, reqType2: ObjCType) {
+        // swiftlint:disable:previous identifier_name
+
         if (type != reqType1) && (type != reqType2) {
             InconsistentArchiveException.raise(reason: "Expected different typecode.")
         }
@@ -138,25 +153,28 @@ extension AbstractDecoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension AbstractDecoder
-{
+extension AbstractDecoder {
+
 // MARK: - Protected Methods
 
     internal func _readBytes(_ addr: UnsafeMutableRawPointer, length: Int) {
+        // swiftlint:disable:previous identifier_name
 
         if (length > 0) {
             let bytes = addr.bindMemory(to: UInt8.self, capacity: length)
 
-            self.buffer.copyBytes(to: bytes, from: self.cursor..<(self.cursor + length))
+            self.buffer.copyBytes(to: bytes, from: self.cursor ..< (self.cursor + length))
             self.cursor += length
         }
     }
 
     internal func _readType(isReference: inout Bool) -> ObjCType {
+        // swiftlint:disable:previous identifier_name
+
         let itemType = ObjCType(_readChar())
 
         guard itemType.isValidType else {
-            let typeHex = String(format:"0x%02X", itemType.rawValue)
+            let typeHex = String(format: "0x%02X", itemType.rawValue)
             InconsistentArchiveException.raise(reason: "Found invalid type tag ‘\(typeHex)’.")
         }
 
@@ -165,11 +183,14 @@ extension AbstractDecoder
     }
 
     internal func _readType() -> ObjCType {
+        // swiftlint:disable:previous identifier_name
+
         var flag = false
         return _readType(isReference: &flag)
     }
 
     internal func _readArrayType(withReturnedLength length: inout Int) -> CChar {
+        // swiftlint:disable:previous identifier_name
 
         var itemType: CChar = 0
         _checkType(type: _readType(), reqType: .ArrayBegin)
@@ -199,6 +220,7 @@ extension AbstractDecoder
     }
 
     internal func _readString(withType: Bool = false) -> String {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkTypePair(type: _readType(), reqType1: .Atom, reqType2: .CharPtr)
@@ -224,6 +246,7 @@ extension AbstractDecoder
     }
 
     internal func _readLongLong(withType: Bool = false) -> CLongLong {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .LongLong)
@@ -240,6 +263,7 @@ extension AbstractDecoder
     }
 
     internal func _readUnsignedLongLong(withType: Bool = false) -> CUnsignedLongLong {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .ULongLong)
@@ -256,6 +280,7 @@ extension AbstractDecoder
     }
 
     internal func _readLong(withType: Bool = false) -> CLong {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .Long)
@@ -277,6 +302,7 @@ extension AbstractDecoder
     }
 
     internal func _readUnsignedLong(withType: Bool = false) -> CUnsignedLong {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .ULong)
@@ -298,6 +324,7 @@ extension AbstractDecoder
     }
 
     internal func _readInt(withType: Bool = false) -> CInt {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .Int)
@@ -314,6 +341,7 @@ extension AbstractDecoder
     }
 
     internal func _readUnsignedInt(withType: Bool = false) -> CUnsignedInt {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .UInt)
@@ -330,6 +358,7 @@ extension AbstractDecoder
     }
 
     internal func _readShort(withType: Bool = false) -> CShort {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .Short)
@@ -346,6 +375,7 @@ extension AbstractDecoder
     }
 
     internal func _readUnsignedShort(withType: Bool = false) -> CUnsignedShort {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .UShort)
@@ -362,6 +392,7 @@ extension AbstractDecoder
     }
 
     internal func _readChar(withType: Bool = false) -> CChar {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .Char)
@@ -377,6 +408,7 @@ extension AbstractDecoder
     }
 
     internal func _readUnsignedChar(withType: Bool = false) -> CUnsignedChar {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .UChar)
@@ -392,6 +424,8 @@ extension AbstractDecoder
     }
 
     internal func _readInteger() -> CLong {
+        // swiftlint:disable:previous identifier_name
+
         var value: CLong = 0
 
         // Read signed int
@@ -422,6 +456,8 @@ extension AbstractDecoder
     }
 
     internal func _readUnsignedInteger() -> CUnsignedLong {
+        // swiftlint:disable:previous identifier_name
+
         var value: CUnsignedLong = 0
 
         // Read unsigned int
@@ -452,6 +488,7 @@ extension AbstractDecoder
     }
 
     internal func _readFloat(withType: Bool = false) -> CFloat {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .Float)
@@ -468,6 +505,7 @@ extension AbstractDecoder
     }
 
     internal func _readDouble(withType: Bool = false) -> CDouble {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .Double)
@@ -484,6 +522,7 @@ extension AbstractDecoder
     }
 
     internal func _readBool(withType: Bool = false) -> CBool {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _checkType(type: _readType(), reqType: .Bool)
@@ -498,5 +537,3 @@ extension AbstractDecoder
         return (value != 0)
     }
 }
-
-// ----------------------------------------------------------------------------

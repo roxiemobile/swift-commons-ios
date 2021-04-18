@@ -4,24 +4,24 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-import MPMessagePack
 import SwiftCommonsLang
+import SwiftCommonsObjC
 
 // ----------------------------------------------------------------------------
 
-public final class MessagePackEncoder: AbstractEncoder, MessagePackCoder
-{
+public final class MessagePackEncoder: AbstractEncoder, MessagePackCoder {
+
 // MARK: - Construction
 
     /// TODO
     public init(
-            forWritingInto data: NSMutableData? = nil,
-            failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn,
-            sortDictionaryKeys: Bool = false
+        forWritingInto data: NSMutableData? = nil,
+        failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn,
+        sortDictionaryKeys: Bool = false
     ) {
         // Init instance
         self.sortDictionaryKeys = sortDictionaryKeys
@@ -63,8 +63,8 @@ public final class MessagePackEncoder: AbstractEncoder, MessagePackCoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension MessagePackEncoder
-{
+extension MessagePackEncoder {
+
 // MARK: - Private Methods
 
     private func _encodeValue(ofObjCType typep: UnsafePointer<Int8>, at addr: UnsafeRawPointer) {
@@ -106,8 +106,8 @@ extension MessagePackEncoder
 
         do {
             // Encode serializable object
-            let mdata = try MPMessagePackWriter.write(
-                    object, options: self.sortDictionaryKeys ? .sortDictionaryKeys : [])
+            let mdata = try MPMessagePackWriter
+                .write(object, options: self.sortDictionaryKeys ? .sortDictionaryKeys : [])
 
             // Increment archive index
             self.archiveIndex += 1
@@ -118,7 +118,8 @@ extension MessagePackEncoder
             _encode(mdata as Data)
         }
         catch let error as NSError {
-            InvalidArgumentException(reason: error.localizedDescription, userInfo: [UserInfoKeys.NSErrorKey: error]).raise()
+            let message = error.localizedDescription
+            InvalidArgumentException(reason: message, userInfo: [UserInfoKeys.NSErrorKey: error]).raise()
         }
     }
 }
@@ -127,11 +128,11 @@ extension MessagePackEncoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension MessagePackEncoder
-{
+extension MessagePackEncoder {
+
 // MARK: - Private Methods
 
-    private func _encodeWithErrorHandling(action: @escaping () -> Void) throws -> Void {
+    private func _encodeWithErrorHandling(action: @escaping () -> Void) throws {
         try _executeWithErrorHandling {
             self._writeArchiveHeader()
             action()
@@ -149,5 +150,3 @@ extension MessagePackEncoder
         }
     }
 }
-
-// ----------------------------------------------------------------------------

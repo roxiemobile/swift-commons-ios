@@ -10,6 +10,7 @@
 
 import SwiftCommonsAbstractions
 import SwiftCommonsConcurrent
+import SwiftCommonsData
 import SwiftCommonsDiagnostics
 import SwiftCommonsExtensions
 import SwiftCommonsLang

@@ -11,6 +11,9 @@
       location = "group:Sources/Extensions">
    </FileRef>
    <FileRef
+      location = "group:Sources/Data">
+   </FileRef>
+   <FileRef
       location = "group:Sources/Diagnostics">
    </FileRef>
    <FileRef

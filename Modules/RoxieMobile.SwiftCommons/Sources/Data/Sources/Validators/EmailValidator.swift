@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ import SwiftCommonsLang
 // ----------------------------------------------------------------------------
 
 /// Validates that a given character sequence (e.g. string) is a well-formed email address.
-public final class EmailValidator: NonCreatable, StaticValidator
-{
+public final class EmailValidator: NonCreatable, StaticValidator {
+
 // MARK: - Methods
 
     /// Validates that a given value is a well-formed email address.
@@ -40,28 +40,30 @@ public final class EmailValidator: NonCreatable, StaticValidator
 
 // MARK: - Constants
 
-    private struct Inner
-    {
-        // Commonly used regular expression patterns
-        // @link http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/5.1.1_r1/android/util/Patterns.java#Patterns.0EMAIL_ADDRESS
+    private struct Inner {
 
-        struct Pattern
-        {
+        // Patterns - Android Developers
+        // @link https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/java/android/util/Patterns.java#435
+        // swiftlint:disable:previous line_length
+
+        struct Pattern {
+
             /// Regular expression strings for Emails.
-            // @formatter:off
             static let EmailAddress = ""
+                // @formatter:off
                 + "^"
                     + "[a-zA-Z0-9_\\.\\%\\-\\+]{1,256}"
                     + "\\@"
                     + "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
-                    + "(\\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})*"
+                    + "("
+                        + "\\."
+                        + "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
+                    + ")*"
                 + "$"
-            // @formatter:on
+                // @formatter:on
         }
 
         /// RegexValidator for matching Emails.
         static let Validator = RegexValidator(pattern: Pattern.EmailAddress)
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -19,8 +19,9 @@ import SwiftCommonsObjC
 // ----------------------------------------------------------------------------
 
 /// The abstract base class for data models.
-open class ValidatableModel: SerializableObject, SerializableMappable, Hashable, Validatable, PostValidatable, NSCopying
-{
+open class ValidatableModel: SerializableObject,
+    SerializableMappable, Hashable, Validatable, PostValidatable, NSCopying {
+
 // MARK: - Construction
 
     /// Initializes a new instance of the model from data in a given unarchiver.
@@ -92,13 +93,14 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
         }
         else if let data = decoder.decodeData(),
                 let JSON = MessagePackDecoder(forReadingFrom: data).decodeObject() as? JsonObject {
+
             objcTry {
 
                 // Map object
                 self.mapping(map: Map(mappingType: .fromJSON, JSON: JSON, toObject: true))
                 result = true
 
-            }.objcCatch { e in
+            }.objcCatch { _ in
                 // Do nothing
             }
         }
@@ -148,9 +150,8 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
                         roxie_objectMapper_raiseException(message: logMessage)
                     }
                 }
-
-            }.objcCatch { e in
-                exception = e
+            }.objcCatch { ex in
+                exception = ex
             }
 
             // Re-throw catched exception
@@ -192,14 +193,14 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
     /// - Returns:
     ///   A newly calculated model's hash value.
     ///
-    public final func rehash() -> Int
-    {
+    public final func rehash() -> Int {
+
         // Encode serializable object
         let mpe = MessagePackEncoder(failurePolicy: .raiseException, sortDictionaryKeys: true)
         mpe.encode(Mapper().toJSON(self))
 
         // Writing a good Hashable implementation in Swift
-        // @link http://stackoverflow.com/a/24240011
+        // @link https://stackoverflow.com/a/24240011
 
         let className = Reflection(of: self).type.fullName
         self.hash = (31 &* className.hashValue) &+ mpe.encodedData.hashValue
@@ -291,9 +292,8 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
 
             // Clone object
             object = try? typeOfT.init(from: Mapper().toJSON(self))
-
-        }.objcCatch { e in
-            exception = e
+        }.objcCatch { ex in
+            exception = ex
         }
 
         // Check result of the cloning
@@ -317,8 +317,8 @@ open class ValidatableModel: SerializableObject, SerializableMappable, Hashable,
 // MARK: - @protocol Equatable
 // ----------------------------------------------------------------------------
 
-public func == (lhs: ValidatableModel, rhs: ValidatableModel) -> Bool
-{
+public func == (lhs: ValidatableModel, rhs: ValidatableModel) -> Bool {
+
     if (lhs === rhs) {
         return true
     }
@@ -329,5 +329,3 @@ public func == (lhs: ValidatableModel, rhs: ValidatableModel) -> Bool
         return (lhs.hashValue == rhs.hashValue)
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ import SwiftCommonsAbstractions
 // ----------------------------------------------------------------------------
 
 /// The abstract base class for all types that can be serialized with the NSCoder.
-open class SerializableObject: Serializable, NSCoding
-{
+open class SerializableObject: Serializable, NSCoding {
+
 // MARK: - Construction
 
     /// Initializes a new instance of the class from data in a given unarchiver.
@@ -88,8 +88,8 @@ open class SerializableObject: Serializable, NSCoding
 // MARK: - @interface NSObject
 // ----------------------------------------------------------------------------
 
-extension SerializableObject
-{
+extension SerializableObject {
+
 // MARK: - Methods: Archiving
 
     /// Overridden by subclasses to substitute a class other than its own during coding.
@@ -133,7 +133,7 @@ extension SerializableObject
     /// Returns the version number assigned to the class.
     @objc
     public class func version() -> Int {
-        return self.serialVersionUID
+        return _serialVersionUID
     }
 
     /// Sets the receiver's version number.
@@ -143,7 +143,7 @@ extension SerializableObject
     ///
     @objc
     public class func setVersion(version: Int) {
-        self.serialVersionUID = version
+        _serialVersionUID = version
     }
 
 // --
@@ -196,7 +196,5 @@ extension SerializableObject
 
 // MARK: - Variables
 
-    private static var serialVersionUID: Int = classVersion
+    private static var _serialVersionUID: Int = classVersion
 }
-
-// ----------------------------------------------------------------------------

@@ -29,6 +29,10 @@ let package = Package(
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Concurrent"
         ),
         .package(
+            name: "SwiftCommons.Data",
+            path: "Modules/RoxieMobile.SwiftCommons/Sources/Data"
+        ),
+        .package(
             name: "SwiftCommons.Diagnostics",
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Diagnostics"
         ),
@@ -55,6 +59,7 @@ let package = Package(
             dependencies: [
                 .product(name: "SwiftCommonsAbstractions", package: "SwiftCommons.Abstractions"),
                 .product(name: "SwiftCommonsConcurrent", package: "SwiftCommons.Concurrent"),
+                .product(name: "SwiftCommonsData", package: "SwiftCommons.Data"),
                 .product(name: "SwiftCommonsDiagnostics", package: "SwiftCommons.Diagnostics"),
                 .product(name: "SwiftCommonsExtensions", package: "SwiftCommons.Extensions"),
                 .product(name: "SwiftCommonsLang", package: "SwiftCommons.Lang"),

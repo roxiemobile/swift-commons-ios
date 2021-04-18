@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-public protocol SerializableMappable: BaseMappable
-{
+public protocol SerializableMappable: BaseMappable {
+
 // MARK: - Construction
 
     /// Initializes an object from data in a given unarchiver.
@@ -30,8 +30,8 @@ public protocol SerializableMappable: BaseMappable
 // MARK: -
 // ----------------------------------------------------------------------------
 
-internal class ValidatableHelper: NonCreatable
-{
+internal class ValidatableHelper: NonCreatable {
+
 // MARK: - Methods
 
     /// Converts a JSON string into a dictionary using `NSJSONSerialization`.
@@ -42,8 +42,8 @@ internal class ValidatableHelper: NonCreatable
         // Convert string to Foundation object
         if let data = JSONString.data(using: String.Encoding.utf8, allowLossyConversion: true) {
             do {
-                jsonObject = try JSONSerialization.jsonObject(
-                        with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+                jsonObject = try JSONSerialization
+                    .jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
             }
             catch let e {
                 cause = e
@@ -95,8 +95,8 @@ internal class ValidatableHelper: NonCreatable
 // MARK: -
 // ----------------------------------------------------------------------------
 
-public extension SerializableMappable
-{
+public extension SerializableMappable {
+
 // MARK: - Methods
 
     /// Initializes object from a JSON string.
@@ -112,8 +112,8 @@ public extension SerializableMappable
         var exception: NSException?
         objcTry {
             object = Mapper(context: context).map(JSON: JSON)
-        }.objcCatch { e in
-            exception = e
+        }.objcCatch { ex in
+            exception = ex
         }
 
         // Throw error if mapping was failed
@@ -130,5 +130,3 @@ public extension SerializableMappable
         }
     }
 }
-
-// ----------------------------------------------------------------------------

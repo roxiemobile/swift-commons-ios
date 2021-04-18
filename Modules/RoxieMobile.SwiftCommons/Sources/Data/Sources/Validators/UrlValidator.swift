@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2016, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -15,8 +15,8 @@ import SwiftCommonsLang
 // ----------------------------------------------------------------------------
 
 /// Validates that a given object is a valid URL address.
-public final class UrlValidator: NonCreatable, StaticValidator
-{
+public final class UrlValidator: NonCreatable, StaticValidator {
+
 // MARK: - Methods
 
     /// Validates that a given object is a valid URL address.
@@ -31,8 +31,8 @@ public final class UrlValidator: NonCreatable, StaticValidator
         var result = false
 
         // Validate incoming value
-        if let validator = Inner.Validator
-        {
+        if let validator = Inner.Validator {
+
             if let value = object as? String {
                 result = validator.isValid(value)
             }
@@ -47,19 +47,19 @@ public final class UrlValidator: NonCreatable, StaticValidator
 
 // MARK: - Constants
 
-    private struct Inner
-    {
+    private struct Inner {
+
         // Regular Expression for URL validation
         // @link https://gist.github.com/dperini/729294
 
         // In search of the perfect URL validation regex
         // @link https://mathiasbynens.be/demo/url-regex
 
-        struct Pattern
-        {
+        struct Pattern {
+
             /// Regular expression strings for URLs.
-            // @formatter:off
             static let WebUrl = ""
+                // @formatter:off
                 + "^"
                     // Protocol identifier
                     + "(?:(?:https?|ftp)://)"
@@ -74,7 +74,7 @@ public final class UrlValidator: NonCreatable, StaticValidator
                         // IP address dotted notation octets
                         // excludes loopback network 0.0.0.0
                         // excludes reserved space >= 224.0.0.0
-                        // excludes network & broacast addresses (first & last IP address of each class)
+                        // excludes network & broadcast addresses (first & last IP address of each class)
                         + "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])"
                         + "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}"
                         + "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))"
@@ -91,12 +91,10 @@ public final class UrlValidator: NonCreatable, StaticValidator
                     // Resource path
                     + "(?:/\\S*)?"
                 + "$"
-            // @formatter:on
+                // @formatter:on
         }
 
         /// RegexValidator for matching URLs.
         static let Validator = RegexValidator(pattern: Pattern.WebUrl)
     }
 }
-
-// ----------------------------------------------------------------------------
