@@ -4,7 +4,7 @@
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@
 import XCTest
 
 // ----------------------------------------------------------------------------
-//  MARK: - Set of RawRepresentable types
+// MARK: - Set of RawRepresentable types
 // ----------------------------------------------------------------------------
 
 extension EnumOperatorsTests {
@@ -92,7 +92,7 @@ extension EnumOperatorsTests {
 }
 
 // ----------------------------------------------------------------------------
-//  MARK: - Optional array of RawRepresentable types
+// MARK: - Optional array of RawRepresentable types
 // ----------------------------------------------------------------------------
 
 extension EnumOperatorsTests {
@@ -180,7 +180,7 @@ extension EnumOperatorsTests {
 }
 
 // ----------------------------------------------------------------------------
-//  MARK: - Implicitly unwrapped optional array of RawRepresentable types
+// MARK: - Implicitly unwrapped optional array of RawRepresentable types
 // ----------------------------------------------------------------------------
 
 extension EnumOperatorsTests {

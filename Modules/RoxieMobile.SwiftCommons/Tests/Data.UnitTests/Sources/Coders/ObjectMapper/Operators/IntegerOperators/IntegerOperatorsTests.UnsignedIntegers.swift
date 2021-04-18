@@ -4,8 +4,10 @@
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
+// ----------------------------------------------------------------------------
+// swiftlint:disable file_length
 // ----------------------------------------------------------------------------
 
 @testable import SwiftCommonsData
@@ -20,6 +22,7 @@ extension IntegerOperatorsTests {
 // MARK: - Tests
 
     func testUnsignedIntegers_fromJSON() {
+        // swiftlint:disable:previous function_body_length
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.unsignedIntegerValues)
 
@@ -197,6 +200,7 @@ extension IntegerOperatorsTests {
 // MARK: - Tests
 
     func testOptionalUnsignedIntegers_fromJSON() {
+        // swiftlint:disable:previous function_body_length
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.unsignedIntegerValues)
 
@@ -395,6 +399,7 @@ extension IntegerOperatorsTests {
 // MARK: - Tests
 
     func testImplicitlyUnwrappedOptionalUnsignedIntegers_fromJSON() {
+        // swiftlint:disable:previous function_body_length
 
         let map = Map(mappingType: .fromJSON, JSON: Constants.unsignedIntegerValues)
 

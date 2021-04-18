@@ -1,0 +1,16 @@
+parent_config: ../../.swiftlint_base.yml
+
+
+# MARK: - Rules
+
+disabled_rules:
+  - force_try
+
+identifier_name:
+  min_length:
+    error: 1
+    warning: 2
+  allowed_symbols: ['_']
+
+type_name:
+  allowed_symbols: ['_']

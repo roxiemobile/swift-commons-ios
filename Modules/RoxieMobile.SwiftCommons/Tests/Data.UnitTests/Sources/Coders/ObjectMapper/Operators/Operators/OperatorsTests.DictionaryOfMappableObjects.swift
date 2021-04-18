@@ -4,7 +4,7 @@
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ extension OperatorsTests {
             var dict = _dictionary
             dict <~ map[JsonKeys.dictionary]
             XCTAssertEqual(dict.count, 1)
-            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict = _dictionary
@@ -41,7 +41,7 @@ extension OperatorsTests {
             var dict = _dictionary
             dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
             XCTAssertEqual(dict.count, 1)
-            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict = _dictionary
@@ -104,7 +104,7 @@ extension OperatorsTests {
             var dict = _dictionary
             dict <~ map[JsonKeys.dictionary]
             XCTAssertEqual(dict?.count ?? -1, 1)
-            XCTAssertEqual(dict?[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict?[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict = _dictionary
@@ -120,7 +120,7 @@ extension OperatorsTests {
             var dict = _dictionary
             dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
             XCTAssertEqual(dict?.count ?? -1, 1)
-            XCTAssertEqual(dict?[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict?[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict = _dictionary
@@ -186,7 +186,7 @@ extension OperatorsTests {
             var dict: [String: Vector3DModel]! = _dictionary
             dict <~ map[JsonKeys.dictionary]
             XCTAssertEqual(dict.count, 1)
-            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict: [String: Vector3DModel]! = _dictionary
@@ -202,7 +202,7 @@ extension OperatorsTests {
             var dict: [String: Vector3DModel]! = _dictionary
             dict <~ map[JsonKeys.noSuchKey, default: [JsonKeys.object: Constants.dictionaryOfInt8]]
             XCTAssertEqual(dict.count, 1)
-            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict: [String: Vector3DModel]! = _dictionary

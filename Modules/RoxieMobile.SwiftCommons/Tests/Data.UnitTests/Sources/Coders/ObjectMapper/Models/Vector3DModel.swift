@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -24,11 +24,9 @@ class Vector3DModel: ValidatableModel {
 
 // MARK: - Properties
 
-    private(set) var x = 0
-
-    private(set) var y: Int? = 0
-
-    private(set) var z: Int! = 0
+    private(set) var dx = 0
+    private(set) var dy: Int? = 0
+    private(set) var dz: Int! = 0
 
 // MARK: - Methods
 
@@ -36,8 +34,8 @@ class Vector3DModel: ValidatableModel {
         super.map(with: map)
 
         // (De)serialize to/from json
-        self.x <~ (map[JsonKeys.x], StringToIntegerTransform.shared)
-        self.y <~ (map[JsonKeys.y], StringToIntegerTransform.shared)
-        self.z <~ (map[JsonKeys.z], StringToIntegerTransform.shared)
+        self.dx <~ (map[JsonKeys.dx], StringToIntegerTransform.shared)
+        self.dy <~ (map[JsonKeys.dy], StringToIntegerTransform.shared)
+        self.dz <~ (map[JsonKeys.dz], StringToIntegerTransform.shared)
     }
 }

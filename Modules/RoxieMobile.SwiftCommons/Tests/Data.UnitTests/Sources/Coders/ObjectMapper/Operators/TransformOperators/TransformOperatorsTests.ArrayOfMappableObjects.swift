@@ -4,7 +4,7 @@
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ extension TransformOperatorsTests {
             var arr = _array
             arr <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(arr.count, 1)
-            XCTAssertEqual(arr[0].x, Int(Int8.max))
+            XCTAssertEqual(arr[0].dx, Int(Int8.max))
         }
         assertNoThrow {
             var arr = _array
@@ -41,7 +41,7 @@ extension TransformOperatorsTests {
             var arr = _array
             arr <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, [Vector3DModel.shared])
             XCTAssertEqual(arr.count, 1)
-            XCTAssertEqual(arr[0].x, Int(Int16.max))
+            XCTAssertEqual(arr[0].dx, Int(Int16.max))
         }
         assertNoThrow {
             var arr = _array
@@ -108,7 +108,7 @@ extension TransformOperatorsTests {
             var arr = _array
             arr <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(arr?.count ?? -1, 1)
-            XCTAssertEqual(arr?[0].x, Int(Int8.max))
+            XCTAssertEqual(arr?[0].dx, Int(Int8.max))
         }
         assertNoThrow {
             var arr = _array
@@ -124,7 +124,7 @@ extension TransformOperatorsTests {
             var arr = _array
             arr <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, [Vector3DModel.shared])
             XCTAssertEqual(arr?.count ?? -1, 1)
-            XCTAssertEqual(arr?[0].x, Int(Int16.max))
+            XCTAssertEqual(arr?[0].dx, Int(Int16.max))
         }
         assertNoThrow {
             var arr = _array
@@ -194,7 +194,7 @@ extension TransformOperatorsTests {
             var arr: [Vector3DModel]! = _array
             arr <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(arr.count, 1)
-            XCTAssertEqual(arr[0].x, Int(Int8.max))
+            XCTAssertEqual(arr[0].dx, Int(Int8.max))
         }
         assertNoThrow {
             var arr: [Vector3DModel]! = _array
@@ -210,7 +210,7 @@ extension TransformOperatorsTests {
             var arr: [Vector3DModel]! = _array
             arr <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, [Vector3DModel.shared])
             XCTAssertEqual(arr.count, 1)
-            XCTAssertEqual(arr[0].x, Int(Int16.max))
+            XCTAssertEqual(arr[0].dx, Int(Int16.max))
         }
         assertNoThrow {
             var arr: [Vector3DModel]! = _array

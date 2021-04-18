@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -79,9 +79,9 @@ final class JsonKeys: NonCreatable {
 
 // MARK: - Vector3D models
 
-    static let x = "x"
-    static let y = "y"
-    static let z = "z"
+    static let dx = "x"
+    static let dy = "y"
+    static let dz = "z"
 
 // MARK: - Other keys
 
