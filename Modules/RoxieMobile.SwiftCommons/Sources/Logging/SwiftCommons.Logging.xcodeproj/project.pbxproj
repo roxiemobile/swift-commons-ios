@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,7 +35,6 @@
 		19C9FDBF1FCCADCD0069F3D1 /* LogcatLogger.Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1925929A1F8661530012B12C /* LogcatLogger.Error.swift */; };
 		19C9FDC01FCCADCD0069F3D1 /* LoggerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7691F8651890030F1D8 /* LoggerContract.swift */; };
 		19C9FDC11FCCADCD0069F3D1 /* SwiftCommonsLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19C9FDC31FCCAE0D0069F3D1 /* SwiftCommonsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FDC21FCCAE0D0069F3D1 /* SwiftCommonsLogging.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +69,6 @@
 		19C9FD931FCCAD3A0069F3D1 /* SwiftCommonsLogging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCommonsLogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsLogging.h; sourceTree = "<group>"; };
 		19C9FD961FCCAD3A0069F3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19C9FDC21FCCAE0D0069F3D1 /* SwiftCommonsLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsLogging.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */,
-				19C9FDC21FCCAE0D0069F3D1 /* SwiftCommonsLogging.m */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -243,7 +240,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Roxie Mobile Ltd.";
 				TargetAttributes = {
 					19C9FD921FCCAD3A0069F3D1 = {
@@ -253,7 +250,7 @@
 				};
 			};
 			buildConfigurationList = 19C0171F1F72CC3A00D29F73 /* Build configuration list for PBXProject "SwiftCommons.Logging" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -291,7 +288,6 @@
 				19C9FDBC1FCCADCD0069F3D1 /* LogcatLogger.Debug.swift in Sources */,
 				19C9FDBF1FCCADCD0069F3D1 /* LogcatLogger.Error.swift in Sources */,
 				19C9FDB81FCCADCD0069F3D1 /* ChainedLogger.Warning.swift in Sources */,
-				19C9FDC31FCCAE0D0069F3D1 /* SwiftCommonsLogging.m in Sources */,
 				19C9FDBA1FCCADCD0069F3D1 /* LogcatLogger.swift in Sources */,
 				19C9FDB21FCCADCD0069F3D1 /* Logger.Warning.swift in Sources */,
 				19C9FDB91FCCADCD0069F3D1 /* ChainedLogger.Error.swift in Sources */,
@@ -422,7 +418,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -440,7 +437,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configuration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -462,7 +463,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configuration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

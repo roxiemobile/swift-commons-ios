@@ -4,13 +4,13 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
 /// A logger which allows to chain multiple loggers together.
-public final class ChainedLogger: LoggerContract
-{
+public final class ChainedLogger: LoggerContract {
+
 // MARK: - Construction
 
     /// Initializes and returns a newly created logger object.
@@ -26,5 +26,3 @@ public final class ChainedLogger: LoggerContract
 
     internal let loggers: [LoggerContract]
 }
-
-// ----------------------------------------------------------------------------

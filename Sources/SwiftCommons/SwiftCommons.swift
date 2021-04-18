@@ -11,6 +11,7 @@
 import SwiftCommonsAbstractions
 import SwiftCommonsConcurrent
 import SwiftCommonsLang
+import SwiftCommonsLogging
 import SwiftCommonsObjC
 
 // ----------------------------------------------------------------------------

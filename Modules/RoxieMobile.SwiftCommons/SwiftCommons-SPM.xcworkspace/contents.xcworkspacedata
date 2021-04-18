@@ -11,6 +11,9 @@
       location = "group:Sources/Lang">
    </FileRef>
    <FileRef
+      location = "group:Sources/Logging">
+   </FileRef>
+   <FileRef
       location = "group:Sources/ObjC">
    </FileRef>
 </Workspace>

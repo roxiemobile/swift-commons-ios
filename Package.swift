@@ -33,6 +33,10 @@ let package = Package(
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Lang"
         ),
         .package(
+            name: "SwiftCommons.Logging",
+            path: "Modules/RoxieMobile.SwiftCommons/Sources/Logging"
+        ),
+        .package(
             name: "SwiftCommons.ObjC",
             path: "Modules/RoxieMobile.SwiftCommons/Sources/ObjC"
         ),
@@ -44,6 +48,7 @@ let package = Package(
                 .product(name: "SwiftCommonsAbstractions", package: "SwiftCommons.Abstractions"),
                 .product(name: "SwiftCommonsConcurrent", package: "SwiftCommons.Concurrent"),
                 .product(name: "SwiftCommonsLang", package: "SwiftCommons.Lang"),
+                .product(name: "SwiftCommonsLogging", package: "SwiftCommons.Logging"),
                 .product(name: "SwiftCommonsObjC", package: "SwiftCommons.ObjC"),
             ]
         ),

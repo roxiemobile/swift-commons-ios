@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ import Foundation
 // ----------------------------------------------------------------------------
 
 /// Represents a type used to perform logging.
-public protocol LoggerContract
-{
+public protocol LoggerContract {
+
 // MARK: - Methods: Verbose
 
     func v(_ tag: String, _ message: String, file: StaticString, line: UInt)
@@ -76,5 +76,3 @@ public protocol LoggerContract
     func e(_ tag: String, _ exception: NSException, file: StaticString, line: UInt)
     func e(_ type: Any.Type, _ exception: NSException, file: StaticString, line: UInt)
 }
-
-// ----------------------------------------------------------------------------
