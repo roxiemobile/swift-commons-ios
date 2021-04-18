@@ -4,23 +4,24 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
+import Foundation
 import SwiftCommonsLang
 import SwiftCommonsLogging
 
 // ----------------------------------------------------------------------------
 
-public final class TypedStreamEncoder: AbstractEncoder, TypedStreamCoder
-{
+public final class TypedStreamEncoder: AbstractEncoder, TypedStreamCoder {
+
 // MARK: - Construction
 
     /// TODO
     public override init(
-            forWritingInto data: NSMutableData? = nil,
-            failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn
+        forWritingInto data: NSMutableData? = nil,
+        failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Parent processing
         super.init(forWritingInto: data, failurePolicy: policy)
@@ -92,11 +93,12 @@ public final class TypedStreamEncoder: AbstractEncoder, TypedStreamCoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension TypedStreamEncoder
-{
+extension TypedStreamEncoder {
+
 // MARK: - Private Methods
 
     private func _encodeValue(ofObjCType typep: UnsafePointer<Int8>, at addr: UnsafeRawPointer) {
+        // swiftlint:disable:previous cyclomatic_complexity function_body_length
 
         let type = ObjCType(typep.pointee)
         switch (type) {
@@ -225,8 +227,8 @@ extension TypedStreamEncoder
                 codableObject.encode(with: self)
             }
             else {
-                InvalidArgumentException.raise(
-                        reason: "Passed object can not be encoded, because it did not adopts ‘NSCoding’ protocol.")
+                let message = "Passed object can not be encoded, because it did not adopts `NSCoding` protocol."
+                InvalidArgumentException.raise(reason: message)
             }
         }
     }
@@ -274,11 +276,11 @@ extension TypedStreamEncoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension TypedStreamEncoder
-{
+extension TypedStreamEncoder {
+
 // MARK: - Private Methods
 
-    private func _encodeWithErrorHandling(action: @escaping () -> Void) throws -> Void {
+    private func _encodeWithErrorHandling(action: @escaping () -> Void) throws {
         try _executeWithErrorHandling {
             self._writeArchiveHeader()
             action()
@@ -297,7 +299,7 @@ extension TypedStreamEncoder
     }
 
     private func _isCollectable(_ object: AnyObject) -> Bool {
-        switch object {
+        switch (object) {
 
             case is NSString, is NSNumber, is NSNull, is NSValue, is NSData:
                 return true
@@ -312,5 +314,3 @@ extension TypedStreamEncoder
         }
     }
 }
-
-// ----------------------------------------------------------------------------

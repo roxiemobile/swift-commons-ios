@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,16 +13,21 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class ReflectionTests: XCTestCase
-{
+class ReflectionTests: XCTestCase {
+
 // MARK: - Tests
 
-    func testFatalErrorException() {
+    func testReflectionOfType() {
         let type = Reflection(of: FatalErrorException.self).type
 
         XCTAssertEqual(type.fullName, "SwiftCommonsLang.FatalErrorException")
         XCTAssertEqual(type.name, "FatalErrorException")
     }
-}
 
-// ----------------------------------------------------------------------------
+    func testReflectionOfObject() {
+        let type = Reflection(of: FatalErrorException(reason: "")).type
+
+        XCTAssertEqual(type.fullName, "SwiftCommonsLang.FatalErrorException")
+        XCTAssertEqual(type.name, "FatalErrorException")
+    }
+}

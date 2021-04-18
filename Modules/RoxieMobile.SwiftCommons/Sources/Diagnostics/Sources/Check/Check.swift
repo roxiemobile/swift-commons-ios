@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ import SwiftCommonsLang
 
 /// A set of methods useful for validating objects states. Only failed checks are throws errors.
 /// These methods can be used directly: `Check.isTrue(...)`.
-public final class Check: NonCreatable
-{
+public final class Check: NonCreatable {
+
 // MARK: - Internal Methods
 
     /// Initializes a new instance of the `CheckError` class with a specified error message.
@@ -28,7 +28,12 @@ public final class Check: NonCreatable
     /// - Returns:
     ///   A new instance of a CheckError.
     ///
-    internal static func newCheckError(_ message: @autoclosure () -> String = "", _ file: StaticString, _ line: UInt) -> CheckError {
+    internal static func newCheckError(
+        _ message: @autoclosure () -> String = "",
+        _ file: StaticString,
+        _ line: UInt
+    ) -> CheckError {
+
         return CheckError(message(), file: file, line: line)
     }
 
@@ -43,9 +48,7 @@ public final class Check: NonCreatable
     /// - Returns:
     ///   A boolean value indicating whether two objects are equal.
     ///
-    internal static func safeEqual<T:Equatable>(_ expected: T?, _ actual: T?) -> Bool {
+    internal static func safeEqual<T: Equatable>(_ expected: T?, _ actual: T?) -> Bool {
         return (expected == nil && actual == nil) || (expected != nil && actual != nil && expected == actual)
     }
 }
-
-// ----------------------------------------------------------------------------

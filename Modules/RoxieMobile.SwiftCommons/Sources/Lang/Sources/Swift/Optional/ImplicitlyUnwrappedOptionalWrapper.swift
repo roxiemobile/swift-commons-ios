@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -15,8 +15,8 @@
 
 // Code targeting the Swift 4.1 compiler and below.
 #if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
-public protocol ImplicitlyUnwrappedOptionalWrapper
-{
+public protocol ImplicitlyUnwrappedOptionalWrapper {
+
 // MARK: - Properties
 
     var wrappedType: Any.Type { get }
@@ -27,8 +27,8 @@ public protocol ImplicitlyUnwrappedOptionalWrapper
 
 // Code targeting the Swift 4.1 compiler and below.
 #if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
-extension ImplicitlyUnwrappedOptional: ImplicitlyUnwrappedOptionalWrapper
-{
+extension ImplicitlyUnwrappedOptional: ImplicitlyUnwrappedOptionalWrapper {
+
 // MARK: - Properties
 
     /// Checks if an object is `nil`.
@@ -42,5 +42,3 @@ extension ImplicitlyUnwrappedOptional: ImplicitlyUnwrappedOptionalWrapper
     }
 }
 #endif
-
-// ----------------------------------------------------------------------------

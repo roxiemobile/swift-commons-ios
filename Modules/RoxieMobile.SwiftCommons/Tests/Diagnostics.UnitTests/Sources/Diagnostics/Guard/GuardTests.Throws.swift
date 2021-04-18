@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension GuardTests
-{
+extension GuardTests {
+
 // MARK: - Tests
 
     func testThrows() {
@@ -38,8 +38,11 @@ extension GuardTests
 
 // MARK: - Inner Types
 
-    private class BaseError: Error {}
-    private class InheritedError: BaseError {}
-}
+    private class BaseError: Error {
+        // Do nothing
+    }
 
-// ----------------------------------------------------------------------------
+    private class InheritedError: BaseError {
+        // Do nothing
+    }
+}

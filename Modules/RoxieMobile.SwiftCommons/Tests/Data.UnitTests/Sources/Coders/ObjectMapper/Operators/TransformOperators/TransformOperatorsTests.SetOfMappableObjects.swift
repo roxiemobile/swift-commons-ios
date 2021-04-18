@@ -4,7 +4,7 @@
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ extension TransformOperatorsTests {
             var set = _set
             set <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(set.count, 1)
-            XCTAssertEqual(set.first?.x, Int(Int8.max))
+            XCTAssertEqual(set.first?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var set = _set
@@ -41,7 +41,7 @@ extension TransformOperatorsTests {
             var set = _set
             set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Set([Vector3DModel.shared]))
             XCTAssertEqual(set.count, 1)
-            XCTAssertEqual(set.first?.x, Int(Int16.max))
+            XCTAssertEqual(set.first?.dx, Int(Int16.max))
         }
         assertNoThrow {
             var set = _set
@@ -108,7 +108,7 @@ extension TransformOperatorsTests {
             var set = _set
             set <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(set?.count ?? -1, 1)
-            XCTAssertEqual(set?.first?.x, Int(Int8.max))
+            XCTAssertEqual(set?.first?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var set = _set
@@ -124,7 +124,7 @@ extension TransformOperatorsTests {
             var set = _set
             set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Set([Vector3DModel.shared]))
             XCTAssertEqual(set?.count ?? -1, 1)
-            XCTAssertEqual(set?.first?.x, Int(Int16.max))
+            XCTAssertEqual(set?.first?.dx, Int(Int16.max))
         }
         assertNoThrow {
             var set = _set
@@ -194,7 +194,7 @@ extension TransformOperatorsTests {
             var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.array], Vector3DTransform.shared)
             XCTAssertEqual(set.count, 1)
-            XCTAssertEqual(set.first?.x, Int(Int8.max))
+            XCTAssertEqual(set.first?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var set: Set<Vector3DModel>! = _set
@@ -210,7 +210,7 @@ extension TransformOperatorsTests {
             var set: Set<Vector3DModel>! = _set
             set <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Set([Vector3DModel.shared]))
             XCTAssertEqual(set.count, 1)
-            XCTAssertEqual(set.first?.x, Int(Int16.max))
+            XCTAssertEqual(set.first?.dx, Int(Int16.max))
         }
         assertNoThrow {
             var set: Set<Vector3DModel>! = _set

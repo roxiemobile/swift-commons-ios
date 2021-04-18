@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public extension Collection
-{
+public extension Collection {
+
 // MARK: - Properties
 
     /// Checks if collection has elements.
@@ -20,8 +20,8 @@ public extension Collection
 
 // ----------------------------------------------------------------------------
 
-public extension Optional where Wrapped: Collection
-{
+public extension Optional where Wrapped: Collection {
+
 // MARK: - Properties
 
     /// Checks if collection has no elements or nil.
@@ -34,5 +34,3 @@ public extension Optional where Wrapped: Collection
         return !isEmpty
     }
 }
-
-// ----------------------------------------------------------------------------

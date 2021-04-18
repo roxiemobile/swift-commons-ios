@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
+
 // MARK: - Methods
 
     /// Verifies that the exact error or a derived error type is thrown.
@@ -24,19 +24,22 @@ extension Guard
     /// - Throws:
     ///   GuardException
     ///
-    public static func throwsAny<T:Error>(
-            _ action: () throws -> Void,
-            _ errorType: T.Type,
-            _ message: @autoclosure () -> String = "",
-            file: StaticString = #file,
-            line: UInt = #line
+    public static func throwsAny<T: Error>(
+        _ action: () throws -> Void,
+        _ errorType: T.Type,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
     ) {
 
         if let error = tryIsFailure(try Check.throwsAny(action, errorType)) {
             let text = message()
-            newGuardException(text.isBlank ? ((error as? CheckError)?.message) ?? text : text, error, file, line).raise()
+
+            let errorMessage = text.isNotBlank
+                ? text
+                : ((error as? CheckError)?.message) ?? ""
+
+            newGuardException(errorMessage, error, file, line).raise()
         }
     }
 }
-
-// ----------------------------------------------------------------------------

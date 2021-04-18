@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
+
 // MARK: - Methods: String
 
     /// Checks that a string is `nil` or empty.
@@ -23,7 +23,13 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func empty(_ value: String?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
+    public static func empty(
+        _ value: String?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) throws {
+
         guard value.isEmpty else {
             throw newCheckError(message(), file, line)
         }
@@ -42,11 +48,15 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func empty<T:Collection>(_ collection: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
+    public static func empty<T: Collection>(
+        _ collection: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) throws {
+
         guard collection.isEmpty else {
             throw newCheckError(message(), file, line)
         }
     }
 }
-
-// ----------------------------------------------------------------------------

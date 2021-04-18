@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Date
-{
+public extension Date {
+
 // MARK: - Methods
 
     /// Returns the time interval between the receiver and another given date in seconds.
@@ -84,5 +84,3 @@ public extension Date
         return calendar.dateComponents(Set([.day]), from: self, to: date).day!
     }
 }
-
-// ----------------------------------------------------------------------------

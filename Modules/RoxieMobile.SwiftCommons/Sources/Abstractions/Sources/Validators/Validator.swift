@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public protocol Validator
-{
+public protocol Validator {
+
 // MARK: - Methods
 
     /// Validates the current state of the object.
@@ -22,5 +22,3 @@ public protocol Validator
     ///
     func isValid(_ value: Any?) -> Bool
 }
-
-// ----------------------------------------------------------------------------

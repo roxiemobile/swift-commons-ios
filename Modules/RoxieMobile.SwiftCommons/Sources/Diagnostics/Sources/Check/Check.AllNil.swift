@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
+
 // MARK: - Methods
 
     /// Checks that all an objects in collection is `nil`.
@@ -23,10 +23,12 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNil<T:Collection, V>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) throws where T.Element == Optional<V> {
-        // objects: Collection<Any?>?
+    public static func allNil<T: Collection, V>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) throws where T.Element == V? {
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ $0 == nil }) else {
@@ -35,5 +37,3 @@ extension Check
         }
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
+
 // MARK: - Properties
 
     /// Checks if a String is empty ("") or whitespace only.
@@ -25,8 +25,8 @@ public extension String
 
 // ----------------------------------------------------------------------------
 
-public extension Optional where Wrapped == String
-{
+public extension Optional where Wrapped == String {
+
 // MARK: - Properties
 
     /// Checks if a String is empty (""), nil or whitespace only.
@@ -39,5 +39,3 @@ public extension Optional where Wrapped == String
         return !self.isBlank
     }
 }
-
-// ----------------------------------------------------------------------------

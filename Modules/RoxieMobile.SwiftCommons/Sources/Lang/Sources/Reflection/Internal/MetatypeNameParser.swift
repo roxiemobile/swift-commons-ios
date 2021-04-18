@@ -4,16 +4,16 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-class MetatypeNameParser
-{
+class MetatypeNameParser {
+
 // MARK: - Methods
 
-    func reflect(_ type: Any.Type) -> ReflectedType
-    {
+    func reflect(_ type: Any.Type) -> ReflectedType {
+
         let root = split(fullName: String(reflecting: type), maxDepth: 1)
         var node = root
 
@@ -38,21 +38,21 @@ class MetatypeNameParser
 
 // MARK: - Private Methods
 
-    private func split(fullName: String, maxDepth: UInt = UInt.max) -> MetatypeNode
-    {
+    private func split(fullName: String, maxDepth: UInt = UInt.max) -> MetatypeNode {
+
         var wrappedName = Substring(fullName)
         var names = [String]()
 
         // Split names of Types
-        for _ in 0..<maxDepth {
+        for _ in 0 ..< maxDepth {
             if let from = wrappedName.firstIndex(of: "<"), let upto = wrappedName.firstIndex(of: ">") {
 
                 // Extract name of wrapped type
                 names.append("\(wrappedName[...from])T\(wrappedName[upto...])")
-                wrappedName = wrappedName[wrappedName.index(after: from)..<upto]
+                wrappedName = wrappedName[wrappedName.index(after: from) ..< upto]
             }
             else {
-                break;
+                break
             }
         }
 
@@ -67,19 +67,19 @@ class MetatypeNameParser
     }
 
     private func isOptional(_ node: MetatypeNode) -> Bool {
-        return Inner.Prefixes.Optionals.contains { node.value.hasPrefix($0) }
+        return Prefix.Optionals.contains { node.value.hasPrefix($0) }
     }
 
     private func isImplicitlyUnwrappedOptional(_ node: MetatypeNode) -> Bool {
-        return Inner.Prefixes.ImplicitlyUnwrappedOptionals.contains { node.value.hasPrefix($0) }
+        return Prefix.ImplicitlyUnwrappedOptionals.contains { node.value.hasPrefix($0) }
     }
 
     private func isProtocol(_ node: MetatypeNode) -> Bool {
-        return Inner.Suffixes.Protocols.contains { node.value.hasSuffix($0) }
+        return Suffix.Protocols.contains { node.value.hasSuffix($0) }
     }
 
-    private func normalizeName(_ node: MetatypeNode) -> (simpleName: String, canonicalName: String)
-    {
+    private func normalizeName(_ node: MetatypeNode) -> (simpleName: String, canonicalName: String) {
+
         // Build canonical name of Type
         var canonicalName = ""
         Swift.sequence(first: node, next: { $0.child }).reversed().forEach {
@@ -115,8 +115,8 @@ class MetatypeNameParser
         return (String(canonicalName[startIndex...]), canonicalName)
     }
 
-    private func normalize(name: String) -> String
-    {
+    private func normalize(name: String) -> String {
+
 // FIXME: Delete!
 //        var components = "\(type)".split(separator: ".", omittingEmptySubsequences: false)
 //        if (components.first?.starts(with: "__lldb_expr_") ?? false) {
@@ -129,19 +129,20 @@ class MetatypeNameParser
 
 // MARK: - Constants
 
-    private struct Inner
-    {
-        struct Prefixes
-        {
-            static let ImplicitlyUnwrappedOptionals = ["Swift.ImplicitlyUnwrappedOptionals<", "ImplicitlyUnwrappedOptionals<"]
-            static let Optionals = ["Swift.Optional<", "Optional<"]
-        }
+    private struct Prefix {
 
-        struct Suffixes
-        {
-            static let Protocols = [".Protocol"]
-        }
+        static let ImplicitlyUnwrappedOptionals = [
+            "Swift.ImplicitlyUnwrappedOptionals<",
+            "ImplicitlyUnwrappedOptionals<",
+        ]
+
+        static let Optionals = [
+            "Swift.Optional<",
+            "Optional<",
+        ]
+    }
+
+    private struct Suffix {
+        static let Protocols = [".Protocol"]
     }
 }
-
-// ----------------------------------------------------------------------------

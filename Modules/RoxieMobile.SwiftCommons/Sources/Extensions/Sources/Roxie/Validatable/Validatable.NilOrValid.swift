@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import SwiftCommonsAbstractions
 
 // ----------------------------------------------------------------------------
 
-public extension Optional where Wrapped == Validatable
-{
+public extension Optional where Wrapped == Validatable {
+
 // MARK: - Properties
 
     /// Checks that an object is `nil` or valid.
@@ -34,5 +34,3 @@ public extension Optional where Wrapped == Validatable
         return (self == nil) || self!.isNotValid
     }
 }
-
-// ----------------------------------------------------------------------------

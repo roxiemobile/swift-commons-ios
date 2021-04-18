@@ -4,17 +4,15 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-class MetatypeNode
-{
+class MetatypeNode {
+
 // MARK: - Construction
 
-    init(value: String, child: MetatypeNode? = nil)
-    {
-        // Init instance
+    init(value: String, child: MetatypeNode? = nil) {
         self.value = value
         self.child = child
     }
@@ -25,5 +23,3 @@ class MetatypeNode
 
     let child: MetatypeNode?
 }
-
-// ----------------------------------------------------------------------------

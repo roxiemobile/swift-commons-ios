@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-open class RawRepresentableOption<T: Hashable & Hashable>: RawRepresentable
-{
+open class RawRepresentableOption<T: Hashable & Hashable>: RawRepresentable {
+
 // MARK: - Construction
 
     /// Creates a new instance with the specified raw value.
@@ -64,8 +64,8 @@ open class RawRepresentableOption<T: Hashable & Hashable>: RawRepresentable
 
 // ----------------------------------------------------------------------------
 
-extension RawRepresentableOption: Equatable
-{
+extension RawRepresentableOption: Equatable {
+
 // MARK: - Methods
 
     /// Returns a Boolean value indicating whether two instances wrap the same raw value.
@@ -76,14 +76,25 @@ extension RawRepresentableOption: Equatable
 
 // ----------------------------------------------------------------------------
 
-extension RawRepresentableOption: Hashable
-{
-// MARK: - Methods
+extension RawRepresentableOption: Hashable {
+
+// MARK: - Properties
 
     /// The hash value.
     public var hashValue: Int {
+        // swiftlint:disable:previous legacy_hashing
+
         return self.rawValue.hashValue
     }
-}
 
-// ----------------------------------------------------------------------------
+// MARK: - Methods
+
+    /// Hashes the essential components of this value by feeding them into the given hasher.
+    ///
+    /// - Parameters:
+    ///   - hasher: The hasher to use when combining the components of this instance.
+    ///
+    public func hash(into hasher: inout Hasher) {
+        self.rawValue.hash(into: &hasher)
+    }
+}

@@ -4,7 +4,7 @@
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -29,17 +29,17 @@ extension TransformOperatorsTests {
         assertNoThrow {
             var obj = _object
             obj <~ (map[JsonKeys.object], Vector3DTransform.shared)
-            XCTAssertEqual(obj.x, Int(Int8.max))
+            XCTAssertEqual(obj.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj = _object
             obj <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Vector3DModel.shared16)
-            XCTAssertEqual(obj.x, Int(Int16.max))
+            XCTAssertEqual(obj.dx, Int(Int16.max))
         }
         assertNoThrow {
             var obj = _object
             obj <~ (map[JsonKeys.nilObject], Vector3DTransform.shared, Vector3DModel.shared32)
-            XCTAssertEqual(obj.x, Int(Int32.max))
+            XCTAssertEqual(obj.dx, Int(Int32.max))
         }
 
         // Negative
@@ -76,6 +76,7 @@ extension TransformOperatorsTests {
         }
         assertNoThrow {
             var obj = _otherObject
+            // swiftlint:disable:next line_length
             obj <~ (map[JsonKeys.otherObject, default: Constants.invalidValue], Vector3DTransform.shared, Vector3DModel.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherObject).value)
         }
@@ -100,7 +101,7 @@ extension TransformOperatorsTests {
         assertNoThrow {
             var obj = _object
             obj <~ (map[JsonKeys.object], Vector3DTransform.shared)
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj = _object
@@ -111,12 +112,12 @@ extension TransformOperatorsTests {
             let defaultObject = map.fetch(valueFor: JsonKeys.object).value!
             var obj = _object
             obj <~ (map[JsonKeys.noSuchKey, default: defaultObject], Vector3DTransform.shared)
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj = _object
             obj <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Vector3DModel.shared16)
-            XCTAssertEqual(obj?.x, Int(Int16.max))
+            XCTAssertEqual(obj?.dx, Int(Int16.max))
         }
         assertNoThrow {
             var obj = _object
@@ -126,7 +127,7 @@ extension TransformOperatorsTests {
         assertNoThrow {
             var obj = _object
             obj <~ (map[JsonKeys.nilObject], Vector3DTransform.shared, Vector3DModel.shared32)
-            XCTAssertEqual(obj?.x, Int(Int32.max))
+            XCTAssertEqual(obj?.dx, Int(Int32.max))
         }
 
         // Negative
@@ -156,6 +157,7 @@ extension TransformOperatorsTests {
         }
         assertNoThrow {
             var obj = _otherObject
+            // swiftlint:disable:next line_length
             obj <~ (map[JsonKeys.otherObject, default: Constants.invalidValue], Vector3DTransform.shared, Vector3DModel.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherObject).value)
         }
@@ -185,7 +187,7 @@ extension TransformOperatorsTests {
         assertNoThrow {
             var obj: Vector3DModel! = _object
             obj <~ (map[JsonKeys.object], Vector3DTransform.shared)
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj: Vector3DModel! = _object
@@ -196,12 +198,12 @@ extension TransformOperatorsTests {
             let defaultObject = map.fetch(valueFor: JsonKeys.object).value!
             var obj: Vector3DModel! = _object
             obj <~ (map[JsonKeys.noSuchKey, default: defaultObject], Vector3DTransform.shared)
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj: Vector3DModel! = _object
             obj <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, Vector3DModel.shared16)
-            XCTAssertEqual(obj?.x, Int(Int16.max))
+            XCTAssertEqual(obj?.dx, Int(Int16.max))
         }
         assertNoThrow {
             var obj: Vector3DModel! = _object
@@ -211,7 +213,7 @@ extension TransformOperatorsTests {
         assertNoThrow {
             var obj: Vector3DModel! = _object
             obj <~ (map[JsonKeys.nilObject], Vector3DTransform.shared, Vector3DModel.shared32)
-            XCTAssertEqual(obj?.x, Int(Int32.max))
+            XCTAssertEqual(obj?.dx, Int(Int32.max))
         }
 
         // Negative
@@ -240,6 +242,7 @@ extension TransformOperatorsTests {
         }
         assertNoThrow {
             var obj: Vector3DModel! = _otherObject
+            // swiftlint:disable:next line_length
             obj <~ (map[JsonKeys.otherObject, default: Constants.invalidValue], Vector3DTransform.shared, Vector3DModel.shared)
             XCTAssertNotNil(map.fetch(valueFor: JsonKeys.otherObject).value)
         }

@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension CheckTests
-{
+extension CheckTests {
+
 // MARK: - Tests
 
     func testAllNotBlank_Array() {
@@ -116,5 +116,3 @@ extension CheckTests
         }
     }
 }
-
-// ----------------------------------------------------------------------------

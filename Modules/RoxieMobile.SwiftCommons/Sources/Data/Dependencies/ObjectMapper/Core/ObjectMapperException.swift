@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ import SwiftCommonsLogging
 
 // ----------------------------------------------------------------------------
 
-public final class ObjectMapperException: NSException
-{
+public final class ObjectMapperException: NSException {
+
 // MARK: - Construction
 
     /// Initializes and returns a newly created exception object.
@@ -46,13 +46,19 @@ public final class ObjectMapperException: NSException
 
 // ----------------------------------------------------------------------------
 
-internal func roxie_objectMapper_raiseException(message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
+internal func roxie_objectMapper_raiseException(
+    message: @autoclosure () -> String = "",
+    file: StaticString = #file,
+    line: UInt = #line
+) -> Never {
+
     let logMessage = "Fatal error: \(message())\nFile: \(file)\nLine: \(line)"
 
 #if DEBUG
     if Roxie.isRunningXCTest {
         ObjectMapperException(reason: logMessage, userInfo: nil).raise()
-    } else {
+    }
+    else {
         preconditionFailure(logMessage)
     }
 #else
@@ -65,10 +71,15 @@ internal func roxie_objectMapper_raiseException(message: @autoclosure () -> Stri
 
 // ----------------------------------------------------------------------------
 
-internal func roxie_objectMapper_assertionFailure(tag: String, message: @autoclosure () -> String, error: Error? = nil, file: StaticString = #file, line: UInt = #line) {
+internal func roxie_objectMapper_assertionFailure(
+    tag: String,
+    message: @autoclosure () -> String,
+    error: Error? = nil,
+    file: StaticString = #file,
+    line: UInt = #line
+) {
+
     let logMessage = "Assertion violated: \(message())\nFile: \(file)\nLine: \(line)"
     Logger.e(tag, logMessage, error)
     assertionFailure(logMessage)
 }
-
-// ----------------------------------------------------------------------------

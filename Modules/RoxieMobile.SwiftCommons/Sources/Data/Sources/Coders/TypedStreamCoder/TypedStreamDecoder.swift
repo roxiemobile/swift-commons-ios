@@ -4,23 +4,24 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
+import Foundation
 import SwiftCommonsConcurrent
 import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder
-{
+public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder {
+
 // MARK: - Construction
 
     /// TODO
     public override init(
-            forReadingFrom data: Data,
-            failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn
+        forReadingFrom data: Data,
+        failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Parent processing
         super.init(forReadingFrom: data, failurePolicy: policy)
@@ -62,7 +63,7 @@ public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder
     ///   The decoded object.
     ///
     public override func decodeObject() -> Any? {
-        var object: Any? = nil
+        var object: Any?
 
         try? _decodeWithErrorHandling { [weak self] in
             object = self?._decodeObject()
@@ -76,7 +77,7 @@ public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder
     ///   The decoded data.
     ///
     public override func decodeData() -> Data? {
-        var data: Data? = nil
+        var data: Data?
 
         try? _decodeWithErrorHandling { [weak self] in
             data = self?._decodeData()
@@ -92,8 +93,11 @@ public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder
     /// - Returns:
     ///   The reference to a buffer of decoded bytes.
     ///
-    public override func decodeBytes(withReturnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutableRawPointer? {
-        var bytes: UnsafeMutableRawPointer? = nil
+    public override func decodeBytes(
+        withReturnedLength lengthp: UnsafeMutablePointer<Int>
+    ) -> UnsafeMutableRawPointer? {
+
+        var bytes: UnsafeMutableRawPointer?
 
         try? _decodeWithErrorHandling { [weak self] in
             bytes = self?._decodeBytes(withReturnedLength: lengthp)
@@ -111,7 +115,7 @@ public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder
     ///   The version number of the class being decoded.
     ///
     public override func version(forClassName className: String) -> Int {
-        var version: Int? = nil
+        var version: Int?
 
         try? _decodeWithErrorHandling { [weak self] in
             version = self?._version(forClassName: className)
@@ -121,8 +125,7 @@ public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder
 
 // MARK: - Constants
 
-    private struct Inner
-    {
+    private struct Inner {
         static let UnknownEncoderVersion: UInt32 = 0
     }
 
@@ -137,11 +140,12 @@ public final class TypedStreamDecoder: AbstractDecoder, TypedStreamCoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension TypedStreamDecoder
-{
+extension TypedStreamDecoder {
+
 // MARK: - Private Methods
 
     private func _decodeValue(ofObjCType typep: UnsafePointer<Int8>, at addr: UnsafeMutableRawPointer) {
+        // swiftlint:disable:previous cyclomatic_complexity function_body_length
 
         var isReference = false
         let decodedType = _readType(isReference: &isReference)
@@ -236,7 +240,7 @@ extension TypedStreamDecoder
     }
 
     private func _decodeObject() -> Any? {
-        var object: AnyObject? = nil
+        var object: AnyObject?
 
         withUnsafeMutablePointer(to: &object) { (ptr: UnsafeMutablePointer<AnyObject?>) -> Void in
             var type = ObjCType.ID.rawValue
@@ -248,7 +252,7 @@ extension TypedStreamDecoder
     private func _decodeObject(_ isReference: Bool) -> Any? {
 
         let archiveIndex = _readUnsignedInteger()
-        var object: AnyObject? = nil
+        var object: AnyObject?
 
         // Nil object or unused conditional object
         guard (archiveIndex > 0) else {
@@ -258,24 +262,27 @@ extension TypedStreamDecoder
         if (isReference) {
             object = self.collectedObjects[archiveIndex]
             if (object == nil) {
-                InconsistentArchiveException.raise(reason: "Did not find referenced object ‘\(archiveIndex)’.")
+                let message = "Did not find referenced object `\(archiveIndex)`."
+                InconsistentArchiveException.raise(reason: message)
             }
         }
         else {
 
-            var clazz: AnyClass? = nil
+            var clazz: AnyClass?
 
             // Decode class info
             var type = ObjCType.Class.rawValue
             _decodeValue(ofObjCType: &type, at: &clazz)
 
             guard let decodedClass = (clazz as? NSCoding.Type) else {
-                InconsistentArchiveException.raise(reason: "Could not decode class for object.")
+                let message = "Could not decode class for object."
+                InconsistentArchiveException.raise(reason: message)
             }
 
             // Decode an object
             guard let decodedObject = decodedClass.init(coder: self) else {
-                InconsistentArchiveException.raise(reason: "Could not decode object of class ‘\(NSStringFromClass(decodedClass))’.")
+                let message = "Could not decode object of class `\(NSStringFromClass(decodedClass))`."
+                InconsistentArchiveException.raise(reason: message)
             }
 
             // Store a decoded object
@@ -290,7 +297,7 @@ extension TypedStreamDecoder
     private func _decodeClass(_ isReference: Bool) -> AnyClass? {
 
         let archiveIndex = _readUnsignedInteger()
-        var clazz: AnyClass? = nil
+        var clazz: AnyClass?
 
         // Nil object or unused conditional object
         guard (archiveIndex > 0) else {
@@ -300,7 +307,8 @@ extension TypedStreamDecoder
         if (isReference) {
             clazz = self.collectedClasses[archiveIndex]
             if (clazz == nil) {
-                InconsistentArchiveException.raise(reason: "Did not find referenced class ‘\(archiveIndex)’.")
+                let message = "Did not find referenced class `\(archiveIndex)`."
+                InconsistentArchiveException.raise(reason: message)
             }
         }
         else {
@@ -311,12 +319,15 @@ extension TypedStreamDecoder
 
             // Decode a class
             guard let decodedClass = NSClassFromString(className) else {
-                InconsistentArchiveException.raise(reason: "Class ‘\(className)’ doesn't exist in this runtime.")
+                let message = "Class `\(className)` doesn't exist in this runtime."
+                InconsistentArchiveException.raise(reason: message)
             }
 
             let runtimeClassVersion = decodedClass.version()
             if (classVersion != runtimeClassVersion) {
-                InconsistentArchiveException.raise(reason: "Versions of class ‘\(className)’ do not match (encoded ‘\(classVersion)’, runtime ‘\(runtimeClassVersion)’).")
+                let message = "Versions of class `\(className)` do not match"
+                    + "(encoded `\(classVersion)`, runtime `\(runtimeClassVersion)`)."
+                InconsistentArchiveException.raise(reason: message)
             }
 
             // Store a decoded class
@@ -334,11 +345,11 @@ extension TypedStreamDecoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension TypedStreamDecoder
-{
+extension TypedStreamDecoder {
+
 // MARK: - Private Methods
 
-    private func _decodeWithErrorHandling(action: @escaping () -> Void) throws -> Void {
+    private func _decodeWithErrorHandling(action: @escaping () -> Void) throws {
         try _executeWithErrorHandling {
             self._readArchiveHeader()
             action()
@@ -356,12 +367,12 @@ extension TypedStreamDecoder
 
             // Validate values, which was read
             if (signature != _coderSignature()) {
-                InconsistentArchiveException.raise(
-                        reason: "Used a different coder (signature ‘\(signature)’, version ‘\(version)’).")
+                let message = "Used a different coder (signature `\(signature)`, version `\(version)`)."
+                InconsistentArchiveException.raise(reason: message)
             }
             else if (version != _coderVersion()) {
-                InconsistentArchiveException.raise(
-                        reason: "Used a different coder version (encoder ‘\(version)’, decoder ‘\(_coderVersion())’).")
+                let message = "Used a different coder version (encoder `\(version)`, decoder `\(_coderVersion())`)."
+                InconsistentArchiveException.raise(reason: message)
             }
 
             // Store version of encoder
@@ -369,5 +380,3 @@ extension TypedStreamDecoder
         }
     }
 }
-
-// ----------------------------------------------------------------------------

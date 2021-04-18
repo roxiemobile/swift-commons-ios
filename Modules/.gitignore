@@ -1,9 +1,0 @@
-# AppCode project
-.idea/
-
-# Xcode project
-xcuserdata/
-.LSOverride
-
-# Other
-.DS_Store

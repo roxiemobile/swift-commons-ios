@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -23,10 +23,13 @@ FOUNDATION_EXPORT const unsigned char SwiftCommonsObjCVersionString[];
 // using statements like #import <FrameworkName/PublicHeader.h>
 // ----------------------------------------------------------------------------
 
-#import <SwiftCommonsObjC/SSZipArchive.h>
-#import <SwiftCommonsObjC/SSZipArchiveDelegate.h>
-#import <SwiftCommonsObjC/unzip.h>
-#import <SwiftCommonsObjC/ioapi.h>
+#import <SwiftCommonsObjC/GHODict.h>
+
+#import <SwiftCommonsObjC/MPMessagePackReader.h>
+#import <SwiftCommonsObjC/MPMessagePackWriter.h>
+#import <SwiftCommonsObjC/NSArray+MPMessagePack.h>
+#import <SwiftCommonsObjC/NSData+MPMessagePack.h>
+#import <SwiftCommonsObjC/NSDictionary+MPMessagePack.h>
 
 #import <SwiftCommonsObjC/TryCatchFinally.h>
 

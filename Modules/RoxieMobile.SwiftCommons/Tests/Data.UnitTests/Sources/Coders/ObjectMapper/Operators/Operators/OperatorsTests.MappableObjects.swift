@@ -4,7 +4,7 @@
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -29,17 +29,17 @@ extension OperatorsTests {
         assertNoThrow {
             var obj = _object
             obj <~ map[JsonKeys.object]
-            XCTAssertEqual(obj.x, Int(Int8.max))
+            XCTAssertEqual(obj.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj = _object
             obj <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(obj.x, Int(Int8.max))
+            XCTAssertEqual(obj.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj = _object
             obj <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(obj.x, Int(Int8.max))
+            XCTAssertEqual(obj.dx, Int(Int8.max))
         }
 
         // Negative
@@ -96,7 +96,7 @@ extension OperatorsTests {
         assertNoThrow {
             var obj = _object
             obj <~ map[JsonKeys.object]
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj: Vector3DModel? = Vector3DModel.shared
@@ -106,7 +106,7 @@ extension OperatorsTests {
         assertNoThrow {
             var obj = _object
             obj <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj: Vector3DModel? = Vector3DModel.shared
@@ -116,7 +116,7 @@ extension OperatorsTests {
         assertNoThrow {
             var obj = _object
             obj <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
 
         // Negative
@@ -171,7 +171,7 @@ extension OperatorsTests {
         assertNoThrow {
             var obj: Vector3DModel! = _object
             obj <~ map[JsonKeys.object]
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj: Vector3DModel! = _object
@@ -181,7 +181,7 @@ extension OperatorsTests {
         assertNoThrow {
             var obj: Vector3DModel! = _object
             obj <~ map[JsonKeys.noSuchKey, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var obj: Vector3DModel! = _object
@@ -191,7 +191,7 @@ extension OperatorsTests {
         assertNoThrow {
             var obj: Vector3DModel! = _object
             obj <~ map[JsonKeys.nilObject, default: Constants.dictionaryOfInt8]
-            XCTAssertEqual(obj?.x, Int(Int8.max))
+            XCTAssertEqual(obj?.dx, Int(Int8.max))
         }
 
         // Negative

@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ import SwiftCommonsLang
 // ----------------------------------------------------------------------------
 
 /// Represents an error which indicate that a validation has failed.
-public struct CheckError: Error, CustomStringConvertible
-{
+public struct CheckError: Error, CustomStringConvertible {
+
 // MARK: - Construction
 
     /// Initializes a new instance of the `CheckError` class with a specified error message.
@@ -24,9 +24,7 @@ public struct CheckError: Error, CustomStringConvertible
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
     ///
-    public init(_ message: String? = nil, file: StaticString = #file, line: UInt = #line)
-    {
-        // Init instance
+    public init(_ message: String? = nil, file: StaticString = #file, line: UInt = #line) {
         self.message = message
         self.file = file
         self.line = line
@@ -55,5 +53,3 @@ public struct CheckError: Error, CustomStringConvertible
         return errorMessage
     }
 }
-
-// ----------------------------------------------------------------------------

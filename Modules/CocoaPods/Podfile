@@ -1,121 +1,23 @@
-source 'https://github.com/roxiemobile/static-cocoa-frameworks.ios.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '9.0'
-use_frameworks!
+platform :ios, '12.0'
+use_frameworks! :linkage => :static
 
 workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 
 
 # MARK: - Methods
 
-def pod_from(name, *args)
-  name = name.split('/').tap { |arr| arr[0] = "#{arr[0]}-SCF53" }.reject(&:empty?).join('/')
-  pod(name, *args)
-end
-
 def inject_shared_dependencies_1
-  pod_from 'Dispatch', '~> 2.0.4'
+  pod 'CryptoSwift', '~> 1.3.8'
 end
-
-def inject_shared_dependencies_2
-  pod_from 'CryptoSwift', '~> 1.3.2'
-end
-
-def inject_shared_dependencies_3
-  pod_from 'MPMessagePack', '~> 1.5.1'
-end
-
-def inject_shared_dependencies_4 
-  pod 'SwiftLint', '~> 0.40.3'
-end  
 
 
 # MARK: - Sources
-
-target 'SwiftCommons.Abstractions' do
-  project '../RoxieMobile.SwiftCommons/Sources/Abstractions/SwiftCommons.Abstractions.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_4
-end
-
-target 'SwiftCommons.Concurrent' do
-  project '../RoxieMobile.SwiftCommons/Sources/Concurrent/SwiftCommons.Concurrent.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_1
-  inject_shared_dependencies_4
-end
 
 target 'SwiftCommons.Data' do
   project '../RoxieMobile.SwiftCommons/Sources/Data/SwiftCommons.Data.xcodeproj'
 
   # Dependencies
-  inject_shared_dependencies_2
-  inject_shared_dependencies_3
-  inject_shared_dependencies_4
-end
-
-target 'SwiftCommons.Diagnostics' do
-  project '../RoxieMobile.SwiftCommons/Sources/Diagnostics/SwiftCommons.Diagnostics.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_4
-end
-
-target 'SwiftCommons.Extensions' do
-  project '../RoxieMobile.SwiftCommons/Sources/Extensions/SwiftCommons.Extensions.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_4
-end
-
-target 'SwiftCommons.Lang' do
-  project '../RoxieMobile.SwiftCommons/Sources/Lang/SwiftCommons.Lang.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_4
-end
-
-target 'SwiftCommons.Logging' do
-  project '../RoxieMobile.SwiftCommons/Sources/Logging/SwiftCommons.Logging.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_4
-end
-
-
-# MARK: - Tests
-
-target 'SwiftCommons.Data.UnitTests' do
-  project '../RoxieMobile.SwiftCommons/Tests/Data.UnitTests/SwiftCommons.Data.UnitTests.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_3
-  inject_shared_dependencies_4
-end
-
-target 'SwiftCommons.Diagnostics.UnitTests' do
-  project '../RoxieMobile.SwiftCommons/Tests/Diagnostics.UnitTests/SwiftCommons.Diagnostics.UnitTests.xcodeproj'
-
-  # Dependencies
   inject_shared_dependencies_1
-  inject_shared_dependencies_2
-  inject_shared_dependencies_4
-end
-
-target 'SwiftCommons.Extensions.UnitTests' do
-  project '../RoxieMobile.SwiftCommons/Tests/Extensions.UnitTests/SwiftCommons.Extensions.UnitTests.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_1
-  inject_shared_dependencies_4
-end
-
-target 'SwiftCommons.Lang.UnitTests' do
-  project '../RoxieMobile.SwiftCommons/Tests/Lang.UnitTests/SwiftCommons.Lang.UnitTests.xcodeproj'
-
-  # Dependencies
-  inject_shared_dependencies_4
 end

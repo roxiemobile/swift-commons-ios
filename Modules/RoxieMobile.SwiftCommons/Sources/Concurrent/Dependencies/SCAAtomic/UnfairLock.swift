@@ -17,12 +17,13 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 @available(iOS 10.0, *)
 @available(macOS 10.12, *)
 @available(tvOS 10.0, *)
 @available(watchOS 3.0, *)
-public final class UnfairLock
-{
+public final class UnfairLock {
+
     fileprivate let _lock: os_unfair_lock_t
 
     public init() {
@@ -35,17 +36,19 @@ public final class UnfairLock
         _lock.deallocate()
     }
 }
+#endif
 
 // ----------------------------------------------------------------------------
 // MARK: - @protocol Lockable
 // ----------------------------------------------------------------------------
 
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
 @available(iOS 10.0, *)
 @available(macOS 10.12, *)
 @available(tvOS 10.0, *)
 @available(watchOS 3.0, *)
-extension UnfairLock: Lockable
-{
+extension UnfairLock: Lockable {
+
     /// lock the unfair lock and block other threads from accessing until unlocked
     public func lock() {
         os_unfair_lock_lock(_lock)
@@ -61,5 +64,4 @@ extension UnfairLock: Lockable
         os_unfair_lock_unlock(_lock)
     }
 }
-
-// ----------------------------------------------------------------------------
+#endif

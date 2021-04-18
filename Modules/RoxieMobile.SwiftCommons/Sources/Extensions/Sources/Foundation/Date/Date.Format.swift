@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-private final class DateFormatterProvider
-{
+private final class DateFormatterProvider {
+
 // MARK: - Construction
 
     fileprivate static let shared = DateFormatterProvider()
@@ -32,12 +32,12 @@ private final class DateFormatterProvider
         let timeZoneValue = timeZone ?? Inner.DefaultTimeZone
 
         let key = (31 &* dateFormatValue.hashValue) &+ localeValue.hashValue &+ timeZoneValue.hashValue
-        if let formatter = self.formatters[key] {
+        if let formatter = _formatters[key] {
             return formatter
         }
 
         let formatter = DateFormatter()
-        self.formatters[key] = formatter
+        _formatters[key] = formatter
 
         // Init formatter's object
         formatter.dateFormat = dateFormatValue
@@ -51,8 +51,7 @@ private final class DateFormatterProvider
 
 // MARK: - Constants
 
-    private struct Inner
-    {
+    private struct Inner {
         static let DefaultDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         static let DefaultLocale = Locale.autoupdatingCurrent
         static let DefaultTimeZone = NSTimeZone.system
@@ -60,13 +59,13 @@ private final class DateFormatterProvider
 
 // MARK: - Variables
 
-    private var formatters: [Int: DateFormatter] = [:]
+    private var _formatters: [Int: DateFormatter] = [:]
 }
 
 // ----------------------------------------------------------------------------
 
-public extension Date
-{
+public extension Date {
+
 // MARK: - Methods
 
     /// Returns a string representation of date formatted using the given date format string.
@@ -75,8 +74,9 @@ public extension Date
     ///   - string: The date format string.
     ///
     func format(with string: String? = nil, locale: Locale? = nil, timeZone: TimeZone? = nil) -> String {
-        return DateFormatterProvider.shared.formatter(with: string, locale: locale, timeZone: timeZone).string(from: self)
+
+        return DateFormatterProvider.shared
+            .formatter(with: string, locale: locale, timeZone: timeZone)
+            .string(from: self)
     }
 }
-
-// ----------------------------------------------------------------------------

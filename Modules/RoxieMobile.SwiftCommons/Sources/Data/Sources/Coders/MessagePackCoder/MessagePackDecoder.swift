@@ -4,24 +4,24 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-import MPMessagePack
 import SwiftCommonsConcurrent
 import SwiftCommonsLang
+import SwiftCommonsObjC
 
 // ----------------------------------------------------------------------------
 
-public final class MessagePackDecoder: AbstractDecoder, MessagePackCoder
-{
+public final class MessagePackDecoder: AbstractDecoder, MessagePackCoder {
+
 // MARK: - Construction
 
     /// TODO
     public override init(
-            forReadingFrom data: Data,
-            failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn
+        forReadingFrom data: Data,
+        failurePolicy policy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Parent processing
         super.init(forReadingFrom: data, failurePolicy: policy)
@@ -51,7 +51,7 @@ public final class MessagePackDecoder: AbstractDecoder, MessagePackCoder
     ///   The decoded object.
     ///
     public override func decodeObject() -> Any? {
-        var object: Any? = nil
+        var object: Any?
 
         try? _decodeWithErrorHandling { [weak self] in
             object = self?._decodeObject()
@@ -69,7 +69,7 @@ public final class MessagePackDecoder: AbstractDecoder, MessagePackCoder
     ///   The version number of the class being decoded.
     ///
     public override func version(forClassName className: String) -> Int {
-        var version: Int? = nil
+        var version: Int?
 
         try? _decodeWithErrorHandling { [weak self] in
             version = self?._version(forClassName: className)
@@ -79,8 +79,7 @@ public final class MessagePackDecoder: AbstractDecoder, MessagePackCoder
 
 // MARK: - Constants
 
-    private struct Inner
-    {
+    private struct Inner {
         static let UnknownEncoderVersion: UInt32 = 0
     }
 
@@ -95,8 +94,8 @@ public final class MessagePackDecoder: AbstractDecoder, MessagePackCoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension MessagePackDecoder
-{
+extension MessagePackDecoder {
+
 // MARK: - Private Methods
 
     private func _decodeValue(ofObjCType typep: UnsafePointer<Int8>, at addr: UnsafeMutableRawPointer) {
@@ -121,7 +120,7 @@ extension MessagePackDecoder
     }
 
     private func _decodeObject() -> Any? {
-        var object: AnyObject? = nil
+        var object: AnyObject?
 
         withUnsafeMutablePointer(to: &object) { (ptr: UnsafeMutablePointer<AnyObject?>) -> Void in
             var type = ObjCType.ID.rawValue
@@ -133,7 +132,7 @@ extension MessagePackDecoder
     private func _decodeObject(_ isReference: Bool) -> Any? {
 
         let archiveIndex = _readUnsignedInteger()
-        var object: Any? = nil
+        var object: Any?
 
         // Nil object or unused conditional object
         guard (archiveIndex > 0) else {
@@ -143,7 +142,8 @@ extension MessagePackDecoder
         if (isReference) {
             object = self.collectedObjects[archiveIndex]
             if (object == nil) {
-                InconsistentArchiveException.raise(reason: "Did not find referenced object ‘\(archiveIndex)’.")
+                let message = "Did not find referenced object `\(archiveIndex)`."
+                InconsistentArchiveException.raise(reason: message)
             }
         }
         else {
@@ -154,7 +154,8 @@ extension MessagePackDecoder
                     object = try MPMessagePackReader.read(data)
                 }
                 catch let error as NSError {
-                    InconsistentArchiveException.raise(reason: error.localizedDescription, userInfo: [UserInfoKeys.NSErrorKey: error])
+                    let message = error.localizedDescription
+                    InconsistentArchiveException.raise(reason: message, userInfo: [UserInfoKeys.NSErrorKey: error])
                 }
             }
 
@@ -174,11 +175,11 @@ extension MessagePackDecoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension MessagePackDecoder
-{
+extension MessagePackDecoder {
+
 // MARK: - Private Methods
 
-    private func _decodeWithErrorHandling(action: @escaping () -> Void) throws -> Void {
+    private func _decodeWithErrorHandling(action: @escaping () -> Void) throws {
         try _executeWithErrorHandling {
             self._readArchiveHeader()
             action()
@@ -196,12 +197,12 @@ extension MessagePackDecoder
 
             // Validate values, which was read
             if (signature != _coderSignature()) {
-                InconsistentArchiveException.raise(
-                        reason: "Used a different coder (signature ‘\(signature)’, version ‘\(version)’).")
+                let message = "Used a different coder (signature `\(signature)`, version `\(version)`)."
+                InconsistentArchiveException.raise(reason: message)
             }
             else if (version != _coderVersion()) {
-                InconsistentArchiveException.raise(
-                        reason: "Used a different coder version (encoder ‘\(version)’, decoder ‘\(_coderVersion())’).")
+                let message = "Used a different coder version (encoder `\(version)`, decoder `\(_coderVersion())`)."
+                InconsistentArchiveException.raise(reason: message)
             }
 
             // Store version of encoder
@@ -209,5 +210,3 @@ extension MessagePackDecoder
         }
     }
 }
-
-// ----------------------------------------------------------------------------

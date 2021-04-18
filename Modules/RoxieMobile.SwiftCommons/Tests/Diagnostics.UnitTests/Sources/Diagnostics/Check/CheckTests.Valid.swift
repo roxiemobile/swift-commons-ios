@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension CheckTests
-{
+extension CheckTests {
+
 // MARK: - Tests
 
     func testValid() {
@@ -37,7 +37,7 @@ extension CheckTests
     func testValidModel() {
         let method = "Check.valid"
 
-        var parking: ParkingModel? = nil
+        var parking: ParkingModel?
 
         if let jsonObject = loadJson("test_parking_model_with_valid_vehicles_in_array") {
             checkNotThrowsError("\(method)_Model", errorType: CheckError.self) {
@@ -49,5 +49,3 @@ extension CheckTests
         if let object = parking { XCTAssertTrue(object.isValid) }
     }
 }
-
-// ----------------------------------------------------------------------------

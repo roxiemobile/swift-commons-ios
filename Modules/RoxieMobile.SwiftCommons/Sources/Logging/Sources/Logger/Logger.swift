@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,13 +14,13 @@ import SwiftCommonsConcurrent
 // ----------------------------------------------------------------------------
 
 // Logging in Swift without overhead in production
-// @link http://transition.io/logging-in-swift-without-overhead-in-production/
+// @link https://transition.io/logging-in-swift-without-overhead-in-production/
 
 // ----------------------------------------------------------------------------
 
 /// A `Logger` object is used to perform logging.
-public final class Logger
-{
+public final class Logger {
+
 // MARK: - Construction
 
     /// Shared `Logger` instance.
@@ -44,20 +44,13 @@ public final class Logger
     ///
     @discardableResult
     public func logger(logger: LoggerContract?) -> Logger {
-        synchronized(self.syncLock) {
-            self.innerLogger = logger
-        }
-        return self;
+        _logger.value = logger
+        return self
     }
 
     /// Returns the logger used by the application.
     internal func logger() -> LoggerContract? {
-        var logger: LoggerContract? = nil
-
-        synchronized(self.syncLock) {
-            logger = self.innerLogger
-        }
-        return logger
+        return _logger.value
     }
 
     /// Set the log level specifying which message levels will be logged by the `Logger`.
@@ -70,10 +63,8 @@ public final class Logger
     ///
     @discardableResult
     public func logLevel(level: LogLevel) -> Logger {
-        synchronized(self.syncLock) {
-            self.innerLogLevel = level
-        }
-        return self;
+        _logLevel.value = level
+        return self
     }
 
     /// Get the log Level that has been specified for the `Logger`.
@@ -82,12 +73,7 @@ public final class Logger
     ///   The log level of the `Logger`.
     ///
     public func logLevel() -> LogLevel {
-        var level: LogLevel = .verbose
-
-        synchronized(self.syncLock) {
-            level = self.innerLogLevel
-        }
-        return level
+        return _logLevel.value
     }
 
 // MARK: - Methods
@@ -101,8 +87,8 @@ public final class Logger
 
     /// The LogLevel enum defines a set of standard logging levels that can be used
     /// to control logging output.
-    public enum LogLevel: Int
-    {
+    public enum LogLevel: Int {
+
         /// Logs that contain the most detailed messages. These messages may contain
         /// sensitive application data. Use Logger.v()
         case verbose = 0
@@ -129,30 +115,34 @@ public final class Logger
 
 // MARK: - Variables
 
-    private var innerLogger: LoggerContract?
+    private var _logger = Atomic<LoggerContract?>(nil)
 
-    private var innerLogLevel = LogLevel.information
-
-    private let syncLock = NSObject()
+    private var _logLevel = Atomic<LogLevel>(.information)
 }
 
 // ----------------------------------------------------------------------------
 
-extension Logger
-{
+extension Logger {
+
 // MARK: - Methods
 
     /// Formats log message.
     ///
     /// - Parameters:
     ///   - level: The log level value.
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///
     /// - Returns:
     ///   Formatted log message.
     ///
-    public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?) -> String {
+    public static func description(
+        _ level: LogLevel,
+        _ tag: String,
+        _ message: @autoclosure () -> String?
+    ) -> String {
+
         var logMessage = ""
 
         // Add log level
@@ -183,14 +173,21 @@ extension Logger
     ///
     /// - Parameters:
     ///   - level: The log level.
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - error: An error to log.
     ///
     /// - Returns:
     ///   Formatted log message.
     ///
-    public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ error: Error?) -> String {
+    public static func description(
+        _ level: LogLevel,
+        _ tag: String,
+        _ message: @autoclosure () -> String?,
+        _ error: Error?
+    ) -> String {
+
         var logMessage = description(level, tag, message())
 
         // Add error description
@@ -206,14 +203,21 @@ extension Logger
     ///
     /// - Parameters:
     ///   - level: The log level.
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - error: An error to log.
     ///
     /// - Returns:
     ///   Formatted log message.
     ///
-    public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ error: NSError?) -> String {
+    public static func description(
+        _ level: LogLevel,
+        _ tag: String,
+        _ message: @autoclosure () -> String?,
+        _ error: NSError?
+    ) -> String {
+
         var logMessage = description(level, tag, message())
 
         // Add error description
@@ -233,14 +237,21 @@ extension Logger
     ///
     /// - Parameters:
     ///   - level: The log level.
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - exception: An exception to log.
     ///
     /// - Returns:
     ///   Formatted log message.
     ///
-    public static func description(_ level: LogLevel, _ tag: String, _ message: @autoclosure () -> String?, _ exception: NSException?) -> String {
+    public static func description(
+        _ level: LogLevel,
+        _ tag: String,
+        _ message: @autoclosure () -> String?,
+        _ exception: NSException?
+    ) -> String {
+
         var logMessage = description(level, tag, message())
 
         // Add exception description
@@ -264,5 +275,3 @@ extension Logger
         return logMessage
     }
 }
-
-// ----------------------------------------------------------------------------

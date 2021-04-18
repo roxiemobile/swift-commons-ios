@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Sources/Abstractions">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Concurrent">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Extensions">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Data">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Diagnostics">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Lang">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Logging">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/ObjC">
+   </FileRef>
+</Workspace>

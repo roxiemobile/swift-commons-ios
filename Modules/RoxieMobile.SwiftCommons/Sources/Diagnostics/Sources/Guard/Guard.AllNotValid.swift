@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -47,8 +47,8 @@ import SwiftCommonsAbstractions
 }
 */
 
-extension Guard
-{
+extension Guard {
+
 // MARK: - Methods
 
     /// Checks that all an objects in collection is not valid.
@@ -62,10 +62,12 @@ extension Guard
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotValid<T:Collection>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    public static func allNotValid<T: Collection>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
     ) where T.Element == Validatable {
-        // objects: Collection<Validatable>?
 
         if let error = tryIsFailure(try Check.allNotValid(objects)) {
             newGuardException(message(), error, file, line).raise()
@@ -83,10 +85,12 @@ extension Guard
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotValid<T:Collection>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    public static func allNotValid<T: Collection>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
     ) where T.Element: Validatable {
-        // objects: Collection<Subtype: Validatable>?
 
         if let error = tryIsFailure(try Check.allNotValid(objects)) {
             newGuardException(message(), error, file, line).raise()
@@ -106,10 +110,12 @@ extension Guard
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotValid<T:Collection>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) where T.Element == Optional<Validatable> {
-        // objects: Collection<Validatable?>?
+    public static func allNotValid<T: Collection>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) where T.Element == Validatable? {
 
         if let error = tryIsFailure(try Check.allNotValid(objects)) {
             newGuardException(message(), error, file, line).raise()
@@ -127,15 +133,15 @@ extension Guard
     /// - Throws:
     ///   CheckError
     ///
-    public static func allNotValid<T:Collection, V:Validatable>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) where T.Element == Optional<V> {
-        // objects: Collection<Subtype: Validatable?>?
+    public static func allNotValid<T: Collection, V: Validatable>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) where T.Element == V? {
 
         if let error = tryIsFailure(try Check.allNotValid(objects)) {
             newGuardException(message(), error, file, line).raise()
         }
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -4,13 +4,13 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
 /// Protocol for objects that can be validated.
-public protocol Validatable
-{
+public protocol Validatable {
+
 // MARK: - Properties
 
     /// Checks that an object is valid.
@@ -20,5 +20,3 @@ public protocol Validatable
     ///
     var isValid: Bool { get }
 }
-
-// ----------------------------------------------------------------------------

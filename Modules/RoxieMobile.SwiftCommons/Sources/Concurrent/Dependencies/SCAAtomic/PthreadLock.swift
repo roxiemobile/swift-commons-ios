@@ -17,8 +17,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public final class PthreadLock
-{
+public final class PthreadLock {
+
     fileprivate let _lock: UnsafeMutablePointer<pthread_mutex_t>
 
     public init(recursive: Bool = false) {
@@ -60,8 +60,8 @@ public final class PthreadLock
 // MARK: - @protocol Lockable
 // ----------------------------------------------------------------------------
 
-extension PthreadLock: Lockable
-{
+extension PthreadLock: Lockable {
+
     /// lock the mutex and block other threads from accessing until unlocked
     public func lock() {
         let status = pthread_mutex_lock(_lock)
@@ -74,7 +74,7 @@ extension PthreadLock: Lockable
         switch status {
             case 0:
                 return true
-            case EBUSY:
+            case EBUSY, EAGAIN, EDEADLK:
                 return false
             default:
                 assertionFailure("Unexpected pthread mutex error code: \(status)")
@@ -88,5 +88,3 @@ extension PthreadLock: Lockable
         assert(status == 0, "Unexpected pthread mutex error code: \(status)")
     }
 }
-
-// ----------------------------------------------------------------------------

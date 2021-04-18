@@ -4,22 +4,23 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
+import Foundation
 import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-open class AbstractEncoder: AbstractCoder
-{
+open class AbstractEncoder: AbstractCoder {
+
 // MARK: - Construction
 
     /// TODO
     public init(
-            forWritingInto mdata: NSMutableData? = nil,
-            failurePolicy: CodingFailurePolicy = .setErrorAndReturn
+        forWritingInto mdata: NSMutableData? = nil,
+        failurePolicy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Init instance
         self.buffer = mdata ?? NSMutableData()
@@ -36,10 +37,10 @@ open class AbstractEncoder: AbstractCoder
     }
 
     // Object -> Archive-index
-    internal var collectedObjects = Dictionary<AnyHashable, UInt>()
+    internal var collectedObjects = [AnyHashable: UInt]()
 
     // Class name -> Archive-index
-    internal var collectedClasses = Dictionary<String, UInt>()
+    internal var collectedClasses = [String: UInt]()
 
 // MARK: - Variables
 
@@ -50,11 +51,13 @@ open class AbstractEncoder: AbstractCoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension AbstractEncoder
-{
+extension AbstractEncoder {
+
 // MARK: - Protected Methods
 
     internal func _encode(_ data: Data) {
+        // swiftlint:disable:previous identifier_name
+
         let arrayType: ObjCType = .Char
 
         // Write an array type, eg '[15c]…'
@@ -69,6 +72,8 @@ extension AbstractEncoder
     }
 
     internal func _encodeArray(ofObjCType typep: UnsafePointer<CChar>, count: Int, at array: UnsafeRawPointer) {
+        // swiftlint:disable:previous identifier_name
+
         let itemType = ObjCType(typep.pointee)
 
         guard (itemType == .Char) || (itemType == .UChar) else {
@@ -80,6 +85,7 @@ extension AbstractEncoder
     }
 
     internal func _encodeBytes(_ byteaddr: UnsafeRawPointer?, length: Int) {
+        // swiftlint:disable:previous identifier_name
 
         // Write a bytes
         _writeInteger(length)
@@ -91,11 +97,12 @@ extension AbstractEncoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension AbstractEncoder
-{
+extension AbstractEncoder {
+
 // MARK: - Protected Methods
 
     internal func _writeBytes(_ bytes: UnsafeRawPointer?, length: Int) {
+        // swiftlint:disable:previous identifier_name
 
         if let bytes = bytes, (length > 0) {
             self.buffer.append(bytes, length: length)
@@ -103,10 +110,11 @@ extension AbstractEncoder
     }
 
     internal func _writeType(_ itemType: ObjCType, asReference: Bool = false) {
+        // swiftlint:disable:previous identifier_name
 
         let type = asReference
-                ? itemType.asReference.rawValue
-                : itemType.asValue.rawValue
+            ? itemType.asReference.rawValue
+            : itemType.asValue.rawValue
 
         withUnsafePointer(to: type) { bytes in
             _writeBytes(bytes, length: MemoryLayout.size(ofValue: type))
@@ -114,6 +122,7 @@ extension AbstractEncoder
     }
 
     internal func _writeArrayType(ofObjCType itemType: ObjCType, count: Int) {
+        // swiftlint:disable:previous identifier_name
 
         // Write an array type, eg '[15c]'
         _writeType(.ArrayBegin)
@@ -127,6 +136,7 @@ extension AbstractEncoder
     }
 
     internal func _writeString(_ value: String, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
 
         let data = value.data(using: .utf8, allowLossyConversion: false)
         let size = data?.count ?? 0
@@ -139,6 +149,8 @@ extension AbstractEncoder
     }
 
     internal func _writeLongLong(_ value: CLongLong, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = Roxie.htonll(CUnsignedLongLong(bitPattern: value))
 
         if (withType) {
@@ -151,6 +163,8 @@ extension AbstractEncoder
     }
 
     internal func _writeUnsignedLongLong(_ value: CUnsignedLongLong, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = Roxie.htonll(value)
 
         if (withType) {
@@ -163,6 +177,7 @@ extension AbstractEncoder
     }
 
     internal func _writeLong(_ value: CLong, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _writeType(.Long)
@@ -180,6 +195,7 @@ extension AbstractEncoder
     }
 
     internal func _writeUnsignedLong(_ value: CUnsignedLong, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _writeType(.ULong)
@@ -197,6 +213,8 @@ extension AbstractEncoder
     }
 
     internal func _writeInt(_ value: CInt, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = Roxie.htonl(CUnsignedInt(bitPattern: value))
 
         if (withType) {
@@ -209,6 +227,8 @@ extension AbstractEncoder
     }
 
     internal func _writeUnsignedInt(_ value: CUnsignedInt, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = Roxie.htonl(value)
 
         if (withType) {
@@ -221,6 +241,8 @@ extension AbstractEncoder
     }
 
     internal func _writeShort(_ value: CShort, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = Roxie.htons(CUnsignedShort(bitPattern: value))
 
         if (withType) {
@@ -233,6 +255,8 @@ extension AbstractEncoder
     }
 
     internal func _writeUnsignedShort(_ value: CUnsignedShort, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = Roxie.htons(value)
 
         if (withType) {
@@ -245,6 +269,7 @@ extension AbstractEncoder
     }
 
     internal func _writeChar(_ value: CChar, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _writeType(.Char)
@@ -256,6 +281,7 @@ extension AbstractEncoder
     }
 
     internal func _writeUnsignedChar(_ value: CUnsignedChar, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
 
         if (withType) {
             _writeType(.UChar)
@@ -267,6 +293,7 @@ extension AbstractEncoder
     }
 
     internal func _writeInteger(_ value: CLong) {
+        // swiftlint:disable:previous identifier_name
 
         // On 64-bit platforms, `CLong` is the same size as `CLongLong`
         // On 32-bit platforms, `CLong` is the same size as `CInt`
@@ -286,6 +313,7 @@ extension AbstractEncoder
     }
 
     internal func _writeUnsignedInteger(_ value: CUnsignedLong) {
+        // swiftlint:disable:previous identifier_name
 
         // On 64-bit platforms, `CUnsignedLong` is the same size as `CUnsignedLongLong`
         // On 32-bit platforms, `CUnsignedLong` is the same size as `CUnsignedInt`
@@ -305,6 +333,8 @@ extension AbstractEncoder
     }
 
     internal func _writeFloat(_ value: CFloat, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = Roxie.htonf(value)
 
         if (withType) {
@@ -317,6 +347,8 @@ extension AbstractEncoder
     }
 
     internal func _writeDouble(_ value: CDouble, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = Roxie.htond(value)
 
         if (withType) {
@@ -329,6 +361,8 @@ extension AbstractEncoder
     }
 
     internal func _writeBool(_ value: CBool, withType: Bool = false) {
+        // swiftlint:disable:previous identifier_name
+
         let value = CUnsignedChar(value ? 1 : 0)
 
         if (withType) {
@@ -340,5 +374,3 @@ extension AbstractEncoder
         }
     }
 }
-
-// ----------------------------------------------------------------------------

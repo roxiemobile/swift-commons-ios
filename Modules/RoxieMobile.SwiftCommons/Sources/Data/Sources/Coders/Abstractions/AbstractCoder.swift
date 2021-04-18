@@ -4,22 +4,23 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
+import Foundation
 import SwiftCommonsConcurrent
 import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-open class AbstractCoder: NSCoder, AbstractClass
-{
+open class AbstractCoder: NSCoder, AbstractClass {
+
 // MARK: - Construction
 
     /// TODO
     public init(
-            failurePolicy: CodingFailurePolicy = .setErrorAndReturn
+        failurePolicy: CodingFailurePolicy = .setErrorAndReturn
     ) {
         // Init instance
         self.codingFailurePolicy = failurePolicy
@@ -44,8 +45,9 @@ open class AbstractCoder: NSCoder, AbstractClass
         if (self.codingFailurePolicy == .raiseException) {
 
             let nsError = error as NSError
-            let nsException = (nsError.userInfo[UserInfoKeys.NSExceptionKey] as? NSException) ??
-                    NSException(name: NSExceptionName(nsError.domain), reason: nsError.localizedDescription, userInfo: [UserInfoKeys.NSErrorKey: error])
+            let nsException = (nsError.userInfo[UserInfoKeys.NSExceptionKey] as? NSException)
+                // swiftlint:disable:next line_length
+                ?? NSException(name: NSExceptionName(nsError.domain), reason: nsError.localizedDescription, userInfo: [UserInfoKeys.NSErrorKey: error])
 
             nsException.raise()
         }
@@ -53,8 +55,7 @@ open class AbstractCoder: NSCoder, AbstractClass
 
 // MARK: - Constants
 
-    public struct UserInfoKeys
-    {
+    public struct UserInfoKeys {
         static let NSErrorKey = "NSError"
         static let NSExceptionKey = "NSException"
     }
@@ -96,8 +97,9 @@ open class AbstractCoder: NSCoder, AbstractClass
         // @formatter:on
     }
 
-    private enum NSSimpleObjCType : Unicode.Scalar {
+    private enum NSSimpleObjCType: Unicode.Scalar {
         // @formatter:off
+        // swiftlint:disable identifier_name
         case ID          = "@"
         case Class       = "#"
         case Sel         = ":"
@@ -128,6 +130,7 @@ open class AbstractCoder: NSCoder, AbstractClass
         case StructEnd   = "}"
         case Vector      = "!"
         case Const       = "r"
+        // swiftlint:enable identifier_name
         // @formatter:on
     }
 
@@ -135,33 +138,34 @@ open class AbstractCoder: NSCoder, AbstractClass
 
     private let codingFailurePolicy: CodingFailurePolicy
 
-    private var innerError: Error? = nil
+    private var innerError: Error?
 }
 
 // ----------------------------------------------------------------------------
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension AbstractCoder
-{
+extension AbstractCoder {
+
 // MARK: - Private Methods
 
-    internal func _executeWithErrorHandling(action: @escaping () -> Void) throws -> Void {
+    internal func _executeWithErrorHandling(action: @escaping () -> Void) throws {
+        // swiftlint:disable:previous identifier_name
 
-        var nsException: NSException? = nil
+        var nsException: NSException?
         objcTry {
 
             if (self.error == nil) {
                 action()
             }
-        }.objcCatch { e in
-            nsException = e
+        }.objcCatch { ex in
+            nsException = ex
         }
 
         // Handle a raised exception
         if let nsException = nsException {
 
-            if let _ = self.error {
+            if (self.error != nil) {
                 if (self.codingFailurePolicy == .raiseException) {
                     nsException.raise()
                 }
@@ -175,6 +179,8 @@ extension AbstractCoder
     }
 
     internal func _isInstance(_ object: Any?) -> Bool {
+        // swiftlint:disable:previous identifier_name
+
         return (object == nil) || !class_isMetaClass(object_getClass(object))
     }
 }
@@ -183,31 +189,31 @@ extension AbstractCoder
 // MARK: -
 // ----------------------------------------------------------------------------
 
-extension AbstractCoder.ObjCType
-{
+extension AbstractCoder.ObjCType {
+
 // MARK: - Construction
 
-    internal init(_ v: CChar) {
-        self.init(rawValue: v)
+    internal init(_ type: CChar) {
+        self.init(rawValue: type)
     }
 
-    internal init(_ v: CUnsignedChar) {
-        self.init(rawValue: CChar(bitPattern: v))
+    internal init(_ type: CUnsignedChar) {
+        self.init(rawValue: CChar(bitPattern: type))
     }
 
-    internal init(_ v: Unicode.Scalar) {
-        self.init(CUnsignedChar(ascii: v))
+    internal init(_ type: Unicode.Scalar) {
+        self.init(CUnsignedChar(ascii: type))
     }
 
-    internal init(_ v: String) {
-        guard let itemType = v.unicodeScalars.first else {
-            UnsupportedTypeException.raise(reason: "Unsupported Objective-C type encoding ‘\(v)’.")
+    internal init(_ type: String) {
+        guard let itemType = type.unicodeScalars.first else {
+            UnsupportedTypeException.raise(reason: "Unsupported Objective-C type encoding ‘\(type)’.")
         }
         self.init(itemType)
     }
 
-    private init(_ v: AbstractCoder.NSSimpleObjCType) {
-        self.init(CUnsignedChar(ascii: v.rawValue))
+    private init(_ type: AbstractCoder.NSSimpleObjCType) {
+        self.init(CUnsignedChar(ascii: type.rawValue))
     }
 
 // MARK: - Properties
@@ -238,13 +244,10 @@ extension AbstractCoder.ObjCType
 
 // MARK: - Constants
 
-    private struct Inner
-    {
+    private struct Inner {
         // @formatter:off
         static let Reference = CUnsignedChar(128)
         static let Value     = CUnsignedChar(127)
         // @formatter:on
     }
 }
-
-// ----------------------------------------------------------------------------

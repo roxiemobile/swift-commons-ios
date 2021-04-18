@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import SwiftCommonsAbstractions
 
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
+
 // MARK: - Methods
 
     /// Checks that all an objects in collection is valid.
@@ -27,10 +27,12 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allValid<T:Collection>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    public static func allValid<T: Collection>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
     ) throws where T.Element == Validatable {
-        // objects: Collection<Validatable>?
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ $0.isValid }) else {
@@ -50,10 +52,12 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allValid<T:Collection>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
+    public static func allValid<T: Collection>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
     ) throws where T.Element: Validatable {
-        // objects: Collection<Subtype: Validatable>?
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ $0.isValid }) else {
@@ -75,10 +79,12 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allValid<T:Collection>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) throws where T.Element == Optional<Validatable> {
-        // objects: Collection<Validatable?>?
+    public static func allValid<T: Collection>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) throws where T.Element == Validatable? {
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ ($0 != nil) && $0!.isValid }) else {
@@ -98,10 +104,12 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func allValid<T:Collection, V:Validatable>(
-            _ objects: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line
-    ) throws where T.Element == Optional<V> {
-        // objects: Collection<Subtype: Validatable?>?
+    public static func allValid<T: Collection, V: Validatable>(
+        _ objects: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) throws where T.Element == V? {
 
         if let collection = objects, collection.isNotEmpty {
             guard collection.all({ ($0 != nil) && $0!.isValid }) else {
@@ -110,5 +118,3 @@ extension Check
         }
     }
 }
-
-// ----------------------------------------------------------------------------

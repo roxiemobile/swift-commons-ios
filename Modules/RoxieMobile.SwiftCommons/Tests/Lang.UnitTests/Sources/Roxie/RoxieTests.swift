@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-class RoxieTests: XCTestCase
-{
+class RoxieTests: XCTestCase {
+
 // MARK: - Tests
 
     func testFatalErrorException() {
@@ -23,5 +23,3 @@ class RoxieTests: XCTestCase
         XCTAssertEqual(name, "FatalErrorException")
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ import SwiftCommonsLang
 // ----------------------------------------------------------------------------
 
 /// Represents an exception which indicate that a validation has failed.
-public final class GuardException: NSException
-{
+public final class GuardException: NSException {
+
 // MARK: - Construction
 
     /// Initializes and returns a newly created exception object.
@@ -25,9 +25,7 @@ public final class GuardException: NSException
     ///   - cause: The error that is the cause of the current exception, or a `nil` reference if no cause is specified.
     ///   - userInfo: A dictionary containing user-defined information relating to the exception.
     ///
-    public init(reason: String? = nil, cause: Error? = nil, userInfo: [AnyHashable: Any]? = nil)
-    {
-        // Init instance
+    public init(reason: String? = nil, cause: Error? = nil, userInfo: [AnyHashable: Any]? = nil) {
         self.cause = cause
 
         // Parent processing
@@ -54,5 +52,3 @@ public final class GuardException: NSException
         static let ExceptionName = NSExceptionName(rawValue: Roxie.typeName(of: GuardException.self))
     }
 }
-
-// ----------------------------------------------------------------------------

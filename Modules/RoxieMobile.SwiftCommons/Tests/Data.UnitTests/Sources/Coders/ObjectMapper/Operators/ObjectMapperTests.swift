@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -18,25 +18,25 @@ class ObjectMapperTests: XCTestCase {
 
 // MARK: - Methods
 
-    internal func assertNoThrow(action: @escaping () -> Void) -> Void {
-        var exception: NSException? = nil
+    internal func assertNoThrow(action: @escaping () -> Void) {
+        var exception: NSException?
 
         objcTry {
             action()
-        }.objcCatch { e in
-            exception = e
+        }.objcCatch { ex in
+            exception = ex
         }.objcFinally {
             XCTAssertNil(exception)
         }
     }
 
-    internal func assertThrowsException(action: @escaping () -> Void) -> Void {
-        var exception: NSException? = nil
+    internal func assertThrowsException(action: @escaping () -> Void) {
+        var exception: NSException?
 
         objcTry {
             action()
-        }.objcCatch { e in
-            exception = e
+        }.objcCatch { ex in
+            exception = ex
         }.objcFinally {
             XCTAssertNotNil(exception)
         }

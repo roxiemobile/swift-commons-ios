@@ -1,0 +1,11 @@
+# AppCode project
+.idea/
+
+# Xcode project
+.build/
+.swiftpm/
+xcuserdata/
+.LSOverride
+
+# Other
+.DS_Store

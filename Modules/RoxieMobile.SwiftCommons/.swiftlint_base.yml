@@ -1,0 +1,27 @@
+disabled_rules:
+  - control_statement
+  - todo
+
+
+# MARK: - Rules
+
+identifier_name:
+  min_length:
+    error: 1
+    warning: 2
+
+nesting:
+  type_level:
+    warning: 2
+
+statement_position:
+  statement_mode: uncuddled_else
+
+switch_case_alignment:
+  indented_cases: true
+
+trailing_comma:
+  mandatory_comma: true
+
+vertical_whitespace:
+  max_empty_lines: 2

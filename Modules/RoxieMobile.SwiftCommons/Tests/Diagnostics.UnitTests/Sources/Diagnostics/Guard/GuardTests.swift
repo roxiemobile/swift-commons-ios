@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -14,20 +14,20 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-final class GuardTests: XCTestCase
-{
+final class GuardTests: XCTestCase {
+
 // MARK: - Methods
 
     internal func guardThrowsException(
-            _ method: String,
-            exceptionType: NSException.Type = GuardException.self,
-            file: StaticString = #file,
-            line: UInt = #line,
-            action: @escaping () -> Void
-    ) -> Void {
+        _ method: String,
+        exceptionType: NSException.Type = GuardException.self,
+        file: StaticString = #file,
+        line: UInt = #line,
+        action: @escaping () -> Void
+    ) {
 
-        XCTAssert(!method.isEmpty, "‘method’ is empty");
-        var cause: NSException? = nil
+        XCTAssert(!method.isEmpty, "`method` is empty")
+        var cause: NSException?
 
         objcTry {
             action()
@@ -49,15 +49,15 @@ final class GuardTests: XCTestCase
     }
 
     internal func guardNotThrowsException(
-            _ method: String,
-            exceptionType: NSException.Type = GuardException.self,
-            file: StaticString = #file,
-            line: UInt = #line,
-            action: @escaping () -> Void
-    ) -> Void {
+        _ method: String,
+        exceptionType: NSException.Type = GuardException.self,
+        file: StaticString = #file,
+        line: UInt = #line,
+        action: @escaping () -> Void
+    ) {
 
-        XCTAssert(!method.isEmpty, "‘method’ is empty");
-        var cause: NSException? = nil
+        XCTAssert(!method.isEmpty, "`method` is empty")
+        var cause: NSException?
 
         objcTry {
             action()
@@ -85,5 +85,3 @@ final class GuardTests: XCTestCase
         return "\(fileURL.lastPathComponent):\(line)"
     }
 }
-
-// ----------------------------------------------------------------------------

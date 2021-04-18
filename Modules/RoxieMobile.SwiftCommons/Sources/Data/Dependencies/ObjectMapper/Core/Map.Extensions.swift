@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-extension Map
-{
+extension Map {
+
 // MARK: - Methods: Subscript
 
     public subscript(key: String, default default: Any) -> Map {
@@ -47,13 +47,12 @@ extension Map
 // MARK: - Methods
 
     /// Checks if a current value is exists. Raises ObjC exception otherwise.
-    /// Checks if a current value is exists. Raises ObjC exception otherwise.
     internal func roxie_checkInput(
-            _ value: Any?,
-            check action: @autoclosure () -> Bool = false,
-            file: StaticString = #file,
-            line: UInt = #line
-    ) -> Void {
+        _ value: Any?,
+        check action: @autoclosure () -> Bool = false,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
 
         switch self.mappingType {
             case .fromJSON:
@@ -80,12 +79,12 @@ extension Map
 
     /// Checks if a value is transformed successfully. Raises ObjC exception otherwise.
     internal func roxie_checkValue(
-            _ value: Any?,
-            optional: Bool = false,
-            check action: @autoclosure () -> Bool = false,
-            file: StaticString = #file,
-            line: UInt = #line
-    ) -> Void {
+        _ value: Any?,
+        optional: Bool = false,
+        check action: @autoclosure () -> Bool = false,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
 
         guard let key = self.currentKey else {
             roxie_objectMapper_raiseException(message: "Current key is not set.")
@@ -108,14 +107,14 @@ extension Map
 
     /// Checks if a value is transformed successfully. Raises ObjC exception otherwise.
     internal func roxie_checkValue(
-            _ key: String?,
-            _ value: Any?,
-            _ transformedValue: Any?,
-            optional: Bool = false,
-            check action: @autoclosure () -> Bool = false,
-            file: StaticString = #file,
-            line: UInt = #line
-    ) -> Void {
+        _ key: String?,
+        _ value: Any?,
+        _ transformedValue: Any?,
+        optional: Bool = false,
+        check action: @autoclosure () -> Bool = false,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
 
         if (value != nil) && (transformedValue != nil) {
             return
@@ -147,5 +146,3 @@ extension Map
         return map
     }
 }
-
-// ----------------------------------------------------------------------------

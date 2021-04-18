@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ import Foundation
 // ----------------------------------------------------------------------------
 
 /// A fatal error exception which should completely halt the application execution.
-open class FatalErrorException: NSException
-{
+open class FatalErrorException: NSException {
+
 // MARK: - Construction
 
     /// Initializes and returns a newly created exception object.
@@ -49,10 +49,7 @@ open class FatalErrorException: NSException
 
 // MARK: - Constants
 
-    private struct Inner
-    {
+    private struct Inner {
         static let ExceptionName = NSExceptionName(rawValue: Roxie.typeName(of: FatalErrorException.self))
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public final class Roxie: NonCreatable
-{
+public final class Roxie: NonCreatable {
+
 // MARK: - Methods
 
     /// Returns the name of static type of the subject being reflected.
@@ -28,5 +28,3 @@ public final class Roxie: NonCreatable
         return ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
     }
 }
-
-// ----------------------------------------------------------------------------

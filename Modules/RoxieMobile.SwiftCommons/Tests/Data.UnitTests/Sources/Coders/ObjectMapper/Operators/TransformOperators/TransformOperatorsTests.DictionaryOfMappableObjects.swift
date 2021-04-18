@@ -4,7 +4,7 @@
 //
 //  @author     Natalia Mamunina <MamuninaNV@ekassir.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ extension TransformOperatorsTests {
             var dict = _dictionary
             dict <~ (map[JsonKeys.dictionary], Vector3DTransform.shared)
             XCTAssertEqual(dict.count, 1)
-            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict = _dictionary
@@ -41,7 +41,7 @@ extension TransformOperatorsTests {
             var dict = _dictionary
             dict <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, [JsonKeys.object: Vector3DModel.shared])
             XCTAssertEqual(dict.count, 1)
-            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int16.max))
+            XCTAssertEqual(dict[JsonKeys.object]?.dx, Int(Int16.max))
         }
         assertNoThrow {
             var dict = _dictionary
@@ -108,7 +108,7 @@ extension TransformOperatorsTests {
             var dict = _dictionary
             dict <~ (map[JsonKeys.dictionary], Vector3DTransform.shared)
             XCTAssertEqual(dict?.count ?? -1, 1)
-            XCTAssertEqual(dict?[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict?[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict = _dictionary
@@ -124,7 +124,7 @@ extension TransformOperatorsTests {
             var dict = _dictionary
             dict <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, [JsonKeys.object: Vector3DModel.shared])
             XCTAssertEqual(dict?.count ?? -1, 1)
-            XCTAssertEqual(dict?[JsonKeys.object]?.x, Int(Int16.max))
+            XCTAssertEqual(dict?[JsonKeys.object]?.dx, Int(Int16.max))
         }
         assertNoThrow {
             var dict = _dictionary
@@ -194,7 +194,7 @@ extension TransformOperatorsTests {
             var dict: [String: Vector3DModel]! = _dictionary
             dict <~ (map[JsonKeys.dictionary], Vector3DTransform.shared)
             XCTAssertEqual(dict.count, 1)
-            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int8.max))
+            XCTAssertEqual(dict[JsonKeys.object]?.dx, Int(Int8.max))
         }
         assertNoThrow {
             var dict: [String: Vector3DModel]! = _dictionary
@@ -210,7 +210,7 @@ extension TransformOperatorsTests {
             var dict: [String: Vector3DModel]! = _dictionary
             dict <~ (map[JsonKeys.noSuchKey], Vector3DTransform.shared, [JsonKeys.object: Vector3DModel.shared])
             XCTAssertEqual(dict.count, 1)
-            XCTAssertEqual(dict[JsonKeys.object]?.x, Int(Int16.max))
+            XCTAssertEqual(dict[JsonKeys.object]?.dx, Int(Int16.max))
         }
         assertNoThrow {
             var dict: [String: Vector3DModel]! = _dictionary

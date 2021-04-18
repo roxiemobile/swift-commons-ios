@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
+
 // MARK: - Methods
 
     /// Checks whether an instance is of a certain type.
@@ -19,6 +19,7 @@ public extension Roxie
 
     /// Force downcast of an object to a specified type.
     static func forceCast<T, U>(_ object: T?, to type: U.Type) -> U {
+        // swiftlint:disable:next force_cast
         return (object as! U)
     }
 
@@ -27,5 +28,3 @@ public extension Roxie
         return (object == nil) ? nil : (object as? U)
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -22,20 +22,20 @@
 
 import Foundation
 
-public func synchronized<T>(_ object: AnyObject, block: () -> T) -> T
-{
-    var result: Any?
+// What is the Swift equivalent to Objective-C's “@synchronized”?
+// @link https://stackoverflow.com/a/61458763
 
-    objc_sync_enter(object)
-    result = block()
-    objc_sync_exit (object)
+@discardableResult
+public func synchronized<T>(_ lock: Any, block: () -> T) -> T {
+    objc_sync_enter(lock)
+    defer { objc_sync_exit(lock) }
 
-    return (result as! T)
+    return block()
 }
 
-public func synchronized(_ object: AnyObject, block: () -> Void)
-{
-    objc_sync_enter(object)
+public func synchronized(_ lock: Any, block: () -> Void) {
+    objc_sync_enter(lock)
+    defer { objc_sync_exit(lock) }
+
     block()
-    objc_sync_exit (object)
 }

@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension FileManager
-{
+public extension FileManager {
+
 // MARK: - Methods
 
     /// Excludes files and directories from iCloud backups.
@@ -26,6 +26,7 @@ public extension FileManager
     ///
     @discardableResult
     static func roxie_excludeFromBackup(at URL: URL?) -> Bool {
+
         let fm = FileManager.default
 
         guard let path = URL?.path, fm.fileExists(atPath: path) else {
@@ -36,10 +37,10 @@ public extension FileManager
         // @link https://developer.apple.com/library/ios/qa/qa1719/_index.html
 
         // NSURLIsExcludedFromBackupKey can not be set correctly
-        // @link http://stackoverflow.com/a/11012288
+        // @link https://stackoverflow.com/a/11012288
 
         // Prevent app from backing up documents folder?
-        // @link http://stackoverflow.com/a/24778883
+        // @link https://stackoverflow.com/a/24778883
 
         let expandedPath = (path as NSString).expandingTildeInPath
         var fileURL = Foundation.URL(fileURLWithPath: expandedPath)
@@ -51,5 +52,3 @@ public extension FileManager
         return (try? fileURL.setResourceValues(resourceValues)) != nil
     }
 }
-
-// ----------------------------------------------------------------------------

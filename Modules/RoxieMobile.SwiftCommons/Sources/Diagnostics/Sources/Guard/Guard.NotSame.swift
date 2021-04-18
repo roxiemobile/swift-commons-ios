@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
+
 // MARK: - Methods
 
     /// Checks that two objects do not refer to the same object.
@@ -24,11 +24,16 @@ extension Guard
     /// - Throws:
     ///   CheckError
     ///
-    public static func notSame<T:AnyObject>(_ unexpected: T?, _ actual: T?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
+    public static func notSame<T: AnyObject>(
+        _ unexpected: T?,
+        _ actual: T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+
         if let error = tryIsFailure(try Check.notSame(unexpected, actual)) {
             newGuardException(message(), error, file, line).raise()
         }
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -4,18 +4,18 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-public extension String
-{
+public extension String {
+
 // MARK: - Methods
 
     /// Returns an index that is the specified distance from the start
     /// index of the `String`.
-    func index(offsetBy n: Int) -> Index {
-        return self.index(self.startIndex, offsetBy: n)
+    func index(offsetBy distance: Int) -> Index {
+        return self.index(self.startIndex, offsetBy: distance)
     }
 
     /// Returns a slice of a string containing the characters of the `String`
@@ -33,8 +33,6 @@ public extension String
     /// Returns a slice of a string containing the characters of the `String`
     /// that lie within a given range.
     func substring(with range: Range<Int>) -> String {
-        return String(self[index(offsetBy: range.lowerBound)..<index(offsetBy: range.upperBound)])
+        return String(self[index(offsetBy: range.lowerBound) ..< index(offsetBy: range.upperBound)])
     }
 }
-
-// ----------------------------------------------------------------------------
