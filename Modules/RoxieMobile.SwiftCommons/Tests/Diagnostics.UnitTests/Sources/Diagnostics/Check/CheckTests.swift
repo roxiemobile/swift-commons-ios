@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,20 +13,20 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-final class CheckTests: XCTestCase
-{
+final class CheckTests: XCTestCase {
+
 // MARK: - Internal Methods
 
     internal func checkThrowsError(
-            _ method: String,
-            errorType: Error.Type = CheckError.self,
-            file: StaticString = #file,
-            line: UInt = #line,
-            action: @escaping () throws -> Void
-    ) -> Void {
+        _ method: String,
+        errorType: Error.Type = CheckError.self,
+        file: StaticString = #file,
+        line: UInt = #line,
+        action: @escaping () throws -> Void
+    ) {
 
-        XCTAssert(!method.isEmpty, "‘method’ is empty");
-        var cause: Error? = nil
+        XCTAssert(!method.isEmpty, "`method` is empty")
+        var cause: Error?
 
         do {
             try action()
@@ -35,8 +35,7 @@ final class CheckTests: XCTestCase
             cause = error
         }
 
-        if let error = cause
-        {
+        if let error = cause {
             if type(of: error) == errorType {
                 // Do nothing
             }
@@ -50,15 +49,15 @@ final class CheckTests: XCTestCase
     }
 
     internal func checkNotThrowsError(
-            _ method: String,
-            errorType: Error.Type = CheckError.self,
-            file: StaticString = #file,
-            line: UInt = #line,
-            action: @escaping () throws -> Void
-    ) -> Void {
+        _ method: String,
+        errorType: Error.Type = CheckError.self,
+        file: StaticString = #file,
+        line: UInt = #line,
+        action: @escaping () throws -> Void
+    ) {
 
-        XCTAssert(!method.isEmpty, "‘method’ is empty");
-        var cause: Error? = nil
+        XCTAssert(!method.isEmpty, "`method` is empty")
+        var cause: Error?
 
         do {
             try action()
@@ -67,8 +66,7 @@ final class CheckTests: XCTestCase
             cause = error
         }
 
-        if let error = cause
-        {
+        if let error = cause {
             if type(of: error) == errorType {
                 XCTFail("\(prefix(file, line)) - \(method): Method thrown an error")
             }
@@ -82,20 +80,22 @@ final class CheckTests: XCTestCase
     }
 
     internal func loadJson(
-            _ filename: String,
-            file: StaticString = #file,
-            line: UInt = #line
+        _ filename: String,
+        file: StaticString = #file,
+        line: UInt = #line
     ) -> [String: Any]? {
 
-        XCTAssert(!filename.isEmpty, "‘filename’ is empty")
-        var jsonObject: [String: Any]? = nil
+        XCTAssert(!filename.isEmpty, "`filename` is empty")
+        var jsonObject: [String: Any]?
 
         if let filepath = Bundle(for: type(of: self)).path(forResource: filename, ofType: "json"),
-           let data = try? Data(contentsOf: URL(fileURLWithPath: filepath), options: .alwaysMapped)
-        {
-            if let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments),
-               let dict = json as? [String: Any]
-            {
+           let data = try? Data(contentsOf: URL(fileURLWithPath: filepath), options: .alwaysMapped) {
+
+            let jsonOptions = JSONSerialization.ReadingOptions.allowFragments
+
+            if let json = try? JSONSerialization.jsonObject(with: data, options: jsonOptions),
+               let dict = json as? [String: Any] {
+
                 jsonObject = dict
             }
             else {
@@ -115,5 +115,3 @@ final class CheckTests: XCTestCase
         return "\(fileURL.lastPathComponent):\(line)"
     }
 }
-
-// ----------------------------------------------------------------------------

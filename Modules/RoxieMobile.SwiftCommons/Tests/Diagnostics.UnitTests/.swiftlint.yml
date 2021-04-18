@@ -1,0 +1,10 @@
+parent_config: ../../.swiftlint_base.yml
+
+
+# MARK: - Rules
+
+disabled_rules:
+  - syntactic_sugar
+
+type_name:
+  allowed_symbols: ['_']

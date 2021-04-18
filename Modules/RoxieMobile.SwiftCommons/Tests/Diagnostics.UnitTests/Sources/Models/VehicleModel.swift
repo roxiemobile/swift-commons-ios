@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -26,9 +26,10 @@ class VehicleModel: ValidatableModel {
     open override func map(with map: Map) {
         super.map(with: map)
 
-        // (De)serialize to/from json
+        // @formatter:off
         self.model <~ map["model"]
         self.color <~ map["color"]
+        // @formatter:on
     }
 
     open override func validate() throws {
