@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2019, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Date
-{
+public extension Date {
+
 // MARK: - Methods
 
     /// Returns a new `Date` object representing the date calculated by adding the amount specified to self date.
@@ -27,12 +27,12 @@ public extension Date
     ///   - seconds: Number of seconds to add.
     ///
     func add(
-            years: Int = 0,
-            months: Int = 0,
-            days: Int = 0,
-            hours: Int = 0,
-            minutes: Int = 0,
-            seconds: Int = 0
+        years: Int = 0,
+        months: Int = 0,
+        days: Int = 0,
+        hours: Int = 0,
+        minutes: Int = 0,
+        seconds: Int = 0
     ) -> Date? {
 
         let calendar = Calendar.current
@@ -66,5 +66,3 @@ public extension Date
         return newDate
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -8,6 +8,9 @@
       location = "group:Sources/Concurrent">
    </FileRef>
    <FileRef
+      location = "group:Sources/Extensions">
+   </FileRef>
+   <FileRef
       location = "group:Sources/Lang">
    </FileRef>
    <FileRef

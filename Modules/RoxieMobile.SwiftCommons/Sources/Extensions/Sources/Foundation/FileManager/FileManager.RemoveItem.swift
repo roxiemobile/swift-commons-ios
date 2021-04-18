@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,20 +13,22 @@ import SwiftCommonsLogging
 
 // ----------------------------------------------------------------------------
 
-public extension FileManager
-{
+public extension FileManager {
+
 // MARK: - Methods
 
     /// Removes the file or directory at the specified URL.
     ///
     /// - Parameters:
-    ///   - URL: A file URL specifying the file or directory to remove. If the URL specifies a directory, the contents of that directory are recursively removed.
+    ///   - URL: A file URL specifying the file or directory to remove. If the URL specifies a directory,
+    ///          the contents of that directory are recursively removed.
     ///
     /// - Returns:
     ///   `true` if the item was removed successfully. Returns `false` if an error occurred.
     ///
     @discardableResult
     static func roxie_removeItem(at URL: URL?) -> Bool {
+
         let fm = FileManager.default
         var result = false
 
@@ -53,5 +55,3 @@ public extension FileManager
         static let TAG = FileManager.self
     }
 }
-
-// ----------------------------------------------------------------------------

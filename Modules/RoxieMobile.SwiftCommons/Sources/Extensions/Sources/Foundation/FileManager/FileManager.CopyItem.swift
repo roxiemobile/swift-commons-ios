@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,21 +13,24 @@ import SwiftCommonsLogging
 
 // ----------------------------------------------------------------------------
 
-public extension FileManager
-{
+public extension FileManager {
+
 // MARK: - Methods
 
     /// Copies the file at the specified URL to a new location synchronously.
     ///
     /// - Parameters:
-    ///   - srcURL: The file URL that identifies the file you want to copy. The URL in this parameter must not be a file reference URL.
-    ///   - dstURL: The URL at which to place the copy of `srcURL`. The URL in this parameter must not be a file reference URL and must include the name of the file in its new location.
+    ///   - srcURL: The file URL that identifies the file you want to copy. The URL in this parameter
+    ///             must not be a file reference URL.
+    ///   - dstURL: The URL at which to place the copy of `srcURL`. The URL in this parameter must not be
+    ///             a file reference URL and must include the name of the file in its new location.
     ///
     /// - Returns:
     ///   `true` if the item was copied successfully. Returns `false` if an error occurred.
     ///
     @discardableResult
     static func roxie_copyItem(at srcURL: URL?, to dstURL: URL?) -> Bool {
+
         let fm = FileManager.default
         var result = false
 
@@ -54,5 +57,3 @@ public extension FileManager
         static let TAG = FileManager.self
     }
 }
-
-// ----------------------------------------------------------------------------

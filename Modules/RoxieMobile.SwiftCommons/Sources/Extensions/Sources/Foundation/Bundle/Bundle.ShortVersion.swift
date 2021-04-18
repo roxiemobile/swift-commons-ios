@@ -3,8 +3,8 @@
 //  Bundle.ShortVersion.swift
 //
 //  @author     Denis Kolyasev <KolyasevDA@ekassir.com>
-//  @copyright  Copyright (c) 2015, eKassir Ltd. All rights reserved.
-//  @link       http://www.ekassir.com/
+//  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Bundle
-{
+public extension Bundle {
+
 // MARK: - Properties
 
     /// Returns the release version number of the bundle, which identifies a released iteration of the app.
@@ -27,5 +27,3 @@ public extension Bundle
         static let ShortVersionKey = "CFBundleShortVersionString"
     }
 }
-
-// ----------------------------------------------------------------------------

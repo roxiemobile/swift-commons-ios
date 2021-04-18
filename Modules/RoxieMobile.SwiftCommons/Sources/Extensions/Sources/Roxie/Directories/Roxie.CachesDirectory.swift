@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-public extension Roxie
-{
+public extension Roxie {
+
 // MARK: - Properties
 
     /// Returns the caches directory for the current user.
@@ -24,11 +24,9 @@ public extension Roxie
 
 // MARK: - Constants
 
-    private struct Directories
-    {
+    private struct Directories {
+
         /// The caches directory for the current user.
         static let Caches: URL? = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
     }
 }
-
-// ----------------------------------------------------------------------------

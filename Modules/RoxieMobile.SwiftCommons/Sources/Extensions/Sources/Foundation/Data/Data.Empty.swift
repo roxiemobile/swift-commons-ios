@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Data
-{
+public extension Data {
+
 // MARK: - Properties
 
     /// Checks if a `Data` is not empty.
@@ -24,8 +24,8 @@ public extension Data
 
 // ----------------------------------------------------------------------------
 
-public extension Optional where Wrapped == Data
-{
+public extension Optional where Wrapped == Data {
+
 // MARK: - Properties
 
     /// Checks if a `Data` is empty or `nil`.
@@ -38,5 +38,3 @@ public extension Optional where Wrapped == Data
         return !self.isEmpty
     }
 }
-
-// ----------------------------------------------------------------------------

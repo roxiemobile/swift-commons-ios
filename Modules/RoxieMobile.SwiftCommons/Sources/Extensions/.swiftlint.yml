@@ -1,0 +1,17 @@
+parent_config: ../../.swiftlint_base.yml
+
+
+# MARK: - Paths
+
+excluded:
+  - Dependencies/TimeIntervals
+
+
+# MARK: - Rules
+
+identifier_name:
+  min_length:
+    error: 1
+    warning: 2
+  excluded:
+    - roxie_fileExists

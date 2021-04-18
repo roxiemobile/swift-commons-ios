@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import Foundation
 
 // ----------------------------------------------------------------------------
 
-public extension Date
-{
+public extension Date {
+
 // MARK: - Properties
 
     /// Date year.
@@ -64,5 +64,3 @@ public extension Date
         return components.value(for: component)!
     }
 }
-
-// ----------------------------------------------------------------------------
