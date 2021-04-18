@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import SwiftCommonsAbstractions
 
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
+
 // MARK: - Methods
 
     /// Checks that an object is `nil` or not valid.
@@ -27,11 +27,15 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func nilOrNotValid(_ object: Validatable?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) throws {
+    public static func nilOrNotValid(
+        _ object: Validatable?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) throws {
+
         guard (object == nil) || object!.isNotValid else {
             throw newCheckError(message(), file, line)
         }
     }
 }
-
-// ----------------------------------------------------------------------------

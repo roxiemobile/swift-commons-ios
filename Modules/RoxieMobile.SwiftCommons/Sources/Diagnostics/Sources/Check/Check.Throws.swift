@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-extension Check
-{
+extension Check {
+
 // MARK: - Methods
 
     /// Verifies that the exact error is thrown (and not a derived error type).
@@ -28,15 +28,16 @@ extension Check
     /// - Throws:
     ///   CheckError
     ///
-    public static func isThrows<T:Error>(
-            _ action: () throws -> Void,
-            _ errorType: T.Type,
-            _ message: @autoclosure () -> String = "",
-            file: StaticString = #file,
-            line: UInt = #line
+    public static func isThrows<T: Error>(
+        _ action: () throws -> Void,
+        _ errorType: T.Type,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
     ) throws {
 
-        var cause: Error? = nil
+        var cause: Error?
+
         do {
             try action()
         }
@@ -47,20 +48,21 @@ extension Check
         if (cause == nil) {
             let text = message()
 
-            throw newCheckError(
-                    text.isNotBlank ? text :
-                            "Expected \(Roxie.typeName(of: errorType)) to be thrown, but nothing was thrown.",
-                    file, line);
+            let errorMessage = text.isNotBlank
+                ? text
+                : "Expected \(Roxie.typeName(of: errorType)) to be thrown, but nothing was thrown."
+
+            throw newCheckError(errorMessage, file, line)
         }
         else if let error = cause, (type(of: error) != errorType) {
             let text = message()
 
-            throw newCheckError(
-                    text.isNotBlank ? text :
-                            "Unexpected error type thrown. Expected: \(Roxie.typeName(of: errorType)) but was: \(Roxie.typeName(of: error))",
-                    file, line);
+            let errorMessage = text.isNotBlank
+                ? text
+                // swiftlint:disable:next line_length
+                : "Unexpected error type thrown. Expected: \(Roxie.typeName(of: errorType)) but was: \(Roxie.typeName(of: error))"
+
+            throw newCheckError(errorMessage, file, line)
         }
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -4,12 +4,12 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2017, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
-extension Guard
-{
+extension Guard {
+
 // MARK: - Methods
 
     /// Checks that a string is not `nil`, not empty and contains not only whitespace characters.
@@ -23,11 +23,15 @@ extension Guard
     /// - Throws:
     ///   GuardException
     ///
-    public static func notBlank(_ value: String?, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
+    public static func notBlank(
+        _ value: String?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+
         if let error = tryIsFailure(try Check.notBlank(value)) {
             newGuardException(message(), error, file, line).raise()
         }
     }
 }
-
-// ----------------------------------------------------------------------------

@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		193BE2F31FCCB2EC00E35C0C /* SwiftCommonsDiagnostics.h in Headers */ = {isa = PBXBuildFile; fileRef = 193BE2F11FCCB2EC00E35C0C /* SwiftCommonsDiagnostics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		193BE2F81FCCB31E00E35C0C /* SwiftCommonsDiagnostics.m in Sources */ = {isa = PBXBuildFile; fileRef = 193BE2F71FCCB31E00E35C0C /* SwiftCommonsDiagnostics.m */; };
 		193BE2F91FCCB34700E35C0C /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDC0791F86D50F00DA57BC /* Check.swift */; };
 		193BE2FA1FCCB34700E35C0C /* Check.AllBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194275A61F87AC8B00574076 /* Check.AllBlank.swift */; };
 		193BE2FB1FCCB34700E35C0C /* Check.AllEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194275A51F87AC8B00574076 /* Check.AllEmpty.swift */; };
@@ -85,7 +84,6 @@
 		193BE2EF1FCCB2EB00E35C0C /* SwiftCommonsDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCommonsDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		193BE2F11FCCB2EC00E35C0C /* SwiftCommonsDiagnostics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsDiagnostics.h; sourceTree = "<group>"; };
 		193BE2F21FCCB2EC00E35C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		193BE2F71FCCB31E00E35C0C /* SwiftCommonsDiagnostics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCommonsDiagnostics.m; sourceTree = "<group>"; };
 		193BE3501FCCB57400E35C0C /* SwiftCommonsConcurrent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsConcurrent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		193BE3511FCCB57400E35C0C /* SwiftCommonsExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCommonsExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		194275A31F87AC8B00574076 /* Check.NotNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Check.NotNil.swift; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				193BE2F11FCCB2EC00E35C0C /* SwiftCommonsDiagnostics.h */,
-				193BE2F71FCCB31E00E35C0C /* SwiftCommonsDiagnostics.m */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -356,7 +353,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Roxie Mobile Ltd.";
 				TargetAttributes = {
 					193BE2EE1FCCB2EB00E35C0C = {
@@ -366,7 +363,7 @@
 				};
 			};
 			buildConfigurationList = 19C0171F1F72CC3A00D29F73 /* Build configuration list for PBXProject "SwiftCommons.Diagnostics" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -431,7 +428,6 @@
 				193BE2FA1FCCB34700E35C0C /* Check.AllBlank.swift in Sources */,
 				193BE3141FCCB34700E35C0C /* Check.NotSame.swift in Sources */,
 				193BE30F1FCCB34700E35C0C /* Check.NilOrValid.swift in Sources */,
-				193BE2F81FCCB31E00E35C0C /* SwiftCommonsDiagnostics.m in Sources */,
 				193BE3041FCCB34700E35C0C /* Check.Blank.swift in Sources */,
 				193BE32A1FCCB34700E35C0C /* Guard.GreaterThanOrEqualTo.swift in Sources */,
 				193BE2FD1FCCB34700E35C0C /* Check.AllNilOrNotValid.swift in Sources */,
@@ -485,7 +481,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configuration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -505,7 +505,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configuration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -617,7 +621,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
