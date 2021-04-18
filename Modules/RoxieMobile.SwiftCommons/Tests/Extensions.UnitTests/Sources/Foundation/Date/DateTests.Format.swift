@@ -4,7 +4,7 @@
 //
 //  @author     Alexander Bragin <bragin-av@roxiemobile.com>
 //  @copyright  Copyright (c) 2018, Roxie Mobile Ltd. All rights reserved.
-//  @link       http://www.roxiemobile.com/
+//  @link       https://www.roxiemobile.com/
 //
 // ----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ import XCTest
 
 // ----------------------------------------------------------------------------
 
-extension DateTests
-{
+extension DateTests {
+
 // MARK: - Tests
 
     func testDateFormatting() {
@@ -37,5 +37,3 @@ extension DateTests
         XCTAssertEqual(date.format(timeZone: tzMoscow), "1970-01-01T04:01:01+0300")
     }
 }
-
-// ----------------------------------------------------------------------------
