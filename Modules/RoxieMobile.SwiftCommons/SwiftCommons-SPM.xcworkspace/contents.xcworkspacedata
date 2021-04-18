@@ -5,6 +5,9 @@
       location = "group:Sources/Abstractions">
    </FileRef>
    <FileRef
+      location = "group:Sources/Concurrent">
+   </FileRef>
+   <FileRef
       location = "group:Sources/ObjC">
    </FileRef>
 </Workspace>

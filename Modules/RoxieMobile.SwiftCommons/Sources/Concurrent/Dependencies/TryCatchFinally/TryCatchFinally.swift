@@ -9,34 +9,33 @@
 import Foundation
 import SwiftCommonsObjC
 
-public func objcTry(Try: @escaping () -> Void) -> TryCatchFinally {
-    return TryCatchFinally(Try)
+public func objcTry(_ tryBlock: @escaping () -> Void) -> TryCatchFinally {
+    return TryCatchFinally(tryBlock)
 }
 
-public final class TryCatchFinally
-{
+public final class TryCatchFinally {
+
     init(_ tryBlock: @escaping () -> Void) {
-        self.tryFunc = tryBlock
+        _tryFunc = tryBlock
     }
 
     deinit {
-        roxie_tryCatchFinally(tryFunc, catchFunc, finallyFunc)
+        roxie_tryCatchFinally(_tryFunc, _catchFunc, _finallyFunc)
     }
 
-    let tryFunc: () -> Void
+    private let _tryFunc: () -> Void
 
-    var catchFunc: (NSException) -> Void = { _ in }
+    private var _catchFunc: (NSException) -> Void = { _ in }
 
-    var finallyFunc: () -> Void = {}
+    private var _finallyFunc: () -> Void = {}
 
     @discardableResult
-    public func objcCatch(_ catchBlock: @escaping (NSException) -> Void) -> TryCatchFinally
-    {
-        self.catchFunc = { e in catchBlock(e) }
+    public func objcCatch(_ catchBlock: @escaping (NSException) -> Void) -> TryCatchFinally {
+        _catchFunc = { ex in catchBlock(ex) }
         return self
     }
 
     public func objcFinally(_ finallyBlock: @escaping () -> Void) {
-        self.finallyFunc = finallyBlock
+        _finallyFunc = finallyBlock
     }
 }

@@ -27,34 +27,34 @@
 /// Remember to store it in a static variable to ensure it is persisted
 /// 
 public final class PerformOnce {
-    
+
     // private atomic store
-    private var _done : Atomic<Bool>
-    
+    private var _done: Atomic<Bool>
+
     /// Check if the PerformOnce has been used yet
-    public var done : Bool {
+    public var done: Bool {
         return _done.value
     }
-    
+
     /// Initialise a new PerformOnce
     /// Optionally provide a specific lock - defaults to a Mutex
-    public init(lock:Lockable = PthreadLock()) {
-        self._done = Atomic(false, lock:lock)
+    public init(lock: Lockable = PthreadLock()) {
+        _done = Atomic(false, lock: lock)
     }
-    
+
     /// perform a closure if it hasn't been used already
     /// Returns a Bool indicating whether the closure was performed
-    public func perform(closure:()->Void) -> Bool {
-        let originalDoneValue = self._done.modify { _ in true }
+    public func perform(closure: () -> Void) -> Bool {
+        let originalDoneValue = _done.modify { _ in true }
         guard originalDoneValue == false else {
             return false
         }
         closure()
         return true
     }
-    
+
     /// reset the performOnce so that the next perform() call will execute
     public func reset() {
-        self._done.value = false
+        _done.value = false
     }
 }

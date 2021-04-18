@@ -25,27 +25,25 @@
 /// Generic Lock protocol
 /// Basically the same as NSLocking but with no Obj-c requirement
 public protocol Lockable {
-    
+
     /// lock as appropriate for the type
     func lock()
-    
+
     /// lock as appropriate for the type if it is not already locked
     func tryLock() -> Bool
-    
+
     /// unlock as appropriate for the type
     func unlock()
-    
+
     /// perform
-    func performWhileLocked(closure:()->())
-    
+    func performWhileLocked(closure: () -> Void)
 }
 
 extension Lockable {
-    
-    public func performWhileLocked(closure:()->()) {
-        self.lock()
-        defer { self.unlock() }
-        closure()        
+
+    public func performWhileLocked(closure: () -> Void) {
+        lock()
+        defer { unlock() }
+        closure()
     }
-    
 }
