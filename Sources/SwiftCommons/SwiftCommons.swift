@@ -19,6 +19,6 @@ import SwiftCommonsObjC
 
 // ----------------------------------------------------------------------------
 
-struct SwiftCommons {
+private struct SwiftCommons {
     // Do nothing
 }
