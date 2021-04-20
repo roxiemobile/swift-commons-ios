@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsExtensions'
   s.summary               = 'A collection of useful type extensions used for iOS application development.'
-  s.version               = '1.5.0'
+  s.version               = '1.6.0'
 
   s.platform              = :ios
   s.ios.deployment_target = '12.0'
