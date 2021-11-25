@@ -22,6 +22,15 @@ public final class ChainedLogger: LoggerContract {
         self.loggers = loggers
     }
 
+    /// Initializes and returns a newly created logger object.
+    ///
+    /// - Parameters:
+    ///   - loggers: An array of loggers which must be chained together.
+    ///
+    public init(loggers: [LoggerContract]) {
+        self.loggers = loggers
+    }
+
 // MARK: - Properties
 
     internal let loggers: [LoggerContract]
