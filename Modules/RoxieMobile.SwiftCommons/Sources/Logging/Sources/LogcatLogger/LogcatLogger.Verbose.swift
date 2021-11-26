@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
+import OSLog
 import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
@@ -29,7 +29,7 @@ extension LogcatLogger {
     public func v(_ tag: String, _ message: String, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.verbose
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, message))
+            os_log("%@", type: .debug, Logger.description(level, tag, message))
         }
     }
 
