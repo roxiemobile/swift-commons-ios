@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsConcurrent'
   s.summary               = 'A collection of reusable components used to simplify the work of writing concurrent and asynchronous code.'
-  s.version               = '1.6.0'
+  s.version               = '1.6.1'
 
   s.platform              = :ios
   s.ios.deployment_target = '12.0'
