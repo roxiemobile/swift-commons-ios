@@ -8,7 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
-import Foundation
+import OSLog
 import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
@@ -29,7 +29,7 @@ extension LogcatLogger {
     public func w(_ tag: String, _ message: String, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, message))
+            os_log("%@", type: .error, Logger.description(level, tag, message))
         }
     }
 
@@ -68,7 +68,7 @@ extension LogcatLogger {
 
         let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, message, error))
+            os_log("%@", type: .error, Logger.description(level, tag, message, error))
         }
     }
 
@@ -115,7 +115,7 @@ extension LogcatLogger {
 
         let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, message, error))
+            os_log("%@", type: .error, Logger.description(level, tag, message, error))
         }
     }
 
@@ -162,7 +162,7 @@ extension LogcatLogger {
 
         let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, message, exception))
+            os_log("%@", type: .error, Logger.description(level, tag, message, exception))
         }
     }
 
@@ -201,7 +201,7 @@ extension LogcatLogger {
     public func w(_ tag: String, _ error: Error, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, nil, error))
+            os_log("%@", type: .error, Logger.description(level, tag, nil, error))
         }
     }
 
@@ -232,7 +232,7 @@ extension LogcatLogger {
     public func w(_ tag: String, _ error: NSError, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, nil, error))
+            os_log("%@", type: .error, Logger.description(level, tag, nil, error))
         }
     }
 
@@ -263,7 +263,7 @@ extension LogcatLogger {
     public func w(_ tag: String, _ exception: NSException, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.warning
         if Logger.isLoggable(level) {
-            NSLog("%@", Logger.description(level, tag, nil, exception))
+            os_log("%@", type: .error, Logger.description(level, tag, nil, exception))
         }
     }
 
