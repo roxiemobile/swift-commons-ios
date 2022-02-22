@@ -29,7 +29,7 @@ extension LogcatLogger {
     public func v(_ tag: String, _ message: String, file: StaticString = #file, line: UInt = #line) {
         let level = Logger.LogLevel.verbose
         if Logger.isLoggable(level) {
-            os_log("%@", type: .debug, Logger.description(level, tag, message))
+            os_log("%{public}s", type: .debug, Logger.description(level, tag, message))
         }
     }
 
