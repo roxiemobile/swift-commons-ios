@@ -9,7 +9,7 @@ workspace '../RoxieMobile.SwiftCommons/SwiftCommons.xcworkspace'
 # MARK: - Methods
 
 def inject_shared_dependencies_1
-  pod 'CryptoSwift', '~> 1.3.8'
+  pod 'CryptoSwift', '~> 1.4.3'
 end
 
 
