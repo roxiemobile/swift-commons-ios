@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
   s.name                  = 'SwiftCommonsLang'
   s.summary               = 'A collection of useful classes and Swift language extensions.'
-  s.version               = '1.6.3'
+  s.version               = '1.6.4'
 
   s.platform              = :ios
   s.ios.deployment_target = '12.0'
