@@ -16,10 +16,11 @@ extension FileLogger {
 
 // MARK: - Methods
 
-    /// Formats and writes a verbose log message into the file.
+    /// Formats and writes a verbose log messages to a file.
     ///
     /// - Parameters:
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -31,10 +32,11 @@ extension FileLogger {
         }
     }
 
-    /// Formats and writes a verbose log message into the file.
+    /// Formats and writes a verbose log messages to a file.
     ///
     /// - Parameters:
-    ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - type: Used to identify the source of a log message. It usually identifies the class
+    ///           where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.

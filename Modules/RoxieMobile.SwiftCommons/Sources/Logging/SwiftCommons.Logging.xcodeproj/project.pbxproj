@@ -35,6 +35,12 @@
 		19C9FDBF1FCCADCD0069F3D1 /* LogcatLogger.Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1925929A1F8661530012B12C /* LogcatLogger.Error.swift */; };
 		19C9FDC01FCCADCD0069F3D1 /* LoggerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C7B7691F8651890030F1D8 /* LoggerContract.swift */; };
 		19C9FDC11FCCADCD0069F3D1 /* SwiftCommonsLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19D626C4280DCF5000D421F9 /* FileLogger.Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D626BE280DCF5000D421F9 /* FileLogger.Error.swift */; };
+		19D626C5280DCF5000D421F9 /* FileLogger.Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D626BF280DCF5000D421F9 /* FileLogger.Information.swift */; };
+		19D626C6280DCF5000D421F9 /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D626C0280DCF5000D421F9 /* FileLogger.swift */; };
+		19D626C7280DCF5000D421F9 /* FileLogger.Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D626C1280DCF5000D421F9 /* FileLogger.Debug.swift */; };
+		19D626C8280DCF5000D421F9 /* FileLogger.Verbose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D626C2280DCF5000D421F9 /* FileLogger.Verbose.swift */; };
+		19D626C9280DCF5000D421F9 /* FileLogger.Warning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D626C3280DCF5000D421F9 /* FileLogger.Warning.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +75,12 @@
 		19C9FD931FCCAD3A0069F3D1 /* SwiftCommonsLogging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCommonsLogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C9FD951FCCAD3A0069F3D1 /* SwiftCommonsLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCommonsLogging.h; sourceTree = "<group>"; };
 		19C9FD961FCCAD3A0069F3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19D626BE280DCF5000D421F9 /* FileLogger.Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.Error.swift; sourceTree = "<group>"; };
+		19D626BF280DCF5000D421F9 /* FileLogger.Information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.Information.swift; sourceTree = "<group>"; };
+		19D626C0280DCF5000D421F9 /* FileLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
+		19D626C1280DCF5000D421F9 /* FileLogger.Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.Debug.swift; sourceTree = "<group>"; };
+		19D626C2280DCF5000D421F9 /* FileLogger.Verbose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.Verbose.swift; sourceTree = "<group>"; };
+		19D626C3280DCF5000D421F9 /* FileLogger.Warning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.Warning.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +186,19 @@
 			path = LogcatLogger;
 			sourceTree = "<group>";
 		};
+		19D626BD280DCF5000D421F9 /* FileLogger */ = {
+			isa = PBXGroup;
+			children = (
+				19D626C0280DCF5000D421F9 /* FileLogger.swift */,
+				19D626C2280DCF5000D421F9 /* FileLogger.Verbose.swift */,
+				19D626C1280DCF5000D421F9 /* FileLogger.Debug.swift */,
+				19D626BF280DCF5000D421F9 /* FileLogger.Information.swift */,
+				19D626C3280DCF5000D421F9 /* FileLogger.Warning.swift */,
+				19D626BE280DCF5000D421F9 /* FileLogger.Error.swift */,
+			);
+			path = FileLogger;
+			sourceTree = "<group>";
+		};
 		19EB0C9E1F72DF0D0029F302 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +211,7 @@
 			children = (
 				19C7B75C1F864EF60030F1D8 /* Logger */,
 				19C7B75D1F864F040030F1D8 /* ChainedLogger */,
+				19D626BD280DCF5000D421F9 /* FileLogger */,
 				19C7B75E1F864F0B0030F1D8 /* LogcatLogger */,
 				197AE96821729A940087B579 /* StdoutLogger */,
 				19C7B7691F8651890030F1D8 /* LoggerContract.swift */,
@@ -289,10 +315,13 @@
 				19C9FDBF1FCCADCD0069F3D1 /* LogcatLogger.Error.swift in Sources */,
 				19C9FDB81FCCADCD0069F3D1 /* ChainedLogger.Warning.swift in Sources */,
 				19C9FDBA1FCCADCD0069F3D1 /* LogcatLogger.swift in Sources */,
+				19D626C8280DCF5000D421F9 /* FileLogger.Verbose.swift in Sources */,
 				19C9FDB21FCCADCD0069F3D1 /* Logger.Warning.swift in Sources */,
 				19C9FDB91FCCADCD0069F3D1 /* ChainedLogger.Error.swift in Sources */,
+				19D626C4280DCF5000D421F9 /* FileLogger.Error.swift in Sources */,
 				19C9FDBD1FCCADCD0069F3D1 /* LogcatLogger.Information.swift in Sources */,
 				19C9FDB61FCCADCD0069F3D1 /* ChainedLogger.Debug.swift in Sources */,
+				19D626C9280DCF5000D421F9 /* FileLogger.Warning.swift in Sources */,
 				19C9FDC01FCCADCD0069F3D1 /* LoggerContract.swift in Sources */,
 				197AE97321729A940087B579 /* StdoutLogger.Error.swift in Sources */,
 				197AE97221729A940087B579 /* StdoutLogger.Verbose.swift in Sources */,
@@ -306,7 +335,10 @@
 				197AE97021729A940087B579 /* StdoutLogger.Information.swift in Sources */,
 				19C9FDB51FCCADCD0069F3D1 /* ChainedLogger.Verbose.swift in Sources */,
 				19C9FDB11FCCADCD0069F3D1 /* Logger.Information.swift in Sources */,
+				19D626C5280DCF5000D421F9 /* FileLogger.Information.swift in Sources */,
 				197AE96F21729A940087B579 /* StdoutLogger.Debug.swift in Sources */,
+				19D626C6280DCF5000D421F9 /* FileLogger.swift in Sources */,
+				19D626C7280DCF5000D421F9 /* FileLogger.Debug.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

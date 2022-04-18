@@ -8,54 +8,53 @@
 //
 // ----------------------------------------------------------------------------
 
+import Foundation
 import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
 
-/// A logger which logs to the file system
+/// A logger that directs log messages to a file.
 public final class FileLogger: LoggerContract {
 
 // MARK: - Construction
 
     /// Initializes and returns a newly created logger object.
     public init(fileLink: URL) throws {
-        let logFilePath = fileLink.path
+
+        let filePath = fileLink.path
         let fm = FileManager.default
 
-        if !fm.fileExists(atPath: logFilePath) {
-            fm.createFile(atPath: logFilePath, contents: nil)
+        if !fm.fileExists(atPath: filePath) {
+            fm.createFile(atPath: filePath, contents: nil)
         }
 
-        self.file = try FileHandle(forWritingTo: fileLink)
-        self.queue = DispatchQueue(label: Inner.queueLabel)
-
-        self.file.seekToEndOfFile()
+        _fileHandle = try FileHandle(forWritingTo: fileLink)
+        _fileHandle.seekToEndOfFile()
     }
 
     deinit {
-        self.file.closeFile()
+        _fileHandle.closeFile()
     }
 
 // MARK: - Methods
 
     internal func writeToFile(message: String) {
-        guard let data = "\(message)\n".data(using: .utf8) else {
-            return
-        }
 
-        queue.async { [weak self] in
-            self?.file.write(data)
+        _serialQueue.async { [weak self] in
+            let data = Data("\(message)\n".utf8)
+            self?._fileHandle.write(data)
         }
     }
 
 // MARK: - Constants
 
-    private struct Inner {
-        static let queueLabel = "LoggerQueue"
+    private enum Name {
+        static let queue = "roxie.swiftcommons.logging.filelogger.serialqueue"
     }
 
 // MARK: - Variables
 
-    private let file: FileHandle
-    private let queue: DispatchQueue
+    private let _serialQueue = DispatchQueue(label: Name.queue, qos: .utility)
+
+    private let _fileHandle: FileHandle
 }

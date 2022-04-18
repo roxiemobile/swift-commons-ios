@@ -8,6 +8,7 @@
 //
 // ----------------------------------------------------------------------------
 
+import Foundation
 import SwiftCommonsLang
 
 // ----------------------------------------------------------------------------
@@ -16,10 +17,11 @@ extension FileLogger {
 
 // MARK: - Methods
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -31,10 +33,11 @@ extension FileLogger {
         }
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - type: Used to identify the source of a log message. It usually identifies the class
+    ///           where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -43,10 +46,11 @@ extension FileLogger {
         w(Reflection(of: type).type.fullName, message, file: file, line: line)
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - error: An error to log.
     ///   - file: The file name. The default is the file where function is called.
@@ -59,10 +63,11 @@ extension FileLogger {
         }
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - type: Used to identify the source of a log message. It usually identifies the class
+    ///           where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - error: An error to log.
     ///   - file: The file name. The default is the file where function is called.
@@ -72,10 +77,11 @@ extension FileLogger {
         w(Reflection(of: type).type.fullName, message, error, file: file, line: line)
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - error: An error to log.
     ///   - file: The file name. The default is the file where function is called.
@@ -88,10 +94,11 @@ extension FileLogger {
         }
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - type: Used to identify the source of a log message. It usually identifies the class
+    ///           where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - error: An error to log.
     ///   - file: The file name. The default is the file where function is called.
@@ -101,10 +108,11 @@ extension FileLogger {
         w(Reflection(of: type).type.fullName, message, error, file: file, line: line)
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - exception: An exception to log.
     ///   - file: The file name. The default is the file where function is called.
@@ -117,10 +125,11 @@ extension FileLogger {
         }
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - type: Used to identify the source of a log message. It usually identifies the class
+    ///           where the log call occurs.
     ///   - message: The message you would like logged.
     ///   - exception: An exception to log.
     ///   - file: The file name. The default is the file where function is called.
@@ -130,10 +139,11 @@ extension FileLogger {
         w(Reflection(of: type).type.fullName, message, exception, file: file, line: line)
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - error: An error to log.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -145,10 +155,11 @@ extension FileLogger {
         }
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - type: Used to identify the source of a log message. It usually identifies the class
+    ///           where the log call occurs.
     ///   - error: An error to log.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -157,10 +168,11 @@ extension FileLogger {
         w(Reflection(of: type).type.fullName, error, file: file, line: line)
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - error: An error to log.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -172,10 +184,11 @@ extension FileLogger {
         }
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - type: Used to identify the source of a log message. It usually identifies the class
+    ///           where the log call occurs.
     ///   - error: An error to log.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -184,10 +197,11 @@ extension FileLogger {
         w(Reflection(of: type).type.fullName, error, file: file, line: line)
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - tag: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - tag: Used to identify the source of a log message. It usually identifies the class
+    ///          where the log call occurs.
     ///   - exception: An exception to log.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
@@ -199,10 +213,11 @@ extension FileLogger {
         }
     }
 
-    /// Formats and writes a warning log message into the file.
+    /// Formats and writes a warning log messages to a file.
     ///
     /// - Parameters:
-    ///   - type: Used to identify the source of a log message. It usually identifies the class where the log call occurs.
+    ///   - type: Used to identify the source of a log message. It usually identifies the class
+    ///           where the log call occurs.
     ///   - exception: An exception to log.
     ///   - file: The file name. The default is the file where function is called.
     ///   - line: The line number. The default is the line number where function is called.
