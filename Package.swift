@@ -90,7 +90,6 @@ let package = Package(
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Concurrent",
             exclude: [
-                "Configuration",
                 "Package.swift",
                 "README.md",
             ],
@@ -108,7 +107,6 @@ let package = Package(
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Data",
             exclude: [
-                "Configuration",
                 "Package.swift",
                 "README.md",
             ],
@@ -133,7 +131,6 @@ let package = Package(
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Extensions",
             exclude: [
-                "Configuration",
                 "Package.swift",
                 "README.md",
             ],

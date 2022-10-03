@@ -38,7 +38,6 @@ let package = Package(
             ],
             path: "",
             exclude: [
-                "Configuration",
                 "README.md",
             ],
             sources: [
