@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version: 5.6
 
 import PackageDescription
 
@@ -26,7 +26,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/krzyzanowskim/CryptoSwift",
-            .upToNextMinor(from: "1.4.3")
+            exact: "1.6.0"
         ),
     ],
     targets: [
