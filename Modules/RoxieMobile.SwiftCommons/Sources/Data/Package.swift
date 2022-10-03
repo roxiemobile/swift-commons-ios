@@ -8,7 +8,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftCommons.Data",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v13),
     ],
     products: [
         .library(

@@ -8,7 +8,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftCommons",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v13),
     ],
     products: [
         .library(
@@ -102,7 +102,7 @@ let package = Package(
         .target(
             name: "SwiftCommonsData",
             dependencies: [
-                .byName(name: "CryptoSwift"),
+                "CryptoSwift",
                 .target(name: "SwiftCommonsDiagnostics"),
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Data",

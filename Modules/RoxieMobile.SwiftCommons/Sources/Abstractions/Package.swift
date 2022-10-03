@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version: 5.6
 
 import PackageDescription
 
@@ -8,7 +8,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftCommons.Abstractions",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v13),
     ],
     products: [
         .library(
