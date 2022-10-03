@@ -68,14 +68,14 @@ let package = Package(
         .target(
             name: "SwiftCommons",
             dependencies: [
-                "SwiftCommonsAbstractions",
-                "SwiftCommonsConcurrent",
-                "SwiftCommonsData",
-                "SwiftCommonsDiagnostics",
-                "SwiftCommonsExtensions",
-                "SwiftCommonsLang",
-                "SwiftCommonsLogging",
-                "SwiftCommonsObjC",
+                .target(name: "SwiftCommonsAbstractions"),
+                .target(name: "SwiftCommonsConcurrent"),
+                .target(name: "SwiftCommonsData"),
+                .target(name: "SwiftCommonsDiagnostics"),
+                .target(name: "SwiftCommonsExtensions"),
+                .target(name: "SwiftCommonsLang"),
+                .target(name: "SwiftCommonsLogging"),
+                .target(name: "SwiftCommonsObjC"),
             ]
         ),
 
@@ -86,7 +86,7 @@ let package = Package(
         .target(
             name: "SwiftCommonsConcurrent",
             dependencies: [
-                "SwiftCommonsObjC",
+                .target(name: "SwiftCommonsObjC"),
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Concurrent",
             exclude: [
@@ -103,7 +103,7 @@ let package = Package(
             name: "SwiftCommonsData",
             dependencies: [
                 "CryptoSwift",
-                "SwiftCommonsDiagnostics",
+                .target(name: "SwiftCommonsDiagnostics"),
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Data",
             exclude: [
@@ -118,16 +118,16 @@ let package = Package(
         .target(
             name: "SwiftCommonsDiagnostics",
             dependencies: [
-                "SwiftCommonsConcurrent",
-                "SwiftCommonsExtensions",
+                .target(name: "SwiftCommonsConcurrent"),
+                .target(name: "SwiftCommonsExtensions"),
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Diagnostics/Sources"
         ),
         .target(
             name: "SwiftCommonsExtensions",
             dependencies: [
-                "SwiftCommonsAbstractions",
-                "SwiftCommonsLogging",
+                .target(name: "SwiftCommonsAbstractions"),
+                .target(name: "SwiftCommonsLogging"),
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Extensions",
             exclude: [
@@ -146,8 +146,8 @@ let package = Package(
         .target(
             name: "SwiftCommonsLogging",
             dependencies: [
-                "SwiftCommonsConcurrent",
-                "SwiftCommonsLang",
+                .target(name: "SwiftCommonsConcurrent"),
+                .target(name: "SwiftCommonsLang"),
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Logging/Sources"
         ),
