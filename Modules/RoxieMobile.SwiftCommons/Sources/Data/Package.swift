@@ -24,16 +24,11 @@ let package = Package(
             name: "SwiftCommons.Diagnostics",
             path: "../Diagnostics"
         ),
-        .package(
-            url: "https://github.com/krzyzanowskim/CryptoSwift",
-            exact: "1.6.0"
-        ),
     ],
     targets: [
         .target(
             name: "SwiftCommonsData",
             dependencies: [
-                .product(name: "CryptoSwift", package: "CryptoSwift"),
                 .product(name: "SwiftCommonsDiagnostics", package: "SwiftCommons.Diagnostics"),
             ],
             path: "",

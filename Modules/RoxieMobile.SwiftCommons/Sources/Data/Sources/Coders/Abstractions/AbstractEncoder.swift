@@ -374,3 +374,15 @@ extension AbstractEncoder {
         }
     }
 }
+
+// ----------------------------------------------------------------------------
+
+extension Data {
+
+// MARK: - Properties
+
+    /// A pointer to the data object's contents.
+    fileprivate var bytes: UnsafeRawPointer {
+        return (self as NSData).bytes
+    }
+}

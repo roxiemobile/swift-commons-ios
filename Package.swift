@@ -58,12 +58,6 @@ let package = Package(
             targets: ["SwiftCommonsObjC"]
         ),
     ],
-    dependencies: [
-        .package(
-            url: "https://github.com/krzyzanowskim/CryptoSwift",
-            exact: "1.6.0"
-        ),
-    ],
     targets: [
         .target(
             name: "SwiftCommons",
@@ -102,7 +96,6 @@ let package = Package(
         .target(
             name: "SwiftCommonsData",
             dependencies: [
-                "CryptoSwift",
                 .target(name: "SwiftCommonsDiagnostics"),
             ],
             path: "Modules/RoxieMobile.SwiftCommons/Sources/Data",
