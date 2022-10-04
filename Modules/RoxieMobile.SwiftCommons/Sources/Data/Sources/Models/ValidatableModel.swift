@@ -8,7 +8,6 @@
 //
 // ----------------------------------------------------------------------------
 
-import CryptoSwift
 import SwiftCommonsAbstractions
 import SwiftCommonsConcurrent
 import SwiftCommonsDiagnostics
